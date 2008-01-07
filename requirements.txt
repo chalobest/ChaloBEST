@@ -3,6 +3,7 @@ PIL==1.1.7
 RapidSMS==0.9.6a
 South==0.7.5
 -e git://github.com/schuyler/arrest.git@0017837a45bcb31786f953fba976d454ae684ecc#egg=arrest-dev
+-e git://github.com/etianen/django-reversion.git#egg=reversion
 chardet==1.0.1
 django-allauth==0.5.0
 django-avatar==1.0.5
@@ -19,9 +20,12 @@ django-socialregistration==0.5.4
 django-userena==1.1.2
 djappsettings==0.1.0
 djtables==0.1.2
+
+#facebook-python-sdk==0.1
+#-e git://github.com/jhaddad/facebook-python-sdk#egg=facebook-python-sdk
+
 easy-thumbnails==1.0.3
-facebook-python-sdk==0.1
-facebook-sdk==0.3.1
+#facebook-sdk==0.3.1
 feedparser==5.1.2
 -e git://github.com/seatgeek/fuzzywuzzy.git@c73e3d32e3bb4d31dc38cc64e3a3362855d4d249#egg=fuzzywuzzy-dev
 httplib2==0.7.4

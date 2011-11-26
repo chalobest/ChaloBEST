@@ -1,0 +1,21 @@
+chaloBEST
+
+Get:
+    bzr branch PUBLIC_URL chaloBEST
+    cd chaloBEST
+    virtualenv .
+    pip -E . install -r requirements.txt
+
+Develop:
+    create chaloBEST/local_settings.py
+
+    . bin/activate
+    cd chaloBEST
+    python manage.py shell
+
+    python manage.py runserver
+
+Deploy:
+    create chaloBEST/local_settings.py
+
+    create /etc/apache2/sites-availavle/sitename.conf

@@ -45,10 +45,10 @@ for entry in CsvFile:
 
 
 
-
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/Stop.csv", "r"), delimiter='\t')
 test = CsvFile.next()
 print test
+
+CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/Stop.csv", "r"), delimiter='\t')
 for entry in CsvFile:
     obj = Stop(stopcd=int(entry[0]), stopnm=str(entry[1]), stopfl=str(entry[2]), chowki=(entry[3]).startswith('TRUE'), roadcd=Road.objects.get(roadcd=int(entry[4])), a_code=Area.objects.get(a_code=int(entry[5])), depot=str(entry[6]) ) 
     obj.save()
@@ -65,8 +65,25 @@ for entry in CsvFile:
 
 
 
+StopMaster
+2312	OM NGR.(WARE HOUSE)		0	0	3	MLD
+changed to 
+2312	OM NGR.(WARE HOUSE)		0	29	3	MLD
 
 
+3899	DAVA BAZAR(KALBADEVI)		0	641	0	CD
+changed to 
+3899	DAVA BAZAR(KALBADEVI)		0	641	150	CD
+
+
+4379	CRISIL HOUSE	U	0	229	0	VKD
+changed to
+4379	CRISIL HOUSE	U	0	229	118	VKD
+
+
+4551	SAFED POOL	U	0	374	0	KLD
+changed to 
+4551	SAFED POOL	U	0	374	170	KLD
 
 
 

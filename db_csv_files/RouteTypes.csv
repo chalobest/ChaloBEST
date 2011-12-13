@@ -1,0 +1,11 @@
+Route Code	Route Type	Fare Type
+0	Ordinary	ORD
+1	Limited	LTD
+2	Ordinary Extra	ORD
+3	Limited Extra	LTD
+4	Ring Ordinary	ORD
+5	Ring Limited	LTD
+6	Express	EXP
+9	AC Exp Ext	ACEXP
+7	AS	AS
+8	ACEXP	ACEXP

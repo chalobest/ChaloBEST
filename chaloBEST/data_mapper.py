@@ -10,7 +10,7 @@ for entry in CsvFile:
 
 print "----- "
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/FareMaster.csv", "r"))
+CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/FareMaster.csv", "r"))
 test = CsvFile.next()
 print test
 for entry in CsvFile:
@@ -36,13 +36,43 @@ for entry in CsvFile:
     print obj.__dict__
 
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteDetails.csv", "r"))
+CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
 test = CsvFile.next()
 print test
 for entry in CsvFile:
-    obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=int(entry[2]), stage=entry[3].startswith('TRUE'), km=float(entry[4])) 
-    print obj.__dict__
+    try:
+     print obj.__dict__
+     obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopdcd=Stop.objects.get(stopcd=int(entry[2])), stage=entry[3].startswith('1'), km=float(entry[4])) 
+    
+    except:
+	f.write(obj.__dict__)
 
+RNO,STOPSR,STOPCD,STAGE,KM
+
+CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
+f= open('RouteDetailsErrors', 'w')
+test = CsvFile.next()
+print test
+for entry in CsvFile:
+  try:    
+    obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=Stop.objects.get(stopcd=int(entry[2])), stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]() )
+    obj.save()
+    obj.__dict__  
+  except :
+    f.write(str(sys.exc_info()[0]) + str(entry)) 
+    print "Unexpected error:", sys.exc_info()[0]
+
+f.close()
+
+
+RouteTypes
+data changed
+5	Rind Limited	LTD
+to
+5	Ring Limited	LTD
+9	A/C Exp Ext	ACEXP
+to
+9	AC Exp Ext	ACEXP
 
 
 test = CsvFile.next()

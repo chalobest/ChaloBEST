@@ -1,0 +1,1614 @@
+"Rtalias"	"``"	"From"	"F_F"	"F_L"	"To"	"T_F"	"T_L"	"AM"	"NOON"	"PM"	"Schedule"	"Primary"			
+"0010"	1	"R.C.Church"	7.25	21.50	"Bandra Reclamation"	6.20	20.05	20	20	16	"Mon-Sat"	2			
+"0010"	1	"R.C.Church"	9.10	20.55	"Bandra Reclamation"	7.45	19.15	12	12	12	"Holiday"	4			
+"0010"	1	"R.C.Church"	9.10	20.55	"Bandra Reclamation"	7.45	19.15	14	13	13	"Sunday"	4			
+"0021"	"2Ltd"	"Byculla Stn.(W)"	6.20	8.30	"Mahim Bus Stn."	5.40	7.30	23	24	25	"Mon-Fri-Hol"	2			
+"0021"	"2Ltd"	"R.C.Church"	8.20	22.40	"Mahim Bus Stn."	7.00	21.10	" "	" "		"Mon-Fri-Hol"	2			
+"0021"	"2Ltd"	"Electric House"	7.25	11.00	"Marol Depot"	5.50	9.05	25	15	18	"Mon-Sat"	2			
+"0021"	"2Ltd"	"Byculla Stn.(W)"	11.14	23.00	"Marol Depot"	9.34	21.15	28	22	27	"Mon-Sat"	2			
+"0021"	"2Ltd"	"Byculla Stn.(W)"	6.20	8.30	"Mahim Bus Stn."	5.40	7.33	22	27	29	"Saturday"	3			
+"0021"	"2Ltd"	"R.C.Church"	8.20	22.35	"Mahim Bus Stn."	7.00	21.05				"Saturday"	3			
+"0021"	"2Ltd"	"Byculla Stn.(W)"	6.20	8.25	"Mahim Bus Stn."	5.40	7.35	" "	" "	" "	"Sunday"	4			
+"0021"	"2Ltd"	"R.C.Church"	8.20	22.35	"Mahim Bus Stn."	7.00	21.10	28	24	26	"Sunday"	4			
+"0021"	"2Ltd"	"Electric House"	7.28	10.48	"Marol Depot"	5.50	9.03	21	19		"Sunday"	4			
+"0021"	"2Ltd"	"Byculla Stn.(W)"	11.03	22.50	"Marol Depot"	9.33	21.20	27	30	26	"Sunday"	4			
+"0021"	"2Ltd"	"Electric House"	7.25	11.00	"Marol Depot"	5.50	9.05	35	15	18	"Holiday"	4			
+"0021"	"2Ltd"	"Byculla Stn(W)"	11.13	22.50	"Marol Depot"	9.38	21.15	20			"Holiday"	4			
+"0030"	3	"Navy Nagar"	5.40	22.05	"Jijamata Udyan"	6.30	23.00	11	13	12	"Mon-Fri"	2			
+"0030"	3	"Navy Nagar"	22.30	23.20	"Mahatma Phule Market"	" "	" "				"Mon-Fri"	2			
+"0030"	3	"Colaba Bus Station"			"Mahatma Phule Market"	22.55	23.45				"Mon-Fri"	2			
+"0030"	3	"Navy Nagar"	5.40	22.05	"Jijamata Udyan"	6.30	23.00	11	13	12	"Saturday"	3			
+"0030"	3	"Navy Nagar"	22.30	23.20	"M.Phule Market"	22.55	23.45				"Saturday"	3			
+"0030"	3	"Navy Nagar"	5.40	22.05	"Jijamata Udyan"	6.10	23.00	14	13	12	"Sunday"	4			
+"0030"	3	"Navy Nagar"	22.30	23.20	"Mahatma Phule Market"						"Sunday"	4			
+"0030"	3	"Colaba Bus Station"			"Mahatma Phule Market"	22.55	23.45				"Sunday"	4			
+"0030"	3	"Navy Nagar"	5.40	22.15	"Jijamata Udyan"	6.10	23.05	10	11	10	"Holiday"	4			
+"0030"	3	"Navy Nagar"	22.35	23.20	"Mahatma Phule Market"						"Holiday"	4			
+"0030"	3	"Colaba Bus Station"			"Mahatma Phule Market"	23.00	23.45				"Holiday"	4			
+"0041"	"4Ltd"	"Chh.Shivaji Terminus"	6.05	6.30	"Oshiwara Depot"	5.00		22	23	23	"Mon-Sat"	2			
+"0041"	"4Ltd"	"Hutatma Chowk"	7.00	0.15	"Oshiwara Depot"	5.30	22.50				"Mon-Sat"	2			
+"0041"	"4Ltd"	"Chh.Shivaji Terminus"			"Yari Road Versova"	4.45	" "				"Mon-Sat"	2			
+"0041"	"4Ltd"	"Hutatma Chowk"			"Yari Road Versova"	8.00		25	20	20	"Mon-Sat"	2			
+"0041"	"4Ltd"				"Oshiwara Depot"						"Mon-Sat"	2			
+"0041"	"4Ltd"	"Chh.Shivaji Terminus"	6.15	" "	"Yari Road Versova"	4.45	" "	14	15	15	"Sun-Hol"	4			
+"0041"	"4Ltd"	"Hutatma Chowk"			"Yari Road Versova"	8.00					"Sun-Hol"	4			
+"0041"	"4Ltd"	"Hutatma Chowk"	7.15	0.15	"Oshiwara Depot"	6.00	22.45	25	24	" "	"Sun-Hol"	4			
+"0050"	5	"Mantralaya"	7.25	21.20	"Kurla Station(E)"	6.15	19.35	18	17	18	"Mon-Fri"	2			
+"0050"	5	"Hutatma Chowk"	21.35	22.05	"Kurla Station(E)"	19.55	20.35				"Mon-Fri"	2			
+"0050"	5	"Mantralaya"	7.25	21.15	"Kurla Station(E)"	6.15	19.30	21	21	23	"Saturday"	3			
+"0050"	5	"Hutatma Chowk"	21.37	22.00	"Kurla Station(E)"	19.52	20.15				"Saturday"	3			
+"0050"	5	"Mantralaya"	8.10	21.20	"Kurla Station(E)"	7.00	19.45	16	21	17	"Sun-Hol"	4			
+"0050"	5	"Hutatma Chowk"	21.35	22.00	"Kurla Station(E)"	20.12	20.40				"Sun-Hol"	4			
+"0061"	"6Ltd"	"Colaba Depot"	6.00	22.45	"Deonar Depot"	5.00	21.20	23	25	23	"Mon-Sat"	2			
+"0061"	"6Ltd"	"Colaba Depot"	" "	" "	"Mahul Village"	8.05	9.05				"Mon-Sat"	2			
+"0061"	"6Ltd"	"Colaba Depot"			"Refineries"	5.30	5.50				"Mon-Sat"	2			
+"0061"	"6Ltd"	"Colaba Depot"	6.00	22.45	"Deonar Depot"	5.00	21.15	30	27	27	"Sun-Hol"	4			
+"0071"	"7Ltd"	"Dr.S.P.Mukherji Chowk"	5.45	0.15	"Vikhroli Depot"	4.55	22.50	30	29	25	"Mon-Sat"	2			
+"0071"	"7Ltd"	"Dr.S.P.Mukherji Chowk"	" "	" "	"Barve Nagar (Ghatkopar)"	7.45	8.30				"Mon-Sat"	2			
+"0071"	"7Ltd"	"Dr.S.P.Mukherji Chowk"		" "	"Vikhroli Park Site Colony"	7.10	9.18	" "	" "	" "	"Mon-Sat"	2			
+"0071"	"7Ltd"	"Dr.S.P.Mukherji Chowk"	5.45	0.15	"Vikhroli Depot"	4.55	22.50	22	25	21	"Holiday"	4			
+"0071"	"7Ltd"	"Chh.Shivaji Terminus"	5.45	0.15	"Vikhroli Depot "	4.55	22.50	22	25	21	"Sunday"	4			
+"0081"	"8Ltd"	"Mantralaya"	8.19	19.37	"Shivaji Nagar Terminus"	6.56	17.44	12	14	12	"Mon-Sat"	2			
+"0081"	"8Ltd"	"Hutatma Chowk"	6.25	8.00	"Shivaji Nagar Terminus"	5.20	6.42				"Mon-Sat"	2			
+"0081"	"8Ltd"	"Chh.Shivaji Terminus"	22.55	23.55	"Shivaji Nagar Terminus"	21.30	22.30				"Mon-Sat"	2			
+"0081"	"8Ltd"	"Hutatma Chowk"	17.45	22.40	"Shivaji Nagar Terminus"	15.56	21.10				"Mon-Sat"	2			
+"0081"	"8Ltd"	"Hutatma Chowk"	6.35	22.40	"Shivaji Nagar Terminus"	5.30	21.10	12	10	11	"Sun-Hol"	4			
+"0081"	"8Ltd"	"Chh.Shivaji Terminus"	22.55	24.15	"Shivaji Nagar Terminus"	21.30	22.50				"Sun-Hol"	4			
+"0090"	9	"Colaba Bus Station"	6.00	20.25	"Nadkarni Park"	6.40	18.42	16	18	22	"Mon-Fri"	2			
+"0090"	9	"Colaba Depot"	5.35	5.55	"Nadkarni Park"	19.00	22.05				"Mon-Fri"	2			
+"0090"	9	"Colaba Depot"	"5.10
+20.53"	"5.30
+22.25"	"Antop Hill"	22.28	23.40				"Mon-Fri"	2			
+"0090"	9	"Colaba Bus Station"			"Antop Hill"	6.05	6.25				"Mon-Fri"	2			
+"0090"	9	"Colaba Bus Station"	6.00	20.25	"Nadkarni Park"	6.40	18.40	20	22	22	"Saturday"	3			
+"0090"	9	"Colaba Depot"	5.35	5.55	"Nadkarni Park"	19.01	22.05				"Saturday"	3			
+"0090"	9	"Electric House"	"5.10
+20.55"	"5.30
+22.25"	"Antop Hill"	22.30	23.40				"Saturday"	3			
+"0090"	9	"Colaba Bus Station"			"Antop Hill"	6.05	6.25				"Saturday"	3			
+"0090"	9	"Colaba Depot"	5.10	5.30	"Antop Hill"	" "	" "				"Saturday"	3			
+"0090"	9	"Colaba Depot"	6.30	20.25	"Nadkarni Park"	6.40	18.20	18	21	22	"Sunday"	4			
+"0090"	9	"Colaba Depot"	5.35	" "	"Nadkarni Park"	18.43	22.05				"Sunday"	4			
+"0090"	9	"Colaba Bus Stn
+Colaba Depot"	"5.15
+20.53"	"6.15
+22.25"	"Antop Hill
+Antop Hill"	"6.10
+22.28"	23.40				"Sunday"	4			
+"0090"	9	"Colaba Bus Station"	6.30	20.25	"Nadkarni Park"	6.40	18.30	20	21	22	"Holiday"	4			
+"0090"	9	"Colaba Depot"	5.35	6.15	"Nadkarni Park"	18.51	22.05				"Holiday"	4			
+"0090"	9	"Colaba Depot"	"5.10
+20.53"	"5.25
+22.25"	"Antop Hill"	22.28	23.40				"Holiday"	4			
+"0090"	9	"Colaba Bus Station"			"Antop Hill"	6.05	6.25				"Holiday"	4			
+"0101"	"10Ltd"	"Hutatma Chowk"	7.00	22.15	"Ghatkopar Depot"	5.50	20.25	30	30	30	"Mon-Fri"	2			
+"0101"	"10Ltd"	"Hutatma Chowk"	7.25	22.15	"Ghatkopar Depot"	6.10	20.25	25	30	27	"Saturday"	3			
+"0101"	"10Ltd"	"Hutatma Chowk"	8.20	22.10	"Ghatkopar Depot"	7.00	20.35	23	25	24	"Sun-Hol"	4			
+"0111"	"11Ltd"	"Navy Nagar"	8.15	20.30	"Bandra Colony Bus Stn"	7.00	18.35	20	25	23	"Mon-Fri-Hol"	2			
+"0111"	"11Ltd"	"Chh.Shivaji Terminus"	7.30	8.00	"Bandra Colony Bus Stn"	6.30	6.45	" "	" "		"Mon-Fri-Hol"	2			
+"0111"	"11Ltd"	"Chh.Shivaji Terminus"	20.20	21.50	"Bandra Colony Bus Stn"	18.59	20.30				"Mon-Fri-Hol"	2			
+"0111"	"11Ltd"	"Navy Nagar"	8.15	20.35	"Bandra Colony Bus Stn"	7.00	18.49	20	28	25	"Saturday"	3			
+"0111"	"11Ltd"	"Chh.Shivaji Terminus"	7.30	8.00	"Bandra Colony Bus Stn"	6.30	6.45				"Saturday"	3			
+"0111"	"11Ltd"	"Chh.Shivaji Terminus"	20.35	21.50	"Bandra Colony Bus Stn"	19.14	20.30				"Saturday"	3			
+"0111"	"11Ltd"	"Navy Nagar"	9.25	21.25	"Bandra Colony Bus Stn"	8.15	21.05	22	25	22	"Sunday"	4			
+"0111"	"11Ltd"	"Navy Nagar"	21.48	22.35	"Dharavi Depot"						"Sunday"	4			
+"0111"	"11Ltd"	"Chh.Shivaji Terminus"	8.10	8.55	"Bandra Colony Bus Stn"	7.15	7.55				"Sunday"	4			
+"0140"	14	"Dr.S.P.Mukherji Chowk"	7.30	22.10	"Prateeksha Nagar Depot"	6.15	20.30	12	17	14	"Mon-Sat"	2			
+"0140"	14	"Dr.S.P.Mukherji Chowk"	7.50	22.15	"Prateeksha Nagar Depot"	6.35	20.45	23	20	21	"Holiday"	4			
+"0140"	14	"Dr.S.P.Mukherji Chowk"	8.20	22.20	"Prateeksha Nagar Depot"	7.05	20.50	18	15	15	"Sunday"	4			
+"0150"	15	"Mantralaya"	8.30	22.45	"Prateeksha Nagar Depot"	7.10	21.20	12	13	13	"Mon-Sat"	2			
+"0150"	15	"Vasudeo B. Phadke Chowk"	6.30	6.55	"Prateeksha Nagar Depot"	5.45	6.10				"Mon-Sat"	2			
+"0150"	15	"Vasudeo B. Phadke Chowk"	5.50		"Prateeksha Nagar Depot"	5.20					"Mon-Sat"	2			
+"0150"	15	"Hutatma Chowk"	7.20	"8.15"	"Prateeksha Nagar Depot"	6.30	7.00	" "	" "		"Mon-Sat"	2			
+"0150"	15	"Hutatma Chowk"	23.05	24.10	"Prateeksha Nagar Depot"	21.45	23.00				"Mon-Sat"	2			
+"0150"	15	"Vasudeo B. Phadke Chowk"	6.25	6.45	"Prateeksha Nagar Depot"	5.45	6.05	16	13	13	"Sun-Hol"	4			
+"0150"	15	"Hutatma Chowk"	7.25	8.50	"Prateeksha Nagar Depot"	6.25	7.25				"Sun-Hol"	4			
+"0150"	15	"Mantralaya"	8.55	21.00	"Prateeksha Nagar Depot"	7.37	19.26				"Sun-Hol"	4			
+"0150"	15	"Hutatma Chowk"	21.10	23.15	"Prateeksha Nagar Depot"	19.40	22.05				"Sun-Hol"	4			
+"0161"	"16Ltd"	"Ambika Mills Bus Station"	6.30	21.20	"SRA Vashi NaKa"	6.30	22.45	24	24	27	"All Days"	1			
+"0171"	"17Ltd"	"Backbay Depot"	6.00	22.00	"Vidyavihar Bus Stn"	7.30	23.35	25	26	27	"Mon-Sat"	2			
+"0171"	"17Ltd"	"Backbay Depot"	7.40	19.55	"M.Phule Market"	8.05	20.25	29	31		"Mon-Fri"	2			
+"0171"	"17Ltd"	"Backbay Depot"	6.00	22.00	"Vidyavihar Bus Stn"	7.30	23.35	27	27	25	"Sun-Hol"	4			
+"0191"	"19Ltd"	"Mantralaya"	9.00	21.05	"Shivaji Nagar Bus Station"	7.30	19.35	25	13	13	"Mon-Sat"	2			
+"0191"	"19Ltd"	"Mantralaya"	9.10	12.05	"Dr.Ambedkar Udyan"	8.00	11.00	15	20		"Mon-Sat"	2			
+"0191"	"19Ltd"	"Mantralaya"	9.20	21.05	"Shivaji Nagar Bus Station"	7.50	19.35	18	18	18	"Sun-Hol"	4			
+"0201"	"20Ltd"	"Shivaji Nagar Depot"	7.30	19.50	"Dr.S.P.M.Chk."	9.05	21.50	28	30	31	"Mon-Sat"	2			
+"0201"	"20Ltd"	"Shivaji Nagar Depot"	7.30	19.40	"Dr.S.P.M.Chk."	9.00	21.20	27	24	27	"Sun-Hol"	4			
+"0211"	"21Ltd"	"Dr.S.P.Mukherji Chowk"	6.30	11.58	"Trombay"	5.30	10.15	24	25	27	"Mon-Sat"	2			
+"0211"	"21Ltd"	"Jijamata Udyan"	11.54	16.05	"Trombay"	10.34	14.45				"Mon-Sat"	2			
+"0211"	"21Ltd"	"Dr.S.P.Mukherji Chowk"	15.50	21.30	"Trombay"	15.08	20.30				"Mon-Sat"	2			
+"0211"	"21Ltd"	"Dr.S.P.Mukherji Chowk"	21.50	22.10	"Anushakti Nagar"						"Mon-Sat"	2			
+"0211"	"21Ltd"	"Dr.S.P.Mukherji Chowk"	6.30	21.45	"Trombay"	5.30	20.20	20	16	17	"Sun-Hol"	4			
+"0221"	"22Ltd"	"Chh.Shivaji Terminus"	6.50	23.00	"Marol Maroshi Bus Station"	5.45	21.30	28	30	" "	"Mon-Sat"	2			
+"0221"	"22Ltd"	"Electric House"	5.55	21.15	"Marol Maroshi Bus Station"	7.10	23.00	30	30	" "	"Mon-Sat"	2			
+"0221"	"22Ltd"	"Chh.Shivaji Terminus"	7.05	22.40	"Marol Maroshi Bus Station"	6.00	21.20	26	28	" "	"Sun-Hol"	4			
+"0221"	"22Ltd"	"Electric House"	6.00	20.50	"Marol Maroshi Bus Station"	7.15	22.20	26	28	" "	"Sun-Hol"	4			
+"0251"	"25Ltd"	"Backbay Depot"	5.00	20.30	"Vihar Lake"	5.55	22.45	19	19	23	"Mon-Fri"	2			
+"0251"	"25Ltd"	"Backbay Depot"	5.00	20.30	"Vihar Lake"	5.55	22.25	21	21	20	"Saturday"	3			
+"0251"	"25Ltd"	"Backbay Depot "	5.20	20.35	"Vihar Lake"	6.15	22.20	18	22	23	"Sunday"	4			
+"0251"	"25Ltd"	"Backbay Depot"	5.20	20.30	"Vihar Lake"	6.15	22.20	16	17	18	"Holiday"	4			
+"0261"	"26Ltd"	"Central Depot"	7.00	19.15	"Mahul Village"	8.15	20.50	28	36	30	"Mon-Sat"	2			
+"0261"	"26Ltd"	"Central Depot"	7.05	19.00	"Mahul Village"	8.15	20.30	43	34	36	"Sun-Hol"	4			
+"0270"	27	"Worli Depot"	5.00	22.15	"Vaishali Nagar(Mulund)"	6.20	24.00	12	14	15	"Mon-Sat"	2			
+"0270"	27	"Khodadad Circle"	7.05	" "	"Vaishali Nagar(Mulund)"	5.50	" "				"Mon-Sat"	2			
+"0270"	27	"Worli Depot"	5.30	22.10	"Vaishali Nagar(Mulund)"	6.55	23.45	14	14	12	"Sunday"	4			
+"0270"	27	"Worli Depot"	5.30	22.10	"Vaishali Nagar(Mulund)"	6.55	23.45	13	12	12	"Holiday"	4			
+"0280"	28	"Swami D.S.Chk."	7.00	10.12	"J.V.P.D.Bus Station"	5.40	8.33	24	25	20	"Mon-Sat"	2			
+"0280"	28	"Chh.Shivaji Terminus"	10.34	21.35	"J.V.P.D.Bus Station"	8.52	19.40				"Mon-Sat"	2			
+"0280"	28	"Babulnath"	21.40	22.20	"J.V.P.D.Bus Station"	20.01	20.45				"Mon-Sat"	2			
+"0280"	28	"Dr.S.P.Mukherji Chowk"	8.30	11.57	"J.V.P.D.Bus Station"	7.10	10.22	20	24	22	"Sun-Hol"	4			
+"0280"	28	"Dr.S.P.Mukherji Chowk"	15.07	20.05	"J.V.P.D.Bus Station"	13.32	18.25				"Sun-Hol"	4			
+"0280"	28	"Chh.Shivaji Terminus"	12.20	14.43	"J.V.P.D.Bus Station"	10.45	13.08				"Sun-Hol"	4			
+"0280"	28	"Pt. Paluskar Chowk"	7.40	8.10	"J.V.P.D.Bus Station"	6.30	6.50				"Sun-Hol"	4			
+"0280"	28	"Pt. Paluskar Chowk"	20.30	21.30	"J.V.P.D.Bus Station"	18.47	19.55				"Sun-Hol"	4			
+"0301"	"30Ltd"	"Central Depot"	5.45	23.00	"Vikhroli Depot"	6.35	24.15	20	27	27	"Mon-Fri-Hol"	2			
+"0301"	"30Ltd"	"Central Depot"	5.45	23.00	"Vikhroli Depot"	6.35	24.15	27	32	28	"Sat-Sun"	3			
+"0324"	"32R"	"Goregaon Bus Stn."	6.30	22.00	"Yari Road Bus Station"	7.13	22.53	18	18	17	"Mon-Sat"	2			
+"0324"	"32R"	"Goregaon Bus Stn."	6.30	20.30	"Yari Road Bus Station"	7.20	21.30	27	29	23	"Sun-Hol"	4			
+"0330"	33	"Pt. Paluskar Chowk"	7.30	23.05	"Goregaon Stn(W)"	6.20	21.10	14	15	13	"Mon-Fri"	2			
+"0330"	33	"Worli Depot"	13.34	17.40	"Goregaon Stn(W)"	11.54	16.04				"Mon-Fri"	2			
+"0330"	33	"Pt. Paluskar Chowk"	7.30	23.05	"Goregaon Stn(W)"	6.20	21.10	14	15	17	"Saturday"	3			
+"0330"	33	"Worli Depot"	13.54	18.04	"Goregaon Stn(W)"	12.14	16.24				"Saturday"	3			
+"0330"	33	"Pt. Paluskar Chowk"	7.40	22.45	"Goregaon Stn(W)"	6.20	21.00	15	12	13	"Sun-Hol"	4			
+"0350"	35	"Com.P.K.Kurne Chowk"	7.00	22.35	"Marol Maroshi Bus Station"	5.50	20.45	19	20	16	"Mon-Sat"	2			
+"0350"	35	"Veer Kotwal Udyan"	6.57	22.45	"Marol Maroshi Bus Station"	6.02	21.25				"Mon-Sat"	2			
+"0350"	35	"Com.P.K.Kurne Chowk"	7.10	21.35	"Marol Maroshi Bus Station"	6.05	20.00	23	19	21	"Sunday"	4			
+"0350"	35	"Veer Kotwal Udyan"	21.38	22.00	"Marol Maroshi Bus Station"	20.25	20.50				"Sunday"	4			
+"0350"	35	"Com.P.K.Kurne Chowk"	7.10	21.35	"Marol Maroshi Bus Station"	6.05	20.00	20	22	23	"Holiday"	4			
+"0350"	35	"Veer Kotwal Udyan"	21.38	22.00	"Marol Maroshi Bus Station"	20.25	20.50				"Holiday"	4			
+"0370"	37	"J.Mehta Marg"	6.50	23.00	"Kurla Station(W)"	5.45	22.10	12	21	22	"Mon-Fri"	2			
+"0370"	37	"J.Mehta Marg"	23.17	23.35	"Kala Nagar"						"Mon-Fri"	2			
+"0370"	37	"N.S.C.I."	10.16	23.05	"Kurla Stn(W)"	9.06	21.55				"Mon-Fri"	2			
+"0370"	37	"Kurla Stn(W)"	5.30	22.10	"J.Mehta Marg"	6.30	22.50	24	26	26	"Saturday"	3			
+"0370"	37	"Kurla Stn(W)"	9.05	21.55	"N.S.C.I.(Worli)"	10.15	23.05				"Saturday"	3			
+"0370"	37	"Kurla Stn(W)"	6.00	22.10	"J.Mehta Marg"	7.00	22.50	11	12	16	"Sun-Hol"	4			
+"0370"	37	"Kalanagar"			"J.Mehta Marg"	23.00	23.30				"Sun-Hol"	4			
+"0380"	38	"Jijamata Udyan"	7.40	22.25	"Goregaon Depot"	6.20	20.35	29	32	28	"Mon-Sat"	2			
+"0380"	38	"Jijamata Udyan"	8.10	22.00	"Goregaon Depot"	7.05	20.20	25	28	28	"Sunday"	4			
+"0380"	38	"Jijamata Udyan"	8.15	22.00	"Goregaon Depot"	7.00	20.10	28	35	35	"Holiday"	4			
+"0390"	39	"Com P.K.Kurne Chk."	6.25	22.40	"SEEPZ Bus Station"	5.25	21.05	23	28	27	"Mon-Sat"	2			
+"0390"	39	"Com P.K.Kurne Chk."	6.45	21.35	"SEEPZ Bus Station"	5.45	20.05	24	25	26	"Sunday"	4			
+"0390"	39	"Com P.K.Kurne Chk."	6.45	21.40	"SEEPZ Bus Station"	5.45	20.10	24	24	23	"Holiday"	4			
+"0401"	"40Ltd"	"P.Thakre Udyan"	8.32	23.05	"Dindoshi Bus Stn."	10.40	21.40	14	16	15	"Mon-Sat-Hol"	2			
+"0401"	"40Ltd"	"P.Thakre Udyan"	6.15	8.05	"Kandivli Stn(E)"	7.30	9.45				"Mon-Sat-Hol"	2			
+"0401"	"40Ltd"	"P.Thakre Udyan"	6.05	8.15	"Borivli Stn(E)"	5.35	10.00				"Mon-Sat-Hol"	2			
+"0401"	"40Ltd"	"Khodadad Circle"	" "	" "	"Dindoshi Bus Stn."	21.55	24.20				"Mon-Sat-Hol"	2			
+"0401"	"40Ltd"	"Wadala Depot"	7.20	8.17	"Borivli Stn(E)"	" "	22.30	18	19	17	"Sunday"	4			
+"0401"	"40Ltd"	"P.Thakre Udyan"	6.35	20.55	"Borivli Stn(E)"	8.07	22.10				"Sunday"	4			
+"0401"	"40Ltd"	"P.Thakre Udyan"	7.00	23.00	"Borivli Station(E)"	5.40	21.23	19	20	20	"Sun-Hol"	4			
+"0410"	41	"Ferry Wharf"	5.16	8.13	"Dockyard Road Stn"	5.05	8.21	21	25	23	"Mon-Fri"	2			
+"0410"	41	"Ferry Wharf"	6.30	21.05	"Walkeshwar"	7.23	20.25				"Mon-Fri"	2			
+"0410"	41	"Ferry Wharf"	7.00	9.58	"Kamala Nehru Park"	7.45	11.10				"Mon-Fri"	2			
+"0410"	41	"Ferry Wharf"			"Nana Chk"	6.25					"Mon-Fri"	2			
+"0410"	41	"Ferry Wharf"	5.16	7.23	"Dockyard Road Stn"	5.05	7.31	25	30	27	"Mon-Fri"	2			
+"0410"	41	"Ferry Wharf"	6.30	20.55	"Walkeshwar"	7.23	20.20				"Saturday"	3			
+"0410"	41	"Ferry Wharf"	7.00	9.53	"Kamala Nehru Park"	7.45	11.09				"Saturday"	3			
+"0410"	41	"Ferry Wharf"			"Nana Chk"	6.25					"Saturday"	3			
+"0410"	41	"Ferry Wharf"	5.11	8.13	"Dockyard Road Stn"	5.00	8.21				"Sunday"	4			
+"0410"	41	"Ferry Wharf"	7.27	8.30	"Central Depot "						"Sunday"	4			
+"0410"	41	"Ferry Wharf"	6.50	10.01	"Kamala Nehru Park"	7.45	10.59	38	42	42	"Holiday"	4			
+"0410"	41	"Ferry Wharf"	10.39	21.05	"Walkeshwar"	11.37	20.45				"Holiday"	4			
+"0410"	41	"Ferry Wharf"			"Nana Chk"	7.05					"Holiday"	4			
+"0420"	42	"Ferry Wharf"	6.15	20.35	"Kamala Nehru Park"	7.00	20.30	14	15	16	"Mon-Sat"	2			
+"0420"	42	"Ferry Wharf"	6.56	20.40	"Kamala Nehru Park"	7.40	20.43	23	25	25	"Sunday"	4			
+"0420"	42	"Ferry Wharf"	6.56	20.40	"Kamala Nehru Park"	7.42	20.40	16	17	17	"Holiday"	4			
+"0430"	43	"Ferry Wharf"	6.50	7.35	"Prateeksha Nagar"	4.45	5.25				"All Days"	1			
+"0430"	43	"Colaba Bus Station."	6.25	6.55	"Ferry Wharf"	5.45	6.27				"All Days"	1			
+"0430"	43	"M.P.Chowk(Mazgaon)"	7.15	21.00	"Prateeksha Nagar"	6.00	19.35	17	18	21	"Mon-Fri"	2			
+"0430"	43	"M.P.Chowk(Mazgaon)"	7.15	21.10	"Prateeksha Nagar"	6.00	19.45	20	21	22	"Saturday"	3			
+"0430"	43	"M.P.Chowk(Mazgaon)"	7.15	21.00	"Prteeksha Nagar Depot"	6.05	19.50	18	20	18	"Sun-Hol"	4			
+"0440"	44	"R.C.Church"	6.00	23.45	"Worli Depot"	5.15	19.20	14	18	15	"Mon-Sat"	2			
+"0440"	44	"Colaba Depot"	5.15	7.20	"Worli Depot"						"Mon-Sat"	2			
+"0440"	44		21.25	22.45	"Worli Depot"	19.45	23.45				"Mon-Sat"	2			
+"0440"	44	"Colaba Depot"	5.30	22.45	"Worli Depot"	5.55	23.45	21	20	25	"Sunday"	4			
+"0440"	44	"Colaba Depot"	5.30	22.45	"Worli Depot"	5.55	23.45	18	20	20	"Holiday"	4			
+"0450"	45	"Mantralaya"	7.00	21.45	"Anik Depot"	5.55	19.55	19	22	21	"Mon-Sat"	2			
+"0450"	45	"Mayo Road"	21.45	22.35	"Anik Depot"	20.23	21.20				"Mon-Sat"	2			
+"0450"	45	"Mantralaya"	8.43	11.05	"M.Phule Market"	8.14	11.30	14		14	"Mon-Sat"	2			
+"0450"	45	"Mantralaya"	16.39	20.05	"M.Phule Market"	17.05	19.36				"Mon-Sat"	2			
+"0450"	45	"Mantralaya"	7.00	21.00	"Anik Depot"	6.00	19.27	10	21	19	"Sunday"	4			
+"0450"	45	"Chh.Shivaji Terminus"	21.00	22.45	"Anik Depot"	19.45	21.40				"Sunday"	4			
+"0450"	45	"Mantralaya"	7.00	21.35	"Anik Depot"	6.00	19.40	23	21	21	"Holiday"	4			
+"0450"	45	"Chh.Shivaji Terminus"	21.30	22.30	"Anik Depot"	20.05	21.20				"Holiday"	4			
+"0460"	46	"Dharavi Depot "	9.15	21.05	"Ferry Wharf"	8.08	22.15	27	27	29	"All Days"	1			
+"0460"	46	"Mahim Machhimar Nagar"	4.55	8.50	"Ferry Wharf"	5.30	7.48				"All Days"	1			
+"0460"	46	"Shravane Yashwante Chk"	9.22	11.10	"Dharavi Depot"	8.25	10.16				"All Days"	1			
+"0460"	46	"Shravane Yashwante Chk"	16.38	20.23		15.45	19.30				"All Days"	1			
+"0480"	48	"Ferry Wharf"	7.15	20.45	"August Kranti Maidan"	6.45	21.10	22	24	24	"Mon-Sat"	2			
+"0480"	48	"Ferry Wharf"	7.33	20.45	"August Kranti Maidan"	6.55	21.00	28	31	32	"Sun-Hol"	4			
+"0500"	50	"Ferry Wharf"	6.30	22.30	"Worli Depot"	5.40	21.30	23	27	23	"Mon-Fri"	2			
+"0500"	50	"Ferry Wharf"	6.30	22.30	"Worli Depot"	5.50	21.30	23	27	23	"Saturday"	3			
+"0500"	50	"Ferry Wharf"	6.57	22.25	"Worli Depot"	6.05	21.20	20	25	23	"Sun-Hol"	4			
+"0510"	51	"Colaba Depot"	5.15	22.40	"Santacruz Depot"	4.10	20.50	27	30	34	"Mon-Sat"	2			
+"0510"	51	"Colaba Depot"	5.15	22.45	"Santacruz Depot"	4.10	20.45	29	28	32	"Sun-Hol"	4			
+"0520"	52	"Shravan Yeshwante Chowk"	6.30	22.30	"Dharavi Depot"	5.55	21.35	16	17	20	"Mon-Fri"	2			
+"0520"	52	"Shravan Yeshwante Chowk"	6.30	22.25	"Dharavi Depot"	5.55	21.30	19	18	17	"Saturday"	3			
+"0520"	52	"Shravan Yeshwante Chowk"	6.35	22.15	"Dharavi Depot"	6.00	21.25	21	30	24	"Sun-Hol"	4			
+"0530"	53	"Worli Depot"	5.30	21.30	"Lokmanya Tilak Terminus"	6.15	22.30	18	20	20	"Mon-Fri"	2			
+"0530"	53	"Worli Depot"	5.30	21.30	"Lokmanya Tilak Terminus"	6.15	22.30	18	20	20	"Saturday"	3			
+"0530"	53	"Worli Depot"	5.30	21.30	"Lokmanya Tilak Terminus"	6.15	22.25	17	23	20	"Sun-Hol"	4			
+"0541"	"54Ltd"	"Santacruz Depot"	6.05	22.40	"Colaba Bus Station"	7.15	22.52	20	29	25	"Mon-Sat"	2			
+"0541"	"54Ltd"	"Santacruz Depot"	6.05	22.35	"Colaba Bus Station"	7.20	22.57	21	26	25	"Holiday"	4			
+"0541"	"54Ltd"	"Santacruz Depot"	6.05	22.40	"Colaba Bus Station"	7.20	23.00	21	26	23	"Sunday"	4			
+"0554"	"55R"	"Worli Depot"	6.10	21.20	"Shravan Yeshwante Chowk"	6.35	21.50	31	31	31	"Mon-Sat"	2			
+"0554"	"55R"	"Worli Depot"	6.10	21.05	"Shravan Yeshwante Chowk"	6.25	21.35	18	23	18	"Holiday"	4			
+"0560"	56	"Worli Village"	6.15	22.50	"Yari Road/Vesave Bus Stn."	5.15	21.10	22	25	23	"Mon-Sat"	2			
+"0560"	56	"Worli Village"	6.25	22.40	"Yari Road/Vesave Bus Stn."	5.30	21.00	24	27	28	"Sunday"	4			
+"0560"	56	"Worli Village"	6.35	22.40	"Yari Road/Vesave Bus Stn."	5.30	21.00	24	27	25	"Holiday"	4			
+"0570"	57	"Walkeshwar"	6.55	22.10	"P.Thakre Udyan"	6.10	21.10	8	11	12	"Mon-Fri"	2			
+"0570"	57	"Walkeshwar"	6.55	22.05	"P.Thakre Udyan"	6.10	21.10	12	20	17	"Saturday"	3			
+"0570"	57	"Kamala Nehru Park"	15.07	20.55	"P.Thakre Udyan"	14.09	19.50	17	19	19	"Sunday"	4			
+"0570"	57	"Walkeshwar"	8.05	14.48	"P.Thakre Udyan"	7.15	13.50				"Sunday"	4			
+"0570"	57	"Walkeshwar"	21.15	22.15	"P.Thakre Udyan"	20.11	21.15				"Sunday"	4			
+"0570"	57	"Walkeshwar"	6.40	14.55	"P.Thakre Udyan"	6.00	13.57	21	23	26	"Holiday"	4			
+"0570"	57	"Walkeshwar"	21.15	22.15	"P.Thakre Udyan"	20.12	21.15				"Holiday"	4			
+"0570"	57	"Kamala Nehru Park"	15.19	20.47	"P.Thakre Udyan"	14.21	19.44				"Holiday"	4			
+"0590"	59	"Veer Kotwal Udyan"	5.00	22.55	"Kurla Station(E)"	5.45	22.05	13	17	16	"Mon-Sat"	2			
+"0590"	59	"Veer Kotwal Udyan"	7.38	22.20	"Kurla Station(E)"	6.55	21.30	23	18	15	"Sun-Hol"	4			
+"0600"	60	"M.P.Chowk(Mazgaon)"	6.20	22.50	"Kurla Station(E)"	5.35	22.40	13	18	20	"All Days"	1			
+"0610"	61	"Swami D.S.Chowk"	" "	" "	"Machchimar Nagar(Mahim)"	18.36	19.45	27	32	28	"Mon-Sat"	2			
+"0610"	61	"Ballard Pier"	18.23	19.57	"Mahim Bus Station"	5.45					"Mon-Sat"	2			
+"0610"	61	"Ballard Pier"	7.00	18.00	"Machchimar Nagar(Mahim)"	6.10	18.12				"Mon-Sat"	2			
+"0610"	61	"Swami D.S.Chowk"	20.20	22.45	"Mahim Bus Station"	20.10	21.15				"Mon-Sat"	2			
+"0610"	61	"Ballard Pier"	7.40	17.52	"Machchimar Nagar(Mahim)"	6.20	19.32	30	28	28	"Holiday"	4			
+"0610"	61	"Swami D.S.Chowk"	18.21	22.25	"Mahim Bus Station"	20.01	21.00				"Holiday"	4			
+"0610"	61	"Chh.Shivaji Terminus"	7.40	18.07	"Machchimar Nagar(Mahim)"	6.20	19.42	28	28	27	"Sunday"	4			
+"0610"	61	"Chh.Shivaji Terminus"	18.34	22.25	"Mahim Bus Station"	20.05	21.00				"Sunday"	4			
+"0620"	62	"Central Depot"	5.25	21.25	"Kurla Station(W)"	6.30	23.00	22	28	26	"All Days"	1			
+"0630"	63	"J.Mehta Marg"	5.55	20.00	"Chunabhatti"	5.35	22.05	10	15	13	"Mon-Sat"	2			
+"0630"	63	"Vasantrao Naik Chowk"	9.30	23.10	"Chunabhatti"	8.10	21.50				"Mon-Sat"	2			
+"0630"	63	"J.Mehta Marg"	20.26	23.30	"Rani Laxmi Chowk"	5.05	5.23				"Mon-Sat"	2			
+"0630"	63	"J.Mehta Marg"	6.20	20.55	"Byculla Stn.(W)"	6.00	21.40	11	20	14	"Mon-Sat"	2			
+"0630"	63	"J.Mehta Marg"	6.00	23.10	"Chunabhatti"	5.35	22.05	14	17	12	"Sun-Hol"	4			
+"0630"	63	"J.Mehta Marg"			"Rani Laxmi Chowk"	5.10	5.23				"Sun-Hol"	4			
+"0630"	63	"J.Mehta Marg"	6.30	20.30	"Byculla Stn.(W)"	7.05	20.10	23	14	14	"Sun-Hol"	4			
+"0640"	64	"Vasantrao Naik Chowk"	6.25	6.50	"Maheshwari Udyan"	5.40	6.00	21	25	24	"Mon-Fri"	2			
+"0640"	64	"Babulnath"	7.10	22.20	"Masheshwari Udyan"	6.20	21.20				"Mon-Fri"	2			
+"0640"	64	"Vasantrao Naik Chowk"		22.35	"Masheshwari Udyan"		21.40				"Mon-Fri"	2			
+"0640"	64	"Vasantrao Naik Chowk"	6.25	22.35	"Masheshwari Udyan"	5.40	21.40	21	26	27	"Saturday"	3			
+"0640"	64	"Babulnath"	7.10	22.15	"Masheshwari Udyan"	6.20	21.20				"Saturday"	3			
+"0640"	64	"Vasantrao Naik Chowk"	22.35		"Masheshwari Udyan"		21.40				"Saturday"	3			
+"0640"	64	"Vasantrao Naik Chowk"	" "	22.35	"Maheshwari Udyan"	" "	21.40	21	25	21	"Sun-Hol"	4			
+"0640"	64	"Babulnath"	7.10	22.15	"Maheshwari Udyan"	6.20	21.15				"Sun-Hol"	4			
+"0650"	65	"Tardeo Bus Station"	7.10	7.25	"Anik Depot"	6.15	6.30				"Mon-Sat"	2			
+"0650"	65	"Tardeo Bus Station"	12.00	12.20	"Anik Depot"	11.00	11.20				"Mon-Sat"	2			
+"0650"	65	"Tardeo Bus Station"	17.20	17.40	"Anik Depot"	16.20	16.35				"Mon-Sat"	2			
+"0660"	66	"Ballard Pier"	7.40	20.10	"Rani Laxmi Chowk"	6.42	18.35	5	7	8	"Mon-Sat"	2			
+"0660"	66	"Swami D.S.Chowk"	6.15	7.35	"Rani Laxmi Chowk"	5.25	6.34				"Mon-Sat"	2			
+"0660"	66	"Swami D.S.Chowk"	20.10	23.25	"Rani Laxmi Chowk"	18.40	22.50				"Mon-Sat"	2			
+"0660"	66	"Colaba Depot "	24.06	1.05	"Rani Laxmi Chowk"	23.00	24.10				"Mon-Sat"	2			
+"0660"	66	"Chh.Shivaji Terminus"	6.20	24.10	"Rani Laxmi Chowk"	5.25	23.15	9	10	11	"Sunday"	4			
+"0660"	66	"Pt. Paluskar Chowk"	9.06	21.55	"Rani Laxmi Chowk"	8.16	21.06				"Sunday"	4			
+"0660"	66	"Colaba Depot "	0.25	1.00	"Rani Laxmi Chowk"	23.31	24.05				"Sunday"	4			
+"0660"	66	"Swami D.S.Chowk"	6.20	0.10	"Rani Laxmi Chowk"	5.25	23.15	7	8	6	"Holiday"	4			
+"0660"	66	"Colaba Depot"	0.25	1.00	"Rani Laxmi Chowk"	23.31	24.05				"Holiday"	4			
+"0670"	67	"Walkeshwar"	5.40	22.25	"Antop Hill"	4.45	20.45	17	17	18	"Mon-Sat"	2			
+"0670"	67	"Mumbai Central Depot"	22.25	23.10	"Antop Hill"	21.11	22.05				"Mon-Sat"	2			
+"0670"	67	"Kamala Nehru Park"	8.50	21.22	"Antop Hill"	7.40	19.47	23	17	16	"Sun-Hol"	4			
+"0670"	67	"Walkeshwar"	6.40	8.20	"Antop Hill"	5.45	7.15				"Sun-Hol"	4			
+"0670"	67	"Walkeshwar"	21.38	22.10	"Antop Hill"	20.05	20.40				"Sun-Hol"	4			
+"0670"	67	"Mumbai Central Depot"	22.05	23.10	"Antop Hill"	21.00	22.00				"Sun-Hol"	4			
+"0680"	68	"Navy Nagar"	6.30	21.45	"Worli Depot "	6.05	20.15	24	24	25	"Mon-Fri"	2			
+"0680"	68	"Navy Nagar"	6.30	21.45	"Worli Depot "	6.05	20.15	27	27	30	"Saturday"	3			
+"0680"	68	"Navy Nagar"	6.30	21.35	"Worli Depot"	6.25	20.15	33	36	38	"Sun-Hol"	4			
+"0690"	69	"Dr.S.P.Mukherji Chowk"	6.00	23.40	"P.Thakre Udyan"	5.15	23.00	8	10	10	"Mon-Fri"	2			
+"0690"	69	"Dr.S.P.Mukherji Chowk"	6.00	23.40	"P.Thakre Udyan"	5.15	23.00	10	15	15	"Saturday"	3			
+"0690"	69	"Dr.S.P.Mukherji Chowk"	6.35	23.40	"P.Thakre Udyan"	5.50	22.50	16	17	17	"Sunday"	4			
+"0690"	69	"Dr.S.P.Mukherji Chowk"	6.00	23.40	"P.Thakre Udyan"	5.15	22.50	16	17	17	"Holiday"	4			
+"0700"	70	"Colaba Depot"	7.10	22.50	"Dharavi Depot"	6.15	21.15	25	25	30	"Mon-Sat"	2			
+"0700"	70	"Colaba Depot"	6.55	22.00	"Dharavi Depot"	5.55	20.35	23	30	30	"Sun-Hol"	4			
+"0740"	74	"Dr.S.P.Mukherji Chowk"	7.45	20.35	"Mahim Bus Stn."	6.40	19.00	31	36	38	"Mon-Sat"	2			
+"0750"	75	"Nadkarni Park"	6.50	22.50	"Tata Colony(Bandra)"	6.00	21.56	35	35	38	"Mon-Fri"	2			
+"0750"	75	"Nadkarni Park"	6.50	22.45	"Tata Colony(Bandra)"	6.00	21.40	52	34	38	"Sat-Sun-Hol"	3			
+"0760"	76	"Mantralaya"	8.10	21.45	"Dharavi Depot"	6.50	19.54	23	27	30	"Mon-Fri"	2			
+"0760"	76	"Pt. Paluskar Chowk"	7.25		"Dharavi Depot"	6.30					"Mon-Fri"	2			
+"0760"	76	"Pt. Paluskar Chowk"	21.50	22.20	"Dharavi Depot"	20.25	21.00				"Mon-Fri"	2			
+"0760"	76	"Mantralaya"	8.10	21.40	"Dharavi Depot"	6.50	19.48	35	35	30	"Saturday"	3			
+"0760"	76	"Pt. Paluskar Chowk"	7.25		"Dharavi Depot"	6.30					"Saturday"	3			
+"0760"	76	"Pt. Paluskar Chowk"	21.45	22.15	"Dharavi Depot"	20.19	20.55				"Saturday"	3			
+"0760"	76	"Pt. Paluskar Chowk"	8.05	21.55	"Dharavi Depot"	7.00	20.35	24	27	25	"Sunday"	4			
+"0770"	77	"P.Thakre Udyan"	7.00	20.40	"J.Mehta Marg"	7.50	21.45	21	25	23	"Mon-Sat"	2			
+"0770"	77	"P.Thakre Udyan"	7.00	20.40	"J.Mehta Marg"	7.50	21.45	32	32	27	"Sun-Hol"	4			
+"0790"	79	"Mahim Bus Stn."	6.50	23.05	"P.Thakre Nagar Bus Station."	5.35	21.30	12	17	14	"Mon-Sat"	2			
+"0790"	79	"Santacruz Depot"	6.00		"P.Thakre Nagar Bus Station"	5.05					"Mon-Sat"	2			
+"0790"	79	"Santacruz Depot"	13.19	16.41	"P.Thakre Nagar Bus Station"	11.34	14.56				"Mon-Sat"	2			
+"0790"	79	"Mahim Bus Stn."	6.45	23.05	"P.Thakre Nagar Bus Station."	5.30	21.35	19	16	17	"Sun-Hol"	4			
+"0790"	79	"Santacruz Depot"	6.10		"P.Thakre Nagar Bus Station"	5.15					"Sun-Hol"	4			
+"0801"	"80Ltd"	"Babulnath"	7.50	20.45	"J.V.PD.Bus Stn."	6.25	19.50	25	25	26	"Mon-Sat"	2			
+"0801"	"80Ltd"	"Babulnath"	7.50	21.35	"J.V.PD.Bus Stn."	6.40	20.05	24	26	26	"Sun-Hol"	4			
+"0801"	"80Ltd"	"Kamala Nehru Park"	15.18	19.39	"J.V.PD.Bus Stn."	13.48	17.54				"Sun-Hol"	4			
+"0811"	"81Ltd"	"Mantralaya"	8.45	11.40	"Shastri Nagar"	7.10	9.55	25	26	27	"Mon-Sat"	2			
+"0811"	"81Ltd"	"Mantralaya"	16.06	18.18	"Shastri Nagar"	14.16	16.28				"Mon-Sat"	2			
+"0811"	"81Ltd"	"Chh.Shivaji Terminus"	12.10	15.35	"Shastri Nagar"	10.30	13.50				"Mon-Sat"	2			
+"0811"	"81Ltd"	"Chh.Shivaji Terminus"	18.44	21.35	"Shastri Nagar"	16.54	20.00				"Mon-Sat"	2			
+"0811"	"81Ltd"	"Chh.Shivaji Terminus"	8.45	21.35	"Santacruz Depot"	7.10	20.00	38	40	38	"Sun-Hol"	4			
+"0820"	82	"Mantralaya"	8.35	21.20	"Worli Depot"	7.45	20.10	17	23	20	"Mon-Fri"	2			
+"0820"	82	"Pt. Paluskar Chowk"	6.55	8.15	"Worli Depot"	6.27	7.30				"Mon-Fri"	2			
+"0820"	82	"Mantralaya"	8.35	21.15	"Worli Depot"	7.45	20.05	19	23	23	"Saturday"	3			
+"0820"	82	"Pt. Paluskar Chowk"	6.55	8.15	"Worli Depot"	6.27	7.30				"Saturday"	3			
+"0820"	82	"Mantralaya"	7.45	21.10	"Worli Depot"	7.00	20.15	45	35	29	"Sunday"	4			
+"0820"	82	"Mantralaya"	8.58	19.00	"Worli Depot"	8.05	18.00	21	26	19	"Holiday"	4			
+"0820"	82	"Pt. Paluskar Chowk"	7.58	8.26	"Worli Depot"	7.15	7.40				"Holiday"	4			
+"0820"	82	"Pt. Paluskar Chowk"	19.15	21.05	"Worli Depot"	18.19	20.20				"Holiday"	4			
+"0830"	83	"Colaba Bus Station"	6.50	21.40	"Santacruz Depot"	5.45	19.30	13	17	16	"Mon-Fri"	2			
+"0830"	83	"Dr.S.P.Mukherji Chowk"	6.35		"Santacruz Depot"	5.30	" "				"Mon-Fri"	2			
+"0830"	83	"Pt. Paluskar Chowk"	21.10	23.35	"Santacruz Depot"	19.45	22.30				"Mon-Fri"	2			
+"0830"	83	"Santacruz Depot"	5.45	19.30	"Colaba Bus Station"	6.50	21.40	13	17	18	"Saturday"	3			
+"0830"	83	"Santacruz Depot"	5.30		"Dr.S.P.M.Chk."	6.35					"Saturday"	3			
+"0830"	83	"Santacruz Depot"	19.45	22.30	"Pt.Paluskar Chowk"	21.10	23.35				"Saturday"	3			
+"0830"	83	"Colaba Bus Station"	6.55	21.15	"Santacruz Depot"	5.50	19.35	18	24	20	"Sun-Hol"	4			
+"0830"	83	"Pt. Paluskar Chowk"	21.10	23.25	"Santacruz Depot"	19.55	22.30				"Sun-Hol"	4			
+"0841"	"84Ltd"	"Pt. Paluskar Chowk"	8.00	17.36	"Andheri Station(W)"	6.55	19.20	16	19	20	"Mon-Sat"	2			
+"0841"	"84Ltd"	"Pt. Paluskar Chowk"	17.56	21.00	"Oshiwara Depot"						"Mon-Sat"	2			
+"0841"	"84Ltd"	"Pt. Paluskar Chowk"	8.35	20.45	"Oshiwara Depot"	7.00	19.00	20	20	19	"Sunday"	4			
+"0841"	"84Ltd"	"Pt. Paluskar Chowk"	8.15	20.45	"Oshiwara Depot"	6.40	19.00	16	16	17	"Holiday"	4			
+"0850"	85	"Hutatma Chowk"	7.10	8.40	"Kurla Station(E)"	6.00	7.15	17	25	18	"Mon-Sat"	2			
+"0850"	85	"World Trade Centre"	9.00	10.40	"Kurla Station(E)"	7.35	8.55				"Mon-Sat"	2			
+"0850"	85	"Hutatma Chowk"	11.07	22.05	"Kurla Station(E)"	9.22	20.35				"Mon-Sat"	2			
+"0850"	85	"World Trade Centre"	10.05	10.55	"Chunabhatti"	8.30	9.20	40			"Mon-Sat"	2			
+"0850"	85	"Hutatma Chowk"	" "		"Chunabhatti"	11.40	12.35				"Mon-Sat"	2			
+"0850"	85	"Hutatma Chowk"	7.05	22.05	"Kurla Stn(E)"	6.00	20.35	24	25	18	"Sunday"	4			
+"0850"	85	"Hutatma Chowk"	9.15	11.45	"Chunabhatti"	8.00	13.00				"Sunday"	4			
+"0850"	85	"Hutatma Chowk"	7.05	22.00	"Kurla Station(E)"	6.00	20.30	18	16	16	"Holiday"	4			
+"0850"	85	"Hutatma Chowk"	9.15	11.42	"Chunabhatti"	8.00	13.00	40			"Holiday"	4			
+"0860"	86	"Backbay Depot"	6.00	10.15	"Bandra Bus Station"	6.00	10.17	25	25	25	"Mon-Sat"	2			
+"0860"	86	"Backbay Depot"	16.05	20.20	"Bandra Bus Station"	14.10	21.05	21	23	23	"Mon-Sat"	2			
+"0860"	86	"Backbay Depot"	20.40	22.45	"Mahim Bus Station"	5.25	6.40				"Mon-Sat"	2			
+"0860"	86	"Dr.S.P.Mukherji Chowk"	12.25	15.49	"Bandra Bus Station"	10.40	14.05	21	23	23	"Mon-Sat"	2			
+"0860"	86	"Backbay Depot"	6.35	20.05	"Bandra Bus Station"	6.35	19.50	23	25	25	"Sunday"	4			
+"0860"	86	"Backbay Depot"			"Mahim Bus Station"	5.35	6.18				"Sunday"	4			
+"0860"	86	"Backbay Depot"	6.35	20.05	"Bandra Bus Station"	6.00	19.45	25	25	21	"Holiday"	4			
+"0860"	86	"Backbay Depot"	20.27	21.35	"Mahim Bus Station"	5.45	6.40				"Holiday"	4			
+"0871"	"87Ltd"	"Mantralaya"	9.00	10.50	"Bandra Colony Bus Stn"	7.40	9.20	15	" "	30	"Mon-Fri"	2			
+"0871"	"87Ltd"	"Mantralaya"	17.25	19.05	"Bandra Colony Bus Stn"	15.40	17.23				"Mon-Fri"	2			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	7.40	8.17	"Bandra Colony Bus Stn"	6.45	7.22				"Mon-Fri"	2			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	10.58	16.42	"Bandra Colony Bus Stn"	9.55	15.30	22	20		"Mon-Fri"	2			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	19.15	22.20	"Bandra Colony Bus Stn"	17.50	21.20				"Mon-Fri"	2			
+"0871"	"87Ltd"	"Mantralaya"	9.00	10.45	"Bandra Colony Bus Stn"	7.40	9.15	20	30		"Saturday"	3			
+"0871"	"87Ltd"	"Mantralaya"	17.20	19.00	"Bandra Colony Bus Stn"	15.35	17.05				"Saturday"	3			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	7.45	8.10	"Bandra Colony Bus Stn"	6.50	7.15	26	30		"Saturday"	3			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	10.58	16.35	"Bandra Colony Bus Stn"	9.55	15.25				"Saturday"	3			
+"0871"	"87Ltd"	"Vasantrao Naik Chowk"	19.00	22.15	"Bandra Colony Bus Stn"	17.35	21.15				"Saturday"	3			
+"0871"	"87Ltd"	"Pt. Paluskar Chowk"	8.05	22.05	"Bandra Colony Bus Stn"	7.15	21.00	26	24	25	"Sun-Hol"	4			
+"0880"	88	"Hutatma Chowk"	6.30	8.17	"Prateeksha Nagar Depot"	5.30	6.48	13	15	15	"Mon-Fri"	2			
+"0880"	88	"Hutatma Chowk"	20.30	22.00	"Prateeksha Nagar Depot"	18.40	20.15				"Mon-Fri"	2			
+"0880"	88	"Mantralaya"	8.40	20.15	"Prateeksha Nagar Depot"	7.05	18.20				"Mon-Fri"	2			
+"0880"	88	"Mantralaya"	8.40	20.00	"Prateeksha Nagar Depot"	7.05	18.05	30	28	29	"Saturday"	3			
+"0880"	88	"Hutatma Chowk"	20.25	22.00	"Prateeksha Nagar Depot"	18.35	20.15				"Saturday"	3			
+"0880"	88	"Hutatma Chowk"	6.30	8.17	"Prateeksha Nagar Depot"	5.30	6.48				"Saturday"	3			
+"0880"	88	"Hutatma Chowk"	8.50	19.50	"Prateeksha Nagar Depot"	7.30	18.15	22	20	20	"Sun-Hol"	4			
+"0880"	88	"Pt. Paluskar Chowk"	19.55	21.55	"Prateeksha Nagar Depot"	18.37	20.45				"Sun-Hol"	4			
+"0880"	88	"Com.P.K.Kurne Chowk"	16.05	19.25	"Prateeksha Nagar Depot"	15.05	18.25				"Sun-Hol"	4			
+"0890"	89	"Mantralaya"	7.50	21.10	"Worli Depot"	7.00	20.20	17	23	20	"Mon-Fri"	2			
+"0890"	89	"Pt. Paluskar Chowk"	7.00	" "	"Worli Depot"	6.30	" "				"Mon-Fri"	2			
+"0890"	89	"Mantralaya"	7.50	21.25	"Worli Depot"	7.00	20.20	21	23	23	"Saturday"	3			
+"0890"	89	"Mantralaya"	8.45	20.00	"Worli Depot"	8.05	19.20	27	29	23	"Holiday"	4			
+"0890"	89	"Pt. Paluskar Chowk"	20.25	20.45	"Worli Depot"	19.45	20.05				"Holiday"	4			
+"0911"	"91Ltd"	"Mumbai Central Depot"	6.20	20.50	"Kurla Station(W)"	7.35	22.25	22	24	27	"Mon-Sat"	2			
+"0911"	"91Ltd"	"Mumbai Central Depot"	7.25	20.40	"Kurla Station(W)"	8.50	22.25	22	25	26	"Sun-Hol"	4			
+"0921"	"92Ltd"	"Pt. Paluskar Chowk"	7.15	8.13	"Anushakti Nagar"			18	28	30	"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"Pt. Paluskar Chowk"	" "	" "	"Deonar Depot"	6.05	6.45				"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"World Trade Centre"	8.50	11.54	"Anushakti Nagar"	6.55	9.44				"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"Vasantrao Naik Chowk"	11.53	16.10	"Anushakti Nagar"	10.13	14.30				"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"World Trade Centre"	16.25	19.50	"Anushakti Nagar"	14.15	17.45				"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"Pt. Paluskar Chowk"	20.40	22.25	"Anushakti Nagar"	18.23	20.55				"Mon-Sat-Hol"	2			
+"0921"	"92Ltd"	"Pt. Paluskar Chowk"	8.15	22.25	"Anushakti Nagar"	7.00	21.25	28	32	29	"Sunday"	4			
+"0921"	"92Ltd"	"Pt. Paluskar Chowk"	22.50		"Deonar Depot"						"Sunday"	4			
+"0931"	"93Ltd"	"Pt. Paluskar Chowk"	7.20	8.10	"Govandi Bus Station"	6.15	6.45	18	31	26	"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Mantralaya"	8.35	11.50	"Govandi Bus Station"	7.00	9.50	23	24		"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Mantralaya"	16.20	19.30	"Govandi Bus Station"	14.20	17.55				"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Pt. Paluskar Chowk"	12.10	15.50	"Govandi Bus Station"	10.20	14.00				"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Pt. Paluskar Chowk"			"Govandi Bus Station"	18.25	21.10				"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Pt. Paluskar Chowk"	20.35	22.40	"Deonar Depot"						"Mon-Sat-Hol"	2			
+"0931"	"93Ltd"	"Babulnath"	8.00	22.40	"Anushakti Nagar"	6.45	21.10	34	28	31	"Sunday"	4			
+"1004"	"100R"	"Ahilyabai Holkar Chowk"	8.30	19.00	"Free Press Journal"	8.38	19.09	4	6	4	"Mon-Fri"	2			
+"1004"	"100R"	"Ahilyabai Holkar Chowk"	8.30	18.10	"Free Press Journal"	8.36	18.18	4	4	4	"Saturday"	3			
+"1010"	101	"Electric House"	6.20	22.30	"Walkeshwar"	6.50	23.25	24	22	24	"Mon-Fri"	2			
+"1010"	101	"Electric House"	6.20	22.30	"Walkeshwar"	6.50	23.25	28	20	25	"Saturday"	3			
+"1010"	101	"Electric House"	6.10	22.55	"Walkeshwar"	6.45	23.40	15	19	19	"Holiday"	4			
+"1030"	103	"R.C.Church"	6.00	22.05	"Kamala Nehru Park"	6.15	22.40	10	10	11	"Mon-Fri"	2			
+"1030"	103	"Colaba Depot"	5.33	5.51	"Kamala Nehru Park"		23.05				"Mon-Fri"	2			
+"1030"	103	"R.C.Church"	19.50	21.50	"Walkeshwar"	21.05	" "				"Mon-Fri"	2			
+"1030"	103	"R.C.Church"	22.25	23.15	"Mahatma Phule Market"	22.50	23.40				"Mon-Fri"	2			
+"1030"	103	"R.C.Church"	6.00	22.05	"Kamala Nehru Park"	6.15	22.45	9	9	11	"Saturday"	3			
+"1030"	103	"Colaba Depot"	5.33	5.51	"Kamala Nehru Park"	21.06	23.05				"Saturday"	3			
+"1030"	103	"R.C.Church"	19.35	21.35	"Walkeshwar"	21.00					"Saturday"	3			
+"1030"	103	"R.C.Church"	22.25	23.15	"M.Phule Market"	22.50	23.40				"Saturday"	3			
+"1030"	103	"R.C.Church"	6.10	20.30	"Kamala Nehru Park"	6.00	21.40	11	13	11	"Sunday"	4			
+"1030"	103	"Colaba Depot"	5.20	6.05	"Kamala Nehru Park"						"Sunday"	4			
+"1030"	103	"R.C.Church"	20.45	22.10	"Walkeshwar"	21.50	22.15				"Sunday"	4			
+"1030"	103	"R.C.Church"	21.55	0.06	"Mahatma Phule Market"	22.20	23.40				"Sunday"	4			
+"1030"	103	"R.C.Church"	6.00	20.20	"Kamala Nehru Park"	6.15	21.30	10	11	10	"Holiday"	4			
+"1030"	103	"Colaba Bus Station"	5.15	5.30	"Kamala Nehru Park"						"Holiday"	4			
+"1030"	103	"R.C.Church"	20.31	21.15	"Walkeshwar"	21.40	22.20				"Holiday"	4			
+"1030"	103	"R.C.Church"	21.35	23.30	"Mahatma Phule Market"	21.55	23.50				"Holiday"	4			
+"1044"	"104R"	"J.Mehta Marg"	5.45	23.20	"Vijay Vallabh Chowk"	6.05	23.10	12	10	10	"Mon-Sat"	2			
+"1044"	"104R"	"J.Mehta Marg"	6.00	23.35	"Vijay Vallabh Chowk"	6.20	23.03	10	12	10	"Sunday"	4			
+"1044"	"104R"	"J.Mehta Marg"	6.00	23.30	"Vijay Vallabh Chowk"	6.23	23.10	10	12	10	"Holiday"	4			
+"1054"	"105R"	"Kamala Nehru Park"	6.30	22.50	"Vijay Vallabh Chowk."	6.55	22.50	8	10	11	"Mon-Sat"	2			
+"1054"	"105R"	"Kamala Nehru Park"	6.40	21.15	"Vijay Vallabh Chowk."	7.00	20.40	14	16	13	"Sunday"	4			
+"1054"	"105R"	"Kamala Nehru Park"	7.15	21.05	"Vijay Vallabh Chowk."	7.43	20.35	11	13	16	"Holiday"	4			
+"1060"	106	"R.C.Church"	6.05	20.40	"Kamala Nehru Park"	6.45	20.05	18	23	21	"Mon-Sat"	2			
+"1060"	106	"Colaba Bus Station"	" "		"Kamala Nehru Park"	20.24	21.35				"Mon-Sat"	2			
+"1060"	106	"R.C.Church"	7.15	7.52	"Walkeshwar"	7.55	8.32	33	33	39	"Sunday"	4			
+"1060"	106	"R.C.Church"	8.32	19.18	"Kamala Nehru Park"	9.16	20.10				"Sunday"	4			
+"1060"	106	"Colaba Bus Stn."	19.57	21.00	"Walkeshwar"	20.40	21.20				"Sunday"	4			
+"1060"	106	"R.C.Church"	5.55	21.00	"Walkeshwar"	6.30	8.56	29	32	36	"Holiday"	4			
+"1060"	106	"R.C.Church"	8.42	19.20	"Kamala Nehru Park"	9.28	20.10				"Holiday"	4			
+"1060"	106	"R.C.Church"	19.58	21.00	"Walkeshwar"						"Holiday"	4			
+"1060"	106	"Colaba Bus Stn"	21.25		"Walkeshwar"	21.20	20.40				"Holiday"	4			
+"1080"	108	"Chh.Shivaji Terminus"	6.30	20.25	"Kamala Nehru Park"	6.55	21.10	12	15	15	"Mon-Sat"	2			
+"1080"	108	"Chh.Shivaji Terminus"	" "	21.10	"Walkeshwar"	" "	21.50				"Mon-Sat"	2			
+"1080"	108	"Mantralaya"	6.30		"Kamala Nehru Park"						"Mon-Sat"	2			
+"1080"	108	"Chh.Shivaji Terminus"	7.35	20.45	"Kamala Nehru Park"	7.50	21.25	18	19	19	"Sunday"	4			
+"1080"	108	"Mantralaya"	7.22	" "	"Kamala Nehru Park"						"Sunday"	4			
+"1080"	108	"Chh.Shivaji Terminus"	21.10	" "	"Walkeshwar"	" "	21.50				"Sunday"	4			
+"1080"	108	"Chh.Shivaji Terminus"	7.40	20.47	"Kamala Nehru Park"	7.00	21.30	17	15	15	"Holiday"	4			
+"1080"	108	"Chh.Shivaji Terminus"	21.00	21.15	"Walkeshwar"	21.42	21.55				"Holiday"	4			
+"1080"	108	"Mantralaya"	6.40	7.34	"Kamala Nehru Park"						"Holiday"	4			
+"1100"	110	"Com.P.K.Kurne Chowk"	6.10	22.00	"Sangam Nagar"	6.00	22.35	8	11	9	"Mon-Fri"	2			
+"1100"	110	"Com.P.K.Kurne Chowk"	6.10	22.00	"Sangam Nagar"	6.00	22.35	7	10	9	"Saturday"	3			
+"1100"	110	"Com.P.K.Kurne Chowk"	6.35	22.00	"Sangam Nagar"	7.05	22.35	12	10		"Sunday"	4			
+"1100"	110	"Com.P.K.Kurne Chowk"	6.35	22.00	"Sangam Nagar"	7.05	22.35	14	16	11	"Holiday"	4			
+"1114"	"111R"	"Gateway of India"	6.54	20.28	"Chh.Shivaji Terminus"	6.45	20.15	4	6	5	"Mon-Fri"	2			
+"1114"	"111R"	"Gateway of India"	6.54	20.27	"Chh.Shivaji Terminus"	6.45	20.15	5	6	6	"Saturday"	3			
+"1114"	"111R"	"Gateway of India"	8.11	19.54	"Chh.Shivaji Terminus"	8.00	20.05	8	8	8	"Holiday"	4			
+"1114"	"111R"	"Gateway of India"	11.09	20.50	"Chh.Shivaji Terminus"	11.00	20.40		7	7	"Sunday"	4			
+1200	"120"	"Pt. Paluskar Chowk"	9.30	20.35	"Dava Bazar"	9.44	20.51	10	10	11	"Mon-Sat"	2			
+"1210"	121	"Backbay Depot"	5.30	21.40	"J.Mehta Marg"	6.05	22.30	11	14	8	"Mon-Fri"	2			
+"1210"	121	"Backbay Depot"	5.30	21.40	"J.Mehta Marg"	6.05	22.30	13	12	11	"Saturday"	3			
+"1210"	121	"Backbay Depot"	5.55	21.25	"J.Mehta Marg"	6.35	22.25	20	23	21	"Sunday"	4			
+"1210"	121	"Backbay Depot"	5.30	21.25	"J.Mehta Marg"	6.10	22.25	15	18	20	"Holiday"	4			
+"1220"	122	"Ballard Pier"	7.40	19.45	"J.Mehta Marg"	7.00	18.40	11	15	16	"Mon-Fri"	2			
+"1220"	122	"Ballard Pier"	8.37	11.10	"Ahilyabai Holkar Chowk"	8.25	11.30	9			"Mon-Fri"	2			
+"1220"	122										"Mon-Fri"	2			
+"1220"	122	"Dr.S.P.M.Chowk"	20.05	20.50	"J.Mehta Marg"	18.55	21.30				"Mon-Fri"	2			
+"1220"	122	"Ballard Pier"	7.40	19.45	"J.Mehta Marg"	7.00	18.40	15	20	17	"Saturday"	3			
+"1220"	122	"Dr.S.P.M.Chowk"	20.15	20.45	"J.Mehta Marg"	19.00	20.45				"Saturday"	3			
+"1220"	122	"Ballard Pier"	8.20	19.30	"J.Mehta Marg"	7.30	18.33	19	22	23	"Holiday"	4			
+"1220"	122	"Dr.S.P.Mukherji Chowk"	19.53	21.00	"J.Mehta Marg"	18.55	21.35				"Holiday"	4			
+"1230"	123	"R.C.Church"	6.20	23.10	"Vasantrao Naik Chowk"	5.40	22.30	13	15	14	"Mon-Sat"	2			
+"1230"	123	"R.C.Church"	6.20	23.10	"Vasantrao Naik Chowk"	5.45	22.30	22	18	15	"Sunday"	4			
+"1230"	123	"R.C.Church"	6.20	23.10	"Vasantrao Naik Chowk"	5.45	22.30	15	15	16	"Holiday"	4			
+"1240"	124	"Colaba Bus Station"	5.10	22.55	"Worli Depot"	5.45	21.20	8	10	11	"Mon-Sat"	2			
+"1240"	124	"Dr.S.P.Mukherji Chowk"	22.55	0.20	"Worli Depot"	21.35	23.15				"Mon-Sat"	2			
+"1240"	124	"Colaba Bus Station"	5.15	23.25	"Worli Depot"	6.10	22.17	19	19	18	"Sun-Hol"	4			
+"1240"	124	"Dr.S.P.Mukherji Chowk"	" "	0.05	"Worli Depot"	" "	23.00	12	12	10	"Sun-Hol"	4			
+"1240"	124	"Dr.S.P.M.Chowk"	15.15	21.46	"V.Desai Chk"	15.14	22.26		16	15	"Sun-Hol"	4			
+"1250"	125	"Navy Nagar"	7.00	22.40	"Worli Village"	6.05	21.05	28	28	26	"Mon-Fri"	2			
+"1250"	125	"Navy Nagar"	7.00	22.30	"Worli Village"	6.05	21.05	24	26	28	"Saturday"	3			
+"1250"	125	"Navy Nagar"	7.20	22.10	"Worli Village"	6.15	20.50	22	26	26	"Sun-Hol"	4			
+"1260"	126	"Mantralaya"	8.00	20.35	"Jijamata Udyan"	7.05	19.00	20	25	24	"Mon-Sat"	2			
+"1260"	126	"Chh.Shivaji Terminus"	7.05	7.41	"Jijamata Udyan"	6.20	6.51				"Mon-Sat"	2			
+"1260"	126	"Chh.Shivaji Terminus"	20.53	22.05	"Jijamata Udyan"	19.25	21.40				"Mon-Sat"	2			
+"1260"	126	"Chh.Shivaji Terminus"	22.23	22.40	"Mumbai Central Depot"						"Mon-Sat"	2			
+"1260"	126	"Mantralaya"	12.25	20.30	"Jijamata Udyan"	11.37	19.25	27	23	25	"Sunday"	4			
+"1260"	126	"Chh.Shivaji Terminus"	7.15	12.26	"Jijamata Udyan"	6.20	11.12				"Sunday"	4			
+"1260"	126	"Chh.Shivaji Terminus"	20.54	21.40	"Jijamata Udyan"	19.41	21.30				"Sunday"	4			
+"1260"	126	"Chh.Shivaji Terminus"	20.32	22.18	"Mumbai Central Depot"						"Sunday"	4			
+"1260"	126	"Mantralaya"	7.15	20.25	"Jijamata Udyan"	6.20	19.08	20	24	24	"Holiday"	4			
+"1260"	126	"Chh.Shivaji Terminus"	20.58	21.45	"Jijamata Udyan"	19.32	21.35				"Holiday"	4			
+"1260"	126	"Chh.Shivaji Terminus"	20.43	22.20	"Mumbai Central Depot"						"Holiday"	4			
+"1300"	130	"Dr.S.P.Mukherji Chowk"	6.15	23.05	"Vasantrao Naik Chowk."	5.45	22.25	9	13	12	"Mon-Sat"	2			
+"1300"	130	"Dr.S.P.Mukherji Chowk"	6.40	23.05	"Vasantrao Naik Chowk."	6.10	22.25	16	13	13	"Sun-Hol"	4			
+"1324"	"132R"	"Colaba Bus Station"	6.00	23.05	"Colaba Bus Stn Via Naik Chowk"	" "		15	20	15	"Mon-Fri"	2			
+"1324"	"132R"	"Colaba Bus Station"	6.00	23.05	"Colaba Bus Stn Via Naik Chowk"			13	20	17	"Saturday"	3			
+"1324"	"132R"	"Colaba Bus Station"	7.10	22.30	"Colaba Bus Stn Via Naik Chowk"			30	30	33	"Sunday"	4			
+"1324"	"132R"	"Colaba Bus Station"	6.00	23.10	"Colaba Bus Stn Via Naik Chowk"	" "		15	17	18	"Holiday"	4			
+"1334"	"133R"	"Colaba Bus Station"	6.10	22.00	"Colaba Bus Stn Via Naik Chowk"	" "		15	20	15	"Mon-Fri"	2			
+"1334"	"133R"	"Ahilyabai Holkar Chowk"	8.40	11.50	"Colaba Bus Station"	9.05	11.27	20			"Mon-Fri"	2			
+"1334"	"133R"	"Colaba Bus Station"	6.30	22.00	"Colaba Bus Stn Via Naik Chowk"	" "	" "	15	14	20	"Saturday"	3			
+"1334"	"133R"	"Colaba Bus Station"	7.55	21.15	"Colaba Bus Stn Via Naik Chowk"	" "		30	30	33	"Sunday"	4			
+"1334"	"133R"	"Colaba Bus Station"	6.10	22.05	"Colaba Bus Stn Via Naik Chowk"	" "	" "	15	15	17	"Holiday"	4			
+"1340"	134	"Backbay Depot"	6.00	21.00	"P.Thakre Udyan"	6.15	21.55	16	19	22	"Mon-Fri"	2			
+"1340"	134	"Backbay Depot"	21.23	21.45	"Jijamata Udyan"						"Mon-Fri"	2			
+"1340"	134	"Backbay Depot"	6.00	21.00	"P.Thakre Udyan"	6.35	21.55	16	19	22	"Saturday"	3			
+"1340"	134	"Backbay Depot"	21.23	21.45	"Jijamata Udyan"						"Saturday"	3			
+"1340"	134	"Backbay Depot"	7.25	21.10	"P.Thakre Udyan"	7.10	21.05	24	25	27	"Sunday"	4			
+"1340"	134	"Backbay Depot"	6.15	21.05	"P.Thakre Udyan"	6.35	21.20	20	22	23	"Holiday"	4			
+"1350"	135	"Ferry Wharf"	6.20	21.15	"J.Mehta Marg"	6.00	20.20	11	13	13	"Mon-Sat"	2			
+"1350"	135	"Mazgaon Dock"	21.28	0.05	"J.Mehta Marg"	20.40	23.50				"Mon-Sat"	2			
+"1350"	135	"Ferry Wharf"	6.15	21.00	"J.Mehta Marg"	6.35	20.05	12	15	16	"Sunday"	4			
+"1350"	135	"Mazgaon Dock"	21.10	24.08	"J.Mehta Marg"	20.25	24.00				"Sunday"	4			
+"1350"	135	"Ferry Wharf"	6.08	21.00	"J.Mehta Marg"	6.20	20.08	13	16	16	"Holiday"	4			
+"1350"	135	"Mazgaon Dock"	21.12	0.05	"J.Mehta Marg"	20.25	0.05				"Holiday"	4			
+"1374"	"137R"	"Navy Nagar"	6.53	22.50	"Ahilyabai Holkar Chowk"			7	9	8	"Mon-Sat"	2			
+"1374"	"137R"	"Navy Nagar"	6.30	22.50	"Ahilyabai Holkar Chowk"			19	13	18	"Sunday"	4			
+"1374"	"137R"	"Navy Nagar"	6.30	22.50	"Ahilyabai Holkar Chowk"	6.22		11	12	12	"Holiday"	4			
+"1380"	138	"Backbay Depot"	5.40	" "	"Chh.Shivaji Terminus"	6.05	23.55	5	6	4	"Mon-Fri"	2			
+"1380"	138			23.30	"Chh.Shivaji Terminus"						"Mon-Fri"	2			
+"1380"	138	"Backbay Depot"	5.40	" "	"Chh.Shivaji Terminus"	6.05	" "	5	5	4	"Saturday"	3			
+"1380"	138			23.30	"Chh.Shivaji Terminus"		23.55				"Saturday"	3			
+"1380"	138	"Backbay Depot"	5.40	23.20	"Chh.Shivaji Terminus"	6.05	23.45	9	6	6	"Sunday"	4			
+"1380"	138	"Backbay Depot"	5.40	23.20	"Chh.Shivaji Terminus"	6.05	23.45	6	6	7	"Holiday"	4			
+"1510"	151	"J.Mehta Marg"	6.40	9.43	"Kabutarkhana(Dadar-W)"	7.10	10.33	14	12		"Mon-Fri"	2			
+"1510"	151	"J.Mehta Marg"	9.52	21.50	"Wadala Depot"	6.00	18.23				"Mon-Fri"	2			
+"1510"	151	"J.Mehta Marg"	17.23	19.35	"Veer Kotwal Udyan"	18.32	20.44				"Mon-Fri"	2			
+"1510"	151	"J.Mehta Marg"	6.40	9.40	"Kabutarkhana(Dadar-W)"	7.10	10.20	10	16	14	"Sat-Hol"	3			
+"1510"	151	"J.Mehta Marg"	9.10	21.50	"Wadala Depot"	6.00	18.21				"Sat-Hol"	3			
+"1510"	151	"J.Mehta Marg"	10.57	19.33	"Veer Kotwal Udyan"	11.55	20.42				"Sat-Hol"	3			
+"1540"	154	"Byculla Station(W)"	6.25	23.00	"N.S.C.I.(Worli)"	6.42	22.38	4	7	4	"Mon-Fri"	2			
+"1540"	154	"Byculla Station(W)"	6.25	23.00	"N.S.C.I.(Worli)"	6.42	22.38	6	8	7	"Saturday"	3			
+"1540"	154	"Byculla Station(W)"	6.45	23.00	"N.S.C.I.(Worli)"	7.02	22.36	14	16	10	"Sunday"	4			
+"1540"	154	"Byculla Station(W)"	6.45	23.00	"N.S.C.I.(Worli)"	7.02	22.40	6	8	7	"Holiday"	4			
+"1554"	"155R"	"Grant Road Station(W)"	6.00	23.15	"Via Jaslok Hospital"			7	3	5	"Mon-Fri"	2			
+"1554"	"155R"	"Grant Road Station(W)"	6.00	23.15	"Via Jaslok Hospital"			7	5	7	"Saturday"	3			
+"1554"	"155R"	"Grant Road Station(W)"	6.10	22.55	"Via Jaslok Hospital"			8	8	9	"Sunday"	4			
+"1554"	"155R"	"Grant Road Station(W)"	6.10	22.55	"Via Jaslok Hospital"			5	7	6	"Holiday"	4			
+"1560"	156	"Byculla Stn(W)"	6.55	20.20	"Via Simla House"	6.30	21.00	17	22	18	"Mon-Sat"	2			
+"1560"	156	"Byculla Stn(W)"	6.55	20.20	"Via Simla House"	6.30	21.00	13	18	16	"Holiday"	4			
+"1560"	156	"Byculla Stn(W)"	7.00	20.20	"Via Simla House"	7.00	21.00	21	27	22	"Sunday"	4			
+"1574"	"157R"	"Grant Road Station(W)"	6.30	21.05	"Via Bhulabhai Desai Road"		" "	22	15	22	"Mon-Sat"	2			
+1580	158	"Byculla Station(W)"	6.00	21.30	"Ram Ganesh Gadkari Chk"	6.30	20.45	21	29	24	"All Days"	1			
+"1600"	160	"P.T.Udyan"	11.45	22.25	"Veer Kotwal Udyan"	12.17	22.35	" "	17	20	"Mon-Fri"	2			
+"1600"	160	"P.T.Udyan"	11.25	22.10	"Veer Kotwal Udyan"	11.57	22.18	" "	17	20	"Sat-Sun-Hol"	3			
+"1610"	161	"Worli Depot"	6.05	20.40	"Nadkarni Park"	6.20	21.10	26	26	27	"Mon-Sat"	2			
+"1610"	161	"Worli Depot"	7.00	20.30	"Nadkarni Park"	7.25	21.15	29	23	23	"Sun-Hol"	4			
+"1620"	162	"P.Thakre Udyan"	6.05	24.35	"Worli Village"	5.40	24.10	7	7	8	"Mon-Fri"	2			
+"1620"	162	"P.Thakre Udyan"	6.05	24.35	"Worli Village"	5.40	24.10	8	9	9	"Saturday"	3			
+"1620"	162	"P.Thakre Udyan"	6.05	24.30	"Worli Village"	5.40	24.05	6	8	6	"Sunday"	4			
+"1620"	162	"P.Thakre Udyan"	6.05	24.35	"Worli Village"	5.40	24.10	6	7	9	"Holiday"	4			
+"1630"	163	"Worli Depot"	3.00	21.20	"P.Thakre Udyan"	7.00	21.50	21	24	21	"Mon-Sat-Hol"	2			
+"1640"	164	"M.P.Chowk(Mazgaon)"	7.45	22.25	"Dharavi Depot"	6.35	21.05	23	22	24	"Mon-Sat"	2			
+"1640"	164	"Ambika Mills Bus Station"	6.50	7.10	"Dharavi Depot"	6.05	6.25				"Mon-Sat"	2			
+"1640"	164	"M.P.Chowk(Mazgaon)"	8.00	22.15	"Dharavi Depot"	6.50	21.05	35	28	29	"Sun-Hol"	4			
+"1650"	165	"Kasturba Gandhi Chowk"	5.20	0.40	"Dharavi Depot"	4.20	23.40	17	13	13	"Mon-Sat-Hol"	2			
+"1650"	165	"Kasturba Gandhi Chowk"	5.15	0.40	"Dharavi Depot"	4.20	23.40	16	20	17	"Sunday"	4			
+"1660"	166	"Mumbai Central Depot"	5.20	22.05	"Antop Hill"	6.20	21.40	18	22	19	"All Days"	1			
+"1674"	"167R"	"Com.P.K.Kurne Chk."	6.00	23.10	"Elphinstone Rly.Stn.(W)"	6.08	23.19	3	6	3	"Mon-Fri"	2			
+"1674"	"167R"	"Com.P.K.Kurne Chk."	6.00	23.10	"Elphinstone Rly.Stn.(W)"	6.08	23.18	4	6	5	"Saturday"	3			
+"1674"	"167R"	"Com.P.K.Kurne Chk."	6.00	23.10	"Elphinstone Rly.Stn.(W)"	6.08	23.19	5	7	6	"Holiday"	4			
+"1674"	"167R"	"Com.P.K.Kurne Chk."	6.00	23.05	"Elphinstone Rly.Stn.(W)"	6.08	23.13	6	6	6	"Sunday"	4			
+"1680"	168	"Lal Bahadur Shastri College"	6.05	23.50	"Wadala Depot"	5.27	23.00	10	12	10	"Mon-Fri"	2			
+"1680"	168	"Lal Bahadur Shastri College"	6.05	23.50	"Wadala Depot"	5.25	23.00	13	17	13	"Saturday"	3			
+"1680"	168	"Lal Bahadur Shastri College"	6.12	23.50	"Wadala Depot"	5.27	23.00	16	14	14	"Sunday"	4			
+"1680"	168	"Lal Bahadur Shastri College"	5.50	24.10	"Wadala Depot"	5.10	23.15	16	14	14	"Holiday"	4			
+"1690"	169	"Worli Village"	7.40	20.45	"Veer Kotwal Udyan"	8.00	21.05	21	21	26	"All Days"	1			
+"1690"	169	"Worli Village"	5.30	23.30	"Prateeksha Nagar Depot"	4.50	22.45	12	12	13	"Mon-Sat"	2			
+"1690"	169	"Worli Village"	5.30	24.00	"Prateeksha Nagar Depot"	4.50	23.15	12	10	10	"Sun-Hol"	4			
+"1700"	170	"Antop Hill Extn."	6.00	20.25	"Rani Laxmi Chowk"	6.19	20.01	6	10	7	"Mon-Sat"	2			
+"1700"	170	"Antop Hill"	20.40	22.50	"Rani Laxmi Chowk"	20.09	23.05	6	10	7	"Mon-Sat"	2			
+"1700"	170	"Antop Hill Extn."	6.00	20.25	"Rani Laxmi Chowk"	6.19	20.01	6	10	7	"Sun-Hol"	4			
+"1700"	170	"Antop Hill"	20.40	22.50	"Rani Laxmi Chowk"	20.09	23.05	6	10	7	"Sun-Hol"	4			
+"1710"	171	"Worli Dairy"	6.20	21.15	"Antop Hill"	6.25	20.05	16	17	20	"Mon-Sat"	2			
+"1710"	171	"Worli Dairy"	9.08	10.50	"Veer Kotwal Udyan"	8.35	11.20				"Mon-Sat"	2			
+"1710"	171	"Veer Kotwal Udyan"	17.35	21.02	"Antop Hill"	18.09	21.33				"Mon-Sat"	2			
+"1710"	171	"Com.P.K.Kurne Chk."	21.45	22.50	"Antop Hill"	20.24	23.33				"Mon-Sat"	2			
+"1710"	171	"Worli Dairy"	7.05	21.15	"Antop Hill"	8.00	20.57	11	14	11	"Sun-Hol"	4			
+"1710"	171	"Com.P.K.Kurne Chowk"	21.55	23.00	"Antop Hill"	21.14	23.40				"Sun-Hol"	4			
+"1720"	172	"S.G.M.Chowk"	6.00	0.30	"Prateeksha Nagar Depot"	5.15	23.40	8	10	8	"Mon-Sat"	2			
+"1720"	172	"Com.P.K.Kurne Chk."	8.50	22.23	"C.G.S.Dispensary"	8.00	21.10	12	" "		"Mon-Sat"	2			
+"1720"	172	"S.G.M.Chowk"	6.25	0.35	"Prateeksha Nagar Depot"	5.30	23.40	9	9	9	"Sun-Hol"	4			
+"1720"	172	"Veer Kotwal Udyan"	16.52	22.10	"Prateeksha Nagar Depot"	16.20	21.40			15	"Sun-Hol"	4			
+"1734"	"173R"	"Rani Laxmibai Chowk"	6.30	20.55	"90feet Road Dharavi"	6.39	21.08	10	15	15	"Mon-Sat-Hol"	2			
+"1734"	"173R"	"Rani Laxmibai Chowk"	6.30	20.55	"90feet Road Dharavi"	6.39	21.08	22	30	30	"Sunday"	4			
+"1740"	174	"Wadala Depot"	6.10	7.38	"Bharani Naka"	6.30	7.00	8	11	8	"Mon-Sat-Hol"	2			
+"1740"	174	"Wadala Depot"	11.36	16.11	"Bharani Naka"	11.07	15.41				"Mon-Sat-Hol"	2			
+"1740"	174	"Wadala Depot"	20.49	23.00	"Bharani Naka"	20.07	23.20				"Mon-Sat-Hol"	2			
+"1740"	174	"Veer Kotwal Udyan"	7.40	11.15	"Bharani Naka"	7.12	11.00				"Mon-Sat-Hol"	2			
+"1740"	174	"Veer Kotwal Udyan"	16.20	20.30	"Bharani Naka"	15.52	20.00				"Mon-Sat-Hol"	2			
+"1740"	174	"Wadala Depot"	6.15	7.45	"Bharani Naka"	6.30	7.18	11	11	10	"Sunday"	4			
+"1740"	174	"Wadala Depot"	11.09	16.15	"Bharani Naka"	10.40	15.35				"Sunday"	4			
+"1740"	174	"Wadala Depot"	20.50	23.00	"Bharani Naka"	20.07	23.16				"Sunday"	4			
+"1740"	174	"Veer Kotwal Udyan"	7.55	10.59	"Bharani Naka"	7.27	10.30				"Sunday"	4			
+"1740"	174	"Veer Kotwal Udyan"	16.20	20.25	"Bharani Naka"	15.48	19.56				"Sunday"	4			
+1754	"175R"	"Veer Kotwal Udyan"	6.55	21.33	"Rani Laxmi Chowk"	6.35	21.00	15	23	25	"Mon-Fri"	2			
+1754	"175R"	"Veer Kotwal Udyan"	6.55	21.23	"Rani Laxmi Chowk"	6.35	20.50	14	23	19	"Sat-Sun-Hol"	3			
+"1800"	180	"Rani Laxmi Chowk"	6.20		"Chh.Shivaji Int.Air-Port"	6.55					"All Days"	1			
+"1800"	180		14.20	21.20		14.55	21.55				"All Days"	1			
+"1800"	180	"Rani Laxmi Chowk"	6.10	23.35	"Malvani Depot"	5.00	22.05	20	21	21	"Mon-Sat"	2			
+"1800"	180	"Rani Laxmi Chowk"	6.20	20.37	"Malvani Depot"	7.45	22.25	24	21	33	"Mon-Sat"	2			
+"1800"	180	"Rani Laxmi Chowk"	6.20	23.15	"Malvani Depot"	5.00	21.40	15	10	20	"Sun-Hol"	4			
+"1800"	180	"Rani Laxmi Chowk"	6.10	20.54	"Malvani Depot"	7.27	22.30	29	30	25	"Sun-Hol"	4			
+"1810"	181	"Antop Hill Extn."	7.25	21.05	"SEEPZ Bus Stn."	7.30	19.23	13	19	15	"Mon-Sat"	2			
+"1810"	181	"Antop Hill"	7.00	21.15	"SEEPZ Bus Stn."	19.38	22.20				"Mon-Sat"	2			
+"1810"	181	"Antop Hill Extn."	7.32	20.30	"B.K.C.Complex"	8.05	21.15	35	46	47	"Mon-Sat"	2			
+"1810"	181	"Antop Hill Extn."	7.30	20.25	"SEEPZ Bus Stn."	8.15	18.55	23	28	23	"Sun-Hol"	4			
+"1810"	181	"Antop Hill"	20.47	21.10	"SEEPZ Bus Stn"	19.17	22.20				"Sun-Hol"	4			
+"1840"	184	"Agarkar Chowk"	7.00	21.10	"Marol Maroshi Bus Stn."	7.25	21.15	20		21	"Mon-Sat-Hol"	2			
+"1850"	185	"Kannamwar Nagar No.2"	5.45	22.10	"Vishal Hall (Andheri E)"	6.00	21.15	15	24	24	"Mon-Fri"	2			
+"1850"	185	"Kannamwar Nagar No.3"	5.45	22.10	"Vishal Hall (Andheri E)"	6.00	21.20	22	22	24	"Sat-Hol"	3			
+"1850"	185	"Kannamwar Nagar No.2"	6.30	22.10	"Vishal Hall (Andheri E)"	6.00	21.10	27	26	26	"Sunday"	4			
+"1860"	186	"Agarkar Chowk"	6.15	23.40	"Vihar Lake"	5.45	23.30	11	10	14	"Mon-Sat"	2			
+"1860"	186	"Agarkar Chowk"	6.15	22.45	"Vihar Lake"	5.45	23.20	18	21	16	"Sunday"	4			
+"1860"	186	"Agarkar Chowk"	6.15	22.45	"Vihar Lake"	5.45	23.20	13	20	18	"Holiday"	4			
+"2000"	200	"Jijamata Udyan"	6.50	21.35	"Santacruz Depot"	5.55	21.20	33	40	40	"Mon-Sat"	2			
+"2000"	200	"Jijamata Udyan"	6.50	22.00	"Santacruz Depot"	5.55	21.15	28	37	37	"Sun-Hol"	4			
+"2010"	201	"P.Thakre Udyan"	6.35	12.45	"Goregaon Bus Station(W)"	5.30	20.55	7	7	" "	"Mon-Sat"	2			
+"2010"	201	"Veer Kotwal Udyan"	12.41	22.55	"Goregaon Bus Station(W)"	11.11	22.00	" "	17	17	"Mon-Sat"	2			
+"2010"	201	"P.Thakre Udyan"	6.55	11.35	"Goregaon Bus Station(W)"	5.45	10.05	15	14	15	"Sun-Hol"	4			
+"2010"	201	"Veer Kotwal Udyan"	11.35	22.48	"Goregaon Bus Station(W)"	10.19	21.45	14	14	15	"Sun-Hol"	4			
+"2010"	201	"Juhu Beach"	16.40	21.55	"Poisar Depot"	15.10	20.21				"Sun-Hol"	4			
+"2010"	201	"Juhu Beach"	19.40	20.28	"Borivli Stn(w)"						"Sun-Hol"	4			
+"2021"	"202Ltd"	"Mahim Bus Station."	6.40	23.30	"Gorai Depot"	5.40	22.00	19	23	17	"Mon-Sat"	2			
+"2021"	"202Ltd"	"Mahim Bus Station."	7.15	23.30	"Gorai Depot"	6.00	22.00	26	23	23	"Sunday"	4			
+"2021"	"202Ltd"	"Mahim Bus Station."	6.50	23.30	"Gorai Depot"	5.40	22.00	26	23	23	"Holiday"	4			
+"2030"	203	"Juhu Beach"	" "	9.55	"Dahisar Bridge"	"  "	" "	12	17	18	"Mon-Sat"	2			
+"2030"	203	"Jogeshwari Bus Station"	10.20	21.25	"Dahisar Bridge"	8.47	22.40				"Mon-Sat"	2			
+"2030"	203	"Jogeshwari Bus Station"	21.40	22.55	"Borivli Bus Station(W)"	22.42	23.57				"Mon-Sat"	2			
+"2030"	203	"Juhu Beach"	7.00	8.20	"Dahisar Bridge"	5.35	10.02	19	13	12	"Mon-Sat"	2			
+"2030"	203	"Juhu Beach"	8.40	22.50	"Poisar Depot"	10.20	21.20	19	13		"Mon-Sat"	2			
+"2030"	203	"Juhu Beach"	7.00	21.35	"Dahisar Bridge"	6.10	21.15	19	19	20	"Sun-Hol"	4			
+"2030"	203	"Juhu Beach"	16.40	22.45	"Borivli Stn(w)"	15.10	20.25			26	"Sun-Hol"	4			
+"2044"	"204R"	"Goregaon Bus Station(W)"	6.05	21.30	"Dahisar Bridge Via Gomant Nagar"	6.35	22.52	10	10	12	"Mon-Sat"	2			
+"2044"	"204R"	"Goregaon Bus Station(W)"	6.55	21.10	"Dahisar Bridge Via Gomant Nagar"	7.40	22.05	18	16	18	"Sunday"	4			
+"2054"	"205R"	"Jogeshwari Bus Station"	5.40	23.20	"Gomant Nagar"	6.30	21.40	14	17	16	"Mon-Sat"	2			
+"2054"	"205R"	"Goregaon Depot"			"Gomant Nagar"	21.55	24.05				"Mon-Sat"	2			
+"2054"	"205R"	"Jogeshwari Bus Station"	5.50	23.05	"Gomant Nagar"	6.35	22.05	12	11	13	"Sunday"	4			
+"2054"	"205R"	"Jogeshwari Bus Station"	5.45	23.15	"Gomant Nagar"	6.35	22.10	12	12	12	"Holiday"	4			
+"2060"	206	"Poisar Depot "	5.42	23.05	"I.C.Colony"	6.00	23.25	10	12	13	"Mon-Fri"	2			
+"2060"	206	"Poisar Depot "	5.42	23.05	"I.C.Colony"	6.00	23.25	16	18	17	"Saturday"	3			
+"2060"	206	"Poisar Depot "	7.00	23.00	"I.C.Colony"	7.20	23.20	19	18	13	"Holiday"	4			
+"2060"	206	"Poisar Depot "	7.00	23.00	"I.C.Colony"	7.20	23.20	29	27	23	"Sunday"	4			
+"2070"	207	"Gaikwad Nagar"	5.15	22.15	"Dahisar Bus Station"	6.05	23.15	14	10	8	"Mon-Sat"	2			
+"2070"	207	"Gaikwad Nagar"	11.09	15.59	"Dahisar Bridge"	12.06	16.56	15	16		"Mon-Sat"	2			
+"2070"	207	"Gaikwad Nagar"	5.50	22.20	"Dahisar Bridge"	6.40	23.20	8	9	12	"Sunday"	4			
+"2070"	207	"Gaikwad Nagar"	5.50	22.20	"Dahisar Bus Station"	6.40	23.20	8	9	8	"Holiday"	4			
+"2080"	208	"Borivli Bus Station(W)"	6.00	22.40	"Ashish Complex"	6.00	22.55	12	10	9	"Mon-Sat"	2			
+"2080"	208		6.39	9.55	"Sarswati Complex"	6.55	11.20				"Mon-Sat"	2			
+"2080"	208		17.03	20.57	"Sarswati Complex"	17.29	21.20				"Mon-Sat"	2			
+"2080"	208	"Borivli Bus Station(W)"	6.00	22.40	"Ashish Complex"	6.00	22.55	15	22	15	"Sun-Hol"	4			
+"2080"	208	"Borivli Bus Station(W)"	6.50	9.52	"Sarswati Complex"	7.07	10.13				"Sun-Hol"	4			
+"2080"	208	"Borivli Bus Station(W)"	17.07	20.12	"Sarswati Complex"	17.33	20.40				"Sun-Hol"	4			
+"2094"	"209R"	"Samata Nagar"	6.28	23.00	"Sudhindra Nagar"	6.00	22.18	12	15	11	"Mon-Sat"	2			
+"2094"	"209R"	"Borivli Station(E)"	22.30	23.55	"Sudhindra Nagar"	22.03	24.15	" "	" "	" "	"Mon-Sat"	2			
+"2094"	"209R"	"Samata Nagar"	6.31	22.30	"Sudhindra Nagar"	7.02	21.55	17	14	16	"Holiday"	4			
+"2094"	"209R"	"Borivli Station(E)"	22.30	23.25	"Sudhindra Nagar"	22.11	23.40	" "	" "	" "	"Holiday"	4			
+"2094"	"209R"	"Samata Nagar"	7.00	22.30	"Sudhindra Nagar"	7.33	21.55	17	14	16	"Sunday"	4			
+"2094"	"209R"	"Borivli Station(E)"	22.30	23.25	"Sudhindra Nagar"	22.11	23.00				"Sunday"	4			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	6.10	22.05	"Dahisar Bridge"	6.05	22.05	12	14	13	"Mon-Sat"	2			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	20.40	21.20	"Borivli Bus Station(W)"						"Mon-Sat"	2			
+"2101"	"210Ltd"	"Goregaon Depot"	5.20	8.47	"Dahisar Bridge"	20.17	23.20				"Mon-Sat"	2			
+"2101"	"210Ltd"	"Goregaon Depot"			"Borivli Bus Station(W)"	22.10	22.50				"Mon-Sat"	2			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	21.07	23.20	"Goregaon Depot"	5.45	7.25				"Mon-Sat"	2			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	6.35	21.35	"Dahisar Bridge"	7.10	22.15	18	22	23	"Sunday"	4			
+"2101"	"210Ltd"	"Goregaon Depot"	6.20	" "	"Dahisar Bridge"	22.31	23.05				"Sunday"	4			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	21.47	23.32	"Goregaon Depot"	7.42	7.42				"Sunday"	4			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	6.10	21.05	"Dahisar Bridge"	6.25	22.00	15	12	12	"Holiday"	4			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	20.45	21.25	"Borivli Bus Station(W)"						"Holiday"	4			
+"2101"	"210Ltd"	"Goregaon Depot"			"Borivli Bus Station(W)"	22.13	22.50				"Holiday"	4			
+"2101"	"210Ltd"	"Goregaon Depot"	5.40	8.30	"Dahisar Bridge"	20.02	22.35				"Holiday"	4			
+"2101"	"210Ltd"	"Yari Road/Vesave Bus Stn"	20.30	23.20	"Goregaon Depot"	5.45	7.20				"Holiday"	4			
+"2114"	"211R"	"Fr.Agnel Ashram"	6.00	24.00	"Chuim Village"	6.00	24.00	9	10	10	"Mon-Fri"	2			
+"2114"	"211R"	"Fr.Agnel Ashram"	6.00	24.00	"Chuim Village"	6.00	24.00	7	10	11	"Saturday"	3			
+"2114"	"211R"	"Fr.Agnel Ashram"	6.00	0.20	"Chuim Village"	6.00	23.57	7	8	8	"Sunday"	4			
+"2114"	"211R"	"Fr.Agnel Ashram"	6.00	24.00	"Chuim Village"	6.10	24.00	10	10	11	"Holiday"	4			
+"2120"	212	"P.Thakre Udyan"	6.45	21.50	"Bandra Depot "	6.05	20.55	21	21	23	"Mon-Sat"	2			
+"2120"	212	"P.Thakre Udyan"	7.05	21.50	"Bandra  Depot"	6.25	20.55	20	23	23	"Sun-Hol"	4			
+"2130"	213	"P.Thakre Udyan"	6.15	22.05	"Santacruz Stn.(E)"	7.25	22.00	17	19	19	"Mon-Fri"	2			
+"2130"	213	"Khodadad Circle"		" "	"Santacruz Stn.(E)"	22.16	23.15				"Mon-Fri"	2			
+"2130"	213	"P.Thakre Udyan"	6.15	22.00	"Santacruz Stn.(E)"	7.25	22.05	22	25	24	"Saturday"	3			
+"2130"	213	"Khodadad Circle"	" "	" "	"Santacruz Stn.(E)"	22.27	23.10				"Saturday"	3			
+"2130"	213	"P.Thakre Udyan"	6.15	20.45	"Santacruz Stn.(E)"	7.20	21.55	23	28	23	"Sun-Hol"	4			
+"2130"	213	"Khodadad Circle"			"Santacruz Stn.(E)"	22.15	23.18				"Sun-Hol"	4			
+"2140"	214	"Mount Mary Steps"	6.00	21.15	"Chuim Village"	6.30	21.55	17	18	19	"Mon-Sat"	2			
+"2140"	214	"Mount Mary Steps"	8.08	24.13	"Bandra Bus Station(W)"	7.45	24.00	40	11	12	"Mon-Sat"	2			
+"2140"	214	"National College"	7.00	18.05	"Bandra Bus Station(W)"	6.50	17.55	11	11	11	"Mon-Sat"	2			
+"2140"	214	"Mount Mary Steps"	6.00	21.50	"Chuim Village"	6.30	23.48	14	16	18	"Sun-Hol"	4			
+"2140"	214	"Mount Mary Steps"	22.25	0.18	"Bandra Bus Station(W)"	22.40	24.05				"Sun-Hol"	4			
+"2154"	"215R"	"Bandra Bus Stn(W)"	5.55	7.12	"Tata Colony(Bandra)"	6.10		10	16	14	"Mon-Fri"	2			
+"2154"	"215R"	"Bandra Bus Stn(W)"			"Tata Colony(Bandra)"	21.13	22.45				"Mon-Fri"	2			
+"2154"	"215R"	"Bandra Reclamation Bus Stn"	6.30	22.15	"Tata Colony(Bandra)"	6.23	21.05				"Mon-Fri"	2			
+"2154"	"215R"	"Bandra Reclamation Bus Stn"	6.30	22.15	"Tata Colony(Bandra)"	6.23	21.10	11	20	16	"Saturday"	3			
+"2154"	"215R"	"Bandra Bus Station(W)"	5.55	7.15	"Tata Colony(Bandra)"	6.10					"Saturday"	3			
+"2154"	"215R"	"Bandra Bus Station(W)"			"Tata Colony(Bandra)"	21.22	22.40				"Saturday"	3			
+"2154"	"215R"	"Bandra Reclamation Bus Stn"	7.05	21.30	"Tata Colony(Bandra)"	6.45	20.55	17	19	24	"Sun-Hol"	4			
+"2154"	"215R"	"Bandra Bus Station(W)"	6.30	7.05	"Tata Colony(Bandra)"						"Sun-Hol"	4			
+"2154"	"215R"	"Bandra Bus Station(W)"		22.10	"Tata Colony(Bandra)"	21.42	22.25				"Sun-Hol"	4			
+"2184"	"218R"	"Kurla Stn(W)"	8.15	20.40	"Bandra Rly Terminus"	8.00	20.45	12	13	15	"Mon-Sat"	2			
+"2190"	219	"Bandra Terminus"	6.57	21.20	"Santacruz Stn(E)"	6.20	21.57	25	25	42	"Mon-Fri"	2			
+"2190"	219	"Bandra Terminus"	6.57	20.55	"Santacruz Stn(E)"	6.20	21.40	25	25	28	"Saturday"	3			
+"2190"	219	"Bandra Terminus"	6.50	11.30	"Santacruz Stn(E)"	6.20	10.50	30	32	" "	"Sun-Hol"	4			
+"2190"	219		15.46	21.40		16.23	21.09				"Sun-Hol"	4			
+"2200"	220	"Bandra Bus Station(W)"	6.00	0.30	"Khar Station(W)"	6.23	0.55	5	7	7	"Mon-Sat"	2			
+"2200"	220	"Bandra Bus Station(W)"	8.02	12.01	"Shrely Village"	8.15	12.15	15		15	"Mon-Sat"	2			
+"2200"	220	"Khar Rly Stn."	16.44	19.03	"Shrely Village"	17.02	19.25				"Mon-Sat"	2			
+"2200"	220	"Bandra Bus Station(W)"	5.40	0.35	"Khar Station(W)"	6.04	0.55	7	10	8	"Sun-Hol"	4			
+"2210"	221	"Andheri Station(W)"	7.50	21.40	"Yari Road Bus Stn."	7.00	22.15	10	8	10	"Mon-Sat"	2			
+"2210"	221	"Andheri Station(W)"	8.05	21.35	"Yari Road Bus Stn."	7.30	21.35	15	17	17	"Sun-Hol"	4			
+"2220"	222	"Bandra Bus Station(W)"	5.45	22.25	"Yari Road Bus Stn"	6.30	23.25	17	20	18	"Mon-Fri"	2			
+"2220"	222	"Bandra Bus Station(W)"	6.50	22.10	"Yari Road Bus Stn"	7.55	23.15	23	23	21	"Mon-Sat"	2			
+"2220"	222	"Bandra Bus Station(W)"	5.45	22.25	"Yari Road Bus Stn"	6.30	23.25	20	2	25	"Saturday"	3			
+"2220"	222	"Bandra Bus Station(W)"	6.52	22.10	"Yari Road Bus Stn"	8.00	23.20	23	18	21	"Holiday"	4			
+"2231"	"223Ltd"	"Seven Bungalows"	8.00	21.50	"Samata Nagar"	6.45	20.20	15	22	16	"Mon-Sat"	2			
+"2231"	"223Ltd"	"Oshiwara Depot"	5.40	8.00	"Samata Nagar"	20.38	23.05				"Mon-Sat"	2			
+"2231"	"223Ltd"	"Seven Bungalows"	8.15	21.05	"Samata Nagar"	7.00	19.35	24	24	26	"Sun-Hol"	4			
+"2231"	"223Ltd"	"Oshiwara Depot"	5.55	8.04	"Samata Nagar"	19.58	22.30				"Sun-Hol"	4			
+"2240"	224	"Shastri Nagar(Santacruz)"	6.50	8.51	"Borivli Bus Station(W) "	6.35	10.31	15	13	15	"Mon-Sat"	2			
+"2240"	224	"Shastri Nagar(Santacruz)"	9.05	21.40	"Gorai Depot "	10.45	21.43				"Mon-Sat"	2			
+"2240"	224	"Santacruz Depot"	5.40	6.50	"Borivli Bus Station(W) "	" "	23.05				"Mon-Sat"	2			
+"2240"	224	"Shastri Nagar(Santacruz)"	7.00	21.00	"Borivli Bus Station(W)"	7.05	21.24	27	24	23	"Sun-Hol"	4			
+"2240"	224	"Santacruz Depot"	6.10	6.55	"Borivli Bus Station(W)"	21.46	22.30				"Sun-Hol"	4			
+"2250"	225	"Bandra Bus Station(W)"	6.00	20.35	"Dahisar Bus Station"	7.15	22.20	15	20	15	"Mon-Fri"	2			
+"2250"	225	"Bandra Bus Station(W)"	5.50		"Magathane Depot"	6.50					"Mon-Fri"	2			
+"2250"	225	"Bandra Bus Station(W)"	20.57	21.20	"Borivli Station(E)"	22.15	22.40				"Mon-Fri"	2			
+"2250"	225	"Bandra Bus Station(W)"	6.00	20.35	"Dahisar Bus Station"	7.15	22.20	21	22	17	"Saturday"	3			
+"2250"	225	"Bandra Bus Station(W)"	5.50		"Magathane Depot"	6.50					"Saturday"	3			
+"2250"	225	"Bandra Bus Station(W)"	4.25	20.30	"Dahisar Bus Station"	7.20	22.10	22	20	20	"Sunday"	4			
+"2250"	225	"Bandra Bus Station(W)"	20.55	21.20	"Borivli Station(E)"	22.15	22.40				"Sunday"	4			
+"2250"	225	"Mahim Bus Station."	6.30	9.35	"Dahisar Bus Stn"	5.25	7.55				"Sunday"	4			
+"2250"	225	"Bandra Bus Station(W)"	5.40	20.30	"Dahisar Bus Station"	6.55	22.10	22	21	25	"Holiday"	4			
+"2250"	225	"Bandra Bus Station(W)"	20.55	21.20	"Borivli Station(E)"						"Holiday"	4			
+"2261"	"226Ltd"	"Barve Nagar(Ghatkopar)"	5.40	21.50	"P.Thakre Nagar Bus Station"	4.20	22.05	13	14	13	"Mon-Sat"	2			
+"2261"	"226Ltd"	"Barve Nagar(Ghatkopar)"	22.02	23.40	"Gorai Depot"						"Mon-Sat"	2			
+"2261"	"226Ltd"	"Barve Nagar(Ghatkopar)"	5.40	22.05	"P.Thakre Nagar Bus Station"	4.20	22.20	20	15	17	"Sun-Hol"	4			
+"2261"	"226Ltd"	"Barve Nagar(Ghatkopar)"	22.32	24.00	"Gorai Depot"						"Sun-Hol"	4			
+"2280"	228	"P.Thakre Ngr Bus Stn."	6.00	21.15	"RawalPada"	6.45	22.00	34	35	37	"All Days"	1			
+"2290"	229	"Santacruz Depot"	6.10	21.30	"Shanti Ashram"	7.25	23.10	15	15	21	"Mon-Fri"	2			
+"2290"	229	"Santacruz Depot"	6.10	21.30	"Shanti Ashram"	7.25	23.00	19	21	20	"Saturday"	3			
+"2290"	229	"Santacruz Depot"	6.10	21.25	"Shanti Ashram"	7.30	23.05	35	30	35	"Holiday"	4			
+"2290"	229	"Santacruz Depot"	6.10	21.25	"Shanti Ashram"	7.30	23.05	35	35	31	"Sunday"	4			
+"2300"	230	"P.Thakre Ngr Bus Stn."	6.20	21.30	"Sambhaji Nagar(Dahisar East)"	7.04	22.15	34	37		"Mon-Sat-Hol"	2			
+"2300"	230	"P.Thakre Ngr Bus Stn."	6.20	21.15	"Sambhaji Nagar(Dahisar East)"	7.04	22.05	51	56	55	"Sunday"	4			
+"2310"	231	"Santacruz Station(W)"	5.30	0.55	"Juhu Bus Station"	5.45	1.10	5	6	4	"Mon-Sat"	2			
+"2310"	231	"Santacruz Station(W)"	7.29	21.28	"Juhu Beach"	7.42	21.42				"Mon-Sat"	2			
+"2310"	231	"Santacruz Station(W)"	7.27	11.51	"Juhu Beach"	7.43	12.07	16		16	"Mon-Sat"	2			
+"2310"	231	"Santacruz Station(W)"	16.43	21.28	"Juhu Beach"	16.59	21.44				"Mon-Sat"	2			
+"2310"	231	"Santacruz Station(W)"	5.40	0.55	"Juhu Bus Station"	5.58	1.13	5	5	5	"Sun-Hol"	4			
+"2330"	233	"Borivli Stn.(E)"	7.20	10.50	"Chogle Nagar"	7.00	11.06	11		12	"Mon-Sat"	2			
+"2330"	233		17.30	21.00		17.47	21.15				"Mon-Sat"	2			
+"2344"	"234R"	"Jogeshwari Bus Stn(W)"	6.30	21.15	"Via Yari Road Vesave Bus Stn"	7.00	21.20	12	20	15	"Mon-Sat-Hol"	2			
+"2344"	"234R"	"Jogeshwari Bus Stn(W)"	6.30	21.00	"Via Yari Road Vesave Bus Stn"	7.00	20.34	16	17	20	"Sunday"	4			
+"2354"	"235R"	"Andheri Station(W)"	6.35	23.55	"Millat Nagar"	6.15	23.15	6	10	8	"Mon-Sat"	2			
+"2354"	"235R"	"Andheri Station(W)"	7.15	23.50	"Millat Nagar"	6.50	23.17	8	7	9	"Sunday"	4			
+"2354"	"235R"	"Andheri Station(W)"	7.15	23.50	"Millat Nagar"	6.50	23.22	8	7	9	"Holiday"	4			
+"2360"	236	"Andheri Station (W)"	7.10	20.05	"S.R.A.Colony Somani Gram "	6.40	19.31	31	62	36	"Mon-Sat"	2			
+"2360"	236	"Andheri Station(W)"	7.05	20.05	"S.R.A.Colony Somani Gram "	6.40	19.29		25	30	"Sun-Hol"	4			
+"2370"	237	"Charkopar Sector No.8"	7.00	21.50	"Borivli Bus Stn."	7.30	21.40	21	32	23	"All Days"	1			
+"2384"	"238R"	"Oshiwara Depot"	7.35	21.30	"Oshiwara Depot Via Andheri Stn."	8.00	22.00	18	15		"Mon-Sat-Hol"	2			
+"2390"	239	"Charkop Sec-9"	6.30	21.50	"Poisar Depot"	6.55	21.20	22	34	26	"Mon-Fri-Hol"	2			
+"2390"	239	"Charkop Sec-9"	6.30	21.50	"Poisar Depot"	6.55	21.20	34	34	39	"Sat-Sun"	3			
+"2404"	"240R"	"Shanti Ashram"	5.35	23.20	"Kanderpada"	5.35	22.52	8	9	10	"Mon-Sat"	2			
+"2404"	"240R"	"Borivli Stn.(W)"	5.20	5.34	"Kanderpada"	22.05	0.28				"Mon-Sat"	2			
+"2404"	"240R"	"Shanti Ashram"	5.45	23.20	"Kanderpada"	5.35	22.50	13	12	9	"Sun-Hol"	4			
+"2404"	"240R"	"Borivli Station(W)"	5.20	0.10	"Kanderpada"	23.05	23.45				"Sun-Hol"	4			
+"2410"	241	"Wadala Depot"	5.35	11.02	"Malvani Depot"	4.50	9.07	14	19	15	"Mon-Sat"	2			
+"2410"	241	"Mahim Bus Station."	11.35	15.27	"Malvani Depot"	9.50	13.36				"Mon-Sat"	2			
+"2410"	241	"Wadala Depot"	16.13	22.50	"Malvani Depot"	14.15	21.00				"Mon-Sat"	2			
+"2410"	241	"Wadala Depot"	7.20	23.20	"Malvani Depot"	6.10	21.35	19	19	21	"Sun-Hol"	4			
+"2424"	"242R"	"Andheri Station(W)"	6.30	24.00	"Millat Nagar"	6.10	23.20	8	10	9	"Mon-Sat"	2			
+"2424"	"242R"	"Andheri Station(W)"	6.30	0.05	"Millat Nagar"	6.10	23.30	10	12	10	"Holiday"	4			
+"2424"	"242R"	"Andheri Station(W)"	6.44	0.05	"Millat Nagar"	6.23	23.30	20	10	12	"Sunday"	4			
+"2430"	243	"Malad Station(W)Anand Road"	6.25	22.30	"Jankalyan Nagar/Bhumi Complex Malad Stn(W)"	6.05	21.53	12	22	15	"Mon-Sat"	2			
+"2430"	243	"Malad Station(W)Anand Road"	8.02	21.45	"Jankalyan Nagar/Bhumi Complex Malad Stn(W)"	7.35	21.18	26	19	19	"Sun-Hol"	4			
+"2444"	"244R"	"Kandivli Station(W)"	4.20	0.45	"Borivli Station(W)"	4.55	0.35	8	11	10	"Mon-Fri"	2			
+"2444"	"244R"	"Charkop Market"			"Borivli Station(W)"	1.20	" "				"Mon-Fri"	2			
+"2444"	"244R"	"Kandivli Station(W)"	17.00	23.22	"P.Thakre Nagar Bus Station"	17.30	23.50				"Mon-Fri"	2			
+"2444"	"244R"	"Kandivli Station(W)"	4.20	0.45	"Borivli Station(W)"	4.55	0.35	8	12	10	"Saturday"	3			
+"2444"	"244R"	"Kandivli Station(W)"	16.47	23.30	"P.Thakre Nagar Bus Station"	17.17	23.58				"Saturday"	3			
+"2444"	"244R"	"Kandivli Station(W)"	4.55	0.40	"Borivli Station(W)"	5.05	0.37	7	8	9	"Sun-Hol"	4			
+"2444"	"244R"	"Charkop Market"			"Borivli Station(W)"	0.55	1.15				"Sun-Hol"	4			
+"2454"	"245R"	"Borivli Bus Station(W)"	6.17	23.05	"Via Chickoowadi"	6.00	22.45	9	12	10	"Mon-Sat"	2			
+"2454"	"245R"	"Borivli Bus Station(W)"	7.15	23.05	"Via Chickoowadi"	7.10	22.37	12	14	14	"Sun-Hol"	4			
+"2464"	"246R"	"Kandivli Station(W)"	6.20	22.50	"Borivli Station(W)"	6.55	22.05	16	19	20	"Mon-Fri"	2			
+"2464"	"246R"	"Kandivli Station(W)"	6.20	22.50	"Borivli Station(W)"	6.55	22.05	18	23	25	"Saturday"	3			
+"2464"	"246R"	"Kandivli Station(W)"	7.00	22.45	"Borivli Station(W)"	7.35	22.35	23	23	20	"Holiday"	4			
+"2464"	"246R"	"Kandivli Station(W)"	7.00	22.45	"Borivli Station(W)"	7.35	22.30	32	30	20	"Sunday"	4			
+"2474"	"247R"	"Borivli Bus Station(W)"	5.30	23.20	"Gorai Creek/Pragati Vidyalaya"	5.10	23.02	10	14	15	"Mon-Sat"	2			
+"2474"	"247R"	"Borivli Bus Station(W)"	5.48	22.47	"Gorai Creek/Pragati Vidyalaya"	5.30	23.05	11	13	12	"Holiday"	4			
+"2474"	"247R"	"Borivli Bus Station(W)"	5.48	22.47	"Gorai Creek/Pragati Vidyalaya"	5.30	23.02	11	13	12	"Sunday"	4			
+"2480"	248	"Andheri Station(W)"	6.30	23.00	"Ramesh Nagar"	6.44	22.57	8	16	10	"Mon-Sat"	2			
+"2480"	248	"Andheri Station(W)"	7.00	22.47	"Ramesh Nagar"	7.15	22.47	16	18	16	"Sun-Hol"	4			
+"2490"	249	"Andheri Station(W)"	5.55	22.05	"Yari Road/Vesave Bus Stn"	5.50	22.05	11	13	14	"Mon-Sat"	2			
+"2490"	249	"Andheri Station(W)"	6.00	22.05	"Yari Road/Vesave Bus Stn"	6.25	22.05	10	8	9	"Sunday"	4			
+"2490"	249	"Andheri Station(W)"	6.00	22.05	"Yari Road/Vesave Bus Stn"	6.25	22.05	9	9	9	"Holiday"	4			
+"2500"	250	"Andheri Station(W)"	6.50	20.40	"Via Gilbert Hill "	7.00	20.55	18	33	19	"Mon-Sat-Hol"	2			
+"2500"	250	"Andheri Station(W)"	6.50	20.40	"Via Gilbert Hill "	7.00	20.55	28	28	30	"Sunday"	4			
+"2510"	251	"Andheri Station(W)"	4.45	1.35	"Yari Road/Vesave Bus Stn"	5.05	1.10	10	10	12	"Mon-Sat"	2			
+"2510"	251	"Andheri Station(W)"	4.45	1.35	"Yari Road/Vesave Bus Stn"	5.05	1.15	9	9	7	"Sun-Hol"	4			
+"2524"	"252R"	"Andheri Station(W)"	6.00	22.20	"S.V.Patel Nagar/S.S.Nagar"	5.55	22.30	12	15	14	"Mon-Sat"	2			
+"2524"	"252R"	"Andheri Station(W)"	6.00	22.20	"S.V.Patel Nagar/S.S.Nagar"	6.19	22.25	14	17	15	"Sunday"	4			
+"2524"	"252R"	"Andheri Station(W)"	6.00	22.20	"S.V.Patel Nagar/S.S.Nagar"	6.19	22.30	12	15	15	"Holiday"	4			
+"2530"	253	"Juhu Bus Station"	6.25	22.00	"Goregaon Bus Station(W)"	6.25	23.05	25	25	29	"Mon-Sat"	2			
+"2530"	253	"Juhu Bus Station"	22.17	23.47	"Goregaon Depot"	5.55	6.17				"Mon-Sat"	2			
+"2530"	253	"Juhu Bus Station"	6.40	21.40	"Goregaon Bus Station(W)"	6.50	22.45	17	17	15	"Sun-Hol"	4			
+"2530"	253	"Juhu Bus Station"	21.53	23.30	"Goregaon Depot"	6.12					"Sun-Hol"	4			
+"2540"	254	"Andheri Station(W)"	5.55	23.25	"Veera Desai Road"	5.40	23.05	5	7	6	"Mon-Sat"	2			
+"2540"	254	"Andheri Station(W)"	5.45	23.24	"Veera Desai Road"	5.58	23.26	8	9	9	"Sunday"	4			
+"2540"	254	"Andheri Station(W)"	5.45	23.40	"Veera Desai Road"	5.57	23.54	5	7	6	"Holiday"	4			
+"2551"	"255Ltd"	"Prateeksha Nagar Depot"	5.50	20.30	"Yari Road / Vesave Bus Station"	7.05	22.20	26	28	29	"Mon-Sat-Hol"	2			
+"2551"	"255Ltd"	"Prateeksha Nagar Depot"	5.50	20.35	"Yari Road / Vesave Bus Station"	7.05	22.20	25	25	30	"Sunday"	4			
+"2560"	256	"Juhu Bus Station"	6.25	24.15	"Gaikwad Nagar"	5.45	23.00	13	15	16	"Mon-Sat"	2			
+"2560"	256	"Juhu Bus Station"	7.00	24.10	"Gaikwad Nagar"	6.05	23.00	13	17	16	"Sunday"	4			
+"2560"	256	"Juhu Beach"	7.00	24.10	"Gaikwad Nagar"	6.05	23.00	17	14	17	"Holiday"	4			
+"2570"	257	"Andheri Station(W)"	5.05	0.20	"J.V.P.D.Bus Station"	5.20	0.35	7	11	13	"Mon-Sat"	2			
+"2570"	257	"Andheri Station(W)"	4.55	0.19	"J.V.P.D.Bus Station"	5.10	0.35	11	12	10	"Sunday"	4			
+"2570"	257	"Andheri Station(W)"	5.00	0.15	"J.V.P.D.Bus Station"	5.12	0.35	10	11	9	"Holiday"	4			
+"2580"	258	"Goregaon Bus Station(W)"	6.25	23.00	"S.R.A. Colony(Ram Mandir)"	6.10	23.12	13	15	17	"Mon-Sat"	2			
+"2580"	258	"Goregaon Bus Station(W)"	6.43	23.00	"S.R.A. Colony(Ram Mandir)"	6.30	23.10	24	26	15	"Sunday"	4			
+"2580"	258	"Goregaon Bus Station(W)"	6.43	23.00	"S.R.A.Colony(Ram Mandir)"	6.30	23.10	13	15	15	"Holiday"	4			
+"2590"	259	"Andheri Station(W)"	5.55	23.10	"Gorai Depot"	5.10	22.05	7	8	15	"Mon-Sat"	2			
+"2590"	259	"Oshiwara Depot"	12.04	16.37	"Gorai Depot"	11.07	15.40				"Mon-Sat"	2			
+"2590"	259	"Andheri Station(W)"	7.05	23.07	"Gorai Depot"	6.05	22.05	11	12	12	"Sun-Hol"	4			
+"2610"	261	"Jogeshwari Bus Station"	5.10	23.40	"Goregaon Bus Station(W)"	5.10	23.50	11	22	19	"Mon-Sat-Hol"	2			
+"2610"	261	"Goregaon Depot"	7.55	20.23	"Goregaon Bus Station(W)"	8.10	20.45	15	18		"Mon-Sat-Hol"	2			
+"2610"	261	"Jogeshwari Bus Station"	5.10	23.34	"Goregaon Bus Station(W)"	5.10	23.34	8	4	15	"Sunday"	4			
+"2610"	261	"Goregaon Depot"	15.35	20.39	"Goregaon Bus Station(W)"	15.50	20.54	14	14	14	"Sunday"	4			
+"2622"	"262Ext"	"Goregaon Bus Station(W)"	6.30	11.00	"Ayappa Mandir"	6.44	11.14	32		30	"All Days"	1			
+"2622"	"262Ext"	"Goregaon Bus Station(W)"	16.45	20.29	"Ayappa Mandir"	17.00	20.44	" "			"All Days"	1			
+"2624"	"262R"	"Goregaon Bus Station(W)"	6.00	23.30	"Chincholi Bunder Via Link Road"	6.14	23.45	9	12	11	"Mon-Sat"	2			
+"2624"	"262R"	"Goregaon Bus Station(W)"	6.00	23.00	"Chincholi Bunder Via Link Road"	6.14	23.15	10	12	9	"Sunday"	4			
+"2624"	"262R"	"Goregaon Bus Station(W)"	6.00	23.35	"Chincholi Bunder Via Link Road"	6.14	23.45	9	10	12	"Holiday"	4			
+"2630"	263	"Satbhakti Mandir"	6.30	12.59	"SEEPZ Bus Stn"	7.07	12.14	31		34	"Mon-Sat-Hol"	2			
+"2630"	263	"Satbhakti Mandir"	16.00	20.00	"SEEPZ Bus Stn"	15.15	20.50				"Mon-Sat-Hol"	2			
+"2640"	264	"Satbhakti Mandir"	7.00	22.05	"Samarth Nagar"	6.45	21.48	28	30	30	"Mon-Sat"	2			
+"2650"	265	"Jogeshwari Bus Station(W)"	6.45	22.00	"Millat Nagar"	6.45	22.05	17	26	19	"Mon-Sat"	2			
+"2650"	265	"Jogeshwari Bus Station(W)"	7.00	22.00	"Millat Nagar"	6.45	21.55	19	19	25	"Sun-Hol"	4			
+"2660"	266	"Andheri Bus Station(W)"	6.00	0.38	"Swami Samarth Nagar Extn"	5.35	0.23	6	6	6	"Mon-Sat"	2			
+"2660"	266	"Andheri Bus Station(W)"	6.00	0.50	"Swami Samarth Nagar Extn"	5.40	0.24	5	5	6	"Sunday"	4			
+"2660"	266	"Andheri Bus Station(W)"	6.00	0.50	"Swami Samarth Nagar Extn"	5.40	0.20	5	4	6	"Holiday"	4			
+"2684"	"268R"	"Andheri Station(W)"	6.55	20.40	"Swami Samarth Nagar/S.V.P.Ngr."	7.15	21.10	14	8	12	"Mon-Sat"	2			
+"2684"	"268R"	"Andheri Station(W)"	6.47	20.30	"Swami Samarth Nagar/S.V.P.Ngr."	7.00	20.55	14	13	15	"Sunday"	4			
+"2684"	"268R"	"Andheri Station(W)"	6.55	20.35	"Swami Samarth Nagar/S.V.P.Ngr."	7.15	21.05	12	13	14	"Holiday"	4			
+"2690"	269	"Borivli Bus Station(W)"	6.40	21.55	"Madh Jetty"	6.35	20.10	17	23	20	"All Days"	1			
+"2710"	271	"Malad Station(W)Sainath Rd"	5.15	0.35	"Madh Jetty"	4.35	23.55	11	9	11	"All Days"	1			
+"2710"	271	"Malad Station(W)Sainath Rd"	14.37	20.56	"Aqsa Beach"	15.12	21.11				"Sun-Hol"	4			
+"2720"	272	"Malad Station(W)Sainath Rd)"	5.40	23.35	"Marve Beach"	5.30	23.40	5	9	5	"Mon-Sat"	2			
+"2720"	272	"Malad Station(W)Sainath Rd"	5.20	23.25	"Marve Beach"	5.30	23.30	7	6	7	"Sun-Hol"	4			
+"2730"	273	"Malad Station(W)-Sainath Rd"	5.20	23.40	"MHADA Colony(Malvani)"	5.00	0.05	7	9	10	"All Days"	1			
+"2730"	273	"Malad Station(W)-Sainath Rd"	23.58	2.05	"Malvani Depot "	24.21	1.43				"All Days"	1			
+"2730"	273	"Malad Station(W)-Sainath Rd"	6.00	17.58	"Gaikwad Nagar"	6.00	18.25	8	10	10	"Mon-Sat"	2			
+"2730"	273	"Malad Station(W)-Sainath Rd"	7.20	11.15	"Block No.5"	7.00	11.40	19		19	"Mon-Sat"	2			
+"2730"	273	"Malad Station(W)-Sainath Rd"	16.57	21.20	"MHADA Colony(Malvani)"	17.27	20.32				"Mon-Sat"	2			
+"2730"	273	"Malad Station(W)-Sainath Rd"	6.04	17.43	"Gaikwad Nagar"	5.45	18.27	8	8	8	"Sunday"	4			
+"2730"	273	"Malad Station(W)-Sainath Rd"	23.18	1.36	"Malvani Depot "	23.41	1.13				"Sunday"	4			
+"2730"	273	"Malad Station(W)-Sainath Rd"	17.54	22.53	"MHADA Colony(Malvani)"	18.25	23.19				"Sunday"	4			
+"2730"	273	"Malad Station(W)-Sainath Rd"	6.01	17.41	"Gaikwad Nagar"	5.45	18.21	10	12	10	"Holiday"	4			
+"2730"	273		23.18	1.36	"Malvni Depot"	23.41	1.13				"Holiday"	4			
+"2760"	276	"Charkop Sector No.8"	5.30	23.32	"Kandivli Station(W)"	5.55	24.00	4	6	4	"Mon-Fri"	2			
+"2760"	276	"Charkop Sector No.8"	5.30	23.32	"Kandivli Station(W)"	5.55	24.00	6	9	5	"Saturday"	3			
+"2760"	276	"Charkop Sector No.8"	6.00	23.38	"Kandivli Station(W)"	6.25	24.00	8	7	10	"Sun-Hol"	4			
+"2770"	277	"Kandivli Station(W)"	5.50	22.00	"Borivli Station(W)"	6.16	22.30	6	12	10	"Mon-Sat"	2			
+"2770"	277	"Kandivli Station(W)"			"P.Thakre Nagar Bus Station"	5.35	6.20				"Mon-Sat"	2			
+"2770"	277	"Kandivli Station(W)"	6.30	24.15	"Gorai Depot"	6.53	23.53				"Mon-Sat"	2			
+"2770"	277	"Kandivli Station(W)"	5.55	22.15	"Borivli Station(W)"	6.22	22.35	9	10	8	"Sun-Hol"	4			
+"2770"	277	"Kandivli Station(W)"	22.30	23.00	"P.Thakre Nagar Bus Station"	5.55	6.15				"Sun-Hol"	4			
+"2770"	277	"Kandivli Station(W)"			"P.Thakre Nagar Bus Station"	22.50	1.20				"Sun-Hol"	4			
+"2784"	"278R"	"Poisar Depot "	6.20	21.42	"Malvani MHADA Colony"	6.45	22.25	15	20	17	"Mon-Sat-Hol"	2			
+"2784"	"278R"	"Poisar Depot "	7.10	21.30	"Malvani MHADA Colony"	7.40	22.10	24	23	23	"Sunday"	4			
+"2790"	279	"Kandivli Station(W)Bajaj Rd."	5.30	1.00	"P.Thakre Nagar Bus Stn."	5.10	0.35	12	17	19	"Mon-Sat"	2			
+2790	"279Ext"	"Kandivli Station(W)K.N.Rd."	7.35	10.54	"Gorai Depot"	7.02	11.28	68		68	"Mon-Sat"	2			
+2790	"279Ext"	"Kandivli Station(W)K.N.Rd."	16.42	22.00	"Gorai Depot"	17.20	22.35				"Mon-Sat"	2			
+"2790"	279	"Kandivli Station(W)Bajaj Rd."	5.45	1.00	"P.Thakre Nagar Bus Stn."	5.25	24.35	18	27	30	"Sun-Hol"	4			
+"2800"	280	"kandivli Stn.(W)"	6.35	0.30	"Mahavir Nagar Extn."	6.20	0.17	7	8	9	"Mon-Fri"	2			
+"2800"	280	"kandivli Stn.(W)"	6.35	0.30	"Mahavir Nagar Extn."	6.20	0.13	12	12	10	"Sat-Hol"	3			
+"2800"	280	"Kandivli Stn(W)"	6.35	0.30	"Mahavir Nagar Extn."	6.20	0.17	15	15	12	"Sunday"	4			
+"2810"	281	"Pushpa Park"	6.00	0.25	"Kandivli Station(W)"	5.45	23.40	17	16	18	"Mon-Sat"	2			
+"2810"	281	"Pushpa Park"	6.00	0.25	"Kandivli Station(W)"	5.45	23.40	18	20	28	"Holiday"	4			
+"2810"	281	"Pushpa Park"	6.00	0.20	"Kandivli Station(W)"	6.20	23.40	18	19	20	"Sunday"	4			
+"2820"	282	"Kandivli Bus Station(E)"	4.30	0.45	"Damu Nagar Extn"	4.43	0.45	6	7	9	"Mon-Sat"	2			
+"2820"	282	"Kandivli Bus Station(E)"	4.30	0.45	"Damu Nagar Extn"	4.43	0.40	9	12	10	"Holiday"	4			
+"2820"	282	"Kandivli Bus Station(E)"	4.30	0.45	"Damu Nagar Extn"	4.43	0.40	12	12	13	"Sunday"	4			
+"2830"	283	"Kandivli Station(W)"	6.15	23.00	"Santosh Nagar"	6.00	22.40	8	12	15	"Mon-Fri"	2			
+"2830"	283	"Kandivli Station(W)"	6.15	23.00	"Santosh Nagar"	6.00	22.40	13	15	15	"Sat-Sun"	3			
+"2830"	283	"Kandivli Station(W)"	6.15	23.00	"Santosh Nagar"	6.00	22.40	12	12	10	"Holiday"	4			
+"2844"	"284R"	"Borivli Stn(W)"	6.10	22.35	"Saibaba Nagar"	6.25	22.50	7	8	9	"Mon-Sat"	2			
+"2844"	"284R"	"Borivli Stn.(W)"	6.10	22.10	"Saibaba Nagar"	6.28	22.28	15	23	15	"Sun-Hol"	4			
+"2854"	"285R"	"Kandivli Station(W)"	6.45	22.40	"Via Ekta Bhumi"	6.30	22.53	36	18	19	"All Days"	1			
+"2860"	286	"Kandivli Station(W)"	6.15	23.05	"Charkop Village"	6.00	23.20	13	17	13	"Mon-Sat"	2			
+"2860"	286	"Kandivli Station(W)"	6.53	22.55	"Charkop Village"	6.35	23.12	12	13	15	"Sun-Hol"	4			
+"2870"	287	"Kandivli Bus Station(E)"	4.50	0.30	"E.S.I.S.Hospital/Thakur Village"	5.05	0.15	6	7	5	"Mon-Sat"	2			
+"2870"	287	"Kandivli Bus Station(E)"	7.00	9.39	"Thakur Cinema"	7.15	9.57				"Mon-Sat"	2			
+"2870"	287	"Kandivli Bus Station(E)"	5.10	0.30	"E.S.I.S.Hospital/Thakur Village"	5.25	0.10	7	9	7	"Sun-Hol"	4			
+"2880"	288	"Kandivli Bus Station(E)"	5.17	24.00	"Kranti Nagar"	5.30	23.45	5	7	5	"Mon-Sat-Hol"	2			
+"2880"	288	"Kandivli Bus Station(E)"	7.03	23.38	"Kranti Nagar"	7.19	23.23				"Mon-Sat"	2			
+"2880"	288	"Kandivli Bus Station(E)"	5.30	24.00	"Kranti Nagar"	5.45	23.45	6	5	8	"Sunday"	4			
+"2894"	"289R"	"Kandivli Bus Station(E)"	5.20	23.25	"Green Hill(Anita Nagar)"	5.33	23.05	7	7	9	"Mon-Sat"	2			
+"2894"	"289R"	"Kandivli Bus Station(E)"	5.35	23.35	"Green Hill(Anita Nagar)"	5.49	23.14	9	12	10	"Holiday"	4			
+"2894"	"289R"	"Kandivli Bus Station(E)"	5.35	23.35	"Green Hill(Anita Nagar)"	5.49	23.15	12	13	13	"Sunday"	4			
+"2901"	"290Ltd"	"Seepz Bus Station"	7.05	22.40	"Poisar Depot"	6.00	21.00	27	36	27	"Mon-Sat"	2			
+"2901"	"290Ltd"	"Seepz Bus Station"	7.15	22.35	"Poisar Depot"	6.00	21.00	30	32	32	"Sun-Hol"	4			
+"2914"	"291R"	"Kandivli Stataion(W)"	6.15	13.05	"Industrial Estate"	6.35	13.00	28		27	"Mon-Sat-Hol"	2			
+"2914"	"291R"		16.40	21.30		17.04	22.10				"Mon-Sat-Hol"	2			
+"2920"	292	"Borivli Station(W)"	7.37	11.04	"Shimpoli Village"	7.20	11.04	16		15	"Mon-Sat"	2			
+"2920"	292		16.40	20.11		16.55	19.54				"Mon-Sat"	2			
+"2930"	293	"Borivli Stn(E)"	6.15	23.25	"Jagardev Compound"	6.00	23.05	10	16	12	"Mon-Sat-Hol"	2			
+"2930"	293	"Borivli Stn(E)"	7.00	22.30	"Jagardev Compound"	6.45	22.05	9	14	16	"Sunday"	4			
+"2944"	"294R"	"Borivli Bus Station(W)"	6.15	22.45	"Shimpoli Telephone Exchange"	" "	" "	14	18	12	"Mon-Sat"	2			
+"2944"	"294R"	"Borivli Bus Station(W)"	6.35	22.35	"Shimpoli Telephone Exchange"	" "	" "	10	9	10	"Sun-Hol"	4			
+"2950"	295	"Kandivli Stn(W)"	6.45	21.05	"Dattani Gram/Kandivli(W)"	7.00	21.20		32	36	"All Days"	1			
+"2964"	"296R"	"Shanti Ashram"	6.05	21.45	"Shanti Ashram Via Mahaveer Ext"	6.00	22.15	15	19	16	"Mon-Sat-Hol"	2			
+"2964"	"296R"	"Shanti Ashram"	6.10	21.40	"Shanti Ashram Via Mahaveer Ext"	6.00	21.36	15	16	17	"Sunday"	4			
+"2970"	297	"Borivli Station(E)"	5.50	0.35	"Kokanipada Extn."	5.30	0.15	5	7	8	"Mon-Sat"	2			
+"2970"	297	"Borivli Station(E)"	5.45	0.35	"Kokanipada Extn."	5.30	0.15	9	10	11	"Sun-Hol"	4			
+"2980"	298	"Borivli Station(E)"	4.55	1.10	"Rawalpada"	4.40	0.46	6	7	5	"Mon-Sat"	2			
+"2980"	298	"Borivli Station(E)"	4.55	1.10	"Rawalpada"	4.40	0.51	6	5	5	"Sun-Hol"	4			
+"2990"	299	"Borivli Station(E)"	6.24	21.45	"Jai Maharashtra Nagar"	6.15	22.00	11	12	16	"All Days"	1			
+"3004"	"300R"	"Kandivli Bus Station(E)"	5.15	0.05	"Sanskriti Apartment Extn"	5.30	23.41	6	8	10	"Mon-Fri"	2			
+"3004"	"300R"	"Kandivli Bus Station(E)"	5.15	0.05	"Sanskriti Apartment Extn"	5.30	23.45	8	10	8	"Saturday"	3			
+"3004"	"300R"	"Kandivli Bus Station(E)"	5.15	0.05	"Sanskriti Apartment Extn"	5.30	23.45	10	11	12	"Sun-Hol"	4			
+"3010"	301	"Borivli Station(E)/Kasturba Rd"	6.00	23.50	"Hanuman Tekdi"	5.45	0.04	4	5	7	"Mon-Sat"	2			
+"3010"	301	"Borivli Station(E)/Kasturba Rd"	6.32	23.50	"Hanuman Tekdi"	6.15	0.05	8	7	6	"Holiday"	4			
+"3010"	301	"Borivli Station(E)/Kasturba Rd"	6.32	23.50	"Hanuman Tekdi"	6.15	24.05	8	6	8	"Sunday"	4			
+"3020"	302	"Prateeksha Nagar Depot "	4.50	23.45	"M.P.Chk.(Mulund)"	6.15	1.05	15	21	18	"Mon-Sat"	2			
+"3020"	302	"Prateeksha Nagar Depot"	4.50	23.45	"M.P.Chk.(Mulund)"	6.15	1.05	15	20	17	"Sun-Hol"	4			
+"3030"	303	"Bandra Terminus"	6.00	9.50	"MHADA Bus Station(Mulund-E)"	6.25	11.40	13	18	15	"Mon-Sat"	2			
+"3030"	303	"Bandra Terminus"	16.09	19.00	"MHADA Bus Station(Mulund-E)"	18.05	20.55				"Mon-Sat"	2			
+"3030"	303	"Kalanagar"	5.20	5.40	"MHADA Bus Station(Mulund-E)"						"Mon-Sat"	2			
+"3030"	303	"Bandra Terminus"	10.05	15.55	"Mulund Rly Station(W)"	11.50	17.40				"Mon-Sat"	2			
+"3030"	303	"Bandra Terminus"	19.20	22.00	"Gavanpada"						"Mon-Sat"	2			
+"3030"	303	"Kalanagar"	" "	" "	"Gavanpada"	21.07	23.35				"Mon-Sat"	2			
+"3030"	303	"Bandra Terminus"	6.15	19.10	"MHADA Bus Station(Mulund-E)"	6.35	20.50	18	18	17	"Sun-Hol"	4			
+"3030"	303	"Kalanagar"	5.30	5.53	"MHADA Bus Station(Mulund-E)"	" "	" "				"Sun-Hol"	4			
+"3030"	303	"Bandra Terminus"	19.26	22.00	"Gavanpada"						"Sun-Hol"	4			
+"3030"	303	"Kalanagar"			"Gavanpada"	21.10	22.10				"Sun-Hol"	4			
+"3040"	304	"Santacruz Depot"	6.30	11.55	"Kurla Stn.(W)"	7.25	12.55	40		33	"All Days"	1			
+"3040"	304	" "	15.45	20.05	" "	16.50	21.05				"All Days"	1			
+"3050"	305	"Ghatkopar Depot"	5.25	6.18	"Vasantrao Naik Chowk"	6.30	7.30	23	25	30	"Mon-Fri"	2			
+"3050"	305	"Ghatkopar Depot"	21.10	" "	"Vasantrao Naik Chowk"	23.00	" "				"Mon-Fri"	2			
+"3050"	305	"Ghatkopar Depot"	6.35	20.40	"Tardeo Bus Stn."	7.50	22.40				"Mon-Fri"	2			
+"3050"	305	"Ghatkopar Depot"	11.15	13.46	"Com.P.K.Kurne Chowk"	12.35	15.10				"Mon-Fri"	2			
+"3050"	305	"Ghatkopar Depot"	6.00	6.18	"Vasantrao Naik Chowk"	7.10	7.30	22	23	25	"Saturday"	3			
+"3050"	305	"Ghatkopar Depot"	21.10		"Vasantrao Naik Chowk"	23.00					"Saturday"	3			
+"3050"	305	"Ghatkopar Depot"	6.35	20.40	"Tardeo Bus Stn."	7.50	22.40				"Saturday"	3			
+"3050"	305	"Ghatkopar Depot"	11.15	13.45	"Com.P.K.Kurne Chowk"	12.35	15.10				"Saturday"	3			
+"3050"	305	"Ghatkopar Depot"	5.25	6.17	"Vasantrao Naik Chowk"	6.30	7.30	25	23	22	"Sun-Hol"	4			
+"3050"	305	"Ghatkopar Depot"	21.10	21.30	"Vasantrao Naik Chowk"	22.45	23.05				"Sun-Hol"	4			
+"3050"	305	"Ghatkopar Depot"	6.35	21.50	"Tardeo Bus Stn."	7.50	23.35				"Sun-Hol"	4			
+"3061"	"306Ltd"	"Santacruz Station(E)"	6.40	20.10	"Mulund Stn.(W)"	6.40	18.25	19	26	30	"Mon-Fri"	2			
+"3061"	"306Ltd"	"Santacruz Station(E)"	6.40	20.00	"Mulund Stn.(W)"	6.40	18.05	24	28	" "	"Saturday"	3			
+"3061"	"306Ltd"	"Santacruz Station(E)"	6.40	20.00	"Mulund Stn.(W)"	7.10	18.25	24	28	" "	"Sun-Hol"	4			
+"3070"	307	"Vaishali Nagar(Mulund)"	6.00	0.40	"Marol Depot"	4.55	23.35	23	26	27	"Mon-Sat"	2			
+"3070"	307	"Vaishali Nagar(Mulund)"	6.00	0.40	"Marol Depot"	5.00	23.35	41	33	36	"Sunday"	4			
+"3070"	307	"Vaishali Nagar(Mulund)"	6.00	0.40	"Marol Depot"	4.50	23.35	25	28	31	"Holiday"	4			
+"3080"	308	"Vidyavihar Bus Station"	6.15	23.30	"Majas Depot"	5.10	22.10	22	29	26	"Mon-Sat"	2			
+"3080"	308	"Chh.Shivaji Int.Air-Port"	8.40	19.16	"Agarkar Chowk"	9.07	19.50	17	21		"Mon-Sat"	2			
+3082	"308Ext"	"Vidyavihar Bus Station"	16.04	21.00	"Sahara Cargo Complex"	17.08	22.05		30	25	"Mon-Sat"	2			
+3082	"308Ext"	"Vidyavihar Bus Station"	7.30	12.00	"Sahara Cargo Complex"	18.25	12.55	27			"Mon-Sat"	2			
+3082	"308Ext"	"Vidyavihar Bus Station"	6.40	23.30	"Majas Depot"	5.30	22.10	23	22	23	"Sunday"	4			
+3082	"308Ext"	"Vidyavihar Bus Station"	6.15	23.30	"Majas Depot"	5.10	22.10	23	22	23	"Holiday"	4			
+"3091"	"309Ltd"	"Kurla Station(W)"	6.45	22.45	"Gorai Depot"	5.10	21.05	21	27	25	"Mon-Sat"	2			
+"3091"	"309Ltd"	"Kurla Station(W)"	6.35	22.30	"Gorai Depot"	5.10	20.55	28	26	27	"Sunday"	4			
+"3091"	"309Ltd"	"Kurla Station(W)"	6.45	22.40	"Gorai Depot"	5.10	20.55	31	31	29	"Holiday"	4			
+"3100"	310	"Kurla Station(W)"	5.10	0.50	"Bandra Terminus"	5.30	0.20	3	4	5	"Mon-Fri"	2			
+"3100"	310	"Telephone Store"	18.06	19.38	"Bandra Terminus"	17.42	19.14				"Mon-Fri"	2			
+"3100"	310	"Kurla Station(W)"	17.38	19.13	"Family Court"	18.03	19.38				"Mon-Fri"	2			
+"3100"	310	"Kurla Station(W)"	5.10	0.50	"Bandra Terminus"	5.30	0.20	3	4	5	"Saturday"	3			
+"3100"	310	"Kurla Station(W)"	5.10	1.00	"Bandra Terminus"	5.35	0.30	4	4	4	"Sunday"	4			
+"3100"	310										"Sunday"	4			
+"3100"	310	"Kurla Station(W)"	5.10	1.00	"Bandra Terminus"	5.30	0.30	5	5	5	"Holiday"	4			
+"3110"	311	"Santacruz Statin(E)"	5.10	1.07	"Air-India Colony"	5.25	1.20	11	15	11	"All Days"	1			
+"3110"	311	"Kurla Station(W)"	6.20	0.15	"Air-India Colony"	6.45	1.38	18	27	20	"Mon-Sat"	2			
+"3110"	311	"Kurla Station(W)"	6.15	1.15	"Air-India Colony"	6.40	1.38	27	27	20	"Sun-Hol"	4			
+"3120"	312	"Prateeksha Nagar Depot"	4.50	22.45	"SEEPZ Bus Station"	6.05	0.10	19	9	8	"Mon-Sat"	2			
+"3120"	312	"Prateeksha Nagar Depot"	4.50	22.45	"SEEPZ Bus Station"	6.05	0.10	21	21	21	"Sun-Hol"	4			
+"3130"	313	"Kurla Station(W)"	5.15	0.45	"Santacruz Station(E)"	4.55	0.15	4	4	5	"Mon-Fri"	2			
+"3130"	313	"Kalina"	8.50	10.50	"Santacruz Station(E)"	8.40	10.40				"Mon-Fri"	2			
+"3130"	313	"Kalina"	17.06	20.00	"Santacruz Station(E)"	16.55	19.48				"Mon-Fri"	2			
+"3130"	313	"Kurla Station(W)"	5.15	0.45	"Santacruz Station(E)"	4.55	0.15	4	5	5	"Saturday"	3			
+"3130"	313	"Kalina"	8.50	10.50	"Santacruz Station(E)"	8.40	10.40				"Saturday"	3			
+"3130"	313	"Kalina"	17.06	19.26	"Santacruz Station(E)"	16.55	19.15				"Saturday"	3			
+"3130"	313	"Kurla Station(W)"	5.15	0.40	"Santacruz Station(E)"	4.55	0.10	5	5	4	"Sun-Hol"	4			
+"3130"	313										"Sun-Hol"	4			
+"3140"	314	"Shravane Yashwante Chowk"	8.40		"Raja Shivaji Vidyalaya"	15.15					"Mon-Sat"	2			
+"3140"	314		9.00			16.10					"Mon-Sat"	2			
+"3140"	314		15.40								"Mon-Sat"	2			
+"3150"	315	"Maheshwari Udyan"	5.50	20.45	"Santacruz Station(E)"	6.40	21.50	52	49	49	"Mon-Sat-Hol"	2			
+"3150"	315	"Maheshwari Udyan"	8.15	20.45	"Santacruz Station(E)"	9.05	21.35	48	48	53	"Sunday"	4			
+"3160"	316	"Bandra Terminus"	6.40	22.32	"Bandra Colony Bus Stn"	6.15	22.10	9	8	6	"Mon-Fri"	2			
+"3160"	316	"Bandra Terminus"	6.40	22.23	"Bandra Colony Bus Stn"	6.15	22.00	11	6	11	"Saturday"	3			
+"3160"	316	"Bandra Terminus"	7.24	22.32	"Bandra Colony Bus Stn"	7.00	22.00	18	18	17	"Sun-Hol"	4			
+"3170"	317	"Bandra Terminus"	5.45	23.50	"Tata Colony(Bandra)"	5.20	0.10	10	18	10	"All Days"	1			
+"3180"	318	"Kurla Station(W)"	7.30	19.45	"Santacruz Station(E)"	7.35	19.00	18	29	29	"Mon-Fri"	2			
+"3180"	318	"Kurla Station(W)"	8.30	20.10	"Vidyanagari Plot No.4"	8.50	20.30	21	" "	23	"Mon-Sat"	2			
+"3180"	318	"Kurla Station(W)"	8.00	19.45	"Santacruz Station(E)"	7.35	19.05	18	21	24	"Saturday"	3			
+"3190"	319	"Agarkar Chowk"	6.40	23.25	"MHADA Colony(Chandivli)"	6.05	23.06	16	16	18	"Mon-Sat-Hol"	2			
+"3190"	319	"Agarkar Chowk"	6.40	23.20	"MHADA Colony(Chandivli)"	6.05	22.55	14	15	17	"Sunday"	4			
+"3200"	320	"Kurla Station(W)"	4.55	24.00	"Filterpada"	4.55	0.30	7	12	8	"Mon-Sat"	2			
+"3200"	320	"Kurla Station(W)"	4.55	24.00	"Filterpada"	4.55	0.30	7	12	8	"Sunday"	4			
+"3200"	320	"Kurla Station(W)"	5.10	24.00	"Filterpada"	5.00	0.30	10	12	8	"Holiday"	4			
+"3211"	"321Ltd"	"Mahim Bus Station"	5.15	22.05	"Barve Nagar"	5.55	22.10	21	24	22	"Mon-Fri"	2			
+"3211"	"321Ltd"	"Bandra Depot"	4.55	22.05	"Barve Nagar"	22.30	23.45				"Mon-Fri"	2			
+"3211"	"321Ltd"	"Mahim Bus Station"	5.15	22.05	"Barve Nagar"	5.55	22.20	24	27	29	"Saturday"	3			
+"3211"	"321Ltd"	"Mahim Bus Station"	5.15	22.05	"Barve Nagar"	5.55	22.00	26	20	21	"Sun-Hol"	4			
+"3211"	"321Ltd"	"Bandra Depot"	4.55		"Barve Nagar"						"Sun-Hol"	4			
+"3220"	322	"Vidyavihar Bus Station"	5.35	20.25	"Mahant Road(Parle-E)"	5.55	21.20	19	21	26	"Mon-Fri"	2			
+"3220"	322	"Vidyavihar Bus Station"	20.49	23.15	"Terminal Building"	21.37	22.51				"Mon-Fri"	2			
+"3220"	322	"Vidyavihar Bus Station"	5.35	20.30	"Mahant Road(Parle-E)"	5.55	21.25	23	26	35	"Sat-Sun-Hol"	3			
+"3220"	322	"Vidyavihar Bus Station"	21.05	21.15	"Terminal Building"	21.55	23.00				"Sat-Sun-Hol"	3			
+"3230"	323	"Vidyavihar Bus Station"	6.50	21.55	"Sangharsh Nagar"	6.15	22.30	25	34	26	"Mon-Sat"	2			
+"3230"	323	"Vidyavihar Bus Station"	7.05	22.00	"Sangharsh Nagar"	6.50	22.35	23	23	25	"Sunday"	4			
+"3230"	323	"Vidyavihar Bus Station"	7.05	22.00	"Sangharsh Nagar"	6.50	22.35	27	23	19	"Holiday"	4			
+"3240"	324	"Com.P.K.Kurne Chowk"	6.00	23.15	"Marol Maroshi Bus Stn."	6.00	21.45	24	30	26	"Mon-Sat"	2			
+"3240"	324	"Com.P.K.Kurne Chowk"	6.00	23.15	"Marol Maroshi Bus Stn."	6.00	21.50	23	28	26	"Sun-Hol"	4			
+"3250"	325	"Kurla Station(W)"	6.00	23.40	"Ghatkopar Station(W) "	5.20	22.50	18	20	19	"Mon-Sat"	2			
+"3250"	325	"Kurla Station(W)"	6.25	23.35	"Ghatkopar Station(W)"	5.45	22.45	29	29	31	"Sun-Hol"	4			
+"3260"	326	"Kurla Station(W)"	7.50	22.15	"Shivshahi Prakalp"	6.30	20.25	28	35	35	"Mon-Sat"	2			
+"3260"	326	"Kurla Station(W)"	7.50	21.50	"Shivshahi Prakalp"	6.30	20.10	31	37	39	"Sun-Hol"	4			
+"3270"	327	"Goregaon Bus Station(E)"	6.15	23.30	"Shivshahi Prakalp"	5.50	23.04	10	14	14	"Mon-Sat"	2			
+"3270"	327	"Goregaon Bus Station(E)"	6.24	23.30	"Shivshahi Prakalp"	6.00	22.59	18	20	17	"Sun-Hol"	4			
+"3280"	328	"Bamandaya Pada"	6.30	22.00	"Yari road/Vesave Bus Stn"	6.45	21.00	21	28	29	"Mon-Sat"	2			
+"3280"	328	"Bamandaya Pada"	7.30	21.50	"Yari road/Vesave Bus Stn"	8.00	20.55	26	29	29	"Sun-Hol"	4			
+"3290"	329	"Shivaji Nagar Bus Station"	5.50	21.00	"Agarkar Chowk"	7.10	22.35	25	28	23	"Mon-Sat"	2			
+"3290"	329	"Shivaji Nagar Bus Station"	6.00	21.00	"Agarkar Chowk"	7.10	22.25	20	17	18	"Sun-Hol"	4			
+"3301"	"330Ltd"	"Kurla Station(W)"	6.00	20.50	"Seven Bungalow"	6.30	21.15	22	23	25	"All Days"	1			
+"3320"	332	"Kurla Station(W)"	4.20	1.40	"Agarkar Chowk"	4.05	1.05	9	13	19	"Mon-Sat"	2			
+"3320"	332	" "			"Agarkar Chowk"			9	10	10	"Mon-Sat"	2			
+"3320"	332	"Kurla Station(W)"	7.37	11.46	"Saki Naka"	8.07	12.19		25	" "	"Mon-Sat"	2			
+"3320"	332	"Kurla Station(W)"	16.00	20.35	"Saki Naka"	16.35	21.10				"Mon-Sat"	2			
+"3320"	332	"Kurla Station(W)"	8.15	19.57	"Marol Naka"	8.50	20.37	12	13	14	"Mon-Sat"	2			
+"3320"	332	"Kurla Station(W)"	4.20	1.40	"Agarkar Chowk"	4.05	1.06	16	16	13	"Sunday"	4			
+"3320"	332	" "						8	7	6	"Sunday"	4			
+"3320"	332	"Kurla Station(W)"	4.20	1.40	"Agarkar Chowk"	4.05	1.05	9	11	10	"Holiday"	4			
+"3320"	332	" "	" "	" "	" "	" "	" "	5	5	6	"Holiday"	4			
+"3330"	333	"New Quarters(Sahar)"	5.35	0.25	"Mahakali Caves"	5.15	24.00	7	9	9	"Mon-Sat-Hol"	2			
+"3330"	333	"New Quarters(Sahar)"	6.15	0.25	"Mahakali Caves"	5.50	0.05	7	10	7	"Sunday"	4			
+"3340"	334	"Ghatkopar Station(W)"	6.10	20.20	"Marol Depot"	5.40	21.30	8	16	11	"Mon-Sat-Hol"	2			
+"3350"	335	"Agarkar Chowk"	6.05	24.30	"Chandivli Sangharsh Nagar"	5.30	23.50	13	15	15	"Mon-Sat-Hol"	2			
+"3350"	335	"Agarkar Chowk"	6.20	0.30	"Chandivli Sangharsh Nagar"	6.00	23.45	14	14	16	"Sunday"	4			
+"3360"	336	"J.V.P.D.Bus Station"	6.10	21.25	"Vidyavihar Bus Stn."	6.05	22.40	24	29	27	"Mon-Sat"	2			
+"3360"	336	"J.V.P.D.Bus Station"	5.50	21.05	"Vidyavihar Bus Stn"	6.45	22.10	20	22	21	"Sunday"	4			
+"3360"	336	"J.V.P.D.Bus Station"	5.50	21.05	"Vidyavihar Bus Stn"	6.45	22.10	24	26	21	"Holiday"	4			
+"3380"	338	"Agarkar Chowk"	6.30	23.25	"Sahara Cargo Complex"	6.10	23.40	8	13	10	"Mon-Sat"	2			
+"3380"	338	"Agarkar Chowk"	6.45	23.20	"Sahara Cargo Complex"	6.25	23.35	6	9	10	"Holiday"	4			
+"3380"	338	"Agarkar Chowk"	6.45	23.20	"Sahara Cargo Complex"	6.25	23.35	8	15	11	"Sunday"	4			
+"3390"	339	"Juhu Bus Station"	7.05	21.40	"Majas Depot"	6.50	20.20	25	29	17	"Mon-Sat"	2			
+"3390"	339	"Santacruz Depot"	5.25	17.35	"Majas Depot"	6.15	16.20	29	30	30	"Mon-Sat"	2			
+"3390"	339	"Juhu Bus Station"	7.25	21.25	"Majas Depot"	7.20	20.11	20	34	18	"Sun-Hol"	4			
+"3390"	339	"Santacruz Depot"	" "		"Majas Depot"	20.38	22.30				"Sun-Hol"	4			
+"3390"	339	"Santacruz Depot"	5.45	14.46	"Majas Depot"	6.30	15.41	30	36	24	"Sun-Hol"	4			
+"3400"	340	"Ghatkopar Station(W)"	4.30	1.15	"Agarkar Chowk"	5.00	1.35	5	6	5	"Mon-Sat"	2			
+"3400"	340	"Ghatkopar Station(W)"	6.15	22.35	"Agarkar Chowk"	6.40	23.20	13	12	15	"Mon-Sat"	2			
+"3400"	340	"Ghatkopar Station(W)"	7.45	11.40	"Asalfa Village"	8.05	12.02				"Mon-Sat"	2			
+"3400"	340		16.12	22.40		16.36	20.46				"Mon-Sat"	2			
+"3400"	"340Ext"	"Agarkar Chowk"	6.30	8.28	"Barve Nagar"	7.00	9.05	30		42	"Mon-Sat-Hol"	2			
+"3400"	"340Ext"	"Agarkar Chowk"	8.55	9.58	"Ghatkopar Stn(W)"	9.43	10.51				"Mon-Sat-Hol"	2			
+"3400"	"340Ext"	"Agarkar Chowk"	16.30	" "	"Ghatkopar Stn(W)"	17.25	" "				"Mon-Sat-Hol"	2			
+"3400"	340	"Ghatkopar Station(W)"	4.30	1.10	"Agarkar Chowk"	5.00	1.35	7	4	5	"Holiday"	4			
+"3400"	340	"Ghatkopar Station(W)"	4.30	1.05	"Agarkar Chowk"	5.00	1.35	8	9	8	"Sunday"	4			
+"3400"	340	"Ghatkopar Station(W)"	6.55	22.33	"Agarkar Chowk"	7.28	23.10	5	7	8	"Holiday"	4			
+"3400"	340	"Ghatkopar Station(W)"	6.55	22.30	"Agarkar Chowk"	7.28	23.10	7	8	9	"Sunday"	4			
+"3410"	341	"Antop Hill"	5.50	0.20	"Dindoshi Bus Station"	4.45	22.55	19	19	20	"Mon-Sat"	2			
+"3410"	341	"Antop Hill"	5.45	0.20	"Dindoshi Bus Station"	4.40	23.00	18	14	14	"Sun-Hol"	4			
+"3420"	342	"Goregaon Bus Station(E)"	6.55	23.30	"Kokan Vikas"	6.30	23.00	52	59	62	"All Days"	1			
+"3430"	343	"Goregaon Bus Station(E)"	5.47	2.00	"Santosh Nagar Extn"	5.30	1.40	6	9	9	"Mon-Sat"	2			
+"3430"	343	"Goregaon Bus Station(E)"	6.30	22.55	"Dadasaheb Phalke Film City"	6.50	23.15	13	18	19	"Mon-Sat"	2			
+"3430"	343	"Goregaon Bus Station(E)"	6.30	22.55	"Dadasaheb Phalke Film City"	6.50	23.15	17	17	19	"Sun-Hol"	4			
+"3430"	343	"Goregaon Bus Station(E)"	5.46	2.00	"Santosh Nagar Extn"	5.30	1.36	9	9	6	"Sun-Hol"	4			
+"3444"	"344R"	"Goregaon Bus Station(E)"	5.15	0.15	"N.N.P.Plot No.5(Sankalp Soc.)"	5.00	23.50	5	6	5	"Mon-Sat"	2			
+"3444"	"344R"	"Goregaon Bus Station(E)"	7.18	10.32	"Wagheshwari Mandir"	7.00	10.48				"Mon-Sat"	2			
+"3444"	"344R"	"Goregaon Bus Station(E)"	16.49	20.56	"Shivshahi Prakalp"	17.17	20.29				"Mon-Sat"	2			
+"3444"	"344R"	"Goregaon Bus Station(E)"	5.15	0.15	"N.N.P.Plot No.5(Sankalp Soc.)"	5.00	23.53	7	7	7	"Sun-Hol"	4			
+"3450"	345	"Santosh Nagar Extn"	6.15	21.32	"P.Thakre Nagar Bus Station"	7.05	22.35	9	14	12	"Mon-Sat"	2			
+"3450"	345	"Santosh Nagar Extn"	20.00	23.35	"Gorai Depot"	5.15	6.50				"Mon-Sat"	2			
+"3450"	345	"Santosh Nagar Extn"	6.30	23.35	"P.Thakre Nagar Bus Station"	5.40	22.35	13	15	15	"Sun-Hol"	4			
+"3460"	346	"Goregaon Bus Station(E)"	4.45	1.50	"N.N.P.Zone No.1&2"	4.30	1.30	6	7	7	"Mon-Sat"	2			
+"3460"	346	"Goregaon Bus Station(E)"	18.05	22.00	"Shivshahi Prakalp"	18.30	22.17				"Mon-Sat"	2			
+"3460"	346	"Goregaon Bus Station(E)"	5.05	1.50	"N.N.P.Zone No.1&2"	4.50	1.27	10	8	8	"Sun-Hol"	4			
+"3460"	346	"Goregaon Bus Station(E)"	17.55	22.10	"Shivshahi Prakalp"	18.23	22.32				"Sun-Hol"	4			
+"3474"	"347R"	"Goregaon Bus Station(E)"	6.20	23.05	"Gokuldham Extn"	6.00	23.25	7	11	8	"Mon-Sat"	2			
+"3474"	"347R"	"Goregaon Bus Station(E)"	6.20	23.10	"Gokuldham Extn"	6.00	23.30	11	12	13	"Holiday"	4			
+"3474"	"347R"	"Goregaon Bus Station(E)"	6.20	23.05	"Gokuldham Extn"	6.00	23.25	15	14	17	"Sunday"	4			
+"3481"	"348Ltd"	"Chunabhatti"	6.10	9.07	"Dahisar Bus Stn"	7.05	10.57	10	10	10	"Mon-Fri-Hol"	2			
+"3481"	"348Ltd"	"Chunabhatti"	6.25	22.00	"Borivli Stn(E)"	5.00	20.10				"Mon-Fri-Hol"	2			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	5.33	5.57	"Dahisar Bus Stn"						"Mon-Fri-Hol"	2			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	4.00	23.35	"Borivli Stn(E)"	20.22	24.55				"Mon-Fri-Hol"	2			
+"3481"	"348Ltd"	"Chunabhatti"	6.15	8.58	"Dahisar Bus Stn"	7.05	10.57	10	12	11	"Saturday"	3			
+"3481"	"348Ltd"	"Chunabhatti"	7.45	22.00	"Borivli Stn(E)"	5.00	22.17				"Saturday"	3			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	5.45	6.00	"Dahisar Bus Stn"						"Saturday"	3			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	4.00	23.35	"Borivli Stn(E)"	20.29	0.55				"Saturday"	3			
+"3481"	"348Ltd"	"Chunabhatti"	6.29	8.52	"Dahisar Bus Stn"	7.02	10.50	11	12	12	"Sunday"	4			
+"3481"	"348Ltd"	"Chunabhatti"	6.15	22.00	"Borivli Stn(E)"	5.00	20.11				"Sunday"	4			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	5.40	6.05	"Dahisar Bus Stn"	" "					"Sunday"	4			
+"3481"	"348Ltd"	"Rani Laxmi Chowk"	4.00	23.35	"Borivli Stn(E)"	20.24	0.55				"Sunday"	4			
+"3490"	349	"Kurla Station(W)"	5.40	21.45	"Santosh Nagar Extn"	4.30	20.05	20	24	24	"Mon-Sat"	2			
+"3490"	349	"Kurla Station(W)"	5.40	21.40	"Santosh Nagar Extn"	4.30	20.00	21	25	23	"Sun-Hol"	4			
+"3500"	350	"Shivaji Nagar Bus Station"	6.10	0.20	"Kurla Station(E)"	6.40	0.40	8	5	5	"All Days"	1			
+"3510"	351	"Mumbai Central Depot"	5.05	22.30	"TATA Power Station"	6.10	23.50	11	15	16	"Mon-Fri"	2			
+"3510"	351	"Mumbai Central Depot"	5.05	22.30	"TATA Power Station"	6.10	23.50	14	19	14	"Saturday"	3			
+"3510"	351	"Mumbai Central Depot"	5.05	22.30	"TATA Power Station"	6.10	23.50	20	16	18	"Sunday"	4			
+"3510"	351	"Mumbai Central Depot"	5.05	22.30	"TATA Power Station"	6.10	23.50	21	20	20	"Holiday"	4			
+"3520"	352	"Trombay"	5.10	0.20	"Rani Laxmi Chowk"	5.00	0.55	14	18	17	"Mon-Sat"	2			
+"3520"	352	"Trombay"	6.02	0.15	"Rani Laxmi Chowk"	5.30	0.55	12	9	12	"Sun-Hol"	4			
+"3530"	353	"Wadala Depot"	5.15	21.20	"Tagore Nagar No.5"	6.05	22.20	18	25	21	"Mon-Sat"	2			
+"3530"	353	"Wadala Depot"	5.35	21.25	"Tagore Nagar No.5"	6.20	22.20	23	20	25	"Sun-Hol"	4			
+"3540"	354	"R.G.Gadkari Chowk"	6.20	24.00	"Kannamwar Nagar No.2"	5.30	23.05	24	27	25	"Mon-Sat"	2			
+"3540"	354	"R.G.Gadkari Chowk"	6.40	24.00	"Kannamwar Nagar No.2"	5.45	23.00	24	23	24	"Sun-Hol"	4			
+"3551"	"355Ltd"	"Trombay"	6.25	21.30	"Seven Bungalow"	7.25	21.35	18	20	22	"Mon-Sat"	2			
+"3551"	"355Ltd"	"Deonar Depot"	12.33	20.01	"Seven Bungalow"	19.45	23.10				"Mon-Sat"	2			
+"3551"	"355Ltd"	"Deonar Depot"	6.00	6.50	"Yari Road Bus Station"	22.15	23.30				"Mon-Sat"	2			
+"3551"	"355Ltd"	"Trombay"	20.23	21.55	"Yari Road Bus Station"	7.05	8.05				"Mon-Sat"	2			
+"3551"	"355Ltd"	"Trombay"	20.38	21.50	"Yari Road Bus Station"	7.05	8.18	19	21	17	"Sun-Hol"	4			
+"3551"	"355Ltd"	"Trombay"	6.15	21.32	"Seven Bungalow"	7.28	21.30				"Sun-Hol"	4			
+"3551"	"355Ltd"	"Deonar Depot"	6.00	7.08	"Yari Road Bus Station"	22.20	23.25				"Sun-Hol"	4			
+"3551"	"355Ltd"	"Trombay"	17.40	18.55	"Juhu Beach"	19.15	20.30		25	25	"Sunday"	4			
+"3561"	"356Ltd"	"TATA Power Station"	7.00	11.45	"Santacruz Depot"	6.00	10.05	14	15	19	"Mon-Sat"	2			
+"3561"	"356Ltd"	"TATA Power Station"	16.04	21.30	"Santacruz Depot"	14.35	19.28				"Mon-Sat"	2			
+"3561"	"356Ltd"	"TATA Power Station"	0.05		"Santacruz Depot"	23.05					"Mon-Sat"	2			
+"3561"	"356Ltd"	"Refineries"	12.13	15.46	"Santacruz Depot"	10.26	14.17				"Mon-Sat"	2			
+"3561"	"356Ltd"	"Refineries"	21.30	23.45	"Santacruz Depot"	19.46	22.45	26	22	21	"Mon-Sat"	2			
+"3561"	"356Ltd"	"TATA Power Station"	7.10	11.04	"Santacruz Depot"	6.10	9.59	24	20	25	"Sun-Hol"	4			
+"3561"	"356Ltd"	"TATA Power Station"	15.40	21.05	"Santacruz Depot"	14.32	19.50				"Sun-Hol"	4			
+"3561"	"356Ltd"	"TATA Power Station"	0.05		"Santacruz Depot"	23.10					"Sun-Hol"	4			
+"3561"	"356Ltd"	"Refineries"	11.30	15.15	"Santacruz Depot"	10.25	14.10				"Sun-Hol"	4			
+"3561"	"356Ltd"	"Refineries"	21.27	23.38	"Santacruz Depot"	20.15	22.40				"Sun-Hol"	4			
+"3570"	357	"Mumbai Central Depot"	6.25	23.35	"Shivaji Nagar Bus Station"	5.10	21.55	10	12	13	"Mon-Sat"	2			
+"3570"	357	"Com.P.K.Kurne Chowk"	13.00	16.18	"Shivaji Nagar Bus Station"	11.40	14.58				"Mon-Sat"	2			
+"3570"	357	"Vasantarao Naik Chowk"	23.50	24.05	"Shivaji Nagar Bus Station"	22.13	22.30				"Mon-Sat"	2			
+"3570"	357	"Mumbai Central Depot"	6.50	23.33	"Shivaji Nagar Bus Station"	5.30	21.50	12	12	14	"Holiday"	4			
+"3570"	357	"Mumbai Central Depot"	6.50	23.35	"Shivaji Nagar Bus Station"	5.30	21.50	11	12	12	"Sunday"	4			
+"3591"	"359Ltd"	"Saki Naka"	7.15	22.30	"Malvani Depot"	6.10	21.00	15	18	15	"Mon-Sat"	2			
+"3591"	"359Ltd"	"Saki Naka"	7.35	22.30	"Malvani Depot"	6.30	21.00	15	18	15	"Sunday"	4			
+"3591"	"359Ltd"	"Saki Naka"	7.35	22.30	"Malvani Depot"	6.30	21.00	16	14	13	"Holiday"	4			
+"3600"	360	"Trombay"	6.25	23.45	"Kurla Station(E)"	5.50	23.00	13	19	14	"Mon-Sat"	2			
+"3600"	360	"Trombay"	6.25	23.35	"Kurla Station(E)"	5.50	22.55	12	22	16	"Sun-Hol"	4			
+"3610"	361	"Mahul Village"	5.00	0.20	"Kurla Station(E)"	5.00	0.55	5	8	7	"Mon-Sat"	2			
+"3610"	361	"Mahul Village"	0.35	1.22	"Umarshi Bappa Chowk"	" "	4.50				"Mon-Sat"	2			
+"3610"	361	"Mahul Village"	5.00	0.20	"Kurla Station(E)"	5.00	24.55	10	12	13	"Sun-Hol"	4			
+"3610"	361	"Mahul Village"	0.35	1.22	"Umarshi Bappa Chowk"	" "	4.50				"Sun-Hol"	4			
+"3620"	362	"Dr.Ambedkar Udyan"	5.45	24.00	"Kurla Station(E)"	5.20	23.30	9	12	12	"Mon-Fri"	2			
+"3620"	362	"Deonar Depot"	" "	0.47	"Kurla Station(E)"	23.55	0.30				"Mon-Fri"	2			
+"3620"	362	"Dr.Ambedkar Udyan"	5.45	24.00	"Kurla Station(E)"	5.20	23.32	11	13	14	"Saturday"	3			
+"3620"	362	"Deonar Depot"		0.47	"Kurla Station(E)"	23.55	24.30				"Saturday"	3			
+"3620"	362	"Dr.Ambedkar Udyan"	5.45	0.40	"Kurla Station(E)"	5.20	0.10	13	16	13	"Sun-Hol"	4			
+"3620"	362	"Deonar Depot"			"Kurla Station(E)"	0.30	" "				"Sun-Hol"	4			
+"3630"	363	"Anik Depot"	5.45	21.00	"Mahul Village"	6.30	22.00	23	27	27	"Mon-Sat"	2			
+"3630"	363	"Wadala Truck Terminal"	9.11	19.37	"Mahul Village"	8.03	19.47	27	28	27	"Mon-Sat"	2			
+"3630"	363	"Anik Depot"	5.45	20.45	"Mahul Village"	6.30	21.50	23	23	23	"Sun-Hol"	4			
+"3640"	364	"Trombay"	6.05	21.08	"Mahul Village"	6.15	22.05	16	20	18	"Mon-Sat"	2			
+"3640"	364	"Trombay"	6.05	21.05	"Mahul Village"	6.15	22.00	40	40	42	"Sun-Hol"	4			
+"3650"	365	"Kurla Station(W)"	5.50	22.00	"Sahar Cargo Complex"	6.35	22.45	25	31	25	"Mon-Sat-Hol"	2			
+"3650"	365	"Kurla Station(W)"	5.50	22.05	"Sahar Cargo Complex"	6.35	22.50	24	21	23	"Sunday"	4			
+"3660"	366	"Shivaji Nagar Terminus"	6.30	23.00	"Kurla Station(E)"	7.00	23.30	25	27	26	"Mon-Sat"	2			
+"3660"	366	"Shivaji Nagar Terminus"	7.55	23.00	"Kurla Station(E)"	8.25	23.28	34	24	18	"Sun-Hol"	4			
+"3670"	367	"Gadkari Quarry"	5.30	0.15	"Kurla Station(E)"	6.00	23.45	10	12	16	"Mon-Fri"	2			
+"3670"	367	"Gadkari Quarry"	5.30	0.15	"Kurla Station(E)"	6.00	23.45	12	14	16	"Sat-Sun-Hol"	3			
+"3681"	"368Ltd"	"P.Thakre Udyan"	6.50	23.55	"Mulund Depot"	5.23	22.30	21	27	23	"Mon-Sat"	2			
+"3681"	"368Ltd"	"P.Thakre Udyan"	6.50	23.55	"Mulund Depot"	5.30	22.30	24	26	18	"Sun-Hol"	4			
+"3690"	369	"Kurla Station(E)"	5.25	1.00	"S.R.A.(Vashi Naka)"	5.00	24.38	7	11	8	"Mon-Sat"	2			
+"3690"	369	"Chembur Colony"	6.05	21.00	"S.R.A.(Vashi Naka)"	6.15	21.13	15	15	15	"Mon-Sat"	2			
+"3690"	369	"Kurla Station(E)"	5.25	1.00	"S.R.A.(Vashi Naka)"	5.00	24.35	11	15	10	"Sun-Hol"	4			
+"3700"	370	"MHADA Bus Station(Mulund-E)"	6.00	12.35	"Kelkar College"	6.14	12.54	40		42	"Mon-Sat"	2			
+"3700"	370	"MHADA Bus Station(Mulund-E)"	17.00	18.25	"Kelkar College"	17.20	18.46				"Mon-Sat"	2			
+"3700"	370	"MHADA Bus Station(Mulund-E)"	19.10	21.25	"Mithaghar"	19.31	21.00				"Mon-Sat"	2			
+"3710"	371	"Anushkti Nagar"	6.30	20.45	"Bandra Bus Station(W)"	7.25	20.50	28	35	38	"All Days"	1			
+"3731"	"373Ltd"	"Mahul Village"	7.20	23.55	"Vaishali Nagar(Mulund)"	5.55	22.30	16	18	19	"Mon-Sat"	2			
+"3731"	"373Ltd"	"Mahul Village"	7.25	23.55	"Vaishali Nagar(Mulund)"	6.00	22.30	23	23	24	"Holiday"	4			
+"3731"	"373Ltd"	"Mahul Village"	7.25	23.55	"Vaishali Nagar(Mulund)"	6.00	22.30	20	21	21	"Sunday"	4			
+"3741"	"374Ltd"	"Anushakti Nagar"	5.45	21.20	"Goregaon Bus Stn.(E)"	6.30	21.05	22	27	24	"Mon-Sat"	2			
+"3741"	"374Ltd"	"Deonar Depot"	5.30		"Goregaon Bus Stn.(E)"	21.36	23.05				"Mon-Sat"	2			
+"3741"	"374Ltd"	"Anushakti Nagar"	6.05	21.25	"Goregaon Bus Stn.(E)"	7.30	22.52	25	25	26	"Sun-Hol"	4			
+"3741"	"374Ltd"	"Deonar Depot"			"Goregaon Bus Stn.(E)"	23.15					"Sun-Hol"	4			
+"3751"	"375Ltd"	"Shivaji Nagar Bus Station"	5.00	23.35	"Bandra Bus Station(W)"	6.00	0.40	16	21	18	"Mon-Sat"	2			
+"3751"	"375Ltd"	"Shivaji Nagar Bus Station"	5.25	23.40	"Bandra Bus Station(W)"	6.25	0.45	18	15	17	"Sun-Hol"	4			
+"3760"	376	"Shivaji Nagar Bus Station"	6.15	23.10	"Mahim Bus Station"	7.10	0.15	16	21	16	"Mon-Sat"	2			
+"3760"	376	"Shivaji Nagar Bus Station"	6.15	23.10	"Mahim Bus Station"	7.10	0.15	18	18	17	"Sun-Hol"	4			
+"3770"	377	"Kurla Station(E)"	6.00	22.35	"S.R.A.(Mankhurd)"	6.28	22.05	8	10	9	"Mon-Fri"	2			
+"3770"	377	"Kurla Station(E)"	6.00	22.35	"S.R.A.(Mankhurd)"	6.28	21.55	11	14	13	"Sat-Sun"	3			
+"3770"	377	"Kurla Station(E)"	6.00	22.35	"S.R.A.(Mankhurd)"	6.28	22.05	10	12	11	"Holiday"	4			
+"3780"	378	"Trombay"	6.15	1.30	"Mankhurd Stn."	6.25	1.40	7	11	8	"All Days"	1			
+"3790"	379	"Shivaji Nagar Terminus"	6.00	23.35	"Ghatkopar Station(E)"	6.30	0.05	13	15	15	"Mon-Sat"	2			
+"3790"	379	"Shivaji Nagar Terminus"	6.00	23.35	"Ghatkopar Station(E)"	6.30	0.05	23	25	19	"Sun-Hol"	4			
+"3800"	380	"Trombay"	6.00	21.40	"Amrut Nagar"	6.00	22.40	14	17	20	"Mon-Sat-Hol"	2			
+"3800"	380	"Trombay"	22.07		"Ghatkopar Station(E)"						"Mon-Sat-Hol"	2			
+"3800"	380	"Anushakti Nagar"			"Ghatkopar Station(E)"	22.50	" "				"Mon-Sat-Hol"	2			
+"3800"	380	"Trombay"	6.00	21.40	"Amrut Nagar"	6.25	22.40	19	22	23	"Sunday"	4			
+"3800"	380	"Trombay"	22.05		"Ghatkopar Station(E)"						"Sunday"	4			
+"3800"	380	"Anushakti Nagar"			"Ghatkopar Station(E)"	22.46	" "				"Sunday"	4			
+"3810"	381	"Ghatkopar Rly Station"	5.10	22.45	"TATA Power Station"	5.50	23.30	6	11	8	"Mon-Sat"	2			
+"3810"	381	"Ghatkopar Rly Station"	23.08	23.55	"Refineries"	23.45	0.25				"Mon-Sat"	2			
+"3810"	381	"Ghatkopar Bus Station"	5.20	22.50	"TATA Power Station"	6.05	23.45	12	12	13	"Sun-Hol"	4			
+"3810"	381	"Ghatkopar Bus Station"	23.18	24.15	"Refineries"	23.58	24.55				"Sun-Hol"	4			
+"3821"	"382Ltd"	"Anushakti Nagar"	6.25	20.55	"Sahar Cargo Complex"	6.00	22.25	25	20	29	"Mon-Sat"	2			
+"3821"	"382Ltd"	"Anushakti Nagar"	21.33		"Saki Naka"	22.40					"Mon-Sat"	2			
+"3821"	"382Ltd"	"Deonar Depot"	5.00	6.15	"Sahar Cargo Complex"	" "	" "				"Mon-Sat"	2			
+"3821"	"382Ltd"	"Deonar Depot"	6.10	6.35	"Sahar Cargo Complex"	" "		27	28	29	"Sun-Hol"	4			
+"3821"	"382Ltd"	"Anushakti Nagar"	6.55	20.45	"Sahar Cargo Complex"	7.10	22.15				"Sun-Hol"	4			
+"3830"	383	"Gadkari Quarry"	6.10	22.25	"Shivaji Nagar Bus Station"	5.25	21.35	25	33	27	"Mon-Sat"	2			
+"3830"	383	"Chembur Colony"	22.45	23.10	"Shivaji Nagar Bus Station"	22.05	22.35				"Mon-Sat"	2			
+"3830"	383	"Gadkari Quarry"	6.15	22.35	"Shivaji Nagar Bus Station"	5.35	21.50	33	33	33	"Sun-Hol"	4			
+"3830"	383	"Chembur Colony"	22.55	23.25	"Shivaji Nagar Bus Station"	22.20	22.50				"Sun-Hol"	4			
+"3840"	384	"Bandra Depot"	5.15	20.30	"Ghatkopar Bus Station"	6.30	22.15	34	32	35	"Mon-Sat-Hol"	2			
+"3840"	384	"Bandra Depot"	5.40	20.30	"Ghatkopar Bus Station"	7.00	22.10	32	32	36	"Sunday"	4			
+"3850"	385	"Tardeo Bus Station"	7.09	23.00	"Ghatkopar Depot"	5.47	21.12	22	24	25	"Mon-Sat"	2			
+"3850"	385	"Com.P.K.Kurne Chowk"	18.08	20.50	"Ghatkopar Depot"	16.41	19.25				"Mon-Sat"	2			
+"3850"	385	"Tardeo Bus Station"	7.36	21.50	"Ghatkopar Depot"	6.03	20.05	23	25	26	"Sun-Hol"	4			
+"3850"	385	"Veer Kotwal Udyan"	21.23	23.30	"Ghatkopar Depot"	20.33	22.40				"Sun-Hol"	4			
+"3860"	386	"Ghatkopar Station(W)"	6.10	23.40	"Nagbaba Mandir"	5.50	23.19	8	12	10	"Mon-Sat"	2			
+"3860"	386	"Ghatkopar Station(W)"	6.18	23.00	"Nagbaba Mandir"	6.00	22.40	12	18	19	"Sunday"	4			
+"3870"	387	"Ghatkopar Station(W)"	4.44	1.14	"Park Site Colony"	4.30	0.50	6	7	8	"Mon-Sat"	2			
+"3870"	387	"Ghatkopar Station(W)"	4.45	1.04	"Park Site Colony"	4.30	0.50	7	7	7	"Sun-Hol"	4			
+"3881"	"388Ltd"	"Kannamwar Nagar No.2"	6.10	21.35	"SEEPZ Bus Stn"	7.35	22.25	33	40	43	"Mon-Fri"	2			
+"3881"	"388Ltd"	"Ghatkopar Depot"			"SEEPZ Bus Stn"	23.05	" "				"Mon-Fri"	2			
+"3881"	"388Ltd"	"Kannamwar Nagar No.2"	6.35	21.30	"SEEPZ Bus Stn"	8.00	22.20	40	43	44	"Saturday"	3			
+"3881"	"388Ltd"	"Kannamwar Nagar No.2"	6.50	21.00	"SEEPZ Bus Stn"	8.15	21.45	45	30	30	"Sun-Hol"	4			
+"3894"	"389R"	"Ghatkopar Station(W)"	5.45	24.30	"Barve Nagar(Ghatkopar)"	6.00	24.45	12	12	11	"Mon-Sat"	2			
+"3894"	"389R"	"Gharkopar Station(W)"	6.10	23.55	"Barve Nagar(Ghatkopar)"	6.28	0.15	11	12	12	"Sun-Hol"	4			
+"3900"	390	"Ghatkopar Stn(W)"	6.00	21.05	"Barve Nagar(Ghatkopar)"	6.14	21.22	15	17	18	"All Days"	1			
+"3910"	391	"Mulund Station(W)"	4.50	1.00	"Khindipada"	4.30	24.40	5	5	4	"Mon-Sat"	2			
+"3910"	391	"Mulund Station(W)"	4.50	1.00	"Khindipada"	4.30	0.32	7	6	5	"Sunday"	4			
+"3910"	391	"Mulund Station(W)"	4.50	1.00	"Khindipada"	4.30	24.32	6	7	6	"Holiday"	4			
+"3920"	392	"Vikhroli Depot"	6.05	23.35	"Majas Depot "	5.00	22.15	22	27	23	"Mon-Fri"	2			
+"3920"	392	"Vikhroli Depot"	6.05	23.35	"Majas Depot "	5.00	22.15	13	31	22	"Saturday"	3			
+"3920"	392	"Vikhroli Depot"	6.35	23.30	"Majas Depot "	5.30	22.15	34	28	30	"Sun-Hol"	4			
+"3930"	393	"Ghatkopar Rly.Stn.(E)"	6.53	20.50	"Tilak Nagar Terminus"	6.30	21.12	23	22	25	"Mon-Sat"	2			
+"3940"	394	"Vikhroli Station(E)"	6.00	24.05	"Kannamwar Nagar No.2"	5.50	23.53	6	9	6	"Mon-Sat"	2			
+"3940"	394	"Vikhroli Station(E)"	6.00	24.00	"Kannamwar Nagar No.2"	5.50	23.50	9	9	9	"Sunday"	4			
+"3940"	394	"Vikhroli Station(E)"	6.00	24.05	"Kannamwar Nagar No.2"	5.50	23.53	6	9	6	"Holiday"	4			
+"3950"	395	"Santacruz Station(E)"	7.00	22.30	"Bamandaya Pada"	7.50	23.20	30	40	33	"Mon-Sat-Hol"	2			
+"3961"	"396Ltd"	"Mulund Bus Station(W)"	5.25	23.20	"Agarkar Chowk"	6.25	0.35	20	21	22	"Mon-Sat"	2			
+"3961"	"396Ltd"	"Mulund Bus Station(W)"	5.25	23.20	"Agarkar Chowk"	6.25	0.35	14	10	10	"Sunday"	4			
+"3961"	"396Ltd"	"Mulund Bus Station(W)"	5.25	23.20	"Agarkar Chowk"	6.25	0.35	12	14	11	"Holiday"	4			
+"3970"	397	"Vikhroli Station(E)"	6.05	24.30	"Kannamwar Nagar Bldg.124"	5.55	24.19	5	7	7	"Mon-Sat"	2			
+"3970"	397	"Vikhroli Station(E)"	6.05	24.00	"Kannamwar Nagar Bldg.124"	5.55	23.49	7	11	7	"Sun-Hol"	4			
+"3981"	"398Ltd"	"Mulund Bus Stn.(W)"	6.00	0.50	"Dindoshi Bus Stn"	4.55	23.30	14	16	18	"All Days"	1			
+"3991"	"399Ltd"	"Trombay"	4.45	20.35	"Marathon Chowk(Thane)"	5.45	19.17	9	10	11	"Mon-Sat"	2			
+"3991"	"399Ltd"	"Anushakti Nagar"	21.00	22.00	"Marathon Chowk(Thane)"	19.28	22.30				"Mon-Sat"	2			
+"3991"	"399Ltd"	"Trombay"	5.15	20.35	"Marathon Chowk(Thane)"	6.25	18.54	12	13	15	"Sun-Hol"	4			
+"3991"	"399Ltd"	"Anushakti Nagar"	21.00	22.00	"Marathon Chowk(Thane)"	19.07	22.25				"Sun-Hol"	4			
+"4000"	400	"Borivli Stn(E)"	6.25	22.28	"Samata Nagar"	6.10	22.10	15	15	13	"Mon-Sat-Hol"	2			
+"4000"	400	"Borivli Stn.(E)"	6.25	22.28	"Samata Nagar"	6.10	22.10	15	17	18	"Sunday"	4			
+"4010"	401	"Mulund Station(W)"	7.10	13.30	"Vaishali Nagar "	7.00	13.43	8		9	"Mon-Sat"	2			
+"4010"	401	"Mulund Station(W)"	16.35	21.31	"Vaishali Nagar "	16.50	21.45				"Mon-Sat"	2			
+"4020"	402	"Mulund Station(W)"	5.30	24.30	"Vaishali Nagar"	5.15	24.14	5	6	5	"Mon-Sat"	2			
+"4020"	402	"Mulund Station(W)"	5.29	0.31	"Vaishali Nagar "	5.15	0.15	18	7	6	"Holiday"	4			
+"4020"	402	"Mulund Station(W)"	5.29	0.31	"Vaishali Nagar"	5.15	0.15	7	7	5	"Sunday"	4			
+"4031"	"403Ltd"	"MHADA Bus Station(Mulund-E)"	6.30	21.15	"Agarkar Chowk"	7.40	19.35	23	29	23	"Mon-Sat"	2			
+"4031"	"403Ltd"	"Gavanpada(Mulund-E)"			"Agarkar Chowk"	19.57	22.55				"Mon-Sat"	2			
+"4031"	"403Ltd"	"MHADA Bus Station(Mulund-E)"	6.30	20.15	"Agarkar Chowk"	7.40	18.39	30	28	30	"Sunday"	4			
+"4031"	"403Ltd"	"Gavanpada(Mulund-E)"			"Agarkar Chowk"	19.09	21.40				"Sunday"	4			
+"4031"	"403Ltd"	"MHADA Bus Station(Mulund-E)"	6.30	20.15	"Agarkar Chowk"	7.40	18.40	19	19	20	"Holiday"	4			
+"4031"	"403Ltd"	"Gavanpada(Mulund-E)"			"Agarkar Chowk"	19.00	21.40				"Holiday"	4			
+"4040"	404	"Ghatkopar Station(E) "	6.30	23.00	"Shivaji Nagar"	6.05	22.30	21	24	18	"Mon-Sat"	2			
+"4040"	404	"Gharkopar Station(E)"	6.30	22.25	"Shivaji Nagar"	6.05	21.55	21	24	21	"Sun-Hol"	4			
+"4050"	405	"Mulund Station(W)"	6.20	22.00	"Yogi Hill"	6.00	21.38	21	23	24	"Mon-Sat"	2			
+"4050"	405	"Mulund Station(W)"	6.25	21.50	"Yogi Hill"	6.00	21.52	19	19	21	"Sun-Hol"	4			
+"4060"	406	"Ghatkopar Stn(E)"	6.30	9.55	"Ghatkopar Rly Police Colony"	6.39	10.05	12	" "	11	"Mon-Sat"	2			
+"4060"	406	"Ghatkopar Stn(E)"	16.30	21.00	"Ghatkopar Rly Police Colony"	16.40	21.09				"Mon-Sat"	2			
+"4070"	407	"Kelkar College"	7.03	20.20	"Nimkar Society"	6.30	19.45	22	33	24	"All Days"	1			
+"4080"	408	"Mahim Bus Station"	6.10	19.28	"Mulund Station(W)"	7.35	21.10	18	18	18	"Mon-Sat"	2			
+"4080"	408	"Mahim Bus Station"	6.53	19.18	"Mulund Station(W)"	8.00	20.45	21	20	22	"Sunday"	4			
+"4080"	408	"Mahim Bus Station"	6.30	19.10	"Mulund Station(W)"	8.00	20.45	21	20	22	"Holiday"	4			
+"4091"	"409Ltd"	"M.P.Chowk(Mulund)"	5.15	22.10	"Sahar Cargo Complex"	6.20	23.35	24	26	28	"Mon-Sat"	2			
+"4091"	"409Ltd"	"M.P.Chowk(Mulund)"	5.20	22.15	"Sahar Cargo Complex"	6.20	23.35	38	34	34	"Sunday"	4			
+"4091"	"409Ltd"	"M.P.Chowk(Mulund)"	5.25	22.15	"Sahar Cargo Complex"	6.20	23.35	27	30	30	"Holiday"	4			
+"4100"	410	"Vikhroli Depot"	5.15	22.00	"Mahakali Caves"	6.05	22.05	28	26	29	"Mon-Sat"	2			
+"4100"	410	"Vikhroli Depot"	6.00	22.00	"Mahakali Caves"	6.50	21.26	23	29	35	"Sun-Hol"	4			
+"4110"	411	"Wadala Depot"	5.20	22.05	"Sangharsh Nagar"	6.00	23.00	13	23	20	"Mon-Sat"	2			
+"4110"	411	"Wadala Depot"	6.35	22.10	"Sangharsh Nagar"	7.20	22.50	20	21	21	"Sun-Hol"	4			
+"4120"	412	"Mulund Station(W)"	6.48	22.35	"Lok Nisarg Complex"	6.30	22.51	19	20		"All Days"	1			
+"4130"	413	"Santacruz Station(E)"	6.50	21.00	"Kunchi Kurve Nagar"	7.05	21.17	32	22	20	"Mon-Sat"	2			
+"4130"	413	"Santacruz Station(E)"	7.10	11.06	"Kunchi Kurve Nagar"	7.26	11.21	18	" "	20	"Sun-Hol"	4			
+"4130"	413	"Santacruz Station(E)"	15.52	20.00	"Kunchi Kurve Nagar"	16.08	20.15	" "	" "	" "	"Sun-Hol"	4			
+4141	"414Ltd"	"Central Depot"	7.00	21.45	"Majas Depot "	5.50	20.00	21	30	29	"All Days"	1			
+"4150"	415	"Agarkar Chowk"	6.00	11.38	"SEEPZ Bus Station"	6.10	11.05	6	8	8	"Mon-Sat"	2			
+"4150"	415		16.37	21.59		16.05	22.00				"Mon-Sat"	2			
+"4150"	415	"Agarkar Chowk"	6.00	11.34	"SEEP Bus Station"	6.10	11.05	8	12	11	"Holiday"	4			
+"4150"	415		16.19	22.05		16.00	22.25				"Holiday"	4			
+"4160"	416	"Amrut Nagar"	5.30	0.25	"Ghatkopar Station(W)"	5.42	0.39	4	5	5	"Mon-Sat"	2			
+"4160"	416	"Amrut Nagar"	6.15	0.20	"Ghatkopar Station(W)"	6.27	0.32	4	6	4	"Sun-Hol"	4			
+"4170"	417	"Park Site Colony"	6.30	22.40	"Surya Nagar"	6.25	22.57	15	14	15	"All Days"	1			
+"4190"	419	"Ghatkopar Stn. Rd No.4"	5.50	21.10	"Sangharsh Nagar"	6.30	21.50	23	21	23	"Mon-Sat"	2			
+"4190"	419	"Ghatkopar Stn. Rd No.4"	5.50	21.05	"Sangharsh Nagar"	6.30	21.45	28	27	34	"Sun-Hol"	4			
+4210	"421Ext"	"Ghatkopar Stn Rd.No.4"	6.30	20.20	"MHADA Chandivli"	7.10	21.00	42	30		"All Days"	1			
+"4210"	421	"Ghatkopar Bus Stn"	5.35	22.35	"Filterpada"	6.15	23.15	12	16	10	"Mon-Sat"	2			
+"4210"	421	"Ghatkopar Bus Stn"	5.35	22.25	"Filterpada"	6.15	23.15	12	17	18	"Sun-Hol"	4			
+"4220"	422	"Mulund Bus Station(W)"	5.45	23.55	"Bandra Bus Station(W)"	4.40	22.10	10	11	12	"Mon-Sat"	2			
+"4220"	422	"Mulund Bus Station(W)"	5.50	23.45	"Bandra Bus Station(W)"	4.40	22.05	14	11	11	"Sunday"	4			
+"4220"	422	"Mulund Bus Station(W)"	5.55	23.50	"Bandra Bus Station(W)"	4.40	22.05	13	10	10	"Holiday"	4			
+"4230"	423	"Mangatram Petrol Pump"	7.30	12.11	"Marol Depot"	8.22	11.21	34		35	"Mon-Sat-Hol"	2			
+"4230"	423	"Mangatram Petrol Pump"	17.42	20.41	"Marol Depot"	16.52	21.33				"Mon-Sat-Hol"	2			
+"4240"	424	"Mulund Station(W)"	6.30	23.35	"Goregaon Depot"	5.30	21.55	16	16	16	"Mon-Sat"	2			
+"4240"	424	"Hiranandani Plot"	16.18	22.39	"Goregaon Depot"	14.53	21.14				"Mon-Sat"	2			
+"4240"	424	"Mulund Station(W)"	6.40	23.30	"Goregaon Depot"	5.40	21.50	17	14	14	"Sun-Hol"	4			
+"4250"	425	"Mangatram Petrol Pump"	6.00	22.37	"Seven Bunglows"	6.15	23.00	17	19	18	"Mon-Sat"	2			
+"4250"	425	"Mangatram Petrol Pump"	6.00	22.55	"Seven Bunglows"	6.15	23.00	17	17	18	"Sun-Hol"	4			
+"4260"	426	"Vidyavihar Bus Station"	6.00	21.30	"Filterpada"	6.40	22.15	34	36	38	"Mon-Sat-Hol"	2			
+"4260"	426	"Vidyavihar Bus Station"	6.00	21.30	"Filterpada"	6.40	22.15	32	53	35	"Sunday"	4			
+"4290"	429	"Ghatkopar Station(W)"	6.10	21.40	"Milind Nagar"	6.35	21.57	21	21	21	"Mon-Sat"	2			
+"4290"	429	"Ghatkopar Station(W)"	6.50	21.40	"Milind Nagar"	7.15	22.00	21	21	21	"Sun-Hol"	4			
+"4300"	430	"Mahul Village"	6.31	22.20	"Ghatkopar Station(E)"	5.55	21.35	33	40	43	"Mon-Sat"	2			
+"4300"	430	"Mahul Village"	6.40	22.15	"Ghatkopar Station(E)"	6.05	21.35	46	46	46	"Sun-Hol"	4			
+"4310"	431	"TATA Power Station"	6.15	20.45	"Kurla Station(E)"	6.10	19.52	20	26	27	"Mon-Sat"	2			
+"4310"	431	"Refineries"	20.59	23.00	"Kurla Station(E)"	20.19	22.35				"Mon-Sat"	2			
+"4310"	431	"TATA Power Station"	7.37	19.58	"Kurla Station(E)"	7.00	19.12	24	37	26	"Sun-Hol"	4			
+"4310"	431	"Refineries"	20.20	22.47	"Kurla Station(E)"	19.43	22.20				"Sun-Hol"	4			
+"4330"	433	"Vidyavihar Bus Station"	6.10	23.10	"Santaruz Stn(E)"	6.00	22.25	32	31	38	"All Days"	1			
+"4340"	434	"Agarkar Chowk"	5.45	21.47	"Bamandaya Pada"	5.50	22.15	13	10	18	"Mon-Sat"	2			
+"4340"	434	"Agarkar Chowk"	5.55	21.45	"Bamandaya Pada"	5.55	22.13	14	16	13	"Sunday"	4			
+"4340"	434	"Agarkar Chowk"	5.55	21.45	"Bamandaya Pada"	5.55	22.15	17	17	15	"Holiday"	4			
+"4354"	"435R"	"Agarkar Chowk"	7.15	21.30	"Om Nagar(Andheri-E)"	7.15	21.47	12	15	26	"Mon-Sat"	2			
+"4354"	"435R"	"Agarkar Chowk"	7.45	21.30	"Om Nagar(Andheri-E)"	8.00	21.50	19	12	16	"Holiday"	4			
+"4364"	"436R"	"Goregaon Stn (E)"	6.50	12.34	"Infinity IT Park (NNP)"	6.30	12.53	8	10	9	"Mon-Sat"	2			
+"4364"	"436R"	"Goregaon Stn (E)"	17.00	22.00	"Infinity IT Park (NNP)"	17.21	21.29				"Mon-Sat"	2			
+"4364"	"436R"	"Goregaon Stn (E)"	6.50	21.00	"Infinity IT Park (NNP)"	6.30	20.33	20	13	10	"Sun-Hol"	4			
+"4380"	438	"Dindoshi Bus Station"	5.25	21.40	"Dahisar Bus Station"	6.00	22.30	17	20	18	"Mon-Sat"	2			
+"4380"	438	"Dindoshi Bus Station"	5.25	21.30	"Dahisar Bus Station"	6.00	22.15	21	26	22	"Sun-Hol"	4			
+"4401"	"440Ltd"	"Wadala Depot"	6.00	20.30	"Ellora Borivli Stn (E)"	7.00	22.20	13	16	14	"Mon-Fri"	2			
+"4401"	"440Ltd"	"Wadala Depot"	6.00	20.30	"Ellora Borivli Stn (E)"	7.00	22.05	14	18	15	"Saturday"	3			
+"4401"	"440Ltd"	"Wadala Depot"	5.50	20.30	"Ellora Borivli Stn (E)"	7.00	22.05	12	13	17	"Sun-Hol"	4			
+"4410"	441	"Agarkar Chowk"	5.30	23.45	"Majas Depot "	5.05	23.20	13	16	11	"Mon-Sat"	2			
+"4410"	441	"Agarkar Chowk"	5.30	23.30	"Majas Depot "	5.05	23.04	19	29	21	"Sun-Hol"	4			
+"4420"	442	"MHADA Colony"	5.45	22.30	"Sadbhakti Mandir"	6.05	23.00	11	14	12	"Mon-Sat"	2			
+"4420"	442	"MHADA Colony"	5.45	22.22	"Sadbhakti Mandir"	6.05	22.55	9	12	10	"Sun-Hol"	4			
+"4434"	"443R"	"Agarkar Chowk"	5.55	23.05	"Bamandayapada"	5.45	22.45	14	19	20	"Mon-Sat"	2			
+"4434"	"443R"	"Agarkar Chowk"	6.15	23.05	"Bamandayapada"	5.50	22.40	19	21	21	"Sun-Hol"	4			
+"4441"	"444Ltd"	"Goregaon Depot"	6.30	22.00	"Ghatkopar Bus Station"	7.45	23.35	35	30	32	"Mon-Sat"	2			
+"4441"	"444Ltd"	"Goregaon Depot"	6.30	22.00	"Ghatkopar Bus Station"	7.45	23.20	30	25	30	"Sun-Hol"	4			
+"4460"	446	"Kurla Station(W)"	6.35	21.15	"Bamandayapada"	6.35	22.05	16	21	24	"Mon-Fri"	2			
+"4460"	446	"Kurla Station(W)"	6.35	21.15	"Bamandayapada"	6.35	22.05	" "	26	29	"Sat-Hol"	3			
+"4460"	446	"Kurla Station(W)"	6.45	21.15	"Bamandayapada"	6.55	22.00	29	31	32	"Sunday"	4			
+"4481"	"448Ltd"	"Prateeksha Nagar Depot "	6.10	20.00	"Borivli Station(E)"	7.20	21.50	11	13	12	"Mon-Sat"	2			
+"4481"	"448Ltd"	"Prateeksha Nagar Depot "	6.10	20.00	"Borivli Station(E)"	7.20	21.50	15	23	15	"Sun-Hol"	4			
+"4491"	"449Ltd"	"Dharavi Depot"	5.50	20.10	"Kandivli Stn(E)"	7.15	20.45	22	23	25	"Mon-Fri-Hol"	2			
+"4491"	"449Ltd"	"Dharavi Depot"	5.50	20.10	"Kandivli Stn(E)"	7.15	20.40	26	29	28	"Sat-Sun"	3			
+4504	"450R"	"Goregaon Bus Station(E)"	6.10	23.15	"D'souza Nagar(Saki Naka)"	7.10	24.14	18	21	17	"Mon-Sat"	2			
+4504	"450R"	"Goregaon Bus Station(E)"	6.20	23.10	"D'souza Nagar(Saki Naka)"	7.10	24.00	21	27	21	"Sun-Hol"	4			
+"4510"	451	"Goregaon Bus Station(E)"	5.50	0.35	"Adarsh Nagar"	5.30	0.09	10	12	10	"Mon-Sat"	2			
+"4510"	451	"Goregaon Bus Station(E)"	5.50	0.40	"Adarsh Nagar"	5.30	0.15	10	10	13	"Sun-Hol"	4			
+"4520"	452	"Goregaon Bus Station(E)"	5.45	1.00	"Mayur Nagar"	5.30	0.42	7	9	5	"Mon-Sat"	2			
+"4520"	452	"Goregaon Bus Station(E)"	5.45	1.00	"Mayur Nagar"	5.30	0.42	11	9	11	"Sun-Hol"	4			
+"4531"	"453Ltd"	"Wadala Depot"	5.10	20.35	"Lokmanya Nagar(Thane)"	6.40	22.20	22	28	22	"All Days"	1			
+"4540"	454	"Shivshahi Prakalp"	6.30	19.55	"Seven Bungalow"	7.30	21.15	21	26	26	"All Days"	1			
+"4540"	454	"Shivshahi Prakalp"	20.21	22.00	"Goregaon Depot"	5.50	7.25				"All Days"	1			
+"4560"	456	"Malvani Depot"	6.00	20.30	"Shivshahi Prakalp Mansi Park"	7.00	21.35	21	22	22	"Mon-Sat-Hol"	2			
+"4560"	456	"Malvani Depot"	6.05	20.30	"Shivshahi Prakalp Mansi Park"	7.00	21.30	29	29	25	"Sunday"	4			
+"4591"	"459Ltd"	"Mulund Station(W)"	6.55	22.45	"Malvani Depot"	5.35	21.00	9	15	11	"Mon-Sat"	2			
+"4591"	"459Ltd"	"Mulund Station(W)"	7.30	22.25	"Malvani Depot"	6.10	21.00	15	15	15	"Sunday"	4			
+"4591"	"459Ltd"	"Mulund Station(W)"	7.30	22.45	"Malvani Depot"	6.10	21.00	11	18	15	"Holiday"	4			
+"4601"	"460Ltd"	"Mulund Station(W)"	5.55	23.00	"Gorai Depot"	4.35	21.10	17	16	17	"Mon-Sat"	2			
+"4601"	"460Ltd"	"Mulund Station(W)"	6.30	23.30	"Gorai Depot"	5.00	21.40	13	10	10	"Sun-Hol"	4			
+"4611"	"461Ltd"	"Mulund Bus Station(W)"	6.00	19.16	"P.Thakre Nagar Bus Station"	4.40	21.35	15	19	15	"Mon-Sat"	2			
+"4611"	"461Ltd"	"Mulund Bus Station(W)"	19.32	23.15	"Gorai Depot"						"Mon-Sat"	2			
+"4611"	"461Ltd"	"Mulund Bus Station(W)"	9.45	11.00	"Jai Coach"	8.05	9.30				"Mon-Sat"	2			
+"4611"	"461Ltd"		17.30	20.15		18.40	20.35				"Mon-Sat"	2			
+"4611"	"461Ltd"	"Mulund Bus Station(W)"	6.00	20.25	"P.Thakre Nagar Bus Station"	4.45	22.05	10	9	9	"Sun-Hol"	4			
+"4611"	"461Ltd"	"Mulund Bus Station(W)"	20.32	23.45	"Gorai Depot"						"Sun-Hol"	4			
+"4620"	462	"Vaishali Nagar(Dahisar)"	5.45	0.30	"Borivli Station(E)"	5.25	0.10	8	13	9	"Mon-Fri"	2			
+"4620"	462	"Vaishali Nagar(Dahisar)"	5.45	0.30	"Borivli Station(E)"	5.25	0.10	10	13	11	"Saturday"	3			
+"4620"	462	"Vaishali Nagar(Dahisar)"	5.46	0.30	"Borivli Station(E)"	5.25	0.10	12	13	13	"Sun-Hol"	4			
+"4630"	463	"Worli Depot"	6.55	20.30	"Chembur Colony"	6.25	21.50	28	26	30	"Mon-Sat"	2			
+"4630"	463	"Worli Depot"	6.00	20.20	"Chembur Colony"	6.55	21.30	30	30	32	"Sun-Hol"	4			
+"4640"	464	"Marol Depot"	7.35	21.30	"P.Thakre Nagar Bus Stn."	6.40	20.15	16	20	16	"Mon-Sat"	2			
+"4650"	465	"Goregaon Stn(E)"	6.55	21.35	"Sadbhakti Mandir"	6.30	21.10	32	27	21	"All Days"	1			
+"4691"	"469Ltd"	"Goregaon Depot"	6.00	19.00	"Mulund Bus Stn (W)"	7.35	20.50	30	42	35	"All Days"	1			
+"4701"	"470Ltd"	"Ghatkopar Bus Stn"	5.15	23.00	"Borivli Station(E)"	6.30	0.35	19	24	21	"All Days"	1			
+"4730"	473	"Bandra Bus Station(W)"	5.50	21.15	"Mahul Village"	6.45	22.35	29	34	36	"All Days"	1			
+"4770"	477	"Borivli Stn(E)"	6.00	0.10	"Rushivan"	5.45	0.21	9	9	10	"All Days"	1			
+"4781"	"478Ltd"	"Vikhroli Depot"	4.35	24.00	"Borivli Station(E)"	5.50	1.20	18	17	20	"All Days"	1			
+"4781"	"479Ltd"	"Shivaji Nagar Bus Station"	5.35	20.15	"Goregaon Bus Stn.(E)"	7.00	22.00	37	37	37	"All Days"	1			
+"4810"	481	"Ghatkopar Rly.Stn.(E)"	6.20	20.50	"M.M.R.D.A.Vashi Naka"	7.00	21.35	21	47	23	"All Days"	1			
+"4841"	"484Ltd"	"MHADA Colony"	6.00	21.25	"Pawar Nagar Bus Station"	6.35	22.25	26	32	26	"Mon-Sat-Hol"	2			
+"4841"	"484Ltd"	"MHADA Colony"	6.05	21.25	"Pawar Nagar Bus Station"	6.35	22.20	30	" "	30	"Sunday"	4			
+"4881"	"488Ltd"	"Shivaji Nagar Bus Station"	5.25	22.10	"Dindoshi Bus Station"	6.40	23.45	13	18	15	"Mon-Sat"	2			
+"4881"	"488Ltd"	"Shivaji Nagar Bus Station"	5.30	22.10	"Dindoshi Bus Station"	6.45	23.30	16	16	17	"Sun-Hol"	4			
+"4891"	"489Ltd"	"Shivaji Nagar Bus Station"	5.20	22.00	"Dahisar Bridge"	6.45	23.45	12	15	15	"Mon-Sat"	2			
+"4891"	"489Ltd"	"Shivaji Nagar Bus Station"	5.20	22.00	"Dahisar Bridge"	6.50	23.45	13	12	13	"Sun-Hol"	4			
+"4911"	"491Ltd"	"Majas Depot "	5.15	7.50	"Bhramand/ Azad Nagar (Thane)"	20.19	21.50	30	32	35	"Mon-Sat"	2			
+"4911"	"491Ltd"	"Seepz Bus Station"	8.05	20.05	"Bhramand/ Azad Nagar (Thane)"	6.30	19.50				"Mon-Sat"	2			
+"4911"	"491Ltd"	"Majas Depot "	5.15	7.40	"Bhramand/ Azad Nagar (Thane)"	20.37	22.00	42	43	45	"Sunday"	4			
+"4911"	"491Ltd"	"Seepz Bus Station"	8.05	20.15	"Bhramand/ Azad Nagar (Thane)"	6.30	20.15				"Sunday"	4			
+"4921"	"4921Ltd"	"Seepz Bus Station"	8.10	10.00	"Waghbill(Thane)"	7.00	11.40	20	23	23	"All Days"	1			
+"4921"	"4921Ltd"	"Seepz Bus Station"	15.50	20.15		17.30	20.05				"All Days"	1			
+"4921"	"4921Ltd"	"Majas Depot "	5.50	7.47	"Waghbill(Thane)"	20.28	21.50				"All Days"	1			
+"4921"	"4921Ltd"	"Seepz Bus Station"	10.23	15.38	"Cadbury Junction"	11.53	17.30				"All Days"	1			
+"4931"	"493Ltd"	"Anushakti Nagar"	6.50	20.05	"Dadalani Park Thane"	7.00	20.15	25	30	27	"All Days"	1			
+"4931"	"493Ltd"	"Deonar Depot"	5.45	6.32	"Dadalani Park Thane"	20.45	21.40				"All Days"	1			
+"4941"	"494Ltd"	"Ghatkopar Bus Station"	5.05	20.05	"RetiBundar Kharigaon (Thane)"	6.30	22.20	38	29	30	"Mon-Sat"	2			
+"4941"	"494Ltd"	"Ghatkopar Bus Station"	5.55	20.55	"RetiBundar Kharigaon (Thane)"	7.15	22.20	36	30	32	"Sun-Hol"	4			
+"4950"	495	"FireBrigade Mulund (E)"	6.20	21.05	"Thane Stn.(E)"	6.45	21.30	29	31	30	"All Days"	1			
+"4961"	"496Ltd"	"Marathon Chowk(Thane)"	6.09	22.55	"Agarkar Chowk"	6.00	23.05	10	15	11	"Mon-Sat"	2			
+"4961"	"496Ltd"	"Marathon Chowk(Thane)"	6.10	22.50	"Agarkar Chowk"	6.20	23.05	17	18	16	"Sunday"	4			
+"4961"	"496Ltd"	"Marathon Chowk(Thane)"	6.10	22.50	"Agarkar Chowk"	6.20	23.05	11	12	12	"Holiday"	4			
+"4971"	"497Ltd"	"Vikhroli Depot"	5.00	22.10	"Lokmanya Nagar(Thane)"	5.55	23.10	17	22	21	"All Days"	1			
+"4971"	"497Ltd"	"Mulund Station(W)"	17.15	21.00	"Lokmanya Nagar(Thane)"	16.44	20.29				"All Days"	1			
+"4981"	"498Ltd"	"Borivli Stn(E)"	6.35	22.15	"Sangharsh Nagar"	6.00	23.35	19	22	20	"All Days"	1			
+"4991"	"499Ltd"	"Ghatkopar Bus Stn"	5.25	21.55	"Vrindavan Society(Thane)"	6.15	23.00	18	24	19	"All Days"	1			
+"5001"	"500Ltd"	"Vikhroli Depot"	5.40	21.15	"Airoli Bus Station"	6.30	22.25	18	23	19	"All Days"	1			
+"5011"	"501Ltd"	"Kurla Station(E)"	4.20	0.15	"Airoli Bus Station"	5.35	23.50	13	19	14	"Mon-Fri"	2			
+"5011"	"501Ltd"	"Umarshi Bappa Chowk"			"Airoli Bus Station"	24.02	1.25				"Mon-Fri"	2			
+"5011"	"501Ltd"	"Kurla Station(E)"	4.20	0.15	"Airoli Bus Station"	5.35	23.54	15	18	16	"Saturday"	3			
+"5011"	"501Ltd"	"Umarshi Bappa Chowk"			"Airoli Bus Station"	0.09	1.25				"Saturday"	3			
+"5011"	"501Ltd"	"Kurla Station(E)"	4.20	0.15	"Airoli Bus Station"	5.35	23.45	10	12	12	"Sun-Hol"	4			
+"5011"	"501Ltd"	"Umarshi Bappa Chowk"			"Airoli Bus Station"	23.58	1.25				"Sun-Hol"	4			
+"5021"	"502Ltd"	"Shivaji Nagar Junction"	4.55	5.25	"Nerul Sector-46/48"						"All Days"	1			
+"5021"	"502Ltd"	"Rani Laxmi Chowk"			"Nerul Sector-46/48"	5.30	6.00				"All Days"	1			
+"5021"	"502Ltd"	"Wadala Depot"	5.00	22.30	"Nerul Sector-46/48"	6.15	24.00	17	21	19	"Mon-Sat"	2			
+"5021"	"502Ltd"	"Wadala Depot"	4.45	22.00	"Nerul Sector-46/48"	6.00	23.30	17	21	17	"Sun-Hol"	4			
+"5031"	"503Ltd"	"Rani Laxmi Chowk"	6.15	21.30	"Kalamboli"	5.00	23.05	22	23	23	"Mon-Fri"	2			
+"5031"	"503Ltd"	"Rani Laxmi Chowk"	6.20	21.30	"Kalamboli"	5.00	23.05	23	25	26	"Sat-Sun-Hol"	3			
+"5041"	"504Ltd"	"Wadala Depot"	5.10	21.40	"Jal Vayu Vihar/Kharghar"	6.25	23.15	15	15	15	"Mon-Sat"	2			
+"5041"	"504Ltd"	"Wadala Depot"	5.10	21.45	"Jal Vayu Vihar/Kharghar"	6.25	23.20	16	18	16	"Sun-Hol"	4			
+"5051"	"505Ltd"	"Bandra Bus Station(W)"	4.20	0.05	"C.B.D.Belapur Bus Station"	5.30	1.20	13	14	18	"Mon-Sat"	2			
+"5051"	"505Ltd"										"Mon-Sat"	2			
+"5051"	"505Ltd"	"Bandra Bus Station(W)"	4.20	24.00	"C.B.D.Belapur Bus Station"	5.30	1.15	10	8	8	"Sun-Hol"	4			
+"5061"	"506Ext"	"Jijamata Udyan"			"Kopar Khairane Extn"	4.00					"All Days"	1			
+"5061"	"506Ltd"	"Deonar Depot"	3.40	5.38	"Nerul Bus Station"	21.53	1.49	21	22	23	"Mon-Sat"	2			
+"5061"	"506Ltd"	"Deonar Depot"	6.06	7.24	"Nerul Railway Station"						"Mon-Sat"	2			
+"5061"	"506Ltd"	"Jijamata Udyan"	5.15	19.17	"Nerul Railway Station"	6.30	17.10				"Mon-Sat"	2			
+"5061"	"506Ltd"	"Jijamata Udyan"	" "	21.55	"Nerul Bus Station"	4.15	6.15				"Mon-Sat"	2			
+"5061"	"506Ltd"	"Wadala Depot"	22.10	0.40	"Nerul Bus Station"	20.40	24.00				"Mon-Sat"	2			
+"5061"	"506Ltd"	"Jijamata Udyan"	5.20		"Nerul Bus Station"	5.35	6.28	17	18	20	"Sun-Hol"	4			
+"5061"	"506Ltd"	"Deonar Depot"	3.35	5.50	"Nerul Bus Station"	23.59	1.47				"Sun-Hol"	4			
+"5061"	"506Ltd"	"Deonar Depot"	6.17	8.35	"Nerul Railway Station"						"Sun-Hol"	4			
+"5061"	"506Ltd"	"Jijamata Udyan"	" "	19.30	"Nerul Railway Station"	" "	20.10				"Sun-Hol"	4			
+"5061"	"506Ltd"	"Jijamata Udyan"	19.45	21.35	"Nerul Bus Station"						"Sun-Hol"	4			
+"5061"	"506Ltd"	"Wadala Depot"			"Nerul Railway Station"	20.20	21.13				"Sun-Hol"	4			
+"5061"	"506Ltd"	"Wadala Depot"	22.10	0.40	"Nerul Bus Station"	20.27	23.35				"Sun-Hol"	4			
+"5071"	"507Ltd"	"Santacruz Station(E)"	5.30	23.05	"Nerul Bus Station"	5.10	23.05	17	18	17	"Mon-Sat"	2			
+"5071"	"507Ltd"	"Kurla Depot"	4.05	5.49	"Nerul Bus Station"	23.20	0.40				"Mon-Sat"	2			
+"5071"	"507Ltd"	"Santacruz Station(E)"	5.35	23.30	"Nerul Bus Station"	6.00	23.05	16	15	15	"Sun-Hol"	4			
+"5071"	"507Ltd"	"Kurla Depot"	4.40	5.17	"Nerul Bus Station"	23.22	0.50				"Sun-Hol"	4			
+5081	"508Ltd"	"Dr.Ambedkar Udyan"	6.50	20.35	"Nerul Sector-46/48"	6.50	21.25	28	34	32	"All Days"	1			
+5081	"508Ltd"	"Shivaji Nagar Junction"	6.10	6.52	"Nerul Sector-46/48"		22.00				"All Days"	1			
+"5091"	"509Ltd"	"Maheshwari Udyan"	6.15	20.00	"Millenium Business Park"	7.25	20.12	27	32	27	"All Days"	1			
+"5091"	"509Ltd"	"Rani Laxmi Chowk"			"Millenium Business Park"	20.39	21.30				"All Days"	1			
+"5101"	"510Ltd"	"Barve Nagar"	6.50	18.50	"M.I.D.C.Electronic Zone"	8.05	20.30	28	26	27	"Mon-Sat"	2			
+"5101"	"510Ltd"	"Barve Nagar"	19.20	20.20	"Kopar Khairane Extn"	20.53	21.50				"Mon-Sat"	2			
+"5101"	"510Ltd"	"Barve Nagar"	6.50	20.15	"Kopar Khairane Extn."	8.00	21.45	46	37	34	"Sunday"	4			
+"5101"	"510Ltd"	"Barve Nagar"	6.45	19.00	"MIDC Electronic Zone"	8.00	20.45	42	39	32	"Holiday"	4			
+"5101"	"510Ltd"	"Barve Nagar"	19.40	20.20	"Kopar Khairane Extn"	21.15	21.50				"Holiday"	4			
+"5111"	"511Ltd"	"Ghatkopar Depot"	4.05	5.25	"Nerul Bus Station"	23.30	0.45	19	20	17	"Mon-Sat-Hol"	2			
+"5111"	"511Ltd"	"Mulund Bus Station(W)"	5.00	23.05	"Nerul Bus Station"	4.45	22.45				"Mon-Sat-Hol"	2			
+"5111"	"511Ltd"	"Mulund Bus Station(W)"	23.22	0.27	"Ghatkopar Depot"	4.23	6.45				"Mon-Sat-Hol"	2			
+"5111"	"511Ltd"	"Mulund Bus Station(W)"	5.00	23.35	"Nerul Bus Station"	4.45	22.50	13	17	14	"Sunday"	4			
+"5111"	"511Ltd"	"Ghatkopar Depot"	4.05	5.20	"Nerul Bus Station"	23.20	0.43				"Sunday"	4			
+"5111"	"511Ltd"	"Mulund Bus Station(W)"	23.20	0.25	"Ghatkopar Depot"	4.25	5.40				"Sunday"	4			
+"5121"	"512Ltd"	"Mulund Bus Station(W)"	4.10	23.00	"Nerul Bus Station"	5.30	24.00	11	15	15	"All Days"	1			
+"5121"	"512Ltd"	"Mulund Bus Station(W)"	23.30	24.00	"Vashi Bus Station"	" "	" "	" "			"All Days"	1			
+"5121"	"512Ltd"	"Mulund Rly Station(W)"			"Vashi Bus Station"	0.30	0.50				"All Days"	1			
+"5131"	"513Ltd"	"FireBrigade Mulund (E)"	5.30	22.20	"Vashi Railway Station"	6.30	23.20	12	16	17	"All Days"	1			
+"5131"	"513Ltd"	"FireBrigade Mulund (E)"	5.00	24.30	"Airoli Bus Station"	5.25	25.00				"All Days"	1			
+"5131"	"513Ltd"	"Gavanpada(Mulund-E)"	17.08	24.30	"Airoli Bus Station"	17.38	25.00				"All Days"	1			
+"5141"	"514Ltd"	"Mulund Bus Station"	6.55	12.16	"L&T Infotech MHAPE"	7.40	11.26	" "	17	24	"Mon-Sat-Hol"	2			
+"5141"	"514Ltd"	"Mulund Bus Station"	17.14	21.30	"L&T Infotech MHAPE"	16.00	22.35				"Mon-Sat-Hol"	2			
+5151	"515Ltd"	"Bandra Bus Station(W)"	17.10	18.25	"C.B.D.Belapur Bus Station"	8.05	8.30				"Mon-Sat-Hol"	2			
+5151	"515Ltd"	"Bandra Bus Station(W)"			"Vashi Bus Stn"	8.10					"Mon-Sat-Hol"	2			
+"5171"	"517Ltd"	"Santacruz Station(E)"	5.40	19.55	"A.P.M.C.Sector-19"	7.00	21.40	17	18	17	"Mon-Sat"	2			
+"5171"	"517Ltd"	"Santacruz Station(E)"	20.15	21.30	"Vashi Bus Station"	21.45	22.20				"Mon-Sat"	2			
+"5171"	"517Ltd"	"Kurla Depot"	5.20	5.40	"Vashi Bus Station"	22.38	22.55				"Mon-Sat"	2			
+"5171"	"517Ltd"	"Santacruz Station(E)"			"Vashi Bus Station"	6.20	6.45				"Mon-Sat"	2			
+"5171"	"517Ltd"	"Santacruz Stn(E)"	6.05	19.50	"A.P.M.C.Sector-19"	7.30	21.35	23	23	23	"Sun-Hol"	4			
+"5171"	"517Ltd"	"Santacruz Stn(E)"	20.12	21.35	"Vashi Bus Station"	21.40	22.20				"Sun-Hol"	4			
+"5171"	"517Ltd"	"Kurla Depot"	5.45	6.05	"Vashi Bus Station"	20.40	23.00				"Sun-Hol"	4			
+"5171"	"517Ltd"	"Santacruz Station(E)"			"Vashi Bus Station"	6.50	7.15				"Sun-Hol"	4			
+"5181"	"518Ltd"	"Shivaji Nagar Depot"	5.30	23.25	"Ghansoli Village"	6.30	24.25	18	20	22	"Mon-Sat"	2			
+"5181"	"518Ltd"	"Shivaji Nagar Depot"	6.33	23.35	"Ghansoli Village"	7.30	24.25	21	24	26	"Sun-Hol"	4			
+"5191"	"519Ltd"	"Deonar Depot"	4.25	24.00	"Ghansoli Village"	5.00	24.40	17	20	15	"All Days"	1			
+"5201"	"520Ltd"	"R.G.Gadkari Chowk"	8.00	21.35	"Airoli Bus Station"	6.25	21.50	22	24	25	"Mon-Sat"	2			
+"5201"	"520Ltd"	"R.G.Gadkari Chowk"	21.56	22.17	"Kopar Khairane Extn"						"Mon-Sat"	2			
+"5201"	"520Ltd"	"Deonar Depot"	5.33	8.14	"Airoli Bus Station"	22.10	23.10				"Mon-Sat"	2			
+"5201"	"520Ltd"	"R.G.Gadkari Chowk"	8.00	21.25	"Airoli Bus Station"	6.25	21.30	27	27	28	"Sun-Hol"	4			
+"5201"	"520Ltd"	"R.G.Gadkari Chowk"	21.50	22.20	"Kopar Khairane Extn"						"Sun-Hol"	4			
+"5201"	"520Ltd"	"Deonar Depot"	5.33	8.15	"Airoli Bus Station"	21.55	23.00				"Sun-Hol"	4			
+"5211"	"521Ltd"	"Vasantrao Naik Chowk"	6.25	22.00	"Kopar Khairane Extn"	5.00	22.00	18	19	15	"Mon-Sat"	2			
+"5211"	"521Ltd"	"Vasantrao Naik Chowk"	22.11	23.30	"Deonar Depot"						"Mon-Sat"	2			
+"5211"	"521Ltd"	"Deonar Depot"	3.30	7.11	"Kopar Khairane Extn"	22.10	23.37				"Mon-Sat"	2			
+"5211"	"521Ltd"	"Com.P.K.Kurne Chowk"	5.40	" "	"Kopar Khairane Extn"	4.33	" "				"Mon-Sat"	2			
+"5211"	"521Ltd"	"Vasantrao Naik Chowk"	6.25	22.00	"Kopar Khairane Extn"	5.00	22.00	15	13	22	"Sun-Hol"	4			
+"5211"	"521Ltd"	"Vasantrao Naik Chowk"	22.15	23.30	"Deonar Depot"						"Sun-Hol"	4			
+"5211"	"521Ltd"	"Com.P.K.Kurne Chowk"	5.40		"Kopar Khairane Extn"	4.35					"Sun-Hol"	4			
+"5211"	"521Ltd"	"Deonar Depot"	4.05	7.06	"Kopar Khairane Extn"	22.05	23.57				"Sun-Hol"	4			
+"5221"	"522Ltd"	"Marol Depot"	4.40	21.05	"Vashi Rly Stn."	5.50	22.45	20	25	26	"All Days"	1			
+"5231"	"523Ltd"	"Dindoshi Bus Station"	5.05	21.00	"Millenium Business Park"	6.25	22.20	15	25	18	"Mon-Sat"	2			
+"5231"	"523Ltd"	"Dindoshi Bus Station"	6.10	7.20	"Airoli Bus Station"	7.30	8.45				"Mon-Sat"	2			
+"5231"	"523Ltd"	"Dindoshi Bus Station"	5.05	21.00	"Millenium Business Park"	6.25	22.20	17	2	24	"Sunday"	4			
+"5241"	"524Ltd"	"Borivli Station(E)"	5.00	19.19	"A.P.M.C Sector No.19"	6.45	21.30	26	27	30	"All Days"	1			
+"5241"	"524Ltd"	"Borivli Station(E)"	19.46	20.50	"Vashi Bus Station"	21.51	22.45				"All Days"	1			
+"5241"	"524Ltd"	"Borivli Station(E)"	7.11	20.28	"Ghatkopar Bus Stn"	8.36	21.53	" "	" "	" "	"All Days"	1			
+"5251"	"525Ltd"	"Dindoshi Depot"	5.00	19.15	"A.P.M.C.Sector-19/Vashi"	6.30	21.15	11	20	22	"Mon-Sat"	2			
+"5251"	"525Ltd"	"Dindoshi Depot"	4.40		"Vashi Bus Station"	6.00					"Mon-Sat"	2			
+"5251"	"525Ltd"	"Dindoshi Depot"	19.37	21.35	"Vashi Bus Station"	21.15	23.00				"Mon-Sat"	2			
+"5251"	"525Ltd"	"Dindoshi Bus Station"	5.30	9.25	"A.P.M.C.Sector-19/Vashi"	7.00	11.05	15	15	14	"Sunday"	4			
+"5251"	"525Ltd"	"Dindoshi Bus Station"	5.00	" "	"Vashi Bus Station"	6.30	" "				"Sunday"	4			
+"5251"	"525Ltd"		5.40	21.35	"Vashi Nus Station"	11.30	23.00				"Sunday"	4			
+"5251"	"525Ltd"	"Dindoshi Bus Station"	5.00	19.15	"A.P.M.C.Sector-19/Vashi"	6.30	21.15	16	16	15	"Holiday"	4			
+"5251"	"525Ltd"	"Dindoshi Bus Station"	19.24	21.35	"Vashi Bus Station"	21.15	23.00				"Holiday"	4			
+"5261"	"526Ltd"	"Jijamata Udyan"			"Jal Vayu Vihar/Kharghar"	4.30	5.00				"All Days"	1			
+"5261"	"526Ltd"	"Deonar Depot"	0.20		"Nerul Bus Station"	0.58					"All Days"	1			
+"5261"	"526Ltd"	"Jijamata Udyan"			"Nerul Bus Station"	3.40	5.15				"All Days"	1			
+"5261"	"526Ltd"	"Deonar Depot"	1.55		"Nerul Bus Station"	" "					"All Days"	1			
+"5331"	"533Ltd"	"Andheri Station(W)"	6.55	20.20	"A.P.M.C Sector No.19"	6.50	21.30	22	22	24	"Mon-Sat"	2			
+"5331"	"533Ltd"	"Andheri Station(W)"	20.41	23.15	"Ghatkopar Depot"	6.10	7.11				"Mon-Sat"	2			
+"5331"	"533Ltd"	"Ghatkopar Depot"	6.07	7.30	"A.P.M.C Sector No.19"	21.51	22.35				"Mon-Sat"	2			
+"5331"	"533Ltd"	"Andheri Station(W)"	6.55	20.40	"A.P.M.C Sector No.19"	6.55	21.30	27	22	24	"Sun-Hol"	4			
+"5331"	"533Ltd"	"Andheri Station(W)"	21.00	22.30	"Ghatkopar Depot"	6.10	7.13				"Sun-Hol"	4			
+"5331"	"533Ltd"	"Ghatkopar Depot"	6.12	7.20	"A.P.M.C Sector No.19"	21.50	22.30				"Sun-Hol"	4			
+"5451"	"545Ltd"	"Agarkar Chowk"	6.00	22.20	"Airoli Bus Station"	6.00	23.35	13	13	13	"Mon-Sat-Hol"	2			
+"5451"	"545Ltd"	"Marol Depot"	5.40	6.55	"R.C.F.Colony(Bhandup Stn-E)"	" "					"Mon-Sat-Hol"	2			
+"5451"	"545Ltd"	"Agarkar Chowk"	7.30	8.45	"R.C.F.Colony(Bhandup Stn-E)"	6.25	9.45				"Mon-Sat-Hol"	2			
+"5451"	"545Ltd"	"Agarkar Chowk"	7.05	22.00	"Airoli Bus Station"	6.00	23.30	18	17	17	"Sunday"	4			
+"5451"	"545Ltd"	"Marol Depot"	5.05	6.40	"Airoli Bus Station"						"Sunday"	4			
+"6010"	601	"Poddar Park(Malad-E)"	6.20	24.00	"Vadar Pada"	6.00	23.38	10	11	14	"Mon-Sat"	2			
+"6010"	601	"Poddar Park(Malad-E)"	6.22	24.00	"Vadar Pada"	6.00	23.29	18	19	19	"Sun-Hol"	4			
+6020	602	"Kanjurmarg Station(W)"	7.15	21.05	"Hiranandani Bus Station"	7.38	21.27	10	8	12	"Mon-Sat-Hol"	2			
+6020	602	"Kanjurmarg Station(W)"	7.15	21.10	"Hiranandani Bus Station"	7.34	21.30	20	15	14	"Sunday"	4			
+"6034"	"603R"	"Amrut Nagar"	6.00	22.05	"Via R.C.F.Colony"	6.30	21.30	19	18	15	"Mon-Sat"	2			
+"6034"	"603R"	"Amrut Nagar"	6.15	22.00	"Via R.C.F.Colony"	6.46	21.15	23	18	20	"Sun-Hol"	4			
+"6040"	604	"Bhandup Stn.(W)"	6.23	22.00	"Kanjurmarg Station(W)"	6.05	22.20	11	14	14	"Mon-Sat"	2			
+"6040"	604	"Bhandup Stn.(W)"	7.50	11.17	"Sahyadri Nagar"	7.35	11.30	13	14		"Mon-Sat"	2			
+"6040"	604		16.00	0.35		16.15	0.20				"Mon-Sat"	2			
+"6040"	604	"Bhandup Stn.(W)"	6.25	21.55	"Kanjurmarg Station(W)"	6.05	22.20	14	15	18	"Sun-Hol"	4			
+"6040"	604	"Bhandup Stn.(W)"	22.10	0.10	"Sahyadri Nagar"	22.22	23.57				"Sun-Hol"	4			
+"6050"	605	"Bhandup Station(W)"	4.35	1.45	"Tembipada "	4.15	1.30	5	6	5	"Mon-Sat"	2			
+"6050"	605	"Bhandup Station(W)"	4.45	1.45	"Tembipada "	4.40	1.30	6	8	7	"Sun-Hol"	4			
+"6064"	"606R"	"Bhandup Station(W)"	4.50	0.55	"Nardas Nagar"	5.01	0.38	4	5	5	"Mon-Sat"	2			
+"6064"	"606R"	"Bhandup Station(W)"	7.35	11.01	"Via Kedare Chowk"	7.21	11.11				"Mon-Sat"	2			
+"6064"	"606R"	"Bhandup Station(W)"	5.00	0.55	"Nardas Nagar"	4.45	0.38	10	6	5	"Sun-Hol"	4			
+"6074"	"607R"	"Bhandup Station(W)"	5.15	0.55	"Tulshetpada"	5.00	0.41	16	6	6	"Mon-Sat"	2			
+"6074"	"607R"	"Bhandup Station(W)"	7.38	20.25	"Milind Nagar"	7.49	20.40	12	25	16	"Mon-Sat"	2			
+"6074"	"607R"	"Bhandup Station(W)"	5.45	0.55	"Tulshetpada"	5.30	0.37	13	9	8	"Sun-Hol"	4			
+"6080"	608	"Kanjurmarg Station(W)"	5.55	0.05	"Hanuman Nagar"	5.40	23.51	5	7	13	"Mon-Sat"	2			
+"6080"	608	"Kanjurmarg Station(W)"	6.20	0.05	"Hanuman Nagar"	6.05	23.51	9	12	" "	"Sun-Hol"	4			
+"6090"	609	"Vidyavihar Bus Station"	6.35	21.45	"Kohinoor Hospital"	6.45	21.55	22	22	24	"Mon-Sat"	2			
+6100	610	"Kurla Stn(E)"	6.45	19.05	"Bunter Bhavan"	6.30	19.20	15	30	15	"Mon-Sat"	2			
+6100	610	"Kurla Stn(E)"	8.12	18.55	"Bunter Bhavan"	8.00	19.07	27	27	27	"Sun-Hol"	4			
+"6110"	611	"Poddar Park(Malad-E)"	6.20	22.05	"Patel Nagar"	6.00	21.45	38	38	38	"All Days"	1			
+"6150"	615	"Santacruz Station(E)"	6.25	21.30	"Rani Laxmi Chowk"	6.40	21.30	33	36	36	"All Days"	1			
+"6184"	"618R"	"Santacruz Station(E)"	6.25	22.45	"Datta Mandir Road"	6.37	22.36	9	8	8	"Mon-Sat"	2			
+"6184"	"618R"	"Santacruz Station(E)"	7.20	22.25	"Datta Mandir Road"	7.32	22.35	9	13	9	"Sunday"	4			
+"6184"	"618R"	"Santacruz Station(E)"	7.20	22.25	"Datta Mandir Road"	7.32	22.35	6	9	6	"Holiday"	4			
+"6194"	"619R"	"Santacruz Station(E)"	7.30	21.00	"Vidya Nagari Nehru Library"			23	48	24	"Mon-Sat"	2			
+"6214"	"621R"	"Malad Station(W)"	6.15	22.40	"Ushma Nagar(Malad)"	6.00	22.24	9	12	9	"Mon-Sat"	2			
+"6214"	"621R"	"Malad Station(W)"	6.35	22.40	"Ushma Nagar(Malad)"	6.20	22.26	27	18	19	"Sunday"	4			
+"6214"	"621R"	"Malad Station(W)"	6.35	22.40	"Ushma Nagar(Malad)"	6.20	22.26	18	12	12	"Holiday"	4			
+"6224"	"622R"	"Sainath Rd.(Malad-W)"	6.50	23.10	"Bhoomi Complex"	6.30	22.48	14	22	16	"Mon-Sat"	2			
+"6224"	"622R"	"Sainath Rd.(Malad-W)"	6.50	23.10	"Bhoomi Complex"	6.30	22.47	25	20	21	"Sun-Hol"	4			
+"6240"	624	"Poddar Park(Malad-E)"	6.05	1.15	"Via Appapada"	5.45	0.55	9	10	9	"Mon-Sat-Hol"	2			
+"6240"	624	"Poddar Park(Malad-E)"	6.05	1.55	"Via Appapada"	5.45	0.55	10	10	9	"Sunday"	4			
+6250	625	"Poddar Park(Malad-E)"	6.25	21.00	"Alaka Nagar "	6.00	21.25	13	15	14	"Mon-Sat"	2			
+"6270"	627	"Andheri Station(W)"	6.25	21.25	"Moragaon"	6.45	21.13	14	20	22	"Mon-Sat"	2			
+"6270"	627	"Andheri Station(W)"	13.24	15.38	"Juhu Bus Stn"	13.42	15.17				"Mon-Sat"	2			
+"6270"	627	"Andheri Station(W)"	7.29	21.10	"Moragaon"	7.49	21.05	29	61	33	"Sun-Hol"	4			
+"6294"	"629R"	"Borivli Station(E)"	6.25	7.15	"Ratan Nagar"	6.35	7.25	15	14	14	"Mon-Fri"	2			
+"6294"	"629R"	"Borivli Station(E)"		22.35	"Ratan Nagar"	22.10	22.45				"Mon-Fri"	2			
+"6294"	"629R"	"Dheeraj Upvan"	7.04	22.09	"Ratan Nagar"	7.35	22.00				"Mon-Fri"	2			
+"6294"	"629R"	"Dheeraj Upvan"	7.04	22.06	"Ratan Nagar"	6.52	22.03	18	21	18	"Saturday"	3			
+"6294"	"629R"	"Borivli Station(E)"	6.25	7.05	"Ratan Nagar"	6.33	9.04	18	21	18	"Saturday"	3			
+"6294"	"629R"	"Borivli Station(E)"		22.35	"Ratan Nagar"	22.17	22.45				"Saturday"	3			
+"6294"	"629R"	"Dheeraj Upvan"	7.16	22.02	"Ratan Nagar"	7.20	22.00	20	16	16	"Sun-Hol"	4			
+"6294"	"629R"	"Borivli Stn(E)"	6.31	7.21	"Ratan Nagar"	6.40	7.10				"Sun-Hol"	4			
+"6294"	"629R"	"Borivli Stn(E)"	" "	22.35	"Ratan Nagar"	22.15	22.45				"Sun-Hol"	4			
+"6300"	630	"Khar Stn(W)"	7.20	21.55	"Santacruz Stn(W)"	6.50	21.25	19	29	20	"All Days"	1			
+"6310"	631	"Kurla Stn(W)"	7.00	21.55	"Kurla Stn(W) ViaMasrani Estate"	7.13		15	13	27	"Mon-Sat"	2			
+"6310"	631	"Kurla Stn(W)"	7.00	21.50	"Kurla Stn(W) ViaMasrani Estate"	7.13		25	27	30	"Sun-Hol"	4			
+6320	632	"Kurla Stn(W)"	7.00	21.00	"Sunder Baug"	7.15	21.15	16	18	15	"All Days"	1			
+"6630"	663	"Mahul Village"	6.30	20.40	"Trombay"	6.30	21.30	18	18	20	"All Days"	1			
+"6640"	664	"Agarkar Chowk"	6.20	21.20	"Sadbhakti Mandir"	6.50	19.53	27	37	37	"All Days"	1			
+"7001"	"700Ltd"	"Borivli Stn(E)"	5.15	23.25	"Thane Stn.(E)"	6.15	24.30	9	15	12	"Mon-Sat"	2			
+"7001"	"700Ltd"	"Borivli Stn.(E)"	5.15	23.25	"Thane Stn.(E)"	6.15	24.30	10	17	10	"Sun-Hol"	4			
+"7015"	"701LtdR"	"Kandivli Bus Station(E)"	5.30	22.55	"Mira Road(E)"	6.10	21.55	13	14	22	"Mon-Sat"	2			
+"7015"	"701LtdR"	"Kandivli Bus Station(E)"	5.30	22.55	"Mira Road(E)"	6.10	21.55	16	19	16	"Sun-Hol"	4			
+"7021"	"702Ltd"	"Borivli Station(E)"	5.10	23.00	"Ghodbunder"	5.30	23.35	14	11	" "	"Mon-Fri"	2			
+"7021"	"702Ltd"	"Borivli Station(E)"	6.00	23.00	"Ghodbunder"	5.30	23.35	9	15	12	"Saturday"	3			
+"7021"	"702Ltd"	"Borivli Station(E)"	5.55	22.35	"Ghodbunder"	6.15	23.00	13	14	16	"Sun-Hol"	4			
+"7035"	"703LtdR"	"Samata Nagar"	6.25	23.00	"Mira Road Station"	5.40	23.40	9	10	12	"Mon-Sat"	2			
+"7035"	"703LtdR"	"Samata Nagar"	6.25	23.00	"Mira Road Station"	5.50	23.40	12	13	15	"Sun-Hol"	4			
+"7051"	"705Ltd"	"Jay Maharashtra nagar"	5.30	22.30	"Western Park(Kashigaon)"	6.00	23.10	15	18	16	"Mon-Fri"	2			
+"7051"	"705Ltd"	"Jay Maharashtra nagar"	5.30	22.30	"Western Park(Kashigaon)"	6.00	23.10	18	23	19	"Sat-Sun-Hol"	3			
+"7061"	"706Ltd"	"Marol Depot"	5.25	22.15	"Bhaynder Sttion(E)"	6.35	23.35	13	15	20	"Mon-Sat"	2			
+"7061"	"706Ltd"	"Marol Depot"	5.45	21.10	"Bhayander Station(E)"	6.55	22.43	25	29	26	"Sun-Hol"	4			
+"7071"	"707Ltd"	"Santacruz Depot"	4.45	21.20	"Golden Nest"	6.05	23.10	18	19	17	"Mon-Sat"	2			
+"7071"	"707Ltd"	"Santacruz Depot"	10.33	15.33	"Kahimira"	12.13	17.13				"Mon-Sat"	2			
+"7071"	"707Ltd"	"Santacruz Depot"	4.45	21.20	"Golden Nest"	6.05	23.00	18	20	20	"Sun-Hol"	4			
+7085	"708RLtd"	"Damu Nagar Bus Station"	6.35	22.05	"Ghoddev Naka/Shirdi Junction"	7.20	21.13	18	19	19	"All Days"	1			
+"7091"	"709Ltd"	"Magathane Depot"	3.30	24.40	"Bhayader Station(W)"	4.10	1.25	10	10	13	"Mon-Fri"	2			
+"7091"	"709Ltd"	"Magathane Depot"	3.30	24.45	"Bhayander Station(E)"	4.10	1.25	9	12	9	"Sat-Sun-Hol"	3			
+"7101"	"710Ltd"	"Jay Maharashtra nagar"	5.20	21.10	"Bhayander Station(W)"	6.05	22.05	16	22	23	"All Days"	1			
+"7111"	"711Ltd"	"Gorai Creek"	10.45	19.30	"Global Pagoda"	10.50	19.10	24	26	26	"Sunday"	4			
+"7181"	"718Ltd"	"Dindoshi Bus Station"	4.45	1.00	"Bhayander station (E)"	5.30	1.55	8	9	9	"All Days"	1			
+"7201"	"720Ltd"	"P.Thakre Nagar Bus Stn"	6.00	20.20	"Bhayander Stn(E)"	7.20	21.55	25	30	27	"All Days"	1			
+"8011"	"SPL-1"	"Chh.Shivaji Terminus"	8.10	20.20	"N.C.P.A."	8.25	20.35	2	4	2	"Mon-Fri"	2			
+"8011"	"SPL-1"										"Mon-Fri"	2			
+"8011"	"SPL-1"	"Chh.Shivaji Terminus"	8.15	18.55	"N.C.P.A."	8.30	19.10	3	5	5	"Saturday"	3			
+"8011"	"SPL-1"										"Saturday"	3			
+"8011"	"SPL-1"	"Chh.Shivaji Terminus"	8.15	18.53	"N.C.P.A."	8.30	19.05	3	6	4	"Saturday"	3			
+"8011"	"SPL-1"										"Saturday"	3			
+"8011"	"SPL-1"	"Chh.Shivaji Terminus"	8.15	19.00	"N.C.P.A."	8.30	19.15	3	6	4	"Holiday"	4			
+"8021"	"SPL-2"	"Chh.Shivaji Terminus"	8.30	11.00	"World Trade Centre"	8.49	10.39	5		5	"Mon-Fri"	2			
+"8021"	"SPL-2"		17.09	18.54		16.50	19.15				"Mon-Fri"	2			
+"8021"	"SPL-2"	"Chh.Shivaji Terminus"	8.45	11.09	"World Trade Centre"	9.04	10.46	6	" "		"Saturday"	3			
+8031	"SPL-3"	"Colaba Bus Stn"	8.33	19.35	"M.Phule Market"	8.00	20.15	20	36	27	"Mon-Sat"	2			
+"8041"	"SPL-12"	"Chh.Shivaji Terminus"	17.15	19.20	"Free Press Journal Marg"	16.55	19.30	" "	" "	5	"Mon-Fri"	2			
+"8051"	"SPL-5"	"N.C.P.A."	9.02	10.48	"M.Phule Market"	8.30	11.16	12		12	"Mon-Sat"	2			
+"8051"	"SPL-5"		16.45	19.30		17.14	19.00				"Mon-Sat"	2			
+8061	"SPL-6"	"R.C.Church"	7.25	19.05	"Ahilyabai Holkar Chowk"	7.00	18.55	21	32	37	"Mon-Sat"	2			
+"8081"	"SPL-8"	"Ahilyabai Holkar Chowk"	8.15	10.45	"World Trade Centre"	8.34	11.04	6		10	"Mon-Fri"	2			
+"8081"	"SPL-8"										"Mon-Fri"	2			
+"8081"	"SPL-8"	"Ahilyabai Holkar Chowk"	8.18	11.31	"World Trade Centre"	8.37	11.10	6	13	20	"Saturday"	3			
+"8081"	"SPL-8"	"Ahilyabai Holkar Chowk"	8.15	11.46	"World Trade Centre"	8.34	12.05	10	" "	" "	"Holiday"	4			
+"8091"	"SPL-9"	"Ahilyabai Holkar Chowk"	8.10	19.40	"N.C.P.A."	8.18	19.32	2	5	2	"Mon-Fri"	2			
+"8091"	"SPL-9"										"Mon-Fri"	2			
+"8091"	"SPL-9"	"Ahilyabai Holkar Chowk"	8.20	18.16	"N.C.P.A."	8.27	18.30	3	5	9	"Saturday"	3			
+"8091"	"SPL-9"	"Ahilyabai Holkar Chowk"	8.10	12.10	"N.C.P.A."	8.17	11.58	3	6	19	"Holiday"	4			
+"8091"	"SPL-9"	"Ahilyabai Holkar Chowk"	13.18	18.27	"N.C.P.A."	13.10	18.37				"Holiday"	4			

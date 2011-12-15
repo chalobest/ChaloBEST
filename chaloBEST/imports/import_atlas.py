@@ -19,3 +19,5 @@ def csvToJSON():
     jsonFile = open(join(PROJECT_ROOT, "../db_csv_files/Atlas.json"), "w")
     jsonFile.write(json.dumps(atlasDict, indent=2))
     jsonFile.close()
+
+

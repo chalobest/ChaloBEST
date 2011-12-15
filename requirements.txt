@@ -1,4 +1,3 @@
 -e svn+http://code.djangoproject.com/svn/django/branches/releases/1.3.X/#egg=django
--e bzr+http://code.0xdb.org/python-ox/#egg=python-ox
+-e bzr+http://code.0x2620.org/python-ox/#egg=python-ox
 django_extensions
-South

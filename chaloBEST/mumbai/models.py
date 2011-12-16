@@ -1,6 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib import admin
-
+from django import forms
 
 class Area(models.Model):
     a_code = models.IntegerField(primary_key=True)
@@ -91,40 +91,4 @@ class HardCodedRoutes(models.Model):
     def __unicode__(self):
         return self.routecode + " " +self.routealias   
 
-
-class AreaAdmin(admin.ModelAdmin):
-    pass
-
-class RoadAdmin(admin.ModelAdmin):
-    pass
-
-class FareAdmin(admin.ModelAdmin):
-    pass
-
-class StopAdmin(admin.ModelAdmin):
-    pass
-
-class RouteDetailsAdmin(admin.ModelAdmin):
-    pass
-
-class RouteAdmin(admin.ModelAdmin):
-    pass
-
-class RouteTypesAdmin(admin.ModelAdmin):
-    pass
-
-class HardCodedRoutesAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(Area, AreaAdmin)
-admin.site.register(Road, RoadAdmin)
-admin.site.register(Fare,FareAdmin)
-
-admin.site.register(Stop, StopAdmin)
-admin.site.register(RouteDetails, RouteDetailsAdmin)
-admin.site.register(Route, RouteAdmin)
-
-admin.site.register(RouteTypes, RouteTypesAdmin)
-admin.site.register(HardCodedRoutes, HardCodedRoutesAdmin)
 

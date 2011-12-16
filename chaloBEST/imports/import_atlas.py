@@ -21,10 +21,33 @@ def csvToJSON():
     jsonFile.close()
 <<<<<<< TREE
 
+
+def getRouteCodes():
+    atlasRawCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/AtlasRaw.csv"), "r"), delimiter="\t")
+    atlasDict = json.loads(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.json")).read())
+    mapping = {}
+    missingFile = open("/tmp/routesMissing.txt", "w")
+    for row in atlasRawCSV:
+        routeAlias = row[0]
+        routeCode = row[1]
+        print routeCode
+        if routeCode in atlasDict:
+            mapping[routeCode] = routeAlias
+        else:
+            missingFile.write(routeCode + "\n")
+    missingFile.close()
+    mappingFile = open(join(PROJECT_ROOT, "../db_csv_files/routeMapping.json"), "w")
+    mappingFile.write(json.dumps(mapping, indent=2))
+    mappingFile.close()
+            
+=======
+<<<<<<< TREE
+
 def csvClean1():
     atlasCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.csv"), "r"), delimiter="\t")
 	
 =======
 
 
+>>>>>>> MERGE-SOURCE
 >>>>>>> MERGE-SOURCE

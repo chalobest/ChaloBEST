@@ -19,8 +19,6 @@ def csvToJSON():
     jsonFile = open(join(PROJECT_ROOT, "../db_csv_files/Atlas.json"), "w")
     jsonFile.write(json.dumps(atlasDict, indent=2))
     jsonFile.close()
-<<<<<<< TREE
-
 
 def getRouteCodes():
     atlasRawCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/AtlasRaw.csv"), "r"), delimiter="\t")
@@ -40,14 +38,7 @@ def getRouteCodes():
     mappingFile.write(json.dumps(mapping, indent=2))
     mappingFile.close()
             
-=======
-<<<<<<< TREE
 
 def csvClean1():
     atlasCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.csv"), "r"), delimiter="\t")
-	
-=======
 
-
->>>>>>> MERGE-SOURCE
->>>>>>> MERGE-SOURCE

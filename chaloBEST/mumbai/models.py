@@ -52,6 +52,32 @@ class RouteDetails(models.Model):
         return self.rno   
 
 
+class SubRoute(models.Model):
+    from_stop = models.ForeignKey(Stop, related_name="subroutes_from")
+    to_stop = models.ForeignKey(Stop, related_name="subroutes_to")
+    route = models.ForeignKey("Route")
+    is_longest = models.BooleanField()
+    span = models.FloatField()
+
+
+class SubrouteSchedule(models.Model):
+    subroute = models.ForeignKey(SubRoute)
+    schedule_type = models.ForeignKey("ScheduleType")
+    first_from = models.FloatField(null=True, blank=True)
+    last_from = models.FloatField(null=True, blank=True)
+    first_to = models.FloatField(null=True, blank=True)
+    last_to = models.FloatField(null=True, blank=True)
+    headway07 = models.IntegerField(null=True, blank=True)
+    headway711 = models.IntegerField(null=True, blank=True)
+    headway1117 = models.IntegerField(null=True, blank=True)
+    headway1720 = models.IntegerField(null=True, blank=True)
+    headway20 = models.IntegerField(null=True, blank=True)
+
+class ScheduleType(models.Model):
+    name = models.CharField(max_length=10)
+
+    def __unicode__(self):
+        return self.name
 
 class Route(models.Model):
     route = models.TextField(max_length=255)

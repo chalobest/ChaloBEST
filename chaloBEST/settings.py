@@ -19,7 +19,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'chalobest.db',                      # Or path to database file if using sqlite3.
+        'NAME': join(PROJECT_ROOT, 'chalobest.db'),                      # Or path to database file if using sqlite3.
         'USER': 'sanj',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -62,7 +62,7 @@ MEDIA_URL = ''
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/admin/media/'
 
 # Make this unique, and don't share it with anybody.
 try:
@@ -121,3 +121,8 @@ INSTALLED_APPS = (
     'mumbai',
     # 'django.contrib.admindocs',
 )
+
+try:
+    from local_settings import *
+except:
+    pass

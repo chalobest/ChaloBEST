@@ -142,7 +142,3 @@ def getRouteCodes():
     mappingFile.write(json.dumps(mapping, indent=2))
     mappingFile.close()
             
-
-def csvClean1():
-    atlasCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.csv"), "r"), delimiter="\t")
-

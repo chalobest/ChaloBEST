@@ -5,15 +5,26 @@ from mumbai.models import *
 class AreaAdmin(admin.ModelAdmin):
     list_display = ("a_code", "areanm")
     list_editable = ("areanm",)
-    
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
+
 
 class RoadAdmin(admin.ModelAdmin):
     list_display = ("roadcd","roadnm")
     list_editable = ("roadnm",)
+    
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
 
 class FareAdmin(admin.ModelAdmin):
     list_display = ("slab","ordinary","limited","express","ac","ac_express")
     list_editable = ("ordinary","limited","express","ac","ac_express")
+    
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
     
 
 class StopForm(forms.ModelForm):
@@ -26,7 +37,8 @@ class StopAdmin(admin.ModelAdmin):
     list_display = ("stopcd","stopnm", "roadcd","a_code","stopfl","depot","chowki")
     list_editable = ("stopnm", "roadcd","a_code","stopfl","depot","chowki")
     search_fields = ("stopcd",'stopnm', 'depot')
-    ordering = ('-stopnm',)
+    ordering = ('stopnm',)
+    list_per_page = 50
 
     fieldsets = (
         (None, {
@@ -59,9 +71,23 @@ class RouteTypesAdmin(admin.ModelAdmin):
 class HardCodedRoutesAdmin(admin.ModelAdmin):
     list_display = ("routecode","routealias","faretype")
     
-class AreaAdmin(admin.ModelAdmin):
-    list_display = ("a_code", "areanm")
-    list_editable = ("areanm",)
+class LandmarkAdmin(admin.ModelAdmin):
+    list_display = ("name", "name_mr")
+    list_editable = ("name_mr",)
+
+class StopLocationAdmin(admin.ModelAdmin):
+    list_display = ("stop", "direction")
+    #list_editable = ("name","name_mr")
+
+class DepotAdmin(admin.ModelAdmin):
+    list_display = ("depot_code", "depot_name", "stop")
+    list_editable = ("depot_name",) 
+
+
+class HolidayAdmin(admin.ModelAdmin):
+    list_display = ("h_date", "h_name") 
+    list_editable = ("h_name",) 
+
 
 
 admin.site.register(Area, AreaAdmin)
@@ -75,3 +101,7 @@ admin.site.register(Route, RouteAdmin)
 admin.site.register(RouteTypes, RouteTypesAdmin)
 admin.site.register(HardCodedRoutes, HardCodedRoutesAdmin)
 
+admin.site.register(Landmark, LandmarkAdmin )
+admin.site.register(Depot,DepotAdmin)
+admin.site.register(Holiday,HolidayAdmin)
+admin.site.register(StopLocation,StopLocationAdmin)

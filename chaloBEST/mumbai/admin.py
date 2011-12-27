@@ -38,7 +38,7 @@ class StopAdmin(admin.ModelAdmin):
     list_editable = ("stopnm", "roadcd","a_code","stopfl","depot","chowki")
     search_fields = ("stopcd",'stopnm', 'depot')
     ordering = ('stopnm',)
-    list_per_page = 50
+    list_per_page = 20
 
     fieldsets = (
         (None, {
@@ -58,35 +58,59 @@ class StopAdmin(admin.ModelAdmin):
 
 class RouteDetailsAdmin(admin.ModelAdmin):
     list_display = ("rno","stopsr","stopcd","stage","km")
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
     
 
 class RouteAdmin(admin.ModelAdmin):
     list_display = ("routealias","route","from_stop","to_stop","distance","stages")
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
     
 
 class RouteTypesAdmin(admin.ModelAdmin):
     list_display = ("routecode","routetype","faretype")    
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
     
 
 class HardCodedRoutesAdmin(admin.ModelAdmin):
     list_display = ("routecode","routealias","faretype")
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
     
 class LandmarkAdmin(admin.ModelAdmin):
     list_display = ("name", "name_mr")
     list_editable = ("name_mr",)
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
 
 class StopLocationAdmin(admin.ModelAdmin):
     list_display = ("stop", "direction")
     #list_editable = ("name","name_mr")
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
 
 class DepotAdmin(admin.ModelAdmin):
     list_display = ("depot_code", "depot_name", "stop")
     list_editable = ("depot_name",) 
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
 
 
 class HolidayAdmin(admin.ModelAdmin):
     list_display = ("h_date", "h_name") 
     list_editable = ("h_name",) 
+    formfield_overrides = {
+        models.TextField: {'widget': forms.TextInput},
+    }
 
 
 

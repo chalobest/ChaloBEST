@@ -4,7 +4,7 @@ from settings import PROJECT_ROOT
 from os.path import join
 import json
 import datetime
-
+import sys
 
 CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
 CsvFile.next()
@@ -97,26 +97,58 @@ for entry in CsvFile:
 
 f.close()
 
-
+def Depot_loader():
 CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), "r"), delimiter="\t")
-f= open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), 'w')
-test = CsvFile.next()
-print test
+f= open(join(PROJECT_ROOT, "../db_csv_files/DepotErrors.csv"), 'w')
+header = CsvFile.next()
+print header
 for entry in CsvFile:
   try:    
-    date_format = entry[0].rsplit('.')
-    theday = int(date_format[0])
-    themonth = int(date_format[1])
-    theyear = int('20'+ date_format[2])
-    obj = Holiday(h_date=datetime.date(day=theday, month=themonth, year=theyear), h_name=str(entry[1])) 
+    obj = Depot(depot_code=str(entry[0]),depot_name=str(entry[1]), stop = Stop.objects.get(stopcd=int(entry[2]))) 
     obj.save()
     obj.__dict__  
   except :
     f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0]
+    print "Error:", sys.exc_info()[0] + str(entry)
 
 f.close()
 
+
+
+
+CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/StopMarathi.csv"), "r"), delimiter="\t")
+f= open(join(PROJECT_ROOT, "../db_csv_files/StopMarathiErrors.csv"), 'w')
+header = CsvFile.next()
+print header
+for entry in CsvFile:
+  try:    
+    obj = Stop.objects.get(stopcd=int(entry[0])) 
+    obj.stopnm_mr = str(entry[1]) 
+    obj.save()
+    obj.__dict__  
+  except:
+    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+    print "Error:", sys.exc_info()[0],  str(entry)
+
+f.close()
+
+
+
+CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/AreaMarathi.csv"), "r"), delimiter="\t")
+f= open(join(PROJECT_ROOT, "../db_csv_files/AreaMarathiErrors.csv"), 'w')
+header = CsvFile.next()
+print header
+for entry in CsvFile:
+  try:    
+    obj = Area.objects.get(a_code=int(entry[0])) 
+    obj.areanm_mr = str(entry[1]) 
+    obj.save()
+    obj.__dict__  
+  except:
+    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+    print "Error:", sys.exc_info()[0],  str(entry)
+
+f.close()
 
 
 

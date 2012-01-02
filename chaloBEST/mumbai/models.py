@@ -108,6 +108,41 @@ class Route(models.Model):
     def __unicode__(self):
         return self.route   
 
+class UniqueRoute(models.Model):
+    route = models.ForeignKey(Route)
+    from_stop = models.ForeignKey(Stop, related_name="routes_from")
+    to_stop = models.ForeignKey(Stop, related_name="routes_to")
+    distance = models.DecimalField(max_digits=3, decimal_places=2)
+    is_full = models.BooleanField()
+
+    def __unicode__(self):
+        return "%s: %s to %s" % (self.route.routealias, self.from_stop, self.to_stop,)
+
+class RouteSchedule(models.Model):
+    unique_route = models.ForeignKey(UniqueRoute)
+    schedule_type = models.CharField(max_length=16)
+    busesAM = models.IntegerField(blank=True, null=True)
+    busesN = models.IntegerField(blank=True, null=True)
+    busesPM = models.IntegerField(blank=True, null=True)
+    bus_type = models.CharField(max_length=3, default="SD")
+    depot = models.ForeignKey("Depot")
+    first_from = models.TimeField(blank=True, null=True)
+    last_from = models.TimeField(blank=True, null=True)
+    first_to = models.TimeField(blank=True, null=True)
+    last_to = models.TimeField(blank=True, null=True)
+    runtime1 = models.IntegerField(blank=True, null=True)
+    runtime2 = models.IntegerField(blank=True, null=True)
+    runtime3 = models.IntegerField(blank=True, null=True)
+    runtime4 = models.IntegerField(blank=True, null=True)
+    headway1 = models.IntegerField(blank=True, null=True)
+    headway2 = models.IntegerField(blank=True, null=True)
+    headway3 = models.IntegerField(blank=True, null=True)
+    headway4 = models.IntegerField(blank=True, null=True)
+    headway5 = models.IntegerField(blank=True, null=True)
+
+    def __unicode__(self):
+        return "%s: %s" % (unicode(self.unique_route), self.schedule_type,)
+
 class RouteTypes(models.Model):
     routecode = models.TextField(max_length=50)
     routetype = models.TextField(max_length=50)

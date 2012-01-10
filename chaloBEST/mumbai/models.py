@@ -95,28 +95,29 @@ class RouteDetails(models.Model):
 
 
 class Route(models.Model):
-    route = models.TextField(max_length=255)
-    routealias = models.TextField(max_length=255)
-    from_stop = models.TextField(max_length=500,db_column='from')
-    to_stop = models.TextField(max_length=500,db_column='to')
-    # Ideally they should be ...
-    #from_stop = models.ForeignKey(Stop, related_name='from_stop')    
-    #to_stop = models.ForeignKey(Stop, related_name='to_stop')
+    code = models.TextField(max_length=255)
+    alias = models.TextField(max_length=255)
+    from_stop_txt = models.TextField(max_length=500,db_column='from')
+    to_stop_txt = models.TextField(max_length=500,db_column='to')
+    from_stop = models.ForeignKey(Stop, related_name='from_stop')    
+    to_stop = models.ForeignKey(Stop, related_name='to_stop')
     distance = models.DecimalField(max_digits=3, decimal_places=1) 
     stages =  models.IntegerField()
 
     def __unicode__(self):
-        return self.route   
+        return self.alias   
 
 class UniqueRoute(models.Model):
     route = models.ForeignKey(Route)
+    from_stop_txt = models.CharField(max_length=255)
+    to_stop_txt = models.CharField(max_length=255)
     from_stop = models.ForeignKey(Stop, related_name="routes_from")
     to_stop = models.ForeignKey(Stop, related_name="routes_to")
-    distance = models.DecimalField(max_digits=3, decimal_places=2)
+    distance = models.FloatField(blank=True, null=True)
     is_full = models.BooleanField()
 
     def __unicode__(self):
-        return "%s: %s to %s" % (self.route.routealias, self.from_stop, self.to_stop,)
+        return "%s: %s to %s" % (self.route.alias, self.from_stop, self.to_stop,)
 
 class RouteSchedule(models.Model):
     unique_route = models.ForeignKey(UniqueRoute)
@@ -125,7 +126,8 @@ class RouteSchedule(models.Model):
     busesN = models.IntegerField(blank=True, null=True)
     busesPM = models.IntegerField(blank=True, null=True)
     bus_type = models.CharField(max_length=3, default="SD")
-    depot = models.ForeignKey("Depot")
+    depot_txt = models.CharField(max_length=16, blank=True)
+    depot = models.ForeignKey("Depot", null=True)
     first_from = models.TimeField(blank=True, null=True)
     last_from = models.TimeField(blank=True, null=True)
     first_to = models.TimeField(blank=True, null=True)

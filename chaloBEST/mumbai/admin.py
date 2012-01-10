@@ -2,6 +2,9 @@ from django.contrib import admin
 from django import forms
 from mumbai.models import *
 
+class RouteScheduleInline(admin.StackedInline):
+    model = RouteSchedule
+
 class AreaAdmin(admin.ModelAdmin):
     list_display = ("a_code", "areanm")
     list_editable = ("areanm",)
@@ -26,6 +29,9 @@ class FareAdmin(admin.ModelAdmin):
         models.TextField: {'widget': forms.TextInput},
     }
     
+class UniqueRouteAdmin(admin.ModelAdmin):
+    inlines = [RouteScheduleInline]
+
 
 class StopForm(forms.ModelForm):
     
@@ -129,3 +135,5 @@ admin.site.register(Landmark, LandmarkAdmin )
 admin.site.register(Depot,DepotAdmin)
 admin.site.register(Holiday,HolidayAdmin)
 admin.site.register(StopLocation,StopLocationAdmin)
+
+admin.site.register(UniqueRoute, UniqueRouteAdmin)

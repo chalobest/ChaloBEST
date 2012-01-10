@@ -31,6 +31,7 @@ def csvToJSON():
 '''
 function to copy over values of AM N PM + Schedule from previous row, reading from Atlas.json, writing to atlasCopied.json
 (fill in blank rows where 'copy from previous' is assumed, and create new json file - step 2)
+NOTE: this omits routes for which we dont have routeAlias to code mapping for in routeMapping.json
 '''
 def processJSON():
     routeErrors = {'routes': [], 'others': []}
@@ -83,7 +84,6 @@ def groupUnique():
         
         outDict[key] = []
         for row in routes[key]:
-            i = 0
             print key
             d = {
                 'from': row[7],
@@ -91,20 +91,21 @@ def groupUnique():
                 'span': row[13],
                 'is_full': False,
 #                'schedule': row[28],
-                'rows': {
-                    row[-5]: row
-                }   
+#                'rows': {
+#                    row[-5]: row
+#                }   
             }
             matchedRow = isNotUnique(d, outDict[key])
             schedule = row[-5]
-            if matchedRow:
-                outDict[key][i-1]['rows'][schedule] = row
+            if matchedRow is not None:
+                outDict[key][matchedRow]['rows'][schedule] = row
             else:
                 if isLargestSpan(d, routes[key]):
                     d['is_full'] = True
                 outDict[key].append(d)
-                outDict[key][i]['rows'][schedule] = row
-                i += 1
+                if not outDict[key][-1].has_key('rows'):
+                    outDict[key][-1]['rows'] = {}
+                outDict[key][-1]['rows'][schedule] = row
 
     outFile = open(join(PROJECT_ROOT, "../db_csv_files/uniqueRoutes.json"), "w")
     outFile.write(json.dumps(outDict, indent=2))
@@ -251,7 +252,7 @@ def isLargestSpan(data, arr):
     return True
 
 '''
-    returns index of row if not unique, else False
+    returns index of row if not unique, else None
 '''
 def isNotUnique(data, arr):
     i = 0
@@ -259,7 +260,7 @@ def isNotUnique(data, arr):
         if a['from'] == data['from'] and a['to'] == data['to']:
             return i
         i += 1
-    return False
+    return None
 
 '''
 Create routeMapping.json file to map route aliases to route codes

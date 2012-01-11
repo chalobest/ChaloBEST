@@ -4,6 +4,7 @@ from mumbai.models import *
 
 class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule
+    extras = 0
 
 class AreaAdmin(admin.ModelAdmin):
     list_display = ("a_code", "areanm")

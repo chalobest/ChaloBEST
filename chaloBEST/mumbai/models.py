@@ -49,7 +49,7 @@ class Area(models.Model):
 class Road(models.Model):
     roadcd = models.IntegerField(primary_key=True)
     roadnm = models.TextField(blank=True, max_length=255)
-    roadnm_mr= models.TextField(blank=True, max_length=512)
+    #roadnm_mr= models.TextField(blank=True, max_length=512)
     def __unicode__(self):
         return self.roadnm   
 

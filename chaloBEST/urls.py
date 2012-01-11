@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^chaloBEST/', include('chaloBEST.foo.urls')),
     url(r'^$','chaloBEST.views.index', name='index'),
+    url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),

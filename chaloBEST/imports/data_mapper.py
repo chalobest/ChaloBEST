@@ -6,68 +6,75 @@ import json
 import datetime
 import sys
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
-CsvFile.next()
-for entry in CsvFile:
-    obj = Area(int(entry[0]), entry[1]) 
-    obj.save()
-    print obj.a_code, obj.areanm
+def AreaLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
+    CsvFile.next()
+    for entry in CsvFile:
+        obj = Area(int(entry[0]), entry[1]) 
+        obj.save()
+        print obj.a_code, obj.areanm
 
-print "----- "
+        print "----- "
+    return
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/FareMaster.csv", "r"))
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-    obj = Fare(slab=float(entry[0]), ordinary=int(entry[1]), limited=int(entry[2]), express=int(entry[3]), ac=int(entry[4]), ac_express=int(entry[5])) 
-    obj.save()
-    print obj.__dict__
+def FareLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/FareMaster.csv", "r"))
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        obj = Fare(slab=float(entry[0]), ordinary=int(entry[1]), limited=int(entry[2]), express=int(entry[3]), ac=int(entry[4]), ac_express=int(entry[5])) 
+        obj.save()
+        print obj.__dict__
+    return
 
+def RoadLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RoadMaster.csv", "r"))
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        obj = Road(roadcd=int(entry[0]), roadnm=str(entry[1])) 
+        obj.save()
+        print obj.__dict__
+    return
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RoadMaster.csv", "r"))
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-    obj = Road(roadcd=int(entry[0]), roadnm=str(entry[1])) 
-    obj.save()
-    print obj.__dict__
+def RouteLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteMaster.csv", "r"), delimiter='\t')
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
+        print obj.__dict__
+    return
 
+def RouteDetailsLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        try:
+            print obj.__dict__
+            obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopdcd=Stop.objects.get(stopcd=int(entry[2])), stage=entry[3].startswith('1'), km=float(entry[4])) 
+            
+        except:
+            f.write(obj.__dict__)
+    return
+#RNO,STOPSR,STOPCD,STAGE,KM
 
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteMaster.csv", "r"), delimiter='\t')
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-    obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
-    print obj.__dict__
+def AreaLoader():
+    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
+    f= open('RouteDetailsErrors', 'w')
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        try:    
+            obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=Stop.objects.get(stopcd=int(entry[2])), stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]() )
+            obj.save()
+            obj.__dict__  
+        except :
+            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+            print "Error:", sys.exc_info()[0]
 
-
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-    try:
-     print obj.__dict__
-     obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopdcd=Stop.objects.get(stopcd=int(entry[2])), stage=entry[3].startswith('1'), km=float(entry[4])) 
-    
-    except:
-	f.write(obj.__dict__)
-
-RNO,STOPSR,STOPCD,STAGE,KM
-
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
-f= open('RouteDetailsErrors', 'w')
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-  try:    
-    obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=Stop.objects.get(stopcd=int(entry[2])), stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]() )
-    obj.save()
-    obj.__dict__  
-  except :
-    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0]
-
-f.close()
+    f.close()
 
 date_format = entry[0].rsplit('.')
 theday = int(date_format[0])
@@ -78,41 +85,62 @@ import datetime
 
 def holiday_loader():
 
-CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Holidays.csv"), "r"), delimiter="\t")
-f= open('HolidaysErrors', 'w')
-test = CsvFile.next()
-print test
-for entry in CsvFile:
-  try:    
-    date_format = entry[0].rsplit('.')
-    theday = int(date_format[0])
-    themonth = int(date_format[1])
-    theyear = int('20'+ date_format[2])
-    obj = Holiday(h_date=datetime.date(day=theday, month=themonth, year=theyear), h_name=str(entry[1])) 
-    obj.save()
-    obj.__dict__  
-  except :
-    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0]
+    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Holidays.csv"), "r"), delimiter="\t")
+    f= open('HolidaysErrors', 'w')
+    test = CsvFile.next()
+    print test
+    for entry in CsvFile:
+        try:    
+            date_format = entry[0].rsplit('.')
+            theday = int(date_format[0])
+            themonth = int(date_format[1])
+            theyear = int('20'+ date_format[2])
+            obj = Holiday(h_date=datetime.date(day=theday, month=themonth, year=theyear), h_name=str(entry[1])) 
+            obj.save()
+            obj.__dict__  
+        except :
+            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+            print "Error:", sys.exc_info()[0]
 
-f.close()
+    f.close()
+    return
+
+def RouteLoader():
+    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Route.csv"), "r"), delimiter="\t")
+    f= open(join(PROJECT_ROOT, "../db_csv_files/RouteErrors.csv"), 'w')
+    header = CsvFile.next()
+    print header
+    for entry in CsvFile:
+        try:    
+            obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
+            obj.save()
+            obj.__dict__ 
+        except :
+            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+            print "Error:", sys.exc_info()[0] + str(entry)
+
+    f.close()
+    return 
+
+    obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
+
 
 def Depot_loader():
-CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), "r"), delimiter="\t")
-f= open(join(PROJECT_ROOT, "../db_csv_files/DepotErrors.csv"), 'w')
-header = CsvFile.next()
-print header
-for entry in CsvFile:
-  try:    
-    obj = Depot(depot_code=str(entry[0]),depot_name=str(entry[1]), stop = Stop.objects.get(stopcd=int(entry[2]))) 
-    obj.save()
-    obj.__dict__  
-  except :
-    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0] + str(entry)
+    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), "r"), delimiter="\t")
+    f= open(join(PROJECT_ROOT, "../db_csv_files/DepotErrors.csv"), 'w')
+    header = CsvFile.next()
+    print header
+    for entry in CsvFile:
+        try:    
+            obj = Depot(depot_code=str(entry[0]),depot_name=str(entry[1]), stop = Stop.objects.get(stopcd=int(entry[2]))) 
+            obj.save()
+            obj.__dict__  
+        except :
+            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+            print "Error:", sys.exc_info()[0] + str(entry)
 
-f.close()
-
+    f.close()
+    return
 
 
 

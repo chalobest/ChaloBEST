@@ -42,14 +42,14 @@ SCHED = {
 class Area(models.Model):
     a_code = models.IntegerField(primary_key=True)
     areanm = models.TextField(blank=True, max_length=255)
-    areanm_mr= models.TextField(blank=True, max_length=512)
+    areanm_mr= models.TextField(null=True, blank=True, max_length=512) #null=True, 
     def __unicode__(self):
         return self.areanm   
     
 class Road(models.Model):
     roadcd = models.IntegerField(primary_key=True)
     roadnm = models.TextField(blank=True, max_length=255)
-    #roadnm_mr= models.TextField(blank=True, max_length=512)
+    roadnm_mr= models.TextField(null=True, blank=True, max_length=512)
     def __unicode__(self):
         return self.roadnm   
 
@@ -74,7 +74,7 @@ class Stop(models.Model):
     roadcd = models.ForeignKey(Road)
     a_code = models.ForeignKey(Area)
     depot = models.TextField(max_length=255) # should actually be a foreign key to a depotMaster,     
-    stopnm_mr= models.TextField(blank=True, max_length=512)
+    stopnm_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
 
     def __unicode__(self):
         return self.stopnm   

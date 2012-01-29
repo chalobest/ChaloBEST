@@ -6,6 +6,9 @@ import json
 import datetime
 import sys
 
+def __init__():
+    pass
+
 def AreaLoader():
     CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
     CsvFile.next()
@@ -58,6 +61,7 @@ def RouteDetailsLoader():
         except:
             f.write(obj.__dict__)
     return
+
 #RNO,STOPSR,STOPCD,STAGE,KM
 
 def AreaLoader():
@@ -75,11 +79,6 @@ def AreaLoader():
             print "Error:", sys.exc_info()[0]
 
     f.close()
-
-date_format = entry[0].rsplit('.')
-theday = int(date_format[0])
-themonth = int(date_format[1])
-theyear = int('20'+ date_format[2])
 
 import datetime
 
@@ -105,25 +104,102 @@ def holiday_loader():
     f.close()
     return
 
-def RouteLoader():
-    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Route.csv"), "r"), delimiter="\t")
-    f= open(join(PROJECT_ROOT, "../db_csv_files/RouteErrors.csv"), 'w')
+def test_func(entry):
+    print entry
+
+mappingtosave = {
+    "Area":Area_save,
+    "Route":Route_save,
+    "Road":Road_save,
+    "RouteDetail":RouteDetail_save,
+    "Fare":Fare_save
+
+}
+
+
+def TestLoader(thismodel):
+    save = mapping[thismodel]
+    g([0,1,2,3,4])
+
+    
+
+
+def CsvLoader(thismodel):
+    thismodel = "Route"
+    try:
+        CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/"+thismodel+ ".csv"), "r"), delimiter="\t")
+    except:
+        print "Error opening file. Please check if ", thismodel," file exists and you have read/write permissions."
+    f= open(join(PROJECT_ROOT, "../db_csv_files/"+ thismodel + "Errors.csv"), 'w')
+    f.write("Data" + '\t' + "Error thrown" + '\n')
+
     header = CsvFile.next()
     print header
+    print "Loading ", thismodel, "s...\n"
+    if ( header.find(',') != -1 ):
+       print "Input files should be tab delimited, not comma delimited!"
+       exit
+    errcount=0
     for entry in CsvFile:
-        try:    
-            obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
-            obj.save()
-            obj.__dict__ 
-        except :
-            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
+        try:          
+            #get the function for this model
+            object_save = mapping[thismodel]
+            object_save(entry)
+        except:
+            f.write(str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n')
+            errcount+=1; 
             print "Error:", sys.exc_info()[0] + str(entry)
 
     f.close()
-    return 
+    stats =  thismodel, "s loaded. Number of Errors encountered: ", errcount , ".\n"
+    if errcount > 0 :
+        stats+="See ", thismodel, "Errors file for details."
 
+    print stats
+    return
+
+def Route_save(entry):
     obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
+    obj.save()
+    print obj.__dict__ 
 
+def Depot_save(entry):
+    obj = Depot(depot_code=str(entry[0]),depot_name=str(entry[1]), stop = Stop.objects.get(stopcd=int(entry[2]))) 
+    obj.save()
+    print obj.__dict__  
+
+def Holiday_save(entry):
+    date_format = entry[0].rsplit('.')
+    theday = int(date_format[0])
+    themonth = int(date_format[1])
+    theyear = int('20'+ date_format[2])
+    obj = Holiday(h_date=datetime.date(day=theday, month=themonth, year=theyear), h_name=str(entry[1])) 
+    obj.save()
+    print obj.__dict__  
+
+def RouteDetail_save(entry):
+    obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=Stop.objects.get(stopcd=int(entry[2])), stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]())
+    obj.save()
+    print obj.__dict__  
+       
+def Road_save(entry):
+    obj = Road(roadcd=int(entry[0]), roadnm=str(entry[1])) 
+    obj.save()
+    print obj.__dict__
+  
+def Fare_save(entry):
+    obj = Fare(slab=float(entry[0]), ordinary=int(entry[1]), limited=int(entry[2]), express=int(entry[3]), ac=int(entry[4]), ac_express=int(entry[5])) 
+    obj.save()
+    print obj.__dict__
+   
+def Area_save(entry):
+    obj = Area(int(entry[0]), entry[1]) 
+    obj.save()
+    print obj.__dict__    
+    
+def hay_world(entry):
+    print entry
+    
 
 def Depot_loader():
     CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), "r"), delimiter="\t")
@@ -141,8 +217,7 @@ def Depot_loader():
 
     f.close()
     return
-
-
+"""
 
 CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/StopMarathi.csv"), "r"), delimiter="\t")
 f= open(join(PROJECT_ROOT, "../db_csv_files/StopMarathiErrors.csv"), 'w')
@@ -190,6 +265,7 @@ to
 9	A/C Exp Ext	ACEXP
 to
 9	AC Exp Ext	ACEXP
+
 
 
 test = CsvFile.next()
@@ -281,7 +357,7 @@ changed to
 
 
 
-"""
+
 AreaCsv = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
 AreaCsv = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
 AreaCsv = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))

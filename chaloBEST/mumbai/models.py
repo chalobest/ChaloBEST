@@ -40,49 +40,68 @@ SCHED = {
     }
 
 class Area(models.Model):
-    a_code = models.IntegerField(primary_key=True)
-    areanm = models.TextField(blank=True, max_length=255)
-    areanm_mr= models.TextField(null=True, blank=True, max_length=512) #null=True, 
+    code = models.IntegerField() #primary_key=True)
+    name = models.TextField(blank=True, max_length=255)
+    name_mr= models.TextField(null=True, blank=True, max_length=512) #null=True, 
+    geometry = models.PolygonField(blank=True, null=True)
+
     def __unicode__(self):
-        return self.areanm   
+        return self.name   
+
     
 class Road(models.Model):
-    roadcd = models.IntegerField(primary_key=True)
-    roadnm = models.TextField(blank=True, max_length=255)
-    roadnm_mr= models.TextField(null=True, blank=True, max_length=512)
+    code = models.IntegerField()#primary_key=True)
+    name = models.TextField(blank=True, max_length=255)
+    name_mr= models.TextField(null=True, blank=True, max_length=512)
+    geometry = models.LineStringField(blank=True, null=True)
     def __unicode__(self):
-        return self.roadnm   
+        return self.name   
 
 
 class Fare(models.Model):
     slab = models.DecimalField(max_digits=5, decimal_places=2) 
-    ordinary = models.PositiveIntegerField(db_column='ord')
-    limited = models.PositiveIntegerField(db_column='ltd')
-    express = models.PositiveIntegerField(db_column='exp')
-    ac = models.PositiveIntegerField(db_column='as')
-    ac_express = models.PositiveIntegerField(db_column='acexp')
+    ordinary = models.PositiveIntegerField()
+    limited = models.PositiveIntegerField()
+    express = models.PositiveIntegerField()
+    ac = models.PositiveIntegerField()
+    ac_express = models.PositiveIntegerField()
     def __unicode__(self):
-        return self.slab   
+        return str(self.slab)   
 
 
 class Stop(models.Model):
-    stopcd = models.IntegerField(primary_key=True)
-    stopnm = models.TextField(blank=True, max_length=255)
-    stopfl = models.CharField(null=True, blank=True, max_length=5, choices=STOP_CHOICES)
+    code = models.IntegerField()# primary_key=True)
+    name = models.TextField(blank=True, max_length=255)
+    dbdirection = models.CharField(null=True, blank=True, max_length=5, choices=STOP_CHOICES) #stopfl - > direction
     chowki = models.NullBooleanField(null=True, blank=True) # this is nullable since in the next datafeed , they might have blank to represent a 0.
-
-    roadcd = models.ForeignKey(Road)
-    a_code = models.ForeignKey(Area)
-    depot = models.TextField(max_length=255) # should actually be a foreign key to a depotMaster,     
-    stopnm_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
+    road = models.ForeignKey(Road)
+    area = models.ForeignKey(Area)
+    depot = models.ForeignKey("Depot", related_name='is_depot_for')    
+    name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
 
     def __unicode__(self):
-        return self.stopnm   
+        return self.name   
 
-class RouteDetails(models.Model):
-    rno = models.TextField()
-    stopsr = models.PositiveIntegerField()
-    stopcd = models.ForeignKey(Stop)
+
+class Route(models.Model):
+    code = models.TextField(max_length=255)
+    alias = models.TextField(max_length=255)
+    from_stop_txt = models.TextField(max_length=500)
+    to_stop_txt = models.TextField(max_length=500)
+    from_stop = models.ForeignKey(Stop, related_name='routes_from')
+    to_stop = models.ForeignKey(Stop, related_name='routes_to')
+    distance = models.DecimalField(max_digits=3, decimal_places=1)
+    stages =  models.IntegerField()
+
+    def __unicode__(self):
+        return self.alias
+
+
+class RouteDetail(models.Model):
+#    rno = models.TextField()
+    route = models.ForeignKey(Route.code)
+    serial = models.PositiveIntegerField()
+    stop = models.ForeignKey(Stop)
     stage =  models.NullBooleanField()
     km  = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=1)
 
@@ -90,34 +109,21 @@ class RouteDetails(models.Model):
         verbose_name = 'Route Detail'
  
     def __unicode__(self):
-        return self.rno   
+        return self.route.alias   
 
-
-
-class Route(models.Model):
-    code = models.TextField(max_length=255)
-    alias = models.TextField(max_length=255)
-    from_stop_txt = models.TextField(max_length=500,db_column='from')
-    to_stop_txt = models.TextField(max_length=500,db_column='to')
-    from_stop = models.ForeignKey(Stop, related_name='from_stop')    
-    to_stop = models.ForeignKey(Stop, related_name='to_stop')
-    distance = models.DecimalField(max_digits=3, decimal_places=1) 
-    stages =  models.IntegerField()
-
-    def __unicode__(self):
-        return self.alias   
 
 class UniqueRoute(models.Model):
     route = models.ForeignKey(Route)
     from_stop_txt = models.CharField(max_length=255)
     to_stop_txt = models.CharField(max_length=255)
-    from_stop = models.ForeignKey(Stop, related_name="routes_from")
-    to_stop = models.ForeignKey(Stop, related_name="routes_to")
+    from_stop = models.ForeignKey(Stop, related_name="unique_routes_from")
+    to_stop = models.ForeignKey(Stop, related_name="unique_routes_to")
     distance = models.FloatField(blank=True, null=True)
     is_full = models.BooleanField()
 
     def __unicode__(self):
         return "%s: %s to %s" % (self.route.alias, self.from_stop, self.to_stop,)
+
 
 class RouteSchedule(models.Model):
     unique_route = models.ForeignKey(UniqueRoute)
@@ -145,19 +151,22 @@ class RouteSchedule(models.Model):
     def __unicode__(self):
         return "%s: %s" % (unicode(self.unique_route), self.schedule_type,)
 
-class RouteTypes(models.Model):
-    routecode = models.TextField(max_length=50)
-    routetype = models.TextField(max_length=50)
+
+class RouteType(models.Model):
+    code = models.TextField(max_length=50)
+    rtype = models.TextField(max_length=50)
     faretype = models.TextField(max_length=10)
 
     def __unicode__(self):
         return self.routetype   
+
     class Meta:
         verbose_name = 'Route Type'
 
-class HardCodedRoutes(models.Model):
-    routecode = models.TextField(max_length=50)
-    routealias = models.TextField(max_length=50)
+
+class HardCodedRoute(models.Model):
+    code = models.ForeignKey(Route.code)
+    alias = models.TextField(max_length=50)
     faretype = models.TextField(max_length=10)
 
     class Meta:
@@ -169,30 +178,36 @@ class HardCodedRoutes(models.Model):
 
 class Landmark(models.Model):
     name = models.TextField(max_length=500, blank=True, null=True)
-    stop = models.ManyToManyField(Stop, related_name='is_near_to')
+    stops = models.ManyToManyField(Stop, related_name='is_near_to')
     name_mr = models.TextField(max_length=512, blank=True, null=True)
+    point = models.PointField(blank=True, null=True)
+
     def __unicode__(self):
-        return self.stop 
+        return self.name 
+
 
 class StopLocation(models.Model):
     stop = models.ForeignKey(Stop)
-    #point = models.PointField(blank=True, null=True)
+    point = models.PointField()
     direction = models.CharField(max_length=5, null=True, blank=True, choices=STOP_CHOICES)
 
     def __unicode__(self):
         return self.stop 
 
+
 class Depot(models.Model):
-    depot_code = models.CharField(max_length=5)
-    depot_name = models.TextField(max_length=50)
-    stop = models.ForeignKey(Stop, related_name='is_depot_for')
+    code = models.CharField(max_length=5)
+    name = models.TextField(max_length=50)
+    stop = models.ForeignKey(Stop, related_name="is_also_depot")
+
     def __unicode__(self):
-        return self.depot_name 
+        return self.name 
 
 
 class Holiday(models.Model):
-    h_date = models.DateField()
-    h_name = models.TextField(max_length=100)
+    date = models.DateField()
+    name = models.TextField(max_length=100)
+
     def __unicode__(self):
-        return self.h_name 
+        return self.name 
     

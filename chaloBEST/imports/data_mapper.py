@@ -26,7 +26,7 @@ def Route_save(entry):
     #print obj.__dict__ 
 
 def HardCodedRoute_save(entry):
-    obj = HardCodedRoute(code=Route.objects.get(entry[0]), alias=entry[1], faretype=entry[2])
+    obj = HardCodedRoute(code=Route.objects.get(code=int(entry[0])), alias=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
 
@@ -88,13 +88,13 @@ def Stop_save(entry):
 # There is no model as StopMarathi/AreaMarathi, but this is done to separate errors arising from different files, and also that the Marathi names should be done after the Stop and Area entities have been fully loaded cuz thats how we get them from BEST.
 
 def StopMarathi_save(entry):
-    obj = Stop.objects.get(stopcd=int(entry[0])) 
+    obj = Stop.objects.get(code=int(entry[0])) 
     obj.stopnm_mr = str(entry[1]) 
     obj.save()
     #print obj.__dict__  
 
 def AreaMarathi_save(entry):
-    obj = Area.objects.get(a_code=int(entry[0])) 
+    obj = Area.objects.get(code=int(entry[0])) 
     obj.areanm_mr = str(entry[1]) 
     obj.save()
     #print obj.__dict__  
@@ -156,7 +156,7 @@ def CsvLoader(thismodel):
 
     f.close()
     DataLinesInFile = CsvFile.line_num -1
-    stats = str(DataLinesInFile - errcount ) + " " +  thismodel + "s loaded. Number of Errors encountered: " + str(errcount)
+    stats = str(DataLinesInFile - errcount ) + " " +  thismodel + "s loaded. Number of Errors encountered: " + str(errcount) + ". "
     if errcount > 0 :
         stats+="See " +  thismodel + "Errors file for details."
 

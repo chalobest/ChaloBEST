@@ -78,13 +78,13 @@ class Stop(models.Model):
     area = models.ForeignKey(Area)
     depot = models.ForeignKey("Depot", related_name='is_depot_for')    
     name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
-
+    point = models.PointField(null=True)
     def __unicode__(self):
         return self.name   
 
 
 class Route(models.Model):
-    code = models.TextField(max_length=255)
+    code = models.TextField(max_length=255, unique=True)
     alias = models.TextField(max_length=255)
     from_stop_txt = models.TextField(max_length=500)
     to_stop_txt = models.TextField(max_length=500)
@@ -99,7 +99,7 @@ class Route(models.Model):
 
 class RouteDetail(models.Model):
 #    rno = models.TextField()
-    route = models.ForeignKey(Route.code)
+    route = models.ForeignKey(Route, to_field="code")
     serial = models.PositiveIntegerField()
     stop = models.ForeignKey(Stop)
     stage =  models.NullBooleanField()
@@ -165,7 +165,7 @@ class RouteType(models.Model):
 
 
 class HardCodedRoute(models.Model):
-    code = models.ForeignKey(Route.code)
+    code = models.ForeignKey(Route, to_field="code")
     alias = models.TextField(max_length=50)
     faretype = models.TextField(max_length=10)
 

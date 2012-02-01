@@ -140,22 +140,22 @@ def importUniqueRoutes():
                 from_to = getFromToStopsForRoute(routeObj.code)
                 obj.from_stop = from_to[0]
                 if not stopMapping.has_key(obj.from_stop_txt):
-                    stopMapping[obj.from_stop_txt] = from_to[0].stopcd
+                    stopMapping[obj.from_stop_txt] = from_to[0].stop
                 obj.to_stop = from_to[1]
                 if not stopMapping.has_key(obj.to_stop_txt):
-                    stopMapping[obj.to_stop_txt] = from_to[1].stopcd
+                    stopMapping[obj.to_stop_txt] = from_to[1].stop
             else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
                 stopnames = []
                 stopcodes = []
-                for r in RouteDetails.objects.filter(rno=routeObj.code):
-                    stopnames.append(r.stopcd.stopnm)
-                    stopcodes.append(r.stopcd.stopcd)     
+                for r in RouteDetails.objects.filter(route=routeObj):
+                    stopnames.append(r.stop.name)
+                    stopcodes.append(r.stop.code)     
                 from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
                 to_fuzz = fuzzprocess.extractOne(thisRoute['to'], stopnames)
                 #pdb.set_trace()
                 try:
-                    obj.from_stop = Stop.objects.filter(stopnm=from_fuzz[0]).filter(stopcd__in=stopcodes)[0]
-                    obj.to_stop = Stop.objects.filter(stopnm=to_fuzz[0]).filter(stopcd__in=stopcodes)[0]
+                    obj.from_stop = Stop.objects.filter(name=from_fuzz[0]).filter(code__in=stopcodes)[0]
+                    obj.to_stop = Stop.objects.filter(name=to_fuzz[0]).filter(code__in=stopcodes)[0]
                 except:
                     stopErrors.append([thisRoute['from'], thisRoute['to']])
                     continue
@@ -166,9 +166,9 @@ def importUniqueRoutes():
             for schedule in thisRoute['rows'].keys(): #loop through each schedule per UniqueRoute and save it
                 row = thisRoute['rows'][schedule]
                 try:
-                    depot = Depot.objects.get(depot_code=row[6])
+                    depot = Depot.objects.get(code=row[6])
                 except:
-                    depot = None
+                    depot = None #FIXME!! Catch depot errors based on findings
                 #pdb.set_trace()
                 routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
                 routeScheduleObj.save()
@@ -225,8 +225,8 @@ def getFromToStopsForRoute(routeCode):
     routeDetails = RouteDetails.objects.filter(rno=routeCode).order_by('stopsr')
     if routeDetails.count() == 0:
         return None
-    fromStop = routeDetails[0].stopcd
-    toStop = routeDetails[routeDetails.count() -1].stopcd
+    fromStop = routeDetails[0].stop
+    toStop = routeDetails[routeDetails.count() -1].stop
     return (fromStop, toStop,)
     
     

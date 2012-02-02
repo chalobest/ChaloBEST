@@ -154,7 +154,7 @@ def importUniqueRoutes():
             else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
                 stopnames = []
                 stopcodes = []
-                for r in RouteDetails.objects.filter(route=routeObj):
+                for r in RouteDetail.objects.filter(route=routeObj):
                     stopnames.append(r.stop.name)
                     stopcodes.append(r.stop.code)     
                 from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
@@ -229,7 +229,7 @@ Passed a route code, it gets stop codes for the first and last stop
 '''
 def getFromToStopsForRoute(routeCode):
 #    fromStr = row[2]
-    routeDetails = RouteDetails.objects.filter(rno=routeCode).order_by('stopsr')
+    routeDetails = RouteDetail.objects.filter(rno=routeCode).order_by('stopsr')
     if routeDetails.count() == 0:
         return None
     fromStop = routeDetails[0].stop

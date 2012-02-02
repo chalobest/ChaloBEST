@@ -147,10 +147,10 @@ def importUniqueRoutes():
                 from_to = getFromToStopsForRoute(routeObj)
                 obj.from_stop = from_to[0]
                 if not stopMapping.has_key(obj.from_stop_txt):
-                    stopMapping[obj.from_stop_txt] = from_to[0].stop.name
+                    stopMapping[obj.from_stop_txt] = from_to[0].name
                 obj.to_stop = from_to[1]
                 if not stopMapping.has_key(obj.to_stop_txt):
-                    stopMapping[obj.to_stop_txt] = from_to[1].stop.name
+                    stopMapping[obj.to_stop_txt] = from_to[1].name
             else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
                 stopnames = []
                 stopcodes = []

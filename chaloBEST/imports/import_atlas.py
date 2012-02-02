@@ -161,8 +161,12 @@ def importUniqueRoutes():
                 for r in RouteDetail.objects.filter(route=routeObj):
                     stopnames.append(r.stop.name)
                     stopcodes.append(r.stop.code)     
-                from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
-                to_fuzz = fuzzprocess.extractOne(thisRoute['to'], stopnames)
+                try:
+                    from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
+                    to_fuzz = fuzzprocess.extractOne(thisRoute['to'], stopnames)
+                except:
+                    stopErrors.append(thisRoute)
+                    continue
                 #pdb.set_trace()
                 try:
                     obj.from_stop = Stop.objects.filter(name=from_fuzz[0]).filter(code__in=stopcodes)[0]

@@ -217,7 +217,7 @@ def CsvLoader(thismodel):
     print stats
     return
 
-def fire_up:
+def fire_up():
     for model in saveorder:
         CsvLoader(model)
 

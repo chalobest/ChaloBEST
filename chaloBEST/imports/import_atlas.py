@@ -135,6 +135,7 @@ def importUniqueRoutes():
                 routeObj = Route.objects.get(alias=route)
             except:
                 routeDoesNotExistErrors.append({'routeAlias': route})
+                continue
 
         for unique_route in data[route]:
             thisRoute = unique_route #FIXME
@@ -154,6 +155,9 @@ def importUniqueRoutes():
             else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
                 stopnames = []
                 stopcodes = []
+                if RouteDetail.objects.filter(route=routeObj).count() == 0:
+                    routeDoesNotExistErrors.append({'routeDetailDoesNotExist': routeObj.code})
+                    continue
                 for r in RouteDetail.objects.filter(route=routeObj):
                     stopnames.append(r.stop.name)
                     stopcodes.append(r.stop.code)     

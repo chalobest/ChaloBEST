@@ -5,7 +5,7 @@ from os.path import join
 import json
 import datetime
 import sys
-
+from django.contrib.gis.geos import Point
 
 def RouteType_save(entry):
     obj = RouteType(code=entry[0], rtype=entry[1], faretype=entry[2])
@@ -13,20 +13,41 @@ def RouteType_save(entry):
     #print obj.__dict__ 
 
 def Route_save(entry):    
+    
+    try:
+        f_stop = Stop.objects.filter(name=str(entry[2]))[0]
+    except IndexError:
+        f_stop = None 
+
+    try:
+        t_stop = Stop.objects.filter(name=str(entry[3]))[0]
+    except IndexError:
+        t_stop = None 
+    
     obj = Route(
-        code=entry[0], 
-        alias=entry[1], 
-        from_stop=Stop.objects.get(code = int(entry[2])), 
-        from_stop_txt=entry[2], 
-        to_stop_txt=entry[3], 
-        to_stop=Stop.objects.get(code = int(entry[3])), 
+        code=str(entry[0]), 
+        alias=str(entry[1]), 
+        from_stop=f_stop,
+        from_stop_txt=str(entry[2]), 
+        to_stop_txt=str(entry[3]), 
+        to_stop=t_stop,
         distance=float(entry[4]), 
         stages=int(entry[5])) 
     obj.save()
+
+    # throw an error if the stops mapped do not exist.
+    # but load nulls into db anyway
+    # if a stop is not found, it could also mean that the text matching is not exactly the same. code mapping should remove this problem.
+    # IndexError implies that nothing was mapped.
+    # MultipleRows found indicates ambiguity when there should'nt be.
+
+    #f_stop = Stop.objects.get(name=str(entry[2]))[0]
+    #t_stop = Stop.objects.get(name=str(entry[3]))[0]
+    
     #print obj.__dict__ 
 
 def HardCodedRoute_save(entry):
-    obj = HardCodedRoute(code=Route.objects.get(code=int(entry[0])), alias=entry[1], faretype=entry[2])
+    obj = HardCodedRoute(code=Route.objects.get(code=str(entry[0])), alias=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
 
@@ -34,7 +55,7 @@ def Depot_save(entry):
     obj = Depot(
         code=str(entry[0]),
         name=str(entry[1]), 
-        stop = Stop.objects.get(stopcd=int(entry[2]))
+        stop=int(entry[2])
         ) 
     obj.save()
     #print obj.__dict__  
@@ -49,10 +70,21 @@ def Holiday_save(entry):
     #print obj.__dict__  
 
 def RouteDetail_save(entry):
+    temp_route=Route.objects.get(code=str(entry[0]))
+    temp_stop=Stop.objects.get(code=int(entry[2])) 
+    """try:
+        temp_route=Route.objects.get(code=str(entry[0]))
+    except:
+        temp_route=None
+    try:
+        temp_stop=Stop.objects.get(code=int(entry[2])) 
+    except:
+        temp_stop=None
+    """
     obj = RouteDetail(
-        route=Route.objects.get(code=int(entry[0])), 
+        route = temp_route,
         serial=int(entry[1]), 
-        stop=Stop.objects.get(stopcd=int(entry[2])), 
+        stop= temp_stop,
         stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), 
         km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]())
     obj.save()
@@ -81,7 +113,24 @@ def Area_save(entry):
     #print obj.__dict__    
 
 def Stop_save(entry):
-    obj = Stop(code=int(entry[0]), name=str(entry[1]), dbdirection=str(entry[2]), chowki=(entry[3]).startswith('TRUE'), road=Road.objects.get(roadcd=int(entry[4])), area=Area.objects.get(a_code=int(entry[5])), depot=str(entry[6]) ) 
+    
+    _road = Road.objects.get(code=int(entry[4]))
+    _area = Area.objects.get(code=int(entry[5]))
+    try:
+        _depot = Depot.objects.filter(code=str(entry[6]))[0]
+    except IndexError:
+        _depot = None 
+
+    obj = Stop(
+        code=int(entry[0]), 
+        name=str(entry[1]), 
+        dbdirection=str(entry[2]), 
+        chowki=(entry[3]).startswith('TRUE'),
+        road=_road,
+        area=_area,
+        depot=_depot
+        ) 
+
     obj.save()
     #print obj.__dict__
 
@@ -99,33 +148,39 @@ def AreaMarathi_save(entry):
     obj.save()
     #print obj.__dict__  
 
+def StopLocation_save(entry):
+    this_stop = Stop.objects.get(code=int(entry[4]))
 
+    if entry[0] and entry[1]:
+        loc1 = StopLocation(stop=this_stop, point=Point(float(entry[0]), float(entry[1])),direction='U' )
+        loc1.save()
+
+    if entry[2] and entry[3]:
+        loc2 = StopLocation(stop=this_stop, point=Point(float(entry[2]), float(entry[3])),direction='D' )
+        loc2.save()                                
+
+
+
+
+saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi", "Route","RouteType","HardCodedRoute","RouteDetail" ]
 
 mappingtosave = {
     "Fare":Fare_save,
-    "Depot":Depot_save,
     "Holiday":Holiday_save,
     "Area":Area_save,
     "Road":Road_save,
     "Stop":Stop_save,
+    "Depot":Depot_save,
     "Route":Route_save,
     "RouteType":RouteType_save,
     "HardCodedRoute":HardCodedRoute_save,
     "RouteDetail":RouteDetail_save,
     "StopMarathi":StopMarathi_save,
-    "AreaMarathi":AreaMarathi_save
+    "AreaMarathi":AreaMarathi_save,
+    "StopLocation":StopLocation_save
 # There is no model as StopMarathi/AreaMarathi, but this is done to separate errors arising from different input files.
     
 }
-
-def __init__():
-    pass
-
-
-def TestLoader(thismodel):
-    save = mappingtosave[thismodel]
-    g([0,1,2,3,4]) 
-
 
 def CsvLoader(thismodel):
     try:
@@ -138,8 +193,8 @@ def CsvLoader(thismodel):
     f.write("Data" + '\t' + "Error thrown" + '\n')
 
     header = CsvFile.next()
-    print header
-    print "Loading " + thismodel + "s...\n"
+    print "\nLoading " + thismodel + "s..."
+    print "Fields: ", header
     if ( header[0].find(',') != -1 ):
        print "Input files should be tab delimited, not comma delimited!"
        exit()
@@ -152,192 +207,24 @@ def CsvLoader(thismodel):
         except:
             f.write(str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n')
             errcount+=1; 
-            print "Error:", str(sys.exc_info()[0]) + str(entry)
+            #print "Error:", str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n'
 
     f.close()
     DataLinesInFile = CsvFile.line_num -1
-    stats = str(DataLinesInFile - errcount ) + " " +  thismodel + "s loaded. Number of Errors encountered: " + str(errcount) + ". "
+    stats = str(DataLinesInFile - errcount ) + " " +  thismodel + "s loaded without errors. Number of Errors encountered: " + str(errcount) + ". "
     if errcount > 0 :
         stats+="See " +  thismodel + "Errors file for details."
-
     print stats
     return
 
-
-
-
-
-
-
-
-
-
+def fire_up:
+    for model in saveorder:
+        CsvLoader(model)
 
 
 #----------------------------------------------------------
 
-def AreaLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/AreaMaster.csv", "r"))
-    CsvFile.next()
-    for entry in CsvFile:
-        obj = Area(int(entry[0]), entry[1]) 
-        obj.save()
-        print obj.a_code, obj.areanm
-
-        print "----- "
-    return
-
-def FareLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/FareMaster.csv", "r"))
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        obj = Fare(slab=float(entry[0]), ordinary=int(entry[1]), limited=int(entry[2]), express=int(entry[3]), ac=int(entry[4]), ac_express=int(entry[5])) 
-        obj.save()
-        print obj.__dict__
-    return
-
-def RoadLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RoadMaster.csv", "r"))
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        obj = Road(roadcd=int(entry[0]), roadnm=str(entry[1])) 
-        obj.save()
-        print obj.__dict__
-    return
-
-def RouteLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteMaster.csv", "r"), delimiter='\t')
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        obj = Route(route=entry[0], routealias=entry[1], from_stop=entry[2], to_stop=entry[3], distance=float(entry[4]), stages=int(entry[5])) 
-        print obj.__dict__
-    return
-
-def RouteDetailsLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        try:
-            print obj.__dict__
-            obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopdcd=Stop.objects.get(stopcd=int(entry[2])), stage=entry[3].startswith('1'), km=float(entry[4])) 
-            
-        except:
-            f.write(obj.__dict__)
-    return
-
-#RNO,STOPSR,STOPCD,STAGE,KM
-
-def AreaLoader():
-    CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/RouteDetails.csv", "r"), delimiter='\t')
-    f= open('RouteDetailsErrors', 'w')
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        try:    
-            obj = RouteDetails(rno=entry[0], stopsr=int(entry[1]), stopcd=Stop.objects.get(stopcd=int(entry[2])), stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]() )
-            obj.save()
-            obj.__dict__  
-        except :
-            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-            print "Error:", sys.exc_info()[0]
-
-    f.close()
-
-def holiday_loader():
-
-    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Holidays.csv"), "r"), delimiter="\t")
-    f= open('HolidaysErrors', 'w')
-    test = CsvFile.next()
-    print test
-    for entry in CsvFile:
-        try:    
-            date_format = entry[0].rsplit('.')
-            theday = int(date_format[0])
-            themonth = int(date_format[1])
-            theyear = int('20'+ date_format[2])
-            obj = Holiday(h_date=datetime.date(day=theday, month=themonth, year=theyear), h_name=str(entry[1])) 
-            obj.save()
-            obj.__dict__  
-        except :
-            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-            print "Error:", sys.exc_info()[0]
-
-    f.close()
-    return
-
-def test_func(entry):
-    print entry
-
-
-
-    
-def hay_world(entry):
-    print entry
-    
-
-def Depot_loader():
-    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Depot.csv"), "r"), delimiter="\t")
-    f= open(join(PROJECT_ROOT, "../db_csv_files/DepotErrors.csv"), 'w')
-    header = CsvFile.next()
-    print header
-    for entry in CsvFile:
-        try:    
-            obj = Depot(depot_code=str(entry[0]),depot_name=str(entry[1]), stop = Stop.objects.get(stopcd=int(entry[2]))) 
-            obj.save()
-            obj.__dict__  
-        except :
-            f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-            print "Error:", sys.exc_info()[0] + str(entry)
-
-    f.close()
-    return
 """
-CsvFile = csv.reader(open("/home/johnson/Desktop/chaloBEST/chaloBEST/db_csv_files/Stop.csv", "r"), delimiter='\t')
-for entry in CsvFile:
-
-
-
-CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/StopMarathi.csv"), "r"), delimiter="\t")
-f= open(join(PROJECT_ROOT, "../db_csv_files/StopMarathiErrors.csv"), 'w')
-header = CsvFile.next()
-print header
-for entry in CsvFile:
-  try:    
-    obj = Stop.objects.get(stopcd=int(entry[0])) 
-    obj.stopnm_mr = str(entry[1]) 
-    obj.save()
-    obj.__dict__  
-  except:
-    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0],  str(entry)
-
-f.close()
-
-CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/AreaMarathi.csv"), "r"), delimiter="\t")
-f= open(join(PROJECT_ROOT, "../db_csv_files/AreaMarathiErrors.csv"), 'w')
-header = CsvFile.next()
-print header
-for entry in CsvFile:
-  try:    
-
-    obj = Area.objects.get(a_code=int(entry[0])) 
-    obj.areanm_mr = str(entry[1]) 
-    obj.save()
-    obj.__dict__  
-  except:
-    f.write(str(sys.exc_info()[0]) + str(entry) + '\n') 
-    print "Error:", sys.exc_info()[0],  str(entry)
-
-f.close()
-
-
-
-
-
 RouteTypes
 data changed
 5	Rind Limited	LTD

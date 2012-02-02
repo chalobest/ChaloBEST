@@ -2,7 +2,7 @@ DepotCode	DepotName	StopCode
 MLD	Marol	629
 CD	Colaba	4
 SD	Santacruz	113
-OSM	Oshiwara	128
+OSH	Oshiwara	128
 BB	Backbay	233
 KLD	Kurla	242
 VKD	Vikhroli	257
@@ -23,7 +23,7 @@ GRD	Gorai	1365
 DH	Dharavi	1665
 DH	Dharavi	1668
 SHD	Shivaji Nagar	2250
-MLD	Mulund	2458
+MUL	Mulund	2458
 KLD	Kurla	3067
 MGT	Magathane	3907
 DIN	Dindoshi	4007

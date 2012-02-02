@@ -123,12 +123,19 @@ def importUniqueRoutes():
     stopMapping = {} #FIXME
     stopErrors = [] #This should ideally never happen, and any errors here are bad and would indicate problems with the fuzzy matching logic, most likely.
     for route in data.keys():
-        routeCode = routeMapping[route]
-        try:
-            routeObj = Route.objects.get(code=routeCode)
-        except:
-            routeDoesNotExistErrors.append({'routeCode': routeCode, 'routeAlias': route})
-            continue
+        if routeMapping.has_key(route):
+            routeCode = routeMapping[route]
+            try:
+                routeObj = Route.objects.get(code=routeCode)
+            except:
+                routeDoesNotExistErrors.append({'routeCode': routeCode, 'routeAlias': route})
+                continue
+        else:
+            try:
+                routeObj = Route.objects.get(alias=route)
+            except:
+                routeDoesNotExistErrors.append({'routeAlias': route})
+
         for unique_route in data[route]:
             thisRoute = unique_route #FIXME
             try:

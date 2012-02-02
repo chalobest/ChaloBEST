@@ -229,7 +229,7 @@ Passed a route code, it gets stop codes for the first and last stop
 '''
 def getFromToStopsForRoute(routeCode):
 #    fromStr = row[2]
-    routeDetails = RouteDetail.objects.filter(rno=routeCode).order_by('stopsr')
+    routeDetails = RouteDetail.objects.filter(code=routeCode).order_by('serial')
     if routeDetails.count() == 0:
         return None
     fromStop = routeDetails[0].stop

@@ -70,13 +70,13 @@ class Fare(models.Model):
 
 
 class Stop(models.Model):
-    code = models.IntegerField()# primary_key=True)
+    code = models.IntegerField()
     name = models.TextField(blank=True, max_length=255)
     dbdirection = models.CharField(null=True, blank=True, max_length=5, choices=STOP_CHOICES) #stopfl - > direction
     chowki = models.NullBooleanField(null=True, blank=True) # this is nullable since in the next datafeed , they might have blank to represent a 0.
-    road = models.ForeignKey(Road)
-    area = models.ForeignKey(Area)
-    depot = models.ForeignKey("Depot", related_name='is_depot_for')    
+    road = models.ForeignKey(Road, default=None, null=True, blank=True)
+    area = models.ForeignKey(Area, default=None, null=True, blank=True)
+    depot = models.ForeignKey("Depot", default=None, null=True, blank=True, related_name="is_depot_for") #models.CharField(null=True, blank=True, max_length=5)
     name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
     point = models.PointField(null=True)
     def __unicode__(self):
@@ -88,8 +88,8 @@ class Route(models.Model):
     alias = models.TextField(max_length=255)
     from_stop_txt = models.TextField(max_length=500)
     to_stop_txt = models.TextField(max_length=500)
-    from_stop = models.ForeignKey(Stop, related_name='routes_from')
-    to_stop = models.ForeignKey(Stop, related_name='routes_to')
+    from_stop = models.ForeignKey(Stop, related_name='routes_from', default=None, null=True, blank=True)
+    to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
 
@@ -99,9 +99,9 @@ class Route(models.Model):
 
 class RouteDetail(models.Model):
 #    rno = models.TextField()
-    route = models.ForeignKey(Route, to_field="code")
+    route = models.ForeignKey(Route, to_field="code", null=True, blank=True)
     serial = models.PositiveIntegerField()
-    stop = models.ForeignKey(Stop)
+    stop = models.ForeignKey(Stop, null=True, blank=True)
     stage =  models.NullBooleanField()
     km  = models.DecimalField(null=True, blank=True, max_digits=3, decimal_places=1)
 
@@ -122,7 +122,7 @@ class UniqueRoute(models.Model):
     is_full = models.BooleanField()
 
     def __unicode__(self):
-        return "%s: %s to %s" % (self.route.alias, self.from_stop, self.to_stop,)
+        return "%s: %s to %s" % (self.route.alias, self.from_stop_txt, self.to_stop_txt)
 
 
 class RouteSchedule(models.Model):
@@ -158,14 +158,14 @@ class RouteType(models.Model):
     faretype = models.TextField(max_length=10)
 
     def __unicode__(self):
-        return self.routetype   
+        return self.rtype   
 
     class Meta:
         verbose_name = 'Route Type'
 
 
 class HardCodedRoute(models.Model):
-    code = models.ForeignKey(Route, to_field="code")
+    code = models.TextField(max_length=50)    
     alias = models.TextField(max_length=50)
     faretype = models.TextField(max_length=10)
 
@@ -173,7 +173,7 @@ class HardCodedRoute(models.Model):
         verbose_name = 'Hardcoded Route'
 
     def __unicode__(self):
-        return self.routecode + " " +self.routealias   
+        return self.code + " " +self.alias   
 
 
 class Landmark(models.Model):
@@ -192,13 +192,14 @@ class StopLocation(models.Model):
     direction = models.CharField(max_length=5, null=True, blank=True, choices=STOP_CHOICES)
 
     def __unicode__(self):
-        return self.stop 
+        return self.stop.name 
 
 
 class Depot(models.Model):
     code = models.CharField(max_length=5)
     name = models.TextField(max_length=50)
-    stop = models.ForeignKey(Stop, related_name="is_also_depot")
+    stop = models.IntegerField()
+
 
     def __unicode__(self):
         return self.name 

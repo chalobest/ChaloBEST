@@ -1,5 +1,4 @@
 from django.contrib.gis.db import models
-from django.contrib import admin
 from django import forms
 
 STOP_CHOICES = ( ('U','Up'),

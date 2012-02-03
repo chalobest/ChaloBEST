@@ -6,7 +6,7 @@ class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule
     extras = 0
 
-class AreaAdmin(admin.ModelAdmin):
+class AreaAdmin(admin.OSMGeoAdmin):
     list_display = ("code", "name")
     list_editable = ("name",)
     formfield_overrides = {
@@ -14,7 +14,7 @@ class AreaAdmin(admin.ModelAdmin):
     }
 
 
-class RoadAdmin(admin.ModelAdmin):
+class RoadAdmin(admin.OSMGeoAdmin):
     list_display = ("code","name")
     list_editable = ("name",)
     
@@ -40,7 +40,7 @@ class StopForm(forms.ModelForm):
         model = Stop
         
 
-class StopAdmin(admin.ModelAdmin):
+class StopAdmin(admin.OSMGeoAdmin):
     list_display = ("code","name","name_mr", "road","area","dbdirection","depot","chowki" )
     list_editable = ("name", "name_mr","dbdirection","depot","chowki")
     search_fields = ("code",'name', 'depot')
@@ -97,7 +97,7 @@ class LandmarkAdmin(admin.ModelAdmin):
         models.TextField: {'widget': forms.TextInput},
     }
 
-class StopLocationAdmin(admin.ModelAdmin):
+class StopLocationAdmin(admin.OSMGeoAdmin):
     list_display = ("stop", "direction", "point")
 
     formfield_overrides = {

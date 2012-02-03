@@ -12,6 +12,9 @@ class AreaAdmin(admin.OSMGeoAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
+    default_lon = 72.855211097628413
+    default_lat = 19.415775291486027
+    default_zoom = 4
 
 
 class RoadAdmin(admin.OSMGeoAdmin):
@@ -21,6 +24,10 @@ class RoadAdmin(admin.OSMGeoAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
+    default_lon = 72.855211097628413
+    default_lat = 19.415775291486027
+    default_zoom = 4
+
 
 class FareAdmin(admin.ModelAdmin):
     list_display = ("slab","ordinary","limited","express","ac","ac_express")
@@ -61,6 +68,10 @@ class StopAdmin(admin.OSMGeoAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
+    default_lon = 72.855211097628413
+    default_lat = 19.415775291486027
+    default_zoom = 4
+
 
 
 class RouteDetailAdmin(admin.ModelAdmin):
@@ -90,12 +101,16 @@ class HardCodedRouteAdmin(admin.ModelAdmin):
         models.TextField: {'widget': forms.TextInput},
     }
     
-class LandmarkAdmin(admin.ModelAdmin):
+class LandmarkAdmin(admin.OSMGeoAdmin):
     list_display = ("name", "name_mr")
     #list_editable = ("name","name_mr")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
+    default_lon = 72.855211097628413
+    default_lat = 19.415775291486027
+    default_zoom = 4
+
 
 class StopLocationAdmin(admin.OSMGeoAdmin):
     list_display = ("stop", "direction", "point")
@@ -103,6 +118,10 @@ class StopLocationAdmin(admin.OSMGeoAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
+    default_lon = 72.855211097628413
+    default_lat = 19.415775291486027
+    default_zoom = 4
+
 
 class DepotAdmin(admin.ModelAdmin):
     list_display = ("code", "name", "stop")

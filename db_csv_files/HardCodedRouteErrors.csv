@@ -1,6 +1,0 @@
-Data	Error thrown
-['9699', 'A-13EXP EXT', 'ACEXP']	<class 'mumbai.models.DoesNotExist'>
-['0016', 'C-1', 'EXP']	<class 'mumbai.models.DoesNotExist'>
-['0026', 'C-2', 'EXP']	<class 'mumbai.models.DoesNotExist'>
-['0146', 'C-14', 'EXP']	<class 'mumbai.models.DoesNotExist'>
-['8521', 'BANDRA FAIR', 'LTD']	<class 'mumbai.models.DoesNotExist'>

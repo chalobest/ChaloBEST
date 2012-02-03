@@ -152,11 +152,11 @@ def StopLocation_save(entry):
     this_stop = Stop.objects.get(code=int(entry[4]))
 
     if entry[0] and entry[1]:
-        loc1 = StopLocation(stop=this_stop, point=Point(float(entry[0]), float(entry[1])),direction='U' )
+        loc1 = StopLocation(stop=this_stop, point=Point(float(entry[1]), float(entry[0])),direction='U' )
         loc1.save()
 
     if entry[2] and entry[3]:
-        loc2 = StopLocation(stop=this_stop, point=Point(float(entry[2]), float(entry[3])),direction='D' )
+        loc2 = StopLocation(stop=this_stop, point=Point(float(entry[3]), float(entry[2])),direction='D' )
         loc2.save()                                
 
 

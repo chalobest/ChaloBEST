@@ -1,3 +1,6 @@
+Note: If running postgres 9.1 and Django < 1.4, you will probably need this patch for things to work: https://code.djangoproject.com/raw-attachment/ticket/16778/postgis-adapter-2.patch . Reasons are explained here: http://stackoverflow.com/questions/7667724/error-saving-geodjango-pointfield
+
+
 chaloBEST
 
 Get:

@@ -97,7 +97,7 @@ class Route(models.Model):
 
 
 class RouteDetail(models.Model):
-#    rno = models.TextField()
+    route_code = models.TextField()
     route = models.ForeignKey(Route, to_field="code", null=True, blank=True)
     serial = models.PositiveIntegerField()
     stop = models.ForeignKey(Stop, null=True, blank=True)
@@ -108,7 +108,7 @@ class RouteDetail(models.Model):
         verbose_name = 'Route Detail'
  
     def __unicode__(self):
-        return self.route.alias   
+        return self.route_code
 
 
 class UniqueRoute(models.Model):

@@ -235,9 +235,8 @@ def noneInt(val):
 '''
 Passed a route code, it gets stop codes for the first and last stop
 '''
-def getFromToStopsForRoute(routeObj):
-#    fromStr = row[2]
-    routeDetails = RouteDetail.objects.filter(route=routeObj).order_by('serial')
+def getFromToStopsForRoute(routeId):
+    routeDetails = RouteDetail.objects.filter(route_code=routeId).order_by('serial')
     if routeDetails.count() == 0:
         return None
     fromStop = routeDetails[0].stop
@@ -304,7 +303,7 @@ def getRouteCodes():
 Import RouteMaster into db
 '''
 def importRouteMaster():
-    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/RouteMaster.csv"), "r"), delimiter=',')
+    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Route.csv"), "r"), delimiter='\t')
     test = CsvFile.next()
     stop_errors = []
     print test
@@ -316,9 +315,9 @@ def importRouteMaster():
             stop_errors.append(row[0])
             continue
         print row[0]
-        obj = Route(code=row[0], alias=row[1], from_stop_txt=row[2], to_stop_txt=row[3], from_stop=from_to[0], to_stop=from_to[1], distance=row[4], stages=int(row[5]))
+        obj = Route(code=row[0], alias=row[1], from_stop_txt=row[2], to_stop_txt=row[3], from_stop=from_to[0], to_stop=from_to[1], distance=float(row[4]), stages=int(row[5]))
         obj.save()
-    errors = open(join(PROJECT_ROOT, "../errors/routeStopErrors.json"), "w")
+    errors = open(join(PROJECT_ROOT, "../errors/RouteErrors.json"), "w")
     errors.write(json.dumps(stop_errors, indent=2))
     errors.close()
 

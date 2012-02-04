@@ -6,14 +6,37 @@ import json
 import datetime
 import sys
 from django.contrib.gis.geos import Point
+from imports.import_atlas import getFromToStopsForRoute
+globalerr = []
 
 def RouteType_save(entry):
     obj = RouteType(code=entry[0], rtype=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
 
-def Route_save(entry):    
-    
+def importRouteMaster():
+    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/RouteMaster.csv"), "r"), delimiter=',')
+    test = CsvFile.next()
+    stop_errors = []
+    print test
+    for row in CsvFile:
+        if len(row) < 1:
+            continue
+        from_to = getFromToStopsForRoute(row[0])
+        if from_to is None:
+            stop_errors.append(row[0])
+            continue
+        print row[0]
+        obj = Route(code=row[0], alias=row[1], from_stop_txt=row[2], to_stop_txt=row[3], from_stop=from_to[0], to_stop=from_to[1], distance=row[4], stages=int(row[5]))
+        obj.save()
+    errors = open(join(PROJECT_ROOT, "../errors/routeStopErrors.json"), "w")
+    errors.write(json.dumps(stop_errors, indent=2))
+    errors.close()
+
+
+
+def Route_save(entry):        
+    """
     try:
         f_stop = Stop.objects.filter(name=str(entry[2]))[0]
     except IndexError:
@@ -23,23 +46,31 @@ def Route_save(entry):
         t_stop = Stop.objects.filter(name=str(entry[3]))[0]
     except IndexError:
         t_stop = None 
+    """
+    from_to = getFromToStopsForRoute(entry[0])
+    if from_to is None:
+        globalerr.append({"data" :entry[0], error:["Route not found"]})
+
+       #obj = Route(code=entry[0], alias=entry[1], from_stop_txt=entry[2], to_stop_txt=entry[3], from_stop=from_to[0], to_stop=from_to[1], distance=float(entry[4]), stages=int(entry[5]))
+
     
     obj = Route(
         code=str(entry[0]), 
         alias=str(entry[1]), 
-        from_stop=f_stop,
+        from_stop=from_to[0],
         from_stop_txt=str(entry[2]), 
         to_stop_txt=str(entry[3]), 
-        to_stop=t_stop,
+        to_stop=from_to[1],
         distance=float(entry[4]), 
         stages=int(entry[5])) 
     obj.save()
 
     # throw an error if the stops mapped do not exist.
     # but load nulls into db anyway
-    # if a stop is not found, it could also mean that the text matching is not exactly the same. code mapping should remove this problem.
     # IndexError implies that nothing was mapped.
     # MultipleRows found indicates ambiguity when there should'nt be.
+
+   
 
     #f_stop = Stop.objects.get(name=str(entry[2]))[0]
     #t_stop = Stop.objects.get(name=str(entry[3]))[0]
@@ -47,7 +78,7 @@ def Route_save(entry):
     #print obj.__dict__ 
 
 def HardCodedRoute_save(entry):
-    obj = HardCodedRoute(code=Route.objects.get(code=str(entry[0])), alias=entry[1], faretype=entry[2])
+    obj = HardCodedRoute(code=str(entry[0]), alias=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
 
@@ -70,7 +101,7 @@ def Holiday_save(entry):
     #print obj.__dict__  
 
 def RouteDetail_save(entry):
-    temp_route=Route.objects.get(code=str(entry[0]))
+
     temp_stop=Stop.objects.get(code=int(entry[2])) 
     """try:
         temp_route=Route.objects.get(code=str(entry[0]))
@@ -82,7 +113,8 @@ def RouteDetail_save(entry):
         temp_stop=None
     """
     obj = RouteDetail(
-        route = temp_route,
+        route_code = entry[0],
+        route = None,
         serial=int(entry[1]), 
         stop= temp_stop,
         stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), 
@@ -138,13 +170,13 @@ def Stop_save(entry):
 
 def StopMarathi_save(entry):
     obj = Stop.objects.get(code=int(entry[0])) 
-    obj.stopnm_mr = str(entry[1]) 
+    obj.name_mr = unicode(entry[1], 'utf-8')
     obj.save()
     #print obj.__dict__  
 
 def AreaMarathi_save(entry):
     obj = Area.objects.get(code=int(entry[0])) 
-    obj.areanm_mr = str(entry[1]) 
+    obj.name_mr = unicode(entry[1], 'utf-8')
     obj.save()
     #print obj.__dict__  
 
@@ -162,7 +194,7 @@ def StopLocation_save(entry):
 
 
 
-saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi", "Route","RouteType","HardCodedRoute","RouteDetail" ]
+saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi","RouteDetail", "Route","RouteType","HardCodedRoute"]
 
 mappingtosave = {
     "Fare":Fare_save,
@@ -171,10 +203,10 @@ mappingtosave = {
     "Road":Road_save,
     "Stop":Stop_save,
     "Depot":Depot_save,
+    "RouteDetail":RouteDetail_save,
     "Route":Route_save,
     "RouteType":RouteType_save,
     "HardCodedRoute":HardCodedRoute_save,
-    "RouteDetail":RouteDetail_save,
     "StopMarathi":StopMarathi_save,
     "AreaMarathi":AreaMarathi_save,
     "StopLocation":StopLocation_save
@@ -182,22 +214,48 @@ mappingtosave = {
     
 }
 
+def loadFKinRouteDetail():
+    err=[]
+    good_saves = 0
+    print "\n Loading foreign keys into Route Details ... "
+    for rd in RouteDetail.objects.all():
+        try:
+            rd.route=Route.objects.get(code=rd.route_code)
+            rd.save()
+            good_saves+=1
+        except:
+            rd.route=None
+            err.append({"data":rd.route_code, "error":["Route Not Found in Route"]})
+
+    errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
+    size = len(err)
+    print "No. of Routes in RouteDetail mapped to Route: " , str(good_saves)
+    print "No. of Routes in RouteDetail not mapped to Route: " , str(size)
+
+    if (size != 0) :
+        print "See /errors/RouteNotFoundErrors.json for details"
+        
+    errors.write(json.dumps(err, indent=2))
+    errors.close()
+
+
+
 def CsvLoader(thismodel):
     try:
         CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/"+thismodel+ ".csv"), "r"), delimiter="\t")
     except:
         print "Error opening file. Please check if ", thismodel," file exists and you have read/write permissions. Input files should be tab delimited, not comma delimited."
         exit()
+    globalerr =[]
 
-    f= open(join(PROJECT_ROOT, "../db_csv_files/"+ thismodel + "Errors.csv"), 'w')
-    f.write("Data" + '\t' + "Error thrown" + '\n')
+    #f.write("Data" + '\t' + "Error thrown" + '\n')
 
     header = CsvFile.next()
     print "\nLoading " + thismodel + "s..."
     print "Fields: ", header
     if ( header[0].find(',') != -1 ):
-       print "Input files should be tab delimited, not comma delimited!"
-       exit()
+       print thismodel + "input file should be tab delimited, not comma delimited!"
+       return
     errcount=0
     for entry in CsvFile:
         try:          
@@ -205,15 +263,19 @@ def CsvLoader(thismodel):
             object_save = mappingtosave[thismodel]
             object_save(entry)
         except:
-            f.write(str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n')
+            globalerr.append({"data":str(entry), "error":str(sys.exc_info())})
             errcount+=1; 
             #print "Error:", str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n'
 
-    f.close()
+    errors = open(join(PROJECT_ROOT, "../errors/"+ thismodel + "Errors.json"), 'w')
+    errors.write(json.dumps(globalerr, indent=2))
+    errors.close()
+
+
     DataLinesInFile = CsvFile.line_num -1
     stats = str(DataLinesInFile - errcount ) + " " +  thismodel + "s loaded without errors. Number of Errors encountered: " + str(errcount) + ". "
     if errcount > 0 :
-        stats+="See " +  thismodel + "Errors file for details."
+        stats+="See " +  thismodel + "Errors.json file for details."
     print stats
     return
 
@@ -221,6 +283,7 @@ def fire_up():
     for model in saveorder:
         CsvLoader(model)
 
+    loadFKinRouteDetail()
 
 #----------------------------------------------------------
 

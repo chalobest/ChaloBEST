@@ -2,5 +2,6 @@
 #-e svn+http://code.djangoproject.com/svn/django/trunk/#egg=django
 -e bzr+http://code.0x2620.org/python-ox/#egg=python-ox
 -e git+git://github.com/seatgeek/fuzzywuzzy.git#egg=fuzzywuzzy
-django_extensions
+-e git+git://github.com/bit/django-extensions.git#egg=django_extensions
+#django_extensions
 django-grappelli

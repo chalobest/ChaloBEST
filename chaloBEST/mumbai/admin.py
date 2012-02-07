@@ -7,32 +7,34 @@ class RouteScheduleInline(admin.StackedInline):
     extras = 0
 
 class AreaAdmin(admin.OSMGeoAdmin):
-    list_display = ("code", "name")
-    list_editable = ("name",)
+    list_display = ("code","display_name", "name_mr", "name", "slug")
+    list_editable = ("display_name", "name_mr",)
+    readonly_fields = ("code", "name")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-    default_lon = 72.855211097628413
-    default_lat = 19.415775291486027
-    default_zoom = 4
-
+    default_lon = 8110203.9998955
+    default_lat = 2170000.4068373
+    default_zoom = 10
+    search_fields = ("name","display_name", "name_mr","slug")
 
 class RoadAdmin(admin.OSMGeoAdmin):
-    list_display = ("code","name")
-    list_editable = ("name",)
-    
+    list_display = ("code","display_name", "name_mr", "name", "slug")
+    list_editable = ("display_name", "name_mr",)
+    readonly_fields = ("code", "name")
+    search_fields = ("name","display_name", "name_mr","slug")
+
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-    default_lon = 72.855211097628413
-    default_lat = 19.415775291486027
-    default_zoom = 4
 
+    default_lon = 8110203.9998955
+    default_lat = 2170000.4068373
+    default_zoom = 10
 
 class FareAdmin(admin.ModelAdmin):
     list_display = ("slab","ordinary","limited","express","ac","ac_express")
-    readonly_fields = ("slab","ordinary","limited","express","ac","ac_express")
-    list_editable = ("ordinary","limited","express","ac","ac_express")
+    readonly_fields = ("slab","ordinary","limited","express","ac","ac_express")    
     
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
@@ -49,12 +51,13 @@ class StopForm(forms.ModelForm):
         
 
 class StopAdmin(admin.OSMGeoAdmin):
-    list_display = ("code","name","name_mr", "road","area","dbdirection","depot","chowki" )
-    list_editable = ("name", "name_mr","dbdirection","depot","chowki")
-    search_fields = ("code",'name', 'depot__name')
+    list_display = ("code","display_name", "name_mr","name", "road","area","depot", "point")
+    list_editable = ("display_name", "name_mr","depot",)
+    readonly_fields = ("code","name","road","area","depot","chowki" )
+    search_fields = ("code",'name', 'depot__name', "road__name", "area__name")
     ordering = ('name',)
     list_per_page = 20
-
+    """
     fieldsets = (
         (None, {
             'fields': ('name', 'area', 'road')
@@ -65,19 +68,20 @@ class StopAdmin(admin.OSMGeoAdmin):
         }),
     )
     form = StopForm
+    """
     # For mapping widget
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-    default_lon = 72.855211097628413
-    default_lat = 19.415775291486027
-    default_zoom = 4
 
-
+    default_lon = 8110203.9998955
+    default_lat = 2170000.4068373
+    default_zoom = 10
 
 class RouteDetailAdmin(admin.ModelAdmin):
-    list_display = ("route","serial","stop","stage","km")
-    readonly_fields = ("route","serial","stop","stage","km")
+    list_display = ("route_code","serial","stop","stage","km")
+    readonly_fields = ("route_code","serial","stop","stage","km")
+    search_fields = ("route_code","stop__name")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -85,6 +89,7 @@ class RouteDetailAdmin(admin.ModelAdmin):
 
 class RouteAdmin(admin.ModelAdmin):
     list_display = ("alias","code","from_stop","to_stop","distance","stages")
+    search_fields = ("alias","from_stop__name","to_stop__name")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -92,7 +97,8 @@ class RouteAdmin(admin.ModelAdmin):
 
 class RouteTypeAdmin(admin.ModelAdmin):
     list_display = ("code","rtype","faretype")    
-    readonly_fields = ("code","rtype","faretype")    
+    readonly_fields = ("code","rtype","faretype") 
+    search_fields = ("code","rtype","faretype")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -101,20 +107,22 @@ class RouteTypeAdmin(admin.ModelAdmin):
 class HardCodedRouteAdmin(admin.ModelAdmin):
     list_display = ("code","alias","faretype")
     readonly_fields = ("code","alias","faretype")
+    search_fields = ("code","alias","faretype")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
     
 class LandmarkAdmin(admin.OSMGeoAdmin):
-    list_display = ("name", "name_mr")
-    #list_editable = ("name","name_mr")
+    list_display = ("name", "display_name", "name_mr", "slug", "point" )
+    list_editable = ("display_name","name_mr")
+    search_fields = ("name", "display_name", "name_mr","slug")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-    default_lon = 72.855211097628413
-    default_lat = 19.415775291486027
-    default_zoom = 4
 
+    default_lon = 8110203.9998955
+    default_lat = 2170000.4068373
+    default_zoom = 10
 
 class StopLocationAdmin(admin.OSMGeoAdmin):
     list_display = ("stop", "direction", "point")
@@ -122,14 +130,17 @@ class StopLocationAdmin(admin.OSMGeoAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-    default_lon = 72.855211097628413
-    default_lat = 19.415775291486027
-    default_zoom = 4
+
+    default_lon = 8110203.9998955
+    default_lat = 2170000.4068373
+    default_zoom = 10
+
 
 
 class DepotAdmin(admin.ModelAdmin):
     list_display = ("code", "name", "stop")
     readonly_fields = ("code", "name", "stop")
+    search_fields =  ("code", "name", "stop__name")
     #list_editable = ("name",) 
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
@@ -138,8 +149,8 @@ class DepotAdmin(admin.ModelAdmin):
 
 class HolidayAdmin(admin.ModelAdmin):
     list_display = ("date", "name") 
-    readonly_fields =  ("date", "name") 
-    list_editable = ("name",) 
+    readonly_fields =  ("date", "name")    
+    search_fields =  ("name", "date")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -157,9 +168,8 @@ admin.site.register(Route, RouteAdmin)
 admin.site.register(RouteType, RouteTypeAdmin)
 admin.site.register(HardCodedRoute, HardCodedRouteAdmin)
 
-admin.site.register(Landmark, LandmarkAdmin )
+admin.site.register(Landmark, LandmarkAdmin)
 admin.site.register(Depot,DepotAdmin)
 admin.site.register(Holiday,HolidayAdmin)
 admin.site.register(StopLocation,StopLocationAdmin)
-
 admin.site.register(UniqueRoute, UniqueRouteAdmin)

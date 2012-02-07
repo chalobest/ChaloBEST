@@ -40,8 +40,10 @@ SCHED = {
 
 class Area(models.Model):
     code = models.IntegerField() #primary_key=True)
+    slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)
     name_mr= models.TextField(null=True, blank=True, max_length=512) #null=True, 
+    display_name = models.TextField(blank=True, max_length=255)
     geometry = models.PolygonField(blank=True, null=True)
 
     def __unicode__(self):
@@ -50,8 +52,10 @@ class Area(models.Model):
     
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
+    slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)
     name_mr= models.TextField(null=True, blank=True, max_length=512)
+    display_name = models.TextField(blank=True, max_length=255)
     geometry = models.LineStringField(blank=True, null=True)
     def __unicode__(self):
         return self.name   
@@ -70,13 +74,16 @@ class Fare(models.Model):
 
 class Stop(models.Model):
     code = models.IntegerField()
+    slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)
+    display_name = models.TextField(blank=True, max_length=255)
     dbdirection = models.CharField(null=True, blank=True, max_length=5, choices=STOP_CHOICES) #stopfl - > direction
     chowki = models.NullBooleanField(null=True, blank=True) # this is nullable since in the next datafeed , they might have blank to represent a 0.
     road = models.ForeignKey(Road, default=None, null=True, blank=True)
     area = models.ForeignKey(Area, default=None, null=True, blank=True)
     depot = models.ForeignKey("Depot", default=None, null=True, blank=True, related_name="is_depot_for") #models.CharField(null=True, blank=True, max_length=5)
     name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
+
     point = models.PointField(null=True)
     def __unicode__(self):
         return self.name   
@@ -84,6 +91,7 @@ class Stop(models.Model):
 
 class Route(models.Model):
     code = models.TextField(max_length=255, unique=True)
+    slug = models.SlugField(null=True)
     alias = models.TextField(max_length=255)
     from_stop_txt = models.TextField(max_length=500)
     to_stop_txt = models.TextField(max_length=500)
@@ -120,6 +128,9 @@ class UniqueRoute(models.Model):
     distance = models.FloatField(blank=True, null=True)
     is_full = models.BooleanField()
 
+    class Meta:
+        verbose_name = 'Atlas'
+        
     def __unicode__(self):
         return "%s: %s to %s" % (self.route.alias, self.from_stop_txt, self.to_stop_txt)
 
@@ -176,9 +187,11 @@ class HardCodedRoute(models.Model):
 
 
 class Landmark(models.Model):
+    slug = models.SlugField(null=True)
     name = models.TextField(max_length=500, blank=True, null=True)
-    stops = models.ManyToManyField(Stop, related_name='is_near_to')
+    stops = models.ManyToManyField(Stop, related_name='is_near_to', blank=True)
     name_mr = models.TextField(max_length=512, blank=True, null=True)
+    display_name = models.TextField(blank=True, max_length=255)
     point = models.PointField(blank=True, null=True)
 
     def __unicode__(self):

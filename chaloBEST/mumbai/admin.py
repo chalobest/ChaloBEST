@@ -31,6 +31,7 @@ class RoadAdmin(admin.OSMGeoAdmin):
 
 class FareAdmin(admin.ModelAdmin):
     list_display = ("slab","ordinary","limited","express","ac","ac_express")
+    readonly_fields = ("slab","ordinary","limited","express","ac","ac_express")
     list_editable = ("ordinary","limited","express","ac","ac_express")
     
     formfield_overrides = {
@@ -50,7 +51,7 @@ class StopForm(forms.ModelForm):
 class StopAdmin(admin.OSMGeoAdmin):
     list_display = ("code","name","name_mr", "road","area","dbdirection","depot","chowki" )
     list_editable = ("name", "name_mr","dbdirection","depot","chowki")
-    search_fields = ("code",'name', 'depot')
+    search_fields = ("code",'name', 'depot__name')
     ordering = ('name',)
     list_per_page = 20
 
@@ -76,6 +77,7 @@ class StopAdmin(admin.OSMGeoAdmin):
 
 class RouteDetailAdmin(admin.ModelAdmin):
     list_display = ("route","serial","stop","stage","km")
+    readonly_fields = ("route","serial","stop","stage","km")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -90,6 +92,7 @@ class RouteAdmin(admin.ModelAdmin):
 
 class RouteTypeAdmin(admin.ModelAdmin):
     list_display = ("code","rtype","faretype")    
+    readonly_fields = ("code","rtype","faretype")    
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -97,6 +100,7 @@ class RouteTypeAdmin(admin.ModelAdmin):
 
 class HardCodedRouteAdmin(admin.ModelAdmin):
     list_display = ("code","alias","faretype")
+    readonly_fields = ("code","alias","faretype")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
@@ -125,6 +129,7 @@ class StopLocationAdmin(admin.OSMGeoAdmin):
 
 class DepotAdmin(admin.ModelAdmin):
     list_display = ("code", "name", "stop")
+    readonly_fields = ("code", "name", "stop")
     #list_editable = ("name",) 
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
@@ -133,6 +138,7 @@ class DepotAdmin(admin.ModelAdmin):
 
 class HolidayAdmin(admin.ModelAdmin):
     list_display = ("date", "name") 
+    readonly_fields =  ("date", "name") 
     list_editable = ("name",) 
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},

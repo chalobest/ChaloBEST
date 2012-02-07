@@ -1,5 +1,7 @@
 from django.contrib.gis.db import models
 from django import forms
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
 
 STOP_CHOICES = ( ('U','Up'),
                  ('D', 'Down'),
@@ -45,6 +47,8 @@ class Area(models.Model):
     name_mr= models.TextField(null=True, blank=True, max_length=512) #null=True, 
     display_name = models.TextField(blank=True, max_length=255)
     geometry = models.PolygonField(blank=True, null=True)
+    alt_names = generic.GenericRelation("AlternativeName")
+
 
     def __unicode__(self):
         return self.name   
@@ -57,6 +61,8 @@ class Road(models.Model):
     name_mr= models.TextField(null=True, blank=True, max_length=512)
     display_name = models.TextField(blank=True, max_length=255)
     geometry = models.LineStringField(blank=True, null=True)
+    alt_names = generic.GenericRelation("AlternativeName")
+
     def __unicode__(self):
         return self.name   
 
@@ -85,6 +91,8 @@ class Stop(models.Model):
     name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
 
     point = models.PointField(null=True)
+    alt_names = generic.GenericRelation("AlternativeName")
+
     def __unicode__(self):
         return self.name   
 
@@ -193,6 +201,7 @@ class Landmark(models.Model):
     name_mr = models.TextField(max_length=512, blank=True, null=True)
     display_name = models.TextField(blank=True, max_length=255)
     point = models.PointField(blank=True, null=True)
+    alt_names = generic.GenericRelation("AlternativeName")
 
     def __unicode__(self):
         return self.name 
@@ -224,3 +233,20 @@ class Holiday(models.Model):
     def __unicode__(self):
         return self.name 
     
+
+ALT_TYPE_CHOICES = (
+    ('alt', 'General Alternative Name'),
+    ('old', 'Old Name'),
+    ('common', 'Common Name')
+)
+
+class AlternativeName(models.Model):
+    name = models.CharField(max_length=512)
+    name_mr = models.CharField(max_length=512, blank=True)
+    typ = models.CharField(max_length=64, choices=ALT_TYPE_CHOICES, default="alt")
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = generic.GenericForeignKey('content_type', 'object_id')    
+
+    def __unicode__(self):
+        return self.name

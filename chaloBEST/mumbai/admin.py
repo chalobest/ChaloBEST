@@ -1,10 +1,16 @@
 from django.contrib.gis import admin
 from django import forms
 from mumbai.models import *
+from django.contrib.contenttypes import generic
 
 class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule
-    extras = 0
+    extra = 0
+
+class AlternativeNameInline(generic.GenericStackedInline):
+    extra = 3
+    model = AlternativeName
+
 
 class AreaAdmin(admin.OSMGeoAdmin):
     list_display = ("code","display_name", "name_mr", "name", "slug")
@@ -17,6 +23,7 @@ class AreaAdmin(admin.OSMGeoAdmin):
     default_lat = 2170000.4068373
     default_zoom = 10
     search_fields = ("name","display_name", "name_mr","slug")
+    inlines = [AlternativeNameInline]
 
 class RoadAdmin(admin.OSMGeoAdmin):
     list_display = ("code","display_name", "name_mr", "name", "slug")
@@ -31,6 +38,7 @@ class RoadAdmin(admin.OSMGeoAdmin):
     default_lon = 8110203.9998955
     default_lat = 2170000.4068373
     default_zoom = 10
+    inlines = [AlternativeNameInline]
 
 class FareAdmin(admin.ModelAdmin):
     list_display = ("slab","ordinary","limited","express","ac","ac_express")
@@ -77,6 +85,8 @@ class StopAdmin(admin.OSMGeoAdmin):
     default_lon = 8110203.9998955
     default_lat = 2170000.4068373
     default_zoom = 10
+    inlines = [AlternativeNameInline]
+
 
 class RouteDetailAdmin(admin.ModelAdmin):
     list_display = ("route_code","serial","stop","stage","km")
@@ -123,6 +133,7 @@ class LandmarkAdmin(admin.OSMGeoAdmin):
     default_lon = 8110203.9998955
     default_lat = 2170000.4068373
     default_zoom = 10
+    inlines = [AlternativeNameInline]
 
 class StopLocationAdmin(admin.OSMGeoAdmin):
     list_display = ("stop", "direction", "point")

@@ -49,6 +49,12 @@ class FareAdmin(admin.ModelAdmin):
     }
     
 class UniqueRouteAdmin(admin.ModelAdmin):
+    list_display = ("route","from_stop", "to_stop","distance","is_full")
+    readonly_fields = ("route","from_stop", "to_stop","distance","is_full")
+    search_fields = ("route", "from_stop__name", "to_stop__name")
+    ordering = ('route',)
+    list_per_page = 50
+
     inlines = [RouteScheduleInline]
 
 
@@ -59,12 +65,14 @@ class StopForm(forms.ModelForm):
         
 
 class StopAdmin(admin.OSMGeoAdmin):
-    list_display = ("code","display_name", "name_mr","name", "road","area","depot", "point")
+    list_display = ("code","display_name", "name_mr","name", "road","area","depot", "has_point")
     list_editable = ("display_name", "name_mr","depot",)
     readonly_fields = ("code","name","road","area","depot","chowki" )
     search_fields = ("code",'name', 'depot__name', "road__name", "area__name")
     ordering = ('name',)
     list_per_page = 20
+
+    
     """
     fieldsets = (
         (None, {

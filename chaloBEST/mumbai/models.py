@@ -96,6 +96,18 @@ class Stop(models.Model):
     def __unicode__(self):
         return self.name   
 
+    ''' 
+    check if point exists for stop
+    '''
+    def has_point(self):        
+        if self.stoplocation_set.all():
+            return True
+        else:
+            return False
+        
+    has_point.boolean = True
+
+
 
 class Route(models.Model):
     code = models.TextField(max_length=255, unique=True)
@@ -138,6 +150,7 @@ class UniqueRoute(models.Model):
 
     class Meta:
         verbose_name = 'Atlas'
+        verbose_name_plural = 'Atlas'
         
     def __unicode__(self):
         return "%s: %s to %s" % (self.route.alias, self.from_stop_txt, self.to_stop_txt)

@@ -1,8 +1,6 @@
 from mumbai.models import *
 
-
-"Road, Area, Landmark, Stop"
-
+#"Road, Area, Landmark, Stop"
 def copynames2display_name():
     for obj in Stop.objects.all():
         obj.display_name =obj.name
@@ -18,7 +16,8 @@ def copynames2display_name():
         obj.save()
 
 def copydefaultStopLocations():
-    for stop in Stop.objects.all():
-        stop.stop = stop.stoplocation_set.all()[0]
-    
+    for stp in Stop.objects.all():
+        if stp.stoplocation_set.count()>0 :
+            stp.point = stp.stoplocation_set.all()[0].point
+            stp.save()
 

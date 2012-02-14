@@ -6,34 +6,13 @@ import json
 import datetime
 import sys
 from django.contrib.gis.geos import Point
-from imports.import_atlas import getFromToStopsForRoute
+from imports.import_atlas import getFromToStopsForRoute, importUniqueRoutes
 globalerr = []
 
 def RouteType_save(entry):
     obj = RouteType(code=entry[0], rtype=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
-
-def importRouteMaster():
-    CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/RouteMaster.csv"), "r"), delimiter=',')
-    test = CsvFile.next()
-    stop_errors = []
-    print test
-    for row in CsvFile:
-        if len(row) < 1:
-            continue
-        from_to = getFromToStopsForRoute(row[0])
-        if from_to is None:
-            stop_errors.append(row[0])
-            continue
-        print row[0]
-        obj = Route(code=row[0], alias=row[1], from_stop_txt=row[2], to_stop_txt=row[3], from_stop=from_to[0], to_stop=from_to[1], distance=row[4], stages=int(row[5]))
-        obj.save()
-    errors = open(join(PROJECT_ROOT, "../errors/routeStopErrors.json"), "w")
-    errors.write(json.dumps(stop_errors, indent=2))
-    errors.close()
-
-
 
 def Route_save(entry):        
     """
@@ -227,7 +206,7 @@ def loadFKinRouteDetail():
             rd.route=None
             err.append({"data":rd.route_code, "error":["Route Not Found in Route"]})
 
-    errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
+    #errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
     size = len(err)
     print "No. of Routes in RouteDetail mapped to Route: " , str(good_saves)
     print "No. of Routes in RouteDetail not mapped to Route: " , str(size)
@@ -235,8 +214,9 @@ def loadFKinRouteDetail():
     if (size != 0) :
         print "See /errors/RouteNotFoundErrors.json for details"
         
-    errors.write(json.dumps(err, indent=2))
-    errors.close()
+    #errors.write(json.dumps(err, indent=2))
+    #errors.close()
+    return err
 
 
 
@@ -284,6 +264,9 @@ def fire_up():
         CsvLoader(model)
 
     loadFKinRouteDetail()
+    # also
+    #importUniqueRoutes()
+
 
 #----------------------------------------------------------
 

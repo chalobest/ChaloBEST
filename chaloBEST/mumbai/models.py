@@ -136,7 +136,7 @@ class RouteDetail(models.Model):
         verbose_name = 'Route Detail'
  
     def __unicode__(self):
-        return self.route_code
+        return str(self.route) + " : " + str(self.serial)
 
 
 class UniqueRoute(models.Model):

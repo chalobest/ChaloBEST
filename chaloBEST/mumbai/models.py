@@ -107,6 +107,8 @@ class Stop(models.Model):
         
     has_point.boolean = True
 
+    def get_absolute_url(self):
+        return "/admin/mumbai/stop/%d/" % self.id
 
 
 class Route(models.Model):

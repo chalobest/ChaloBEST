@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Route {{ route.alias }} {% endblock %}
+
+{% block head %}
+    <style type="text/css">
+.has_point {
+    color: #0f0;
+}
+
+.no_point {
+    color: #f00;
+}
+
+a:hover {
+    color: #00f;
+}
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <ul id="stopList">
+        {% for r in routeDetails %}
+            <li>
+                <a href="{{ r.stop.get_absolute_url }}" class="{% if has_point %} has_point {% else %} no_point {% endif %}">{{ r.stop.name }}</a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

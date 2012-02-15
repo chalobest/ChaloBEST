@@ -8,13 +8,13 @@
     <script type="text/javascript">
 $(function() {
     $('#searchRoutes').change(function() {
-        var val = $(this).val();
+        var val = $(this).val().toLowerCase();
         $('.route').each(function() {
-            var txt = $(this).text();
+            var txt = $(this).text().toLowerCase();
             if (txt.indexOf(val) != -1) {
-                $('.route').show();
+                $(this).show();
             } else {
-                $('.route').hide();
+                $(this).hide();
             }
         });
     });

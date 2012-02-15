@@ -7,6 +7,7 @@ import datetime
 import sys
 from django.contrib.gis.geos import Point
 from imports.import_atlas import getFromToStopsForRoute, importUniqueRoutes
+from imports import postload_cleanup as postclean
 globalerr = []
 
 def RouteType_save(entry):
@@ -173,7 +174,7 @@ def StopLocation_save(entry):
 
 
 
-saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi","RouteDetail", "Route","RouteType","HardCodedRoute"]
+saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi","RouteDetail", "Route","RouteType","HardCodedRoute","StopLocation" ]
 
 mappingtosave = {
     "Fare":Fare_save,
@@ -196,7 +197,7 @@ mappingtosave = {
 def loadFKinRouteDetail():
     err=[]
     good_saves = 0
-    print "\n Loading foreign keys into Route Details ... "
+    print "\nLoading foreign keys into Route Details ... "
     for rd in RouteDetail.objects.all():
         try:
             rd.route=Route.objects.get(code=rd.route_code)
@@ -264,10 +265,13 @@ def fire_up():
         CsvLoader(model)
 
     loadFKinRouteDetail()
+    
     # also
-    #importUniqueRoutes()
-
-
+    importUniqueRoutes()    
+    print "loading UniqueRoute..."
+    postclean.copydefaultStopLocations()
+    postclean.copynames2display_name()
+    
 #----------------------------------------------------------
 
 """

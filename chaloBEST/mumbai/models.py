@@ -124,6 +124,9 @@ class Route(models.Model):
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
 
+    def get_absolute_url(self):
+        return "/route/%s/" % self.alias
+
     def __unicode__(self):
         return self.alias
 

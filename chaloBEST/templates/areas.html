@@ -7,9 +7,9 @@
 {% block head %}
     <script type="text/javascript">
 $(function() {
-    $('#searchRoutes').change(function() {
+    $('#searchFilter').change(function() {
         var val = $(this).val().toLowerCase();
-        $('.area').each(function() {
+        $('.listItem').each(function() {
             var txt = $(this).text().toLowerCase();
             if (txt.indexOf(val) != -1) {
                 $(this).show();
@@ -24,10 +24,10 @@ $(function() {
 {% endblock %}
 
 {% block body %}
-    Filter: <input id="searchRoutes" />
+    Filter: <input id="searchFilter" />
     <ul id="routesList">
         {% for a in areas %}
-        <li class="route">
+        <li class="area listItem">
             <a href="{{ a.get_absolute_url }}" title="view stops for route">{{ a.name }}</a>
         </li>
         {% endfor %}

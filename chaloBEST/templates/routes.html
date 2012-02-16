@@ -7,9 +7,9 @@
 {% block head %}
     <script type="text/javascript">
 $(function() {
-    $('#searchRoutes').change(function() {
+    $('#searchFilter').change(function() {
         var val = $(this).val().toLowerCase();
-        $('.route').each(function() {
+        $('.listItem').each(function() {
             var txt = $(this).text().toLowerCase();
             if (txt.indexOf(val) != -1) {
                 $(this).show();
@@ -27,8 +27,8 @@ $(function() {
     Filter: <input id="searchRoutes" />
     <ul id="routesList">
         {% for r in routes %}
-        <li class="route">
-            <a href="/route/{{r.alias}}" title="view stops for route">{{ r.alias }}</a> - {{ r.from_stop.name }} to {{ r.to_stop.name }}
+        <li class="route listItem">
+            <a href="{{r.get_absolute_url}}" title="view stops for route">{{ r.alias }}</a> - {{ r.from_stop.name }} to {{ r.to_stop.name }}
         </li>
         {% endfor %}
     </ul>    

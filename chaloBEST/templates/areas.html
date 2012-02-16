@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Areas
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript">
+$(function() {
+    $('#searchRoutes').change(function() {
+        var val = $(this).val().toLowerCase();
+        $('.area').each(function() {
+            var txt = $(this).text().toLowerCase();
+            if (txt.indexOf(val) != -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});
+
+    </script>
+{% endblock %}
+
+{% block body %}
+    Filter: <input id="searchRoutes" />
+    <ul id="routesList">
+        {% for a in areas %}
+        <li class="route">
+            <a href="{{ a.get_absolute_url }}" title="view stops for route">{{ a.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>    
+
+{% endblock %}

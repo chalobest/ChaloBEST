@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Area: {{ area.name }} {% endblock %}
+
+{% block head %}
+    <style type="text/css">
+.has_point {
+    color: #0f0;
+}
+
+.no_point {
+    color: #f00;
+}
+
+a:hover {
+    color: #00f;
+}
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <ul id="stopList">
+        {% for s in stops %}
+            <li>
+                <a href="{{ s.get_absolute_url }}" class="{% if s.point %} has_point {% else %} no_point {% endif %}">{{ s.name }}</a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

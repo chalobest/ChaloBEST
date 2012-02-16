@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^$','chaloBEST.views.index', name='index'),
     url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     (r'^routes/$', 'mumbai.views.routes'),
-    (r'^route/(?P<alias>[a-zA-Z0-9]*?)/$', 'mumbai.views.route'),
+    (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     #(r'^grappelli/', include('grappelli.urls')),

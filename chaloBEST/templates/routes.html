@@ -7,7 +7,7 @@
 {% block head %}
     <script type="text/javascript">
 $(function() {
-    $('#searchFilter').keypress(function() {
+    $('#searchFilter').keyup(function() {
         var val = $(this).val().toLowerCase();
         $('.listItem').each(function() {
             var txt = $(this).text().toLowerCase();

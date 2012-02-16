@@ -29,7 +29,7 @@ def areas(request):
 
 def area(request, name):
     area = get_object_or_404(Area, name=name)
-    stops = Stop.objects.filter(area=area)
+    stops = Stop.objects.filter(area=area).order_by('name')
     context = RequestContext(request, {
         'area': area,
         'stops': stops

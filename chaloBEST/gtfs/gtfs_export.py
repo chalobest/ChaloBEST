@@ -116,13 +116,13 @@ def export_calendar():
 def export_trips():
     filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/trips.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
     filedude.writerow(["route_id","service_id","trip_id"])
-    filedude.writerow(["246","MS","282(1)"])
-    filedude.writerow(["246","HOL","282(2)"])
-    filedude.writerow(["246","SUN","282(3)"])
+    filedude.writerow(["246","MS","282_1"])
+    #filedude.writerow(["246","HOL","282_2"])
+    #filedude.writerow(["246","SUN","282_3)"])
 
-    filedude.writerow(["253","MS","289(1)"])
-    filedude.writerow(["253","HOL","289(2)"])
-    filedude.writerow(["253","SUN","289(3)"])
+    filedude.writerow(["253","MS","289_1"])
+    #filedude.writerow(["253","HOL","289_2"])
+    #filedude.writerow(["253","SUN","289_3"])
 
     # we need to get UniqueRoutes for each route, that is one trip, since it is based on service_id which shows days_of_run.
     # we need to be careful here because a filter queryset for UniqueRoutes can differ in order and a naming based on this order 
@@ -150,5 +150,15 @@ def export_trips():
 
                
         
+def export_stop_times():
+    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/stop_times.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    filedude.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
     
+    routelist = getRoutesHavingAllLocs()
+
+    for route in routelist:
+        rds = RouteDetail.objects.filter('route'=route).order_by('serial')
+        
+        for rd in rds:            
+            #filedude.writerow()
 

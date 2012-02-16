@@ -12,6 +12,9 @@ urlpatterns = patterns('',
     url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     (r'^routes/$', 'mumbai.views.routes'),
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
+    (r'^areas/$', 'mumbai.views.areas'),
+    (r'^area/(?P<name>.*?)/$', 'mumbai.views.area'),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     #(r'^grappelli/', include('grappelli.urls')),

@@ -20,3 +20,19 @@ def route(request, alias):
         'routeDetails': routeDetails
     })
     return render_to_response("route.html", context)
+
+def areas(request):
+    context = RequestContext(request, {
+        'areas': Area.objects.all()
+    })
+    return render_to_response("areas.html", context)    
+
+def area(request, name):
+    area = get_object_or_404(Area, name=name)
+    stops = Stop.objects.filter(area=area)
+    context = RequestContext(request, {
+        'area': area,
+        'stops': stops
+    })
+    return render_to_response("area.html", context)
+

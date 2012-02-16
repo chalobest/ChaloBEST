@@ -49,6 +49,8 @@ class Area(models.Model):
     geometry = models.PolygonField(blank=True, null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_absolute_url(self):
+        return "/area/%s/" % self.name
 
     def __unicode__(self):
         return self.name   

@@ -146,6 +146,9 @@ def importUniqueRoutes():
             obj = UniqueRoute(route=routeObj, is_full=thisRoute['is_full'], distance=distance, from_stop_txt=thisRoute['from'], to_stop_txt=thisRoute['to']) 
             if obj.is_full: #If the route is the primary route, we can get stop codes easily from RouteDetails first / last stop
                 from_to = getFromToStopsForRoute(routeObj)
+                if not from_to:
+                    routeDoesNotExistErrors.append({'from_to_not_found': route})
+                    continue
                 obj.from_stop = from_to[0]
                 if not stopMapping.has_key(obj.from_stop_txt):
                     stopMapping[obj.from_stop_txt] = from_to[0].name

@@ -49,6 +49,8 @@ class Area(models.Model):
     geometry = models.PolygonField(blank=True, null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_absolute_url(self):
+        return "/area/%s/" % self.name
 
     def __unicode__(self):
         return self.name   
@@ -121,6 +123,9 @@ class Route(models.Model):
     to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
+
+    def get_absolute_url(self):
+        return "/route/%s/" % self.alias
 
     def __unicode__(self):
         return self.alias

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Route {{ route.alias }} {% endblock %}
+{% block title %} Area: {{ area.name }} {% endblock %}
 
 {% block head %}
     <style type="text/css">
@@ -21,9 +21,9 @@ a:hover {
 
 {% block body %}
     <ul id="stopList">
-        {% for r in routeDetails %}
+        {% for s in stops %}
             <li>
-                <a href="{{ r.stop.get_absolute_url }}" class="{% if r.stop.point %} has_point {% else %} no_point {% endif %}">{{ r.stop.name }}</a>
+                <a href="{{ s.get_absolute_url }}" class="{% if s.point %} has_point {% else %} no_point {% endif %}">{{ s.name }}</a>
             </li>
 
         {% endfor %}

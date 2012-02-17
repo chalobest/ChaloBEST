@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Routes
+    Areas
 {% endblock %}
 
 {% block head %}
@@ -26,9 +26,9 @@ $(function() {
 {% block body %}
     Filter: <input id="searchFilter" />
     <ul id="routesList">
-        {% for r in routes %}
-        <li class="route listItem">
-            <a href="{{r.get_absolute_url}}" title="view stops for route">{{ r.alias }}</a> - {{ r.from_stop.name }} to {{ r.to_stop.name }}
+        {% for a in areas %}
+        <li class="area listItem">
+            <a href="{{ a.get_absolute_url }}" title="view stops for route">{{ a.name }}</a>
         </li>
         {% endfor %}
     </ul>    

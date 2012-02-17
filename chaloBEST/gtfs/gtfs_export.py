@@ -1,4 +1,3 @@
-
 from mumbai.models import *
 import json
 from settings import *
@@ -152,13 +151,15 @@ def export_trips():
         
 def export_stop_times():
     filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/stop_times.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    filedude.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
-    
-    routelist = getRoutesHavingAllLocs()
+    filedude.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])    
+    #routelist = getRoutesHavingAllLocs()
+    routelist = RouteDetails.objects.filter(route_code='2820')
+    routelist.append(RouteDetails.objects.get(route_code='2894'))
 
-    for route in routelist:
-        rds = RouteDetail.objects.filter('route'=route).order_by('serial')
+    #1. get routeDetails
+    #2. 
+    for r in routelist:
+        rds = RouteDetail.objects.filter(route=r).order_by('serial')
         
         for rd in rds:            
-            #filedude.writerow()
-
+            filedude.writerow()

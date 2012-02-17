@@ -19,7 +19,10 @@ def csvToJSON():
         routeNo = a[1].strip()
 #        print a
         if routeNo != '':
-            atlasDict[routeNo] = [a]
+            if atlasDict.has_key(routeNo):
+                atlasDist[routeNo].append(a)
+            else:
+                atlasDict[routeNo] = [a]
             previousRoute = routeNo
         else:
             atlasDict[previousRoute].append(a) 
@@ -58,7 +61,7 @@ def processJSON():
                         row[i] = previousRow[i]
                 try:
                     if row[-5].strip() == '':
-                        row[-5] = previousRow[-5]
+                        row[-5] = previousRow[-5] #What is -5 ?
                 except:
                     pdb.set_trace()
                 previousRow = row
@@ -238,8 +241,8 @@ def noneInt(val):
 '''
 Passed a route code, it gets stop codes for the first and last stop
 '''
-def getFromToStopsForRoute(routeId):
-    routeDetails = RouteDetail.objects.filter(route_code=routeId).order_by('serial')
+def getFromToStopsForRoute(route):
+    routeDetails = RouteDetail.objects.filter(route=route).order_by('serial')
     if routeDetails.count() == 0:
         return None
     fromStop = routeDetails[0].stop

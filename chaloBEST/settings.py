@@ -11,6 +11,8 @@ ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
 
+SITENAME = "ChaloBEST"
+
 LOCAL_DEVELOPMENT = True
 JSON_DEBUG = True
 

@@ -95,6 +95,34 @@ class Stop(models.Model):
     point = models.PointField(null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'slug': self.slug,
+            'official_name': self.name,
+            'display_name': self.display_name,
+            'road': self.road.name,
+            'area': self.area.name,
+            'name_mr': self.name_mr
+            #FIXME: add alt names
+        }
+
+    def get_geojson(self, srid=4326):
+        if self.point is not None:
+            geom = json.loads(self.point.transform(srid, True).geojson)
+        else:
+            geom = {}
+
+        properties = self.get_dict()
+
+        return {
+            'type': 'Feature',
+            'properties': properties,
+            'geometry': geom
+        }        
+
+
     def __unicode__(self):
         return self.name   
 
@@ -130,6 +158,14 @@ class Route(models.Model):
     def __unicode__(self):
         return self.alias
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'alias': self.alias,
+            'slug': self.slug,
+            'distance': self.distance
+        }
 
 class RouteDetail(models.Model):
     route_code = models.TextField()
@@ -141,7 +177,8 @@ class RouteDetail(models.Model):
 
     class Meta:
         verbose_name = 'Route Detail'
- 
+        ordering = ['serial'] 
+
     def __unicode__(self):
         return str(self.route) + " : " + str(self.serial)
 

@@ -15,7 +15,7 @@ def route(request, alias):
     })
 
 
-def stop:(request, id):
+def stop(request, id):
     if request.POST:
         if not id:
             stop = Stop() #FIXME: should this return an error instead?

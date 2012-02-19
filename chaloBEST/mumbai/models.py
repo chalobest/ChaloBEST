@@ -56,7 +56,6 @@ class Area(models.Model):
 
     def __unicode__(self):
         return self.name   
-
     
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)

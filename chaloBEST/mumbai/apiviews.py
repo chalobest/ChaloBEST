@@ -21,7 +21,7 @@ def stop(request, id):
             stop = Stop() #FIXME: should this return an error instead?
         else:
             stop = get_object_or_404_json(Stop, id=id)
-        return stop.from_geojson(request.POST)
+        return render_to_json_response(stop.from_geojson(request.POST))
     else:
         stop = get_object_or_404_json(Stop, id=id)
-        return stop.get_geojson()
+        return render_to_json_response(stop.get_geojson()) #FIXME: please don't repeat this code, its retarded.

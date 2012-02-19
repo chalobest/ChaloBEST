@@ -15,6 +15,35 @@ def route(request, slug):
     })
 
 
+def routes(request):
+    qset = Route.objects.all()
+    if request.GET.has_key('q'):
+        q = request.GET.get('q', '')
+        qset = qset.filter(alias__icontains=q) #FIXME: make a better Q object
+    routes = [route.alias for route in qset]
+    return render_to_json_response(routes)
+
+
+def areas(request):
+    qset = Area.objects.all()
+    if request.GET.has_key('q'):
+        q = request.GET.get('q', '')
+        qset = qset.filter(display_name__icontains=q)    
+    areas = [area.slug for area in qset]
+    return render_to_json_response(areas)
+
+def stops(request):
+    qset = Stop.objects.all()
+    if request.GET.has_key('q'):
+        q = request.GET.get('q', '')
+        qset = qset.filter(display_name__icontains=q) #FIXME: This definitely needs to be a Q object with OR lookups for area name, road name, etc.    
+    return render_to_json_response({
+        'type': 'FeatureCollection',
+        'features': [stop.get_geojson() for stop in qset]
+    })
+   
+
+
 def stop(request, slug):
     if request.POST:
         if not slug:

@@ -1,5 +1,6 @@
 from models import *
 from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
+from django.contrib.auth.decorators import login_required
 
 
 def route(request, alias):
@@ -12,3 +13,10 @@ def route(request, alias):
             'features': stops
         }
     })
+
+@login_required(request, id):
+    if not id:
+        stop = Stop() #FIXME: should this return an error instead?
+    else:
+        stop = get_object_or_404_json(Stop, id=id)
+    return stop.from_geojson(request.POST)

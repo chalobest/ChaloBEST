@@ -1,4 +1,5 @@
 from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 from django import forms
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
@@ -122,6 +123,16 @@ class Stop(models.Model):
             'properties': properties,
             'geometry': geom
         }        
+
+    def from_geojson(self, geojson):
+        geom = geojson['geometry']['coordinates']
+        data = geojson['properties']
+        self.point = Point(geom[0], geom[1])
+        self.display_name = data['display_name']
+        self.name_mr = data['name_mr']
+        #FIXME: add alt names logic
+        self.save()
+        return self.get_geojson()
 
 
     def __unicode__(self):

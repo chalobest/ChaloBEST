@@ -1,5 +1,5 @@
 from models import *
-from ox.django.shortcuts import get_object_or_404_json
+from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 
 def route(request, code):
     route = get_object_or_404_json(Route, code=code)

@@ -14,9 +14,14 @@ def route(request, alias):
         }
     })
 
-@login_required(request, id):
-    if not id:
-        stop = Stop() #FIXME: should this return an error instead?
+
+def stop:(request, id):
+    if request.POST:
+        if not id:
+            stop = Stop() #FIXME: should this return an error instead?
+        else:
+            stop = get_object_or_404_json(Stop, id=id)
+        return stop.from_geojson(request.POST)
     else:
         stop = get_object_or_404_json(Stop, id=id)
-    return stop.from_geojson(request.POST)
+        return stop.get_geojson()

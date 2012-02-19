@@ -97,6 +97,7 @@ class Stop(models.Model):
     alt_names = generic.GenericRelation("AlternativeName")
 
     def get_dict(self):
+        routes = [r.route.alias for r in RouteDetail.objects.filter(stop=self)]
         return {
             'id': self.id,
             'code': self.code,
@@ -105,7 +106,8 @@ class Stop(models.Model):
             'display_name': self.display_name,
             'road': self.road.name,
             'area': self.area.name,
-            'name_mr': self.name_mr
+            'name_mr': self.name_mr,
+            'routes': routes
             #FIXME: add alt names
         }
 

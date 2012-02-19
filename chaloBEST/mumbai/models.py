@@ -164,7 +164,7 @@ class Route(models.Model):
             'code': self.code,
             'alias': self.alias,
             'slug': self.slug,
-            'distance': self.distance
+            'distance': str(self.distance)
         }
 
 class RouteDetail(models.Model):

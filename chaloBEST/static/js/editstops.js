@@ -13,7 +13,7 @@ $(function() {
             $that.data("loaded", true);
             var $list = $('#' + name + 'List');
             var url = API_BASE + name + "/";
-            $.post(url, {}, function(items) {
+            $.get(url, {}, function(items) {
                 $.each(items, function(i,v) {
                     var $li = $('<li />')
                         .addClass("listItem")

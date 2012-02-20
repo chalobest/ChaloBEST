@@ -60,7 +60,7 @@ $(function() {
         });
     });
 
-    $('.listSearch').keydown(function(e) {
+    $('.listSearch').keyup(function(e) {
         var val = $(this).val();
         var name = $(this).attr("id").replace("Search", "");
         var $list = $('#' + name + "List");

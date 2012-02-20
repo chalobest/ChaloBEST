@@ -47,9 +47,10 @@ $(function() {
         var url = API_BASE + name + "/" + $target.text();
         $target.data("loading", true);
         var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
-        $.getJSON(url, {}, function(area) {
+        $.getJSON(url, {}, function(obj) {
             $loading.remove();
-            var stops = area.stops.features;
+            var stopsGeojson = obj.stops; //TODO: render filtered geojson with known geometries on map
+            var stops = stopsGeojson.features;
             var $stopsList = getStopsList(stops);
             $target.append($stopsList);
             $target.data("hasList", true);

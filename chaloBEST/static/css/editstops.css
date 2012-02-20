@@ -43,6 +43,10 @@ html, body {
 .selectedListItem .listItemText {
     color: blue;
 }
+
+.selectedStop {
+    color: blue;
+}
 .clear {
     clear: both;
 }

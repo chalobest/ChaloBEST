@@ -109,5 +109,5 @@ function getStopForm(stop) {
 }
 
 function isEmpty(obj) {
-    return ($.toJSON(obj) == "{}")
+    return (JSON.stringify(obj) == "{}")
 }

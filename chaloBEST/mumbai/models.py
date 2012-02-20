@@ -97,7 +97,6 @@ class Stop(models.Model):
     alt_names = generic.GenericRelation("AlternativeName")
 
     def get_dict(self):
-        routes = [r.route.alias for r in RouteDetail.objects.filter(stop=self)]
         return {
             'id': self.id,
             'code': self.code,
@@ -107,8 +106,8 @@ class Stop(models.Model):
             'road': self.road.name,
             'area': self.area.name,
             'name_mr': self.name_mr,
-            'routes': routes
-            #FIXME: add alt names
+            'routes': ",".join([r.route.alias for r in RouteDetail.objects.filter(stop=self)]),
+            'alternative_names': ",".join([a.name for a in self.alt_names.all().filter(typ='common')])
         }
 
     def get_geojson(self, srid=4326):
@@ -131,6 +130,16 @@ class Stop(models.Model):
         self.point = Point(geom[0], geom[1])
         self.display_name = data['display_name']
         self.name_mr = data['name_mr']
+        if data.has_key('alternative_names') and data['alternative_names'].strip() != '':
+            for a in self.alt_names.all():
+                a.delete()
+            for a in data['alternative_names'].split(","):
+                alt_name = AlternativeName()
+                alt_name.name = a['name']
+                alt_name.typ = 'common'
+                alt_name.save()
+                self.alt_names.add(alt_name)    
+            
         #FIXME: add alt names logic
         self.save()
         return self.get_geojson()

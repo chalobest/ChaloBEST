@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/editstops.css" />
+<script type="text/javascript" src="/static/js/editstops.js"></script>
+{% endblock %}
+
+
+{% block body %}
+    <div id="listCol">
+        <div id="tabButtons">
+            <div id="areasTabBtn" class="tabButton" data-name="areas">
+                Areas
+            </div>
+            <div id="routesTabBtn" class="tabButton" data-name="routes">
+                Routes
+            </div>
+        </div>
+        <div id="listsWrapper">
+            <div id="areas" class="listWrapper">
+                <input type="text" id="areasSearch" class="listSearch" />
+                <ul id="areasList">
+                </ul>
+            </div>
+            <div id="routes" class="listWrapper">
+                <input type="text" id="routesSearch" class="listSearch" />
+                <ul id="routesList">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="mapCol">
+
+    </div>
+    <div id="formCol">
+
+    </div>
+
+{% endblock %}

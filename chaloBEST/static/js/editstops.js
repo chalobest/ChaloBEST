@@ -34,7 +34,7 @@ $(function() {
     $('.list').click(function(e) {
         var name = $(this).attr("id").replace("List", "");
         var $target = $(e.target);
-        if (!$target.hasClass('list')) {
+        if (!$target.hasClass('listItem')) {
             return;
         }
         if ($target.data("loading")) {

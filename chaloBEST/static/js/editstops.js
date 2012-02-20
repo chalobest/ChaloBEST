@@ -58,12 +58,12 @@ var API_BASE = "/1.0/",
                 var stops = stopsGeojson.features;
                 var $stopsList = getStopsList(stops);
                 var stopsWithGeom = [];
-                $.each(stopsGeojson.stops, function(i,v) {
+                $.each(stops, function(i,v) {
                     if (!$.isEmptyObject(v.geometry)) {
                         stopsWithGeom.push(v);
                     }    
                 });
-                stopsGeojson.stops = stopsWithGeom;
+                stopsGeojson.features = stopsWithGeom;
                 var currFeatures = jsonLayer.features;
                 jsonLayer.removeFeatures(currFeatures);
                 jsonLayer.addFeatures(geojson_format.read(stopsGeojson));

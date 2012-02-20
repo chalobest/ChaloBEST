@@ -33,7 +33,7 @@ $(function() {
 
     $('.list').click(function(e) {
         var name = $(this).attr("id").replace("sList", ""); //FIXME: stick name in a data attr or so?
-        var $target = $(e.target);
+        var $target = $(e.target).parent();
         if (!$target.hasClass('listItem')) {
             return;
         }

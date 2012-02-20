@@ -34,7 +34,7 @@ $(function() {
     $('.list').click(function(e) {
         var name = $(this).attr("id").replace("List", "");
         var $target = $(e.target);
-        if (!target.hasClass('list')) {
+        if (!$target.hasClass('list')) {
             return;
         }
         if ($target.data("loading")) {
@@ -46,7 +46,9 @@ $(function() {
         } 
         var url = API_BASE + name + "/" + $target.text();
         $target.data("loading", true);
+        var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
         $.getJSON(url, {}, function(area) {
+            $loading.remove();
             var stops = area.stops.features;
             var $stopsList = getStopsList(stops);
             $target.append($stopsList);

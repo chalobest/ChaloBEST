@@ -1,5 +1,6 @@
 html, body {
     width: 100%;
+    height: 100%;
 }
 
 #wrapper {
@@ -7,6 +8,8 @@ html, body {
 }
 
 #listCol {
+    height: 100%;
+    overflow-x: scroll;
     width: 24%;
     float: left;
 }

@@ -9,7 +9,8 @@ html, body {
 
 #listCol {
     height: 100%;
-    overflow-x: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 24%;
     float: left;
 }
@@ -49,7 +50,7 @@ html, body {
 }
 
 .selectedStop {
-    color: blue;
+    color: blue !important;
 }
 
 .clear {

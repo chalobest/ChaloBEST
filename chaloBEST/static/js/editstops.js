@@ -12,7 +12,8 @@ $(function() {
         } else {
             $that.data("loaded", true);
             var $list = $('#' + name + 'List');
-            $.post("/" + name, {}, function(items) {
+            var url = "/" + API_BASE + "/" + name;
+            $.post(url, {}, function(items) {
                 $.each(items, function(i,v) {
                     var $li = $('<li />')
                         .addClass("listItem")

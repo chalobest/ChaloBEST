@@ -41,7 +41,7 @@ $(function() {
             return;
         }
         if ($target.data("hasList")) {
-            $target.find(".stopList").toggle();
+            $target.find(".stopsList").toggle();
             return;         
         } 
         var url = API_BASE + name + "/" + $target.text();

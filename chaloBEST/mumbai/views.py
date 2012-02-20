@@ -37,7 +37,7 @@ def area(request, name):
     })
     return render_to_response("area.html", context)
 
-@login_required
+
 def editstops(request):
     context = RequestContext(request, {})
     return render_to_response("editstops.html", context)

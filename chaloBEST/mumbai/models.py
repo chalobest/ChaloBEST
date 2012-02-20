@@ -51,6 +51,17 @@ class Area(models.Model):
     geometry = models.PolygonField(blank=True, null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'slug': self.slug,
+            'name': self.name,
+            'name_mr': self.name_mr,
+            'display_name': self.display_name
+            #FIXME add alt_names and geometry
+        }
+
     def get_absolute_url(self):
         return "/area/%s/" % self.name
 

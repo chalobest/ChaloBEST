@@ -1,0 +1,27 @@
+html, body {
+    width: 100%;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#listsCol {
+    width: 24%;
+    float: left;
+}
+
+#mapCol {
+    width: 50%;
+    float: left;
+}
+
+#formCol {
+    width: 24%;
+    float: left;
+}
+
+.listWrapper {
+    display: none;
+}
+

@@ -13,14 +13,16 @@ $(function() {
             $that.data("loaded", true);
             var $list = $('#' + name + 'List');
             var url = API_BASE + name + "/";
-            $.get(url, {}, function(items) {
+            var $loadingLi = $('<div />').text("Loading...").appendTo($list);
+            $.getJSON(url, {}, function(items) {
+                $loadingLi.remove();
                 $.each(items, function(i,v) {
-                    var $li = $('<li />')
+                    var $li = $('<div />')
                         .addClass("listItem")
                         .text(v)
                         .appendTo($list);
                 });
-            }, "json");
+            });
         }
 
         $('.listWrapper').hide();
@@ -29,4 +31,38 @@ $(function() {
         $that.addClass("selected");
     });
 
+    $('.list').click(function(e) {
+        var name = $(this).attr("id").replace("List", "");
+        var $target = $(e.target);
+        if (!target.hasClass('list')) {
+            return;
+        }
+        if ($target.data("loading")) {
+            return;
+        }
+        if ($target.data("hasList")) {
+            $target.find(".stopList").toggle();
+            return;         
+        } 
+        var url = API_BASE + name + "/" + $target.text();
+        $target.data("loading", true);
+        $.getJSON(url, {}, function(area) {
+            var stops = area.stops.features;
+            var $stopsList = getStopsList(stops);
+            $target.append($stopsList);
+            $target.data("hasList", true);
+            $target.data("loading", false);
+        });
+    });
+
 });
+
+function getStopsList(stops) {
+    var $ul = $('<ul />').addClass("stopsList");
+    $.each(stops, function(i,v) {
+        var props = v.properties;
+        var geom = v.geometry;
+        var $li = $('<li />').addClass("stopItem").data("slug", props.slug).data("geometry", geom).text(props.display_name).appendTo($ul);
+    });
+    return $ul;
+}

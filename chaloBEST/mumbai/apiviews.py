@@ -18,8 +18,11 @@ def area(request, slug):
     area = get_object_or_404_json(Area, slug=slug)
     stops = [stop.get_geojson() for stop in Stop.objects.filter(area=area)]
     return render_to_json_response({
-        'type': 'FeatureCollection',
-        'features': stops
+        'area': area.get_dict(),
+        'stops': { 
+            'type': 'FeatureCollection',
+            'features': stops
+        }
     })
 
 def routes(request):

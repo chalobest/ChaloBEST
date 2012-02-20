@@ -101,5 +101,7 @@ function getStopsList(stops) {
 function getStopForm(stop) {
     var $div = $('<div />');
     var $displayName = $('<div />').text(stop.display_name).appendTo($div);
+    var $routes = $('<div />').text("Routes: " + stop.routes); 
+    var $form = $('<form />').apendTo($div);    
     return $div;
 }

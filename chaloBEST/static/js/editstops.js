@@ -127,9 +127,7 @@ var API_BASE = "/1.0/",
         var center = new OpenLayers.LonLat(72.855211097628413, 19.010775291486027);
         map = new OpenLayers.Map("mapCol", {});
         var layers = [];
-        layers[0] = new OpenLayers.Layer.WMS("OpenStreetMaps",
-                                      "http://vmap0.tiles.osgeo.org/wms/vmap0",
-                                      {layers: 'basic'});
+        layers[0] = new OpenLayers.Layer.OSM();
 /*
         layers[0] = new OpenLayers.Layer.Google(
                     "Google Streets", // the default

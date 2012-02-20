@@ -38,6 +38,7 @@ html, body {
     cursor: pointer;
     width: 150px;
     border: 1px solid #000;
+    float: left;
 }
 
 .selectedListItem .listItemText {

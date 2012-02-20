@@ -12,7 +12,7 @@ $(function() {
         } else {
             $that.data("loaded", true);
             var $list = $('#' + name + 'List');
-            var url = "/" + API_BASE + "/" + name;
+            var url = API_BASE + name;
             $.post(url, {}, function(items) {
                 $.each(items, function(i,v) {
                     var $li = $('<li />')

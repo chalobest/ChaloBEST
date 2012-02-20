@@ -78,11 +78,28 @@ $(function() {
 });
 
 function getStopsList(stops) {
-    var $ul = $('<ul />').addClass("stopsList");
+    var $ul = $('<ul />').addClass("stopsList").click(function(e) {
+        var $target = $(e.target);
+        if ($target.hasClass("selectedStop")) {
+            return;
+        }
+        $('.selectedStop').removeClass("selectedStop");
+        $target.addClass("selectedStop");
+        var props = $target.data("properties");
+        var $form = getStopForm(props);
+        $('#formCol').empty();
+        $('#formCol').append($form);
+    });
     $.each(stops, function(i,v) {
         var props = v.properties;
         var geom = v.geometry;
-        var $li = $('<li />').addClass("stopItem").data("slug", props.slug).data("geometry", geom).text(props.display_name).appendTo($ul);
+        var $li = $('<li />').addClass("stopItem").data("slug", props.slug).data("properties", props).data("geometry", geom).text(props.display_name).appendTo($ul);
     });
     return $ul;
+}
+
+function getStopForm(stop) {
+    var $div = $('<div />');
+    var $displayName = $('<div />').text(stop.display_name).appendTo($div);
+    
 }

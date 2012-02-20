@@ -40,6 +40,8 @@ $(function() {
         if ($target.data("loading")) {
             return;
         }
+        $('.selectedListItem').removeClass("selectedListItem");
+        $target.addClass("selectedListItem");
         if ($target.data("hasList")) {
             $target.find(".stopsList").toggle();
             return;         

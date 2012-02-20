@@ -25,3 +25,20 @@ html, body {
     display: none;
 }
 
+.selected {
+    color: blue;
+    border: 1px solid #f00;
+}
+
+.listItem {
+    cursor: pointer;
+}
+
+.tabButton {
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.clear {
+    clear: both;
+}

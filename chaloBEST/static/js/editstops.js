@@ -19,8 +19,8 @@ $(function() {
                 $.each(items, function(i,v) {
                     var $li = $('<div />')
                         .addClass("listItem")
-                        .text(v)
                         .appendTo($list);
+                    var $txt = $('<span >').addClass("listItemText").text(v).appendTo($li);
                 });
             });
         }
@@ -44,7 +44,7 @@ $(function() {
             $target.find(".stopsList").toggle();
             return;         
         } 
-        var url = API_BASE + name + "/" + $target.text();
+        var url = API_BASE + name + "/" + $target.find(".listItemText").text();
         $target.data("loading", true);
         var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
         $.getJSON(url, {}, function(obj) {
@@ -55,6 +55,21 @@ $(function() {
             $target.append($stopsList);
             $target.data("hasList", true);
             $target.data("loading", false);
+        });
+    });
+
+    $('.listSearch').keydown(function(e) {
+        var val = $(this).val();
+        var name = $(this).attr("id").replace("Search", "");
+        var $list = $('#' + name + "List");
+        $list.find(".listItem").each(function() {
+            var $that = $(this);
+            var txt = $that.find(".listItemText").text();
+            if (txt.indexOf(val) == -1) {
+                $that.hide();
+            } else {
+                $that.show();
+            }
         });
     });
 

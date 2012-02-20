@@ -51,3 +51,11 @@ html, body {
 .clear {
     clear: both;
 }
+
+.has_point {
+    color: #222;
+}
+
+.no_has_point {
+    color: #666;
+}

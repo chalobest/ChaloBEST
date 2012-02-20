@@ -94,6 +94,7 @@ function getStopsList(stops) {
         var props = v.properties;
         var geom = v.geometry;
         var $li = $('<li />').addClass("stopItem").data("slug", props.slug).data("properties", props).data("geometry", geom).text(props.display_name).appendTo($ul);
+        isEmpty(geom) ? $li.addClass("no_has_point") : $li.addClass("has_point");
     });
     return $ul;
 }
@@ -105,4 +106,8 @@ function getStopForm(stop) {
     var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
 //    var $form = $('<form />').apendTo($div);    
     return $div;
+}
+
+function isEmpty(obj) {
+    return ($.toJSON(obj) == "{}")
 }

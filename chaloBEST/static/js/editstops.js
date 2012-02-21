@@ -139,18 +139,17 @@ var API_BASE = "/1.0/",
 
     function initMap() {
         var center = new OpenLayers.LonLat(72.855211097628413, 19.010775291486027);
-        map = new OpenLayers.Map("mapCol", {});
+        map = new OpenLayers.Map("mapCol", {
+                  projection: new OpenLayers.Projection("EPSG:900913")
+              });
         var layers = [];
 //        layers[0] = new OpenLayers.Layer.OSM();
 
-        layers[0] = new OpenLayers.Layer.Google(
-                    "Google Streets", // the default
-                    {numZoomLevels: 20, isBaseLayer: true}
-                );
-
+        layers[0] = new OpenLayers.Layer.OSM();
         geojson_format = new OpenLayers.Format.GeoJSON();
         //yes, jsonLayer is global. Yes, I know it's wrong.
-        jsonLayer = layers[1] = new OpenLayers.Layer.Vector("Bus Stops", {'geometryType': 'Point'});
+        jsonLayer = layers[1] = new OpenLayers.Layer.Vector("Bus Stops", {
+                geometryType: 'Point', projection: new OpenLayers.Projection("EPSG:4326") });
         //  map.addLayer(vector_layer);
         map.addLayers(layers);
         map.setCenter(center, 12);

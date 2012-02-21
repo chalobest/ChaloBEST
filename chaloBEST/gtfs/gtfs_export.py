@@ -6,9 +6,15 @@ import csv
 import sys
 
 def routeWithLocationData(route):
+    '''
+    tests a  route if it has stop location data for each stop on the route.    
+    '''
     # get the route detail
     routeDetails = RouteDetail.objects.filter(route_code=route.code).order_by('serial')
 
+    #unrlist = UniqueRoute.objects.filter('route'=route)
+    #for unr in unrlist:
+    
     for rd in routeDetails :        
         if rd.stop.point is None:
             return False
@@ -17,11 +23,54 @@ def routeWithLocationData(route):
     return True
 
 def getRoutesHavingAllLocs():
+    '''
+    gets routes having stop location data for each stop on the route.
+    '''
     filteredroutes = []
     for route in Route.objects.all():
         if routeWithLocationData(route):
             filteredroutes.append(route)
 
+    return filteredroutes
+
+
+
+def routeWithSomeLocationData(route,limit):
+    '''
+    Gets stoplist for a route which has at most <limit> no of stops without location data.
+    '''    
+    # Get the route details
+    routeDetails = RouteDetail.objects.filter(route_code=route.code).order_by('serial')
+    # check for routes having less than three errors in stops, and send stops back.
+    stoplist =[]
+    errs = 0    
+    for rd in routeDetails:        
+        if rd.stop.point is None:
+            # stop does not have point
+            errs+=1
+            if errs <= limit :
+                stoplist.append(rd.stop.code)
+        else:
+            pass        
+
+    if errs <=limit:
+        return dict({'route':route, 'neededstops':stoplist, })
+    else:
+        return None
+
+def getRoutesHavingSomeLocs(limit):
+    '''
+    Gets those routes which have at most <limit> no of stops without location data.
+    '''    
+    filteredroutes = []
+    no_of_routes = 0
+    for route in Route.objects.all():
+        data= routeWithSomeLocationData(route, limit)
+        if data:
+            no_of_routes+=1
+            filteredroutes.append(data)
+
+    print "No of routes::",no_of_routes
     return filteredroutes
 
 
@@ -126,7 +175,7 @@ def export_trips():
     # we need to get UniqueRoutes for each route, that is one trip, since it is based on service_id which shows days_of_run.
     # we need to be careful here because a filter queryset for UniqueRoutes can differ in order and a naming based on this order 
     # will not be consistent. Its good to use a uniqueroute-serial number.
-   for r in routelist: 
+    #for r in routelist: 
     """
         try:
             # data checks here 

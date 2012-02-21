@@ -160,17 +160,39 @@ def AreaMarathi_save(entry):
     obj.save()
     #print obj.__dict__  
 
+loc1s = 0
+loc2s = 0
+
+class NoPointsFoundError(Exception):
+    pass
+
 def StopLocation_save(entry):
     this_stop = Stop.objects.get(code=int(entry[4]))
+    
+    #hits = {'one':[],'two':[],'three':[],'four':[]}
+
+    flagerr = 0
 
     if entry[0] and entry[1]:
         loc1 = StopLocation(stop=this_stop, point=Point(float(entry[1]), float(entry[0])),direction='U' )
         loc1.save()
+        #loc1s+=1
+    else:
+        flagerr=1
 
     if entry[2] and entry[3]:
         loc2 = StopLocation(stop=this_stop, point=Point(float(entry[3]), float(entry[2])),direction='D' )
         loc2.save()                                
+        #loc2s+=1
+    else:
+        flagerr+=1
 
+    if flagerr == 2:
+        flagerr = 0
+        raise NoPointsFoundError
+
+    #print "Loc1s found : ", loc1s
+    #print "Loc2s found : ", loc2s
 
 
 

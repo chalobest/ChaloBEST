@@ -8,12 +8,22 @@ import sys
 from django.contrib.gis.geos import Point
 from imports.import_atlas import getFromToStopsForRoute, importUniqueRoutes
 from imports import postload_cleanup as postclean
+from decimal import Decimal
+
 globalerr = []
 
 def RouteType_save(entry):
     obj = RouteType(code=entry[0], rtype=entry[1], faretype=entry[2])
     obj.save()
     #print obj.__dict__ 
+
+def getFromToStopsFromRouteDetails(code):
+    routeDetails = RouteDetail.objects.filter(route_code=code).order_by('serial')
+    if routeDetails.count() == 0:
+        return None
+    fromStop = routeDetails[0].stop
+    toStop = routeDetails[routeDetails.count() -1].stop
+    return (fromStop, toStop,)
 
 def Route_save(entry):        
     """
@@ -27,11 +37,11 @@ def Route_save(entry):
     except IndexError:
         t_stop = None 
     """
-    from_to = getFromToStopsForRoute(entry[0])
+    from_to = getFromToStopsFromRouteDetails(entry[0])
     if from_to is None:
         globalerr.append({"data" :entry[0], error:["Route not found"]})
 
-       #obj = Route(code=entry[0], alias=entry[1], from_stop_txt=entry[2], to_stop_txt=entry[3], from_stop=from_to[0], to_stop=from_to[1], distance=float(entry[4]), stages=int(entry[5]))
+       #obj = Route(code=entry[0], alias=entry[1], from_stop_txt=entry[2], to_stop_txt=entry[3], from_stop=from_to[0], to_stop=from_to[1], distance=Decimal(entry[4]), stages=int(entry[5]))
 
     
     obj = Route(
@@ -41,7 +51,7 @@ def Route_save(entry):
         from_stop_txt=str(entry[2]), 
         to_stop_txt=str(entry[3]), 
         to_stop=from_to[1],
-        distance=float(entry[4]), 
+        distance=Decimal(entry[4]), 
         stages=int(entry[5])) 
     obj.save()
 
@@ -98,7 +108,7 @@ def RouteDetail_save(entry):
         serial=int(entry[1]), 
         stop= temp_stop,
         stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), 
-        km=(lambda:None,lambda:float(entry[4]))[ entry[4] != '' ]())
+        km=(lambda:None,lambda:Decimal(entry[4]))[ entry[4] != '' ]())
     obj.save()
     #print obj.__dict__  
        
@@ -109,7 +119,7 @@ def Road_save(entry):
   
 def Fare_save(entry):
     obj = Fare(
-            slab=float(entry[0]), 
+            slab=Decimal(entry[0]), 
             ordinary=int(entry[1]), 
             limited=int(entry[2]), 
             express=int(entry[3]), 

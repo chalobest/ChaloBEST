@@ -4,8 +4,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def route(request, slug):
+    srid = int(request.GET.get("srid", 4326))
     route = get_object_or_404_json(Route, slug=slug)
-    stops = [r.stop.get_geojson() for r in RouteDetail.objects.filter(route=route)]
+    stops = [r.stop.get_geojson(srid=srid) for r in RouteDetail.objects.filter(route=route)]
     return render_to_json_response({
         'route': route.get_dict(),
         'stops': {
@@ -15,8 +16,9 @@ def route(request, slug):
     })
 
 def area(request, slug):
+    srid = int(request.GET.get("srid", 4326))
     area = get_object_or_404_json(Area, slug=slug)
-    stops = [stop.get_geojson() for stop in Stop.objects.filter(area=area)]
+    stops = [stop.get_geojson(srid=srid) for stop in Stop.objects.filter(area=area)]
     return render_to_json_response({
         'area': area.get_dict(),
         'stops': { 
@@ -44,12 +46,13 @@ def areas(request):
 
 def stops(request):
     qset = Stop.objects.all()
+    srid = int(request.GET.get("srid", 4326))
     if request.GET.has_key('q'):
         q = request.GET.get('q', '')
         qset = qset.filter(display_name__icontains=q) #FIXME: This definitely needs to be a Q object with OR lookups for area name, road name, etc.    
     return render_to_json_response({
         'type': 'FeatureCollection',
-        'features': [stop.get_geojson() for stop in qset]
+        'features': [stop.get_geojson(srid=srid) for stop in qset]
     })
    
 
@@ -63,4 +66,5 @@ def stop(request, slug):
         return render_to_json_response(stop.from_geojson(request.POST))
     else:
         stop = get_object_or_404_json(Stop, slug=slug)
-        return render_to_json_response(stop.get_geojson()) #FIXME: please don't repeat this code, its retarded.
+        srid = int(request.GET.get("srid", 4326))
+        return render_to_json_response(stop.get_geojson(srid=srid)) #FIXME: please don't repeat this code, its retarded.

@@ -155,7 +155,7 @@ var API_BASE = "/1.0/",
         map.addLayers(layers);
         map.setCenter(center, 12);
 
-        mapControl = new OpenLayers.Control.SelectFeature(layers[1], {hover: true});
+        mapControl = new OpenLayers.Control.SelectFeature(layers[1]);
         zoomControl = new OpenLayers.Control.ZoomToMaxExtent();
         map.addControl(mapControl);
         //  map.addControl(zoomControl);

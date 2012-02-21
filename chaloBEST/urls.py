@@ -4,6 +4,9 @@ from os.path import join
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+#import ox.django.api.urls
+#import mumbai
+
 
 urlpatterns = patterns('',
     # Example:
@@ -14,7 +17,8 @@ urlpatterns = patterns('',
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
     (r'^areas/$', 'mumbai.views.areas'),
     (r'^area/(?P<name>.*?)/$', 'mumbai.views.area'),
-
+    (r'^editstops/$', 'mumbai.views.editstops'),
+    (r'^1.0/', include('mumbai.apiurls')),                                        
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     #(r'^grappelli/', include('grappelli.urls')),

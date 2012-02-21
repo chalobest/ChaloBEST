@@ -1,7 +1,9 @@
 from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 from django import forms
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+import json
 
 STOP_CHOICES = ( ('U','Up'),
                  ('D', 'Down'),
@@ -49,12 +51,22 @@ class Area(models.Model):
     geometry = models.PolygonField(blank=True, null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'slug': self.slug,
+            'name': self.name,
+            'name_mr': self.name_mr,
+            'display_name': self.display_name
+            #FIXME add alt_names and geometry
+        }
+
     def get_absolute_url(self):
         return "/area/%s/" % self.name
 
     def __unicode__(self):
         return self.name   
-
     
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
@@ -95,6 +107,55 @@ class Stop(models.Model):
     point = models.PointField(null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'slug': self.slug,
+            'official_name': self.name,
+            'display_name': self.display_name,
+            'road': self.road.name,
+            'area': self.area.name,
+            'name_mr': self.name_mr,
+            'routes': ", ".join([r.route.alias for r in RouteDetail.objects.filter(stop=self)]),
+            'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')])
+        }
+
+    def get_geojson(self, srid=4326):
+        if self.point is not None:
+            geom = json.loads(self.point.transform(srid, True).geojson)
+        else:
+            geom = {}
+
+        properties = self.get_dict()
+
+        return {
+            'type': 'Feature',
+            'properties': properties,
+            'geometry': geom
+        }        
+
+    def from_geojson(self, geojson):
+        geom = geojson['geometry']['coordinates']
+        data = geojson['properties']
+        self.point = Point(geom[0], geom[1])
+        self.display_name = data['display_name']
+        self.name_mr = data['name_mr']
+        if data.has_key('alternative_names') and data['alternative_names'].strip() != '':
+            for a in self.alt_names.all():
+                a.delete()
+            for a in data['alternative_names'].split(","):
+                alt_name = AlternativeName()
+                alt_name.name = a['name']
+                alt_name.typ = 'common'
+                alt_name.save()
+                self.alt_names.add(alt_name)    
+            
+        #FIXME: add alt names logic
+        self.save()
+        return self.get_geojson()
+
+
     def __unicode__(self):
         return self.name   
 
@@ -130,6 +191,14 @@ class Route(models.Model):
     def __unicode__(self):
         return self.alias
 
+    def get_dict(self):
+        return {
+            'id': self.id,
+            'code': self.code,
+            'alias': self.alias,
+            'slug': self.slug,
+            'distance': str(self.distance)
+        }
 
 class RouteDetail(models.Model):
     route_code = models.TextField()
@@ -141,7 +210,8 @@ class RouteDetail(models.Model):
 
     class Meta:
         verbose_name = 'Route Detail'
- 
+        ordering = ['serial'] 
+
     def __unicode__(self):
         return str(self.route) + " : " + str(self.serial)
 

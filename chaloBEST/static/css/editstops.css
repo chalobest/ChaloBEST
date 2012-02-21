@@ -73,3 +73,8 @@ ul {
     list-style-type: none;
     padding-left: 4px;
 }
+
+.highlightedStop {
+    background-color: #FFFF00;
+}
+

@@ -93,22 +93,36 @@ var API_BASE = "/1.0/",
     });
 
     function getStopsList(stops) {
-        var $ul = $('<ul />').addClass("stopsList").click(function(e) {
-            var $target = $(e.target);
-            if ($target.hasClass("selectedStop")) {
-                return;
-            }
-            $('.selectedStop').removeClass("selectedStop");
-            $target.addClass("selectedStop");
-            var props = $target.data("properties");
-            var $form = getStopForm(props);
-            $('#formCol').empty();
-            $('#formCol').append($form);
-        });
+        var $ul = $('<ul />')
+            .addClass("stopsList")
+            .click(function(e) {
+                var $target = $(e.target);
+                if ($target.hasClass("selectedStop")) {
+                    return;
+                }
+                $('.selectedStop').removeClass("selectedStop");
+                $target.addClass("selectedStop");
+                var props = $target.data("properties");
+                var $form = getStopForm(props);
+                $('#formCol').empty();
+                $('#formCol').append($form);
+            });
+
         $.each(stops, function(i,v) {
             var props = v.properties;
             var geom = v.geometry;
-            var $li = $('<li />').addClass("stopItem").data("slug", props.slug).data("properties", props).data("geometry", geom).text(props.display_name).appendTo($ul);
+            var $li = $('<li />')
+                .addClass("stopItem")
+                .data("slug", props.slug)
+                .addClass(props.slug) //FIXME: please dont set data AND addClass AND include slug in properties.
+                .data("properties", props).data("geometry", geom)
+                .text(props.display_name)
+                .hover(function() {
+                   //TODO: when hover over a stop name in list, it should set some styleMap stuff on the map to colour the moused-over location. 
+                }, function() {
+    
+                });
+                .appendTo($ul);
             $.isEmptyObject(geom) ? $li.addClass("no_has_point") : $li.addClass("has_point");
         });
         return $ul;
@@ -141,7 +155,7 @@ var API_BASE = "/1.0/",
         map.addLayers(layers);
         map.setCenter(center, 12);
 
-        mapControl = new OpenLayers.Control.SelectFeature(layers[1]);
+        mapControl = new OpenLayers.Control.SelectFeature(layers[1], {hover: true});
         zoomControl = new OpenLayers.Control.ZoomToMaxExtent();
         map.addControl(mapControl);
         //  map.addControl(zoomControl);
@@ -154,10 +168,15 @@ var API_BASE = "/1.0/",
     }
 
     function onFeatureSelect(feature) {
-        console.log("selected", feature);
+        var slug = feature.attributes.slug;
+        var matchedStops = $('.' + slug);
+        matchedStops.addClass('highlightedStop');      
     }
 
     function onFeatureUnselect(feature) {
-        console.log("unselected", feature);
+        var slug = feature.attributes.slug;
+        var matchedStops = $('.' + slug);
+        matchedStops.removeClass('highlightedStop');      
     }
+
 })();

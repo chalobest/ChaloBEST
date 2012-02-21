@@ -150,7 +150,7 @@ var API_BASE = "/1.0/",
 
         geojson_format = new OpenLayers.Format.GeoJSON();
         //yes, jsonLayer is global. Yes, I know it's wrong.
-        jsonLayer = layers[1] = new OpenLayers.Layer.Vector({'geometryType': 'Point'});
+        jsonLayer = layers[1] = new OpenLayers.Layer.Vector("Bus Stops", {'geometryType': 'Point'});
         //  map.addLayer(vector_layer);
         map.addLayers(layers);
         map.setCenter(center, 12);

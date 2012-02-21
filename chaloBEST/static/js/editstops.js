@@ -169,12 +169,14 @@ var API_BASE = "/1.0/",
 
     function onFeatureSelect(feature) {
         var slug = feature.attributes.slug;
+        alert("selected " + slug);
         var matchedStops = $('.' + slug);
         matchedStops.addClass('highlightedStop');      
     }
 
     function onFeatureUnselect(feature) {
         var slug = feature.attributes.slug;
+        alert("unselected " + slug);
         var matchedStops = $('.' + slug);
         matchedStops.removeClass('highlightedStop');      
     }

@@ -121,7 +121,7 @@ var API_BASE = "/1.0/",
                    //TODO: when hover over a stop name in list, it should set some styleMap stuff on the map to colour the moused-over location. 
                 }, function() {
     
-                });
+                })
                 .appendTo($ul);
             $.isEmptyObject(geom) ? $li.addClass("no_has_point") : $li.addClass("has_point");
         });

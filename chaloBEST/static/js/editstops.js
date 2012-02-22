@@ -191,6 +191,12 @@ var API_BASE = "/1.0/",
                 $form.submit();
             })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        $('<input />').attr("type","button").val("Save")
+            .click(function () {
+                $form.submit();
+            })
+            .appendTo($form);
         var $lat_input = $('<input />').attr("type", "hidden").val(lat).attr("id", "lat").appendTo($form);
         var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
         $form.submit(function(e) {

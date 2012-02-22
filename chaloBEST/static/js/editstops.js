@@ -120,6 +120,7 @@ var API_BASE = "/1.0/",
                 }
                 
                 $('#formCol').find("#stopForm").remove();
+                $('#formCol').empty();
                 $('#formCol').append($form);
             });
 
@@ -141,13 +142,15 @@ var API_BASE = "/1.0/",
 
     function getStopForm(stop, geom) {
     //    console.log(stop);
-        console.log(geom);
+    //    console.log(geom);
         var lon = !$.isEmptyObject(geom) ? geom.coordinates[0] : '';
         var lat = !$.isEmptyObject(geom) ? geom.coordinates[1] : '';
         var $div = $('<div />');
         var $displayName = $('<div />').text(stop.display_name).appendTo($div);
+        var $slug = $('<div />').addClass("stopSlug").text(stop.slug).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
         var $form = $('<form />').attr("id", "stopForm").appendTo($div);
+        
         var $display_name_input = $('<input />')
             .val(stop.display_name)
             .attr("id", "displayName")
@@ -189,8 +192,11 @@ var API_BASE = "/1.0/",
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
             $.post(url, {'geojson': geojsonString}, function(response) {
-                console.log(response);
-            });
+                if (response.errors) {
+                    alert("error saving");
+                }
+                //console.log(response);
+            }, "json");
         });   
         return $div;
     }
@@ -213,8 +219,43 @@ var API_BASE = "/1.0/",
         //  map.addLayer(vector_layer);
         map.addLayers(layers);
         map.setCenter(center, 12);
-
-        mapControl = new OpenLayers.Control.SelectFeature(layers[1]);
+        var navigationControl = new OpenLayers.Control.Navigation({
+            defaultDblClick: function(event) {
+                //var xy = event.xy;
+                var lonlat = map.getLonLatFromPixel(event.xy);
+                var $stopForm = $('#stopForm');
+                if ($stopForm.length === 0) {
+                    return;
+                }
+                var slug = $('#formCol').find('.stopSlug').text();
+                //console.log("slug", slug);
+                var stop = $('.selectedStop').data("properties");
+                $('.selectedStop').data("geometry", {
+                    'coordinates': [lonlat.x, lonlat.y]
+                });
+                var hasPoint = $('.selectedStop').hasClass('has_point');
+                $('#lon').val(lonlat.lon);
+                $('#lat').val(lonlat.lat);
+                $stopForm.submit();
+                if (hasPoint) {
+                    var feature = getStopFromSlug(slug);
+                    feature.move(lonlat);
+                } else {
+                    var pt = new OpenLayers.Geometry.Point(lonlat.lon, lonlat.lat);
+                    var feature = new OpenLayers.Feature.Vector(pt, stop);
+                    //console.log("trying to add", feature);
+                    jsonLayer.addFeatures([feature]);
+                    mapControl.select(feature);
+                }                
+//                console.log(lonlat);    
+                return;
+            }
+        });
+        map.addControl(navigationControl);
+        mapControl = new OpenLayers.Control.SelectFeature(layers[1], {
+            clickout: false,
+            toggle: true
+        });
         zoomControl = new OpenLayers.Control.ZoomToMaxExtent();
         map.addControl(mapControl);
         //  map.addControl(zoomControl);
@@ -229,9 +270,18 @@ var API_BASE = "/1.0/",
     function onFeatureSelect(e) {
         //alert(arguments);
         //console.log(feature);
+        // console.log(e.feature);
         var slug = e.feature.attributes.slug;
         //alert("selected " + slug);
         highlightStop(slug);
+        var stop = e.feature.attributes;
+        var geom = {
+            'coordinates': [e.feature.geometry.x, e.feature.geometry.y]
+        };
+        var $form = getStopForm(stop, geom);
+        $('#stopForm').remove();
+        $('#formCol').empty();
+        $('#formCol').append($form);
 //        var matchedStops = $('.' + slug);
 //        matchedStops.click();
 //        matchedStops.addClass('highlightedStop');
@@ -242,6 +292,8 @@ var API_BASE = "/1.0/",
         var slug = e.feature.attributes.slug;
         //alert("unselected " + slug);
         unhighlightStop(slug);
+        $('#stopForm').remove();
+        $('#formCol').empty();
 //        var matchedStops = $('.' + slug);
 //        matchedStops.removeClass('selectedStop');      
     }

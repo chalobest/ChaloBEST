@@ -54,7 +54,7 @@ def routeWithSomeLocationData(route,limit):
             pass        
 
     if errs <=limit:
-        return dict({'route':route, 'neededstops':stoplist, })
+        return dict({'route':route, 'neededstops':len(stoplist)  })
     else:
         return None
 

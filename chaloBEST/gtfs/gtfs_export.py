@@ -7,7 +7,7 @@ import sys
 
 def routeWithLocationData(route):
     '''
-    tests a  route if it has stop location data for each stop on the route.    
+    Tests a  route if it has stop location data for each stop on the route.    
     '''
     # get the route detail
     routeDetails = RouteDetail.objects.filter(route_code=route.code).order_by('serial')
@@ -24,7 +24,7 @@ def routeWithLocationData(route):
 
 def getRoutesHavingAllLocs():
     '''
-    gets routes having stop location data for each stop on the route.
+    Gets routes having stop location data for each stop on the route.
     '''
     filteredroutes = []
     for route in Route.objects.all():
@@ -196,6 +196,17 @@ def export_trips():
             print "Error:", str(ss) + '\t' +  str(sys.exc_info()[0]) + '\n'                
             """
 
+def getserial(rdlist,stop):
+    #check if rdlist is of a ring route..
+    if rdlist[0].route.code[3]== 'R' or '4' :
+        # write ring specific code here. rings have multiple occuring stops, which one to choose??
+        return None
+    
+
+
+    for rd in rdlist:
+        if(rd.stop==stop):
+            return rdlist.index(rd)
                
         
 def export_stop_times(routelist):
@@ -206,9 +217,15 @@ def export_stop_times(routelist):
     #1. get routeDetails
     #2. 
     for r in routelist:
-        rds = RouteDetail.objects.filter(route=r).order_by('serial')        
-        for rd in rds:            
-            filedude.writerow([r.code+"_1","","",rd.stop.id,rd.serial])
+        rds = RouteDetail.objects.filter(route=r).order_by('serial')    
+        sr_no=0
+        for unr in UniqueRoute.objects.filter(route=r).order_by('id'):
+            from_stop = unr.from_stop
+            to_stop = unr.to_stop        
+            rd_subset  = rds[getserial(rdlist,from_stop):getserial(rdlist,to_stop)]
+            sr_no +=1 
+            for rd in rd_subset:
+                filedude.writerow([r.code+"_"+sr_no,"","",rd.stop.id,rd.serial])
 
 
 
@@ -218,7 +235,6 @@ stop_times.txt
 1. For each route.
 2. Get rdlist = routedetails for that route.order_by('serial'). Get UniqueRoutes for the route.
 3. --- scenario -- Not considering uniqueroutes--
-
 3.1 For rd in rdlist
 3.1.1 filewrite (trip_id,,,stopid,stop.serial)
 
@@ -252,13 +268,4 @@ def export_frequencies():
     filedude.writerow(["289_1","07:00:00","11:00:00",540])
     
 
-def getserial(rdlist,stop):
-    #check if rdlist is of a ring route..
-    if rdlist[0].route.code[3]== 'R' or '4' :
-        # write ring specific code here. rings have multiple occuring stops, which one to choose??
-        pass
-
-    for rd in rdlist:
-        if(rd.stop==stop):
-            return rdlist.index(rd)
     

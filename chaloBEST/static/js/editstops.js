@@ -43,10 +43,19 @@ var API_BASE = "/1.0/",
             if ($target.data("loading")) {
                 return;
             }
-            $('.selectedListItem').find(".stopsList").hide();
+            if ($target.hasClass("selectedListItem")) {
+                $target.find(".stopsList").hide().remove();
+                $target.removeClass("selectedListItem");
+                return;
+            }
+            $('.selectedListItem').find(".stopsList").hide().remove();
             $('.selectedListItem').removeClass("selectedListItem");
             $target.addClass("selectedListItem");
             if ($target.data("hasList")) {
+                var $stopsList = $target.find(".stopsList"); 
+                $stopsList.slideDown();
+                return;
+                /*
                 var $stopsList = $target.find(".stopsList"); 
                 if (!$stopsList.is(":visible")) {
                     $stopsList.slideDown();    
@@ -54,7 +63,8 @@ var API_BASE = "/1.0/",
                     $stopsList.slideUp();
                     $target.removeClass("selectedListItem");
                 }
-                return;         
+                return;
+                */         
             } 
             var url = API_BASE + name + "/" + $target.find(".listItemText").text();
             $target.data("loading", true);
@@ -70,14 +80,17 @@ var API_BASE = "/1.0/",
                         stopsWithGeom.push(v);
                     }    
                 });
+
                 stopsGeojson.features = stopsWithGeom;
                 var currFeatures = jsonLayer.features;
                 jsonLayer.removeFeatures(currFeatures);
-                jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
-                var maxExtent = jsonLayer.getDataExtent();
-                map.zoomToExtent(maxExtent);                
+                if (stopsWithGeom.length !== 0) {
+                    jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
+                    var maxExtent = jsonLayer.getDataExtent();
+                    map.zoomToExtent(maxExtent);                                                                
+                }                
                 $target.append($stopsList);
-                $target.data("hasList", true);
+                // $target.data("hasList", true);
                 $target.data("loading", false);
             });
         });
@@ -120,6 +133,7 @@ var API_BASE = "/1.0/",
                 }
                 
                 $('#formCol').find("#stopForm").remove();
+                $('#formCol').empty();
                 $('#formCol').append($form);
             });
 
@@ -141,13 +155,17 @@ var API_BASE = "/1.0/",
 
     function getStopForm(stop, geom) {
     //    console.log(stop);
-        console.log(geom);
+    //    console.log(geom);
         var lon = !$.isEmptyObject(geom) ? geom.coordinates[0] : '';
         var lat = !$.isEmptyObject(geom) ? geom.coordinates[1] : '';
         var $div = $('<div />');
-        var $displayName = $('<div />').text(stop.display_name).appendTo($div);
+        var $displayName = $('<h2 />').text(stop.display_name).appendTo($div);
+        var $slug = $('<div />').addClass("stopSlug").text(stop.slug).appendTo($div);
+        var $road = $("<div />").addClass("stopRoad").text("Road: " + stop.road).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
+//        var $formLabel = $("<div />").text("Edit:").appendTo($div);
         var $form = $('<form />').attr("id", "stopForm").appendTo($div);
+        var $display_name_label = $('<label />').attr("for", "displayName").text("Display Name:").appendTo($form);;        
         var $display_name_input = $('<input />')
             .val(stop.display_name)
             .attr("id", "displayName")
@@ -155,6 +173,8 @@ var API_BASE = "/1.0/",
                 $form.submit();
              })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        var $name_mr_label = $('<label />').attr("for", "displayNameMr").text("Marathi Name:").appendTo($form);
         var $name_mr_input = $('<input />')
             .val(stop.name_mr)
             .attr("id", "displayNameMr")
@@ -162,6 +182,8 @@ var API_BASE = "/1.0/",
                 $form.submit();
             })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        var $alt_names_label = $('<label />').attr("for", "altNames").text("Alternative Names:").appendTo($form);
         var $alt_names_input = $('<input />')
             .val(stop.alternative_names)
             .attr("id", "altNames")
@@ -173,6 +195,8 @@ var API_BASE = "/1.0/",
         var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
         $form.submit(function(e) {
             e.preventDefault();
+            var oldProps = $('.selectedStop').data("properties");
+            
             var geojson = {
                 'type': 'Feature',
                 'properties': {
@@ -185,12 +209,17 @@ var API_BASE = "/1.0/",
                     'coordinates': [parseFloat($lon_input.val()), parseFloat($lat_input.val())]
                 }    
             };
+            var props = $.extend(oldProps, geojson.properties);
+            $('.selectedStop').data("properties", props);
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
             $.post(url, {'geojson': geojsonString}, function(response) {
-                console.log(response);
-            });
+                if (response.errors) {
+                    alert("error saving");
+                }
+                //console.log(response);
+            }, "json");
         });   
         return $div;
     }
@@ -204,23 +233,60 @@ var API_BASE = "/1.0/",
 //        layers[0] = new OpenLayers.Layer.OSM();
 
         layers[0] = new OpenLayers.Layer.OSM();
+        layers[1] = new OpenLayers.Layer.Bing({
+                name: "Bing Aerial",
+                type: "Aerial",
+                key: "AqGpO7N9ioFw3YHoPV3C8crGfJqW5YST4gGKgIOnijrUbitLlgcAS2A0M9SJrUv9",
+        });
         geojson_format = new OpenLayers.Format.GeoJSON();
         //yes, jsonLayer is global. Yes, I know it's wrong.
-        jsonLayer = layers[1] = new OpenLayers.Layer.Vector({
-                geometryType: 'Point'
-//                projection: new OpenLayers.Projection("EPSG:4326")
-                });
-        //  map.addLayer(vector_layer);
+        jsonLayer = layers[2] = new OpenLayers.Layer.Vector("Bus Stops");
         map.addLayers(layers);
         map.setCenter(center, 12);
-
-        mapControl = new OpenLayers.Control.SelectFeature(layers[1]);
-        zoomControl = new OpenLayers.Control.ZoomToMaxExtent();
+        var navigationControl = new OpenLayers.Control.Navigation({
+            defaultDblClick: function(event) {
+                //var xy = event.xy;
+                var lonlat = map.getLonLatFromPixel(event.xy);
+                var $stopForm = $('#stopForm');
+                if ($stopForm.length === 0) {
+                    return;
+                }
+                var slug = $('#formCol').find('.stopSlug').text();
+                //console.log("slug", slug);
+                var stop = $('.selectedStop').data("properties");
+                $('.selectedStop').data("geometry", {
+                    'coordinates': [lonlat.x, lonlat.y]
+                });
+                var hasPoint = $('.selectedStop').hasClass('has_point');
+                $('#lon').val(lonlat.lon);
+                $('#lat').val(lonlat.lat);
+                $stopForm.submit();
+                if (hasPoint) {
+                    var feature = getStopFromSlug(slug);
+                    feature.move(lonlat);
+                } else {
+                    var pt = new OpenLayers.Geometry.Point(lonlat.lon, lonlat.lat);
+                    var feature = new OpenLayers.Feature.Vector(pt, stop);
+                    $('.selectedStop').removeClass("no_has_point").addClass("has_point");
+                    //console.log("trying to add", feature);
+                    jsonLayer.addFeatures([feature]);
+                    mapControl.select(feature);
+                }                
+//                console.log(lonlat);    
+                return;
+            }
+        });
+        map.addControl(navigationControl);
+        mapControl = new OpenLayers.Control.SelectFeature(jsonLayer, {
+            clickout: false,
+            toggle: true
+        });
+        map.addControl(new OpenLayers.Control.LayerSwitcher());
         map.addControl(mapControl);
         //  map.addControl(zoomControl);
         mapControl.activate();
         //  zoomControl.activate();
-        layers[1].events.on({
+        jsonLayer.events.on({
            'featureselected': onFeatureSelect,
            'featureunselected': onFeatureUnselect
         });  
@@ -229,9 +295,18 @@ var API_BASE = "/1.0/",
     function onFeatureSelect(e) {
         //alert(arguments);
         //console.log(feature);
+        // console.log(e.feature);
         var slug = e.feature.attributes.slug;
         //alert("selected " + slug);
         highlightStop(slug);
+        var stop = e.feature.attributes;
+        var geom = {
+            'coordinates': [e.feature.geometry.x, e.feature.geometry.y]
+        };
+        var $form = getStopForm(stop, geom);
+        $('#stopForm').remove();
+        $('#formCol').empty();
+        $('#formCol').append($form);
 //        var matchedStops = $('.' + slug);
 //        matchedStops.click();
 //        matchedStops.addClass('highlightedStop');
@@ -242,6 +317,8 @@ var API_BASE = "/1.0/",
         var slug = e.feature.attributes.slug;
         //alert("unselected " + slug);
         unhighlightStop(slug);
+        $('#stopForm').remove();
+        $('#formCol').empty();
 //        var matchedStops = $('.' + slug);
 //        matchedStops.removeClass('selectedStop');      
     }

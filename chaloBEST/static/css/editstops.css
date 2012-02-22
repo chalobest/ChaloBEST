@@ -1,6 +1,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
 }
 
 #wrapper {
@@ -38,6 +39,7 @@ html, body {
 
 .listItem {
     cursor: pointer;
+    font-size: 13px;
 }
 
 .tabButton {
@@ -49,12 +51,19 @@ html, body {
     padding: 4px;
 }
 
+
+.listItemText {
+    display: block;
+}
+
 .selectedListItem .listItemText {
-    color: blue;
+    background: #ccc;
 }
 
 .selectedStop {
-    color: blue !important;
+    background: #ffff00;
+    color: #666 !important;
+    font-weight: bold;
 }
 
 .clear {
@@ -66,15 +75,37 @@ html, body {
 }
 
 .no_has_point {
-    color: #666;
+    color: #ff8282;
 }
 
 ul {
     list-style-type: none;
-    padding-left: 4px;
+    padding: 4px;
+    font-size: 12px;
 }
 
 .highlightedStop {
     background-color: #FFFF00;
 }
 
+#formCol {
+    font-size: 13px;
+    padding: 4px;
+}
+
+#formCol div {
+    margin-bottom: 4px;
+}
+
+.stopSlug {
+    font-style: italic;
+}
+
+#stopForm label {
+    margin-top: 12px;
+    display: block;
+}
+
+#stopForm input {
+    width: 90%;
+}

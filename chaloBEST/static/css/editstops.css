@@ -57,8 +57,7 @@ html, body {
 }
 
 .selectedListItem .listItemText {
-    background: #666;
-    color: #fff;
+    background: #ccc;
 }
 
 .selectedStop {
@@ -76,7 +75,7 @@ html, body {
 }
 
 .no_has_point {
-    color: #666;
+    color: #ff8282;
 }
 
 ul {

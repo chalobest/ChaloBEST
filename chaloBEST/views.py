@@ -17,7 +17,7 @@ def stats(request):
     total_stops = Stop.objects.count()
     stops_left = total_stops
     for stp in Stop.objects.all():
-        if stp.stoplocation_set.all():
+        if stp.point:
             stops_left-=1
     
         
@@ -30,7 +30,7 @@ def stats(request):
         area_stops = area.stop_set.all()
         astops_left = len(area_stops)
         for stp in area_stops:
-            if stp.stoplocation_set.all():
+            if stp.point:
                 astops_left-=1 
        
         area_stat.append({'area':area,'neededstops':astops_left})

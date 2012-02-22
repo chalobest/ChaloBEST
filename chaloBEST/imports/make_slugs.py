@@ -2,6 +2,11 @@ from django.template.defaultfilters import slugify
 from mumbai.models import *
 
 
+def clear_slugs():
+    for cls in [Road, Area, Stop]:
+        for obj in cls.objects.all():
+            obj.slug = ''
+            obj.save()
 
 def do():
     for cls in [Road, Area, Stop]:

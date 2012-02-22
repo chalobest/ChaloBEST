@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^chaloBEST/', include('chaloBEST.foo.urls')),
     url(r'^$','chaloBEST.views.index', name='index'),
-    url(r'^stats/$','chaloBEST.views.stats', name='stats'),
+    url(r'^stats/$','mumbai.views.stats', name='stats'),
     url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     (r'^routes/$', 'mumbai.views.routes'),
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),

@@ -27,12 +27,13 @@ def stats(request):
     area_stat = []
 
     for area in arealist:
-        area_stops = area.stop_set.all()
-        astops_left = len(area_stops)
-        for stp in area_stops:
-            if stp.point:
-                astops_left-=1 
-       
+ #       area_stops = area.stop_set.all()
+ #       astops_left = len(area_stops)
+        astops_left = Stop.objects.filter(area=area).filter(point=None).count()
+#        for stp in area_stops:
+#            if stp.point:
+#                astops_left-=1 
+#       
         area_stat.append({'area':area,'neededstops':astops_left})
    
     

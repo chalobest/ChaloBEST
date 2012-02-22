@@ -136,10 +136,10 @@ class Stop(models.Model):
             'geometry': geom
         }        
 
-    def from_geojson(self, geojson):
+    def from_geojson(self, geojson, srid=4326):
         geom = geojson['geometry']['coordinates']
         data = geojson['properties']
-        self.point = Point(geom[0], geom[1])
+        self.point = Point(geom[0], geom[1], srid=srid).transform(4326, True) #FIXME: srid should be passed as param
         self.display_name = data['display_name']
         self.name_mr = data['name_mr']
         if data.has_key('alternative_names') and data['alternative_names'].strip() != '':
@@ -154,7 +154,7 @@ class Stop(models.Model):
             
         #FIXME: add alt names logic
         self.save()
-        return self.get_geojson()
+        return self.get_geojson(srid=srid)
 
 
     def __unicode__(self):

@@ -1,7 +1,8 @@
 from models import *
 from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 from django.contrib.auth.decorators import login_required
-
+import json
+from django.views.decorators.csrf import csrf_exempt
 
 def route(request, slug):
     srid = int(request.GET.get("srid", 4326))
@@ -56,15 +57,16 @@ def stops(request):
     })
    
 
-
+@csrf_exempt
 def stop(request, slug):
-    if request.POST:
+    srid = int(request.GET.get("srid", 4326))
+    if request.POST and request.POST.has_key('geojson'):
         if not slug:
             stop = Stop() #FIXME: should this return an error instead?
         else:
             stop = get_object_or_404_json(Stop, slug=slug)
-        return render_to_json_response(stop.from_geojson(request.POST))
+        geojson = json.loads(request.POST['geojson'])
+        return render_to_json_response(stop.from_geojson(geojson, srid))
     else:
-        stop = get_object_or_404_json(Stop, slug=slug)
-        srid = int(request.GET.get("srid", 4326))
+        stop = get_object_or_404_json(Stop, slug=slug)        
         return render_to_json_response(stop.get_geojson(srid=srid)) #FIXME: please don't repeat this code, its retarded.

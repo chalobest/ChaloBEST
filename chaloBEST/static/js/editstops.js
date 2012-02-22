@@ -43,10 +43,17 @@ var API_BASE = "/1.0/",
             if ($target.data("loading")) {
                 return;
             }
+            $('.selectedListItem').find(".stopsList").hide();
             $('.selectedListItem').removeClass("selectedListItem");
             $target.addClass("selectedListItem");
             if ($target.data("hasList")) {
-                $target.find(".stopsList").toggle();
+                var $stopsList = $target.find(".stopsList"); 
+                if (!$stopsList.is(":visible")) {
+                    $stopsList.slideDown();    
+                } else {
+                    $stopsList.slideUp();
+                    $target.removeClass("selectedListItem");
+                }
                 return;         
             } 
             var url = API_BASE + name + "/" + $target.find(".listItemText").text();
@@ -100,11 +107,19 @@ var API_BASE = "/1.0/",
                 if ($target.hasClass("selectedStop")) {
                     return;
                 }
-                $('.selectedStop').removeClass("selectedStop");
-                $target.addClass("selectedStop");
+//                $('.selectedStop').removeClass("selectedStop");
+//                $target.addClass("selectedStop");
                 var props = $target.data("properties");
-                var $form = getStopForm(props);
-                $('#formCol').empty();
+                var geom = $target.data("geometry");
+                var $form = getStopForm(props, geom);
+                var slug = $target.data("slug");
+                if ($target.hasClass("has_point")) {
+                    selectStopOnMap(slug);
+                } else {
+                    selectStopNotOnMap(slug);
+                }
+                
+                $('#formCol').find("#stopForm").remove();
                 $('#formCol').append($form);
             });
 
@@ -115,25 +130,68 @@ var API_BASE = "/1.0/",
                 .addClass("stopItem")
                 .data("slug", props.slug)
                 .addClass(props.slug) //FIXME: please dont set data AND addClass AND include slug in properties.
-                .data("properties", props).data("geometry", geom)
+                .data("properties", props)
+                .data("geometry", geom)
                 .text(props.display_name)
-                .hover(function() {
-                   //TODO: when hover over a stop name in list, it should set some styleMap stuff on the map to colour the moused-over location. 
-                }, function() {
-    
-                })
                 .appendTo($ul);
             $.isEmptyObject(geom) ? $li.addClass("no_has_point") : $li.addClass("has_point");
         });
         return $ul;
     }
 
-    function getStopForm(stop) {
+    function getStopForm(stop, geom) {
     //    console.log(stop);
+        console.log(geom);
+        var lon = !$.isEmptyObject(geom) ? geom.coordinates[0] : '';
+        var lat = !$.isEmptyObject(geom) ? geom.coordinates[1] : '';
         var $div = $('<div />');
         var $displayName = $('<div />').text(stop.display_name).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
-    //    var $form = $('<form />').apendTo($div);    
+        var $form = $('<form />').attr("id", "stopForm").appendTo($div);
+        var $display_name_input = $('<input />')
+            .val(stop.display_name)
+            .attr("id", "displayName")
+            .blur(function() {
+                $form.submit();
+             })
+            .appendTo($form);
+        var $name_mr_input = $('<input />')
+            .val(stop.name_mr)
+            .attr("id", "displayNameMr")
+            .blur(function() {
+                $form.submit();
+            })
+            .appendTo($form);
+        var $alt_names_input = $('<input />')
+            .val(stop.alternative_names)
+            .attr("id", "altNames")
+            .blur(function() {
+                $form.submit();
+            })
+            .appendTo($form);
+        var $lat_input = $('<input />').attr("type", "hidden").val(lat).attr("id", "lat").appendTo($form);
+        var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
+        $form.submit(function(e) {
+            e.preventDefault();
+            var geojson = {
+                'type': 'Feature',
+                'properties': {
+                    'display_name': $display_name_input.val(),
+                    'name_mr': $name_mr_input.val(),
+                    'alternative_names': $alt_names_input.val()
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [parseFloat($lon_input.val()), parseFloat($lat_input.val())]
+                }    
+            };
+            var geojsonString = JSON.stringify(geojson);
+            //console.log(geojsonString);
+            var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
+            $.post(url, {'geojson': geojsonString}, function(response) {
+                console.log(response);
+            });
+        });   
         return $div;
     }
 
@@ -149,8 +207,8 @@ var API_BASE = "/1.0/",
         geojson_format = new OpenLayers.Format.GeoJSON();
         //yes, jsonLayer is global. Yes, I know it's wrong.
         jsonLayer = layers[1] = new OpenLayers.Layer.Vector({
-                geometryType: 'Point',
-                projection: new OpenLayers.Projection("EPSG:4326")
+                geometryType: 'Point'
+//                projection: new OpenLayers.Projection("EPSG:4326")
                 });
         //  map.addLayer(vector_layer);
         map.addLayers(layers);
@@ -168,18 +226,79 @@ var API_BASE = "/1.0/",
         });  
     }
 
-    function onFeatureSelect(feature) {
-        var slug = feature.attributes.slug;
-        alert("selected " + slug);
-        var matchedStops = $('.' + slug);
-        matchedStops.addClass('highlightedStop');      
+    function onFeatureSelect(e) {
+        //alert(arguments);
+        //console.log(feature);
+        var slug = e.feature.attributes.slug;
+        //alert("selected " + slug);
+        highlightStop(slug);
+//        var matchedStops = $('.' + slug);
+//        matchedStops.click();
+//        matchedStops.addClass('highlightedStop');
+             
     }
 
-    function onFeatureUnselect(feature) {
-        var slug = feature.attributes.slug;
-        alert("unselected " + slug);
-        var matchedStops = $('.' + slug);
-        matchedStops.removeClass('highlightedStop');      
+    function onFeatureUnselect(e) {
+        var slug = e.feature.attributes.slug;
+        //alert("unselected " + slug);
+        unhighlightStop(slug);
+//        var matchedStops = $('.' + slug);
+//        matchedStops.removeClass('selectedStop');      
+    }
+
+    function highlightStop(slug) {
+        $('.' + slug).addClass("selectedStop");    
+    }
+
+    function unhighlightStop(slug) {
+        $('.' + slug).removeClass("selectedStop");
+    }
+
+    function getStopFromSlug(slug) {
+        var features = jsonLayer.features;
+        var matchedLayer = false; 
+        for (var i=0; i<features.length; i++) {
+            var feature = features[i];
+            if (feature.attributes.slug === slug) {
+                matchedLayer = feature;
+            }
+        }
+        return matchedLayer;
+    }
+
+    function selectStopNotOnMap(slug) {
+        var selectedFeature = getCurrentlySelectedFeature();
+        if (selectedFeature) {
+            var currentSlug = selectedFeature.attributes.slug;
+            unhighlightStop(slug);
+            mapControl.unselect(selectedFeature);
+        } else {
+            $('.selectedStop').removeClass("selectedStop");
+        }
+        highlightStop(slug);
+    }
+
+    function selectStopOnMap(slug) {
+        var feature = getStopFromSlug(slug);
+        var selectedFeature = getCurrentlySelectedFeature();
+        if (selectedFeature) {
+            mapControl.unselect(selectedFeature);
+        } else {
+            $('.selectedStop').removeClass("selectedStop");
+        }
+        mapControl.select(feature);
+    }
+
+    //return currently selected feature or false
+    function getCurrentlySelectedFeature() {
+       var selectedFeatures = jsonLayer.selectedFeatures;
+       if (selectedFeatures.length > 0) {
+           return jsonLayer.selectedFeatures[0];
+ //           mapControl.unselect(selectedFeature);
+       } else {
+           return false;
+       }
+                
     }
 
 })();

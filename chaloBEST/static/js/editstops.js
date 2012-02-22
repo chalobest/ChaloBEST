@@ -158,6 +158,7 @@ var API_BASE = "/1.0/",
         var $div = $('<div />');
         var $displayName = $('<h2 />').text(stop.display_name).appendTo($div);
         var $slug = $('<div />').addClass("stopSlug").text(stop.slug).appendTo($div);
+        var $road = $("<div />").addClass("stopRoad").text("Road: " + stop.road).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
 //        var $formLabel = $("<div />").text("Edit:").appendTo($div);
         var $form = $('<form />').attr("id", "stopForm").appendTo($div);

@@ -80,12 +80,15 @@ var API_BASE = "/1.0/",
                         stopsWithGeom.push(v);
                     }    
                 });
+
                 stopsGeojson.features = stopsWithGeom;
                 var currFeatures = jsonLayer.features;
                 jsonLayer.removeFeatures(currFeatures);
-                jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
-                var maxExtent = jsonLayer.getDataExtent();
-                map.zoomToExtent(maxExtent);                
+                if (stopsWithGeom.length !== 0) {
+                    jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
+                    var maxExtent = jsonLayer.getDataExtent();
+                    map.zoomToExtent(maxExtent);                                                                
+                }                
                 $target.append($stopsList);
                 // $target.data("hasList", true);
                 $target.data("loading", false);
@@ -192,6 +195,8 @@ var API_BASE = "/1.0/",
         var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
         $form.submit(function(e) {
             e.preventDefault();
+            var oldProps = $('.selectedStopItem').data("properties");
+            
             var geojson = {
                 'type': 'Feature',
                 'properties': {
@@ -204,6 +209,8 @@ var API_BASE = "/1.0/",
                     'coordinates': [parseFloat($lon_input.val()), parseFloat($lat_input.val())]
                 }    
             };
+            var props = $.extend(oldProps, geojson.properties);
+            $('.selectedStopItem').data("properties", props);
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";

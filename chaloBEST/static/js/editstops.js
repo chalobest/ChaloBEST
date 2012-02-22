@@ -195,7 +195,7 @@ var API_BASE = "/1.0/",
         var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
         $form.submit(function(e) {
             e.preventDefault();
-            var oldProps = $('.selectedStopItem').data("properties");
+            var oldProps = $('.selectedStop').data("properties");
             
             var geojson = {
                 'type': 'Feature',
@@ -210,7 +210,7 @@ var API_BASE = "/1.0/",
                 }    
             };
             var props = $.extend(oldProps, geojson.properties);
-            $('.selectedStopItem').data("properties", props);
+            $('.selectedStop').data("properties", props);
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";

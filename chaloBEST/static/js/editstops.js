@@ -43,10 +43,19 @@ var API_BASE = "/1.0/",
             if ($target.data("loading")) {
                 return;
             }
-            $('.selectedListItem').find(".stopsList").hide();
+            if ($target.hasClass("selectedListItem")) {
+                $target.find(".stopsList").hide().remove();
+                $target.removeClass("selectedListItem");
+                return;
+            }
+            $('.selectedListItem').find(".stopsList").hide().remove();
             $('.selectedListItem').removeClass("selectedListItem");
             $target.addClass("selectedListItem");
             if ($target.data("hasList")) {
+                var $stopsList = $target.find(".stopsList"); 
+                $stopsList.slideDown();
+                return;
+                /*
                 var $stopsList = $target.find(".stopsList"); 
                 if (!$stopsList.is(":visible")) {
                     $stopsList.slideDown();    
@@ -54,7 +63,8 @@ var API_BASE = "/1.0/",
                     $stopsList.slideUp();
                     $target.removeClass("selectedListItem");
                 }
-                return;         
+                return;
+                */         
             } 
             var url = API_BASE + name + "/" + $target.find(".listItemText").text();
             $target.data("loading", true);
@@ -77,7 +87,7 @@ var API_BASE = "/1.0/",
                 var maxExtent = jsonLayer.getDataExtent();
                 map.zoomToExtent(maxExtent);                
                 $target.append($stopsList);
-                $target.data("hasList", true);
+                // $target.data("hasList", true);
                 $target.data("loading", false);
             });
         });
@@ -149,8 +159,9 @@ var API_BASE = "/1.0/",
         var $displayName = $('<div />').text(stop.display_name).appendTo($div);
         var $slug = $('<div />').addClass("stopSlug").text(stop.slug).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
+//        var $formLabel = $("<div />").text("Edit:").appendTo($div);
         var $form = $('<form />').attr("id", "stopForm").appendTo($div);
-        
+        var $display_name_label = $('<label />').attr("for", "displayName").text("Display Name:").appendTo($form);;        
         var $display_name_input = $('<input />')
             .val(stop.display_name)
             .attr("id", "displayName")
@@ -158,6 +169,8 @@ var API_BASE = "/1.0/",
                 $form.submit();
              })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        var $name_mr_label = $('<label />').attr("for", "displayNameMr").text("Marathi Name:").appendTo($form);
         var $name_mr_input = $('<input />')
             .val(stop.name_mr)
             .attr("id", "displayNameMr")
@@ -165,6 +178,8 @@ var API_BASE = "/1.0/",
                 $form.submit();
             })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        var $alt_names_label = $('<label />').attr("for", "altNames").text("Alternative Names:").appendTo($form);
         var $alt_names_input = $('<input />')
             .val(stop.alternative_names)
             .attr("id", "altNames")
@@ -243,6 +258,7 @@ var API_BASE = "/1.0/",
                 } else {
                     var pt = new OpenLayers.Geometry.Point(lonlat.lon, lonlat.lat);
                     var feature = new OpenLayers.Feature.Vector(pt, stop);
+                    $('.selectedStop').removeClass("no_has_point").addClass("has_point");
                     //console.log("trying to add", feature);
                     jsonLayer.addFeatures([feature]);
                     mapControl.select(feature);

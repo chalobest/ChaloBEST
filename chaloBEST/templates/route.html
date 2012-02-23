@@ -23,7 +23,7 @@ a:hover {
     <ul id="stopList">
         {% for r in routeDetails %}
             <li>
-                <a href="{{ r.stop.get_absolute_url }}" class="{% if r.stop.point %} has_point {% else %} no_point {% endif %}">{{ r.stop.name }}</a>
+                <a href="{{ r.stop.get_absolute_url }}" class="{% if r.stop.point %} has_point {% else %} no_point {% endif %}">{{ r.stop.name }}</a> -  {{ r.stop.dbdirection }}
             </li>
 
         {% endfor %}

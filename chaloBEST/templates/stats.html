@@ -47,9 +47,10 @@
        display:inline;
        
        }
-       double li  { width:50%;} /* 2 col */
+       .double li  { width:50%;} /* 2 col */
        .triple li  { width:33.333%; } /* 3 col */
-
+       .quad li    { width:25%; } /* 4 col */
+       .six li     { width:16.666%; } /*
 
     </style>
 
@@ -68,7 +69,7 @@
     </div>
 
     <div class="routes"> <h3> Routes: </h3><br />
-    <ul id="routesList" class="triple" >
+    <ul id="routesList" class="six" >
         {% for r in routes %}
         <li class="route listItem" >
             <a href="{{r.route.get_absolute_url}}" title="view stops for route"> {{ r.route.alias }} </a> 
@@ -79,7 +80,7 @@
     </div>
 
     <div class="areas"> <h3> Areas: </h3> <br />
-    <ul id="AreasList" class="triple" >
+    <ul id="AreasList" class="quad" >
         {% for a in areas %}
         <li class="area listItem">
             <a href="{{a.area.get_absolute_url}}" title="view stops for area">{{ a.area.name }}</a> -    {{ a.stops_done }} / {{ a.total_stops }}.

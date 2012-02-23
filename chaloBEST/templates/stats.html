@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block head %}
-<meta http-equiv="refresh" content="45">
+<meta http-equiv="refresh" content="60">
  
     <style type ="text/css">
        body {
-          width: 80%;
+          width: 92%;
           margin: 0 auto;
           background-color:#ff9900
        }
@@ -29,8 +29,28 @@
 
       .areas {
           color:#000000;
-          background-color:#00ccff;
+          background-color:#ccff99;
       }
+
+       ul{
+       width:900px;
+       margin-bottom:20px;
+       overflow:hidden;
+       border-top:1px solid #ccc;
+
+       }
+
+       li{
+       line-height:1.5em;
+       /*border-bottom:1px solid #ccc; */
+       float:left;
+       display:inline;
+       
+       }
+       .double li  { width:50%;} /* 2 col */
+       .triple li  { width:33.333%; } /* 3 col */
+       .quad li    { width:25%; } /* 4 col */
+       .six li     { width:16.666%; } /*
 
     </style>
 
@@ -42,27 +62,29 @@
 
 {% block body %}
     <div class="header" >
-      <h1>
-    ChaloBEST! The Stats..
+      <h1> ChaloBEST! The Stats..
     </h1>
       </div>
-    <div class="stops"> <h2> We have {{ total_stops_left }} stops left! </h2> <br /> <br />
-    
-    <div class="routes"> <h3> Routes needing some love.. </h3><br />
-    <ul id="routesList">
+    <div class="stops"> <h2>Total Stops : {{ total_stop_count }} <br /> Stops left : {{ total_stops_left }}</h2> 
+    </div>
+
+    <div class="routes"> <h3> Routes: </h3><br />
+    <ul id="routesList" class="six" >
         {% for r in routes %}
-        <li class="route listItem">
-            <a href="{{r.route.get_absolute_url}}" title="view stops for route">{{ r.route.alias }} </a> needs {{ r.remaining_stops }} stop locations out of {{ r.total_stops }}. 
+        <li class="route listItem" >
+            <a href="{{r.route.get_absolute_url}}" title="view stops for route"> {{ r.route.alias }} </a> 
+	 -   {{ r.stops_done }} / {{ r.total_stops }}  
        </li>
         {% endfor %}
     </ul>    
+    </div>
 
-
-    <div class="areas"> <h3> Areas needing some love.. </h3> <br />
-    <ul id="AreasList">
+    <div class="areas"> <h3> Areas: </h3> <br />
+    <ul id="AreasList" class="quad" >
         {% for a in areas %}
         <li class="area listItem">
-            <a href="{{a.area.get_absolute_url}}" title="view stops for area">{{ a.area.name }}</a> needs {{ a.remaining_stops }} stop locations out of {{ a.total_stops }}.
+            <a href="{{a.area.get_absolute_url}}" title="view stops for area">{{ a.area.name }}</a> -    {{ a.stops_done }} / {{ a.total_stops }}.
+	    
         </li>
         {% endfor %}
     </ul>    

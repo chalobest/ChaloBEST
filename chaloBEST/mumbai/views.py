@@ -45,6 +45,7 @@ def editstops(request):
 
 def stats(request):
     total_stops_left = Stop.objects.filter(point=None).count()
+    total_stops = Stop.objects.count()
     areas = []
     for a in Area.objects.all():
         stops = Stop.objects.filter(area=a)
@@ -52,7 +53,9 @@ def stats(request):
             'area': a,
             #'area_name': a.name,
             'total_stops': stops.count(),
-            'remaining_stops': stops.filter(point=None).count()
+            'remaining_stops': stops.filter(point=None).count(),
+            'stops_done': stops.filter(point__isnull=False).count(),
+
         }
         areas.append(d)
     routes = []
@@ -62,12 +65,29 @@ def stats(request):
             'route': r,
             #'route_name': r.name,
             'total_stops': stops.count(),
-            'remaining_stops': stops.filter(point=None).count()
+            'remaining_stops': stops.filter(point=None).count(),
+            'stops_done': stops.filter(point__isnull=False).count(),
         }
         routes.append(d)
-    return render_to_response("stats.html", {
+
+    areas_sorted = sorted(areas, key=lambda k: k['remaining_stops']) 
+    
+    routes_sorted = sorted(routes, key=lambda k: k['remaining_stops']) 
+
+    routes  = routes_sorted
+    areas = areas_sorted
+    routes.reverse()
+    areas.reverse()
+
+    context = {
+        'total_stop_count': total_stops,
         'total_stops_left': total_stops_left,
         'areas': areas,
         'routes': routes
-    })
+    }
+    #return context
+    return render_to_response("stats.html", context)
+
+
+
 

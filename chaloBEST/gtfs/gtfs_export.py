@@ -54,7 +54,7 @@ def routeWithSomeLocationData(route,limit):
             pass        
 
     if errs <=limit:
-        return dict({'route':route, 'neededstops':len(stoplist)  })
+        return dict({'route':route, 'neededstops':len(stoplist) })
     else:
         return None
 
@@ -200,9 +200,7 @@ def getserial(rdlist,stop):
     #check if rdlist is of a ring route..
     if rdlist[0].route.code[3]== 'R' or '4' :
         # write ring specific code here. rings have multiple occuring stops, which one to choose??
-        return None
-    
-
+        return None    
 
     for rd in rdlist:
         if(rd.stop==stop):
@@ -215,15 +213,31 @@ def export_stop_times(routelist):
     #routelist = getRoutesHavingAllLocs()    
 
     #1. get routeDetails
-    #2. 
+    #2. get unique routes as unr and the routeDetails subset as rd_subset for that uniqueroute
+    #3. get unr.routeschedule as unr.rs ?? why is it multiple?
+    #4. get total distance as tdist from rd_subset
+    #5. get runtime from unr.rs 
+    #6. if runtime1 is null, then runtime = abs(first_from - first_to)    
+    #7. avgspeed = tdist/runtime... if runtime is not available then ??
+    #8.  
+
     for r in routelist:
-        rds = RouteDetail.objects.filter(route=r).order_by('serial')    
+        rdlist = RouteDetail.objects.filter(route=r).order_by('serial')    
         sr_no=0
-        for unr in UniqueRoute.objects.filter(route=r).order_by('id'):
+        unrs  =  UniqueRoute.objects.filter(route=r).order_by('id')
+        
+        for unr in unrs:
             from_stop = unr.from_stop
-            to_stop = unr.to_stop        
-            rd_subset  = rds[getserial(rdlist,from_stop):getserial(rdlist,to_stop)]
-            sr_no +=1 
+            to_stop = unr.to_stop
+            rd_subset = rdlist[getserial(rdlist,from_stop):getserial(rdlist,to_stop)]
+            dist=0
+            for rd in rd_subset:
+                dist += rd.km
+            runtime = unr.runtime1
+            if not runtime:
+                rs = unr.routeschedule_set.all()[0]
+                #if rs.
+            sr_no +=1
             for rd in rd_subset:
                 filedude.writerow([r.code+"_"+sr_no,"","",rd.stop.id,rd.serial])
 
@@ -236,7 +250,7 @@ stop_times.txt
 2. Get rdlist = routedetails for that route.order_by('serial'). Get UniqueRoutes for the route.
 3. --- scenario -- Not considering uniqueroutes--
 3.1 For rd in rdlist
-3.1.1 filewrite (trip_id,,,stopid,stop.serial)
+73.1.1 filewrite (trip_id,,,stopid,stop.serial)
 
 ----alternate scenario
 3. For each UniqueRoute, get from_to stops list (rdsubset) from RouteDetail list
@@ -267,5 +281,13 @@ def export_frequencies():
     filedude.writerow(["289_1","16:00:00","22:00:00",420])
     filedude.writerow(["289_1","07:00:00","11:00:00",540])
     
-
+def fire_up():
+    routelist = getRoutesHavingAllLocs()
+    export_routes(routelist)
+    #export_stops()
+    export_frequencies()
+    export_stop_times()
+    export_calendar()
+    export_trips()
+    export_agency()
     

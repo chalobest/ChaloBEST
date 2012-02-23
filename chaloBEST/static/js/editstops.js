@@ -69,6 +69,8 @@ var API_BASE = "/1.0/",
             var url = API_BASE + name + "/" + $target.find(".listItemText").text();
             $target.data("loading", true);
             var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
+            $('#stopForm').remove();
+            $('#formCol').empty();
             $.getJSON(url, {'srid': 3857}, function(obj) {
                 $loading.remove();
                 var stopsGeojson = obj.stops;              
@@ -370,6 +372,9 @@ var API_BASE = "/1.0/",
             $('.selectedStop').removeClass("selectedStop");
         }
         mapControl.select(feature);
+        //map.setCenter(feature.geometry);
+        var lonLat = new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y);
+        map.setCenter(lonLat);
     }
 
     //return currently selected feature or false

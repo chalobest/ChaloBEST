@@ -43,3 +43,31 @@ def editstops(request):
     return render_to_response("editstops.html", context)
 
 
+def stats(request):
+    total_stops_left = Stop.objects.filter(point=None).count()
+    areas = []
+    for a in Area.objects.all():
+        stops = Stop.objects.filter(area=a)
+        d = {
+            'area': a,
+            #'area_name': a.name,
+            'total_stops': stops.count(),
+            'remaining_stops': stops.filter(point=None).count()
+        }
+        areas.append(d)
+    routes = []
+    for r in Route.objects.all():
+        stops = Stop.objects.filter(routedetail__route=r)
+        d = {
+            'route': r,
+            #'route_name': r.name,
+            'total_stops': stops.count(),
+            'remaining_stops': stops.filter(point=None).count()
+        }
+        routes.append(d)
+    return render_to_response("stats.html", {
+        'total_stops_left': total_stops_left,
+        'areas': areas,
+        'routes': routes
+    })
+

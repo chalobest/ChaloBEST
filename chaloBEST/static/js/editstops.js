@@ -69,6 +69,8 @@ var API_BASE = "/1.0/",
             var url = API_BASE + name + "/" + $target.find(".listItemText").text();
             $target.data("loading", true);
             var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
+            $('#stopForm').remove();
+            $('#formCol').empty();
             $.getJSON(url, {'srid': 3857}, function(obj) {
                 $loading.remove();
                 var stopsGeojson = obj.stops;              
@@ -191,6 +193,12 @@ var API_BASE = "/1.0/",
                 $form.submit();
             })
             .appendTo($form);
+        $('<br />').appendTo($form);
+        $('<input />').attr("type","button").val("Save")
+            .click(function () {
+                $form.submit();
+            })
+            .appendTo($form);
         var $lat_input = $('<input />').attr("type", "hidden").val(lat).attr("id", "lat").appendTo($form);
         var $lon_input = $('<input />').attr("type", "hidden").val(lon).attr("id", "lon").appendTo($form);
         $form.submit(function(e) {
@@ -227,7 +235,8 @@ var API_BASE = "/1.0/",
     function initMap() {
         var center = new OpenLayers.LonLat(8110203.9998955, 2170000.4068373);
         map = new OpenLayers.Map("mapCol", {
-                  projection: new OpenLayers.Projection("EPSG:900913")
+                  projection: new OpenLayers.Projection("EPSG:900913"),
+                  displayProjection: new OpenLayers.Projection("EPSG:4326")
               });
         var layers = [];
 //        layers[0] = new OpenLayers.Layer.OSM();
@@ -239,9 +248,15 @@ var API_BASE = "/1.0/",
                 key: "AqGpO7N9ioFw3YHoPV3C8crGfJqW5YST4gGKgIOnijrUbitLlgcAS2A0M9SJrUv9",
         });
         geojson_format = new OpenLayers.Format.GeoJSON();
+        //
         //yes, jsonLayer is global. Yes, I know it's wrong.
         jsonLayer = layers[2] = new OpenLayers.Layer.Vector("Bus Stops");
         map.addLayers(layers);
+        jsonLayer.events.on({
+           'featureselected': onFeatureSelect,
+           'featureunselected': onFeatureUnselect
+        });  
+
         map.setCenter(center, 12);
         var navigationControl = new OpenLayers.Control.Navigation({
             defaultDblClick: function(event) {
@@ -268,28 +283,30 @@ var API_BASE = "/1.0/",
                     var pt = new OpenLayers.Geometry.Point(lonlat.lon, lonlat.lat);
                     var feature = new OpenLayers.Feature.Vector(pt, stop);
                     $('.selectedStop').removeClass("no_has_point").addClass("has_point");
-                    //console.log("trying to add", feature);
                     jsonLayer.addFeatures([feature]);
                     mapControl.select(feature);
                 }                
-//                console.log(lonlat);    
                 return;
             }
         });
         map.addControl(navigationControl);
+
+        // Feature selection control
         mapControl = new OpenLayers.Control.SelectFeature(jsonLayer, {
             clickout: false,
             toggle: true
         });
-        map.addControl(new OpenLayers.Control.LayerSwitcher());
         map.addControl(mapControl);
-        //  map.addControl(zoomControl);
         mapControl.activate();
-        //  zoomControl.activate();
-        jsonLayer.events.on({
-           'featureselected': onFeatureSelect,
-           'featureunselected': onFeatureUnselect
-        });  
+
+        // Add a LayerSwitcher since we now have Bing
+        map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+        // Add a permalink that opens the relevant view in OSM.org in a different window
+        var permalink = new OpenLayers.Control.Permalink({base: "http://www.openstreetmap.org/"});
+        map.addControl(permalink);
+        $(".olControlPermalink a").attr("target","_blank").html("View in OSM");
+
     }
 
     function onFeatureSelect(e) {
@@ -364,6 +381,9 @@ var API_BASE = "/1.0/",
             $('.selectedStop').removeClass("selectedStop");
         }
         mapControl.select(feature);
+        //map.setCenter(feature.geometry);
+        var lonLat = new OpenLayers.LonLat(feature.geometry.x, feature.geometry.y);
+        map.setCenter(lonLat);
     }
 
     //return currently selected feature or false

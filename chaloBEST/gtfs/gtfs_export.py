@@ -76,36 +76,45 @@ def getRoutesHavingSomeLocs(limit):
 
 def export_routes(routebeer):        
     #routebeer = getRoutesHavingAllLocs()     
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/routes.txt"), "w"), delimiter=",")
-    filedude.writerow(["route_id" ,"route_short_name","route_long_name","route_type"])
+    f = make_csv_writer("routes.txt")
+    f.writerow(["route_id" ,"route_short_name","route_long_name","route_type"])
     for route in routebeer:
         try:
             # data checks here
-            filedude.writerow([route.code,route.alias[0:3],route.from_stop_txt + " - " + route.to_stop_txt,3])
+            f.writerow([route.code,route.alias[0:3],route.from_stop_txt + " - " + route.to_stop_txt,3])
         except:
             pass
 
-def export_stops(olist):
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/stops.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    filedude.writerow(["stop_id" ,"stop_name","stop_lat","stop_lon"])
-    for stop in olist:
+def make_csv_writer(filename):
+    return csv.writer(open(join(PROJECT_ROOT, "gtfs", filename), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+def export_stops(routelist):
+    stoplist = []
+    for route in routelist:
+        rds = RouteDetail.objects.filter(route=route).select_related()
+        stoplist.extend(rd.stop for rd in rds)
+            
+    stoplist = list(set(stoplist))
+    f = make_csv_writer("stops.txt")
+    f.writerow(["stop_id" ,"stop_name","stop_lat","stop_lon"])
+    for stop in stoplist:
         try:
             # data checks here 
             # stop_code is used for stop_id as its BEST specfic..
             # 
-            filedude.writerow([stop.id,stop.name,stop.point.coords[1],stop.point.coords[0]])
+            f.writerow([stop.id,stop.name,stop.point.coords[1],stop.point.coords[0]])
         except:
             pass
 
 def export_agency():
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/agency.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    f = make_csv_writer("agency.txt")
 
     # also
-    filedude.writerow(["agency_id", "agency_name","agency_url","agency_timezone","agency_lang"])
-    filedude.writerow(["BEST","BrihanMumbai Electric Supply & Transport","http://www.bestundertaking.com/","Asia/Kolkata","en"])
+    f.writerow(["agency_id", "agency_name","agency_url","agency_timezone","agency_lang"])
+    f.writerow(["BEST","BrihanMumbai Electric Supply & Transport","http://www.bestundertaking.com/","Asia/Kolkata","en"])
 
-    #filedude.writerow(["agency_id" ,"agency_name","agency_url","agency_timezone"])
-    #filedude.writerow([1 ,"BEST","www.chalobest.in","Asia/Kolkata"])
+    #f.writerow(["agency_id" ,"agency_name","agency_url","agency_timezone"])
+    #f.writerow([1 ,"BEST","www.chalobest.in","Asia/Kolkata"])
 
 
             # stop_code is used for stop_id as its BEST specfic..
@@ -132,8 +141,8 @@ SERVICE_SCHEDULE = [
 
 
 def export_calendar():
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/calendar.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    filedude.writerow(["service_id" ,"monday","tuesday","wednesday","thursday","friday","saturday","sunday","start_date","end_date"])
+    f = make_csv_writer("calendar.txt")
+    f.writerow(["service_id" ,"monday","tuesday","wednesday","thursday","friday","saturday","sunday","start_date","end_date"])
 
     start_date="20000101" #YYYYMMDD format
     end_date="20500101" #YYYYMMDD format
@@ -143,35 +152,26 @@ def export_calendar():
     for ss in schedule:
         try:
             # data checks here 
-
+            running = [1 if day in ss['days'] else 0 for day in range(1,8)]
             # ternary operation :::: ('false','true')[condition]
-            filedude.writerow([ss['code'],
-                               (0,1)[ss['days'].__contains__(1)],
-                               (0,1)[ss['days'].__contains__(2)],
-                               (0,1)[ss['days'].__contains__(3)],
-                               (0,1)[ss['days'].__contains__(4)],
-                               (0,1)[ss['days'].__contains__(5)],
-                               (0,1)[ss['days'].__contains__(6)],
-                               (0,1)[ss['days'].__contains__(7)],
-                               start_date,
-                               end_date
-                               ])            
+            f.writerow([ss['code']] + running + [start_date,end_date])
         except:
             print "Error:", str(ss) + '\t' +  str(sys.exc_info()[0]) + '\n'                
+def generate_trips(n=None):
+    schedules = RouteSchedule.objects.all()
+    if n is not None: schedules = schedules[:n]
+    for schedule in schedules:
+        route = schedule.unique_route.route
+        days = schedule.schedule_type
+        for direction in ("UP","DOWN"):
+            trip_id = "%s_%s_%s" %(route.code, days, direction)
+            yield schedule, route, direction, trip_id
 
-
-
-def export_trips():
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/trips.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    filedude.writerow(["route_id","service_id","trip_id"])
-    filedude.writerow(["2820","MS","2820_1"])
-    #filedude.writerow(["246","HOL","282_2"])
-    #filedude.writerow(["246","SUN","282_3)"])
-
-    filedude.writerow(["2894","MS","2894_1"])
-    #filedude.writerow(["253","HOL","289_2"])
-    #filedude.writerow(["253","SUN","289_3"])
-
+def export_trips(routelist):
+    f = make_csv_writer("trips.txt")
+    for schedule, route, direction, trip_id in generate_trips():
+        if route not in routelist: continue
+        f.writerow([route.code, schedule.schedule_type, trip_id])
     # we need to get UniqueRoutes for each route, that is one trip, since it is based on service_id which shows days_of_run.
     # we need to be careful here because a filter queryset for UniqueRoutes can differ in order and a naming based on this order 
     # will not be consistent. Its good to use a uniqueroute-serial number.
@@ -181,7 +181,7 @@ def export_trips():
             # data checks here 
 
             # ternary operation :::: ('false','true')[condition]
-            filedude.writerow([ss['code'],
+            f.writerow([ss['code'],
                                (0,1)[ss['days'].__contains__(1)],
                                (0,1)[ss['days'].__contains__(2)],
                                (0,1)[ss['days'].__contains__(3)],
@@ -206,10 +206,31 @@ def getserial(rdlist,stop):
         if(rd.stop==stop):
             return rdlist.index(rd)
                
+def runtime_in_minutes(schedule):
+    runtime = schedule.runtime1 or schedule.runtime2 or schedule.runtime3 or schedule.runtime4
+    if runtime: return runtime
+    t_from, t_to = schedule.first_from, schedule.first_to
+    if not t_from or not t_to:
+        t_from, t_to = schedule.last_from, schedule.last_to
+    return abs(t_from.hour * 60 + t_from.minute -
+              (t_to.hour * 60 + t_to.minute))
         
 def export_stop_times(routelist):
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/stop_times.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    filedude.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
+    f = make_csv_writer("stop_times.txt")
+    f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
+    for schedule, route, direction, trip_id in generate_trips():
+        if route not in routelist: continue
+        order = "" if direction == "UP" else "-"
+        details = list(RouteDetail.objects.filter(route=route).order_by(order+"serial"))
+        initial_time = departure_time = schedule.first_to if direction == "UP" else schedule.first_from
+        arrival_time = ""
+        for sequence, detail in enumerate(details):
+            if sequence == len(details) - 1:
+                arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
+                arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
+            f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
+            departure_time = ""
+
     #routelist = getRoutesHavingAllLocs()    
 
     #1. get routeDetails
@@ -221,6 +242,7 @@ def export_stop_times(routelist):
     #7. avgspeed = tdist/runtime... if runtime is not available then ??
     #8.  
 
+    """
     for r in routelist:
         rdlist = RouteDetail.objects.filter(route=r).order_by('serial')    
         sr_no=0
@@ -239,7 +261,8 @@ def export_stop_times(routelist):
                 #if rs.
             sr_no +=1
             for rd in rd_subset:
-                filedude.writerow([r.code+"_"+sr_no,"","",rd.stop.id,rd.serial])
+                f.writerow([r.code+"_"+sr_no,"","",rd.stop.id,rd.serial])
+    """
 
 
 
@@ -260,8 +283,8 @@ rd_subset  = rdlist[getserial(rdlist,from_stop):getserial(rdlist,to_stop)]
 """
 
 
-def export_frequencies():
-    filedude = csv.writer(open(join(PROJECT_ROOT, "gtfs/frequencies.txt"), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+def export_frequencies(routelist):
+    f = make_csv_writer("frequencies.txt")
     """
     EACH ROW IN FREQUENCIES
     - For an entry in atlas, [ i.e. a given trip+service_id [subset + schedule days] ] 
@@ -270,17 +293,30 @@ def export_frequencies():
     
     then
     """
+    TIMESPANS = ((None,"07:00:00"),
+                 ("07:00:00","11:00:00"),
+                 ("11:00:00","17:00:00"),
+                 ("17:00:00","20:00:00"),
+                 ("20:00:00",None))
     
-    filedude.writerow(["trip_id", "start_time","end_time","headway_secs"])
-    filedude.writerow(["282_1","07:00:00","11:00:00",360])
-    filedude.writerow(["282_1","11:00:00","16:00:00",420])
-    filedude.writerow(["282_1","16:00:00","22:00:00",480])
-    filedude.writerow(["282_1","07:00:00","11:00:00",360])
-    filedude.writerow(["289_1","07:00:00","11:00:00",600])
-    filedude.writerow(["289_1","11:00:00","16:00:00",420])
-    filedude.writerow(["289_1","16:00:00","22:00:00",420])
-    filedude.writerow(["289_1","07:00:00","11:00:00",540])
-    
+    f.writerow(["trip_id", "start_time","end_time","headway_secs"])
+    for schedule, route, direction, trip_id in generate_trips():
+        if route not in routelist: continue
+        headway = (schedule.headway1,
+                   schedule.headway2,
+                   schedule.headway3,
+                   schedule.headway4,
+                   schedule.headway5)
+        for span, (start_time, end_time) in enumerate(TIMESPANS):
+            if direction == "UP":
+                if start_time is None: start_time = schedule.first_from
+                if end_time is None: end_time = schedule.last_from
+            else:
+                if start_time is None: start_time = schedule.first_to
+                if end_time is None: end_time = schedule.last_to
+            if headway[span] is not None:
+                f.writerow([trip_id, start_time, end_time, headway[span]*60])
+
 def fire_up():
     routelist = getRoutesHavingAllLocs()
     export_routes(routelist)
@@ -291,3 +327,4 @@ def fire_up():
     export_trips()
     export_agency()
     
+

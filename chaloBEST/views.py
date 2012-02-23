@@ -51,4 +51,3 @@ def stats(request):
 
     #return ret
     return render_to_response('stats.html', ret)
-

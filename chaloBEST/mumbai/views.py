@@ -71,17 +71,22 @@ def stats(request):
         routes.append(d)
 
     areas_sorted = sorted(areas, key=lambda k: k['remaining_stops']) 
-
+    
     routes_sorted = sorted(routes, key=lambda k: k['remaining_stops']) 
 
     routes  = routes_sorted
     areas = areas_sorted
-    return render_to_response("stats.html", {
+    routes.reverse()
+    areas.reverse()
+
+    context = {
         'total_stop_count': total_stops,
         'total_stops_left': total_stops_left,
         'areas': areas,
         'routes': routes
-    })
+    }
+    #return context
+    return render_to_response("stats.html", context)
 
 
 

@@ -42,7 +42,27 @@ SCHED = {
     '2nd &4th':['???']
     }
 
+class TrigramSearchManager(models.Manager):
+    def set_threshold(self, threshold):
+        """Set the limit for trigram similarity matching."""
+        cursor = connection.cursor()
+        cursor.execute("""SELECT set_limit(%f)""" % threshold)
+
+    def find_approximate(self, match=0.5, **kwargs):
+        self.set_threshold(match)
+        assert(len(kwargs) == 1)
+        column, value = kwargs.items()[0]
+        qset = self.get_query_set()
+        # use the pg_trgm index via the % operator
+        qset = qset.extra(select={"similarity":"similarity(" + column + ", %s)"},
+                          select_params=[value],
+                          where=[column + " %% %s"],
+                          params=[value],
+                          order_by=["-similarity"])
+        return qset
+
 class Area(models.Model):
+    objects = TrigramSearchManager() # name, name_mr
     code = models.IntegerField() #primary_key=True)
     slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)
@@ -93,6 +113,7 @@ class Fare(models.Model):
 
 
 class Stop(models.Model):
+    objects = TrigramSearchManager() # name, display, name_mr
     code = models.IntegerField()
     slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)

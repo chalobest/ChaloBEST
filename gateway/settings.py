@@ -2,8 +2,6 @@
 # vim: ai ts=4 sts=4 et sw=4
 # encoding=utf-8
 
-# Put this in /srv/smsBEST/gateway and change the gateway secret.
-
 # -------------------------------------------------------------------- #
 #                          MAIN CONFIGURATION                          #
 # -------------------------------------------------------------------- #
@@ -51,6 +49,7 @@ GATEWAY = {
     "push": "http://chalobest.in:8086/?from=%(from)s&txt=%(txt)s&secret=%(secret)s"
 }
 
+AJAX_PROXY_HOST = "0.0.0.0" # to open the gateway from the outside
 
 # to help you get started quickly, many django/rapidsms apps are enabled
 # by default. you may wish to remove some and/or add your own.

@@ -7,12 +7,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         cursor = connection.cursor()
-        for name, model in models:
+        for name in dir(models):
+            model = getattr(models, name)
             if not hasattr(model, "objects") or \
-               not isinstance(model.objects, model.TrigramSearchManager):
+               not isinstance(model.objects, models.TrigramSearchManager):
                 continue
             table = model._meta.db_table
             for column in model.objects.trigram_columns:
-                cursor.execute("""
-                    CREATE INDEX %s_%s_trgm_idx ON %s USING gin (%s gin_trgm_ops);""" % (
-                        table, column, table, column))
+                sql = """CREATE INDEX %s_%s_trgm_idx ON %s USING gin (%s gin_trgm_ops);""" % (
+                        table, column, table, column)
+                cursor.execute(sql)
+        cursor.execute("COMMIT;")

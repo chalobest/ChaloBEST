@@ -3,6 +3,7 @@ from django.contrib.gis.geos import Point
 from django import forms
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.db import connection
 import json
 
 STOP_CHOICES = ( ('U','Up'),
@@ -43,8 +44,8 @@ SCHED = {
     }
 
 class TrigramSearchManager(models.Manager):
-    def __init__(self, trigram_columns, *args, **kwargs):
-        super(models.Manager, self).__init__(*args, **kwargs)
+    def __init__(self, trigram_columns=[]):
+        super(TrigramSearchManager, self).__init__()
         self.trigram_columns = trigram_columns
 
     def set_threshold(self, threshold):
@@ -57,18 +58,17 @@ class TrigramSearchManager(models.Manager):
         similarity_measure = "greatest(%s)" % ",".join(["similarity(%s, %%s)" % col for col in self.trigram_columns])
         similarity_filter = " OR ".join(["%s %%%% %%s" % col for col in self.trigram_columns])
         text_values = [text] * len(self.trigram_columns)
-
         qset = self.get_query_set()
         # use the pg_trgm index via the % operator
-        qset = qset.extra(select={"similarity":similarity_measure,
+        qset = qset.extra(select={"similarity":similarity_measure},
                           select_params=text_values,
-                          where=similarity_filter,
+                          where=[similarity_filter],
                           params=text_values,
                           order_by=["-similarity"])
         return qset
 
 class Area(models.Model):
-    objects = TrigramSearchManager("name", "name_mr", "display_name")
+    objects = TrigramSearchManager(("name", "name_mr", "display_name"))
     code = models.IntegerField() #primary_key=True)
     slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)
@@ -118,7 +118,7 @@ class Fare(models.Model):
         return str(self.slab)   
 
 class Stop(models.Model):
-    objects = TrigramSearchManager("name", "name_mr", "display_name")
+    objects = TrigramSearchManager(("name", "name_mr", "display_name"))
     code = models.IntegerField()
     slug = models.SlugField(null=True)
     name = models.TextField(blank=True, max_length=255)

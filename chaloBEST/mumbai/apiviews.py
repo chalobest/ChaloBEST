@@ -32,7 +32,7 @@ def area(request, slug):
 def routes(request):
     
     q = request.GET.get("q", "")
-    in_regex = re.compile(r'(\d{1,3})')
+    in_regex = re.compile(r'(\d{1,3})') # used to extract the route number string out of the query string - for eg, gets "21" from "21Ltd"
     match = re.findall(in_regex, q)
     if match:
         route_no = match[0]
@@ -40,7 +40,7 @@ def routes(request):
         route_no = ''
     ret = []
     if route_no != '':
-        out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no)
+        out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no) # used for, for eg. to filter out '210Ltd' when user searches for '21'. Checks for non-digit or start of string, followed by route_no, followed by non-digit or end of string
         qset = Route.objects.filter(alias__icontains=q)
         for route in qset:
             if re.match(out_regex, route.alias):             

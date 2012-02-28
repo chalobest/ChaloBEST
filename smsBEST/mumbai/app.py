@@ -22,11 +22,11 @@ class App(AppBase):
     def handle(self, msg):
         if DIGIT.search(msg.text):
             routes = ChaloBest.routes(q=msg.text.replace(" ", ""))
-            detail = ChaloBest.route[routes[0]]
-            stops = detail['stops']['features']
-            if not stops:
+            if not routes:
                 msg.respond("Sorry, we found no route marked '%s'." % msg.text)
                 return
+            detail = ChaloBest.route[routes[0]]
+            stops = detail['stops']['features']
             origin, dest = stops[0]['properties'], stops[-1]['properties']
             origin_name, dest_name = origin['display_name'], dest['display_name']
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])

@@ -33,7 +33,7 @@ def routes(request):
     
     q = request.GET.get("q", "")
     in_regex = re.compile(r'(\d{1,3})')
-    match = re.findall(route_regex, q)
+    match = re.findall(in_regex, q)
     if match:
         route_no = match[0]
     else:
@@ -50,7 +50,7 @@ def routes(request):
         for route in qset:
             ret.append(route.alias)
 #    routes = [route.alias for route in qset]
-    return render_to_json_response(routes)
+    return render_to_json_response(ret)
 
 
 def areas(request):

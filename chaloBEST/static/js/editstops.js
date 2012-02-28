@@ -327,6 +327,7 @@ var API_BASE = "/1.0/",
             'coordinates': [e.feature.geometry.x, e.feature.geometry.y]
         };
         var $form = getStopForm(stop, geom);
+        $('.selectedStopItem').removeClass("selectedStopItem");
         $('#stopForm').remove();
         $('#formCol').empty();
         $('#formCol').append($form);

@@ -24,7 +24,8 @@ class App(AppBase):
                 msg.respond("Sorry, we found no route marked '%s'." % msg.text)
                 return
             origin, destination = stops[0]['properties'], stops[-1]['properties']
-            msg.respond("%s: %s (%s) to %s (%s)" % (routes[0],
+            msg.respond("%s: %s (%s) to %s (%s)" % (
+                    ",".join(routes),
                     origin['display_name'], origin['area'],
                     destination['display_name'], destination['area']))
         else:
@@ -37,13 +38,10 @@ class App(AppBase):
                 stop = feature['properties']
                 area = PUNCT.sub('', stop['area'])
                 match = "%s (%s): %s" % (stop['official_name'], area, stop['routes'])
-                if len(response) + len(match) + len(STYLE["repeat"]) < MAX_MSG_LEN:
-                    if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
-                    response += match
-                elif len(response) < len(STYLE["repeat"]):
-                    response += match[:MAX_MSG_LEN-len(STYLE["start"])-len(STYLE["end"])+4]
-                    response += " ..."
-                else:
-                    break
+                if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
+                response += match
+                if len(response) > MAX_MSG_LEN: break
+            if len(response) > MAX_MSG_LEN:
+                response = response[:MAX_MSG_LEN-(len(STYLE["end"])+4)] + "..."
             response += STYLE["end"]
             msg.respond(response)

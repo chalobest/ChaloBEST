@@ -23,7 +23,7 @@ var API_BASE = "/1.0/",
                         var $li = $('<div />')
                             .addClass("listItem")
                             .appendTo($list);
-                        var $txt = $('<span >').addClass("listItemText").text(v).appendTo($li);
+                        var $txt = $('<span />').addClass("listItemText").text(v).appendTo($li);
                     });
                 });
             }
@@ -51,6 +51,7 @@ var API_BASE = "/1.0/",
             $('.selectedListItem').find(".stopsList").hide().remove();
             $('.selectedListItem').removeClass("selectedListItem");
             $target.addClass("selectedListItem");
+
             if ($target.data("hasList")) {
                 var $stopsList = $target.find(".stopsList"); 
                 $stopsList.slideDown();

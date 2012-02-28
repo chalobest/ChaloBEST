@@ -5,11 +5,15 @@ import arrest
 MAX_MSG_LEN = 160
 DIGIT = re.compile(r"\d{1,3}")
 PUNCT = re.compile(r"[^\w\s]")
+"""
 STYLE = {
     "start":   "-* ",
     "repeat": " -*- ",
     "end":     " *-"
 }
+"""
+
+STYLE = {"start": "", "repeat": "; ", "end": ""}
 
 
 ChaloBest = arrest.Client("http://chalobest.in/1.0")
@@ -23,11 +27,11 @@ class App(AppBase):
             if not stops:
                 msg.respond("Sorry, we found no route marked '%s'." % msg.text)
                 return
-            origin, destination = stops[0]['properties'], stops[-1]['properties']
+            origin, dest = stops[0]['properties'], stops[-1]['properties']
+            origin_name, dest_name = origin['display_name'], dest['display_name']
+            origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
             msg.respond("%s: %s (%s) to %s (%s)" % (
-                    ",".join(routes),
-                    origin['display_name'], origin['area'],
-                    destination['display_name'], destination['area']))
+                    ",".join(routes), origin_name, origin_area, dest_name, dest_area))
         else:
             stops = ChaloBest.stops(q=msg.text)['features']
             if not stops:
@@ -36,8 +40,7 @@ class App(AppBase):
             response = STYLE["start"]
             for feature in stops:
                 stop = feature['properties']
-                area = PUNCT.sub('', stop['area'])
-                match = "%s (%s): %s" % (stop['official_name'], area, stop['routes'])
+                match = "%s: %s" % (stop['official_name'], stop['routes'])
                 if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
                 response += match
                 if len(response) > MAX_MSG_LEN: break

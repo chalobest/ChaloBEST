@@ -223,12 +223,15 @@ var API_BASE = "/1.0/",
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
-            $.post(url, {'geojson': geojsonString}, function(response) {
+            var $postXHR = $.post(url, {'geojson': geojsonString}, function(response) {
                 if (response.errors) {
                     alert("error saving");
                 }
                 //console.log(response);
             }, "json");
+            $postXHR.fail(function(e) {
+                alert('failed ' + JSON.stringify(e));
+            });
         });   
         return $div;
     }

@@ -123,7 +123,7 @@ class Stop(models.Model):
         }
 
     def get_geojson(self, srid=4326):
-        print srid
+#        print srid
         if self.point is not None:
             geom = json.loads(self.point.transform(srid, True).geojson)
         else:

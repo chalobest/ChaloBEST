@@ -5,6 +5,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 import re
 
+TRIGRAM_THRESHOLD = 0.25
+
 def route(request, slug):
     srid = int(request.GET.get("srid", 4326))
     route = get_object_or_404_json(Route, slug=slug)
@@ -55,7 +57,7 @@ def routes(request):
 def areas(request):
     q = request.GET.get("q", "")
     if q != '':
-        qset = Area.objects.find_approximate(q, 0.33)
+        qset = Area.objects.find_approximate(q, TRIGRAM_THRESHOLD)
     else:
         qset = Area.objects.all()
     areas = [area.slug for area in qset]
@@ -65,7 +67,7 @@ def areas(request):
 def stops(request):
     q = request.GET.get("q", "")
     if q != '':
-        qset = Stop.objects.find_approximate(q, 0.33)
+        qset = Stop.objects.find_approximate(q, TRIGRAM_THRESHOLD)
     else:
         qset = Stop.objects.all()
     srid = int(request.GET.get("srid", 4326))   

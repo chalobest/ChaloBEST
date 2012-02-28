@@ -31,7 +31,7 @@ def area(request, slug):
 def routes(request):
     q = request.GET.get("q", "")
     if q != '':
-        qset = Route.objects.find_approximate(q, 0.33)
+        qset = Route.objects.filter(alias__icontains=q)
     else:
         qset = Route.objects.all()
     routes = [route.alias for route in qset]

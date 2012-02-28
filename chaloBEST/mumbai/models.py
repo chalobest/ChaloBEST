@@ -117,12 +117,13 @@ class Stop(models.Model):
             'road': self.road.name,
             'area': self.area.name,
             'name_mr': self.name_mr,
+            'direction': self.dbdirection,
             'routes': ", ".join([r.route.alias for r in RouteDetail.objects.filter(stop=self)]),
             'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')])
         }
 
     def get_geojson(self, srid=4326):
-        print srid
+#        print srid
         if self.point is not None:
             geom = json.loads(self.point.transform(srid, True).geojson)
         else:

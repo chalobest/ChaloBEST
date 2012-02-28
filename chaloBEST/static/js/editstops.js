@@ -164,6 +164,7 @@ var API_BASE = "/1.0/",
         var $displayName = $('<h2 />').text(stop.display_name).appendTo($div);
         var $slug = $('<div />').addClass("stopSlug").text(stop.slug).appendTo($div);
         var $road = $("<div />").addClass("stopRoad").text("Road: " + stop.road).appendTo($div);
+        var $direction = $("<div />").addClass("stopDirection").text("Direction: " + stop.direction).appendTo($div);
         var $routes = $('<div />').text("Routes: " + stop.routes).appendTo($div); 
 //        var $formLabel = $("<div />").text("Edit:").appendTo($div);
         var $form = $('<form />').attr("id", "stopForm").appendTo($div);
@@ -222,12 +223,15 @@ var API_BASE = "/1.0/",
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
-            $.post(url, {'geojson': geojsonString}, function(response) {
+            var $postXHR = $.post(url, {'geojson': geojsonString}, function(response) {
                 if (response.errors) {
                     alert("error saving");
                 }
                 //console.log(response);
             }, "json");
+            $postXHR.fail(function(e) {
+                alert('failed ' + JSON.stringify(e));
+            });
         });   
         return $div;
     }
@@ -296,6 +300,8 @@ var API_BASE = "/1.0/",
             clickout: false,
             toggle: true
         });
+        
+        //map.addControl(new OpenLayers.Control.ZoomPanel());
         map.addControl(mapControl);
         mapControl.activate();
 

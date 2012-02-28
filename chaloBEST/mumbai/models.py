@@ -54,7 +54,7 @@ class TrigramSearchManager(models.Manager):
 
     def find_approximate(self, text, match=0.5):
         self.set_threshold(match)
-        similarity_measure = "max(%s)" % ",".join(["similarity(%s, %%s)" % col for col in self.trigram_columns])
+        similarity_measure = "greatest(%s)" % ",".join(["similarity(%s, %%s)" % col for col in self.trigram_columns])
         similarity_filter = " OR ".join(["%s %%%% %%s" % col for col in self.trigram_columns])
         text_values = [text] * len(self.trigram_columns)
 

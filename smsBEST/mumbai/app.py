@@ -33,14 +33,20 @@ class App(AppBase):
             msg.respond("%s: %s (%s) to %s (%s)" % (
                     ",".join(routes), origin_name, origin_area, dest_name, dest_area))
         else:
-            stops = ChaloBest.stops(q=msg.text)['features']
-            if not stops:
+            features = ChaloBest.stops(q=msg.text)['features']
+            if not features:
                 msg.respond("Sorry, we found no stops like '%s'." % msg.text)
                 return
+            stops = []
+            for feat in features:
+                stop = feat['properties']
+                if stops and stop["official_name"] == stops[-1]["official_name"]:
+                    stops[-1]["routes"] += ", " + stop["routes"]
+                else:
+                    stops.append(stop)
             response = STYLE["start"]
-            for feature in stops:
-                stop = feature['properties']
-                match = "%s: %s" % (stop['official_name'], stop['routes'])
+            for stop in stops:
+                match = stop["official_name"] + ": " + stop["routes"]
                 if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
                 response += match
                 if len(response) > MAX_MSG_LEN: break

@@ -3,6 +3,7 @@ from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 from django.contrib.auth.decorators import login_required
 import json
 from django.views.decorators.csrf import csrf_exempt
+import re
 
 def route(request, slug):
     srid = int(request.GET.get("srid", 4326))
@@ -29,12 +30,26 @@ def area(request, slug):
     })
 
 def routes(request):
+    
     q = request.GET.get("q", "")
-    if q != '':
+    in_regex = re.compile(r'(\d{1,3})')
+    match = re.findall(route_regex, q)
+    if match:
+        route_no = match[0]
+    else:
+        route_no = ''
+    ret = []
+    if route_no != '':
+        out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no)
         qset = Route.objects.filter(alias__icontains=q)
+        for route in qset:
+            if re.match(out_regex, route.alias):             
+                ret.append(route.alias)        
     else:
         qset = Route.objects.all()
-    routes = [route.alias for route in qset]
+        for route in qset:
+            ret.append(route.alias)
+#    routes = [route.alias for route in qset]
     return render_to_json_response(routes)
 
 

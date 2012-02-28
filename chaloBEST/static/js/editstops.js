@@ -321,13 +321,13 @@ var API_BASE = "/1.0/",
         // console.log(e.feature);
         var slug = e.feature.attributes.slug;
         //alert("selected " + slug);
+        $('.selectedStop').removeClass("selectedStop");
         highlightStop(slug);
         var stop = e.feature.attributes;
         var geom = {
             'coordinates': [e.feature.geometry.x, e.feature.geometry.y]
         };
         var $form = getStopForm(stop, geom);
-        $('.selectedStopItem').removeClass("selectedStopItem");
         $('#stopForm').remove();
         $('#formCol').empty();
         $('#formCol').append($form);

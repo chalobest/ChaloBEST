@@ -204,7 +204,7 @@ class Stop(models.Model):
 
 
 class Route(models.Model):
-    code = models.TextField(max_length=255, unique=True)
+    code = models.TextField(max_length=255, unique=True) #FIXME: Why is this a TextField??
     slug = models.SlugField(null=True)
     alias = models.TextField(max_length=255)
     from_stop_txt = models.TextField(max_length=500)
@@ -213,6 +213,9 @@ class Route(models.Model):
     to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
+
+    class Meta:
+        ordering = ['code']
 
     def get_absolute_url(self):
         return "/route/%s/" % self.alias

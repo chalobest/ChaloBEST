@@ -11,8 +11,8 @@
 # see: http://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "rapidsms.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "smsbest",
     }
 }
 
@@ -28,28 +28,28 @@ DATABASES = {
 # to configure it. see the documentation in those modules for a list of
 # the valid options for each.
 INSTALLED_BACKENDS = {
-    "modem": {
-        "ENGINE": "rapidsms.backends.gsm",
-        "PORT": "/dev/ttyS0",
-	"baudrate": 115200,
-	"timeout": 10
-    },
+    #"att": {
+    #    "ENGINE": "rapidsms.backends.gsm",
+    #    "PORT": "/dev/ttyUSB0"
+    #},
     #"verizon": {
     #    "ENGINE": "rapidsms.backends.gsm,
     #    "PORT": "/dev/ttyUSB1"
     #},
+    "atlas": {
+        "ENGINE": "rapidsms.backends.http",
+	"host": "0.0.0.0",
+        "port": 8086,
+        "gateway_url": "http://atlas.gnowledge.org:8001/gateway/send",
+        "params_outgoing": "secret=something+secret&to=%(phone_number)s&txt=%(message)s",
+        "params_incoming": "from=%(phone_number)s&txt=%(message)s"
+
+    },
     "message_tester": {
         "ENGINE": "rapidsms.backends.bucket",
     }
 }
 
-GATEWAY = {
-    "backend": "modem",
-    "secret": "something secret",
-    "push": "http://chalobest.in:8086/?from=%(from)s&txt=%(txt)s&secret=%(secret)s"
-}
-
-AJAX_PROXY_HOST = "0.0.0.0" # to open the gateway from the outside
 
 # to help you get started quickly, many django/rapidsms apps are enabled
 # by default. you may wish to remove some and/or add your own.
@@ -74,17 +74,19 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
 
     # the rapidsms contrib apps.
-#   "rapidsms.contrib.default",
-    "rapidsms.contrib.export",
+    # "rapidsms.contrib.default",
+    # "rapidsms.contrib.export",
     "rapidsms.contrib.httptester",
-#   "rapidsms.contrib.locations",
+    # "rapidsms.contrib.locations",
     "rapidsms.contrib.messagelog",
     "rapidsms.contrib.messaging",
-    "rapidsms.contrib.gateway",
-#   "rapidsms.contrib.registration",
-#   "rapidsms.contrib.scheduler",
-#   "rapidsms.contrib.echo",
+    "rapidsms.contrib.registration",
+    # "rapidsms.contrib.scheduler",
+    # "rapidsms.contrib.echo",
+
+    "mumbai"
 ]
+
 
 
 # this rapidsms-specific setting defines which views are linked by the
@@ -92,10 +94,10 @@ INSTALLED_APPS = [
 # to add it here, also, to expose it in the rapidsms ui.
 RAPIDSMS_TABS = [
     ("rapidsms.contrib.messagelog.views.message_log",       "Message Log"),
-#    ("rapidsms.contrib.registration.views.registration",    "Registration"),
+    ("rapidsms.contrib.registration.views.registration",    "Registration"),
     ("rapidsms.contrib.messaging.views.messaging",          "Messaging"),
-#    ("rapidsms.contrib.locations.views.locations",          "Map"),
-#    ("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
+    # ("rapidsms.contrib.locations.views.locations",          "Map"),
+    # ("rapidsms.contrib.scheduler.views.index",              "Event Scheduler"),
     ("rapidsms.contrib.httptester.views.generate_identity", "Message Tester"),
 ]
 
@@ -180,6 +182,11 @@ TEST_EXCLUDED_APPS = [
 # the project-level url patterns
 ROOT_URLCONF = "urls"
 
+# import local_settings.py
+try:
+    from local_settings import *
+except:
+    pass
 
 # since we might hit the database from any thread during testing, the
 # in-memory sqlite database isn't sufficient. it spawns a separate
@@ -195,3 +202,4 @@ if 'test' in sys.argv:
         DATABASES[db_name]['TEST_NAME'] = os.path.join(
             tempfile.gettempdir(),
             "%s.rapidsms.test.sqlite3" % db_name)
+

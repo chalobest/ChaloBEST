@@ -29,28 +29,31 @@ def area(request, slug):
     })
 
 def routes(request):
-    qset = Route.objects.all()
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(alias__icontains=q) #FIXME: make a better Q object
+    q = request.GET.get("q", "")
+    if q != '':
+        qset = Route.objects.find_approximate(q, 0.33)
+    else:
+        qset = Route.objects.all()
     routes = [route.alias for route in qset]
     return render_to_json_response(routes)
 
 
 def areas(request):
-    qset = Area.objects.all()
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(display_name__icontains=q)    
+    q = request.GET.get("q", "")
+    if q != '':
+        qset = Area.objects.find_approximate(q, 0.33)
+    else:
+        qset = Area.objects.all()
     areas = [area.slug for area in qset]
     return render_to_json_response(areas)
 
 def stops(request):
-    qset = Stop.objects.all()
-    srid = int(request.GET.get("srid", 4326))
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(display_name__icontains=q) #FIXME: This definitely needs to be a Q object with OR lookups for area name, road name, etc.    
+    q = request.GET.get("q", "")
+    if q != '':
+        qset = Stop.objects.find_approximate(q, 0.33)
+    else:
+        qset = Stop.objects.all()
+    srid = int(request.GET.get("srid", 4326))   
     return render_to_json_response({
         'type': 'FeatureCollection',
         'features': [stop.get_geojson(srid=srid) for stop in qset]

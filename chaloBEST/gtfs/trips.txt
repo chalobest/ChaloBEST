@@ -1,3 +1,4 @@
+route_id,service_id,trip_id
 4510,SH,4510_SH_UP
 4510,SH,4510_SH_DOWN
 4510,MS,4510_MS_UP

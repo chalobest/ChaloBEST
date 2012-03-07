@@ -32,17 +32,49 @@ def getRoutesHavingAllLocs():
             filteredroutes.append(route)
 
     return filteredroutes
-
+"""
 def getCompleteRoutes():
     #rs = getRoutesHavingAllLocs()
+    rs =  Route.objects.all()
     filteredroutes = []
     for route in rs:
-        sselected_related():
+        #a2s selected_related():
         if routeWithLocationData(route):
+             
             filteredroutes.append(route)
 
     return filteredroutes
-    
+
+"""
+
+
+def getCompleteRoutes(routelist):
+    #get routes having all stop locaions
+    filteredroutes = []
+    isComplete = True
+        
+    for route in routelist:
+        # check if all stops have locs
+        isComplete = True
+        if routeWithLocationData(route):
+            # check if Unique Routes have distance
+            unrs = route.uniqueroute_set.all()
+            for unr in unrs:
+                if unr.distance:
+                    rsset= unr.routeschedule_set.all()
+                    for rs in rsset:
+                        if rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5 and rs.first_from and rs.first_to and rs.last_from and rs.last_to:
+                            filteredroutes.append(route)
+                        else:
+                            isComplete = False
+                            continue
+                else:
+                    isComplete = False
+                    continue
+        
+
+    return list(set(filteredroutes))
+
 
 def routeWithSomeLocationData(route,limit):
     '''
@@ -215,10 +247,9 @@ def export_trips(routelist):
     for schedule, route, direction, trip_id in generate_trips():
         if route not in routelist: continue
         f.writerow([route.code, schedule.schedule_type, trip_id])
+
     # we need to get UniqueRoutes for each route, that is one trip, since it is based on service_id which shows days_of_run.
-    # we need to be careful here because a filter queryset for UniqueRoutes can differ in order and a naming based on this order 
-    # will not be consistent. Its good to use a uniqueroute-serial number.
-    #for r in routelist: 
+
     """
         try:
             # data checks here 
@@ -286,9 +317,10 @@ def export_stop_times(routelist):
 
         details = rdlist[getserial(rdlist,unr.from_stop):getserial(rdlist,unr.to_stop)]
 
-        # trip specific code                 
+        # calc avg speed for a trip. trip = unr+rs
+
         dist = unr.distance
-        runtime = runtime_in_minutes(schedule)        
+        runtime = runtime_in_minutes(schedule)
         #if dist == 0.0 or runtime == 0
         avgspeed = 0.0
         if not runtime == 0.0:
@@ -317,8 +349,21 @@ def export_stop_times(routelist):
                     departure_time = dt.time()
                     #departure_time.resolution(datetime.timedelta(0,0,1))
                     f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],detail.stop.code,sequence])
-            else:                
-                f.writerow([trip_id,"","",detail.stop.code,sequence])
+            else:
+                # for non-stage stop 
+                # first stop
+                if sequence == 0:
+                    f.writerow([trip_id,initial_time,initial_time,detail.stop.code,sequence])
+                else:    
+                # if this is the last stop in the route, then 
+                    if sequence == len(details) - 1:
+                        arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
+                        arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
+                        departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
+                        f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
+                    else:
+                        # if any other stop
+                        f.writerow([trip_id,"","",detail.stop.code,sequence])
                                 
             """
             # if this is the last stop in the route, then 
@@ -453,16 +498,17 @@ def export_frequencies(routelist):
                 if schedule.last_from == datetime.time(0,0,0):
                     end_time = "22:59:59" # magic number here in case BEST data  isnt found 
                 # check if start_time is always earlier than end_time.. this needs to be logged soon!
-                if  time_of(start_time) > time_of(end_time):
+                if  time_of(start_time) >= time_of(end_time):
                     start_time = "05:00:00" # magic number here in case BEST data isnt found
-                if  time_of(end_time) < time_of(start_time):
+                if  time_of(end_time) <= time_of(start_time):
                     end_time = "22:59:59" # magic number here in case BEST data isnt found
 
             if headway[span] is not None:
                 f.writerow([trip_id, start_time, end_time, headway[span]*60])
 
-def fire_up():
-    routelist = getRoutesHavingAllLocs()
+def fire_up(routelist):
+    if not routelist:
+        routelist = getCompleteRoutes()
     export_routes(routelist)
     export_stops(routelist)
     export_frequencies(routelist)

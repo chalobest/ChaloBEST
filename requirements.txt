@@ -5,3 +5,5 @@
 -e git+git://github.com/bit/django-extensions.git#egg=django_extensions
 #django_extensions
 django-grappelli
+-e git+git://github.com/schuyler/rapidsms.git#egg=rapidsms
+-e git+git://github.com/schuyler/arrest.git#egg=arrest

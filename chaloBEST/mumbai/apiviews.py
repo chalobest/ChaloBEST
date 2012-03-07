@@ -3,6 +3,7 @@ from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 from django.contrib.auth.decorators import login_required
 import json
 from django.views.decorators.csrf import csrf_exempt
+import re
 
 def route(request, slug):
     srid = int(request.GET.get("srid", 4326))
@@ -28,29 +29,46 @@ def area(request, slug):
         }
     })
 
-def routes(request):
-    qset = Route.objects.all()
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(alias__icontains=q) #FIXME: make a better Q object
-    routes = [route.alias for route in qset]
-    return render_to_json_response(routes)
+def routes(request):    
+    q = request.GET.get("q", "")
+    in_regex = re.compile(r'(\d{1,3})') # used to extract the route number string out of the query string - for eg, gets "21" from "21Ltd"
+    match = re.findall(in_regex, q)
+    if match:
+        route_no = match[0]
+    else:
+        route_no = ''
+    ret = []
+    if route_no != '':
+        out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no) # used for, for eg. to filter out '210Ltd' when user searches for '21'. Checks for non-digit or start of string, followed by route_no, followed by non-digit or end of string
+        qset = Route.objects.filter(alias__icontains=route_no)
+        for route in qset:
+            if re.match(out_regex, route.alias):             
+                ret.append(route.alias)        
+    else:
+        qset = Route.objects.all()
+        for route in qset:
+            ret.append(route.alias)
+#    routes = [route.alias for route in qset]
+    return render_to_json_response(ret)
 
 
 def areas(request):
-    qset = Area.objects.all()
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(display_name__icontains=q)    
+    q = request.GET.get("q", "")
+    if q != '':
+        qset = Area.objects.find_approximate(q, 0.33)
+    else:
+        qset = Area.objects.all()
     areas = [area.slug for area in qset]
     return render_to_json_response(areas)
 
+
 def stops(request):
-    qset = Stop.objects.all()
-    srid = int(request.GET.get("srid", 4326))
-    if request.GET.has_key('q'):
-        q = request.GET.get('q', '')
-        qset = qset.filter(display_name__icontains=q) #FIXME: This definitely needs to be a Q object with OR lookups for area name, road name, etc.    
+    q = request.GET.get("q", "")
+    if q != '':
+        qset = Stop.objects.find_approximate(q, 0.33)
+    else:
+        qset = Stop.objects.all()
+    srid = int(request.GET.get("srid", 4326))   
     return render_to_json_response({
         'type': 'FeatureCollection',
         'features': [stop.get_geojson(srid=srid) for stop in qset]

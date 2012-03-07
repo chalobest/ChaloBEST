@@ -23,7 +23,7 @@ var API_BASE = "/1.0/",
                         var $li = $('<div />')
                             .addClass("listItem")
                             .appendTo($list);
-                        var $txt = $('<span >').addClass("listItemText").text(v).appendTo($li);
+                        var $txt = $('<span />').addClass("listItemText").text(v).appendTo($li);
                     });
                 });
             }
@@ -51,6 +51,7 @@ var API_BASE = "/1.0/",
             $('.selectedListItem').find(".stopsList").hide().remove();
             $('.selectedListItem').removeClass("selectedListItem");
             $target.addClass("selectedListItem");
+
             if ($target.data("hasList")) {
                 var $stopsList = $target.find(".stopsList"); 
                 $stopsList.slideDown();
@@ -223,12 +224,15 @@ var API_BASE = "/1.0/",
             var geojsonString = JSON.stringify(geojson);
             //console.log(geojsonString);
             var url = API_BASE + "stop/" + stop.slug + "?srid=3857";
-            $.post(url, {'geojson': geojsonString}, function(response) {
+            var $postXHR = $.post(url, {'geojson': geojsonString}, function(response) {
                 if (response.errors) {
                     alert("error saving");
                 }
                 //console.log(response);
             }, "json");
+            $postXHR.fail(function(e) {
+                alert('failed ' + JSON.stringify(e));
+            });
         });   
         return $div;
     }
@@ -318,6 +322,7 @@ var API_BASE = "/1.0/",
         // console.log(e.feature);
         var slug = e.feature.attributes.slug;
         //alert("selected " + slug);
+        $('.selectedStop').removeClass("selectedStop");
         highlightStop(slug);
         var stop = e.feature.attributes;
         var geom = {

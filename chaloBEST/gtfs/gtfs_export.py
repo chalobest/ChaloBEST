@@ -361,8 +361,17 @@ def export_stop_times(routelist):
         if route not in routelist: continue
 
         #  get route in sort_order based on UP or DOWN route 
-        order = "" if direction == "UP" else "-"
-        rdlist = list(RouteDetail.objects.filter(route=route).order_by(order+"serial"))
+        #order = "" if direction == "UP" else "-"
+
+
+        if direction == "UP":
+            # keep order
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial")) 
+
+        else: 
+            # reverse order
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial")) 
+            #rdlist = list(rdlist.reverse())
         
         #details = get_routedetail_subset(unr)
         
@@ -415,15 +424,16 @@ def export_stop_times(routelist):
                     dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
                     departure_time = dt.time()
                     f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],detail.stop.code,sequence])
-                    blankstops=0
+                    blankstops=1
                     prevstage = sequence
                     
             else:
                 # for non-stage stops
                 # go to the next stage, get no. of stops in the middle, get the km delta, 
                 # blankstops+=1
-
+                """
                 #j go ahead for n stops and find out the km distance. 
+                
                 for detail in details[prevstage:]:
                     if not detail.km:
                         blankstops+=1
@@ -431,6 +441,7 @@ def export_stop_times(routelist):
                         #stage stop
                         distdelta=detail.km/blankstops
                         break
+                """
 
                 # first stop
                 if sequence == 0:
@@ -448,7 +459,11 @@ def export_stop_times(routelist):
                         # if any other stop
                         f.writerow([trip_id,"","",detail.stop.code,sequence])
                                 
+        #-----------------------------------------------------------------------------------
+
+
             """
+
             # if this is the last stop in the route, then 
             if sequence == len(details) - 1:
                 arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
@@ -471,7 +486,7 @@ def export_stop_times(routelist):
     #8.  
 
 
-    """  
+    """   # old code just for fallback
     for r in routelist:
         rdlist = RouteDetail.objects.filter(route=r).order_by('serial')    
         sr_no=0
@@ -496,7 +511,7 @@ def export_stop_times(routelist):
 
 
 """
-stop_times.txt
+stop_times.txt   - algo for old code
 ================================================================================================================================================
 1. For each route.
 2. Get rdlist = routedetails for that route.order_by('serial'). Get UniqueRoutes for the route.
@@ -539,8 +554,11 @@ def export_frequencies(routelist):
     
     f.writerow(["trip_id", "start_time","end_time","headway_secs"])
     for schedule, unr, route, direction, trip_id in generate_trips_unr():
+        # inclusion criteria
         if route not in routelist: continue
-        if unr.distance is None or unr.distance == 0.0: continue
+        runtime = runtime_in_minutes(schedule)
+        if not runtime or  unr.distance is None or unr.distance == 0.0: continue     
+ 
         
         headway = (schedule.headway1,
                    schedule.headway2,
@@ -548,20 +566,45 @@ def export_frequencies(routelist):
                    schedule.headway4,
                    schedule.headway5)
 
+        ts_start = ""
+        timespanchange = False
+
         for span, (start_time, end_time) in enumerate(TIMESPANS):
             # getting headway timings
             # making sure the start_time is earlier than the end_time 
             # making start and end as datetime.time                
-            
+            # check if previous 
+            if timespanchange:
+                start_time = ts_start
+                timespanchange = False
+
             if direction == "UP":
+                """
                 # if 'up' then take *_from values else take *_to values from schedule
                 if start_time is None:
                     start_time = schedule.first_from.__str__()
                 if end_time is None:                    
                     end_time = schedule.last_from.__str__()
 
+                   """
+
+                if start_time is None:
+                    if schedule.first_from:
+                        start_time = schedule.first_from.__str__()
+                    else:
+                        start_time = "05:00:00" # magic number here in case BEST data isnt found             
+
+                if end_time is None:
+                    if schedule.last_from:
+                        end_time = schedule.last_from.__str__()
+                    else:
+                        end_time = "22:59:59" # magic number here in case BEST data  isnt found 
+
+
+                    """
                 # if base values are null then put default values                
-                if schedule.first_from == datetime.time(0,0,0):
+                if schedule.first_from == datetime.time(0,0,0)
+ and start_time is None:
                     start_time = "05:00:00" # magic number here in case BEST data isnt found             
                 if schedule.last_from == datetime.time(0,0,0):
                     end_time = "22:59:59" # magic number here in case BEST data  isnt found 
@@ -570,7 +613,22 @@ def export_frequencies(routelist):
                     start_time = "05:00:00" 
                 if time_of(end_time) <= time_of(start_time):
                     end_time = "22:59:59" 
+                    """
             else:    
+                if start_time is None:
+                    if schedule.first_to:
+                        start_time = schedule.first_to.__str__()
+                    else:
+                        start_time = "05:00:00" # magic number here in case BEST data isnt found             
+
+                if end_time is None:
+                    if schedule.last_to:
+                        end_time = schedule.last_to.__str__()
+                    else:
+                        end_time = "22:59:59" # magic number here in case BEST data  isnt found 
+ 
+
+                    """
                 if start_time is None: 
                     start_time = schedule.first_to.__str__()
                 if end_time is None:
@@ -586,16 +644,202 @@ def export_frequencies(routelist):
                     start_time = "05:00:00" # magic number here in case BEST data isnt found
                 if  time_of(end_time) <= time_of(start_time):
                     end_time = "22:59:59" # magic number here in case BEST data isnt found
-
+                    """
             if headway[span] is not None:
-                f.writerow([trip_id, start_time, end_time, headway[span]*60])
+                # if ff > end_time,drop headway 
+                if time_of(start_time) < time_of(end_time):
+                    f.writerow([trip_id, start_time, end_time, headway[span]*60])
+                else:
+                    # if the start_time is later than the end_time  of the first timespan, then change the start_time of the second timespan
+                    timespanchange = True
+                    ts_start = start_time
+
+
+
+def export_frequencies2(routelist):
+    f = make_csv_writer("frequencies.txt")
+    """
+    EACH ROW IN FREQUENCIES
+    - For an entry in atlas, [ i.e. a given trip+service_id [subset + schedule days] ] 
+    If there are headway timings for diff time slots, eg. 
+    h7-11, h11-16, h16-22,h22-25
+    
+    then
+    """
+    TIMESPANS = (("05:00:00","06:59:59"),
+                 ("07:00:00","10:59:59"),
+                 ("11:00:00","16:59:59"),
+                 ("17:00:00","19:59:59"),
+                 ("20:00:00","23:59:59"))
+    
+    f.writerow(["trip_id", "start_time","end_time","headway_secs"])
+    for schedule, unr, route, direction, trip_id in generate_trips_unr():
+        # inclusion criteria
+        if route not in routelist: continue        
+        runtime = runtime_in_minutes(schedule)
+        if not runtime or unr.distance is None or unr.distance == 0.0: continue     
+
+        headway = (schedule.headway1,
+                   schedule.headway2,
+                   schedule.headway3,
+                   schedule.headway4,
+                   schedule.headway5)
+
+        # to indicate if time represents the next day eg. 02:00:00 am
+        lf_overflow = False
+        lt_overflow = False
+
+        for span, (start_time, end_time) in enumerate(TIMESPANS):
+            # getting headway timings
+
+            # making start and end as datetime.time                
+            st = time_of(start_time)
+            et = time_of(end_time)
+            ff = schedule.first_from
+            lf = schedule.last_from
+            ft = schedule.first_to
+            lt = schedule.last_to
+
+            # sanity checks for these times to be applied here.. like if if ff is given and ft is not, then ft is ff+runtime, etc
+
+            if ff is None:
+                ff=time_of("05:00:00")
+
+            if lf is None:
+                lf=time_of("23:59:59")        
+
+            if ft is None:
+                ft=time_of("05:00:00")
+
+            if lt is None:
+                lt=time_of("23:59:59")
+
+
+            try:
+                # check for any end_times going beyond 00:00:00 and make into 23:59:59,
+                # add 24:00:00 + offset at time of writing to file
+                # for comparison use 23:59:59. so any time span beyond that needs a custom operator for times.
+                
+                if schedule.last_from < schedule.first_from:
+                    lf = time_of("23:59:59")
+                    lf_overflow = True
+                if schedule.last_to < schedule.first_to:
+                    lt = time_of("23:59:59")
+                    lt_overflow = True
+            except:
+                print "time comparison error "
+                pass
+
+
+
+            if direction == "UP":
+                """
+                # if 'up' then take *_from values else take *_to values from schedule
+                """
+
+                # any time interval [(ff,lf),(ft,lt)] is defined by its end points ,
+                # so basic algo is to check if the endpoint lies b4, in or after the timespan
+                
+                # for ff
+                # b4
+                if ff < st:
+                    if span == 0:
+                        st = ff
+
+                # in
+                if st < ff and ff < et:
+                    st=ff
+
+                # aft
+                if ff > et:
+                    continue
+                        
+
+                # for lf
+                # b4                 
+                if lf < st:
+                    continue
+                
+                # in
+                if st < lf and lf < et:
+                    et = lf #!  lf
+                
+                # aft, if span is last then extend
+                if et < lf:
+                    if span ==  len(TIMESPANS) -1:
+                        et = lf 
+
+
+                if headway[span]:
+                    # convert to string
+                    st_str = st.__str__().split(".")[0]
+                    et_str = et.__str__().split(".")[0]
+
+                    # adjusting overflows 
+                    if lf_overflow and span == len(TIMESPANS) -1:
+                        lf_time = schedule.last_from.hour * 60 + schedule.last_from.minute
+                        et_str = "%02d:%02d:00" % (int(lf_time/60)+24, lf_time % 60)
+                        lf_overflow = False
+                        
+
+                    f.writerow([trip_id,st_str, et_str, headway[span]*60])                
+                
+            else:    
+
+                # for down, ft
+                # b4
+                if ft < st:
+                    if span == 0:
+                        st = ft
+                # in
+                if st < ft and ft < et:
+                    st=ft
+
+                # aft
+                if ft > et:
+                    continue                
+
+
+                # for lt
+                # b4                 
+                if lt < st:
+                    continue
+                
+                # in
+                if st < lt and lt < et:
+                    et = lt
+                
+                # aft
+                if et < lt:
+                    # for last timespan
+                    if span ==  len(TIMESPANS) -1:
+                        et = lt
+
+                if headway[span]:
+
+                    # convert to string
+                    st_str = st.__str__().split(".")[0]
+                    et_str = et.__str__().split(".")[0]
+
+                    # adjusting overflows                         
+                    if lt_overflow and span == len(TIMESPANS) -1:
+                        lt_time = schedule.last_to.hour * 60 + schedule.last_to.minute
+                        et_str = "%02d:%02d:00" % (int(lt_time/60)+24, lt_time % 60)
+                        lt_overflow = False
+                                        
+                    f.writerow([trip_id,st_str, et_str, headway[span]*60])
+
+
+            
+            
+
 
 def fire_up(routelist):
     if not routelist:
         routelist = getCompleteRoutes3()
     export_routes(routelist)
     export_stops(routelist)
-    export_frequencies(routelist)
+    export_frequencies2(routelist)
     export_stop_times(routelist)
     export_calendar()
     export_trips(routelist)

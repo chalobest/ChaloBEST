@@ -5,6 +5,9 @@ from os.path import join
 import csv
 import sys
 import datetime
+from itertools import dropwhile
+
+
 
 def routeWithLocationData(route):
     '''
@@ -32,23 +35,8 @@ def getRoutesHavingAllLocs():
             filteredroutes.append(route)
 
     return filteredroutes
-"""
-def getCompleteRoutes():
-    #rs = getRoutesHavingAllLocs()
-    rs =  Route.objects.all()
-    filteredroutes = []
-    for route in rs:
-        #a2s selected_related():
-        if routeWithLocationData(route):
-             
-            filteredroutes.append(route)
 
-    return filteredroutes
-
-"""
-
-
-def getCompleteRoutes(routelist):
+def getCompleteRoutes_old(routelist):
     #get routes having all stop locaions
     filteredroutes = []
     isComplete = True
@@ -108,7 +96,7 @@ def getCompleteRoutes2():
     return routelist
         
 
-def getCompleteRoutes3():
+def getCompleteRoutes():
     rset = set()
     for rs in RouteSchedule.objects.select_related():
 
@@ -149,20 +137,15 @@ def routeWithSomeLocationData(route,limit):
     else:
         return None
 
-def getRoutesHavingSomeLocs(limit):
-    '''
-    Gets those routes which have at most <limit> no of stops without location data.
-    '''    
-    filteredroutes = []
-    no_of_routes = 0
-    for route in Route.objects.all():
-        data= routeWithSomeLocationData(route, limit)
-        if data:
-            no_of_routes+=1
-            filteredroutes.append(data)
 
-    print "No of routes::",no_of_routes
-    return filteredroutes
+def rindex(lst, item):
+    """
+    gets last occurence of item from list
+    """
+    try:
+        return dropwhile(lambda x: lst[x] != item, reversed(xrange(len(lst)))).next()
+    except StopIteration:
+        raise ValueError, "rindex(lst, item): item not in list"
 
 
 def export_routes(routebeer):        
@@ -321,7 +304,7 @@ def export_trips(routelist):
             print "Error:", str(ss) + '\t' +  str(sys.exc_info()[0]) + '\n'                
             """
 
-def getserial(rdlist,stop):
+def getserial(rdlist,stop,getFirstStop=True):
     #check if rdlist is of a ring route..
     if rdlist[0].route.code[3]== 'R' or '4' :
         # write ring specific code here. rings have multiple occuring stops, which one to choose??
@@ -331,13 +314,41 @@ def getserial(rdlist,stop):
         if(rd.stop==stop):
             return rdlist.index(rd)
 
-def get_routedetail_subset(unr):
-    route = unr.route
-    from_stop = unr.from_stop
-    to_stop = unr.to_stop
-    rd_subset = rdlist[getserial(rdlist,from_stop):getserial(rdlist,to_stop)]
-    
-    return rd_subset
+def get_routedetail_subset(unr, direction,rdlist):
+    """
+    1. rdlist is mandatory as up down routes have diff orderings as per trip
+    """
+    if direction == "UP":
+        from_stop = unr.from_stop
+        to_stop = unr.to_stop
+    else:
+        from_stop = unr.to_stop
+        to_stop = unr.from_stop
+
+    if rdlist[0].route.code[3]== 'R' or '4' :
+        # write ring specific code here. rings have multiple occuring stops, which one to choose??
+        pass
+        #return None    
+
+    from_index = 0
+    to_index= 0
+
+    # from stop
+    for rd in rdlist:
+        if(rd.stop==from_stop):
+            from_index = rdlist.index(rd)
+            break
+
+    # to stop
+    for rd in rdlist:
+        #go to the last iteration, gets last occurence of stop
+        if(rd.stop==to_stop):
+            to_index = rdlist.index(rd)
+        
+
+    if (to_index - from_index) < 8:
+        print "Route::",unr.route.code , "from pos", from_index, " to pos ", to_index
+    return rdlist[from_index:to_index]    
                
 def runtime_in_minutes(schedule):
     runtime = schedule.runtime1 or schedule.runtime2 or schedule.runtime3 or schedule.runtime4
@@ -351,48 +362,79 @@ def runtime_in_minutes(schedule):
 
 
 def export_stop_times(routelist):
+    print "Exporting stop times.."
     f = make_csv_writer("stop_times.txt")
     f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
     
     # get trips and route details
 
+    tooslows = 0
+    toofasts = 0
+    nospeeds=0
+    rdlistempty=0
+    
+    print "Trips with faulty RDs::"    
     for schedule, unr, route, direction, trip_id in generate_trips_unr():
 
         if route not in routelist: continue
 
         #  get route in sort_order based on UP or DOWN route 
-        #order = "" if direction == "UP" else "-"
-
 
         if direction == "UP":
-            # keep order
-            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial")) 
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
+            lst = [] 
+            for rd in rdlist:
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U':
+                    lst.append(rd)
+            rdlist = lst            
+            details =  get_routedetail_subset(unr, direction, rdlist)
 
-        else: 
-            # reverse order
-            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial")) 
-            #rdlist = list(rdlist.reverse())
-        
-        #details = get_routedetail_subset(unr)
-        
-        #j getserial needs some more robustness
-        details = rdlist[getserial(rdlist,unr.from_stop):getserial(rdlist,unr.to_stop)]
+        else:             
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("-serial"))
+            lst = [] 
+            for rd in rdlist:
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D':
+                    lst.append(rd)
+            rdlist = lst
+            #j getserial needs some more robustness for ring routes
+            # shorten the route if its a subset.
+            details =  get_routedetail_subset(unr, direction, rdlist)
+            #details = rdlist[getserial(rdlist,unr.to_stop, True):getserial(rdlist,unr.from_stop, True)]
 
+
+        if len(rdlist) < 5:
+            #print "rdlist not populated"   
+            rdlistempty+=1
+            continue
+
+            #rdlist = rdlist.reverse()
+       
         # calc avg speed for a trip. trip = unr+rs
-
         dist = unr.distance
-        #j runtime should be calculated for each separate runtime entry later, we have headway too so stop_times becomes a bit more accurate.
-
+        #j runtime should be calculated for each separate runtime entry, we have headway too so stop_times becomes a bit more accurate.
         runtime = runtime_in_minutes(schedule)
+
         #if dist == 0.0 or runtime == 0
-        avgspeed = 0.0
+        avgspeed = 12.0/60.0
         if not runtime == 0.0:
             avgspeed = dist/runtime   # in km/min         
         else:
-            avgspeed = 0.0
+            avgspeed = 12.0/60.0   # putting a default of 15 km/hour. 
+            nospeeds+=1
+                
 
+        # checks and failsafes
+            
+        if avgspeed < 10.0/60.0:
+            # avg human walking speed is 5 km/hr 
+            tooslows+=1
+            avgspeed=12.0/60.0
+
+        if avgspeed < 70.0/60.0:
+            toofasts+=1
+            avgspeed=50.0/60.0
+        
         # setting up some vars and failsafes
-
         initial_time = departure_time = schedule.first_to if direction == "UP" else schedule.first_from
         if initial_time is None:
             initial_time  = time_of("05:00:00")
@@ -419,8 +461,10 @@ def export_stop_times(routelist):
 
                 if avgspeed != 0.0:
                     offsettime = cumulative_dist/avgspeed
+                    # 
                     dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
                     arrival_time = dt.time()
+                    # Add 10 seconds to departure time 
                     dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
                     departure_time = dt.time()
                     f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],detail.stop.code,sequence])
@@ -458,21 +502,28 @@ def export_stop_times(routelist):
                     else:
                         # if any other stop
                         f.writerow([trip_id,"","",detail.stop.code,sequence])
+
+
+    print "Trips too fast::", toofasts 
+    print "Trips too slow::", tooslows 
+    print "Trips with no speeds", nospeeds
+
+    print "Exporting stop times done."
                                 
         #-----------------------------------------------------------------------------------
 
 
-            """
+    """
 
-            # if this is the last stop in the route, then 
-            if sequence == len(details) - 1:
-                arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
-                arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
-                f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
-            else:
-                departure_time = ""
-                f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
-            """
+    # if this is the last stop in the route, then 
+    if sequence == len(details) - 1:
+        arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
+        arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
+        f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
+    else:
+        departure_time = ""
+        f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
+    """
 
     #routelist = getRoutesHavingAllLocs()    
 
@@ -836,7 +887,7 @@ def export_frequencies2(routelist):
 
 def fire_up(routelist):
     if not routelist:
-        routelist = getCompleteRoutes3()
+        routelist = getCompleteRoutes()
     export_routes(routelist)
     export_stops(routelist)
     export_frequencies2(routelist)

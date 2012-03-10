@@ -23,7 +23,7 @@ class App(AppBase):
         if DIGIT.search(msg.text):
             routes = ChaloBest.routes(q=msg.text.replace(" ", ""))
             if not routes:
-                msg.respond("Sorry, we found no route marked '%s'." % msg.text)
+                msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
                 return
             detail = ChaloBest.route[routes[0]]
             stops = detail['stops']['features']
@@ -35,7 +35,7 @@ class App(AppBase):
         else:
             features = ChaloBest.stops(q=msg.text)['features']
             if not features:
-                msg.respond("Sorry, we found no stops like '%s'." % msg.text)
+                msg.respond("Sorry, we found no stops marked '%(text)s'.", text=msg.text)
                 return
             stops = []
             for feat in features:

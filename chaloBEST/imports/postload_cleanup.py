@@ -16,12 +16,8 @@ def copynames2display_name():
         obj.display_name =obj.name
         obj.save()
 
-def copydefaultStopLocations():
-    print "Loading default locations for Stop.point field..."
-    for stp in Stop.objects.all():
-        if stp.stoplocation_set.count()>0 :
-            stp.point = stp.stoplocation_set.all()[0].point
-            stp.save()
+                
+
 """
 def addStopstoRoutes():
     print "Getting stops linked to Routes..."

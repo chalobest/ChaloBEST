@@ -101,7 +101,11 @@ def groupUnique():
             matchedRow = isNotUnique(d, outDict[key])
             schedule = row[-5]
             if matchedRow is not None:
-                outDict[key][matchedRow]['rows'][schedule].append(row)
+                if outDict[key][matchedRow]['rows'].has_key(schedule):
+                    outDict[key][matchedRow]['rows'][schedule].append(row)
+                else:
+                    outDict[key][matchedRow]['rows'][schedule] = [row]
+                
             else:
                 if isLargestSpan(d, routes[key]):
                     d['is_full'] = True
@@ -185,14 +189,15 @@ def importUniqueRoutes():
             #pdb.set_trace()
 #            print thisRoute['rows'].keys()
             for schedule in thisRoute['rows'].keys(): #loop through each schedule per UniqueRoute and save it
-                row = thisRoute['rows'][schedule]
+                rows = thisRoute['rows'][schedule]
                 try:
                     depot = Depot.objects.get(code=row[6])
                 except:
                     depot = None #FIXME!! Catch depot errors based on findings
                 #pdb.set_trace()
-                routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
-                routeScheduleObj.save()
+                for row in rows:
+                    routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
+                    routeScheduleObj.save()
 
     #done saving things - write out error files:
     errors = open(join(PROJECT_ROOT, "../errors/routeMasterMissingRoutes.json"), "w")

@@ -1,3 +1,0 @@
-route_id,route_short_name,route_long_name,route_type
-2820,282,KANDIVLI BUS STATION ( E ) - DAMU NAGAR EXTENSION,3
-2894,289,KANDIVLI BUS STATION ( E ) - ANITA NAGAR,3

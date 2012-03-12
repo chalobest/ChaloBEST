@@ -91,7 +91,7 @@ def groupUnique():
             d = {
                 'from': row[7],
                 'to': row[10],                
-                'span': row[13],
+                'span': row[13], #FIXME: what are you doing if span is null?
                 'is_full': False,
 #                'schedule': row[28],
 #                'rows': {
@@ -101,14 +101,14 @@ def groupUnique():
             matchedRow = isNotUnique(d, outDict[key])
             schedule = row[-5]
             if matchedRow is not None:
-                outDict[key][matchedRow]['rows'][schedule] = row
+                outDict[key][matchedRow]['rows'][schedule].append(row)
             else:
                 if isLargestSpan(d, routes[key]):
                     d['is_full'] = True
                 outDict[key].append(d)
                 if not outDict[key][-1].has_key('rows'):
                     outDict[key][-1]['rows'] = {}
-                outDict[key][-1]['rows'][schedule] = row
+                outDict[key][-1]['rows'][schedule] = [row]
 
     outFile = open(join(PROJECT_ROOT, "../db_csv_files/uniqueRoutes.json"), "w")
     outFile.write(json.dumps(outDict, indent=2))

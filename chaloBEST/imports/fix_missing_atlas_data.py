@@ -29,7 +29,7 @@ def fix_distances():
             print Exception("UniqueRoute %s from %s to %s ran off the end while measuring distance!" %(unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if not distance:
             print Exception("UniqueRoute %s from %s to %s still has no distance!" % (unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
-        if distance:
+        if distance > float(unique_route.distance):
             unique_route.distance = distance
             unique_route.save()
 
@@ -40,17 +40,8 @@ def fix_missing_runtimes():
         sibling_schedules = schedule.unique_route.routeschedule_set.all()
         # the "full" schedules for this route are used to attempt to
         # guesstimate the schedules of partial subroutes
-        full_routes = full_schedules = []
+        related_routes = related_schedules = []
         related_subroutes = list(schedule.unique_route.route.uniqueroute_set.all())
-        max_dist = max(subroute.distance for subroute in related_subroutes)
-        full_routes = [subroute for subroute in related_subroutes if subroute.distance == max_dist]
-        # first, try to get the schedules for the full routes, given the same schedule type
-        for full_route in full_routes:
-            full_schedules += list(full_route.routeschedule_set.filter(schedule_type=schedule.schedule_type))
-        # failing that, try to get the schedules for the full routes, with ANY schedule type
-        if not full_schedules:
-            for full_route in full_routes:
-                full_schedules += list(full_route.routeschedule_set.all())
 
         # the main inner loop: for each runtime column ---
         for col_idx, column in enumerate(columns):
@@ -68,12 +59,36 @@ def fix_missing_runtimes():
             if getattr(schedule, column): continue
             # otherwise, go through the matching schedules for the full-length versions of this
             # route and extrapolate the runtime.
-            if full_schedules:
-                for full_schedule in full_schedules:
-                    full_runtime = getattr(full_schedule, column)
-                    if full_runtime:
-                        partial_runtime = full_runtime*float(schedule.unique_route.distance)/float(full_schedule.unique_route.distance)
-                        # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, full_schedule)
+            if related_subroutes:
+                # first, try to get the schedules for the full routes, given the same schedule type
+                related_schedules = []
+                for related_route in related_subroutes:
+                    related_schedules += list(related_route.routeschedule_set.filter(schedule_type=schedule.schedule_type))
+
+                # iterate over them and see if we got one with the right runtime
+                for related_schedule in related_schedules:
+                    related_runtime = getattr(related_schedule, column)
+                    if related_runtime:
+                        # if so, compute the partial runtime of this schedule as the (possibly > 1.0) fraction of runtime of the other schedule by distance
+                        partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
+                        # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
+                        setattr(schedule, column, partial_runtime)
+                        break
+
+                # did we find a runtime? great, use it
+                if getattr(schedule, column): continue
+
+                # failing that, try to get the schedules for the full routes, with ANY schedule type
+                for related_route in related_subroutes:
+                    related_schedules += list(related_route.routeschedule_set.all())
+
+                # iterate over them and see if we got one with the right runtime
+                for related_schedule in related_schedules:
+                    related_runtime = getattr(related_schedule, column)
+                    if related_runtime:
+                        # if so, compute the partial runtime of this schedule as the (possibly > 1.0) fraction of runtime of the other schedule by distance
+                        partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
+                        # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
                         setattr(schedule, column, partial_runtime)
                         break
 

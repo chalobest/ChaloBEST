@@ -43,6 +43,16 @@ SCHED = {
     '2nd &4th':['???']
     }
 
+# Runtime start and end hour
+# matching column `runtimen` where `n` = index % 4 + 1
+RUNTIMES = (
+    (00, 07), 
+    (07, 11),
+    (11, 17),
+    (17, 20),
+    (20, 24)
+)
+
 class TrigramSearchManager(models.Manager):
     def __init__(self, trigram_columns=[]):
         super(TrigramSearchManager, self).__init__()
@@ -119,9 +129,9 @@ class Fare(models.Model):
 
 class Stop(models.Model):
     objects = TrigramSearchManager(("name", "name_mr", "display_name"))
-    code = models.IntegerField()
+    code = models.IntegerField(db_index=True)
     slug = models.SlugField(null=True)
-    name = models.TextField(blank=True, max_length=255)
+    name = models.TextField(blank=True, max_length=255, db_index=True)
     display_name = models.TextField(blank=True, max_length=255)
     dbdirection = models.CharField(null=True, blank=True, max_length=5, choices=STOP_CHOICES) #stopfl - > direction
     chowki = models.NullBooleanField(null=True, blank=True) # this is nullable since in the next datafeed , they might have blank to represent a 0.
@@ -206,7 +216,7 @@ class Stop(models.Model):
 class Route(models.Model):
     code = models.TextField(max_length=255, unique=True) #FIXME: Why is this a TextField??
     slug = models.SlugField(null=True)
-    alias = models.TextField(max_length=255)
+    alias = models.TextField(max_length=255, db_index=True)
     from_stop_txt = models.TextField(max_length=500)
     to_stop_txt = models.TextField(max_length=500)
     from_stop = models.ForeignKey(Stop, related_name='routes_from', default=None, null=True, blank=True)
@@ -339,7 +349,7 @@ class StopLocation(models.Model):
 
 
 class Depot(models.Model):
-    code = models.CharField(max_length=5)
+    code = models.CharField(max_length=5, unique=True)
     name = models.TextField(max_length=50)
     stop = models.IntegerField()
 

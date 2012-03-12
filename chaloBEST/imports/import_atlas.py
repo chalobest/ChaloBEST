@@ -56,12 +56,15 @@ def processJSON():
                 if len(row) < 7:
                     routeErrors['others'].append({key: row})  
                     break  
-                for i in range(2,4):
+                for i in range(2,5):
+                    if row[i].strip() == '':
+                        row[i] = previousRow[i]
+                for i in [7,10]:
                     if row[i].strip() == '':
                         row[i] = previousRow[i]
                 try:
                     if row[-5].strip() == '':
-                        row[-5] = previousRow[-5] #What is -5 ?
+                        row[-5] = previousRow[-5] #-5 is Schedule Type
                 except:
                     pdb.set_trace()
                 previousRow = row
@@ -151,39 +154,33 @@ def importUniqueRoutes():
             except:
                 distance = 0
             obj = UniqueRoute(route=routeObj, is_full=thisRoute['is_full'], distance=distance, from_stop_txt=thisRoute['from'], to_stop_txt=thisRoute['to']) 
-            if obj.is_full: #If the route is the primary route, we can get stop codes easily from RouteDetails first / last stop
-                from_to = getFromToStopsForRoute(routeObj)
-                if not from_to:
-                    routeDoesNotExistErrors.append({'from_to_not_found': route})
-                    continue
-                obj.from_stop = from_to[0]
-                if not stopMapping.has_key(obj.from_stop_txt):
-                    stopMapping[obj.from_stop_txt] = from_to[0].name
-                obj.to_stop = from_to[1]
-                if not stopMapping.has_key(obj.to_stop_txt):
-                    stopMapping[obj.to_stop_txt] = from_to[1].name
-            else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
-                stopnames = []
-                stopcodes = []
-                if RouteDetail.objects.filter(route=routeObj).count() == 0:
-                    routeDoesNotExistErrors.append({'routeDetailDoesNotExist': routeObj.code})
-                    continue
-                for r in RouteDetail.objects.filter(route=routeObj):
-                    stopnames.append(r.stop.name)
-                    stopcodes.append(r.stop.code)     
-                try:
-                    from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
-                    to_fuzz = fuzzprocess.extractOne(thisRoute['to'], stopnames)
-                except:
-                    stopErrors.append(thisRoute)
-                    continue
-                #pdb.set_trace()
-                try:
-                    obj.from_stop = Stop.objects.filter(name=from_fuzz[0]).filter(code__in=stopcodes)[0]
-                    obj.to_stop = Stop.objects.filter(name=to_fuzz[0]).filter(code__in=stopcodes)[0]
-                except:
-                    stopErrors.append([thisRoute['from'], thisRoute['to']])
-                    continue
+#            if obj.is_full: #If the route is the primary route, we can get stop codes easily from RouteDetails first / last stop
+#                from_to = getFromToStopsForRoute(routeObj)
+#                if not from_to:
+#                    routeDoesNotExistErrors.append({'from_to_not_found': route})
+#                    continue
+#                obj.from_stop = from_to[0]
+#                if not stopMapping.has_key(obj.from_stop_txt):
+#                    stopMapping[obj.from_stop_txt] = from_to[0].name
+#                obj.to_stop = from_to[1]
+#                if not stopMapping.has_key(obj.to_stop_txt):
+#                    stopMapping[obj.to_stop_txt] = from_to[1].name
+#            else: #Else we do fuzzy string matching against all possible values for stopname got from RouteDetails
+            stopnames = []
+            stopcodes = []
+            if RouteDetail.objects.filter(route=routeObj).count() == 0:
+                routeDoesNotExistErrors.append({'routeDetailDoesNotExist': routeObj.code})
+                continue
+            for r in RouteDetail.objects.filter(route=routeObj):
+                stopnames.append(r.stop.name)
+                stopcodes.append(r.stop.code)     
+
+            from_fuzz = fuzzprocess.extractOne(thisRoute['from'], stopnames)
+            to_fuzz = fuzzprocess.extractOne(thisRoute['to'], stopnames)
+            #pdb.set_trace()
+
+            obj.from_stop = Stop.objects.filter(name=from_fuzz[0]).filter(code__in=stopcodes)[0]
+            obj.to_stop = Stop.objects.filter(name=to_fuzz[0]).filter(code__in=stopcodes)[0]
                 
             obj.save()
             #pdb.set_trace()

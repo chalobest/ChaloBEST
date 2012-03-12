@@ -50,7 +50,7 @@ class FareAdmin(admin.ModelAdmin):
     
 class UniqueRouteAdmin(admin.ModelAdmin):
     list_display = ("route","from_stop", "to_stop","distance","is_full")
-    readonly_fields = ("route","from_stop", "to_stop","distance","is_full")
+    readonly_fields = ("route","distance","is_full")
     search_fields = ("route__alias", "from_stop__name", "to_stop__name")
     ordering = ('route',)
     list_per_page = 50

@@ -144,6 +144,10 @@ class Stop(models.Model):
     alt_names = generic.GenericRelation("AlternativeName")
 
     def get_dict(self):
+        routes = []
+        for r in self.routedetail_set.all():
+            if r.route is not None:
+                routes.append(r.route)
         return {
             'id': self.id,
             'code': self.code,
@@ -154,7 +158,7 @@ class Stop(models.Model):
             'area': self.area.name,
             'name_mr': self.name_mr,
             'direction': self.dbdirection,
-            'routes': ", ".join([r.route.alias for r in RouteDetail.objects.filter(stop=self)]),
+            'routes': ", ".join([r.alias for r in routes]),
             'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')])
         }
 

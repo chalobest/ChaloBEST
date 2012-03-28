@@ -8,32 +8,34 @@ def fix_distances():
         from_stop, to_stop = unique_route.from_stop.id, unique_route.to_stop.id
         details = list(unique_route.route.routedetail_set.all())
         # Sometimes to_stop comes before from_stop in RouteDetail. What is there to say.
+        # so reverse the list if that happens.. so a from_stop will always come before a to_stop
         for detail in details:
             if detail.stop.id == from_stop: break
-
             if detail.stop.id == to_stop:
                 details.reverse()
                 break
+        # setup vars
         distance = 0.0
         record = False
         last_stop_passed = False
         for detail in details:            
             # basic idea, run thru each detail, if it has km info, then add it, if to_stop reached, and if it did not have km info, then go to the next detail having km info add it and done.
             # For route 240RING, some detail.km is null???
+            
+            # distance > 0 because of 100RING returning 1 stop shy of its start            
+            if distance > 0 and detail.stop.id == to_stop:
+                last_stop_passed = True
 
             # is a stage
             if record and detail.km:
                 if not last_stop_passed: 
                     distance += float(detail.km)                    
                 else:
-                    # if stage having km info reached after last stop, then add and exit loop                
+                    # if stage having km info reached after last stop, then add and exit loop
                     distance += float(detail.km)
-                    record=False               
-                    last_stop_passed = False
+                    record=False
+                    last_stop_passed = True
                     break
-            # distance > 0 because of 100RING returning 1 stop shy of its start            
-            if distance > 0 and detail.stop.id == to_stop:
-                last_stop_passed = True
 
             #if record and distance > 0 and detail.stop.id == to_stop and last_stop_reached:
             #    record = False

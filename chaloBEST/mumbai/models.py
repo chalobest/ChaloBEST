@@ -353,7 +353,7 @@ class StopLocation(models.Model):
 
 
 class Depot(models.Model):
-    code = models.CharField(max_length=5, unique=True)
+    code = models.CharField(max_length=5) # should have unique=True ?
     name = models.TextField(max_length=50)
     stop = models.IntegerField()
 

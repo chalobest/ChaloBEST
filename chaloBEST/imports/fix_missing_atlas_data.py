@@ -143,8 +143,6 @@ def fix_missing_runtimes():
 
 
 
-
-
 hcolumns = ["headway%d" % n for n in range(1,6)]
 def fix_missing_headways():
     for schedule in RouteSchedule.objects.all():
@@ -154,14 +152,14 @@ def fix_missing_headways():
         # guestimate the schedules of partial subroutes
         related_routes = related_schedules = []
         related_subroutes = list(schedule.unique_route.route.uniqueroute_set.all())
-
+        
         # the main inner loop: for each headway column ---
         for col_idx, column in enumerate(hcolumns):
             # if the headway is set, AWESOME, bail
             if getattr(schedule, column): continue
-
+            
             # try to use the previous column....if available
-            if getattr(schedule, column): continue
+            #if getattr(schedule, column): continue
             if col_idx > 0:
                 prev_headway = getattr(schedule, columns[col_idx-1])
                 if prev_headway:
@@ -175,6 +173,15 @@ def fix_missing_headways():
                     setattr(schedule, column, next_headway)
                     continue
 
+            #try any headway in the current row:
+            for hcol in hcolumns:
+                headway = getattr(schedule, hcol)
+                if headway:
+                    setattr(schedule, column, headway)
+                    break
+            
+            if getattr(schedule, column):
+                continue
             # otherwise, go through the other schedules for this subroute and
             # see if we get a matching headway -- if so, use it
             for sibling in sibling_schedules:
@@ -183,43 +190,51 @@ def fix_missing_headways():
                     setattr(schedule, column, sibling_headway)
                     # print "OK  fix_missing_headways: %s %s fixed to %s" % (schedule, column, sibling)
                     break
-
+                
             if getattr(schedule, column): continue
-            # otherwise, go through the matching schedules for the full-length versions of this
-            # route and extrapolate the headway.
-            if related_subroutes:
-                # first, try to get the schedules for the full routes, given the same schedule type
-                related_schedules = []
-                for related_route in related_subroutes:
-                    related_schedules += list(related_route.routeschedule_set.filter(schedule_type=schedule.schedule_type))
-
-                # iterate over them and see if we got one with the right headway
-                for related_schedule in related_schedules:
-                    related_headway = getattr(related_schedule, column)
-                    if related_headway:
-                        # if so, compute the partial headway of this schedule as the (possibly > 1.0) fraction of headway of the other schedule by distance
-                        partial_headway = related_headway*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
-                        # print "OK  fix_missing_headways: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
-                        setattr(schedule, column, partial_headway)
+            
+            break_loop = False
+            for sibling in sibling_schedules:
+                if break_loop:
+                    break
+                for hcol in hcolumns:
+                    headway = getattr(sibling, hcol)
+                    if headway:
+                        setattr(schedule, column, headway)
+                        break_loop = True
                         break
-
-                # did we find a headway? great, use it
-                if getattr(schedule, column): continue
-
-                # failing that, try to get the schedules for the full routes, with ANY schedule type
-                for related_route in related_subroutes:
-                    related_schedules += list(related_route.routeschedule_set.all())
-
-                # iterate over them and see if we got one with the right headway
-                for related_schedule in related_schedules:
-                    related_headway = getattr(related_schedule, column)
-                    if related_headway:
-                        # if so, compute the partial headway of this schedule as the (possibly > 1.0) fraction of headway of the other schedule by distance
-                        partial_headway = related_headway*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
-                        # print "OK  fix_missing_headways: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
-                        setattr(schedule, column, partial_headway)
+            
+            
+            if getattr(schedule, column):
+                continue
+            
+            break_loop = False        
+            for r in related_subroutes:
+                if break_loop:
+                    break
+                for related_schedule in r.routeschedule_set.all():
+                    if break_loop:
                         break
-
+                    for hcol in hcolumns:
+                        headway = getattr(related_schedule, hcol)
+                        if break_loop:
+                            break
+                        if headway:
+                            setattr(schedule, column, headway)
+                            break_loop = True
+                            break
+                        
+            
+            
+            if getattr(schedule, column):
+                continue
+            
+            if not getattr(schedule, column):
+                print Exception("All failed for schedule with id %d" % schedule.id)
+                
+            
+            '''
             if column != "headway5":
                 print Exception("ERR fix_missing_headways: %s STILL missing %s!" % (schedule, column))
-
+            '''    
+                

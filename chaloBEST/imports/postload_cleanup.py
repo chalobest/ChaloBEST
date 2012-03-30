@@ -1,6 +1,6 @@
 from mumbai.models import *
 
-#"Road, Area, Landmark, Stop"
+# for Road, Area, Landmark, Stop
 def copynames2display_name():
     print "Copying names to display_name field..."
     for obj in Stop.objects.all():
@@ -17,13 +17,4 @@ def copynames2display_name():
         obj.save()
 
                 
-
-"""
-def addStopstoRoutes():
-    print "Getting stops linked to Routes..."
-    for r in Route.objects.all():
-        try:
-            r.stop = Stop.objects.get(name=)
-"""
-
 

@@ -237,9 +237,9 @@ def loadFKinRouteDetail():
             good_saves+=1
         except:
             rd.route=None
-            err.append({"data":rd.route_code, "error":["Route Not Found in Route"]})
+            err.append({"data":{"route_code":rd.route_code, "id":rd.id,"serial":rd.serial } , "error":"route Not Found in Route"})
 
-    #errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
+    errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
     size = len(err)
     print "No. of Routes in RouteDetail mapped to Route: " , str(good_saves)
     print "No. of Routes in RouteDetail not mapped to Route: " , str(size)
@@ -247,8 +247,8 @@ def loadFKinRouteDetail():
     if (size != 0) :
         print "See /errors/RouteNotFoundErrors.json for details"
         
-    #errors.write(json.dumps(err, indent=2))
-    #errors.close()
+    errors.write(json.dumps(str(err), indent=2))
+    errors.close()
     return err
 
 
@@ -281,7 +281,7 @@ def CsvLoader(thismodel):
             #print "Error:", str(entry) + '\t' +  str(sys.exc_info()[0]) + '\n'
 
     errors = open(join(PROJECT_ROOT, "../errors/"+ thismodel + "Errors.json"), 'w')
-    errors.write(json.dumps(globalerr, indent=2))
+    errors.write(json.dumps(str(globalerr), indent=2))
     errors.close()
 
 

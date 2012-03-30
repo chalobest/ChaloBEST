@@ -1,5 +1,5 @@
 from mumbai.models import *
-
+import pdb
 # FIXME: UniqueRoute stringification, routes 314 and 9
 
 def fix_distances():
@@ -32,13 +32,15 @@ def fix_distances():
                 last_stop_passed = True
 
             # is a stage
-            if record and detail.km:
+            if record:
                 if not last_stop_passed: 
                     # add it
-                    distance += float(detail.km)                    
+                    if detail.km:
+                        distance += float(detail.km)                    
                 else:
                     # if stage having km info reached after last stop, then add and exit loop
-                    distance += float(detail.km)
+                    if detail.km:
+                        distance += float(detail.km)
                     record=False
                     last_stop_passed = True
                     break
@@ -53,9 +55,10 @@ def fix_distances():
             if detail.stop.id == from_stop: record = True
 
         if record:
-            print Exception("UniqueRoute %s from %s to %s ran off the end while measuring distance!" %(unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
+            #pdb.set_trace()
+            print Exception("UniqueRoute %d: %s from %s to %s ran off the end while measuring distance!" %(unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if not distance:
-            print Exception("UniqueRoute %s from %s to %s still has no distance!" % (unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
+            print Exception("UniqueRoute %d: %s from %s to %s still has no distance!" % (unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if distance > float(unique_route.distance):
             unique_route.distance = distance
             unique_route.save()

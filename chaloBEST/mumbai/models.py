@@ -138,8 +138,7 @@ class Stop(models.Model):
     road = models.ForeignKey(Road, default=None, null=True, blank=True)
     area = models.ForeignKey(Area, default=None, null=True, blank=True)
     depot = models.ForeignKey("Depot", default=None, null=True, blank=True, related_name="is_depot_for") #models.CharField(null=True, blank=True, max_length=5)
-    name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True, 
-
+    name_mr= models.TextField(null=True, blank=True, max_length=512)#null=True
     point = models.PointField(null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
@@ -180,7 +179,9 @@ class Stop(models.Model):
     def from_geojson(self, geojson, srid=4326):
         geom = geojson['geometry']['coordinates']
         data = geojson['properties']
-        self.point = Point(geom[0], geom[1], srid=srid).transform(4326, True) #FIXME: srid should be passed as param
+        point = Point(geom[0], geom[1], srid=srid).transform(4326, True)
+        if point:
+            self.point = point
         self.display_name = data['display_name']
         self.name_mr = data['name_mr']
         if data.has_key('alternative_names') and data['alternative_names'].strip() != '':
@@ -193,8 +194,6 @@ class Stop(models.Model):
                 alt_name.content_object = self
                 alt_name.save()
                 self.alt_names.add(alt_name)    
-            
-        #FIXME: add alt names logic
         self.save()
         return self.get_geojson(srid=srid)
 

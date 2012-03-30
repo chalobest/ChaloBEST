@@ -53,17 +53,14 @@ def processJSON():
             outDict[key] = []
             for row in thisRoute:
                # pdb.set_trace()
-                if len(row) < 7:
-                    routeErrors['others'].append({key: row})  
-                    break  
-                for i in range(2,5):
+                for i in range(2,5): # AM, N, PM
                     if row[i].strip() == '':
                         row[i] = previousRow[i]
-                for i in [7,10]:
+                for i in [7,10]: # From, To
                     if row[i].strip() == '':
                         row[i] = previousRow[i]
                 try:
-                    if row[-5].strip() == '':
+                    if row[-5].strip() == '': #FIXME: change this to a positive index
                         row[-5] = previousRow[-5] #-5 is Schedule Type
                 except:
                     pdb.set_trace()

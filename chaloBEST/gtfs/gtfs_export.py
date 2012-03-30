@@ -99,7 +99,6 @@ def getCompleteRoutes2():
 def getCompleteRoutes():
     rset = set()
     for rs in RouteSchedule.objects.select_related():
-
         if rs.runtime1 is None or rs.runtime2 is None or rs.runtime3 is None or rs.runtime4 is None or rs.headway1 is None or rs. headway2 is None or rs.headway3 is None or rs.headway4 is None or rs.headway5 is None or rs.first_from is None or rs.first_to is None or rs.last_from is None or rs.last_to is None:
             try:
                 rset.remove(rs.unique_route.route)
@@ -419,20 +418,21 @@ def export_stop_times(routelist):
         if not runtime == 0.0:
             avgspeed = dist/runtime   # in km/min         
         else:
-            avgspeed = 12.0/60.0   # putting a default of 15 km/hour. 
+            #avgspeed = 12.0/60.0   # putting a default of 12 km/hour. 
             nospeeds+=1
                 
 
         # checks and failsafes
             
-        if avgspeed < 10.0/60.0:
-            # avg human walking speed is 5 km/hr 
+        if avgspeed < 5.0/60.0:
+            # avg human walking speed is 5 km/hr
+            print "Error: Speed for %s is %s" %(trip_id, str(avgspeed*60.0) ) 
             tooslows+=1
-            avgspeed=12.0/60.0
+            #avgspeed=12.0/60.0
 
-        if avgspeed < 70.0/60.0:
+        if avgspeed > 50.0/60.0:
             toofasts+=1
-            avgspeed=50.0/60.0
+            #avgspeed=50.0/60.0
         
         # setting up some vars and failsafes
         initial_time = departure_time = schedule.first_to if direction == "UP" else schedule.first_from
@@ -887,7 +887,7 @@ def export_frequencies2(routelist):
 
 def fire_up(routelist):
     if not routelist:
-        routelist = getCompleteRoutes()
+        routelist = getCompleteRoutes2()
     export_routes(routelist)
     export_stops(routelist)
     export_frequencies2(routelist)

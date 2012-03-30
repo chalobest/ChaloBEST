@@ -59,7 +59,9 @@ def fix_distances():
             print Exception("UniqueRoute %d: %s from %s to %s ran off the end while measuring distance!" %(unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if not distance:
             print Exception("UniqueRoute %d: %s from %s to %s still has no distance!" % (unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
-        if distance > float(unique_route.distance):
+
+        #if distance > float(unique_route.distance):
+        if not unique_route.distance:
             unique_route.distance = distance
             unique_route.save()
 
@@ -140,7 +142,6 @@ def fix_missing_runtimes():
 
             if column != "runtime4":
                 print Exception("ERR fix_missing_runtimes: %s STILL missing %s!" % (schedule, column))
-
 
 
 hcolumns = ["headway%d" % n for n in range(1,6)]

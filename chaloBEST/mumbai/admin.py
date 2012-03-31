@@ -49,7 +49,7 @@ class FareAdmin(admin.ModelAdmin):
     }
     
 class UniqueRouteAdmin(admin.ModelAdmin):
-    list_display = ("route","from_stop", "to_stop","distance","is_full")
+    list_display = ("route","from_stop", "from_stop_txt", "to_stop", "to_stop_txt", "distance","is_full")
     readonly_fields = ("route","distance","is_full")
     search_fields = ("route__alias", "from_stop__name", "to_stop__name")
     ordering = ('route',)

@@ -7,6 +7,7 @@ class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule
     extra = 0
 
+
 class AlternativeNameInline(generic.GenericStackedInline):
     extra = 3
     model = AlternativeName
@@ -48,15 +49,25 @@ class FareAdmin(admin.ModelAdmin):
         models.TextField: {'widget': forms.TextInput},
     }
     
+class UniqueRouteForm(forms.ModelForm):
+    class Meta:
+        model = UniqueRoute
+        
+    def __init__(self,*args, **kwargs):
+        super(UniqueRouteForm,self).__init__(*args,**kwargs)
+        self.fields['from_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route)])
+
+        self.fields['to_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route)])
+
+
 class UniqueRouteAdmin(admin.ModelAdmin):
     list_display = ("route","from_stop", "from_stop_txt", "to_stop", "to_stop_txt", "distance","is_full")
     readonly_fields = ("route","distance","is_full")
     search_fields = ("route__alias", "from_stop__name", "to_stop__name")
     ordering = ('route',)
     list_per_page = 50
-
     inlines = [RouteScheduleInline]
-
+    form = UniqueRouteForm
 
 class StopForm(forms.ModelForm):
     
@@ -173,8 +184,6 @@ class HolidayAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }
-
-
 
 admin.site.register(Area, AreaAdmin)
 admin.site.register(Road, RoadAdmin)

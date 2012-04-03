@@ -102,6 +102,7 @@ def RouteDetail_save(entry):
     except:
         temp_stop=None
     """
+    #if entry[3].startswith(
     obj = RouteDetail(
         route_code = entry[0],
         route = None,

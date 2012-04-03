@@ -99,7 +99,8 @@ def getCompleteRoutes2():
 def getCompleteRoutes():
     rset = set()
     for rs in RouteSchedule.objects.select_related():
-        if rs.runtime1 is None or rs.runtime2 is None or rs.runtime3 is None or rs.runtime4 is None or rs.headway1 is None or rs. headway2 is None or rs.headway3 is None or rs.headway4 is None or rs.headway5 is None or rs.first_from is None or rs.first_to is None or rs.last_from is None or rs.last_to is None:
+        if not( rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5 and rs.first_from and rs.first_to and rs.last_from and rs.last_to):   
+        #if rs.runtime1 is None or rs.runtime2 is None or rs.runtime3 is None or rs.runtime4 is None or rs.headway1 is None or rs. headway2 is None or rs.headway3 is None or rs.headway4 is None or rs.headway5 is None or rs.first_from is None or rs.first_to is None or rs.last_from is None or rs.last_to is None:
             try:
                 rset.remove(rs.unique_route.route)
             except KeyError:
@@ -180,7 +181,8 @@ def export_stops(routelist):
             # 
             f.writerow([stop.code,stop.name,stop.point.coords[1],stop.point.coords[0]])
         except:
-            pass
+            print "error for writerow", stop.__dict__, stop.point.coords  
+            #print "error: Stop id: %s, stop_code:%s " 
 
 def export_agency():
     f = make_csv_writer("agency.txt")
@@ -317,17 +319,9 @@ def get_routedetail_subset(unr, direction,rdlist):
     """
     1. rdlist is mandatory as up down routes have diff orderings as per trip
     """
-    if direction == "UP":
-        from_stop = unr.from_stop
-        to_stop = unr.to_stop
-    else:
-        from_stop = unr.to_stop
-        to_stop = unr.from_stop
 
-    if rdlist[0].route.code[3]== 'R' or '4' :
-        # write ring specific code here. rings have multiple occuring stops, which one to choose??
-        pass
-        #return None    
+    from_stop = unr.from_stop
+    to_stop = unr.to_stop    
 
     from_index = 0
     to_index= 0
@@ -343,11 +337,34 @@ def get_routedetail_subset(unr, direction,rdlist):
         #go to the last iteration, gets last occurence of stop
         if(rd.stop==to_stop):
             to_index = rdlist.index(rd)
-        
+                
+    # override any calculations if unique route is full, needed for ring 
+    if not unr.is_full and not rdlist[0].route.code[3]== 'R' or '4' : :
+        rd_subset = rdlist[from_index:to_index+1]
+    else:
+        rd_subset = rdlist
 
-    if (to_index - from_index) < 8:
+    if direction == "UP":
+        pass
+    else:
+        rd_subset.reverse()
+
+
+    if rdlist[0].route.code[3]== 'R' or '4' :
+        # ring specific code here. 
+        # converts the given ring route subset to double size.
+        if not unr.is_full:
+            import copy        
+            rd_temp = copy.deepcopy(rd_subset)
+            rd_temp.reverse()
+            rd_subset.extend(rd_temp[1:])        
+
+    # if route indexing is funny, then alert
+    if (to_index - from_index) < 5:
         print "Route::",unr.route.code , "from pos", from_index, " to pos ", to_index
-    return rdlist[from_index:to_index]    
+
+    return rd_subset
+        
                
 def runtime_in_minutes(schedule):
     runtime = schedule.runtime1 or schedule.runtime2 or schedule.runtime3 or schedule.runtime4
@@ -377,7 +394,7 @@ def export_stop_times(routelist):
 
         if route not in routelist: continue
 
-        #  get route in sort_order based on UP or DOWN route 
+        #get route in sort_order based on UP or DOWN route 
 
         if direction == "UP":
             rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
@@ -395,14 +412,15 @@ def export_stop_times(routelist):
                 if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D':
                     lst.append(rd)
             rdlist = lst
-            #j getserial needs some more robustness for ring routes
+            
             # shorten the route if its a subset.
             details =  get_routedetail_subset(unr, direction, rdlist)
+            #j getserial needs some more robustness for ring routes
             #details = rdlist[getserial(rdlist,unr.to_stop, True):getserial(rdlist,unr.from_stop, True)]
 
 
         if len(rdlist) < 5:
-            #print "rdlist not populated"   
+            print "rdlist not populated"   
             rdlistempty+=1
             continue
 
@@ -410,6 +428,7 @@ def export_stop_times(routelist):
        
         # calc avg speed for a trip. trip = unr+rs
         dist = unr.distance
+
         #j runtime should be calculated for each separate runtime entry, we have headway too so stop_times becomes a bit more accurate.
         runtime = runtime_in_minutes(schedule)
 
@@ -495,10 +514,14 @@ def export_stop_times(routelist):
                 # if this is the last stop in the route, then 
                     
                     if sequence == len(details) - 1:
-                        arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule)
+                        arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule) + 5
                         arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
                         departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
                         f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
+                        if trip_id == '0510_1382_SH_UP':
+                            import pdb
+                            pdb.set_trace()
+
                     else:
                         # if any other stop
                         f.writerow([trip_id,"","",detail.stop.code,sequence])
@@ -583,10 +606,55 @@ def time_of(timestr):
         return datetime.time(int(tm[0]),int(tm[1]),int(tm[2]))
     except:
         return None
-        
-        
 
 
+def parseDistancesForDetails(details, parse_stages):
+    """
+    This parses a set of route details having intermediate distances and interpolates them. 
+    parse_stages(bool) denotes if the stage itself is to be parsed and replaced.
+    returns the list of details with parsed info.
+    """    
+    prevstage=-1    
+    for seq, detail in enumerate(details):
+        if detail.stage:
+            prevstage = seq
+            if seq !=0 and parse_stages:                
+                detail.km = details[seq-1].km
+            #pass
+        else:            
+            blankstops=0
+            distdelta=0.0
+            for d in details[prevstage+1:]:
+                if d.stage:
+                    #prevstage = seq
+                    if blankstops!=0:
+                        distdelta=d.km/(blankstops+1)    
+                        break
+                    else:
+                        # if 1st stop is a stage                       
+                        distdelta=d.km
+                        break
+                else: 
+                    blankstops+=1        
+            
+                # if last stop is reached while traversing
+                if details.index(d) == len(details)-1:
+                    # if the last stop is not a stage, then we dont have measure of distance, so use  a default of .3km per stop distance
+                    distdelta = 0.3*blankstops
+                    break
+            
+            detail.km = distdelta
+
+        #print("d: %d, serial: %s , dist: %f , stage: %s" %(detail.id, detail.serial, detail.km, detail.stage))
+    return details
+
+def parseDistancesForAllRoutes():
+    for r in Route.objects.all():
+        details = list(RouteDetail.objects.filter(route=r))
+        parsed = parseDistancesForDetails(details, False)
+        for d in parsed:
+            d.save()
+        
 def export_frequencies(routelist):
     f = make_csv_writer("frequencies.txt")
     """
@@ -608,7 +676,7 @@ def export_frequencies(routelist):
         # inclusion criteria
         if route not in routelist: continue
         runtime = runtime_in_minutes(schedule)
-        if not runtime or  unr.distance is None or unr.distance == 0.0: continue     
+        if runtime <= 0.0 or  unr.distance is None or unr.distance == 0.0: continue     
  
         
         headway = (schedule.headway1,
@@ -728,7 +796,7 @@ def export_frequencies2(routelist):
         # inclusion criteria
         if route not in routelist: continue        
         runtime = runtime_in_minutes(schedule)
-        if not runtime or unr.distance is None or unr.distance == 0.0: continue     
+        if runtime <= 0.0 or unr.distance is None or unr.distance == 0.0: continue     
 
         headway = (schedule.headway1,
                    schedule.headway2,

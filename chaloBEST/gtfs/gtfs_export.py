@@ -322,10 +322,12 @@ def get_routedetail_subset(unr, direction,rdlist):
 
     from_stop = unr.from_stop
     to_stop = unr.to_stop    
+    code= str(unr.route.code)[3]
 
     from_index = 0
     to_index= 0
 
+    rdlist = list(rdlist)
     # from stop
     for rd in rdlist:
         if(rd.stop==from_stop):
@@ -339,22 +341,25 @@ def get_routedetail_subset(unr, direction,rdlist):
             to_index = rdlist.index(rd)
                 
     # override any calculations if unique route is full, needed for ring 
-    if not unr.is_full and not rdlist[0].route.code[3]== 'R' or '4' : :
-        rd_subset = rdlist[from_index:to_index+1]
+    if not unr.is_full:
+            rd_subset = rdlist[from_index:to_index+1]           
     else:
         rd_subset = rdlist
 
-    if direction == "UP":
-        pass
-    else:
-        rd_subset.reverse()
+    # direction is being taken care of in
+    #if direction == "UP":
+    #    pass
+    #else:
+    #    rd_subset.reverse()
 
 
-    if rdlist[0].route.code[3]== 'R' or '4' :
+    if code == 'R' or code == '4':
         # ring specific code here. 
         # converts the given ring route subset to double size.
         if not unr.is_full:
-            import copy        
+            import copy    
+            #import pdb 
+            #pdb.set_trace()
             rd_temp = copy.deepcopy(rd_subset)
             rd_temp.reverse()
             rd_subset.extend(rd_temp[1:])        
@@ -400,7 +405,7 @@ def export_stop_times(routelist):
             rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
             lst = [] 
             for rd in rdlist:
-                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U':
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop :
                     lst.append(rd)
             rdlist = lst            
             details =  get_routedetail_subset(unr, direction, rdlist)
@@ -409,15 +414,15 @@ def export_stop_times(routelist):
             rdlist = list(RouteDetail.objects.filter(route=route).order_by("-serial"))
             lst = [] 
             for rd in rdlist:
-                if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D':
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                     lst.append(rd)
             rdlist = lst
             
             # shorten the route if its a subset.
             details =  get_routedetail_subset(unr, direction, rdlist)
-            #j getserial needs some more robustness for ring routes
-            #details = rdlist[getserial(rdlist,unr.to_stop, True):getserial(rdlist,unr.from_stop, True)]
 
+        # use interpolated distances
+        #details = parseDistancesForDetails(details, parse_stages=True)
 
         if len(rdlist) < 5:
             print "rdlist not populated"   
@@ -518,10 +523,7 @@ def export_stop_times(routelist):
                         arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
                         departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
                         f.writerow([trip_id,arrival_time,departure_time,detail.stop.code,sequence])
-                        if trip_id == '0510_1382_SH_UP':
-                            import pdb
-                            pdb.set_trace()
-
+                        
                     else:
                         # if any other stop
                         f.writerow([trip_id,"","",detail.stop.code,sequence])

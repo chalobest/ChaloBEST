@@ -55,9 +55,9 @@ class UniqueRouteForm(forms.ModelForm):
         
     def __init__(self,*args, **kwargs):
         super(UniqueRouteForm,self).__init__(*args,**kwargs)
-        self.fields['from_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route)])
+        self.fields['from_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route).order_by('serial')])
 
-        self.fields['to_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route)])
+        self.fields['to_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route).order_by('serial')])
 
 
 class UniqueRouteAdmin(admin.ModelAdmin):

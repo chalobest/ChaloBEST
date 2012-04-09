@@ -179,7 +179,9 @@ def export_stops(routelist):
             # data checks here 
             # stop_code is used for stop_id as its BEST specfic
             # 
-            f.writerow([stop.code,stop.name,stop.point.coords[1],stop.point.coords[0]])
+            if stop.point:
+                f.writerow([stop.code,stop.name,stop.point.coords[1],stop.point.coords[0]])
+            
         except:
             print "error for writerow", stop.__dict__, stop.point.coords  
             #print "error: Stop id: %s, stop_code:%s " 
@@ -307,7 +309,7 @@ def export_trips(routelist):
 
 def getserial(rdlist,stop,getFirstStop=True):
     #check if rdlist is of a ring route..
-    if rdlist[0].route.code[3]== 'R' or '4' :
+    if rdlist[0].route.code[3] in ['R','4'] :
         # write ring specific code here. rings have multiple occuring stops, which one to choose??
         pass
         #return None    
@@ -320,9 +322,46 @@ def get_routedetail_subset(unr, direction,rdlist):
     1. rdlist is mandatory as up down routes have diff orderings as per trip
     """
 
+
     from_stop = unr.from_stop
     to_stop = unr.to_stop    
     code= str(unr.route.code)[3]
+
+    """
+    # Sometimes to_stop comes before from_stop in RouteDetail.
+    # So reverse the list if that happens.. so a from_stop will always come before a to_stop
+    for detail in details:
+        if detail.stop.id == from_stop: break
+        if detail.stop.id == to_stop:
+            details.reverse()
+            break
+
+
+
+
+        if direction == "UP":
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
+            lst = [] 
+            for rd in rdlist:
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop :
+                    lst.append(rd)
+            rdlist = lst            
+            details =  get_routedetail_subset(unr, direction, rdlist)
+
+        else:             
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("-serial"))
+            lst = [] 
+            for rd in rdlist:
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
+                    lst.append(rd)
+            rdlist = lst
+            
+            # shorten the route if its a subset.
+            details =  get_routedetail_subset(unr, direction, rdlist)
+
+    """
+
+
 
     from_index = 0
     to_index= 0

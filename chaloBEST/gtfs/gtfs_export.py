@@ -256,7 +256,7 @@ def generate_trips(n=None):
         days = schedule.schedule_type
 
         for direction in ("UP","DOWN"):
-            trip_id = "%s_%s_%s_%s" %(route.code,unr.id,days, direction)
+            trip_id = "%s_%s_%s_%s" %(route.code,schedule.id,days, direction)
             #triplist.append([schedule, route, direction, trip_id])
             yield schedule, route, direction, trip_id
     #return uniquify_list_of_lists(triplist)
@@ -281,8 +281,12 @@ def generate_trips_unr(n=None):
 def export_trips(routelist):
     f = make_csv_writer("trips.txt")
     f.writerow(["route_id","service_id","trip_id"])
+    lst = []
     for schedule, route, direction, trip_id in generate_trips():
         if route not in routelist: continue
+        if (route.code, schedule.schedule_type, trip_id) in lst: continue
+
+        lst.append((route.code, schedule.schedule_type, trip_id))
         f.writerow([route.code, schedule.schedule_type, trip_id])
 
     # we need to get UniqueRoutes for each route, that is one trip, since it is based on service_id which shows days_of_run.
@@ -444,13 +448,13 @@ def export_stop_times(routelist):
             rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
             lst = [] 
             for rd in rdlist:
-                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop :
+                if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                     lst.append(rd)
             rdlist = lst            
             details =  get_routedetail_subset(unr, direction, rdlist)
 
         else:             
-            rdlist = list(RouteDetail.objects.filter(route=route).order_by("-serial"))
+            rdlist = list(RouteDetail.objects.filter(route=route).order_by("serial"))
             lst = [] 
             for rd in rdlist:
                 if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
@@ -458,7 +462,7 @@ def export_stop_times(routelist):
             rdlist = lst
             
             # shorten the route if its a subset.
-            details =  get_routedetail_subset(unr, direction, rdlist)
+            details = get_routedetail_subset(unr, direction, rdlist)
 
         # use interpolated distances
         #details = parseDistancesForDetails(details, parse_stages=True)
@@ -656,12 +660,16 @@ def parseDistancesForDetails(details, parse_stages):
     returns the list of details with parsed info.
     """    
     prevstage=-1    
-    for seq, detail in enumerate(details):
+    for seq, detail in enumerate(details):        
+        # dont calculate for first stop
+        if seq==0:continue
+        
         if detail.stage:
             prevstage = seq
-            if seq !=0 and parse_stages:                
-                detail.km = details[seq-1].km
-            #pass
+            # if the first stop hasnt been given km, and if its the first stop, don't make a change, else set the km to prev value.)
+            if  seq > 0 and parse_stages:
+                if details[seq-1].km > 0.0 and not details[seq-1].stage:
+                    detail.km = details[seq-1].km
         else:            
             blankstops=0
             distdelta=0.0
@@ -676,6 +684,8 @@ def parseDistancesForDetails(details, parse_stages):
                         distdelta=d.km
                         break
                 else: 
+                    # make sure first stop doesnt come in the count, as 
+                    #if seq > 0:
                     blankstops+=1        
             
                 # if last stop is reached while traversing

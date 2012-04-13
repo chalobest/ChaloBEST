@@ -36,6 +36,8 @@ def getRoutesHavingAllLocs():
 
     return filteredroutes
 
+
+
 def getCompleteRoutes_old(routelist):
     #get routes having all stop locaions
     filteredroutes = []
@@ -148,6 +150,9 @@ def rindex(lst, item):
         raise ValueError, "rindex(lst, item): item not in list"
 
 
+def make_csv_writer(filename):
+    return csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", filename), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
 def export_routes(routebeer):        
     #routebeer = getRoutesHavingAlLocs()     
 
@@ -161,8 +166,6 @@ def export_routes(routebeer):
         except:
             pass
 
-def make_csv_writer(filename):
-    return csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", filename), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
 def export_stops(routelist):
     stoplist = []
@@ -178,7 +181,6 @@ def export_stops(routelist):
         try:
             # data checks here 
             # stop_code is used for stop_id as its BEST specfic
-            # 
             if stop.point:
                 f.writerow([stop.code,stop.name,stop.point.coords[1],stop.point.coords[0]])
             
@@ -227,8 +229,8 @@ def export_calendar():
     f = make_csv_writer("calendar.txt")
     f.writerow(["service_id" ,"monday","tuesday","wednesday","thursday","friday","saturday","sunday","start_date","end_date"])
 
-    start_date="20000101" #YYYYMMDD format
-    end_date="20500101" #YYYYMMDD format
+    start_date="20120401" #YYYYMMDD format
+    end_date="20120701" #YYYYMMDD format
 
     schedule = SERVICE_SCHEDULE
 
@@ -277,6 +279,34 @@ def generate_trips_unr(n=None):
             yield schedule, unr, route, direction, trip_id
 
 
+def getRoutesWOverlappingSchedules():
+    count = 0
+    rslist=[]
+    #return  a list of unrs and rs's which have colliding schedule_type
+
+    for unr in UniqueRoute.objects.all():
+        ulist = unr.routeschedule_set.all() 
+        
+        rslst = []
+        for rs in ulist:
+            if rs.schedule_type:
+                rslst.append((rs, rs.schedule_type))
+
+        rsset=[]
+        for rs in ulist:
+            if rs.schedule_type and (rs, rs.schedule_type) not in rsset:
+                rsset.append((rs, rs.schedule_type))             
+
+        if len(rslst) > len(rsset):            
+            count+=1
+            #reduced_rslst = list(rsset)
+            #rslist.append([(rs,st) for (rs, st) in rslst if (rs,st) in reduced_rslst])
+
+    return {'rslist':count, 'rsset':rsset, 'rslst':rslst}
+            
+            
+
+overlapp_sched = []
 
 def export_trips(routelist):
     f = make_csv_writer("trips.txt")
@@ -284,7 +314,9 @@ def export_trips(routelist):
     lst = []
     for schedule, route, direction, trip_id in generate_trips():
         if route not in routelist: continue
-        if (route.code, schedule.schedule_type, trip_id) in lst: continue
+        if (route.code, schedule.schedule_type, trip_id) in lst: 
+            overlapp_sched.append((route.code, schedule.schedule_type, trip_id))
+            continue
 
         lst.append((route.code, schedule.schedule_type, trip_id))
         f.writerow([route.code, schedule.schedule_type, trip_id])

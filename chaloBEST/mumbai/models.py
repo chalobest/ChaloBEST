@@ -260,6 +260,8 @@ class RouteDetail(models.Model):
     def __unicode__(self):
         return str(self.route) + " : " + str(self.serial)
 
+    def stop_dir(self):
+        return str(self.stop.dbdirection)
 
 class UniqueRoute(models.Model):
     route = models.ForeignKey(Route)

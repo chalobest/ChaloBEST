@@ -10,8 +10,8 @@ def fix_distances():
         # Sometimes to_stop comes before from_stop in RouteDetail. What is there to say.
         # so reverse the list if that happens.. so a from_stop will always come before a to_stop
         for detail in details:
-            if detail.stop.id == from_stop: break
-            if detail.stop.id == to_stop:
+            if detail.stop.id == from_stop.id: break
+            if detail.stop.id == to_stop.id:
                 details.reverse()
                 break
 
@@ -86,6 +86,7 @@ def fix_missing_runtimes():
                 prev_runtime = getattr(schedule, columns[col_idx-1])
                 if prev_runtime:
                     setattr(schedule, column, prev_runtime)
+                    schedule.save()
                     continue
 
             # ... or the next column, if it comes to that.
@@ -93,6 +94,7 @@ def fix_missing_runtimes():
                 next_runtime = getattr(schedule, columns[col_idx+1])
                 if next_runtime:
                     setattr(schedule, column, next_runtime)
+                    schedule.save()
                     continue
 
             # otherwise, go through the other schedules for this subroute and
@@ -101,6 +103,7 @@ def fix_missing_runtimes():
                 sibling_runtime = getattr(sibling, column)
                 if sibling_runtime:
                     setattr(schedule, column, sibling_runtime)
+                    schedule.save()
                     # print "OK  fix_missing_runtimes: %s %s fixed to %s" % (schedule, column, sibling)
                     break
 
@@ -121,6 +124,7 @@ def fix_missing_runtimes():
                         partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
                         # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
                         setattr(schedule, column, partial_runtime)
+                        schedule.save()
                         break
 
                 # did we find a runtime? great, use it
@@ -138,6 +142,7 @@ def fix_missing_runtimes():
                         partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
                         # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
                         setattr(schedule, column, partial_runtime)
+                        schedule.save()
                         break
 
             if column != "runtime4":
@@ -165,6 +170,7 @@ def fix_missing_headways():
                 prev_headway = getattr(schedule, columns[col_idx-1])
                 if prev_headway:
                     setattr(schedule, column, prev_headway)
+                    schedule.save()
                     continue
 
             # ... or the next column, if it comes to that.
@@ -172,6 +178,7 @@ def fix_missing_headways():
                 next_headway = getattr(schedule, columns[col_idx+1])
                 if next_headway:
                     setattr(schedule, column, next_headway)
+                    schedule.save()
                     continue
 
             #try any headway in the current row:
@@ -179,6 +186,7 @@ def fix_missing_headways():
                 headway = getattr(schedule, hcol)
                 if headway:
                     setattr(schedule, column, headway)
+                    schedule.save()
                     break
             
             if getattr(schedule, column):
@@ -189,6 +197,7 @@ def fix_missing_headways():
                 sibling_headway = getattr(sibling, column)
                 if sibling_headway:
                     setattr(schedule, column, sibling_headway)
+                    schedule.save()
                     # print "OK  fix_missing_headways: %s %s fixed to %s" % (schedule, column, sibling)
                     break
                 
@@ -202,6 +211,7 @@ def fix_missing_headways():
                     headway = getattr(sibling, hcol)
                     if headway:
                         setattr(schedule, column, headway)
+                        schedule.save()
                         break_loop = True
                         break
             
@@ -222,10 +232,10 @@ def fix_missing_headways():
                             break
                         if headway:
                             setattr(schedule, column, headway)
+                            schedule.save()
                             break_loop = True
                             break
-                        
-            
+                                    
             
             if getattr(schedule, column):
                 continue

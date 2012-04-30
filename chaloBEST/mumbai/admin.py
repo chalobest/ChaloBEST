@@ -108,7 +108,7 @@ class StopAdmin(admin.OSMGeoAdmin):
 
 
 class RouteDetailAdmin(admin.ModelAdmin):
-    list_display = ("route_code","serial","stop","stage","km")
+    list_display = ("route_code","serial","stop","stop_dir", "stage","km")
     readonly_fields = ("route_code","serial","stop","stage","km")
     search_fields = ("route_code","stop__name")
     formfield_overrides = {

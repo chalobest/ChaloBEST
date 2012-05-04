@@ -3,6 +3,7 @@ var API_BASE = "/1.0/",
 (function() {
     $(function() {
         initMap();
+	
         $('.tabButton').click(function() {
             if ($(this).hasClass("selected")) {
                 return;
@@ -11,6 +12,7 @@ var API_BASE = "/1.0/",
             var name = $that.attr("data-name");
             var $listWrapper = $('#' + name);
             if ($that.data("loaded")) {
+
                 $.noop(); //dont load data
             } else {
                 $that.data("loaded", true);
@@ -313,7 +315,7 @@ var API_BASE = "/1.0/",
         var permalink = new OpenLayers.Control.Permalink({base: "http://www.openstreetmap.org/"});
         map.addControl(permalink);
         $(".olControlPermalink a").attr("target","_blank").html("View in OSM");
-
+	alert('Not here');
     }
 
     function onFeatureSelect(e) {

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
     (r'^areas/$', 'mumbai.views.areas'),
     (r'^area/(?P<name>.*?)/$', 'mumbai.views.area'),
+    (r'^buseditor/$', 'mumbai.views.buseditor'),	   
     (r'^editstops/$', 'mumbai.views.editstops'),
     (r'^1.0/', include('mumbai.apiurls')),                                        
     # Uncomment the admin/doc line below to enable admin documentation:

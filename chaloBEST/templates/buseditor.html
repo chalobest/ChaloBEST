@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Bus Editor
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/styles.css" ></script>
+<script type = "text/javascript" src="/static/js/underscore-min.js"></script>
+<script type ="text/javascript" src="/static/js/backbone-min.js"></script>
+<script type="text/javascript" src="/static/js/buseditor.js"></script>
+<script type="text/javascript">
+        console.firebug=true;//fix the openlayer problem
+</script>
+
+<script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
+<!-- <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBbz_Bjqtf5U9qGZw4xoS5PxLDadHsC0AA'></script> -->
+
+{% endblock %}
+
+
+{% block body %}
+<div id="header">
+
+    <input id="search" type="text" placeholder="Search for Areas and Stops">
+    <input id="stops" type="button" value="Stops">
+    <input id="areas" type="button" value="Areas">
+    <input id="login" type="button" value="Login to OSM" style="float: right;">
+		
+   
+</div>
+<div id="sideBar">
+</div>
+<div id="content">
+<h2>Welcome to Chalo BEST bus editor</h2>
+<p>
+This BEST Bus stop editor allows you to edit Stops and Areas.
+</p>
+<p>
+<input id="slug" type="text" placeholder="stop-slug" disabled>
+<input id="roads" type="text" placeholder="Road Name" disabled>
+<input id="routes" type="text" placeholder="Routes" disabled>
+<input id="direction" type="text" placeholder="Direction (u - up/d - Down)" disabled>
+<input id="displayName" type="text" placeholder="Display Name">
+<input id="marathiName" type="text" placeholder="Marathi Name">
+<input id="altName" type="text" placeholder="Alternative Names">
+</p>
+<p>
+<input id="save" type="button" value="Save">
+</p>
+</div>
+<div id="mapCol"> 
+
+</div>
+<script type="text/template" id="tpl-stop-list-item">
+	<a href='#stops/<%= id %>'><%= name %></a>
+</script>
+
+<script type="text/template" id="tpl-stop-details">
+    <div class="form-left-col">
+        <label>Id:</label>
+        <input type="text" id="stopId" name="id" value="<%= id %>" disabled />
+        <label>Name:</label>
+        <input type="text" id="name" name="name" value="<%= name %>" required/>
+        <label>Grapes:</label>
+        <input type="text" id="grapes" name="grapes" value="<%= grapes %>"/>
+        <label>Country:</label>
+        <input type="text" id="country" name="country" value="<%= country %>"/>
+        <label>Region:</label>
+        <input type="text" id="region" name="region"  value="<%= region %>"/>
+        <label>Year:</label>
+        <input type="text" id="year" name="year"  value="<%= year %>"/>
+    </div>
+    <div class="form-right-col">
+        
+        <label>Notes:</label>
+        <textarea id="description" name="description"><%= description %></textarea>
+    </div>
+</script>
+
+
+{% endblock %}

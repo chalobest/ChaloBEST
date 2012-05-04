@@ -52,31 +52,9 @@ This BEST Bus stop editor allows you to edit Stops and Areas.
 <div id="mapCol"> 
 
 </div>
-<script type="text/template" id="tpl-stop-list-item">
-	<a href='#stops/<%= id %>'><%= name %></a>
-</script>
 
-<script type="text/template" id="tpl-stop-details">
-    <div class="form-left-col">
-        <label>Id:</label>
-        <input type="text" id="stopId" name="id" value="<%= id %>" disabled />
-        <label>Name:</label>
-        <input type="text" id="name" name="name" value="<%= name %>" required/>
-        <label>Grapes:</label>
-        <input type="text" id="grapes" name="grapes" value="<%= grapes %>"/>
-        <label>Country:</label>
-        <input type="text" id="country" name="country" value="<%= country %>"/>
-        <label>Region:</label>
-        <input type="text" id="region" name="region"  value="<%= region %>"/>
-        <label>Year:</label>
-        <input type="text" id="year" name="year"  value="<%= year %>"/>
-    </div>
-    <div class="form-right-col">
-        
-        <label>Notes:</label>
-        <textarea id="description" name="description"><%= description %></textarea>
-    </div>
-</script>
+
+
 
 
 {% endblock %}

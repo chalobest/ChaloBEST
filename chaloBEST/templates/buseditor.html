@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/static/css/styles.css" ></script>
 <script type = "text/javascript" src="/static/js/underscore-min.js"></script>
 <script type ="text/javascript" src="/static/js/backbone-min.js"></script>
-<script type="text/javascript" src="/static/js/buseditor.js"></script>
+<script type="text/javascript" src="/static/js/thebus.js"></script>
 <script type="text/javascript">
         console.firebug=true;//fix the openlayer problem
 </script>
@@ -37,13 +37,14 @@
 This BEST Bus stop editor allows you to edit Stops and Areas.
 </p>
 <p>
-<input id="slug" type="text" placeholder="stop-slug" disabled>
-<input id="roads" type="text" placeholder="Road Name" disabled>
-<input id="routes" type="text" placeholder="Routes" disabled>
-<input id="direction" type="text" placeholder="Direction (u - up/d - Down)" disabled>
-<input id="displayName" type="text" placeholder="Display Name">
-<input id="marathiName" type="text" placeholder="Marathi Name">
-<input id="altName" type="text" placeholder="Alternative Names">
+<input id="sLug" type="text" placeholder="stop-slug" disabled>
+<input id="rOads" type="text" placeholder="Road Name"  disabled>
+<input id="rOutes" type="text" placeholder="Routes"  disabled>
+<input id="dIrection" type="text" placeholder="Direction (u - up/d - Down)"  disabled>
+<input id="dIsplayName" type="text" placeholder="Display Name" >
+
+<input id="mArathiName" type="text" placeholder="Marathi Name" >
+<input id="aLtName" type="text" placeholder="Alternative Names" >
 </p>
 <p>
 <input id="save" type="button" value="Save">
@@ -52,9 +53,6 @@ This BEST Bus stop editor allows you to edit Stops and Areas.
 <div id="mapCol"> 
 
 </div>
-
-
-
 
 
 {% endblock %}

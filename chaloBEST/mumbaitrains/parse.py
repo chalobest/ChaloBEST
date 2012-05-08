@@ -30,9 +30,9 @@ def saveTrain(url, no, line):
     train.save()
     d = pq(url=url)
     table = d.find('table')[3]
+    serial = 0
     for tr in table.iterfind('tr'):
         children = tr.getchildren()
-        serial = 0
         if len(tr.findall('td')) > 0:
             td0 = children[0]
             a = td0.find('a')

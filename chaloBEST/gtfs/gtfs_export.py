@@ -30,8 +30,14 @@ def getRoutesHavingAllLocs():
     Gets routes having stop location data for each stop on the route.
     '''
     filteredroutes = []
-    for route in Route.objects.all():
-        if routeWithLocationData(route):
+    for route in Route.objects.all().select_related():
+        isOK=False
+        if routeWithLocationData(route): 
+            isOK=True 
+        else:
+            isOK=False
+
+        if isOK:
             filteredroutes.append(route)
 
     return filteredroutes
@@ -100,10 +106,9 @@ def getCompleteRoutes2():
 
 def getCompleteRoutes():
     rset = set()
+
     for rs in RouteSchedule.objects.select_related():
-        if not( rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5 and rs.first_from and rs.first_to and rs.last_from and rs.last_to):   
-        
-      #if rs.runtime1 is None or rs.runtime2 is None or rs.runtime3 is None or rs.runtime4 is None or rs.headway1 is None or rs. headway2 is None or rs.headway3 is None or rs.headway4 is None or rs.headway5 is None or rs.first_from is None or rs.first_to is None or rs.last_from is None or rs.last_to is None:
+        if not( rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5 and rs.first_from and rs.first_to and rs.last_from and rs.last_to):           
             try:
                 rset.remove(rs.unique_route.route)
             except KeyError:
@@ -112,8 +117,8 @@ def getCompleteRoutes():
             # other criteria
             if routeWithLocationData(rs.unique_route.route) and rs.unique_route.distance:
                 rset.add(rs.unique_route.route)
-
     return list(rset)
+
 
 
 
@@ -157,12 +162,11 @@ def make_csv_writer(filename):
 def export_feed_info():
     f = make_csv_writer("feed_info.txt")
     f.writerow(["feed_publisher_name","feed_publisher_url","feed_lang","feed_start_date","feed_end_date","feed_version"])
-    f.writerow(["ChaloBEST","http://chalobest.in","en","20120301","20120630","0.31"])
+    f.writerow(["ChaloBEST","http://chalobest.in","en","20120301","20130630","0.31"])
     
 
 def export_routes(routebeer):        
     #routebeer = getRoutesHavingAlLocs()     
-
     f = make_csv_writer("routes.txt")
     f.writerow(["route_id","agency_id","route_short_name","route_long_name","route_type"])
 
@@ -172,28 +176,6 @@ def export_routes(routebeer):
             f.writerow([route.code,"BEST",route.alias[0:3],route.from_stop_txt + " - " + route.to_stop_txt,3])
         except:
             pass
-
-
-def export_stops(routelist):
-    stoplist = []
-    for route in routelist:
-        rds = RouteDetail.objects.filter(route=route).select_related()
-        stoplist.extend(rd.stop for rd in rds)
-            
-    stoplist = list(set(stoplist))
-    f = make_csv_writer("stops.txt")
-    f.writerow(["stop_id" ,"stop_name","stop_lat","stop_lon"])
-
-    for stop in stoplist:
-        try:
-            # data checks here 
-            # stop_code is used for stop_id as its BEST specfic
-            if stop.point:
-                f.writerow([str(stop.code),stop.name,stop.point.coords[1],stop.point.coords[0]])
-            
-        except:
-            print "error for writerow", stop.__dict__, stop.point.coords  
-            #print "error: Stop id: %s, stop_code:%s " 
 
 def export_agency():
     f = make_csv_writer("agency.txt")
@@ -206,7 +188,6 @@ def export_agency():
     #f.writerow([1 ,"BEST","www.chalobest.in","Asia/Kolkata"])
 
 
-            # stop_code is used for stop_id as its BEST specfic..
 
 SERVICE_SCHEDULE = [
     {'id':0,'code':'MS','days':[1,2,3,4,5,6]},
@@ -226,8 +207,10 @@ SERVICE_SCHEDULE = [
     {'id':14,'code':'SAT/SUND&HOL','days':[6,7,8]},
     {'id':15,'code':'S/H','days':[7,8]},
     {'id':16,'code':'SAT,SUN&HOL','days':[6,7,8]},
-    {'id':17,'code':'FH','days':[5,8]}
+    {'id':17,'code':'FH','days':[5,8]},   
     ]
+
+#{'id':18,'code':'2nd &4th','days':[7,8]},
 # FH indicates what? full week + holidays??
 # HOL holidays means only the exceptions as defined in calendar_dates.txt. this needs to be converted separately. 
 # done here only to get the other components of gtfs up.
@@ -236,8 +219,8 @@ def export_calendar():
     f = make_csv_writer("calendar.txt")
     f.writerow(["service_id" ,"monday","tuesday","wednesday","thursday","friday","saturday","sunday","start_date","end_date"])
 
-    start_date="20120401" #YYYYMMDD format
-    end_date="20120701" #YYYYMMDD format
+    start_date="20120301" #YYYYMMDD format
+    end_date="20130630" #YYYYMMDD format
 
     schedule = SERVICE_SCHEDULE
 
@@ -276,7 +259,6 @@ def generate_trips(n=None):
 def generate_trips_unr(n=None):
     schedules = RouteSchedule.objects.all()
     if n is not None: schedules = schedules[:n]
-    #triplist = []
     for schedule in schedules:
         route = schedule.unique_route.route
         unr = schedule.unique_route
@@ -284,7 +266,6 @@ def generate_trips_unr(n=None):
 
         for direction in ("UP","DOWN"):
             trip_id = "%s_%s_%s_%s" %(route.code,schedule.id,days, direction)
-            #triplist.append([schedule, route, direction, trip_id])
             yield schedule, unr, route, direction, trip_id
 
 
@@ -384,6 +365,7 @@ def getserial(rdlist,stop,getFirstStop=True):
 reversed_rds=[]
 mismatched_unrs={"from":[], "to":[]}
 multiple_to_stops=[]
+badroutes=set()
 
 def get_routedetail_subset(unr, direction):
     """
@@ -399,8 +381,8 @@ def get_routedetail_subset(unr, direction):
         for rd in rdlist:
             if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                 lst.append(rd)
-    else:                 
-        lst = [] 
+    else:
+        lst = []
         for rd in rdlist:
             if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                 lst.append(rd)
@@ -431,7 +413,7 @@ def get_routedetail_subset(unr, direction):
             break
     if from_stop_found == 0:
         print "From-Stop not found in Route Details for unr.id", unr.id, "unr.from_stop_txt=", unr.from_stop_txt , str(unr.__dict__)
-        mismatched_unrs['from'].append({"unr":str(unr.__dict__), "route":unr.route})
+        mismatched_unrs['from'].append({"unr":unr,"unr_from_stop_txt":unr.from_stop_txt,"unr_from_stop":unr.from_stop, "route":unr.route})
 
 
     # to stop index
@@ -448,7 +430,7 @@ def get_routedetail_subset(unr, direction):
         
     if to_stop_found == 0:
         print "To-Stop not found in Route Details for unr.id", unr.id , " unr.to_stop_txt=", unr.to_stop_txt, str(unr.__dict__) 
-        mismatched_unrs['to'].append({"unr":str(unr.__dict__), "route":unr.route})
+        mismatched_unrs['to'].append({"unr":unr,"unr_to_stop_txt":unr.to_stop_txt,"unr_to_stop":unr.to_stop, "route":unr.route})
        
 
     rd_subset = rdlist[from_index:to_index+1]
@@ -470,6 +452,7 @@ def get_routedetail_subset(unr, direction):
     # if route indexing is anything less than 5 or negative, then alert
     if (to_index - from_index) < 5:
         print "Route::",unr.route.code , "from pos", from_index, " to pos ", to_index
+        badroutes.add(unr.route)
 
     return rd_subset
 
@@ -532,11 +515,56 @@ def export_shapes():
                 counter+=1
             else:
                 noLocsStops.append(s.__dict__)
-                
+
+
+
+stopset = set()
+
+def export_stops(routelist):
+    # stop_code is used for stop_id as its BEST specfic..
+    stoplist = []
+    for route in routelist:
+        rds = RouteDetail.objects.filter(route=route).select_related()
+        stoplist.extend(rd.stop for rd in rds)
+            
+    stoplist = list(set(stoplist))
+    f = make_csv_writer("stops.txt")
+    f.writerow(["stop_id" ,"stop_name","stop_lat","stop_lon"])
+
+    for stop in stoplist:
+        try:
+            # data checks here 
+            # stop_code is used for stop_id as its BEST specfic
+            if stop.point:
+                f.writerow([str(stop.code),stop.name,stop.point.coords[1],stop.point.coords[0],str("Marathi:"+stop.name_mr+" Road:"+stop.road.name+" Area:"+stop.area.name+" Altnames:" )])
+            
+        except:
+            print "error for writerow", stop.__dict__, stop.point.coords  
+            #print "error: Stop id: %s, stop_code:%s " 
+
+
+def route_diff(oldroutes,difflist):
+    cr_from_codes = [Route.objects.get(code=a) for a in difflist]
+    crset= set(cr_from_codes)
+    oldroutes = set(oldroutes)
+    oldroutes = oldroutes.difference(crset)
+    return list(oldroutes)
+
+
+def export_stop_times2(routelist):
+    f = make_csv_writer("stop_times.txt")
+    f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence", "cumulative_distance", "isStage"])
+    
+    for schedule, unr, route, direction, trip_id in generate_trips_unr():
+        if route not in routelist: continue
+        details =  get_routedetail_subset(unr, direction)
+        
+
 
 def export_stop_times(routelist):
     print "Exporting stop times.."
     f = make_csv_writer("stop_times.txt")
+    #f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence", "cumulative_distance", "isStage"])
     f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
     
     # get trips and route details
@@ -553,12 +581,7 @@ def export_stop_times(routelist):
         #if not unr.is_full: continue
 
         #get route in sort_order based on UP or DOWN route 
-
-        if direction == "UP":
-            details =  get_routedetail_subset(unr, direction)
-
-        else:             
-            details = get_routedetail_subset(unr, direction)
+        details =  get_routedetail_subset(unr, direction)
 
         # use interpolated distances
         #details = parseDistancesForDetails(details, parse_stages=True)
@@ -566,9 +589,8 @@ def export_stop_times(routelist):
         if len(details) < 5:
             print "rdlist not populated"   
             rdlistempty+=1
+            badroutes.add(route)
             continue
-
-            #rdlist = rdlist.reverse()
        
         # calc avg speed for a trip. trip = unr+rs
         dist = unr.distance
@@ -585,8 +607,7 @@ def export_stop_times(routelist):
             nospeeds+=1
                 
 
-        # checks and failsafes
-            
+        # checks and failsafes            
         if avgspeed < 5.0/60.0:
             # avg human walking speed is 5 km/hr
             print "Error: Speed for %s is %s" %(trip_id, str(avgspeed*60.0) ) 
@@ -595,7 +616,7 @@ def export_stop_times(routelist):
 
         if avgspeed > 30.0/60.0:
             toofasts+=1
-            #avgspeed=50.0/60.0
+            #avgspeed=30.0/60.0
         
         # setting up some vars and failsafes
         initial_time = departure_time = schedule.first_to if direction == "UP" else schedule.first_from
@@ -603,7 +624,9 @@ def export_stop_times(routelist):
             initial_time  = time_of("05:00:00")
 
         arrival_time = initial_time
-        cumulative_dist = 0.0
+        cumulative_distance = 0.0
+        prev_at = initial_time
+        prev_dt = initial_time
         timedelta = 0
         distdelta = 0.0
         today = datetime.date.today()
@@ -611,61 +634,79 @@ def export_stop_times(routelist):
         prevstage = 0
         rdetails = []
         rdict = {}
-
+        dt= 0
         for sequence, detail in enumerate(details):
             rdetails.append([sequence,detail])
             rdict[sequence] = detail
 
         # main process 
         for sequence, detail in rdetails:
+
+            stopset.add(detail.stop)
             # if stop is a stage, then it has km (delta) info
             if detail.km:
-                cumulative_dist+=float(detail.km)
+                cumulative_distance+=float(detail.km)
 
                 if avgspeed != 0.0:
-                    offsettime = cumulative_dist/avgspeed
-                    # 
+                    offsettime = cumulative_distance/avgspeed
                     dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
                     arrival_time = dt.time()
+
                     # Add 10 seconds to departure time 
                     dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
                     departure_time = dt.time()
+
+
+                    #f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
+
                     f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
-                    blankstops=1
+
+                    prev_at = time_of(arrival_time.__str__().split(".")[0])
+                    prev_dt = time_of(departure_time.__str__().split(".")[0])                    
+
+                    blankstops=0
                     prevstage = sequence
                     
             else:
                 # for non-stage stops
                 # go to the next stage, get no. of stops in the middle, get the km delta, 
-                # blankstops+=1
-                """
-                #j go ahead for n stops and find out the km distance. 
-                
-                for detail in details[prevstage:]:
-                    if not detail.km:
-                        blankstops+=1
-                    else:
-                        #stage stop
-                        distdelta=detail.km/blankstops
-                        break
-                """
+                blankstops+=1
 
                 # first stop
                 if sequence == 0:
                     f.writerow([trip_id,initial_time,initial_time,str(detail.stop.code),sequence+1])
+                    #f.writerow([trip_id,initial_time,initial_time,str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ]) 
 
                 else:    
                 # if this is the last stop in the route, then 
                     
+
                     if sequence == len(details) - 1:
-                        arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule) + 7
-                        arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)
-                        departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
-                        f.writerow([trip_id,arrival_time,departure_time,str(detail.stop.code),sequence+1])
+                        offsettime = (cumulative_distance+(0.3*blankstops))/avgspeed
+                        dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
+                        arrival_time = dt.time()
+
+                        dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=60) 
+                        departure_time =  dt.time()                    
+                        
+                        #arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule) + 7
+                        #arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                        
+                        #departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
+
+                        if prev_dt and time_of(arrival_time):
+                            if time_of(arrival_time) < prev_dt:
+                                arrival_time = "%02d:%02d:00" % (int((arrival+3)/60), (arrival+3) % 60)
+                                departure_time=arrival_time
+
+                        f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
+
+                        #f.writerow([trip_id,arrival_time,departure_time,str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
                         
                     else:
                         # if any other stop
                         f.writerow([trip_id,"","",str(detail.stop.code),sequence+1])
+                        #f.writerow([trip_id,"","",str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
+                
 
 
     print "Trips too fast::", toofasts 
@@ -922,6 +963,8 @@ def export_frequencies(routelist):
 
 
 
+
+
 def export_frequencies2(routelist):
     f = make_csv_writer("frequencies.txt")
     """
@@ -1095,6 +1138,29 @@ def export_frequencies2(routelist):
                                         
                     f.writerow([trip_id,st_str, et_str, headway[span]*60])
 
+def export_stops_from_set():
+    import codecs
+    f =codecs.open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "stops.txt"), "w", "utf-8")
+    f.write("stop_id,stop_name,stop_lat,stop_lon,stop_desc\n")
+
+    for stop in stopset:
+        # stop_code is used for stop_id as its BEST specfic
+        desc = "Marathi:"+stop.name_mr+" Road:"+stop.road.name+" Area:"+stop.area.name
+
+        alt_names = [an.name for an in stop.alt_names.all()]
+        alt_name_str = " Altnames:"        
+        for an in alt_names:
+            alt_name_str+= an + "; "
+        # remove trailing delimiter and space
+        alt_name_str=alt_name_str[:-2]
+        if alt_names:
+            desc+=alt_name_str
+
+        
+        f.write(str(stop.code) + "," + stop.name.replace(",","") +"," +  str(stop.point.coords[1]) +"," + str(stop.point.coords[0]) +"," +  desc.replace(",","") + "\n") 
+
+
+
 def makeStopList():
     import codecs
     f =codecs.open(join(PROJECT_ROOT, "gtfs", "Stops.csv"), "w", "utf-8")
@@ -1115,9 +1181,10 @@ def fire_up(routelist):
         routelist = getCompleteRoutes2()
     export_feed_info()
     export_routes(routelist)
-    export_stops(routelist)
     export_frequencies2(routelist)
     export_stop_times(routelist)
+    #export_stops(routelist)
+    export_stops_from_set()
     export_calendar()
     export_trips(routelist)
     export_agency()

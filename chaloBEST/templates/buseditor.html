@@ -6,9 +6,10 @@
 
 {% block head %}
 <link rel="stylesheet" href="/static/css/styles.css" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type = "text/javascript" src="/static/js/underscore-min.js"></script>
 <script type ="text/javascript" src="/static/js/backbone-min.js"></script>
-<script type="text/javascript" src="/static/js/buseditor.js"></script>
+<script type="text/javascript" src="/static/js/thebus.js"></script>
 <script type="text/javascript">
         console.firebug=true;//fix the openlayer problem
 </script>
@@ -24,7 +25,7 @@
 
     <input id="search" type="text" placeholder="Search for Areas and Stops">
     <input id="stops" type="button" value="Stops">
-    <input id="areas" type="button" value="Areas">
+    <input id="routes" type="button" value="Routes">
     <input id="login" type="button" value="Login to OSM" style="float: right;">
 		
    
@@ -37,14 +38,16 @@
 This BEST Bus stop editor allows you to edit Stops and Areas.
 </p>
 <p>
-<input id="sLug" type="text" placeholder="stop-slug" disabled>
+<input id="sLug" type="text" placeholder="stop-slug" value = "" disabled>
 <input id="rOads" type="text" placeholder="Road Name"  disabled>
-<input id="rOutes" type="text" placeholder="Routes"  disabled>
+
 <input id="dIrection" type="text" placeholder="Direction (u - up/d - Down)"  disabled>
 <input id="dIsplayName" type="text" placeholder="Display Name" >
 
 <input id="mArathiName" type="text" placeholder="Marathi Name" >
 <input id="aLtName" type="text" placeholder="Alternative Names" >
+<!--<input id="rOutes" type="textarea" placeholder="Routes"  disabled>-->
+<textarea id="rOutes" rows="3" placeholder="Routes" ></textarea>
 </p>
 <p>
 <input id="save" type="button" value="Save">

@@ -42,5 +42,5 @@ def setup():
 def deploy():
     bzr_push()
     bzr_update()
-    virtual_run('python %(project_name)s/manage.py syncdb;python %(project_name)s/manage.py migrate'%env)
+#    virtual_run('python %(project_name)s/manage.py syncdb;python %(project_name)s/manage.py migrate'%env)
     run('touch %(project_root)s/wsgi/django.wsgi'%env)

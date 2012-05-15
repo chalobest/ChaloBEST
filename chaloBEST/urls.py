@@ -4,6 +4,7 @@ from os.path import join
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+from feeds import RouteFeed
 #import ox.django.api.urls
 #import mumbai
 
@@ -16,8 +17,12 @@ urlpatterns = patterns('',
     url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     (r'^routes/$', 'mumbai.views.routes'),
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
+    (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/georss/$', RouteFeed()),
     (r'^areas/$', 'mumbai.views.areas'),
     (r'^area/(?P<name>.*?)/$', 'mumbai.views.area'),
+#    (r'^area/(?P<name>.*?)/georss/$', AreaFeed()),
+    (r'^stop/(?P<slug>.*?)/$', 'mumbai.views.stop'),
+#    (r'^stop/(?P<slug>.*?)/georss/$', StopFeed()),
     (r'^buseditor/$', 'mumbai.views.buseditor'),	   
     (r'^editstops/$', 'mumbai.views.editstops'),
     (r'^1.0/', include('mumbai.apiurls')),                                        

@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
+from os.path import join
+
 
 admin.autodiscover()
 
@@ -28,10 +30,10 @@ urlpatterns = patterns('',
     (r'^scheduler/', include('rapidsms.contrib.scheduler.urls')),
 )
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        # helper URLs file that automatically serves the 'static' folder in
-        # INSTALLED_APPS via the Django static media server (NOT for use in
-        # production)
-        (r'^', include('rapidsms.urls.static_media')),
-    )
+if settings.LOCAL_DEVELOPMENT:
+#
+  urlpatterns += patterns('',
+#
+  (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': join(settings.PROJECT_PATH, "static")}),
+#
+)

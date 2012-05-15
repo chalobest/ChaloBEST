@@ -160,7 +160,7 @@ class Stop(models.Model):
             'direction': self.dbdirection,
             'routes': ", ".join([r.alias for r in routes]),
             'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')]),
-             'url': self.get_absolute_url()
+            'url': self.get_absolute_url()
         }
 
     def get_geojson(self, srid=4326):

@@ -67,9 +67,9 @@ def areas(request):
 def stops(request):
     q = request.GET.get("q", "")
     if q != '':
-        qset = Stop.objects.find_approximate(q, TRIGRAM_THRESHOLD).select_related('road', 'area')
+        qset = Stop.objects.find_approximate(q, TRIGRAM_THRESHOLD)
     else:
-        qset = Stop.objects.all().select_related('road', 'area')
+        qset = Stop.objects.all()
     srid = int(request.GET.get("srid", 4326))   
     return render_to_json_response({
         'type': 'FeatureCollection',

@@ -21,10 +21,11 @@ a:hover {
 
 {% block body %}
     <div id="stopListWrapper" class="listColumn">
+        <input class="listFilterInput" placeholder="Filter..." />
         <ul id="stopList">
             {% for stop in stops %}
                 <li>
-                    <a href="{{ stop.get_absolute_url }}">{{ s.name }}</a>
+                    <a href="{{ stop.get_absolute_url }}">{{ s.display_name }}</a>
                 </li>
             {% endfor %}
         </ul>
@@ -40,6 +41,18 @@ a:hover {
                 {% endfor %}
             </ul>
     </div>
+    <div id="areaListWrapper" class="listColumn">
+        <input class="listFilterInput" placeholder="Filter..." />
+        <ul id="areaList">
+            {% for area in area.nearby_areas %}
+                <li>
+                    <a href="{{ area.get_absolute_url }}">{{ area.display_name }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
     <div id="map"></div>
 
 {% endblock %}

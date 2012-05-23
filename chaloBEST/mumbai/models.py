@@ -214,6 +214,11 @@ class Stop(models.Model):
         tup = (self.point, dist,)
         return Stop.objects.filter(point__distance_lte=tup)
 
+    @property
+    def routes(self):
+        return Route.objects.filter(routedetail__stop=self)
+    
+
     def __unicode__(self):
         return self.name   
 
@@ -262,6 +267,9 @@ class Route(models.Model):
             'distance': str(self.distance),
             'url': self.get_absolute_url()
         }
+
+    def areas_passed(self):
+        return Area.objects.filter(stop__routedetail__route=self).distinct()
 
 class RouteDetail(models.Model):
     route_code = models.TextField()

@@ -106,6 +106,7 @@ function onFeatureUnselect(obj) {
 
 {% block body %}
     <div id="stopListWrapper" class="listColumn">
+        <h4>Stops on route:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
         <ul id="stopList">            
             {% for r in routeDetails %}
@@ -117,6 +118,7 @@ function onFeatureUnselect(obj) {
     </div>
 
     <div id="areaListWrapper" class="listColumn">
+        <h4>Areas passed:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
         <ul id="areaList">
             {% for area in route.areas_passed %}

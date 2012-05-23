@@ -112,7 +112,7 @@ class Area(models.Model):
         stop = self.stop_set.all()[0]
         tup = (stop.point, distance,)
         qset = Stop.objects.filter(point__distance_lte=tup).values('area').distinct()
-        area_ids = [val.area for val in qset]
+        area_ids = [val['area'] for val in qset]
         return Area.objects.filter(pk__in=area_ids)    
 
 class Road(models.Model):

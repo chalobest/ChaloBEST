@@ -108,7 +108,7 @@ class Area(models.Model):
 
     #FIXME: ideally this would be done using the polygon of the area, but right now we take a random stop in the area, find all stops within x kms, and then return unique areas for those stops.    
     @property
-    def nearby_areas(self, distance=D(km=5)):
+    def nearby_areas(self, distance=D(km=3)):
         stop = self.stop_set.all()[0]
         tup = (stop.point, distance,)
         qset = Stop.objects.filter(point__distance_lte=tup).values('area').distinct()
@@ -210,7 +210,7 @@ class Stop(models.Model):
         return self.get_geojson(srid=srid)
 
     @property
-    def nearby_stops(self, dist=D(km=2)):
+    def nearby_stops(self, dist=D(km=1)):
         tup = (self.point, dist,)
         return Stop.objects.filter(point__distance_lte=tup)
 

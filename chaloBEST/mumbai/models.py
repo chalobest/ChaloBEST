@@ -53,7 +53,7 @@ RUNTIMES = (
     (20, 24)
 )
 
-class TrigramSearchManager(models.Manager):
+class TrigramSearchManager(models.GeoManager):
     def __init__(self, trigram_columns=[]):
         super(TrigramSearchManager, self).__init__()
         self.trigram_columns = trigram_columns
@@ -228,6 +228,7 @@ class Route(models.Model):
     to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
+    
 
     class Meta:
         ordering = ['code']

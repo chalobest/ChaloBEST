@@ -20,14 +20,26 @@ a:hover {
 {% endblock %}
 
 {% block body %}
-    <ul id="stopList">
-        {% for s in stops %}
-            <li>
-                <a href="{{ s.get_absolute_url }}" class="{% if s.point %} has_point {% else %} no_point {% endif %}">{{ s.name }}</a>
-            </li>
+    <div id="stopListWrapper" class="listColumn">
+        <ul id="stopList">
+            {% for stop in stops %}
+                <li>
+                    <a href="{{ stop.get_absolute_url }}">{{ s.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="routeListWrapper" class="listColumn">
+        <input class="listFilterInput" placeholder="Filter..." />
+            <ul id="routeList">
+                {% for route in routes %}
+                <li>
+                    <a href="{{ route.get_absolute_url }}">{{ route.alias }}</a>
+                </li>
 
-        {% endfor %}
-
-    </ul>
+                {% endfor %}
+            </ul>
+    </div>
+    <div id="map"></div>
 
 {% endblock %}

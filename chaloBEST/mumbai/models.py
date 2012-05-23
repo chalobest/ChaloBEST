@@ -5,6 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.db import connection
 import json
+from django.contrib.gis.measure import D
 
 STOP_CHOICES = ( ('U','Up'),
                  ('D', 'Down'),
@@ -104,7 +105,16 @@ class Area(models.Model):
 
     def __unicode__(self):
         return self.name   
-    
+
+    #FIXME: ideally this would be done using the polygon of the area, but right now we take a random stop in the area, find all stops within x kms, and then return unique areas for those stops.    
+    @property
+    def nearby_areas(self, distance=D(km=5)):
+        stop = self.stop_set.all()[0]
+        tup = (stop.point, distance,)
+        qset = Stop.objects.filter(point__distance_lte=tup).values('area').distinct()
+        area_ids = [val.area for val in qset]
+        return Area.objects.filter(pk__in=area_ids)    
+
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
     slug = models.SlugField(null=True)
@@ -199,6 +209,10 @@ class Stop(models.Model):
         self.save()
         return self.get_geojson(srid=srid)
 
+    @property
+    def nearby_stops(self, dist=D(km=2)):
+        tup = (self.point, dist,)
+        return Stop.objects.filter(point__distance_lte=tup)
 
     def __unicode__(self):
         return self.name   

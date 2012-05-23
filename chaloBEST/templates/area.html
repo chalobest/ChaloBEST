@@ -21,6 +21,7 @@ a:hover {
 
 {% block body %}
     <div id="stopListWrapper" class="listColumn">
+        <h4>Stops in {{ area.display_name }}:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
         <ul id="stopList">
             {% for stop in stops %}
@@ -31,6 +32,7 @@ a:hover {
         </ul>
     </div>
     <div id="routeListWrapper" class="listColumn">
+        <h4>Routes passing through {{ area.display_name }}:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
             <ul id="routeList">
                 {% for route in routes %}
@@ -42,6 +44,7 @@ a:hover {
             </ul>
     </div>
     <div id="areaListWrapper" class="listColumn">
+        <h4>Nearby areas:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
         <ul id="areaList">
             {% for area in area.nearby_areas %}

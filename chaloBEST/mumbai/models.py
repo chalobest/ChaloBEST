@@ -115,6 +115,10 @@ class Area(models.Model):
         area_ids = [val['area'] for val in qset]
         return Area.objects.filter(pk__in=area_ids)    
 
+    @property
+    def routes_passing(self):
+        return Route.objects.filter(routedetail__stop__area=self).distinct()
+
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
     slug = models.SlugField(null=True)

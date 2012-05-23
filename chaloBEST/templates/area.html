@@ -26,7 +26,7 @@ a:hover {
         <ul id="stopList">
             {% for stop in stops %}
                 <li>
-                    <a href="{{ stop.get_absolute_url }}">{{ s.display_name }}</a>
+                    <a href="{{ stop.get_absolute_url }}">{{ stop.display_name }}</a>
                 </li>
             {% endfor %}
         </ul>
@@ -35,7 +35,7 @@ a:hover {
         <h4>Routes passing through {{ area.display_name }}:</h4>
         <input class="listFilterInput" placeholder="Filter..." />
             <ul id="routeList">
-                {% for route in routes %}
+                {% for route in area.routes_passing %}
                 <li>
                     <a href="{{ route.get_absolute_url }}">{{ route.alias }}</a>
                 </li>

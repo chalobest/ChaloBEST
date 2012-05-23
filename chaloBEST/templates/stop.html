@@ -7,7 +7,7 @@
         <ul id="stopList">
             {% for s in stop.nearby_stops %}
                 <li>
-                    <a href="{{ stop.get_absolute_url }}">{{ s.display_name }}</a>
+                    <a href="{{ s.get_absolute_url }}">{{ s.display_name }}</a>
                 </li>
             {% endfor %}
         </ul>

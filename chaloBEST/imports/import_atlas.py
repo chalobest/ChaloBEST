@@ -20,7 +20,7 @@ def csvToJSON():
 #        print a
         if routeNo != '':
             if atlasDict.has_key(routeNo):
-                atlasDist[routeNo].append(a)
+                atlasDict[routeNo].append(a)
             else:
                 atlasDict[routeNo] = [a]
             previousRoute = routeNo

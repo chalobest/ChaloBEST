@@ -1,22 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'databrowse_base.html' %}
 
 {% block title %} Area: {{ area.name }} {% endblock %}
 
-{% block head %}
-    <style type="text/css">
-.has_point {
-    color: #0f0;
-}
-
-.no_point {
-    color: #f00;
-}
-
-a:hover {
-    color: #00f;
-}
-    </style>
-
+{% block api_url %}
+var API_BASE = "/1.0/";
+var API_URL = API_BASE + 'area/' + "{{ area.slug }}";
 {% endblock %}
 
 {% block body %}

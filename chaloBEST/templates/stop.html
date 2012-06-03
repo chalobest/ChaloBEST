@@ -1,4 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'databrowse_base.html' %}
+
+{% block api_url %}
+var API_BASE = "/1.0/";
+var API_URL = API_BASE + 'stop/' + "{{ stop.slug }}";
+{% endblock %}
+
+{% block geojson_callback %}
+        jsonLayer.addFeatures(geojson_format.read(obj));
+        var maxExtent = jsonLayer.getDataExtent();
+        map.zoomToExtent(maxExtent);
+
+{% endblock %}
+
 
 {% block body %}
     <div id="stopListWrapper" class="listColumn">

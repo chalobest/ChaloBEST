@@ -55,13 +55,13 @@ class UniqueRouteForm(forms.ModelForm):
         
     def __init__(self,*args, **kwargs):
         super(UniqueRouteForm,self).__init__(*args,**kwargs)
-        self.fields['from_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route).order_by('serial')])
-
-        self.fields['to_stop'].queryset = Stop.objects.filter(pk__in=[rd.stop.id for rd in RouteDetail.objects.filter(route=self.instance.route).order_by('serial')])
+        self.fields['from_stop'].queryset = Stop.objects.filter(routedetail__route=self.instance.route).order_by('routedetail')
+        self.fields['to_stop'].queryset = Stop.objects.filter(routedetail__route=self.instance.route).order_by('routedetail')
 
 
 class UniqueRouteAdmin(admin.ModelAdmin):
     list_display = ("route","from_stop", "from_stop_txt", "to_stop", "to_stop_txt", "distance","is_full")
+    list_editable = ("from_stop", "to_stop")
     readonly_fields = ("route","distance","is_full")
     search_fields = ("route__alias", "from_stop__name", "to_stop__name")
     ordering = ('route',)

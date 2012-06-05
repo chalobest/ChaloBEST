@@ -108,7 +108,8 @@ def getCompleteRoutes():
     rset = set()
 
     for rs in RouteSchedule.objects.select_related():
-        if not( rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5 and rs.first_from and rs.first_to and rs.last_from and rs.last_to):           
+        if not( rs.runtime1 and rs.runtime2 and rs.runtime3 and rs.runtime4 and rs.headway1 and rs. headway2 and rs.headway3 and rs.headway4 and rs.headway5):
+# and rs.first_from and rs.first_to and rs.last_from and rs.last_to):           
             try:
                 rset.remove(rs.unique_route.route)
             except KeyError:
@@ -121,7 +122,7 @@ def getCompleteRoutes():
 
 
 
-
+"""
 def routeWithSomeLocationData(route,limit):
     '''
     Gets stoplist for a route which has at most <limit> no of stops without location data.
@@ -144,7 +145,7 @@ def routeWithSomeLocationData(route,limit):
         return dict({'route':route, 'neededstops':len(stoplist) })
     else:
         return None
-
+"""
 
 def rindex(lst, item):
     """
@@ -159,12 +160,7 @@ def rindex(lst, item):
 def make_csv_writer(filename):
     return csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", filename), "w"), delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-def export_feed_info():
-    f = make_csv_writer("feed_info.txt")
-    f.writerow(["feed_publisher_name","feed_publisher_url","feed_lang","feed_start_date","feed_end_date","feed_version"])
-    f.writerow(["ChaloBEST","http://chalobest.in","en","20120301","20130630","0.31"])
-    
-
+   
 def export_routes(routebeer):        
     #routebeer = getRoutesHavingAlLocs()     
     f = make_csv_writer("routes.txt")
@@ -215,12 +211,34 @@ SERVICE_SCHEDULE = [
 # HOL holidays means only the exceptions as defined in calendar_dates.txt. this needs to be converted separately. 
 # done here only to get the other components of gtfs up.
 
+feed_start_date="2012-03-01" # YYYY-MM-DD
+feed_end_date="2012-06-30" # YYYY-MM-DD
+
 def export_calendar():
     f = make_csv_writer("calendar.txt")
     f.writerow(["service_id" ,"monday","tuesday","wednesday","thursday","friday","saturday","sunday","start_date","end_date"])
 
-    start_date="20120301" #YYYYMMDD format
-    end_date="20130630" #YYYYMMDD format
+    f2 = make_csv_writer("calendar_dates.txt")
+    f2.writerow(["service_id","date","exception_type"])
+
+    # start date
+    d = feed_start_date.split("-")    
+    s_year=d[0]
+    s_month=d[1]
+    s_day=d[2]
+
+    
+    # end date
+    d = feed_end_date.split("-")    
+    e_year=d[0]
+    e_month=d[1]
+    e_day=d[2]
+
+    start_date_str = s_year+s_month+s_day # "20120301" #YYYYMMDD format
+    end_date_str = e_year+e_month+e_day # "20120630" #YYYYMMDD format 
+
+    start_date = datetime.date(int(s_year),int(s_month),int(s_day))
+    end_date = datetime.date(int(e_year),int(e_month),int(e_day)) 
 
     schedule = SERVICE_SCHEDULE
 
@@ -228,12 +246,20 @@ def export_calendar():
         try:
             # data checks here 
             running = [1 if day in ss['days'] else 0 for day in range(1,8)]
-            #if 8 in  ss['days']:
-            #    add_caldate(service_id)
-            # ternary operation :::: ('false','true')[condition]
-            f.writerow([ss['code']] + running + [start_date,end_date])
+            if 8 in ss['days']:
+                # check holidays, if not sunday, and in time period between start_date and stop_date then, load in cal_dates
+                for hol in Holiday.objects.all():
+                    if hol.date > start_date and hol.date < end_date and hol.date.isoweekday != 7:                        
+                        f2.writerow([ss['code']]+ [hol.date.__str__().replace("-","")] + ["1"])
+            
+            f.writerow([ss['code']] + running + [start_date_str,end_date_str])
         except:
             print "Error:", str(ss) + '\t' +  str(sys.exc_info()[0]) + '\n'                
+
+def export_feed_info():
+    f = make_csv_writer("feed_info.txt")
+    f.writerow(["feed_publisher_name","feed_publisher_url","feed_lang","feed_start_date","feed_end_date","feed_version"])
+    f.writerow(["ChaloBEST","http://chalobest.in","en","20120301","20130630","0.31"])
 
 
 def uniquify_list_of_lists(sequence):
@@ -375,7 +401,8 @@ def get_routedetail_subset(unr, direction):
     to_stop = unr.to_stop    
     code=str(unr.route.code)[3]
     rdlist = list(RouteDetail.objects.filter(route=unr.route).order_by("serial"))
-        
+
+    # select stops in route for "UP/DOWN" routes respectively
     if direction in ["UP", "up", "U"]:
         lst = [] 
         for rd in rdlist:
@@ -390,7 +417,8 @@ def get_routedetail_subset(unr, direction):
     rdlist = lst            
     
     # Sometimes to_stop comes before from_stop in RouteDetail.
-    # So reverse the list if that happens.. so a from_stop will always come before a to_stop            
+    # So reverse the list if that happens.. so a from_stop will always come before a to_stop              # This is when the from_stop / to_stop mapping is not proper 
+
     for detail in rdlist:
         if detail.stop.id == from_stop.id: break
         if detail.stop.id == to_stop.id:
@@ -411,8 +439,9 @@ def get_routedetail_subset(unr, direction):
             from_index = rdlist.index(rd)
             from_stop_found=1
             break
+
     if from_stop_found == 0:
-        print "From-Stop not found in Route Details for unr.id", unr.id, "unr.from_stop_txt=", unr.from_stop_txt , str(unr.__dict__)
+        print "From-Stop not found in Route Details for unr.id", unr.id, "unr.from_stop_txt=", unr.from_stop_txt 
         mismatched_unrs['from'].append({"unr":unr,"unr_from_stop_txt":unr.from_stop_txt,"unr_from_stop":unr.from_stop, "route":unr.route})
 
 
@@ -429,7 +458,7 @@ def get_routedetail_subset(unr, direction):
         multiple_to_stops.append({"unr":unr,"count":to_stop_found,"to_stop":unr.to_stop})
         
     if to_stop_found == 0:
-        print "To-Stop not found in Route Details for unr.id", unr.id , " unr.to_stop_txt=", unr.to_stop_txt, str(unr.__dict__) 
+        print "To-Stop not found in Route Details for unr.id", unr.id , " unr.to_stop_txt=", unr.to_stop_txt
         mismatched_unrs['to'].append({"unr":unr,"unr_to_stop_txt":unr.to_stop_txt,"unr_to_stop":unr.to_stop, "route":unr.route})
        
 
@@ -459,6 +488,7 @@ def get_routedetail_subset(unr, direction):
 
 def make_is_full():
     fn=[]
+    cn=[]
     for unr in UniqueRoute.objects.select_related().all():
         maxdist = max(unr.route.uniqueroute_set.values_list('distance'))[0]
         """
@@ -469,21 +499,23 @@ def make_is_full():
         if unr.distance==unr.route.distance and not unr.is_full:
             unr.is_full=True
             unr.save()
-
-        # imp bug in BEST data, if the max_distance of the atlas entries do not 
-        # match the route.distance one of those is wrong
-        #if maxdist != unr.route.distance
-        #    fn.append(unr)     
         """
+        # imp bug in BEST data, if the max_distance of the atlas entries do not
+        # match the route.distance one of those is wrong
+        if maxdist > unr.route.distance and unr.distance == maxdist:
+            fn.append(unr)     
+            cn.append(unr.route)
 
-        if unr.distance==maxdist:            
-            unr.is_full=True
-            unr.save()
-        else:
-            unr.is_full=False
-            unr.save()
-            
-    return fn
+       # if unr.distance==maxdist:            
+           # unr.is_full=True
+           # unr.save()
+       # else:
+           # unr.is_full=False
+           # unr.save()
+    cn = list(set(cn))
+     
+    d = {"unrs": fn, "routes":cn}
+    return d
             
         
                
@@ -491,8 +523,28 @@ def runtime_in_minutes(schedule):
     """
     runtime returned is a single value and maybe would be more refined it would consider timespan.
     """
+    
     runtime = schedule.runtime1 or schedule.runtime2 or schedule.runtime3 or schedule.runtime4
-    if runtime: return runtime
+
+    tot=0.0
+    cnt=0
+    if schedule.runtime1:
+        tot+=schedule.runtime1
+        cnt+=1
+    if schedule.runtime2:
+        tot+=schedule.runtime2
+        cnt+=1
+    if schedule.runtime3:
+        tot+=schedule.runtime3
+        cnt+=1
+    if schedule.runtime4:
+        tot+=schedule.runtime4
+        cnt+=1
+    if cnt!=0:
+        runtime = tot/cnt
+        return runtime
+        
+    
     t_from, t_to = schedule.first_from, schedule.first_to
     if not t_from or not t_to:
         t_from, t_to = schedule.last_from, schedule.last_to
@@ -550,15 +602,161 @@ def route_diff(oldroutes,difflist):
     oldroutes = oldroutes.difference(crset)
     return list(oldroutes)
 
+def compare_unr_distances(routelist):
+    rdict={}
+    rdict["mismatch"]=[]
+    for schedule, unr, route, direction, trip_id in generate_trips_unr():
+        if route not in routelist: continue
+        details =  get_routedetail_subset(unr, direction)
+
+        # use interpolated distances
+        #details = parseDistancesForDetails(details, parse_stages=True)
+
+        # a lot of unique routes have a shorter distance than the main route even though they span its entire length
+        dist1=0.0
+        if unr.is_full and route.distance:
+            dist1 = route.distance
+
+        dist2 = unr.distance
+        dist3=0.0
+        for sequence, detail in enumerate(details):
+            if detail.km:
+                dist3+=float(detail.km)
+                firststop_isstage=True if sequence == 0 else False
+                laststop_isstage=True if sequence == (len(details)-1) else False
+                
+        schedule_info={"route_dist":dist1, "unr_dist":dist2, "routedetail_dist":dist3, "schedule":schedule.id}
+        distance_mismatch = True if dist2 > dist3 and unr.is_full else False
+        rdict[schedule.id]=schedule_info
+
+        if distance_mismatch:
+            rdict["mismatch"].append(schedule_info)
+
+    return rdict
+        
+def getRoutesWBadRDs(cnt):
+    routes = []
+    for r in Route.objects.all():
+        if r.routedetail_set.count() < cnt:
+            routes.append(r)
+    return routes
+
+
+
 
 def export_stop_times2(routelist):
     f = make_csv_writer("stop_times.txt")
-    f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence", "cumulative_distance", "isStage"])
+    f.writerow(["trip_id","arrival_time","departure_time","stop_id","stop_sequence"])
     
     for schedule, unr, route, direction, trip_id in generate_trips_unr():
         if route not in routelist: continue
         details =  get_routedetail_subset(unr, direction)
-        
+
+        # use interpolated distances
+        #details = parseDistancesForDetails(details, parse_stages=True)
+
+        # calc avg speed for a trip. trip = unr+rs
+        # 
+        dist2 = unr.distance
+        # a lot of unique routes have a shorter distance than the main route even though they span its entire length
+
+        if unr.is_full and route.distance:
+            dist1 = float(route.distance)
+
+        dist3=0.0
+        for seq, detail in enumerate(details):
+            blankstops=0
+            if detail.km:
+                dist3+=float(detail.km)
+                blankstops=0
+            else:
+                blankstops+=1
+                if seq == len(details) - 1:
+                    dist3+=float(0.3*blankstops)
+
+        # dist2 is from unr, dist3 is got by traversing the routedetails
+        dist = dist3
+
+        #j runtime should be calculated for each separate runtime entry so stop_times becomes a bit more accurate.
+        runtime = runtime_in_minutes(schedule)
+
+        # if dist == 0.0 or runtime == 0
+        nospeeds=0
+
+        if not runtime > 0.0:
+            avgspeed = dist/runtime   # in km/min         
+        else:
+            avgspeed = 12.0/60.0   # putting a default of 12 km/hour. 
+            nospeeds+=1        
+
+        initial_time = departure_time = schedule.first_to if direction in ["UP", "up", "U" ] else schedule.first_from
+
+        if initial_time is None:
+            initial_time = time_of("05:00:00")
+
+        arrival_time = initial_time
+        cumulative_distance = 0.0
+        prev_at = arrival_time
+        prev_dt = departure_time
+        timedelta = 0
+        distdelta = 0.0
+        today = datetime.date.today()
+        blankstops = 0
+        prevstage = 0
+        rdetails = []
+        dt= 0
+        for sequence, detail in enumerate(details):
+            rdetails.append([sequence,detail])
+
+        # main process 
+        for sequence, detail in rdetails:
+            stopset.add(detail.stop)
+            # if stop is a stage, then it has km (delta) info
+            if detail.km:
+                cumulative_distance+=float(detail.km)
+                #failsafe
+                #if avgspeed<3.0/60.0:
+                #    avgspeed=12.0/60.0
+
+                offsettime = cumulative_distance/avgspeed
+                dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
+                arrival_time = dt.time()
+
+                # Add 10 seconds to departure time 
+                dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
+                departure_time = dt.time()                    
+
+                f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
+
+                prev_at = time_of(arrival_time.__str__().split(".")[0])
+                prev_dt = time_of(departure_time.__str__().split(".")[0])                    
+                blankstops=0
+                prevstage = sequence
+            else:
+                # no km info, not a stage
+                blankstops+=1
+                # first stop
+                if sequence == 0:
+                    f.writerow([trip_id,initial_time,initial_time, str(detail.stop.code),sequence+1])
+                elif sequence == len(details)-1:   
+                    # if this is the last stop in the route, then          
+                    offsettime = (cumulative_distance+(0.3*blankstops))/avgspeed
+                    dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
+                    arrival_time = dt.time()
+                    dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=60) 
+                    departure_time =  dt.time()                    
+                                            
+                    #if prev_dt and time_of(arrival_time):
+                    #    if time_of(arrival_time) < prev_dt:
+                    #        arrival_time = "%02d:%02d:00" % (int((arrival+3)/60), (arrival+3) % 60)
+                    #        departure_time=arrival_time
+
+                    f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
+
+                else:
+                    # any other stop
+                    f.writerow([trip_id,"","",str(detail.stop.code),sequence+1])
+
 
 
 def export_stop_times(routelist):
@@ -592,10 +790,27 @@ def export_stop_times(routelist):
             badroutes.add(route)
             continue
        
-        # calc avg speed for a trip. trip = unr+rs
-        dist = unr.distance
+        if unr.is_full and route.distance:
+            dist1 = float(route.distance)
 
-        #j runtime should be calculated for each separate runtime entry, we have headway too so stop_times becomes a bit more accurate.
+        # calc avg speed for a trip. trip = unr+rs
+
+        dist2 = unr.distance
+        
+        # calculate distance based on route details
+        dist3=0.0
+        for seq, detail in enumerate(details):
+            blankstops=0
+            if detail.km:
+                dist3+=float(detail.km)
+                blankstops=0
+            else:
+                blankstops+=1
+                if seq == len(details) - 1:
+                    dist3+=float(0.3*blankstops)
+
+        dist = dist3
+        #j runtime should be calculated for each separate runtime entry, so stop_times becomes a bit more accurate.
         runtime = runtime_in_minutes(schedule)
 
         #if dist == 0.0 or runtime == 0
@@ -604,8 +819,7 @@ def export_stop_times(routelist):
             avgspeed = dist/runtime   # in km/min         
         else:
             #avgspeed = 12.0/60.0   # putting a default of 12 km/hour. 
-            nospeeds+=1
-                
+            nospeeds+=1                
 
         # checks and failsafes            
         if avgspeed < 5.0/60.0:
@@ -614,7 +828,7 @@ def export_stop_times(routelist):
             tooslows+=1
             #avgspeed=12.0/60.0
 
-        if avgspeed > 30.0/60.0:
+        if avgspeed > 40.0/60.0:
             toofasts+=1
             #avgspeed=30.0/60.0
         
@@ -633,15 +847,12 @@ def export_stop_times(routelist):
         blankstops = 0
         prevstage = 0
         rdetails = []
-        rdict = {}
         dt= 0
         for sequence, detail in enumerate(details):
             rdetails.append([sequence,detail])
-            rdict[sequence] = detail
 
         # main process 
         for sequence, detail in rdetails:
-
             stopset.add(detail.stop)
             # if stop is a stage, then it has km (delta) info
             if detail.km:
@@ -655,7 +866,6 @@ def export_stop_times(routelist):
                     # Add 10 seconds to departure time 
                     dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
                     departure_time = dt.time()
-
 
                     #f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
 
@@ -678,16 +888,14 @@ def export_stop_times(routelist):
                     #f.writerow([trip_id,initial_time,initial_time,str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ]) 
 
                 else:    
-                # if this is the last stop in the route, then 
-                    
-
+                # if this is the last stop in the route, then             
                     if sequence == len(details) - 1:
                         offsettime = (cumulative_distance+(0.3*blankstops))/avgspeed
                         dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
                         arrival_time = dt.time()
 
-                        dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=60) 
-                        departure_time =  dt.time()                    
+                        #dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=60) 
+                        departure_time = dt.time()                    
                         
                         #arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule) + 7
                         #arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                        
@@ -1009,7 +1217,7 @@ def export_frequencies2(routelist):
             ft = schedule.first_to
             lt = schedule.last_to
 
-            # sanity checks for these times to be applied here.. like if if ff is given and ft is not, then ft is ff+runtime, etc
+            # sanity checks for these times to be applied here.. like if ff is given and ft is not, then ft is ff+runtime, etc
 
             if ff is None:
                 ff=time_of("05:00:00")

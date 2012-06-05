@@ -279,6 +279,8 @@ class UniqueRoute(models.Model):
     def __unicode__(self):
         return "%s: %s to %s" % (self.route.alias, self.from_stop_txt, self.to_stop_txt)
 
+    def get_stop_choices(self):
+        return Stop.objects.filter(routedetail__route=self.instance.route).order_by('routedetail')
 
 class RouteSchedule(models.Model):
     unique_route = models.ForeignKey(UniqueRoute)

@@ -38,13 +38,23 @@ def area(request, name):
     return render_to_response("area.html", context)
 
 
+def stop(request, slug):
+    stop = get_object_or_404(Stop, slug=slug)
+    context = RequestContext(request, {
+        'stop': stop
+    })
+    return render_to_response("stop.html", context)
+
+
 def editstops(request):
     context = RequestContext(request, {})
     return render_to_response("editstops.html", context)
 
+
 def buseditor(request):
     context = RequestContext(request, {})
     return render_to_response("buseditor.html", context)
+
 
 def stats(request):
     total_stops_left = Stop.objects.filter(point=None).count()

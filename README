@@ -2,6 +2,12 @@ Note: If running postgres 9.1 and Django < 1.4, you will probably need this patc
 
 Don't forget to install python-psycopg2 and python-gdal for the sake of GeoDjango.
 
+To install Trigram Search:
+    psql <database_name>
+    create extension pg_trgm;
+    \q
+    python manage.py trgmidx
+
 chaloBEST
 
 Get:

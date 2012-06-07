@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block stylesheets %}
+{{ block.super }}
+<style type="text/css">
+	#inner {
+		margin: 0px 25%;
+	
+}
+
+	div.module div {
+		border: 1px solid #ddd;
+		border-top-color: #636363;
+		margin-top: -1px;
+	}
+
+	div.module p {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	code, pre {
+		background: #ffe;
+	}
+
+	pre {
+		padding: 1em;
+		margin: 0;
+	}
+
+    /* Start Our CSS */
+
+#languageBtns {
+position:absolute;
+top:32px;
+left:-205px;
+}
+
+
+#languageBtns span {
+display:block;
+font-size:18px;
+cursor:pointer;
+line-height:28px;
+}
+
+#selectedLanguage {
+color:#CE0000;}
+
+#instruction {
+border:2px solid #ce0000;}
+
+
+#instruction h2 /*THE CSS FOR THE INSTRUCTIONS FROM WIKI*/
+{font-size:16px;
+font-weight:normal;
+margin-bottom:16px;
+background: #ce0000; /* Old browsers */
+background: -moz-linear-gradient(top, #ce0000 0%, #ce0000 44%, #ff4400 88%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ce0000), color-stop(44%,#ce0000), color-stop(88%,#ff4400)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ce0000 0%,#ce0000 44%,#ff4400 88%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ce0000 0%,#ce0000 44%,#ff4400 88%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #ce0000 0%,#ce0000 44%,#ff4400 88%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ce0000', endColorstr='#ff4400',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #ce0000 0%,#ce0000 44%,#ff4400 88%); /* W3C */
+text-shadow: #000 1px 2px 1px;}
+	
+#instruction ul  
+{list-style:none;
+margin-bottom:16px;
+margin-right:20px;
+font-size:16px;}
+
+#instruction ul li
+{margin-bottom:8px;}
+
+#instruction p
+{margin-bottom:8px;}
+
+code {
+font-weight:bold;
+font-size:14px;
+margin-left:17px;}
+
+number {
+font-weight:bold;
+font-family:monospace;
+font-size:14px;}
+
+#footer p {
+text-align:center; 
+color:#000;}
+
+    /* END Our CSS */
+</style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript">
+$(function() {
+    $('#languageBtns span').click(function() {
+        var langString = '.english, .marathi, .hindi, .gujarati';
+        $(langString).hide();
+        var lang = $(this).attr("data-lang");
+        $('.' + lang).show();
+    });
+    $('span[data-lang=english]').click();
+
+});
+
+    </script>
+
+{% endblock %}
+{% block content %}
+<div id="languageBtns">
+    <span data-lang="english">English</span> <span data-lang="marathi">मराठी</span> <span data-lang="hindi">हिन्दी</span> <span data-lang="gujarati">ગુજરાતી</span>
+</div>
+<div id="instruction" class="module">
+
+<!-- <h1> Short Instructions</h1> -->
+<h2> Welcome!</h2>
+<ul><li class="english"> With this service, you can send and receive simple queries by SMS about bus stops, bus numbers and routing on BEST.<br><br>Send SMS to <number>9619524420</number> and you will receive a return SMS with the information you need.
+</li><li class="marathi"> चलोबेस्टद्वारे आपल्याला वेगवेगळ्या  बेस्ट बसस्थानकांची, बसक्रमांकाची तसेच बसमार्गांची माहिती SMS ने मिळू शकते. <br><br>आपला SMS <number>९६१९५२४४२०</number> या क्रमांकावर पाठवावा, आम्ही आपल्याला पाहिजे असलेली माहिती SMS द्वारे परत पाठवू.
+</li><li class="hindi"> इस सुविधा से आप साधारण SMS के ज़रिये बेस्ट बस स्टॉप, बस क्रमांक और मार्गों की जानकारी पा सकते हैं| <br><br><number>9619524420</number> ईस नंबर पर SMS भेजनेपर आपको जवाबी SMS से जरुरी जानकारी मिलेगी।
+</li><li class="gujarati"> આ સુવિધા થકી એક સામાન્ય SMS કરીને આપ કોઈ પણ બસ સ્ટોપ, નંબર અથવા માર્ગ ની માહિતી મેળવી શકો છો.<br><br> <number>9619524420</number> પર SMS કરવાથી તમને વળતા SMS દ્વારા પૂછાવેલી માહિતી મોકલવામાં આવશે. 
+</li></ul>
+<h2> How-To Use </h2>
+<ul><li class="english"> To see the route of any bus, send an SMS with "BUS " and any bus number. Example: 
+</li><li class="marathi"> कोणत्याही बेस्ट बसमार्गाची माहिती करून घेण्यासाठी, "BUS" व त्यानंतर बसक्रमांक लिहून वरील क्रमांकावर SMS पाठवावा। उदाहरणार्थ:
+</li><li class="hindi"> किसी भी बस मार्ग के सभी स्टॉप जानने के लिए BUS और ऊसके बाद बस क्रमांक उपर दिए हुए नंबर पर SMS करें। उदहारण:
+</li><li class="gujarati"> કોઈ પણ નંબર ની બસ નું માર્ગ જાણવા માટે BUS પછી એનું નંબર SMS કરો. દાખલો:
+</li></ul>
+<p><span>&#9656; </span><code> BUS 21</code>
+</p>
+<ul><li class="english"> To see all the bus routes served by a stop, send an SMS with "STOP " and the name of any bus stop or area. Example:
+</li><li class="marathi"> एखाद्या बसस्थानकावर येणाऱ्या सर्व बसेसची माहिती मिळवण्यासाठी, "STOP" व त्यानंतर बसस्थानकाचे नाव किंवा विभागाचे नाव लिहून वरील क्रमांकावर SMS पाठवावा| उदाहरणार्थ: 
+</li><li class="hindi"> कोई भी स्टॉप पर रुकनेवाली सारी बसों की जानकारी के लिए STOP एवं उसका नाम या इलाके का नाम SMS करें| उदहारण: 
+</li><li class="gujarati"> કોઈ પણ સ્ટોપ પર પસાર થતી બસો ની માહિતી માટે STOP પછી બસ સ્ટોપ નું નામ અથવા વિસ્તાર નું નામ SMS કરો. દાખલો: 
+</li></ul>
+<p><span>&#9656; </span><code>STOP MAHIM</code>
+</p>
+<ul><li class="english"> To find out how to go from one stop to another, send an SMS with "FROM " any stop name "TO " any stop name. Example:
+</li><li class="marathi"> एका स्थानकावरून दुस-या स्थानकापर्यंत कोणत्या बसने जावे हे माहित करण्यासाठी, "FROM" (कुठून) "TO" (कुठपर्यंत) लिहून वरील क्रमांकावर SMS पाठवावा| उदाहरणार्थ:
+</li><li class="hindi"> कोई भी स्टॉप से अन्य स्टॉप तक जानेवाली बसों की जानकारी के किये FROM एवं स्टॉप का नाम और TO एवं स्टॉप का नाम SMS करें| उदहारण:
+</li><li class="gujarati"> * કોઈ પણ બસ સ્ટોપ થી બીજે જતી બસો ના નંબર જાણવા માટે "FROM" પછી સ્ટોપ નું નામ અને "TO" પછી બીજા સ્ટોપ નું નામ SMS કરો. દાખલો:  
+</li></ul>
+<p><span>&#9656; </span><code>FROM COLABA TO MAHIM</code>
+</p>
+<h2> Feedback </span></h2>
+<ul><li class="english"> ChaloBEST is still being tested, we plan to release a public beta soon. We welcome your feedback and comments via email to info@chalobest.in
+</li><li class="marathi"> चलोबेस्टची सध्या तपासणी सुरु आहे. आम्ही लवकरच ही लोकसेवा पूर्णपणे सुरू करणार आहोत. चलोबेस्टविषयी आपल्या प्रतिक्रिया आणि विचार कळविल्यास आम्हाला आंनद होईल. आपण आम्हाला इमेलद्वारे info@chalobest.in या पत्त्यावर संपर्क साधु शकता.
+</li><li class="hindi"> चलोबेस्ट सेवा की फिलहाल जाँच शुरु है। जल्दही हम ये सेवा पुरी तरह से शुरु करेंगे। ईस सेवा के बारे में आपके विचार और प्रतिक्रिया जानने पर हमें खुशी होगी। आप हमें  info@chalobest.in ईस ईमेल पर अपनी राय दे सकते है।
+</li><li class="gujarati"> ચલોબેસ્ટ હાલ પ્રાયોગિક ધોરણે દાખલ કરેલ છે. જાહેર ઉપયોગ માટે ટૂંક સમય માં એનું વિમોચન થશે. info@chalobest.in પર ઈ-મેઈલ  દ્વારા તમારી પ્રતિક્રિયા તેમજ સૂચન નું આવકાર છે.
+</li></ul>
+
+</div>
+
+<!--
+<div class="module">
+	<h2>Installation Successful!</h2>
+
+	<div>
+		<p>
+			See <a href="http://docs.rapidsms.org/Installation">the RapidSMS wiki</a>
+			to learn how to install community apps or create your own.
+		</p>
+
+		<p>
+			To replace this message with a different view, add a pattern in app's
+			<code>urls</code> module with the pattern: <code>r'^$</code>.
+		</p>
+
+		<p>
+			For example:
+		</p>
+
+		<pre>from django.conf.urls.defaults import *
+from myproject.myapp import views
+
+urlpatterns = patterns('',
+    url(r'^$', views.dashboard)
+)</pre>
+	</div>
+</div>
+-->
+{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+    <p><a href="http://chalobest.in">ChaloBEST</a> is a collaboration of <a href="http://mesn.org">Mumbai Environmental Social Network (MESN)</a>, <a href="http://sparcsys.com">SPARC Systems</a>, <a href="http://camputer.org">CAMP</a>, and <br> <a href="http://www.hbcse.tifr.res.in">Homi Bhabha Centre for Science Education, TIFR</a>, with a little help from <a href="http://bestundertaking.com">our friends</a>.</p>
+    </div>
+
+{% endblock %}

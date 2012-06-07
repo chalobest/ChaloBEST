@@ -5,6 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 from django.db import connection
 import json
+from django.contrib.gis.measure import D
 
 STOP_CHOICES = ( ('U','Up'),
                  ('D', 'Down'),
@@ -53,7 +54,7 @@ RUNTIMES = (
     (20, 24)
 )
 
-class TrigramSearchManager(models.Manager):
+class TrigramSearchManager(models.GeoManager):
     def __init__(self, trigram_columns=[]):
         super(TrigramSearchManager, self).__init__()
         self.trigram_columns = trigram_columns
@@ -94,7 +95,8 @@ class Area(models.Model):
             'slug': self.slug,
             'name': self.name,
             'name_mr': self.name_mr,
-            'display_name': self.display_name
+            'display_name': self.display_name,
+            'url': self.get_absolute_url()
             #FIXME add alt_names and geometry
         }
 
@@ -103,7 +105,20 @@ class Area(models.Model):
 
     def __unicode__(self):
         return self.name   
-    
+
+    #FIXME: ideally this would be done using the polygon of the area, but right now we take a random stop in the area, find all stops within x kms, and then return unique areas for those stops.    
+    @property
+    def nearby_areas(self, distance=D(km=3)):
+        stop = self.stop_set.all()[0]
+        tup = (stop.point, distance,)
+        qset = Stop.objects.filter(point__distance_lte=tup).values('area').distinct()
+        area_ids = [val['area'] for val in qset]
+        return Area.objects.filter(pk__in=area_ids)    
+
+    @property
+    def routes_passing(self):
+        return Route.objects.filter(routedetail__stop__area=self).distinct()
+
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
     slug = models.SlugField(null=True)
@@ -158,7 +173,8 @@ class Stop(models.Model):
             'name_mr': self.name_mr,
             'direction': self.dbdirection,
             'routes': ", ".join([r.alias for r in routes]),
-            'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')])
+            'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')]),
+            'url': self.get_absolute_url()
         }
 
     def get_geojson(self, srid=4326):
@@ -197,6 +213,15 @@ class Stop(models.Model):
         self.save()
         return self.get_geojson(srid=srid)
 
+    @property
+    def nearby_stops(self, dist=D(km=1)):
+        tup = (self.point, dist,)
+        return Stop.objects.filter(point__distance_lte=tup)
+
+    @property
+    def routes(self):
+        return Route.objects.filter(routedetail__stop=self)
+    
 
     def __unicode__(self):
         return self.name   
@@ -213,7 +238,7 @@ class Stop(models.Model):
     has_point.boolean = True
 
     def get_absolute_url(self):
-        return "/admin/mumbai/stop/%d/" % self.id
+        return "/stop/%s" % self.slug
 
 
 class Route(models.Model):
@@ -226,6 +251,7 @@ class Route(models.Model):
     to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
+    
 
     class Meta:
         ordering = ['code']
@@ -242,8 +268,12 @@ class Route(models.Model):
             'code': self.code,
             'alias': self.alias,
             'slug': self.slug,
-            'distance': str(self.distance)
+            'distance': str(self.distance),
+            'url': self.get_absolute_url()
         }
+
+    def areas_passed(self):
+        return Area.objects.filter(stop__routedetail__route=self).distinct()
 
 class RouteDetail(models.Model):
     route_code = models.TextField()

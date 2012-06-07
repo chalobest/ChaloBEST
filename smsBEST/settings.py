@@ -5,7 +5,10 @@
 # -------------------------------------------------------------------- #
 #                          MAIN CONFIGURATION                          #
 # -------------------------------------------------------------------- #
+import os
+from os.path import join
 
+PROJECT_PATH = os.path.dirname(__file__)
 
 # you should configure your database here before doing any real work.
 # see: http://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -16,7 +19,8 @@ DATABASES = {
     }
 }
 
-
+MEDIA_ROOT = join(PROJECT_PATH, 'static')
+LOCAL_DEVELOPMENT = True
 # the rapidsms backend configuration is designed to resemble django's
 # database configuration, as a nested dict of (name, configuration).
 #
@@ -160,6 +164,13 @@ TEMPLATE_LOADERS = (
                     'django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader',
                     'django.template.loaders.eggs.Loader'
+)
+
+TEMPLATE_DIRS = (
+    join(PROJECT_PATH, "templates"),
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
 )
 
 # -------------------------------------------------------------------- #

@@ -11,16 +11,16 @@ import datetime
 Convert Atlas.csv file (obtained from BEST) into first stage Atlas.json
 (step 1)
 '''
+atlasDict = {}
 def csvToJSON():
     atlasCSV = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.csv"), "r"), delimiter="\t")
-    atlasDict = {}
     previousRoute = None
     for a in atlasCSV:
-        routeNo = a[1].strip()
+        routeNo = a[0].strip()
 #        print a
         if routeNo != '':
             if atlasDict.has_key(routeNo):
-                atlasDist[routeNo].append(a)
+                atlasDict[routeNo].append(a)
             else:
                 atlasDict[routeNo] = [a]
             previousRoute = routeNo
@@ -40,34 +40,39 @@ def processJSON():
     routeErrors = {'routes': [], 'others': []}
     routeMapping = json.loads(open(join(PROJECT_ROOT, "../db_csv_files/routeMapping.json")).read())    
     routes = json.loads(open(join(PROJECT_ROOT, "../db_csv_files/Atlas.json")).read())
-    previousRow = []
     outDict = {}
     for key in routes.keys():
+        previousRow = []
         print key
         if key not in routeMapping: #make note of routeNames we dont have routeAlias for yet.
             routeErrors['routes'].append(key) 
         else:  #else, go ahead ..
             routeAlias = routeMapping[key]
+            routeCode =  routeMapping[key]
             thisRoute = routes[key]
             #handle copying over empty values from previous rows
             outDict[key] = []
             for row in thisRoute:
                # pdb.set_trace()
-                for i in range(2,5): # AM, N, PM
-                    if row[i].strip() == '':
+                for i in range(1,4): # AM, N, PM
+                    if row[i].strip() == '' and previousRow:
                         row[i] = previousRow[i]
-                for i in [7,10]: # From, To
-                    if row[i].strip() == '':
+                for i in [6,9]: # From, To
+                    if row[i].strip() == '' and previousRow:
                         row[i] = previousRow[i]
                 try:
-                    if row[-5].strip() == '': #FIXME: change this to a positive index
-                        row[-5] = previousRow[-5] #-5 is Schedule Type
+                    # Schedule Type
+                    if row[24].strip() == '' and previousRow: #FIXME: change this to a positive index
+                        row[24] = previousRow[24] #-5 is Schedule Type
+                    # RouteAlias
+                    if row[0].strip() == '' and previousRow: #FIXME: change this to a positive index
+                        row[0] = previousRow[0]
                 except:
                     pdb.set_trace()
                 previousRow = row
                 outDict[key].append(row)
 
-    atlasRouteErrors = open("atlasRouteErrors.json", "w")
+    atlasRouteErrors = open(join(PROJECT_ROOT, "../db_csv_files/atlasRouteErrors.json"), "w")
     atlasRouteErrors.write(json.dumps(routeErrors, indent=2))
     atlasRouteErrors.close()
     atlasCopied = open(join(PROJECT_ROOT, "../db_csv_files/atlasCopied.json"), "w")
@@ -89,17 +94,17 @@ def groupUnique():
         for row in routes[key]:
             print key
             d = {
-                'from': row[7],
-                'to': row[10],                
-                'span': row[13], #FIXME: what are you doing if span is null?
+                'from': row[6],
+                'to': row[9],                
+                'span': row[12], #FIXME: what are you doing if span is null?
                 'is_full': False,
-#                'schedule': row[28],
-#                'rows': {
-#                    row[-5]: row
-#                }   
+                'schedule': row[24],
+                'rows': {
+                    #row[24]: row
+                }   
             }
             matchedRow = isNotUnique(d, outDict[key])
-            schedule = row[-5]
+            schedule = row[24]
             if matchedRow is not None:
                 if outDict[key][matchedRow]['rows'].has_key(schedule):
                     outDict[key][matchedRow]['rows'][schedule].append(row)
@@ -110,8 +115,9 @@ def groupUnique():
                 if isLargestSpan(d, routes[key]):
                     d['is_full'] = True
                 outDict[key].append(d)
-                if not outDict[key][-1].has_key('rows'):
-                    outDict[key][-1]['rows'] = {}
+                #
+                #if not outDict[key][-1].has_key('rows'):
+                #    outDict[key][-1]['rows'] = {}
                 outDict[key][-1]['rows'][schedule] = [row]
 
     outFile = open(join(PROJECT_ROOT, "../db_csv_files/uniqueRoutes.json"), "w")
@@ -190,7 +196,11 @@ def importUniqueRoutes():
                     depot = None #FIXME!! Catch depot errors based on findings
                 #pdb.set_trace()
                 for row in rows:
-                    routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
+                    #routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
+
+                    routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[1]), busesN=noneInt(row[2]), busesPM=noneInt(row[3]), bus_type=row[4], depot_txt=row[5], depot=depot, first_from=formatTime(row[7]), last_from=formatTime(row[8]), first_to=formatTime(row[10]), last_to=formatTime(row[11]), runtime1=noneInt(row[13]), runtime2=noneInt(row[14]), runtime3=noneInt(row[15]), runtime4=noneInt(row[16]), headway1=noneInt(row[17]), headway2=noneInt(row[18]), headway3=noneInt(row[19]), headway4=noneInt(row[20]), headway5=noneInt(row[21]))
+
+
                     routeScheduleObj.save()
 
     #done saving things - write out error files:

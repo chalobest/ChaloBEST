@@ -198,7 +198,7 @@ def importUniqueRoutes():
                 for row in rows:
                     #routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
 
-                    routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[1]), busesN=noneInt(row[2]), busesPM=noneInt(row[3]), bus_type=row[4], depot_txt=row[5], depot=depot, first_from=formatTime(row[7]), last_from=formatTime(row[8]), first_to=formatTime(row[10]), last_to=formatTime(row[11]), runtime1=noneInt(row[13]), runtime2=noneInt(row[14]), runtime3=noneInt(row[15]), runtime4=noneInt(row[16]), headway1=noneInt(row[17]), headway2=noneInt(row[18]), headway3=noneInt(row[19]), headway4=noneInt(row[20]), headway5=noneInt(row[21]))
+                    routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[1]), busesN=noneInt(row[2]), busesPM=noneInt(row[3]), bus_type=maxLen(row[4], 3), depot_txt=row[5], depot=depot, first_from=formatTime(row[7]), last_from=formatTime(row[8]), first_to=formatTime(row[10]), last_to=formatTime(row[11]), runtime1=noneInt(row[13]), runtime2=noneInt(row[14]), runtime3=noneInt(row[15]), runtime4=noneInt(row[16]), headway1=noneInt(row[17]), headway2=noneInt(row[18]), headway3=noneInt(row[19]), headway4=noneInt(row[20]), headway5=noneInt(row[21]))
 
 
                     routeScheduleObj.save()
@@ -235,6 +235,19 @@ def formatTime(s):
         return datetime.time(hour, minutes)
     except:
         return datetime.time(0,0)
+
+
+'''
+>>>maxLen("somefoo", 3)
+>>>"som"
+'''
+def maxLen(val, length):
+    s = str(val)
+    if len(s) > length:
+        return s[0:length]
+    else:
+        return s
+
 
 '''
 Silly function to deal wth invalid strings in the data that need to go in as Integers into the db

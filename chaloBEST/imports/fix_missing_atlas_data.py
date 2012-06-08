@@ -5,7 +5,7 @@ import pdb
 def fix_distances():
     for unique_route in UniqueRoute.objects.all():
         # RouteDetail sometimes isn't in order from from_stop to to_stop
-        from_stop, to_stop = unique_route.from_stop.id, unique_route.to_stop.id
+        from_stop, to_stop = unique_route.from_stop, unique_route.to_stop
         details = list(unique_route.route.routedetail_set.all())
         # Sometimes to_stop comes before from_stop in RouteDetail. What is there to say.
         # so reverse the list if that happens.. so a from_stop will always come before a to_stop
@@ -36,7 +36,7 @@ def fix_distances():
                 if not last_stop_passed: 
                     # add it
                     if detail.km:
-                        distance += float(detail.km)                    
+                        distance += float(detail.km)   
                 else:
                     # if stage having km info reached after last stop, then add and exit loop
                     if detail.km:

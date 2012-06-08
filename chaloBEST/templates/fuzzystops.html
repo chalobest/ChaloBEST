@@ -9,6 +9,6 @@
 
 {% for t in fuzzy_tos %}
 
-    <a href="/admin/mumbai/uniqueroute/{{ t.id }}">{{ t.route.alias}}</a> - {{ t.from_stop.name }} - {{ t.from_stop_txt }} <br />
+    <a href="/admin/mumbai/uniqueroute/{{ t.id }}">{{ t.route.alias}}</a> - {{ t.to_stop.name }} - {{ t.to_stop_txt }} <br />
 
 {% endfor %}

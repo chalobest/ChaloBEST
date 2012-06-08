@@ -4,7 +4,7 @@ from mumbai.models import *
 from django.contrib.contenttypes import generic
 from django.contrib.admin.filterspecs import FilterSpec, RelatedFilterSpec
 
-
+'''
 class CustomFilterSpec(RelatedFilterSpec):
     def __init__(self, f, *args, **kwargs):
         super(CustomFilterSpec, self).__init__(f, *args, **kwargs)
@@ -17,7 +17,7 @@ class CustomFilterSpec(RelatedFilterSpec):
 
  
 FilterSpec.filter_specs.insert(0, (lambda f: bool(f.rel and hasattr(f, 'custom_filter_spec')), CustomFilterSpec))
-
+'''
 
 class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule
@@ -77,7 +77,7 @@ class UniqueRouteForm(forms.ModelForm):
 
 class UniqueRouteAdmin(admin.ModelAdmin):
     list_display = ("route","from_stop", "from_stop_txt", "to_stop", "to_stop_txt", "distance","is_full")
-    list_editable = ("from_stop", "to_stop")
+#    list_editable = ("from_stop", "to_stop")
     readonly_fields = ("route","distance","is_full")
     search_fields = ("route__alias", "from_stop__name", "to_stop__name")
     ordering = ('route',)

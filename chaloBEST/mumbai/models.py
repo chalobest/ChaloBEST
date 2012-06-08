@@ -303,8 +303,8 @@ class UniqueRoute(models.Model):
     to_stop = models.ForeignKey(Stop, related_name="unique_routes_to")
     distance = models.FloatField(blank=True, null=True)
     is_full = models.BooleanField()
-    from_stop.custom_filter_spec = True # this is used to identify the fields which use the custom filter
-    to_stop.custom_filter_spec = True # this is used to identify the fields which use the custom filter
+#    from_stop.custom_filter_spec = True # this is used to identify the fields which use the custom filter
+#    to_stop.custom_filter_spec = True # this is used to identify the fields which use the custom filter
     class Meta:
         verbose_name = 'Atlas'
         verbose_name_plural = 'Atlas'

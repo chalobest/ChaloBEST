@@ -2,6 +2,22 @@ from django.contrib.gis import admin
 from django import forms
 from mumbai.models import *
 from django.contrib.contenttypes import generic
+from django.contrib.admin.filterspecs import FilterSpec, RelatedFilterSpec
+
+
+class CustomFilterSpec(RelatedFilterSpec):
+    def __init__(self, f, *args, **kwargs):
+        super(CustomFilterSpec, self).__init__(f, *args, **kwargs)
+        instance = f
+        stop_choices = instance.get_stop_choices()
+        CHOICES = (
+            (item.id, item.name) for item in stop_choices
+        )
+        self.lookup_choices = CHOICES
+
+ 
+FilterSpec.filter_specs.insert(0, (lambda f: bool(f.rel and hasattr(f, 'custom_filter_spec')), CustomFilterSpec))
+
 
 class RouteScheduleInline(admin.StackedInline):
     model = RouteSchedule

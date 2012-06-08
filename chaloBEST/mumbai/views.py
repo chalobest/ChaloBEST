@@ -113,14 +113,14 @@ def fuzzystops(request):
         s1 = unr.from_stop.name.lower()
         s2 = unr.from_stop_txt.lower()
         from_ratio = fuzzprocess.ratio(s1,s2)
-        if from_ratio < 50:
+        if from_ratio < 70:
             froms_arr.append(
                 (unr, from_ratio,)
             ) 
         s3 = unr.to_stop.name.lower()
         s4 = unr.to_stop_txt.lower()
         to_ratio = fuzzprocess.ratio(s3,s4)
-        if to_ratio < 50:
+        if to_ratio < 70:
             tos_arr.append(
                 (unr, to_ratio,)
             )

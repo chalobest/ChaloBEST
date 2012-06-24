@@ -125,8 +125,35 @@ INSTALLED_APPS = (
     'mumbai',
     'mumbaitrains',
     # 'django.contrib.admindocs',
+   # 'socialregistration',
+    #'socialregistration.contrib.openid',
+    #'socialregistration.contrib.facebook',
+    'emailconfirmation',
+   # 'uni_form',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.openid',
+    'allauth.socialaccount.providers.facebook',
+    #'allauth.socialaccount.providers.google',
 )
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.core.context_processors.request',
+   'django.contrib.auth.context_processors.auth',
+   "allauth.context_processors.allauth",
+   "allauth.account.context_processors.account"
+)
+AUTHENTICATION_BACKENDS = (
+	"allauth.account.auth_backends.AuthenticationBackend",
+)
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_HOST_USER = 'subhodipbiswas@gmail.com'
+EMAIL_HOST_PASSWORD ='doaxhentai'
+EMAIL_PORT =587
+EMAIL_USE_TLS =True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER	
 try:
     from local_settings import *
 except:

@@ -7,7 +7,20 @@
 
 </head>
 <body bgcolor="#000000" link="white" vlink="white" alink="white">
-
+<div id="wrapper">
+        {% block body %}
+                <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url account_logout %}">Sign Out</a></li>
+                {% else %}
+                <li><a href="{% url account_login %}">Sign In</a></li>
+                <li><a href="{% url account_signup %}">Sign Up</a></li>
+                {% endif %}
+                </ul>
+{% block content %}
+{% endblock %}
+{% endblock %}
+</div>
  <font color="white">
   <center>
     <div>

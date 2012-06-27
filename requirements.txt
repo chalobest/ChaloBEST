@@ -23,6 +23,6 @@ mock==0.8.0
 nose==1.1.2
 oauth2==1.5.211
 -e bzr+http://code.0x2620.org/python-ox/@354#egg=ox-2.0.354-py2.7-dev_r354
-psycopg2==2.4.5
+#psycopg2==2.4.5
 python-openid==2.2.5
 wsgiref==0.1.2

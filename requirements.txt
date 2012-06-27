@@ -14,7 +14,7 @@ django-sms==0.0.4
 djappsettings==0.1.0
 djtables==0.1.2
 #facebook-python-sdk==0.1
--e git://github.com/jhaddad/facebook-python-sdk
+-e git://github.com/jhaddad/facebook-python-sdk#egg=facebook-python-sdk
 facebook-sdk==0.3.1
 feedparser==5.1.2
 -e git://github.com/seatgeek/fuzzywuzzy.git@c73e3d32e3bb4d31dc38cc64e3a3362855d4d249#egg=fuzzywuzzy-dev

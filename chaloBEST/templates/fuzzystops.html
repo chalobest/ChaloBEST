@@ -1,0 +1,14 @@
+<h2> Likely Mismatched From stops: </h2>
+{% for f in fuzzy_froms %}
+
+    <a href="/admin/mumbai/uniqueroute/{{ f.id }}">{{ f.route.alias}}</a> - {{ f.from_stop.name }} - {{ f.from_stop_txt }} <br />
+
+{% endfor %}
+
+<h2> Likely mismatched to stops: </h2> 
+
+{% for t in fuzzy_tos %}
+
+    <a href="/admin/mumbai/uniqueroute/{{ t.id }}">{{ t.route.alias}}</a> - {{ t.to_stop.name }} - {{ t.to_stop_txt }} <br />
+
+{% endfor %}

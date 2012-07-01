@@ -28,12 +28,12 @@ def fix_distances():
 
             # For route 240RING, some detail.km is null???            
             # distance > 0 because of 100RING returning 1 stop shy of its start       
-            if distance > 0 and detail.stop.id == to_stop:
+            if distance > 0 and detail.stop.id == to_stop.id:
                 last_stop_passed = True
 
             # is a stage
             if record:
-                if not last_stop_passed: 
+                if not last_stop_passed:
                     # add it
                     if detail.km:
                         distance += float(detail.km)   
@@ -45,14 +45,13 @@ def fix_distances():
                     last_stop_passed = True
                     break
 
-            #if record and distance > 0 and detail.stop.id == to_stop:
+            #if record and distance > 0 and detail.stop.id == to_stop.id:
             #    record = False
             #    break
 
-
             # Start recording *after* we check for the break, because,
             # if from_stop == to_stop, we don't want to break on the first stop
-            if detail.stop.id == from_stop: record = True
+            if detail.stop.id == from_stop.id: record = True
 
         if record:
             #pdb.set_trace()
@@ -147,6 +146,12 @@ def fix_missing_runtimes():
 
             if column != "runtime4":
                 print Exception("ERR fix_missing_runtimes: %s STILL missing %s!" % (schedule, column))
+                dist = schedule.unique_route.distance
+                speed = 15.0/60.0 # km/min
+                runtime_in_mins = dist/speed
+                setattr(schedule, column, runtime_in_mins)
+                schedule.save()
+
 
 
 hcolumns = ["headway%d" % n for n in range(1,6)]
@@ -239,9 +244,12 @@ def fix_missing_headways():
             
             if getattr(schedule, column):
                 continue
-            
+            from django.db.models import  Avg
             if not getattr(schedule, column):
                 print Exception("All failed for schedule with id %d" % schedule.id)
+                setattr(schedule, column, RouteSchedule.objects.aggregate(Avg(column))[column+"__avg"])
+                schedule.save()
+                
                 
             
             '''

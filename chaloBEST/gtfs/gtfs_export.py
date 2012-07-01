@@ -395,27 +395,14 @@ badroutes=set()
 
 def get_routedetail_subset(unr, direction):
     """
-    
+    Given a uniqueroute, gets the list of stops in it.    
     """
     from_stop = unr.from_stop
     to_stop = unr.to_stop    
     code=str(unr.route.code)[3]
     rdlist = list(RouteDetail.objects.filter(route=unr.route).order_by("serial"))
-
-    # select stops in route for "UP/DOWN" routes respectively
-    if direction in ["UP", "up", "U"]:
-        lst = [] 
-        for rd in rdlist:
-            if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
-                lst.append(rd)
-    else:
-        lst = []
-        for rd in rdlist:
-            if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
-                lst.append(rd)
-            
-    rdlist = lst            
     
+    route_reversed = False
     # Sometimes to_stop comes before from_stop in RouteDetail.
     # So reverse the list if that happens.. so a from_stop will always come before a to_stop              # This is when the from_stop / to_stop mapping is not proper 
 
@@ -424,8 +411,25 @@ def get_routedetail_subset(unr, direction):
         if detail.stop.id == to_stop.id:
             rdlist.reverse()
             reversed_rds.append({"unr":unr, "dir":direction})
+            route_reversed = True
             break
 
+
+    # select stops in route for "UP/DOWN" routes respectively
+    if direction in ["UP", "up", "U"]:
+        lst = [] 
+        for rd in rdlist:
+            if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
+                lst.append(rd)
+    else:
+        # for "DOWN" routes
+        lst = []
+        for rd in rdlist:
+            if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
+                lst.append(rd)
+            
+    rdlist = lst            
+    
     # get indexes
     from_index = -1
     to_index= -1
@@ -485,6 +489,21 @@ def get_routedetail_subset(unr, direction):
 
     return rd_subset
 
+
+def get_bad_routes():
+    """ 
+    Gets a list of routes wich have less than five routedetails or stops inany of their uniqueroutes.
+    """
+    bad_routes=set()
+    for unr in UniqueRoute.objects.all():        
+        rdlist = get_routedetail_subset(unr,"UP")
+        if len(rdlist) < 5:
+            bad_routes.add(unr.route)
+
+        rdlist = get_routedetail_subset(unr,"DOWN")
+        if len(rdlist) < 5:
+            bad_routes.add(unr.route)
+    return bad_routes
 
 def make_is_full():
     fn=[]
@@ -824,11 +843,12 @@ def export_stop_times(routelist):
         # checks and failsafes            
         if avgspeed < 5.0/60.0:
             # avg human walking speed is 5 km/hr
-            print "Error: Speed for %s is %s" %(trip_id, str(avgspeed*60.0) ) 
+            print "Slow: For trip: %s :: Speed: %s, Dist: %s,run_time: %s,  stops: %s" %(trip_id, str(avgspeed*60.0),dist,str(runtime), str(len(details))) 
             tooslows+=1
             #avgspeed=12.0/60.0
 
         if avgspeed > 40.0/60.0:
+            print "Fast: For trip: %s :: Speed: %s, Dist: %s, run_time: %s, stops: %s" %(trip_id, str(avgspeed*60.0),dist, str(runtime), str(len(details))) 
             toofasts+=1
             #avgspeed=30.0/60.0
         

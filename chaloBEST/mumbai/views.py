@@ -3,6 +3,7 @@ from models import *
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from fuzzywuzzy import process as fuzzprocess
 
 def index(request):
     return render_to_response("index.html", {})
@@ -103,4 +104,32 @@ def stats(request):
 
 
 
-
+@login_required
+def fuzzystops(request):
+#    import pdb
+    froms_arr = []
+    tos_arr = []
+    for unr in UniqueRoute.objects.all():
+        s1 = unr.from_stop.name.lower()
+        s2 = unr.from_stop_txt.lower()
+        from_ratio = fuzzprocess.ratio(s1,s2)
+        if from_ratio < 70:
+            froms_arr.append(
+                (unr, from_ratio,)
+            ) 
+        s3 = unr.to_stop.name.lower()
+        s4 = unr.to_stop_txt.lower()
+        to_ratio = fuzzprocess.ratio(s3,s4)
+        if to_ratio < 70:
+            tos_arr.append(
+                (unr, to_ratio,)
+            )
+            
+    froms_arr.sort(key=lambda item: item[1])
+    tos_arr.sort(key=lambda item: item[1])
+    context = RequestContext(request, {
+        'fuzzy_froms': [item[0] for item in froms_arr],
+        'fuzzy_tos': [item[0] for item in tos_arr]
+    })
+#    pdb.set_trace()
+    return render_to_response("fuzzystops.html", context)

@@ -7,6 +7,8 @@ from fuzzywuzzy import process as fuzzprocess
 
 def index(request):
     return render_to_response("index.html", {})
+def login(request):
+    return render_to_response('login.html',c, context_instance=RequestContext(request))
 
 def routes(request):
     context = RequestContext(request, {

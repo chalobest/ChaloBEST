@@ -525,12 +525,12 @@ def make_is_full():
             fn.append(unr)     
             cn.append(unr.route)
 
-       # if unr.distance==maxdist:            
-           # unr.is_full=True
-           # unr.save()
-       # else:
-           # unr.is_full=False
-           # unr.save()
+        if unr.distance==maxdist:            
+            unr.is_full=True
+            unr.save()
+        else:
+            unr.is_full=False
+            unr.save()
     cn = list(set(cn))
      
     d = {"unrs": fn, "routes":cn}
@@ -660,7 +660,12 @@ def getRoutesWBadRDs(cnt):
             routes.append(r)
     return routes
 
-
+def export_atlas():    
+    f = csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "recomputed_atlas.csv"), "w"), delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopID","FromStopName","FirstFrom","LastFrom","ToStopID","ToStopName","FirstTo","LastTo","RouteSpan","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType"])
+    for unr in UniqueRoute.objects.all().order_by("route__code"):
+        for rs in unr.routeschedule_set.all().order_by("schedule_type"):
+            f.writerow([unr.route.code, unr.route.alias, rs.busesAM,rs.busesN,rs.busesPM,rs.bus_type,rs.depot_txt,unr.from_stop.id,unr.from_stop.name,rs.first_from,rs.last_from, unr.to_stop.id, unr.to_stop.name, rs.first_to, rs.last_to, unr.distance,rs.runtime1,rs.runtime2,rs.runtime3,rs.runtime4,rs.headway1,rs.headway2,rs.headway3,rs.headway4,rs.headway5, rs.schedule_type])
 
 
 def export_stop_times2(routelist):
@@ -669,18 +674,21 @@ def export_stop_times2(routelist):
     
     for schedule, unr, route, direction, trip_id in generate_trips_unr():
         if route not in routelist: continue
-        details =  get_routedetail_subset(unr, direction)
+        details = get_routedetail_subset(unr, direction)
 
         # use interpolated distances
         #details = parseDistancesForDetails(details, parse_stages=True)
 
         # calc avg speed for a trip. trip = unr+rs
         # 
-        dist2 = unr.distance
-        # a lot of unique routes have a shorter distance than the main route even though they span its entire length
+
 
         if unr.is_full and route.distance:
             dist1 = float(route.distance)
+
+        # a lot of unique routes have a shorter distance than the main route even though they span its entire length
+        dist2 = unr.distance
+
 
         dist3=0.0
         for seq, detail in enumerate(details):
@@ -776,7 +784,9 @@ def export_stop_times2(routelist):
                     # any other stop
                     f.writerow([trip_id,"","",str(detail.stop.code),sequence+1])
 
-
+errlog = []
+fastroutes =set()
+slowroutes= set()
 
 def export_stop_times(routelist):
     print "Exporting stop times.."
@@ -828,7 +838,7 @@ def export_stop_times(routelist):
                 if seq == len(details) - 1:
                     dist3+=float(0.3*blankstops)
 
-        dist = dist3
+        dist = dist2
         #j runtime should be calculated for each separate runtime entry, so stop_times becomes a bit more accurate.
         runtime = runtime_in_minutes(schedule)
 
@@ -842,14 +852,15 @@ def export_stop_times(routelist):
 
         # checks and failsafes            
         if avgspeed < 5.0/60.0:
-            # avg human walking speed is 5 km/hr
-            print "Slow: For trip: %s :: Speed: %s, Dist: %s,run_time: %s,  stops: %s" %(trip_id, str(avgspeed*60.0),dist,str(runtime), str(len(details))) 
+            #avg human walking speed is 5 km/hr
+            print "Slow: Trip: %s::Speed: %.2f, Dist:(route: %s, unr: %s, rd: %s) ,run_time: %s,  stops: %s" %(trip_id, avgspeed*60.0, dist1, dist2, dist3, str(runtime), str(len(details))) 
+            slowroutes.add(route)
             tooslows+=1
-            #avgspeed=12.0/60.0
 
         if avgspeed > 40.0/60.0:
-            print "Fast: For trip: %s :: Speed: %s, Dist: %s, run_time: %s, stops: %s" %(trip_id, str(avgspeed*60.0),dist, str(runtime), str(len(details))) 
-            toofasts+=1
+             print "Slow: Trip: %s::Speed: %.2f, Dist:(route: %s, unr: %s, rd: %s) ,run_time: %s,  stops: %s" %(trip_id, avgspeed*60.0, dist1, dist2, dist3, str(runtime), str(len(details))) 
+             toofasts+=1
+             fastroutes.add(route)
             #avgspeed=30.0/60.0
         
         # setting up some vars and failsafes

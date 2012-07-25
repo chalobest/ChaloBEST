@@ -7,6 +7,7 @@ import sys
 import datetime
 from itertools import dropwhile
 import copy    
+from fuzzywuzzy import process as fuzzprocess
 
 
 def routeWithLocationData(route):
@@ -396,7 +397,16 @@ badroutes=set()
 def get_routedetail_subset(unr, direction):
     """
     Given a uniqueroute, gets the list of stops in it.    
+    Algo. 
+    1. get routedetail(rd) list
+    2. check if rds are reversed
+    3. select stops if they are in UP or DOWN route
+    4. get indexes of the stops in the list.
+    5. splice the list acc to positions
+    6. check if full route, if yes, then ignore calculations, send entire list (only filter up/down stops)
+    
     """
+
     from_stop = unr.from_stop
     to_stop = unr.to_stop    
     code=str(unr.route.code)[3]
@@ -430,7 +440,7 @@ def get_routedetail_subset(unr, direction):
             
     rdlist = lst            
     
-    # get indexes
+    # 30 lines below only to get the index positions of the from and to stops in the list. 
     from_index = -1
     to_index= -1
 
@@ -465,19 +475,26 @@ def get_routedetail_subset(unr, direction):
         print "To-Stop not found in Route Details for unr.id", unr.id , " unr.to_stop_txt=", unr.to_stop_txt
         mismatched_unrs['to'].append({"unr":unr,"unr_to_stop_txt":unr.to_stop_txt,"unr_to_stop":unr.to_stop, "route":unr.route})
        
+    # indexes found , splice list
 
     rd_subset = rdlist[from_index:to_index+1]
 
+    # if ring route
                     
     if code == 'R' or code == '4':
         # ring specific code here. 
         # converts the given ring route subset to double size.
         # if ring route subset 
-        #if False:# not (unr.from_stop.id !=rdlist[0].stop.id and unr.to_stop.id !=rdlist[len(rdlist)-1]).stop.id:
-        #if not unr.is_full:        
-        rd_temp = copy.deepcopy(rd_subset)
-        rd_temp.reverse()
-        rd_subset.extend(rd_temp[1:])        
+        #if not (unr.from_stop.id !=rdlist[0].stop.id and unr.to_stop.id !=rdlist[len(rdlist)-1]).stop.id:
+        if not unr.is_full:       
+            # if it is a subset of the full ring route, then routedetails
+            rd_temp = copy.deepcopy(rd_subset)
+            rd_temp.reverse()
+            rd_subset.extend(rd_temp[1:])        
+        else:
+            # if full ring route, ignore splicing calculations and send route based only on "UP/DOWN" filtering
+            return rdlist
+
 
     if not direction in ["UP", "up", "U"]:
         rd_subset.reverse()
@@ -489,10 +506,25 @@ def get_routedetail_subset(unr, direction):
 
     return rd_subset
 
+def check_route_and_rds():
+    """
+    because the full routedetails is given for the route, just a sanity check to make sure 
+    route from/to stop ids match with the ones in the routedetails
+  
+    """
+
+    lst = set()
+    for r in Route.objects.all():
+        rds = r.routedetail_set.all()
+        if r.from_stop != rds[0].stop:
+            lst.add(r)
+        if  r.to_stop != rds[len(rds)-1].stop:
+            lst.add(r)
+    return lst
 
 def get_bad_routes():
     """ 
-    Gets a list of routes wich have less than five routedetails or stops inany of their uniqueroutes.
+    Gets a list of routes which have less than five routedetails or stops inany of their uniqueroutes.
     """
     bad_routes=set()
     for unr in UniqueRoute.objects.all():        
@@ -659,14 +691,6 @@ def getRoutesWBadRDs(cnt):
         if r.routedetail_set.count() < cnt:
             routes.append(r)
     return routes
-
-def export_atlas():    
-    f = csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "recomputed_atlas.csv"), "w"), delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopID","FromStopName","FirstFrom","LastFrom","ToStopID","ToStopName","FirstTo","LastTo","RouteSpan","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType"])
-    for unr in UniqueRoute.objects.all().order_by("route__code"):
-        for rs in unr.routeschedule_set.all().order_by("schedule_type"):
-            f.writerow([unr.route.code, unr.route.alias, rs.busesAM,rs.busesN,rs.busesPM,rs.bus_type,rs.depot_txt,unr.from_stop.id,unr.from_stop.name,rs.first_from,rs.last_from, unr.to_stop.id, unr.to_stop.name, rs.first_to, rs.last_to, unr.distance,rs.runtime1,rs.runtime2,rs.runtime3,rs.runtime4,rs.headway1,rs.headway2,rs.headway3,rs.headway4,rs.headway5, rs.schedule_type])
-
 
 def export_stop_times2(routelist):
     f = make_csv_writer("stop_times.txt")
@@ -1412,7 +1436,66 @@ def makeStopList():
         f.write(line+ "\n")
 
     f.close()
+
+def get_rd_distance(unr, direction):
+    details= get_routedetail_subset(unr,direction)
+    dist =0.0
+    for seq, detail in enumerate(details):
+        blankstops=0
+        if detail.km:
+            dist+=float(detail.km)
+            blankstops=0
+        else:
+            blankstops+=1
+            if seq == len(details) - 1:
+                dist+=float(0.3*blankstops)
+                
+    return dist
+
+def export_atlas():    
+    import codecs
+    f =codecs.open(join(PROJECT_ROOT, "gtfs", "recomputed_atlas.csv"), "w", "utf-8")
+
+    f = csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "recomputed_atlas.csv"), "w"), delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopCode","FromStopName","FromStopOriginal","FirstFrom","LastFrom","ToStopCode","ToStopName","ToStopOriginal","FirstTo","LastTo","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType","RouteSpan/AtlasDistance", "DistanceMasterRoute", "DistanceRouteDetailUP","DistanceRouteDetailDOWN", "mismatchedfromstop","mismatchedtostop","DaysOfRun" ])
+    for unr in UniqueRoute.objects.all().order_by("route__code"):
+        for rs in unr.routeschedule_set.all().order_by("schedule_type"):
+            bus_type= RouteType.objects.get(code=str(unr.route.code)[3]).faretype 
+            dist_up=get_rd_distance(unr,"UP")
+            dist_down=get_rd_distance(unr,"DOWN")
             
+            f.writerow([
+                    unr.route.code, 
+                    unr.route.alias, 
+                    rs.busesAM,
+                    rs.busesN,
+                    rs.busesPM,
+                    bus_type,
+                    rs.depot_txt,
+                    unr.from_stop.code,
+                    unr.from_stop.name,
+                    unr.from_stop_txt,
+                    #unr.from_stop.name_mr.encode('utf-8'),
+                    rs.first_from,
+                    rs.last_from, 
+                    unr.to_stop.code, 
+                    unr.to_stop.name,
+                    unr.to_stop_txt,
+                    #unr.to_stop.name_mr.encode('utf-8'), 
+                    rs.first_to, 
+                    rs.last_to, 
+                    rs.runtime1,rs.runtime2,rs.runtime3,rs.runtime4,
+                    rs.headway1,rs.headway2,rs.headway3,rs.headway4,rs.headway5, 
+                    rs.schedule_type,
+                    unr.distance,
+                    unr.route.distance,
+                    dist_up,
+                    dist_down,
+                    1 if 70 > fuzzprocess.ratio(unr.from_stop.name.lower(),unr.from_stop_txt.lower()) else 0,
+                    1 if 70 > fuzzprocess.ratio(unr.to_stop.name.lower(),unr.to_stop_txt.lower()) else 0,
+                    SCHED[rs.schedule_type].__str__().strip('[]')
+                    ])
+ 
 
 
 def fire_up(routelist):

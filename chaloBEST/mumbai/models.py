@@ -37,7 +37,7 @@ SCHED = {
     'MS&HOL':[1,2,3,4,5,6,8], 
     'FW':[1,2,3,4,5,6,7], 
     'SAT/SH':[6,7,8], 
-    'FH':['???'], 
+    'FH':[1,2,3,4,5,6,8], 
     'SAT&HOL':[6,8], 
     'SAT&SH':[6,7,8], 
     'SAT/SUND&HOL':[6,7,8], 
@@ -321,9 +321,9 @@ class RouteSchedule(models.Model):
     busesAM = models.IntegerField(blank=True, null=True)
     busesN = models.IntegerField(blank=True, null=True)
     busesPM = models.IntegerField(blank=True, null=True)
-    bus_type = models.CharField(max_length=3, default="SD")
+    bus_type = models.CharField(max_length=3, default="SD", blank=True)
     depot_txt = models.CharField(max_length=16, blank=True)
-    depot = models.ForeignKey("Depot", null=True)
+    depot = models.ForeignKey("Depot", null=True, blank=True)
     first_from = models.TimeField(blank=True, null=True)
     last_from = models.TimeField(blank=True, null=True)
     first_to = models.TimeField(blank=True, null=True)

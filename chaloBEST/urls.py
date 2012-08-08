@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^fuzzystops/$', 'mumbai.views.fuzzystops'),
+    (r'^fuzzystops_edit/$', 'mumbai.views.fuzzystops_edit'),
     
 )
 

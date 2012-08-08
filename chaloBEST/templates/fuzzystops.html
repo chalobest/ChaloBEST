@@ -1,3 +1,4 @@
+{% comment %}
 <h2> Likely Mismatched From stops: </h2>
 {% for f in fuzzy_froms %}
 
@@ -12,3 +13,106 @@
     <a href="/admin/mumbai/uniqueroute/{{ t.id }}">{{ t.route.alias}}</a> - {{ t.to_stop.name }} - {{ t.to_stop_txt }} <br />
 
 {% endfor %}
+
+{% endcomment %}
+
+
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script> 
+    <script type="text/javascript">
+$(function() {
+    $('.submitFuzzyEdit').click(function() {
+        var that = this;
+        saveUNR(that, false);
+    });
+    $('.markChecked').click(function() {
+        var that = this;
+        saveUNR(that, true);
+    });
+});
+
+function saveUNR(elem, markChecked) {
+    var $that = $(elem);
+    var oldTxt = $that.text();
+    $that.text("Saving...");
+    var $tr = $that.parents('tr');
+    var params = {
+        'id': $tr.attr("data-id"),
+        'from_stop': $tr.find('.fromStopSelect').val(),
+        'to_stop': $tr.find('.toStopSelect').val(),
+        'mark_checked': markChecked
+    };
+    var xhr = $.post("/fuzzystops_edit/", params, function(response) {
+        if (response != 'ok') {
+            alert("error saving data");
+            return;
+        }
+        if (markChecked) {
+            $tr.slideUp();
+        } else {
+            $that.text(oldTxt);
+        }
+    });
+    xhr.fail(function() {
+        alert("error saving data");
+    });
+
+}
+
+    </script>    
+
+</head>
+<body>
+    <table id="unrTable">
+        <thead>
+            <tr>
+                <th>Bus No</th>
+                <th>From Txt</th>
+                <th>From Stop</th>
+                <th>To Txt</th>
+                <th>To Stop</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in unrs %}
+            <tr data-id="{{ u.id }}">
+                <td>{{ u.route.alias }}</td>
+                <td>{{ u.from_stop_txt }}</td>
+                <td>
+                    <select class="fromStopSelect">
+                        {% for stop in u.get_stop_choices %}
+                        <option value="{{ stop.id }}" {% ifequal u.from_stop stop %} selected="selected" {% endifequal %}>
+                            {{ stop.display_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>{{ u.to_stop_txt }}</td>
+                <td>
+                    <select class="toStopSelect">
+                        {% for stop in u.get_stop_choices %}
+                        <option value="{{ stop.id }}" {% ifequal u.to_stop stop %} selected="selected" {% endifequal %}>
+                            {{ stop.display_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <!-- Change all: <input type="checkbox" class="changeAll" /> &nbsp; -->
+                    
+                    <button class="submitFuzzyEdit">Save</button> &nbsp;
+                    <button class="markChecked">Checked</button> &nbsp;                    
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

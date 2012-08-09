@@ -315,6 +315,13 @@ class UniqueRoute(models.Model):
     def get_stop_choices(self):
         return Stop.objects.filter(routedetail__route=self.route).order_by('routedetail')
 
+
+class FuzzyStopMatch(models.Model):
+    unr = models.OneToOneField(UniqueRoute)
+    checked = models.BooleanField(default=True)
+
+    
+
 class RouteSchedule(models.Model):
     unique_route = models.ForeignKey(UniqueRoute)
     schedule_type = models.CharField(max_length=16)

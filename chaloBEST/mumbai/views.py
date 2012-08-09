@@ -3,7 +3,9 @@ from models import *
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from fuzzywuzzy import process as fuzzprocess
+from django.http import HttpResponse
 
 def index(request):
     return render_to_response("index.html", {})
@@ -105,33 +107,97 @@ def stats(request):
     return render_to_response("stats.html", context)
 
 
-
 @login_required
 def fuzzystops(request):
-#    import pdb
-    froms_arr = []
-    tos_arr = []
+    unrs = []
     for unr in UniqueRoute.objects.all():
-        s1 = unr.from_stop.name.lower()
-        s2 = unr.from_stop_txt.lower()
-        from_ratio = fuzzprocess.ratio(s1,s2)
-        if from_ratio < 70:
-            froms_arr.append(
-                (unr, from_ratio,)
-            ) 
-        s3 = unr.to_stop.name.lower()
-        s4 = unr.to_stop_txt.lower()
-        to_ratio = fuzzprocess.ratio(s3,s4)
-        if to_ratio < 70:
-            tos_arr.append(
-                (unr, to_ratio,)
-            )
-            
-    froms_arr.sort(key=lambda item: item[1])
-    tos_arr.sort(key=lambda item: item[1])
-    context = RequestContext(request, {
-        'fuzzy_froms': [item[0] for item in froms_arr],
-        'fuzzy_tos': [item[0] for item in tos_arr]
-    })
+        if FuzzyStopMatch.objects.filter(unr=unr).filter(checked=True).count() > 0:
+            continue
+        rds = RouteDetail.objects.filter(route=unr.route).order_by('serial')
+        unrd = {}
+        fs = False
+        ls = False
+        if unr.from_stop==rds[0]:
+            fs=True
+        else:
+            fs=False
+
+        if unr.to_stop==rds[len(rds)-1]:
+            ls=True
+        else:
+            ls=False
+
+        unrs.append({'unr':unr,'stop_is_first':fs,'stop_is_last':ls})
+#    import pdb
 #    pdb.set_trace()
+    context = RequestContext(request, {
+        'unrs': unrs[0:100]
+    })
     return render_to_response("fuzzystops.html", context)
+
+
+@login_required
+@csrf_exempt
+def fuzzystops_edit(request):
+    unr_id = request.POST.get("id", 0)
+    unr = UniqueRoute.objects.get(pk=unr_id)
+    from_stop_id = int(request.POST.get("from_stop"))
+    to_stop_id = int(request.POST.get("to_stop"))    
+    unr.from_stop_id = from_stop_id
+    unr.to_stop_id = to_stop_id
+    unr.save()
+    change_all = request.POST.get("change_all", False)
+    if change_all:
+        from_stop_txt = unr.from_stop_txt
+        to_stop_txt = unr.to_stop_txt
+        for u in UniqueRoute.objects.filter(from_stop_txt=from_stop_txt):
+            u.from_stop = from_stop_id
+            u.save()
+        for u in UniqueRoute.objects.filter(to_stop_txt=from_stop_txt):
+            u.to_stop = from_stop_id
+            u.save()
+        for u in UniqueRoute.objects.filter(to_stop_txt=to_stop_txt):
+            u.to_stop = to_stop_id
+            u.save()
+        for u in UniqueRoute.objects.filter(from_stop_txt=to_stop_txt):
+            u.from_stop = to_stop_id
+            u.save()
+    mark_checked = request.POST.get("mark_checked", False)
+    if mark_checked:
+        fsm, created = FuzzyStopMatch.objects.get_or_create(unr=unr)
+        fsm.checked = True
+        fsm.save()
+    return HttpResponse("ok")
+
+
+        
+
+#@login_required
+#def fuzzystops(request):
+##    import pdb
+#    froms_arr = []
+#    tos_arr = []
+#    for unr in UniqueRoute.objects.all():
+#        s1 = unr.from_stop.name.lower()
+#        s2 = unr.from_stop_txt.lower()
+#        from_ratio = fuzzprocess.ratio(s1,s2)
+#        if from_ratio < 70:
+#            froms_arr.append(
+#                (unr, from_ratio,)
+#            ) 
+#        s3 = unr.to_stop.name.lower()
+#        s4 = unr.to_stop_txt.lower()
+#        to_ratio = fuzzprocess.ratio(s3,s4)
+#        if to_ratio < 70:
+#            tos_arr.append(
+#                (unr, to_ratio,)
+#            )
+#            
+#    froms_arr.sort(key=lambda item: item[1])
+#    tos_arr.sort(key=lambda item: item[1])
+#    context = RequestContext(request, {
+#        'fuzzy_froms': [item[0] for item in froms_arr],
+#        'fuzzy_tos': [item[0] for item in tos_arr]
+#    })
+##    pdb.set_trace()
+#    return render_to_response("fuzzystops.html", context)

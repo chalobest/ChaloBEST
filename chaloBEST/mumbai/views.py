@@ -50,7 +50,7 @@ def stop(request, slug):
     })
     return render_to_response("stop.html", context)
 
-
+@login_required
 def editstops(request):
     context = RequestContext(request, {})
     return render_to_response("editstops.html", context)
@@ -109,10 +109,19 @@ def stats(request):
 
 @login_required
 def fuzzystops(request):
+    start = int(request.GET.get("start", 0))
+    end = int(request.GET.get("end", start + 50))
+    show_checked = request.GET.get("show_checked", False)
     unrs = []
     for unr in UniqueRoute.objects.all():
+        
         if FuzzyStopMatch.objects.filter(unr=unr).filter(checked=True).count() > 0:
-            continue
+            if not show_checked:
+                continue
+        else:
+            if show_checked:
+                continue        
+
         rds = RouteDetail.objects.filter(route=unr.route).order_by('serial')
         unrd = {}
         fs = False
@@ -131,7 +140,7 @@ def fuzzystops(request):
 #    import pdb
 #    pdb.set_trace()
     context = RequestContext(request, {
-        'unrs': unrs[0:20]
+        'unrs': unrs[start:end]
     })
     return render_to_response("fuzzystops.html", context)
 

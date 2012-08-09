@@ -36,6 +36,17 @@ $(function() {
         var that = this;
         saveUNR(that, true);
     });
+
+    $('.fromStopSelect').change(function() {
+        var firstOpt = $(this).children().first();
+        firstOpt.attr("selected") ? $(this).removeClass("notfirstStop") : $(this).addClass("notfirstStop");
+    });
+
+    $('.toStopSelect').change(function() {
+        var lastOpt = $(this).children().last();
+        lastOpt.attr("selected") ? $(this).removeClass("notlastStop") : $(this).addClass("notlastStop");
+    });
+
 });
 
 function saveUNR(elem, markChecked) {

@@ -49,6 +49,12 @@ $(function() {
         $(this).parents('tr').find('.submitFuzzyEdit').click();
     });
 
+    $('#reloadPage').click(function() {
+        var start = $('#start').val();
+        var end = $('#end').val();
+        var url = location.pathname + "?start=" + start + "&end=" + end;
+        window.location.href = url;
+    });
 });
 
 function saveUNR(elem, markChecked) {
@@ -83,6 +89,12 @@ function saveUNR(elem, markChecked) {
 
 </head>
 <body>
+    <div id="stats">
+        Total Unique Routes remaining: {{ total }} &nbsp;
+        Showing <input size="1" id="start" value="{{ start }}" /> to <input size="1" id="end" value="{{ end }}" /> &nbsp;
+        <button id="reloadPage">Reload</button>
+
+    </div>
     <table id="unrTable">
         <thead>
             <tr>

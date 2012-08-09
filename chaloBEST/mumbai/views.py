@@ -139,8 +139,14 @@ def fuzzystops(request):
         unrs.append({'unr':unr,'stop_is_first':fs,'stop_is_last':ls})
 #    import pdb
 #    pdb.set_trace()
+    if end > len(unrs):
+        end = len(unrs)
+ 
     context = RequestContext(request, {
-        'unrs': unrs[start:end]
+        'unrs': unrs[start:end],
+        'total': len(unrs),
+        'start': start,
+        'end': end
     })
     return render_to_response("fuzzystops.html", context)
 

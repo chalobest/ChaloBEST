@@ -117,12 +117,12 @@ def fuzzystops(request):
         unrd = {}
         fs = False
         ls = False
-        if unr.from_stop==rds[0]:
+        if unr.from_stop==rds[0].stop:
             fs=True
         else:
             fs=False
 
-        if unr.to_stop==rds[len(rds)-1]:
+        if unr.to_stop==rds[len(rds)-1].stop:
             ls=True
         else:
             ls=False
@@ -131,7 +131,7 @@ def fuzzystops(request):
 #    import pdb
 #    pdb.set_trace()
     context = RequestContext(request, {
-        'unrs': unrs[0:100]
+        'unrs': unrs[0:20]
     })
     return render_to_response("fuzzystops.html", context)
 

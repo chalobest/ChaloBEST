@@ -21,6 +21,11 @@
 <html>
 <head>
     <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script> 
+    <style>
+      .notfirstStop { background-color: #ffdddd }
+      .notlastStop { background-color: #ffdddd }
+
+    </style>
     <script type="text/javascript">
 $(function() {
     $('.submitFuzzyEdit').click(function() {
@@ -83,7 +88,7 @@ function saveUNR(elem, markChecked) {
                 <td>{{ u.unr.route.alias }}</td>
                 <td>{{ u.unr.from_stop_txt }}</td>
                 <td>
-                    <select class="fromStopSelect {% if u.fs %} firstStop {% endif %}" > 
+                    <select class="fromStopSelect {% if not u.stop_is_first %} notfirstStop {% endif %}" > 
                         {% for stop in u.unr.get_stop_choices %}
                         <option value="{{ stop.id }}" {% ifequal u.unr.from_stop stop %} selected="selected" {% endifequal %}>
                             {{ stop.display_name }}
@@ -91,10 +96,10 @@ function saveUNR(elem, markChecked) {
                         {% endfor %}
                     </select>
                 </td>
-
+		
                 <td>{{ u.unr.to_stop_txt }}</td>
                 <td>
-                    <select class="toStopSelect {% if u.fs %} lastStop {% endif %}" >
+                    <select class="toStopSelect {% if not u.stop_is_last %} notlastStop {% endif %}" >
                         {% for stop in u.unr.get_stop_choices %}
                         <option value="{{ stop.id }}" {% ifequal u.unr.to_stop stop %} selected="selected" {% endifequal %}>
                             {{ stop.display_name }}

@@ -48,13 +48,14 @@ $(function() {
         lastOpt.attr("selected") ? $(this).removeClass("notlastStop") : $(this).addClass("notlastStop");
         $(this).parents('tr').find('.submitFuzzyEdit').click();
     });
-
+/*
     $('#reloadPage').click(function() {
         var start = $('#start').val();
         var end = $('#end').val();
         var url = location.pathname + "?start=" + start + "&end=" + end;
         window.location.href = url;
     });
+*/
 });
 
 function saveUNR(elem, markChecked) {
@@ -91,9 +92,10 @@ function saveUNR(elem, markChecked) {
 <body>
     <div id="stats">
         Total Unique Routes remaining: {{ total }} &nbsp;
-        Showing <input size="1" id="start" value="{{ start }}" /> to <input size="1" id="end" value="{{ end }}" /> &nbsp;
-        <button id="reloadPage">Reload</button>
-
+        <form id="paginationForm" action="" method="GET">
+        Showing <input size="1" id="start" name="start" value="{{ start }}" /> to <input size="1" id="end" name="end" value="{{ end }}" /> &nbsp;
+        <input type="submit" value="Reload" />
+        </form>
     </div>
     <table id="unrTable">
         <thead>

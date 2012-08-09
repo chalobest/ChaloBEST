@@ -113,7 +113,7 @@ def fuzzystops(request):
     end = int(request.GET.get("end", start + 50))
     show_checked = request.GET.get("show_checked", False)
     unrs = []
-    for unr in UniqueRoute.objects.all():
+    for unr in UniqueRoute.objects.all().order_by('route__code'):
         
         if FuzzyStopMatch.objects.filter(unr=unr).filter(checked=True).count() > 0:
             if not show_checked:

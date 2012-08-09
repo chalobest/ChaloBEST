@@ -40,11 +40,13 @@ $(function() {
     $('.fromStopSelect').change(function() {
         var firstOpt = $(this).children().first();
         firstOpt.attr("selected") ? $(this).removeClass("notfirstStop") : $(this).addClass("notfirstStop");
+        $(this).parents('tr').find('.submitFuzzyEdit').click();
     });
 
     $('.toStopSelect').change(function() {
         var lastOpt = $(this).children().last();
         lastOpt.attr("selected") ? $(this).removeClass("notlastStop") : $(this).addClass("notlastStop");
+        $(this).parents('tr').find('.submitFuzzyEdit').click();
     });
 
 });
@@ -95,7 +97,7 @@ function saveUNR(elem, markChecked) {
         </thead>
         <tbody>
             {% for u in unrs %}
-            <tr data-id="{{ u.id }}">
+            <tr data-id="{{ u.unr.id }}">
                 <td>{{ u.unr.route.alias }}</td>
                 <td>{{ u.unr.from_stop_txt }}</td>
                 <td>
@@ -121,7 +123,7 @@ function saveUNR(elem, markChecked) {
                 <td>
                     <!-- Change all: <input type="checkbox" class="changeAll" /> &nbsp; -->
                     
-                    <button class="submitFuzzyEdit">Save</button> &nbsp;
+                    <button class="submitFuzzyEdit" style="display:none;">Save</button> &nbsp;
                     <button class="markChecked">Checked</button> &nbsp;                    
 
                 </td>

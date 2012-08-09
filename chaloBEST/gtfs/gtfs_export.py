@@ -8,7 +8,7 @@ import datetime
 from itertools import dropwhile
 import copy    
 from fuzzywuzzy import process as fuzzprocess
-
+import pdb
 
 def routeWithLocationData(route):
     '''
@@ -400,7 +400,7 @@ def get_routedetail_subset(unr, direction):
     Algo. 
     1. get routedetail(rd) list
     2. check if rds are reversed
-    3. select stops if they are in UP or DOWN route
+    3. select stops if they are in UP or DOWN route, if a stop is to be removed, transfer the km info to the next or previous stop
     4. get indexes of the stops in the list.
     5. splice the list acc to positions
     6. check if full route, if yes, then ignore calculations, send entire list (only filter up/down stops)
@@ -415,7 +415,7 @@ def get_routedetail_subset(unr, direction):
     route_reversed = False
     # Sometimes to_stop comes before from_stop in RouteDetail.
     # So reverse the list if that happens.. so a from_stop will always come before a to_stop              # This is when the from_stop / to_stop mapping is not proper 
-
+    # reverse list
     for detail in rdlist:
         if detail.stop.id == from_stop.id: break
         if detail.stop.id == to_stop.id:
@@ -428,18 +428,35 @@ def get_routedetail_subset(unr, direction):
     # select stops in route for "UP/DOWN" routes respectively
     if direction in ["UP", "up", "U"]:
         lst = [] 
-        for rd in rdlist:
+        for pos, rd in enumerate(rdlist):
             if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                 lst.append(rd)
+            #else:
+                # add km info of the stop to be removed to next or prev stop, 
+                # if pos != len(rdlist)-1 and rdlist[pos + 1].km:
+                #     rdlist[pos+1].km = rd.km
+                # else:
+                #     if pos != 0 and rdlist[pos - 1].km:
+                #         rdlist[pos+1].km = rd.km
+                    
+                
     else:
         # for "DOWN" routes
         lst = []
-        for rd in rdlist:
+        for pos, rd in enumerate(rdlist):
             if rd.stop.dbdirection == '' or rd.stop.dbdirection ==  'D' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                 lst.append(rd)
+            #else:
+                # add km info of the stop to be removed to next or prev stop, 
+                # if pos != len(rdlist)-1 and rdlist[pos + 1].km:
+                #     rdlist[pos+1].km = rd.km
+                # else:
+                #     if pos != 0 and rdlist[pos - 1].km:
+                #         rdlist[pos+1].km = rd.km
+                    
             
     rdlist = lst            
-    
+    pdb.set_trace()
     # 30 lines below only to get the index positions of the from and to stops in the list. 
     from_index = -1
     to_index= -1
@@ -464,9 +481,10 @@ def get_routedetail_subset(unr, direction):
         if(rd.stop==to_stop):
             to_index = rdlist.index(rd)
             to_stop_found+=1            
-            # for ring routes there will be two occurences of the stop, so for 
-            # remove  break to see multiple occurences in g.multiple_to_stops    
-            break
+            # for ring routes there will be two occurences of the stop, so we want  
+            # remove  break to see multiple occurences in g.multiple_to_stops            code = unr.route.code[3]
+            if code == 'R' or code == '4':
+                break
 
     if to_stop_found>1:
         multiple_to_stops.append({"unr":unr,"count":to_stop_found,"to_stop":unr.to_stop})
@@ -476,11 +494,9 @@ def get_routedetail_subset(unr, direction):
         mismatched_unrs['to'].append({"unr":unr,"unr_to_stop_txt":unr.to_stop_txt,"unr_to_stop":unr.to_stop, "route":unr.route})
        
     # indexes found , splice list
-
     rd_subset = rdlist[from_index:to_index+1]
 
     # if ring route
-                    
     if code == 'R' or code == '4':
         # ring specific code here. 
         # converts the given ring route subset to double size.
@@ -521,6 +537,32 @@ def check_route_and_rds():
         if  r.to_stop != rds[len(rds)-1].stop:
             lst.add(r)
     return lst
+
+def get_non_ring_routes():
+    """
+    Gets routes which have unique routes which are ring route like but do not have that in route code
+    """
+    unr_lst = set()
+    for unr in UniqueRoute.objects.all():        
+        code = unr.route.code[3]
+        if not (code == 'R' or code == '4'):
+            if unr.from_stop==unr.to_stop:
+                unr_lst.add(unr)
+    return unr_lst
+
+def get_non_ring_routes_via_rds():
+    """
+    Gets routes which have unique routes which are ring route like but do not have that in route code
+    """
+    route_lst = set()
+    for r in Route.objects.all():        
+        code = r.code[3]
+#        if not (code == 'R' or code == '4'):
+#            rds =  
+#            if 
+#                route_lst.add(unr.route)
+    return route_lst
+    
 
 def get_bad_routes():
     """ 
@@ -1426,19 +1468,28 @@ def export_stops_from_set():
 
 def makeStopList():
     import codecs
-    f =codecs.open(join(PROJECT_ROOT, "gtfs", "Stops.csv"), "w", "utf-8")
-    f.write("stop_id,stop_code,stop_name,marathi_name")
+    f =codecs.open(join(PROJECT_ROOT, "../db_csv_files", "MarathiStopsLeft.csv"), "w", "utf-8")
+    f.write("stop_id\tstop_code\tstop_name\tmarathi_name\n")
 
     for s in Stop.objects.all():
-        if s.name_mr is None:
+        if s.name_mr in ('', None):
             s.name_mr= ''
-        line = str(s.id) +"\t"+ str(s.code)+"\t" + str(s.name) + "\t" + s.name_mr
-        f.write(line+ "\n")
+            line = str(s.id) +"\t"+ str(s.code)+"\t" + str(s.name) + "\t" + s.name_mr
+            f.write(line+ "\n")
 
     f.close()
 
-def get_rd_distance(unr, direction):
-    details= get_routedetail_subset(unr,direction)
+#def readStopList():
+    
+
+def get_rd_distance(unr,addextradist):
+    """
+    Sums up the distances for a given route. 
+    Also adds 300 mts. for each stop for calculating the last stop, 
+    if it doesnt have distance info. (This is for the trip times)
+    def get_rd_distance(UniqueRoute unr, bool addextradist):
+    """
+    details= RouteDetail.objects.filter(route=unr.route).order_by('serial')
     dist =0.0
     for seq, detail in enumerate(details):
         blankstops=0
@@ -1448,21 +1499,30 @@ def get_rd_distance(unr, direction):
         else:
             blankstops+=1
             if seq == len(details) - 1:
-                dist+=float(0.3*blankstops)
+                if addextradist:
+                    dist+=float(0.3*blankstops)
                 
     return dist
 
+def routes_nonstage_last_stop():
+    for r in Route.objects.all():
+        if r.uniqueroute_set.all():
+            unr = r.uniqueroute_set.all()[0]
+            if g.get_rd_distance(unr,0) != g.get_rd_distance(unr,1):
+                cnt.append(r)
+
+    return cnt
+                
 def export_atlas():    
     import codecs
     f =codecs.open(join(PROJECT_ROOT, "gtfs", "recomputed_atlas.csv"), "w", "utf-8")
 
     f = csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "recomputed_atlas.csv"), "w"), delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopCode","FromStopName","FromStopOriginal","FirstFrom","LastFrom","ToStopCode","ToStopName","ToStopOriginal","FirstTo","LastTo","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType","RouteSpan/AtlasDistance", "DistanceMasterRoute", "DistanceRouteDetailUP","DistanceRouteDetailDOWN", "mismatchedfromstop","mismatchedtostop","DaysOfRun" ])
+    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopCode","FromStopName","FromStopOriginal","FirstFrom","LastFrom","ToStopCode","ToStopName","ToStopOriginal","FirstTo","LastTo","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType","RouteSpan/AtlasDistance", "DistanceMasterRoute", "DistanceRouteDetail", "mismatchedfromstop","mismatchedtostop","DaysOfRun" ])
     for unr in UniqueRoute.objects.all().order_by("route__code"):
         for rs in unr.routeschedule_set.all().order_by("schedule_type"):
             bus_type= RouteType.objects.get(code=str(unr.route.code)[3]).faretype 
-            dist_up=get_rd_distance(unr,"UP")
-            dist_down=get_rd_distance(unr,"DOWN")
+            rd_dist=get_rd_distance(unr,0)
             
             f.writerow([
                     unr.route.code, 
@@ -1489,8 +1549,7 @@ def export_atlas():
                     rs.schedule_type,
                     unr.distance,
                     unr.route.distance,
-                    dist_up,
-                    dist_down,
+                    rd_dist,
                     1 if 70 > fuzzprocess.ratio(unr.from_stop.name.lower(),unr.from_stop_txt.lower()) else 0,
                     1 if 70 > fuzzprocess.ratio(unr.to_stop.name.lower(),unr.to_stop_txt.lower()) else 0,
                     SCHED[rs.schedule_type].__str__().strip('[]')

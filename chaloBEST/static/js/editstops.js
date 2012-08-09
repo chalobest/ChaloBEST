@@ -39,6 +39,7 @@ var API_BASE = "/1.0/",
         $('.list').click(function(e) {
             var name = $(this).attr("id").replace("sList", ""); //FIXME: stick name in a data attr or so?
             var $target = $(e.target).parent();
+            //console.log($target);
             if (!$target.hasClass('listItem')) {
                 return;
             }
@@ -75,10 +76,12 @@ var API_BASE = "/1.0/",
             $('#stopForm').remove();
             $('#formCol').empty();
             $.getJSON(url, {'srid': 3857}, function(obj) {
+                //console.log("here", $target);
                 $loading.remove();
                 var stopsGeojson = obj.stops;              
                 var stops = stopsGeojson.features;
                 var $stopsList = getStopsList(stops);
+                //console.log($stopsList);
                 var stopsWithGeom = [];
                 $.each(stops, function(i,v) {
                     if (!$.isEmptyObject(v.geometry)) {
@@ -89,11 +92,16 @@ var API_BASE = "/1.0/",
                 stopsGeojson.features = stopsWithGeom;
                 var currFeatures = jsonLayer.features;
                 jsonLayer.removeFeatures(currFeatures);
+                console.log(stopsWithGeom);
                 if (stopsWithGeom.length !== 0) {
                     jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
                     var maxExtent = jsonLayer.getDataExtent();
-                    map.zoomToExtent(maxExtent);                                                                
-                }                
+                    //What you see here with the setTimeout is a sign of having given up - PLEASE PLEASE make this go away - you should not need to do this - but apparently there is some error being raised by map.zoomToExtent() ALTHOUGH it seems to be doing the right thing and calling it in a setTimeout makes the other code work alright. But it causes me to sleep a little less soundly at night. Please HELP.
+                    setTimeout(function() {
+                        map.zoomToExtent(maxExtent);
+                        }, 50);                                                                
+                }
+                //console.log("whoosh", $target);                
                 $target.append($stopsList);
                 // $target.data("hasList", true);
                 $target.data("loading", false);
@@ -315,7 +323,7 @@ var API_BASE = "/1.0/",
         var permalink = new OpenLayers.Control.Permalink({base: "http://www.openstreetmap.org/"});
         map.addControl(permalink);
         $(".olControlPermalink a").attr("target","_blank").html("View in OSM");
-	alert('Not here');
+        //alert('Not here');
     }
 
     function onFeatureSelect(e) {

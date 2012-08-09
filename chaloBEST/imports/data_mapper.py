@@ -157,9 +157,13 @@ def Stop_save(entry):
 # There is no model as StopMarathi/AreaMarathi, but this is done to separate errors arising from different files, and also that the Marathi names should be done after the Stop and Area entities have been fully loaded cuz thats how we get them from BEST.
 
 def StopMarathi_save(entry):
-    obj = Stop.objects.get(id=int(entry[0])) 
-    obj.name_mr = unicode(entry[3], 'utf-8')
-    obj.save()
+    obj = Stop.objects.get(code=str(entry[1])) 
+    mrstr =  unicode(entry[3], 'utf-8')
+    if mrstr=='':
+        print entry
+    obj.name_mr = mrstr
+    obj.save()    
+    #return obj
     #print obj.__dict__  
 
 def AreaMarathi_save(entry):

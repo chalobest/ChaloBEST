@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     # (r'^chaloBEST/', include('chaloBEST.foo.urls')),
     url(r'^$','chaloBEST.views.index', name='index'),
     url(r'^stats/$','mumbai.views.stats', name='stats'),
-    url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
+#    url(r'^static/(?P<path>.*)$','django.views.static.serve', {'document_root':'./static'}),
     (r'^routes/$', 'mumbai.views.routes'),
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/$', 'mumbai.views.route'),
     (r'^route/(?P<alias>[a-zA-Z0-9\s\-]*?)/georss/$', RouteFeed()),
@@ -43,6 +43,7 @@ if settings.LOCAL_DEVELOPMENT:
   urlpatterns += patterns('',
 #
   (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': join(settings.PROJECT_ROOT, "static")}),
+  (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': join(settings.PROJECT_ROOT, "media")}),
 #
 )
 

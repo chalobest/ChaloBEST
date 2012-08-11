@@ -2,7 +2,7 @@ from django.contrib.gis import admin
 from django import forms
 from mumbai.models import *
 from django.contrib.contenttypes import generic
-from django.contrib.admin.filterspecs import FilterSpec, RelatedFilterSpec
+#from django.contrib.admin.filterspecs import FilterSpec, RelatedFilterSpec
 
 '''
 class CustomFilterSpec(RelatedFilterSpec):

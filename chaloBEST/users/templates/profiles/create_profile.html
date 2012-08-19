@@ -1,0 +1,35 @@
+{% extends "main_template.html" %}
+{% block content%}
+
+<script>
+ $(document).ready(function() {
+   $("#profile").addClass("active");
+ });
+</script>
+
+<div class="description">
+    <h2>Create Profile:</h2>
+</div>
+
+ 
+<h2>{{ user|capfirst }}, before we begin, lets set some of your account preferences. These can be changed at any time.</h2>
+ 
+<form method="POST" action="">
+        <p>
+            Default League to bet: <span class="required">*</span>  {{ form.pref_sport }}
+            {% for error in form.pref_sport.errors %}
+                {{ error|escape }}
+            {% endfor %}
+        </p>
+
+        <p>
+            Default Number of games to bet: <span class="required">*</span>  {{ form.pref_num_games }}
+            {% for error in form.pref_num_games.errors %}
+                {{ error|escape }}
+            {% endfor %}
+        </p>
+
+    <input type="submit" name="submit" class="submit" value="Create Profile">
+</form>
+ 
+{% endblock %}

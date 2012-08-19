@@ -134,30 +134,58 @@ INSTALLED_APPS = (
     #'socialregistration.contrib.facebook',
     'emailconfirmation',
    # 'uni_form',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.openid',
-    'allauth.socialaccount.providers.facebook',
+   # 'allauth',
+   # 'allauth.account',
+   # 'allauth.socialaccount',
+   # 'allauth.socialaccount.providers.twitter',
+   # 'allauth.socialaccount.providers.openid',
+   # 'allauth.socialaccount.providers.facebook',
     #'allauth.socialaccount.providers.google',
+    'users',
+    'profiles',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'south',
+    'django_extensions',
+    'userena.contrib.umessages',
+
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
    'django.core.context_processors.request',
    'django.contrib.auth.context_processors.auth',
-   "allauth.context_processors.allauth",
-   "allauth.account.context_processors.account"
+   #"allauth.context_processors.allauth",
+   #"allauth.account.context_processors.account",
+   "django.contrib.messages.context_processors.messages"
+
 )
 AUTHENTICATION_BACKENDS = (
-	"allauth.account.auth_backends.AuthenticationBackend",
+#	"allauth.account.auth_backends.AuthenticationBackend",
+	"userena.backends.UserenaAuthenticationBackend",
+        "guardian.backends.ObjectPermissionBackend",
+        "django.contrib.auth.backends.ModelBackend",
+
 )
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST ='smtp.gmail.com'
-EMAIL_HOST_USER = 'subhodipbiswas@gmail.com'
-EMAIL_HOST_PASSWORD ='doaxhentai'
+EMAIL_HOST_USER = 'abc@abc.com'
+EMAIL_HOST_PASSWORD ='somepassword'
 EMAIL_PORT =587
 EMAIL_USE_TLS =True
 SERVER_EMAIL = EMAIL_HOST_USER
-DEFAULT_FROM_EMAIL=EMAIL_HOST_USER	
+DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
+AUTH_PROFILE_MODULE = "users.UserProfile"
+#AUTH_PROFILE_MODULE = 'profiles.Profile'
+LOGIN_REDIRECT_URL ='/accounts/%(username)s/'
+LOGIN_URL = '/accounts/signin/'
+LOGOUT_URL = '/accounts/signout/'
+#LOGIN_REDIRECT_URL = '/profiles/profile/'
+USERENA_DISABLE_PROFILE_LIST = False
+USERENA_MUGSHOT_SIZE = 140
+USERENA_MUGSHOT_GRAVATAR=True
+USERENA_MUGSHOT_DEFAULT='monsterid'
+ANONYMOUS_USER_ID = -1
+	
 try:
     from local_settings import *
 except:

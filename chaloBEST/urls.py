@@ -25,7 +25,7 @@ urlpatterns = patterns('',
 #    (r'^stop/(?P<slug>.*?)/georss/$', StopFeed()),
     (r'^buseditor/$', 'mumbai.views.buseditor'),	   
     (r'^editstops/$', 'mumbai.views.editstops'),
-    (r'^accounts/', include('allauth.urls')),
+    #(r'^accounts/', include('allauth.urls')),
     (r'^1.0/', include('mumbai.apiurls')),
     #url(r'^login/', include('socialregistration.urls',namespace='socialregistration')),                                        
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -35,6 +35,12 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^matchstops/$', 'mumbai.views.fuzzystops'),
     (r'^fuzzystops_edit/$', 'mumbai.views.fuzzystops_edit'),
+ url(r'^accounts/', include('userena.urls')),
+     #(r'^accounts/signup/$', 'userena.views.signup',
+      #{'signup_form': SignupFormExtra}),
+
+     url(r'^messages/',include('userena.contrib.umessages.urls')),
+
     
 )
 

@@ -212,8 +212,10 @@ SERVICE_SCHEDULE = [
 # HOL holidays means only the exceptions as defined in calendar_dates.txt. this needs to be converted separately. 
 # done here only to get the other components of gtfs up.
 
-feed_start_date="2012-03-01" # YYYY-MM-DD
-feed_end_date="2012-06-30" # YYYY-MM-DD
+feed_start_date="2012-07-01" # YYYY-MM-DD
+feed_end_date="2012-11-30" # YYYY-MM-DD
+start_date_str = ''
+end_date_str = ''
 
 def export_calendar():
     f = make_csv_writer("calendar.txt")
@@ -260,7 +262,7 @@ def export_calendar():
 def export_feed_info():
     f = make_csv_writer("feed_info.txt")
     f.writerow(["feed_publisher_name","feed_publisher_url","feed_lang","feed_start_date","feed_end_date","feed_version"])
-    f.writerow(["ChaloBEST","http://chalobest.in","en","20120301","20130630","0.31"])
+    f.writerow(["ChaloBEST","http://chalobest.in","en",start_date_str,end_date_str,"0.31"])
 
 
 def uniquify_list_of_lists(sequence):
@@ -389,6 +391,18 @@ def getserial(rdlist,stop,getFirstStop=True):
         if(rd.stop==stop):
             return rdlist.index(rd)
 
+def checkUniqueRouteStops():
+    no_from=set()
+    no_to=set()
+
+    for unr in UniqueRoute.objects.all():
+        if unr.from_stop not in [s.stop for s in unr.route.routedetail_set.all()]:
+            no_from.add(unr)
+        if unr.to_stop not in [s.stop for s in unr.route.routedetail_set.all()]:
+            no_to.add(unr)
+    return {'to_stop_missing':no_from , 'from_stop_missing': no_to}
+
+
 reversed_rds=[]
 mismatched_unrs={"from":[], "to":[]}
 multiple_to_stops=[]
@@ -414,7 +428,7 @@ def get_routedetail_subset(unr, direction):
     
     route_reversed = False
     # Sometimes to_stop comes before from_stop in RouteDetail.
-    # So reverse the list if that happens.. so a from_stop will always come before a to_stop              # This is when the from_stop / to_stop mapping is not proper 
+    # So reverse the list if that happens.. so a from_stop will always come before a to_stop              
     # reverse list
     for detail in rdlist:
         if detail.stop.id == from_stop.id: break
@@ -424,20 +438,22 @@ def get_routedetail_subset(unr, direction):
             route_reversed = True
             break
 
-
     # select stops in route for "UP/DOWN" routes respectively
     if direction in ["UP", "up", "U"]:
         lst = [] 
         for pos, rd in enumerate(rdlist):
             if rd.stop.dbdirection == '' or rd.stop.dbdirection == 'U' or rd.stop==unr.from_stop or rd.stop==unr.to_stop:
                 lst.append(rd)
-            #else:
-                # add km info of the stop to be removed to next or prev stop, 
-                # if pos != len(rdlist)-1 and rdlist[pos + 1].km:
-                #     rdlist[pos+1].km = rd.km
-                # else:
-                #     if pos != 0 and rdlist[pos - 1].km:
-                #         rdlist[pos+1].km = rd.km
+            # else:
+            #     # add km info of the stop to be removed to next or prev stop, 
+            #     if rd.km and pos != len(rdlist)-1:
+            #         if rdlist[pos+1].km: # if it next stop has km, 
+            #             rdlist[pos+1].km+=rd.km
+            #         else:
+            #             rdlist[pos+1].km=rd.km
+            #     else:
+            #         if pos != 0 and not rdlist[pos - 1].km and rd[pos].km:
+            #             rdlist[pos+1].km = rd.km
                     
                 
     else:
@@ -456,8 +472,10 @@ def get_routedetail_subset(unr, direction):
                     
             
     rdlist = lst            
-    pdb.set_trace()
-    # 30 lines below only to get the index positions of the from and to stops in the list. 
+    #pdb.set_trace()
+
+
+#30 lines below only to get the index positions of the from and to stops in the list. 
     from_index = -1
     to_index= -1
 
@@ -477,15 +495,20 @@ def get_routedetail_subset(unr, direction):
 
 
     # to stop index
-    for rd in rdlist:
+    for pos, rd in enumerate(rdlist):
         if(rd.stop==to_stop):
+            # for ring routes there will be two occurences of the stop, so we want the to_stop at the via-point and then we mirror the route
+            if code == 'R' or code == '4': # for ring routes
+                if from_stop==to_stop and pos==0:  # if first and last stop  are the same, then go to the second occurence
+                    continue
+                else:
+                    to_index = rdlist.index(rd)
+                    to_stop_found+=1           
+                    break                                
             to_index = rdlist.index(rd)
-            to_stop_found+=1            
-            # for ring routes there will be two occurences of the stop, so we want  
-            # remove  break to see multiple occurences in g.multiple_to_stops            code = unr.route.code[3]
-            if code == 'R' or code == '4':
-                break
+            to_stop_found+=1           
 
+            
     if to_stop_found>1:
         multiple_to_stops.append({"unr":unr,"count":to_stop_found,"to_stop":unr.to_stop})
         
@@ -496,7 +519,7 @@ def get_routedetail_subset(unr, direction):
     # indexes found , splice list
     rd_subset = rdlist[from_index:to_index+1]
 
-    # if ring route
+    # if ring route, then mirror stops from the via-point
     if code == 'R' or code == '4':
         # ring specific code here. 
         # converts the given ring route subset to double size.
@@ -511,9 +534,16 @@ def get_routedetail_subset(unr, direction):
             # if full ring route, ignore splicing calculations and send route based only on "UP/DOWN" filtering
             return rdlist
 
-
-    if not direction in ["UP", "up", "U"]:
+    # by default, the route is ordered according to the up route so only check for down trips
+    if not direction in ["UP", "up", "U"]:        
         rd_subset.reverse()
+        prevdist= 0.0
+        for pos, rd in enumerate(rd_subset):
+            # if last stop is not a stage we still should assign the previous dist
+            if rd.km or pos == len(rd_subset)-1:
+                tempdist=rd.km
+                rd.km=prevdist
+                prevdist=tempdist                   
         
     # if route indexing is anything less than 5 or negative, then alert
     if (to_index - from_index) < 5:
@@ -610,8 +640,7 @@ def make_is_full():
     d = {"unrs": fn, "routes":cn}
     return d
             
-        
-               
+                       
 def runtime_in_minutes(schedule):
     """
     runtime returned is a single value and maybe would be more refined it would consider timespan.
@@ -643,6 +672,39 @@ def runtime_in_minutes(schedule):
         t_from, t_to = schedule.last_from, schedule.last_to
     return abs(t_from.hour * 60 + t_from.minute -
               (t_to.hour * 60 + t_to.minute))
+
+def runtime_in_minutes_now(schedule):
+    """
+    runtime returned is a single value and maybe would be more refined it would consider timespan.
+    """
+    
+    runtime = schedule.runtime1 or schedule.runtime2 or schedule.runtime3 or schedule.runtime4
+
+    tot=0.0
+    cnt=0
+    if schedule.runtime1:
+        tot+=schedule.runtime1
+        cnt+=1
+    if schedule.runtime2:
+        tot+=schedule.runtime2
+        cnt+=1
+    if schedule.runtime3:
+        tot+=schedule.runtime3
+        cnt+=1
+    if schedule.runtime4:
+        tot+=schedule.runtime4
+        cnt+=1
+    if cnt!=0:
+        runtime = tot/cnt
+        return runtime
+        
+    
+    t_from, t_to = schedule.first_from, schedule.first_to
+    if not t_from or not t_to:
+        t_from, t_to = schedule.last_from, schedule.last_to
+    return abs(t_from.hour * 60 + t_from.minute -
+              (t_to.hour * 60 + t_to.minute))
+
         
 noLocsStops = []
 
@@ -879,11 +941,13 @@ def export_stop_times(routelist):
         # use interpolated distances
         #details = parseDistancesForDetails(details, parse_stages=True)
 
-        if len(details) < 5:
+        if len(details) <= 4:
             print "rdlist not populated"   
             rdlistempty+=1
             badroutes.add(route)
-            continue
+            #continue
+
+        #--------------------- get distance ---------------
        
         if unr.is_full and route.distance:
             dist1 = float(route.distance)
@@ -896,7 +960,7 @@ def export_stop_times(routelist):
         dist3=0.0
         for seq, detail in enumerate(details):
             blankstops=0
-            if detail.km:
+            if detail.km and not seq ==0: # dont count the first stop's distance.
                 dist3+=float(detail.km)
                 blankstops=0
             else:
@@ -904,16 +968,21 @@ def export_stop_times(routelist):
                 if seq == len(details) - 1:
                     dist3+=float(0.3*blankstops)
 
-        dist = dist2
-        #j runtime should be calculated for each separate runtime entry, so stop_times becomes a bit more accurate.
-        runtime = runtime_in_minutes(schedule)
+        dist = dist3
+
+        #--------------------- get distance ---------------
+
+        #--------------------- s ---------------
+
+        runtime = runtime_in_minutes(schedule)  #j runtime should be calculated for each separate runtime entry, so stop_times becomes a bit more accurate.
 
         #if dist == 0.0 or runtime == 0
         avgspeed = 12.0/60.0
         if not runtime == 0.0:
             avgspeed = dist/runtime   # in km/min         
         else:
-            #avgspeed = 12.0/60.0   # putting a default of 12 km/hour. 
+            # putting a default of 12km/hour. 
+            #avgspeed = 12.0/60.0  
             nospeeds+=1                
 
         # checks and failsafes            
@@ -924,14 +993,14 @@ def export_stop_times(routelist):
             tooslows+=1
 
         if avgspeed > 40.0/60.0:
-             print "Slow: Trip: %s::Speed: %.2f, Dist:(route: %s, unr: %s, rd: %s) ,run_time: %s,  stops: %s" %(trip_id, avgspeed*60.0, dist1, dist2, dist3, str(runtime), str(len(details))) 
+             print "Fast: Trip: %s::Speed: %.2f, Dist:(route: %s, unr: %s, rd: %s) ,run_time: %s,  stops: %s" %(trip_id, avgspeed*60.0, dist1, dist2, dist3, str(runtime), str(len(details))) 
              toofasts+=1
              fastroutes.add(route)
             #avgspeed=30.0/60.0
         
         # setting up some vars and failsafes
         initial_time = departure_time = schedule.first_to if direction == "UP" else schedule.first_from
-        if initial_time is None:
+        if initial_time == datetime.time(0,0,0):
             initial_time  = time_of("05:00:00")
 
         arrival_time = initial_time
@@ -952,7 +1021,7 @@ def export_stop_times(routelist):
         for sequence, detail in rdetails:
             stopset.add(detail.stop)
             # if stop is a stage, then it has km (delta) info
-            if detail.km:
+            if detail.km  and sequence!=0: # dont add the first stops distance even if its a stage
                 cumulative_distance+=float(detail.km)
 
                 if avgspeed != 0.0:
@@ -961,7 +1030,7 @@ def export_stop_times(routelist):
                     arrival_time = dt.time()
 
                     # Add 10 seconds to departure time 
-                    dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10) 
+                    dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10)
                     departure_time = dt.time()
 
                     #f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])

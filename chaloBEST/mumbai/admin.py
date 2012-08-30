@@ -134,7 +134,7 @@ class RouteDetailAdmin(admin.ModelAdmin):
 
 class RouteAdmin(admin.ModelAdmin):
     list_display = ("alias","code","from_stop","to_stop","distance","stages")
-    search_fields = ("alias","from_stop__name","to_stop__name")
+    search_fields = ("alias","from_stop__name","to_stop__name", "code")
     formfield_overrides = {
         models.TextField: {'widget': forms.TextInput},
     }

@@ -32,6 +32,31 @@ class App(AppBase):
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
             msg.respond("%s: %s (%s) to %s (%s)" % (
                     ",".join(routes), origin_name, origin_area, dest_name, dest_area))
+        elif msg.text.find(" to ") != -1:
+            stop1txt = msg.text.split("to")[0].strip()
+            stop2txt = msg.text.split("to")[1].strip()
+            stop1matches = ChaloBest.stops(q=stop1txt)['features']
+            if not stop1matches:
+                msg.respond("Sorry, found no stop matching '%s'" % stop1txt)
+                return
+            best_match1 = stop1matches[0]
+            routes1 = best_match1['properties']['routes']
+            stop2matches = ChaloBest.stops(q=stop2txt)['features']
+            if not stop2matches:
+                msg.respond("Sorry, found no stop matching '%s'" % stop2txt)
+            best_match2 = stop2matches[0]
+            routes2 = best_match2['properties']['routes']
+            routes1arr = set(routes1.split(", "))
+            routes2arr = set(routes2.split(", "))
+            intersection = list(routes1arr.intersection(routes2arr))
+            if len(intersection) == 0:
+                msg.respond("Sorry, no direct buses found between %s and %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'],))
+                return
+            routesFound = ", ".join(intersection)
+            msg.respond("Routes between %s and %s: %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'], routesFound,))
+            return
+            
+
         else:
             features = ChaloBest.stops(q=msg.text)['features']
             if not features:

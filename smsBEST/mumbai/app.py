@@ -18,6 +18,18 @@ STYLE = {"start": "", "repeat": "; ", "end": ""}
 
 ChaloBest = arrest.Client("http://chalobest.in/1.0")
 
+def get_routes_for_matches(stops):
+    same_stops = []
+    same_stops.append(stops[0])
+    if len(stops) > 1:
+        for s in stops[1:]:
+            if s['properties']['official_name'] == stops[0]['properties']['official_name']:
+                same_stops.append(s)
+    routes = []
+    for stop in same_stops:
+        routes.append(stop['properties']['routes'].split(", "))
+    return routes            
+
 class App(AppBase):
     def handle(self, msg):
         if DIGIT.search(msg.text):
@@ -40,12 +52,12 @@ class App(AppBase):
                 msg.respond("Sorry, found no stop matching '%s'" % stop1txt)
                 return
             best_match1 = stop1matches[0]
-            routes1 = best_match1['properties']['routes']
+            routes1 = get_routes_for_matches(stop1matches)
             stop2matches = ChaloBest.stops(q=stop2txt)['features']
             if not stop2matches:
                 msg.respond("Sorry, found no stop matching '%s'" % stop2txt)
             best_match2 = stop2matches[0]
-            routes2 = best_match2['properties']['routes']
+            routes2 = get_routes_for_matches(stop2matches)
             routes1arr = set(routes1.split(", "))
             routes2arr = set(routes2.split(", "))
             intersection = list(routes1arr.intersection(routes2arr))

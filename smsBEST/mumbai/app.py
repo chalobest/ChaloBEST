@@ -65,7 +65,7 @@ class App(AppBase):
                 msg.respond("Sorry, no direct buses found between %s and %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'],))
                 return
             routesFound = ", ".join(intersection)
-            msg.respond("Routes between %s and %s: %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'], routesFound,))
+            msg.respond("%s to %s: %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'], routesFound,))
             return
             
 

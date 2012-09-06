@@ -52,15 +52,15 @@ class App(AppBase):
                 msg.respond("Sorry, found no stop matching '%s'" % stop1txt)
                 return
             best_match1 = stop1matches[0]
-            routes1 = get_routes_for_matches(stop1matches)
+            routes1 = set(get_routes_for_matches(stop1matches))
             stop2matches = ChaloBest.stops(q=stop2txt)['features']
             if not stop2matches:
                 msg.respond("Sorry, found no stop matching '%s'" % stop2txt)
             best_match2 = stop2matches[0]
-            routes2 = get_routes_for_matches(stop2matches)
-            routes1arr = set(routes1.split(", "))
-            routes2arr = set(routes2.split(", "))
-            intersection = list(routes1arr.intersection(routes2arr))
+            routes2 = set(get_routes_for_matches(stop2matches))
+            #routes1arr = set(routes1.split(", "))
+            #routes2arr = set(routes2.split(", "))
+            intersection = list(routes1.intersection(routes2))
             if len(intersection) == 0:
                 msg.respond("Sorry, no direct buses found between %s and %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'],))
                 return

@@ -27,7 +27,7 @@ def get_routes_for_matches(stops):
                 same_stops.append(s)
     routes = []
     for stop in same_stops:
-        routes.append(stop['properties']['routes'].split(", "))
+        routes.extend(stop['properties']['routes'].split(", "))
     return routes            
 
 class App(AppBase):

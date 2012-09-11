@@ -48,13 +48,13 @@ def get_stops_for_string(s):
         if len(stops_results) == 0:
             return None
         same_stops = []
-        same_stops.append(stops[0])
+        same_stops.append(stops_results[0])
         if len(stops_results) > 1:
             for s in stops_results[1:]:
-                if s['properties']['official_name'] == stops[0]['properties']['official_name']:
+                if s['properties']['official_name'] == same_stops[0]['properties']['official_name']:
                     same_stops.append(s)               
         return {
-            'name': stops[0]['properties']['display_name'],
+            'name': same_stops[0]['properties']['display_name'],
             'stops': same_stops
         }
 

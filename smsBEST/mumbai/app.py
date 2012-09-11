@@ -19,16 +19,44 @@ STYLE = {"start": "", "repeat": "; ", "end": ""}
 ChaloBest = arrest.Client("http://chalobest.in/1.0")
 
 def get_routes_for_matches(stops):
-    same_stops = []
-    same_stops.append(stops[0])
-    if len(stops) > 1:
-        for s in stops[1:]:
-            if s['properties']['official_name'] == stops[0]['properties']['official_name']:
-                same_stops.append(s)
+#    same_stops = []
+#    same_stops.append(stops[0])
+#    if len(stops) > 1:
+#        for s in stops[1:]:
+#            if s['properties']['official_name'] == stops[0]['properties']['official_name']:
+#                same_stops.append(s)
     routes = []
-    for stop in same_stops:
+    for stop in stops:
         routes.extend(stop['properties']['routes'].split(", "))
     return routes            
+
+def get_stops_for_string(s):
+    stops = []
+    s = s.strip()
+    areas = ChaloBest.areas(q=s)
+    if len(areas) > 0:
+        for a in areas:
+            area = ChaloBest.area[a]
+            for stop in area['stops']['features']:        
+                stops.append(stop)
+        return {
+            'name': ", ".join(areas),
+            'stops': stops
+        }
+    else:
+        stops_results = ChaloBest.stops(q=s)
+        if len(stops_results) == 0:
+            return None
+        same_stops = []
+        same_stops.append(stops[0])
+        if len(stops_results) > 1:
+            for s in stops_results[1:]:
+                if s['properties']['official_name'] == stops[0]['properties']['official_name']:
+                    same_stops.append(s)               
+        return {
+            'name': stops[0]['properties']['display_name'],
+            'stops': same_stops
+        }
 
 class App(AppBase):
     def handle(self, msg):
@@ -37,6 +65,12 @@ class App(AppBase):
             if not routes:
                 msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
                 return
+            detail = None
+            for route in routes:
+                if route.replace(" ", "").upper() == msg.text.replace(" ", "").upper():
+                    detail = ChaloBest.route[route]
+            if detail == None:
+                detail = ChaloBest.route[routes[0]] 
             detail = ChaloBest.route[routes[0]]
             stops = detail['stops']['features']
             origin, dest = stops[0]['properties'], stops[-1]['properties']
@@ -45,27 +79,32 @@ class App(AppBase):
             msg.respond("%s: %s (%s) to %s (%s)" % (
                     ",".join(routes), origin_name, origin_area, dest_name, dest_area))
         elif msg.text.find(" to ") != -1:
-            stop1txt = msg.text.split("to")[0].strip()
-            stop2txt = msg.text.split("to")[1].strip()
-            stop1matches = ChaloBest.stops(q=stop1txt)['features']
-            if not stop1matches:
-                msg.respond("Sorry, found no stop matching '%s'" % stop1txt)
+
+            from_txt = msg.text.split("to")[0].strip()
+            to_txt = msg.text.split("to")[1].strip()
+
+            from_matches = get_stops_for_string(from_txt)
+            to_matches = get_stops_for_string(to_txt)
+
+#            stop1matches = ChaloBest.stops(q=stop1txt)['features']
+            if not from_matches:
+                msg.respond("Sorry, found no stop matching '%s'" % from_txt)
                 return
-            best_match1 = stop1matches[0]
-            routes1 = set(get_routes_for_matches(stop1matches))
-            stop2matches = ChaloBest.stops(q=stop2txt)['features']
-            if not stop2matches:
-                msg.respond("Sorry, found no stop matching '%s'" % stop2txt)
-            best_match2 = stop2matches[0]
-            routes2 = set(get_routes_for_matches(stop2matches))
+            #best_match1 = stop1matches[0]
+            routes1 = set(get_routes_for_matches(from_matches['stops']))
+            #stop2matches = ChaloBest.stops(q=stop2txt)['features']
+            if not to_matches:
+                msg.respond("Sorry, found no stop matching '%s'" % to_txt)
+            #best_match2 = stop2matches[0]
+            routes2 = set(get_routes_for_matches(to_matches['stops']))
             #routes1arr = set(routes1.split(", "))
             #routes2arr = set(routes2.split(", "))
             intersection = list(routes1.intersection(routes2))
             if len(intersection) == 0:
-                msg.respond("Sorry, no direct buses found between %s and %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'],))
+                msg.respond("Sorry, no direct buses found between %s and %s" % (from_matches['name'], to_matches['name'],))
                 return
             routesFound = ", ".join(intersection)
-            msg.respond("%s to %s: %s" % (best_match1['properties']['official_name'], best_match2['properties']['official_name'], routesFound,))
+            msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
             return
             
 

@@ -44,7 +44,7 @@ def get_stops_for_string(s):
             'stops': stops
         }
     else:
-        stops_results = ChaloBest.stops(q=s)
+        stops_results = ChaloBest.stops(q=s)['features']
         if len(stops_results) == 0:
             return None
         same_stops = []

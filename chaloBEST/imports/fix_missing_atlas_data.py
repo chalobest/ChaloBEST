@@ -54,7 +54,7 @@ def fix_distances():
             if detail.stop.id == from_stop.id: record = True
 
         if record:
-            #pdb.set_trace()
+            pdb.set_trace()
             print Exception("UniqueRoute %d: %s from %s to %s ran off the end while measuring distance!" %(unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if not distance:
             print Exception("UniqueRoute %d: %s from %s to %s still has no distance!" % (unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))

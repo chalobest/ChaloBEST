@@ -191,6 +191,7 @@ SERVICE_SCHEDULE = [
     {'id':1,'code':'HOL','days':[7,8]}, # should be only 8
     {'id':2,'code':'SUN','days':[7]},
     {'id':3,'code':'MF&HOL','days':[1,2,3,4,5,8]},
+    {'id':3,'code':'MS&SUN','days':[1,2,3,4,5,7,8]},
     {'id':4,'code':'SAT','days':[6]},
     {'id':5,'code':'MF','days':[1,2,3,4,5]},
     {'id':6,'code':'SH','days':[7,8]},
@@ -916,6 +917,20 @@ errlog = []
 fastroutes =set()
 slowroutes= set()
 
+def convert_to_24h_time(dt):
+    if isinstance(dt, datetime.time):
+        if dt.hour <=2:
+            m = dt.minute
+            minutes = "0"+str(m) if len(str(m)) == 1 else str(m)
+            s = dt.second
+            seconds = "0"+str(s) if len(str(s)) == 1 else str(s)
+            return str(24+dt.hour)+":"+minutes+":"+seconds
+        else:
+            return dt.__str__().split(".")[0]
+    else:
+        print("wrong input format")
+        
+
 def export_stop_times(routelist):
     print "Exporting stop times.."
     f = make_csv_writer("stop_times.txt")
@@ -1028,14 +1043,22 @@ def export_stop_times(routelist):
                     offsettime = cumulative_distance/avgspeed
                     dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
                     arrival_time = dt.time()
-
+                    at_str = convert_to_24h_time(arrival_time) #arrival_time.__str__()
+                    #pdb.set_trace()
                     # Add 10 seconds to departure time 
                     dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=10)
                     departure_time = dt.time()
+                    
+                    dt_str = convert_to_24h_time(departure_time) #arrival_time.__str__().split(".")[0]                    
+                    
+                    #f.writerow([trip_id, str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
+                    if time_of(at_str) and prev_dt and time_of(at_str) < prev_dt:
+                        dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60+30)
+                        arrival_time = dt.time()
+                        at_str = convert_to_24h_time(arrival_time) #arrival_time.__str__()
+                        
 
-                    #f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
-
-                    f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
+                    f.writerow([trip_id,at_str,dt_str,str(detail.stop.code),sequence+1])
 
                     prev_at = time_of(arrival_time.__str__().split(".")[0])
                     prev_dt = time_of(departure_time.__str__().split(".")[0])                    
@@ -1050,7 +1073,7 @@ def export_stop_times(routelist):
 
                 # first stop
                 if sequence == 0:
-                    f.writerow([trip_id,initial_time,initial_time,str(detail.stop.code),sequence+1])
+                    f.writerow([trip_id,convert_to_24h_time(initial_time),convert_to_24h_time(initial_time),str(detail.stop.code),sequence+1])
                     #f.writerow([trip_id,initial_time,initial_time,str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ]) 
 
                 else:    
@@ -1059,10 +1082,10 @@ def export_stop_times(routelist):
                         offsettime = (cumulative_distance+(0.3*blankstops))/avgspeed
                         dt = datetime.datetime.combine(today, initial_time) + datetime.timedelta(seconds=offsettime*60)
                         arrival_time = dt.time()
-
+                        at_str = convert_to_24h_time(arrival_time)
                         #dt = datetime.datetime.combine(today, arrival_time) + datetime.timedelta(seconds=60) 
                         departure_time = dt.time()                    
-                        
+                        dt_str = convert_to_24h_time(departure_time) #arrival_time.__str__().split(".")[0]              
                         #arrival = initial_time.hour * 60 + initial_time.minute + runtime_in_minutes(schedule) + 7
                         #arrival_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                        
                         #departure_time = "%02d:%02d:00" % (int(arrival/60), arrival % 60)                    
@@ -1071,8 +1094,13 @@ def export_stop_times(routelist):
                             if time_of(arrival_time) < prev_dt:
                                 arrival_time = "%02d:%02d:00" % (int((arrival+3)/60), (arrival+3) % 60)
                                 departure_time=arrival_time
+                                at_str = convert_to_24h_time(time_of(arrival_time))
+                                dt_str = convert_to_24h_time(time_of(arrival_time))
 
-                        f.writerow([trip_id,arrival_time.__str__().split(".")[0],departure_time.__str__().split(".")[0],str(detail.stop.code),sequence+1])
+                        f.writerow([trip_id,
+                                    at_str,
+                                    dt_str,
+                                    str(detail.stop.code),sequence+1])
 
                         #f.writerow([trip_id,arrival_time,departure_time,str(detail.stop.code),sequence+1,cumulative_distance, detail.stage ])
                         

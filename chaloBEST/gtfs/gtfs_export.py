@@ -191,7 +191,6 @@ SERVICE_SCHEDULE = [
     {'id':1,'code':'HOL','days':[7,8]}, # should be only 8
     {'id':2,'code':'SUN','days':[7]},
     {'id':3,'code':'MF&HOL','days':[1,2,3,4,5,8]},
-    {'id':3,'code':'MS&SUN','days':[1,2,3,4,5,7,8]},
     {'id':4,'code':'SAT','days':[6]},
     {'id':5,'code':'MF','days':[1,2,3,4,5]},
     {'id':6,'code':'SH','days':[7,8]},
@@ -206,6 +205,7 @@ SERVICE_SCHEDULE = [
     {'id':15,'code':'S/H','days':[7,8]},
     {'id':16,'code':'SAT,SUN&HOL','days':[6,7,8]},
     {'id':17,'code':'FH','days':[5,8]},   
+    {'id':18,'code':'MS&SUN','days':[1,2,3,4,5,7]},
     ]
 
 #{'id':18,'code':'2nd &4th','days':[7,8]},
@@ -251,9 +251,9 @@ def export_calendar():
             # data checks here 
             running = [1 if day in ss['days'] else 0 for day in range(1,8)]
             if 8 in ss['days']:
-                # check holidays, if not sunday, and in time period between start_date and stop_date then, load in cal_dates
+                # check holidays, if in time period between start_date and stop_date then, load in cal_dates
                 for hol in Holiday.objects.all():
-                    if hol.date > start_date and hol.date < end_date and hol.date.isoweekday != 7:                        
+                    if hol.date > start_date and hol.date < end_date:
                         f2.writerow([ss['code']]+ [hol.date.__str__().replace("-","")] + ["1"])
             
             f.writerow([ss['code']] + running + [start_date_str,end_date_str])
@@ -985,11 +985,14 @@ def export_stop_times(routelist):
 
         dist = dist3
 
-        #--------------------- get distance ---------------
+        #---------------------end get distance ---------------
 
         #--------------------- s ---------------
 
         runtime = runtime_in_minutes(schedule)  #j runtime should be calculated for each separate runtime entry, so stop_times becomes a bit more accurate.
+        # if ring route, then double the runtime as runtime is calculated uptil the 'via' point.
+        if str(route.code)[3]==4:
+            runtime= int(2*runtime)
 
         #if dist == 0.0 or runtime == 0
         avgspeed = 12.0/60.0

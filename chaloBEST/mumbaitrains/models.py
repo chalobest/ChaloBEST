@@ -18,7 +18,7 @@ class Train(models.Model):
 class Station(models.Model):
     name = models.CharField(max_length=128)
     point = models.PointField(null=True, blank=True)
-#    line = models.CharField(choices=LINE_CHOICES, db_index=True)
+#   line = models.CharField(choices=LINE_CHOICES, db_index=True)
 
     def __unicode__(self):
         return self.name

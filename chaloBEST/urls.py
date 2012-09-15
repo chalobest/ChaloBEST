@@ -27,6 +27,7 @@ urlpatterns = patterns('',
     (r'^editstops/$', 'mumbai.views.editstops'),
     #(r'^accounts/', include('allauth.urls')),
     (r'^1.0/', include('mumbai.apiurls')),
+    (r'^route/freq/(?P<code>.*)$', 'mumbai.views.route_headway'), 
     #url(r'^login/', include('socialregistration.urls',namespace='socialregistration')),                                        
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),

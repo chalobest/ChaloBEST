@@ -1,4 +1,4 @@
-from models import *
+from mumbai.models import *
 from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 from django.contrib.auth.decorators import login_required
 import json
@@ -90,3 +90,28 @@ def stop(request, slug):
     else:
         stop = get_object_or_404_json(Stop, slug=slug)        
         return render_to_json_response(stop.get_geojson(srid=srid)) #FIXME: please don't repeat this code, its retarded.
+
+
+def route_headway(request, code):
+    """
+    Given a route code, gets the current frequency of the buses at the current time.
+    """
+    return render_to_json_response("hello")
+    route = get_object_or_404(Route, code=code)
+    import datetime.datetime
+    current_time = datetime.datetime.now
+    day = current_time.isoweekday
+    
+    scheds = []
+    for rs in RouteSchedule.objects.filter(unique_route__route=route):
+        if day in SCHED[rs.schedule_type]:
+            scheds.append(rs)
+
+    return render_to_json_response("hello")
+        
+      # {
+      #  'route': route.get_dict(),
+      #  'scheds': [ s.__dict__ for s in scheds]
+      #  })
+
+

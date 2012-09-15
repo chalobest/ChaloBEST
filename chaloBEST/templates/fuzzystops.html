@@ -106,6 +106,7 @@ function saveUNR(elem, markChecked) {
                 <th>To Txt</th>
                 <th>To Stop</th>
                 <th></th>
+                <th></th>
 
             </tr>
         </thead>
@@ -140,6 +141,12 @@ function saveUNR(elem, markChecked) {
                     <button class="submitFuzzyEdit" style="display:none;">Save</button> &nbsp;
                     <button class="markChecked">Checked</button> &nbsp;                    
 
+                </td>
+                <td>
+                    <a href="/admin/mumbai/route/{{ u.unr.route.id}}">R</a>&nbsp;&nbsp;
+                    <a href="/admin/mumbai/uniqueroute/{{ u.unr.id }}">UNR</a>&nbsp;&nbsp;
+                    <a href="/route/{{ u.unr.route.alias }}">Map</a>
+                    
                 </td>
             </tr>
             {% endfor %}

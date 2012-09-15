@@ -5,9 +5,10 @@ import datetime
 BASE_URL = 'http://mumbailifeline.com/'
 
 '''
-eg.:
->>>parseURL('http://mumbailifeline.com/timetable.php?sel_route=central&sfrom=Mumbai_CST&sto=Masjid&time1=4:00%20am&time2=11:59%20PM', Central')
+eg.: parseURL('http://mumbailifeline.com/timetable.php?sel_route=central&sfrom=Mumbai_CST&sto=Masjid&time1=4:00%20am&time2=11:59%20PM', Central')
+
 '''
+
 def parseURL(url, line):
     d = pq(url=url)
     table = d('#gradient-style')

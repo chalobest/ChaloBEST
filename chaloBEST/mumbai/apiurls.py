@@ -8,4 +8,8 @@ urlpatterns = patterns('',
     (r'^routes/$', apiviews.routes),
     (r'^areas/$', apiviews.areas),
     (r'^stops/$', apiviews.stops),
+    
 )
+
+
+#    (r'route/freq/(?P<code>.*)$', views.route_headway), 

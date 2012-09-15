@@ -25,29 +25,33 @@ DAYS = {
     }
 
 SCHED = {
-    'MS':[1,2,3,4,5,6], 
-    'HOL':[8], 
-    'SUN':[7], 
-    'MF&HOL':[1,2,3,4,5,8],  
-    'SAT':[6], 
-    'MF':[1,2,3,4,5], 
-    'SH':[7,8], 
-    'AD':[1,2,3,4,5,6,7,8], 
-    'SAT&SUN':[6,7], 
-    'MS&HOL':[1,2,3,4,5,6,8], 
-    'FW':[1,2,3,4,5,6,7], 
-    'SAT/SH':[6,7,8], 
-    'FH':[1,2,3,4,5,6,8], 
-    'SAT&HOL':[6,8], 
-    'SAT&SH':[6,7,8], 
-    'SAT/SUND&HOL':[6,7,8], 
-    'S/H':[7,8], 
-    'SAT,SUN&HOL':[6,7,8], 
-    '2nd &4th':['???']
+    'MS':[1, 2, 3, 4, 5, 6],
+    'HOL':[7, 8],
+    'SUN':[7],
+    'MF&HOL':[1, 2, 3, 4, 5, 8],
+    'SAT':[6],
+    'MF':[1, 2, 3, 4, 5],
+    'SH':[7, 8],
+    'AD':[1, 2, 3, 4, 5, 6, 7, 8],
+    'SAT&SUN':[6, 7],
+    'MS&HOL':[1, 2, 3, 4, 5, 6, 8],
+    'FW':[1, 2, 3, 4, 5, 6, 7],
+    'SAT/SH':[6, 7, 8],
+    'SAT&HOL':[6, 8],
+    'SAT&SH':[6, 7, 8],
+    'SAT/SUND&HOL':[6, 7, 8],
+    'S/H':[7, 8],
+    'SAT,SUN&HOL':[6, 7, 8],
+    'FH':[5, 8]
     }
 
+
+
+
+
+
 # Runtime start and end hour
-# matching column `runtimen` where `n` = index % 4 + 1
+# matching column `runtime$` where `$` = index % 4 + 1
 RUNTIMES = (
     (00, 07), 
     (07, 11),

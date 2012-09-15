@@ -1,6 +1,8 @@
 # Create your views here.
 from models import *
 from django.shortcuts import render_to_response, get_object_or_404
+from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
+
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -26,6 +28,7 @@ def route(request, alias):
         'routeDetails': routeDetails
     })
     return render_to_response("route.html", context)
+
 
 def areas(request):
     context = RequestContext(request, {
@@ -216,3 +219,36 @@ def fuzzystops_edit(request):
 #    })
 ##    pdb.set_trace()
 #    return render_to_response("fuzzystops.html", context)
+
+
+def route_headway(request, code):
+    """
+    Given a route code, gets the current frequency of the buses at the current time.
+    """
+    route = get_object_or_404(Route, code=code)
+    import datetime 
+    current_time = datetime.datetime.now()
+    day = current_time.isoweekday()
+    
+    scheds = []
+    for rs in RouteSchedule.objects.filter(unique_route__route=route):
+        if day in SCHED[rs.schedule_type]:
+            scheds.append(rs)    
+
+    
+    TIMESPANS = ((None,"06:59:59"),
+                 ("07:00:00","10:59:59"),
+                 ("11:00:00","16:59:59"),
+                 ("17:00:00","19:59:59"),
+                 ("20:00:00",None))
+
+    #for s in scheds:
+    #    if current_time< time_of("") 
+
+    return render_to_json_response(        
+      {
+        'route': route.get_dict(),
+        'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
+        })
+
+

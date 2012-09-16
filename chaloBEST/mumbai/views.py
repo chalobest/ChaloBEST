@@ -8,7 +8,34 @@ from fuzzywuzzy import process as fuzzprocess
 from django.http import HttpResponse
 
 def index(request):
-    return render_to_response("index.html", {})
+    areas = Area.objects.all().order_by('name')
+    
+    context = RequestContext(request, {
+        'areas': areas
+    })
+    return render_to_response("innov/index.html", context)
+
+
+def about(request):
+    context = RequestContext(request, {})
+    return render_to_response("innov/about_chalobest.html", context)
+
+def android(request):
+    context = RequestContext(request, {})
+    return render_to_response("innov/android.html", context)
+
+def join_us(request):
+    context = RequestContext(request, {})
+    return render_to_response("innov/joinus.html", context)
+
+def sms(request):
+    context = RequestContext(request, {})
+    return render_to_response("innov/SMS.html", context)
+
+def contact(request):
+    context = RequestContext(request, {})
+    return render_to_response("innov/contactus.html", context)
+
 def login(request):
     return render_to_response('login.html',c, context_instance=RequestContext(request))
 

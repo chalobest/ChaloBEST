@@ -1,0 +1,115 @@
+{% extends 'innov/base.html' %}
+{% block content %}
+
+<div class="g3">
+	<div class="leading40"></div>
+	<div class="g3_3 listtitlesmall"><h3>SMS service</h3></div>
+	<div class="g3_3 staticpage lightgrey">
+		<div class="box">
+			<p>With this service, you can send and receive simple queries by SMS about bus stops, bus numbers and routing on BEST.</p>
+			<p>Send SMS to 9619524420 and you will receive a return SMS with the information you need.</p>
+		</div>
+	</div>
+</div>
+
+<div class="g6">
+	<div class="leading40"></div>
+	<div class="g6_6 staticpage main">
+		<h1>INSTRUCTIONS SMS</h1>
+		<h2>Find bus options to destination</h2>
+		<p>To find out how to go from one stop to another, send an SMS with any stop name "TO " any stop name. Example:</p>
+		<div class="g6_6 lightgreen">
+			<div class="leading10"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - FROM mahim TO churchgate" />
+				</div>
+				<div class="box">
+					<p>"<b>Agarwadi to Kalanagar</b>" <br />Or: "<b>agarwadi to kalanagar</b>",<br /> "<b>From Agarwadi TO Kalanagar</b>" and variations on those.</p>
+				</div>
+			</div>
+			<div class="g6_gut"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img src="/static/images/sms_direction_answer.png" alt="receive message with all direct buses from mahim to churchgate stops" />
+				</div>
+				<div class="box">
+					<p>The answer you receive shows the bus numbers which ply between Agarwadi and Kalanagar stops.</p>
+				</div>
+			</div>
+		</div>
+		<div class="leading20"></div>
+		<h2>Find all busses that pass a particular stop</h2>
+		<p>To see all the bus numbers served by a stop, send an SMS with "STOP " and the name of any bus stop or area: Example:</p>
+		<div class="g6_6 lightgreen">
+			<div class="leading10"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - FROM mahim TO churchgate" />
+				</div>
+				<div class="box">
+					<p>"<b>stop agarwadi</b>" <br />Or: "<b>STOP agarwadi</b>", "<b>Stop Agarwadi</b>" and variations on those.</p>
+				</div>
+			</div>
+			<div class="g6_gut"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img src="/static/images/sms_stop_answer.png" alt="receive message with all direct buses from mahim to churchgate stops" />
+				</div>
+				<div class="box">
+					<p>The answer you receive shows the numbers of all the buses that pass through Agarwadi stop.</p>
+				</div>
+			</div>
+		</div>
+		<div class="leading20"></div>
+		<h2>Find the route of a particular bus number</h2>
+		<p>To see the route of any bus number, send an SMS with "BUS " and the number of any bus: Example:</p>
+		<div class="g6_6 lightgreen">
+			<div class="leading10"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as - FROM mahim TO churchgate" />
+				</div>
+				<div class="box">
+					<p>"bus 21" (Also possible: "BUS 21", "Bus 21")</p>
+				</div>
+			</div>
+			<div class="g6_gut"></div>
+			<div class="g6_3">
+				<div class="center">
+					<img src="/static/images/sms_bus_answer.png" alt="receive message with all direct buses from mahim to churchgate stops" />
+				</div>
+				<div class="box">
+					<p>The answer you receive shows all the stop names that Bus No. 21 passes.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="g3">
+	<div class="g3_3 ">
+		<div class="highlight">
+			<h2>SMS ChaloBEST</h2>
+			<ol>
+				<li><b>Find bus & route info:</b></li>
+				<ul class="sublist">
+					<li>Directions: "<span>[stopname]</span><b> to </b><span>[stopname]</span>"</li>
+					<li>Buses at your stop: "<b>stop </b><span>[stopname]</span>"</li>
+					<li>Stop list: "<b>bus </b><span>[number]</span>"</li>
+				</ul>
+				<li><b>SMS it to 9619524420</b></li>
+			</ol>
+		</div>
+	</div>
+</div>
+<div class="g3">
+	<div class="leading20"></div>
+	<div class="g3_3 listtitlesmall"><h3>DISCLAIMER: TEST PHASE</h3></div>
+	<div class="g3_3 staticpage lightgrey">
+		<div class="box">
+			<p>ChaloBEST is still being tested, we plan to release a public beta soon. We welcome your feedback and comments via email to info@chalobest.in</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -80,8 +80,8 @@ class App(AppBase):
                     ",".join(routes), origin_name, origin_area, dest_name, dest_area))
         elif msg.text.find(" to ") != -1:
 
-            from_txt = msg.text.split("to")[0].strip()
-            to_txt = msg.text.split("to")[1].strip()
+            from_txt = msg.text.lower().split("to")[0].strip()
+            to_txt = msg.text.lower().split("to")[1].strip()
 
             from_matches = get_stops_for_string(from_txt)
             to_matches = get_stops_for_string(to_txt)

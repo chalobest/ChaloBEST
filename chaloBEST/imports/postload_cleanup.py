@@ -16,5 +16,20 @@ def copynames2display_name():
         obj.display_name =obj.name
         obj.save()
 
+def make_stage_info():
+    for rd in RouteDetail.objects.all():
+        if rd.km:
+            rd.stage=True
+            rd.save()
                 
 
+def make_type_info():
+    for r in Route.objects.all():
+        r.route_type = RouteType.objects.get(code=str(r.code)[3])
+        r.save()
+
+def make_code_info():
+    for r in Route.objects.all():
+        if r.code.isdigit():
+            r.code3 = str(r.code)[0:3]
+            r.save()

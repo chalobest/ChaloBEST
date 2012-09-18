@@ -257,7 +257,8 @@ class Route(models.Model):
     to_stop = models.ForeignKey(Stop, related_name='routes_to', default=None, null=True, blank=True)
     distance = models.DecimalField(max_digits=3, decimal_places=1)
     stages =  models.IntegerField()
-    
+    route_type = models.ForeignKey('RouteType', default=0, null=True, blank=True)
+    code3 = models.CharField(max_length=5)
 
     class Meta:
         ordering = ['code']

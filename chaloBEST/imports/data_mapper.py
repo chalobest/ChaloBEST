@@ -297,14 +297,12 @@ def CsvLoader(thismodel):
 def fire_up():
     for model in saveorder:
         CsvLoader(model)
-
     loadFKinRouteDetail()
-    
-    # also
     importUniqueRoutes()    
     print "loading UniqueRoute..."
-    #postclean.copydefaultStopLocations()
     postclean.copynames2display_name()
+    postclean.make_stage_info()
+    postclean.make_type_info()
     
 #----------------------------------------------------------
 

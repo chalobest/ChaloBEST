@@ -77,7 +77,7 @@ class App(AppBase):
             origin, dest = stops[0]['properties'], stops[-1]['properties']
             origin_name, dest_name = origin['display_name'], dest['display_name']
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
-            url = 'http://chalobest.in/route/' + detail.alias
+            url = "http://chalobest.in" + detail.route.url
             msg.respond("%s: %s (%s) to %s (%s) %s" % (
                     ",".join(routes), origin_name, origin_area, dest_name, dest_area, url))
         elif msg.text.find(" to ") != -1:

@@ -105,7 +105,11 @@ class App(AppBase):
                 msg.respond("Sorry, no direct buses found between %s and %s" % (from_matches['name'], to_matches['name'],))
                 return
             routesFound = ", ".join(intersection)
-            msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
+            response = "%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,)
+            if len(response) > MAX_MSG_LEN:
+                response = response[0:MAX_MSG_LEN]
+            msg.respond(response)
+            #msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
             return
             
 

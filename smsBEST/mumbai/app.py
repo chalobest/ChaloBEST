@@ -33,7 +33,8 @@ def get_routes_for_matches(stops):
 def get_stops_for_string(s):
     stops = []
     s = s.strip()
-    areas = ChaloBest.areas(q=s)
+#    areas = ChaloBest.areas(q=s)
+    areas = [area for area in ChaloBest.areas(q=s) if area.lower().startswith(s)]
     if len(areas) > 0:
         for a in areas:
             area = ChaloBest.area[a]

@@ -12,7 +12,9 @@ from feeds import RouteFeed
 urlpatterns = patterns('',
     # Example:
     # (r'^chaloBEST/', include('chaloBEST.foo.urls')),
-    url(r'^$','mumbai.views.index', name='index'),
+#    url(r'^$','mumbai.views.index', name='index'),
+    url(r'^$','views.index', name='index'),
+
     url(r'^about$', 'mumbai.views.about', name='about'),
     url(r'^android$', 'mumbai.views.android', name='android'),
     url(r'^contact$', 'mumbai.views.contact', name='contact'),

@@ -17,20 +17,13 @@ body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoo
 /* DEFAULT FONT SETTINGS */
 /* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
 /* Font-size percentage is based on 16px browser default size */
-body, button, input, select, textarea {font: 100%/1.5 “Gill Sans”, Calibri, “Trebuchet MS”, sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
+body, button, input, select, textarea {font: 100%/1.5 Calibri, “Trebuchet MS”, "Nimbus Sans L", sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
 
 /* TYPOGRAPHY */
 /* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
-@font-face {font-family: "Kruti Dev 714";
-			src: url('fonts/Kruti Dev 714 Normal.ttf') format("truetype"); /* non-IE */
-			}
-@font-face {font-family: "Boston Traffic";
 
-			src: url('boston_traffic.ttf') format("truetype"); /* non-IE */
-			}
-
-h1, h2, h3, h4, h5, h6 {font-family:"Boston Traffic", Impact, Haettenschweiler, “Arial Narrow Bold”, sans-serif;color:#222; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1, h2, h3, h4, h5, h6 {font-family:/*"Boston Traffic",*/ Impact, "Charcoal CY", "Trebuchet MS", Charcoal, sans-serif;color:#222; text-transform: uppercase; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
 h1 {margin: 0; font-size: 2.75em; line-height: 1.5em; margin-bottom: 0.4em;} /* 60px / 72px */
 h2 {margin: 0; font-size: 2em; line-height: 1em; margin-bottom: 0.5em;} /* 48px / 48px */
 h3 {margin: 0; font-size: 1.75em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em;} /* 36px / 48px */ 
@@ -180,7 +173,7 @@ Change widths as necessary
 	.nav {height:85px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('/static/images/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:right; width:65.95%; height:30px; padding-right:0.99%; color:#FBDD09;}
 	.logotext {display:block; float:left; width:100%; height:30px; margin:0; padding:0;}
 	.logotext img {height:100%;}
@@ -267,7 +260,7 @@ Change widths as necessary
 	.nav {height:55px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('/static/images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:51.01%; height:25px; margin:3px 0 0 0;}
 		.globallinks{display:block; float:right; width:48%; height:30px; padding:2px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -349,7 +342,7 @@ Change widths as necessary
 	.nav {height:60px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('/static/images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:2px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -430,7 +423,7 @@ Change widths as necessary
 	.nav {height:60px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('/static/images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:23.01%; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:2px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -518,7 +511,7 @@ Change widths as necessary
 	.nav {height:70px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('img/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('/static/images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
 	.logotext {display:block; float:left; width:23.01%; height:40px; margin:0; padding:0;}
 	.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -603,7 +596,7 @@ Change widths as necessary
 	.nav {height:80px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('img/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('/static/images/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}
 		.logotext {display:block; float:left; width:23.01%; height:50px;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:15px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}

@@ -11,7 +11,7 @@
 .foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; width:15px; height:15px;}
 
 /* primary navigation */
-.banner {background:url('img/header_bg.png') repeat-x; background-size:contain;} /* background image for the global nav + text logo bar */
+.banner {background:url('/static/images/header_bg.png') repeat-x; background-size:contain;} /* background image for the global nav + text logo bar */
 .navlink a {color:#fff;}
 .sms { float:right; background-color:green; border:2px solid green;}
 .trip {float:left; background-color:#BEDB74; border:2px solid #BEDB74;}
@@ -34,11 +34,12 @@
 /* landing page area stop route statistic row */
 .searchbar ul {list-style-type:none; margin:0;}
 .searchbar li {
-	display:inline; float:left; width: 21%; height: 1em; margin: 0 5% 0 3%; padding:0.3em 5px 0 5px;
+	ddisplay:inline; float:left; width: 21%; height: 1em; margin: 0 5% 0 3%; padding:0.3em 5px 0 5px;
 	border: 3px dotted #ffdd00; 
-	font-family:"Boston Traffic"; font-size:170%; font-weight: bold; color: #ccc; text-align:right;}
-.searchbar .statistics {display:block;float:left; margin-top:-3.5%; padding:0; width:22%; font-size:40%; font-weight:normal; line-height:1.6em; text-align:left;}
-.statistics .overline {padding: 0.3em 0 0 0; border-top: 2px dashed #ccc;}
+	font-family: Impact, "Charcoal CY", Charcoal, "DejaVu Sans Condensed", sans-serif; 
+	text-transform: uppercase; font-size:170%; color: #ccc; text-align:right;}
+.searchbar .statistics {display:block;float:left; margin-top:-3.5%; padding:0; width:22%; font-size:40%; font-weight:normal; line-height:1.5em; text-align:left;}
+.statistics .overline {padding: 0.1em 0 0 0; border-top: 2px dashed #ccc;}
 .searchbar {display:inline; float:left; width:100%; margin:0;}
 
 /*map looks for landingpage */

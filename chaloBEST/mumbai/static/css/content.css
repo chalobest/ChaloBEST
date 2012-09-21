@@ -1,0 +1,226 @@
+/*
+	Content style sheet for ChaloBEST
+*/
+
+/* NAVIGATION  */
+/* footer */
+.foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
+.foot li {display:inline; float:left;}
+.foot li a {display:block; margin: 0 10px;}
+.foot .right p{display:inline; float:right;}
+.foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; width:15px; height:15px;}
+
+/* primary navigation */
+.banner {background:url('img/header_bg.png') repeat-x; background-size:contain;} /* background image for the global nav + text logo bar */
+.navlink a {color:#fff;}
+.sms { float:right; background-color:green; border:2px solid green;}
+.trip {float:left; background-color:#BEDB74; border:2px solid #BEDB74;}
+.selected {padding-top:2px; color:#fff; font-weight:bold;  border:2px solid #FBDD09; border-radius:3px;}
+.rim {display:inline; float:left; height:10px;}
+.global {
+	text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+	}
+
+	
+/* LANDING PAGE DIVS */
+/* trip planner item */
+.tripplanner {margin: -2px 0 0 -5px; padding:15px; background-color:#BEDB74; border: 2px solid #FBDD09; border-radius:0 0 15px 15px;}
+.tripinput   {width:98%; margin:5px 0;}
+.tripplanner .submit{float:right; margin:5px 0; height:1.5em;}
+.tripplanner h2{font-size:1em; color:#FE2423;}
+
+/* landing page area stop route statistic row */
+.searchbar ul {list-style-type:none; margin:0;}
+.searchbar li {
+	display:inline; float:left; width: 21%; height: 1em; margin: 0 5% 0 3%; padding:0.3em 5px 0 5px;
+	border: 3px dotted #ffdd00; 
+	font-family:"Boston Traffic"; font-size:170%; font-weight: bold; color: #ccc; text-align:right;}
+.searchbar .statistics {display:block;float:left; margin-top:-3.5%; padding:0; width:22%; font-size:40%; font-weight:normal; line-height:1.6em; text-align:left;}
+.statistics .overline {padding: 0.3em 0 0 0; border-top: 2px dashed #ccc;}
+.searchbar {display:inline; float:left; width:100%; margin:0;}
+
+/*map looks for landingpage */
+.landingmap {width:100%; height:100%; border:0; scrolling:no; margin:0; border-radius:15px;}
+
+
+/* landing page area list table*/
+.landing_table {width:100%; padding:0 2.45% 0 2.45%;}
+.landing_table tr {margin:0; padding:0; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
+.landing_table th {padding-top:0px; padding-bottom:0px;} 
+.landing_table td {padding:5px 3.16% 5px 1.58% !important;} 
+.landing_table .filterlistinput {width:92%;}
+
+.landing_row {width:100%; margin:5px 0; padding:0; line-height: 1em; border-bottom: 1px solid #ccc; background-color:white;}
+.landing_area {width:100%; padding:0 2.45% 0 2.45%;}
+.landing_area img {width:1.2em; text-align:center;}
+.landing_area span {font-weight:normal;}
+.landing_area .filterlistinput {width:92%;}
+.listfilter .landing_area {text-align:center;}
+
+
+/* GUIDE PAGES */
+.list, .map, .comments, .listtitle, .listextrainfo
+{display:inline; float:left; margin:0; width:100%;}
+
+
+/* search bar pages */
+.search{background-color:#eee; border:2px solid #aaa;}
+.search_input{height: 1em; width:94.5%; margin:2px 1%; padding: 0.3333em 2%; border:2px solid #eee;}
+.searchsubmit{height: 100%; margin-top:0.1em; padding-top:0.24em; padding-bottom:0.24em; border-radius:1em; border:2px solid yellow; background-color:#FBDD09;}
+
+/* page titles for guide pages */
+.pagetitle {display:inline; float:left; margin:0; padding:10px 5px; min-height: 1em; overflow:hidden;}
+.pagetitle h1{float:left; color:red; font-size: 1.75em; line-height:1.33333333333333em;}
+.pagetitle img{float:left; margin:0 1% 0 0; padding-top:2px; width:1.7em;}
+.pagetitle td {margin:0; padding:0 10px;}
+
+/* list headers */
+.listtitle{padding:0; height: 3.2em;}
+.listtitle h3 {float:left; padding: 10px 5px; width:80%;}
+.listtitle img {float:left; padding: 12px 5px; width:1.7em;}
+.listtitlesmall{height: 1.8em; background-color:#999;} /* for stacked lists */
+.listtitlesmall h3{float:left; margin:0px; padding: 5px; color:#fff; width:80%; font-size:100%;}	/* for stacked lists */
+.listtitlesmall img{float:left; margin:0px; padding: 5px; height:20px; width:20px;}	/* for stacked lists */
+
+/* for extra info under the list header */
+.listextrainfo {padding:1em 10px 0 5px; height: 2.3em;}
+.listextrainfo p{font-size:80%; line-height:80%; color:red;}
+.listextrainfo img{float:left; margin-right:2%; width:1em;}
+.listextrainfo span.frequency{margin:0 10px; color:black;}
+.listextrainfo span.thumbs {display:inline; float:right; margin:0 10px; width:30%; color:grey; font-size:75%;}
+
+/* list filters */
+.listfilter{height:1.7em; background-color:#ddd;}
+.listfilter td {padding-top:0 !important; padding-bottom:0 !important; padding-left:1% !important; padding-right:0 !important;}
+.listfilter_form{width:98%; margin:0px; padding:0 -1%;}
+.listfilter_input{width:96%; height:1.5em; margin:0 ; padding:0 2%; font-size:0.75em;}
+
+/* lists contents - stop area route */
+.listheight {display:block; overflow:hidden; height:100%;}
+
+/* list styles to be suspended */
+.list{background-color:white;}
+.list ul {list-style-type:none; margin:0; padding:10px 5px 0 5px; }
+.list li {line-height:1.2em; padding:0 0 0.8em 0;}
+
+/* comments */
+.comments{}
+.comments h4{font-size:90%}
+.comment_item{display:inline; float:left; width:100%; padding:1.2em 0; border-bottom:1px solid #ccc;}
+.comment_user{font-size:0.68em; font-weight:bold;}
+.comment_content{font-size:0.92em; font-weight:normal;}
+.comments .box{display:inline;float:left; width:100%; padding:10px 0 ;}
+.comments label, .label{display:inline; float:left; margin:0 2.71% 0 0 !important; width: 135px; font-size:0.92em; font-weight:bold;}
+.comments textbox{display:inline; float:left; width: 64.76%;}
+.comments .input{width:64.76%;}
+.pot {display:none;}
+#comment_form {padding:0 0 20px 0;}
+#id_name {width:50%}
+#id_email {width:50%}
+#id_url {width:50%}
+#id_comment {width:63.5%; height:6em;}
+#id_submit {display:inline; float:left; width:20%}
+
+/* info */
+.info  h2{font-size:1.7em;}
+.info h4 {font-size:80%;}
+.info h5 {font-size:100%; color:red;}
+
+/* AREAS PAGES */
+/* page title for area pages */
+.areatitle {display:block; float:left; margin:0px; padding:0 1% 0 0; line-height:1em;}
+.areatitle {width:87%; margin-left:1%;}
+.areatitle h1{margin-bottom:0.15em;}
+.areatitle h1 span{display:block;float:left;}
+
+.listtitle h3.stop {width:50% !important;}
+
+/* STOP PAGES */
+/* page title for stop pages */
+.stoptitle {display:block; float:left; margin:0px; padding:0 1% 0 0; line-height:1em;}
+.stoptitle {width:85%; margin-left:1%;}
+.stoptitle h1{display:block;float:left; margin-bottom:0.15em;}
+.stoptitle h1 span{display:block;float:left;}
+
+/* stop list table */
+.routecheckbox {width:3%;}
+.routecheckboxlabel {width:10%;font-size:80%;}
+
+.stop_frequency img{float:left; padding-left:0; width:15%; height:15%;}
+.stop_frequency span.thumbs {display:inline; float:right; margin:0 5%; padding-right:1.99% !important; width:66%; color:#fff; font-size:70%; line-height:1em;}
+
+.stoppage_table {width:100%; padding:0 2.45% 0 2.45%;}
+.stoppage_table tr {margin:0; padding:0; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
+.stoppage_table th {padding-top:0px; padding-bottom:0px; padding-right:3.16%;} 
+.stoppage_table td {padding:5px 3.16% 5px 1.58%;}
+.stoppage_table .filterlistinput {width:92%;}
+span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
+
+
+.stop_number .no {position:relative; margin:0; padding:0; line-height: 1em; left:30% !important;}
+.stop_route img {position:relative; left:30% !important;}
+
+.stop_number {width:16.01%;}
+.stop_number .filterlistinput {width:92%;}
+.stop_route {width:62.99%;}
+.stop_route .filterlistinput {margin-left:-0.6em; width:100%;}
+.stop_frequency {width:16.01%;}
+.right {text-align:right !important;}
+
+/* ROUTE PAGES */
+/* page title for route pages */
+.routetitle, .number, .from, .dash, .to {display:block; float:left; margin:0px; padding:0 1% 0 0;}
+.routetitle{width:90%; margin-left:1%; min-height:4.6em;}
+.number{width:14%; padding-bottom:10px; overflow:hidden;}
+.from{width:38%; text-align:center;}
+.dash{width:2%; text-align:centre;}
+.to{width:38%; text-align:center;}
+
+/* route list table */
+.routepage_table {width:100%; padding:0 2.45% 0 2.45%;}
+.routepage_table tr {margin:0; padding:0; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
+.routepage_table th {padding-top:0px; padding-bottom:0px;} 
+.routepage_table td {padding:5px 3.16% 5px 1.58%;} 
+.routepage_table .filterlistinput {width:92%;}
+
+.route_stop img {position:relative; left:30% !important;}
+.route_area img {position:relative; left:30% !important;}
+.route_distance img {position:relative; left:30% !important;}
+
+.route_stop {width:46.84%;}
+.route_stop .filterlistinput {width:92%;}
+.route_area {width:20.26%;}
+.route_area .filterlistinput {margin-left:-0.6em; width:100%;}
+.route_distance {width:17.1%;}
+.right {text-align:right !important;}
+
+/* PERSONAL PAGES */
+
+/* STATIC PAGES (SMS,ANDROID,JOIN US,ABOUT US) */
+/* block */
+.staticpage {min-height: 1em; overflow:hidden;}
+.staticpage h1{color:red; font-size: 1.75em; line-height:1.33333333333333em;}
+.staticpage h2 {font-size:100%;}
+.staticpage p, .staticpage h3, .staticpage ul, .staticpage ol {font-size:80%;}
+.staticpage .box {padding:10px 0.8em;}
+.staticpage .main {min-height:300px;}
+.staticpage img{margin:0;}
+
+/* highlight box top right*/
+.highlight {margin: -2px 0 0 0; padding:15px; background-color:#BEDB74; border: 2px solid #FBDD09; border-radius:0 0 15px 15px;}
+.highlight .right{width:100%; text-align:center;}
+.highlight .submit{float:right; margin5px 0; height:1.5em;}
+.highlight h2{font-size:1em; color:#FE2423;}
+.highlight ol{font-size:1.2em;}
+.highlight ul{/*list-style-type:none; text-align:right;*/ padding-left:12%;}
+.highlight ul.sublist{font-size:0.6em;}
+.highlight ul span{font-style:italic;}
+.actionbutton {background-color:#FBDD09 !important; border:2px solid yellow; border-radius:15px; text-align:center !important;}
+
+
+/* OTP */
+
+/* SIGN UP / SIGN IN */
+

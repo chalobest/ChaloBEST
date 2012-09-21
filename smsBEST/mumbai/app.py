@@ -33,7 +33,8 @@ def get_routes_for_matches(stops):
 def get_stops_for_string(s):
     stops = []
     s = s.strip()
-    areas = ChaloBest.areas(q=s)
+#    areas = ChaloBest.areas(q=s)
+    areas = [area for area in ChaloBest.areas(q=s) if area.lower().startswith(s)]
     if len(areas) > 0:
         for a in areas:
             area = ChaloBest.area[a]
@@ -76,12 +77,13 @@ class App(AppBase):
             origin, dest = stops[0]['properties'], stops[-1]['properties']
             origin_name, dest_name = origin['display_name'], dest['display_name']
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
-            msg.respond("%s: %s (%s) to %s (%s)" % (
-                    ",".join(routes), origin_name, origin_area, dest_name, dest_area))
+            url = "http://chalobest.in" + detail['route']['url']
+            msg.respond("%s: %s (%s) to %s (%s) %s" % (
+                    ",".join(routes), origin_name, origin_area, dest_name, dest_area, url))
         elif msg.text.find(" to ") != -1:
 
-            from_txt = msg.text.split("to")[0].strip()
-            to_txt = msg.text.split("to")[1].strip()
+            from_txt = msg.text.lower().split("to")[0].strip()
+            to_txt = msg.text.lower().split("to")[1].strip()
 
             from_matches = get_stops_for_string(from_txt)
             to_matches = get_stops_for_string(to_txt)
@@ -104,7 +106,11 @@ class App(AppBase):
                 msg.respond("Sorry, no direct buses found between %s and %s" % (from_matches['name'], to_matches['name'],))
                 return
             routesFound = ", ".join(intersection)
-            msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
+            response = "%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,)
+            if len(response) > MAX_MSG_LEN:
+                response = response[0:MAX_MSG_LEN]
+            msg.respond(response)
+            #msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
             return
             
 

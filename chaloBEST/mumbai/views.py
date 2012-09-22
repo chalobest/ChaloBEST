@@ -259,23 +259,41 @@ def route_headway(request, code):
     
     scheds = []
     for rs in RouteSchedule.objects.filter(unique_route__route=route):
+        # if holiday schedule,
+        # if 8 in SCHED[rs.schedule_type]:
+        # if Holiday.objects.filter(date=current_time)
+        # read route schedule and return headway for time period
+    
+        
         if day in SCHED[rs.schedule_type]:
             scheds.append(rs)    
 
-    
+            #(s.first_from if s.first_from < s.first_to else s.first_to)    
+
     TIMESPANS = ((None,"06:59:59"),
                  ("07:00:00","10:59:59"),
                  ("11:00:00","16:59:59"),
                  ("17:00:00","19:59:59"),
-                 ("20:00:00",None))
-
-    #for s in scheds:
-    #    if current_time< time_of("") 
-
+                 ("20:00:00", None))
+    
+    freqs=[]
+    from gtfs.gtfs_export import time_of
+    for s in scheds:
+        t = TIMESPANS
+        if current_time.time() < time_of(t[0][1]): freqs.append(s.headway1)
+        if current_time.time() < time_of(t[1][1]) and current_time.time() > time_of(t[0][1]): freqs.append(s.headway2)
+        if current_time.time() < time_of(t[2][1]) and current_time.time() > time_of(t[1][1]): freqs.append(s.headway3)
+        if current_time.time() < time_of(t[3][1]) and current_time.time() > time_of(t[2][1]): freqs.append(s.headway4)
+        if current_time.time() > time_of(t[0][1]): freqs.append(s.headway5)
+                    
+    avg = float(sum(freqs)/len(freqs))
+    frequencies = [x for x in freqs if x!=0]
+    
     return render_to_json_response(        
       {
         'route': route.get_dict(),
-        'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
+        'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  
+        #'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
         })
 
 

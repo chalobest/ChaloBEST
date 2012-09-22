@@ -1618,7 +1618,7 @@ def export_atlas():
     f =codecs.open(join(PROJECT_ROOT, "gtfs", "recomputed_atlas.csv"), "w", "utf-8")
 
     f = csv.writer(open(join(PROJECT_ROOT, "gtfs", "gtfs_mumbai_bus", "recomputed_atlas.csv"), "w"), delimiter="\t", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopCode","FromStopName","FromStopOriginal","FirstFrom","LastFrom","ToStopCode","ToStopName","ToStopOriginal","FirstTo","LastTo","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType","RouteSpan/AtlasDistance", "DistanceMasterRoute", "DistanceRouteDetail", "mismatchedfromstop","mismatchedtostop","DaysOfRun" ])
+    f.writerow(["RouteCode","RouteAlias","BusesAM","BusesNoon","BusesPM","BusType","Depot","FromStopCode","FromStopName","FromStopOriginal","FromStopMarathi", "FirstFrom","LastFrom","ToStopCode","ToStopName","ToStopOriginal","ToStopMarathi","FirstTo","LastTo","rt1","rt2","rt3","rt4","headway1","headway2","headway3","headway4","headway5","ScheduleType","RouteSpan/AtlasDistance", "DistanceMasterRoute", "DistanceRouteDetail", "mismatchedfromstop","mismatchedtostop","DaysOfRun" ])
     for unr in UniqueRoute.objects.all().order_by("route__code"):
         for rs in unr.routeschedule_set.all().order_by("schedule_type"):
             bus_type= RouteType.objects.get(code=str(unr.route.code)[3]).faretype 
@@ -1633,15 +1633,15 @@ def export_atlas():
                     bus_type,
                     rs.depot_txt,
                     unr.from_stop.code,
-                    unr.from_stop.name,
+                    unr.from_stop.name.title(),
                     unr.from_stop_txt,
-                    #unr.from_stop.name_mr.encode('utf-8'),
+                    unr.from_stop.name_mr.encode('utf-8'),
                     rs.first_from,
                     rs.last_from, 
                     unr.to_stop.code, 
-                    unr.to_stop.name,
+                    unr.to_stop.name.title(),
                     unr.to_stop_txt,
-                    #unr.to_stop.name_mr.encode('utf-8'), 
+                    unr.to_stop.name_mr.encode('utf-8'), 
                     rs.first_to, 
                     rs.last_to, 
                     rs.runtime1,rs.runtime2,rs.runtime3,rs.runtime4,

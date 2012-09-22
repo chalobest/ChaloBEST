@@ -292,7 +292,7 @@ def route_headway(request, code):
     return render_to_json_response(        
       {
         'route': route.get_dict(),
-        'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else max(frequencies)
+        'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))
         #'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
         })
 

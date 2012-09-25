@@ -220,7 +220,9 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .highlight ul span{font-style:italic;}
 .actionbutton {background-color:#FBDD09 !important; border:2px solid yellow; border-radius:15px; text-align:center !important;}
 
-
+/* highlight special header */
+.hwide {font-size:1.5em !important; padding:0; margin:0; color:white; text-shadow:none;}
+.hwider {font-size:1em !important; padding:0; margin:10px 0 0 0; color:white; text-shadow:none; text-align:center;}
 /* OTP */
 
 /* SIGN UP / SIGN IN */

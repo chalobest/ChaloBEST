@@ -112,10 +112,13 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 
 /* background colors */
 .white {background-color:white;}
-.lightgrey {background-color:#eee}
 .yellow {background-color:#FBDD09;}
-.red {background-color:#FE2423;}
+.green {background-color:#BEDB74;}
+.red {background-color:#FE2423; color:white;}
+.lightgrey {background-color:#eee}
 .lightgreen {background-color:#deeebf;}
+.lightyellow {background-color:#FCF79A;}
+.darkgrey {background-color: #ddd;}
 
 /* MICRO CLEARFIX HACK */
 .cf:before, .cf:after {content:"";display:table} /* For modern browsers */

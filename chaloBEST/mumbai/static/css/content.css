@@ -213,9 +213,9 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 /* highlight box top right*/
 .highlight {margin: -2px 0 0 0; padding:15px; background-color:#BEDB74; border: 2px solid #FBDD09; border-radius:0 0 15px 15px;}
-.highlight2 {margin: -2px 0 0 0; padding:15px 15px 0 15px; /*border: 2px solid #FBDD09; border-radius:0 0 15px 15px;*/}
+.highlight2 {margin: -2px 0 0 0; padding:15px 0 0 0; text-align:right; /*border: 2px solid #FBDD09; border-radius:0 0 15px 15px;*/}
 .highlight .right, .highlight2 .right{width:100%; text-align:center;}
-.highlight .submit, .highlight2 .submit {float:right; margin5px 0; height:1.5em;}
+.highlight .submit, .highlight2 .submit {float:right; margin:5px 0; height:1.5em;}
 .highlight h2, .highlight2 h2{font-size:1em; color:#FE2423;}
 .highlight ol, .highlight2 ol{font-size:1.2em;}
 .highlight ul, .highlight2 ul{padding-left:6%;}

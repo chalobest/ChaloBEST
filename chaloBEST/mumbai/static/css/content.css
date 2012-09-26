@@ -84,6 +84,8 @@
 .listtitlesmall{height: 1.8em; background-color:#999;} /* for stacked lists */
 .listtitlesmall h3{float:left; margin:0px; padding: 5px; color:#fff; width:80%; font-size:100%;}	/* for stacked lists */
 .listtitlesmall img{float:left; margin:0px; padding: 5px; height:20px; width:20px;}	/* for stacked lists */
+.listtitlewarning {height: 1.8em;}
+.listtitlewarning h3 {float:left; margin:0px; padding: 5px 5px 0 5px; width:80%; font-size:100%;}
 
 /* for extra info under the list header */
 .listextrainfo {padding:1em 10px 0 5px; height: 2.3em;}
@@ -202,7 +204,7 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 /* STATIC PAGES (SMS,ANDROID,JOIN US,ABOUT US) */
 /* block */
 .staticpage {min-height: 1em; overflow:hidden;}
-.staticpage h1{color:red; font-size: 1.75em; line-height:1.33333333333333em;}
+.staticpage h1{color:red; font-size: 1.5em; line-height:1.33333333333333em;}
 .staticpage h2 {font-size:100%;}
 .staticpage p, .staticpage h3, .staticpage ul, .staticpage ol {font-size:80%;}
 .staticpage .box {padding:10px 0.8em;}
@@ -211,13 +213,18 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 /* highlight box top right*/
 .highlight {margin: -2px 0 0 0; padding:15px; background-color:#BEDB74; border: 2px solid #FBDD09; border-radius:0 0 15px 15px;}
-.highlight .right{width:100%; text-align:center;}
-.highlight .submit{float:right; margin5px 0; height:1.5em;}
-.highlight h2{font-size:1em; color:#FE2423;}
-.highlight ol{font-size:1.2em;}
-.highlight ul{/*list-style-type:none; text-align:right;*/ padding-left:12%;}
+.highlight2 {margin: -2px 0 0 0; padding:15px 15px 0 15px; /*border: 2px solid #FBDD09; border-radius:0 0 15px 15px;*/}
+.highlight .right, .highlight2 .right{width:100%; text-align:center;}
+.highlight .submit, .highlight2 .submit {float:right; margin5px 0; height:1.5em;}
+.highlight h2, .highlight2 h2{font-size:1em; color:#FE2423;}
+.highlight ol, .highlight2 ol{font-size:1.2em;}
+.highlight ul, .highlight2 ul{padding-left:6%;}
 .highlight ul.sublist{font-size:0.6em;}
-.highlight ul span{font-style:italic;}
+
+.highlight2 ul{font-size:1em; padding-left:6%; list-style-type: none;}
+.highlight2 li {padding-bottom:12px;}
+
+.highlight p span,.highlight ul span, .highlight2 p span,.highlight2 ul span{font-style:italic;}
 .actionbutton {background-color:#FBDD09 !important; border:2px solid yellow; border-radius:15px; text-align:center !important;}
 
 /* highlight special header */

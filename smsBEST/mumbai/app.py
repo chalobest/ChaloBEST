@@ -83,8 +83,8 @@ class App(AppBase):
             origin_name, dest_name = origin['display_name'], dest['display_name']
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
             url = "http://chalobest.in" + detail['route']['url']
-            if detail['headway']:
-                headway = "Frequency: " + detail['headway'] + " mins"
+            if detail['route']['headway']:
+                headway = "Frequency: " + detail['route']['headway'] + " mins"
             else:
                 headway = "Route currently not running."
             response = "%s: %s (%s) to %s (%s). %s. %s" % (

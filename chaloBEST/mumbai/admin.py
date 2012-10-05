@@ -195,6 +195,7 @@ class DepotAdmin(admin.ModelAdmin):
 
 class HolidayAdmin(admin.ModelAdmin):
     list_display = ("date", "name","day","operating_schedule") 
+    list_editable = ("day","operating_schedule") 
     readonly_fields =  ("date", "name")    
     search_fields =  ("name", "date")
     formfield_overrides = {

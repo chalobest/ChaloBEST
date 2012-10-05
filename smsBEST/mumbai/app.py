@@ -116,7 +116,7 @@ class App(AppBase):
             if len(response) > MAX_MSG_LEN:
                 response = response[0:MAX_MSG_LEN]
             #msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
-            return
+            
             
 
         else:

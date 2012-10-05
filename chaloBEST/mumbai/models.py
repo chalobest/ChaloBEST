@@ -426,6 +426,7 @@ ALT_TYPE_CHOICES = (
 )
 
 class AlternativeName(models.Model):
+    objects = TrigramSearchManager(('name',))
     name = models.CharField(max_length=512)
     name_mr = models.CharField(max_length=512, blank=True)
     typ = models.CharField(max_length=64, choices=ALT_TYPE_CHOICES, default="alt")

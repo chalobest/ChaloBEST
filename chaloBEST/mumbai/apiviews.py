@@ -66,14 +66,20 @@ def areas(request):
 
 def stops(request):
     q = request.GET.get("q", "")
+    ctype = ContentType.objects.get_for_model(Stop)
+    stops = []
     if q != '':
-        qset = Stop.objects.find_approximate(q, TRIGRAM_THRESHOLD)
+        alt_name_matches = AlternativeName.objects.find_approximate(q, TRIGRAM_THRESHOLD).filter(content_type=ctype)
+        for alt_name in alt_name_matches:
+            stop = alt_name.content_object
+            if stop not in stops:
+                stops.append(stop)    
     else:
-        qset = Stop.objects.all()
+        stops = Stop.objects.all()
     srid = int(request.GET.get("srid", 4326))   
     return render_to_json_response({
         'type': 'FeatureCollection',
-        'features': [stop.get_geojson(srid=srid) for stop in qset]
+        'features': [stop.get_geojson(srid=srid) for stop in stops]
     })
    
 

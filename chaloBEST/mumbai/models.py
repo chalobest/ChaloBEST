@@ -6,8 +6,8 @@ from django.contrib.contenttypes import generic
 from django.db import connection
 import json
 from django.contrib.gis.measure import D
-
-
+import datetime
+from gtfs.gtfs_export import time_of
 
 STOP_CHOICES = ( ('U','Up'),
                  ('D', 'Down'),
@@ -282,6 +282,53 @@ class Route(models.Model):
 
     def areas_passed(self):
         return Area.objects.filter(stop__routedetail__route=self).distinct()
+    
+    def headways(self, t=None):            
+        # get time to be retrieved for
+        if not t:
+            t = datetime.datetime.now()
+        day = t.isoweekday()    
+
+        # get the routeschedules for the route
+        scheds = []
+        for rs in RouteSchedule.objects.filter(unique_route__route=self):
+        # if holiday schedule,
+        # if 8 in SCHED[rs.schedule_type]:
+        # if Holiday.objects.filter(date=t)
+
+        # read route schedule and return headway for time period            
+            if day in SCHED[rs.schedule_type]:
+                scheds.append(rs)
+
+            #(s.first_from if s.first_from < s.first_to else s.first_to)    
+        TIMESPANS = ((None,"06:59:59"),
+                     ("07:00:00","10:59:59"),
+                     ("11:00:00","16:59:59"),
+                     ("17:00:00","19:59:59"),
+                     ("20:00:00", None))            
+        import pdb
+        pdb.set_trace() 
+
+        freqs=[]
+        for s in scheds:
+            foo =s
+            tspan = TIMESPANS
+            if (t.time() > s.first_from or t.time() > s.first_to) and t.time() < time_of(tspan[0][1]): freqs.append(s.headway1)
+            if t.time() < time_of(tspan[1][1]) and t.time() > time_of(tspan[1][0]): freqs.append(s.headway2)
+            if t.time() < time_of(tspan[2][1]) and t.time() > time_of(tspan[2][0]): freqs.append(s.headway3)
+            if t.time() < time_of(tspan[3][1]) and t.time() > time_of(tspan[3][0]): freqs.append(s.headway4)
+            if (t.time() < s.last_from or t.time() < s.last_to) and t.time() > time_of(tspan[4][0]): freqs.append(s.headway5)
+                    
+        #avg = float(sum(freqs)/len(freqs))
+        if not freqs:
+            return None
+
+        frequencies = [x for x in freqs if x!=0]        
+        return {
+                'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
+                }
+
+#'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
 
 class RouteDetail(models.Model):
     route_code = models.TextField()

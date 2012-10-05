@@ -214,6 +214,11 @@ def importUniqueRoutes():
     stopErrorsFile.write(json.dumps(stopErrors, indent=2))
     stopErrorsFile.close()
 
+def do():
+    csvToJSON()
+    processJSON()
+    importUniqueRoutes()
+
 '''
 >>>formatTime("06.40")
 >>>time(6,40)

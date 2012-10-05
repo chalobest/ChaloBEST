@@ -277,7 +277,8 @@ class Route(models.Model):
             'alias': self.alias,
             'slug': self.slug,
             'distance': str(self.distance),
-            'url': self.get_absolute_url()
+            'url': self.get_absolute_url(),
+            'headways': self.headways()
         }
 
     def areas_passed(self):

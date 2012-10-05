@@ -172,15 +172,15 @@ def fix_missing_headways():
             # try to use the previous column....if available
             #if getattr(schedule, column): continue
             if col_idx > 0:
-                prev_headway = getattr(schedule, columns[col_idx-1])
+                prev_headway = getattr(schedule, hcolumns[col_idx-1])
                 if prev_headway:
                     setattr(schedule, column, prev_headway)
                     schedule.save()
                     continue
 
             # ... or the next column, if it comes to that.
-            if col_idx < len(columns)-1:
-                next_headway = getattr(schedule, columns[col_idx+1])
+            if col_idx < len(hcolumns)-1:
+                next_headway = getattr(schedule, hcolumns[col_idx+1])
                 if next_headway:
                     setattr(schedule, column, next_headway)
                     schedule.save()

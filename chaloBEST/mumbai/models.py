@@ -277,7 +277,8 @@ class Route(models.Model):
             'alias': self.alias,
             'slug': self.slug,
             'distance': str(self.distance),
-            'url': self.get_absolute_url()
+            'url': self.get_absolute_url(),
+            'headway': self.headways()
         }
 
     def areas_passed(self):
@@ -306,8 +307,6 @@ class Route(models.Model):
                      ("11:00:00","16:59:59"),
                      ("17:00:00","19:59:59"),
                      ("20:00:00", None))            
-        import pdb
-        pdb.set_trace() 
 
         freqs=[]
         for s in scheds:
@@ -324,9 +323,8 @@ class Route(models.Model):
             return None
 
         frequencies = [x for x in freqs if x!=0]        
-        return {
-                'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
-                }
+        return str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
+               
 
 #'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
 

@@ -1,7 +1,7 @@
 
 
 
-ALTER TABLE "mumbai_route" ADD COLUMN "code3" string;
+ALTER TABLE "mumbai_route" ADD COLUMN "code3" varchar(5) NOT NULL;
 
 ALTER TABLE "mumbai_route" ADD COLUMN "route_type_id" integer;
 

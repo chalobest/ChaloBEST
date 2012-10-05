@@ -278,7 +278,7 @@ class Route(models.Model):
             'slug': self.slug,
             'distance': str(self.distance),
             'url': self.get_absolute_url(),
-            'headways': self.headways()
+            'headway': self.headways()
         }
 
     def areas_passed(self):
@@ -323,9 +323,8 @@ class Route(models.Model):
             return None
 
         frequencies = [x for x in freqs if x!=0]        
-        return {
-                'frequency': str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
-                }
+        return str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
+               
 
 #'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]
 

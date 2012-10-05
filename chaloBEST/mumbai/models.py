@@ -306,8 +306,6 @@ class Route(models.Model):
                      ("11:00:00","16:59:59"),
                      ("17:00:00","19:59:59"),
                      ("20:00:00", None))            
-        import pdb
-        pdb.set_trace() 
 
         freqs=[]
         for s in scheds:

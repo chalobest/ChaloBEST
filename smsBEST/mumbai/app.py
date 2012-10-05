@@ -31,6 +31,11 @@ def get_routes_for_matches(stops):
     return routes            
 
 def get_stops_for_string(s):
+    '''
+        Returns a dict with name and stops to associate with given search string.
+        First looks at areas, if string matches an area, returns area as name and all stops within that area as stops.
+        If search term does not match an area, returns the first / best match of stop to string. If there are multiple stops with the same name, returns all of them in the list of stops.
+    '''
     stops = []
     s = s.strip()
 #    areas = ChaloBest.areas(q=s)
@@ -78,8 +83,9 @@ class App(AppBase):
             origin_name, dest_name = origin['display_name'], dest['display_name']
             origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
             url = "http://chalobest.in" + detail['route']['url']
-            msg.respond("%s: %s (%s) to %s (%s) %s" % (
-                    ",".join(routes), origin_name, origin_area, dest_name, dest_area, url))
+            response = "%s: %s (%s) to %s (%s) %s" % (
+                    ",".join(routes), origin_name, origin_area, dest_name, dest_area, url)
+
         elif msg.text.find(" to ") != -1:
 
             from_txt = msg.text.lower().split("to")[0].strip()
@@ -109,7 +115,6 @@ class App(AppBase):
             response = "%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,)
             if len(response) > MAX_MSG_LEN:
                 response = response[0:MAX_MSG_LEN]
-            msg.respond(response)
             #msg.respond("%s to %s: %s" % (from_matches['name'], to_matches['name'], routesFound,))
             return
             
@@ -135,4 +140,5 @@ class App(AppBase):
             if len(response) > MAX_MSG_LEN:
                 response = response[:MAX_MSG_LEN-(len(STYLE["end"])+4)] + "..."
             response += STYLE["end"]
-            msg.respond(response)
+
+        msg.respond(response)

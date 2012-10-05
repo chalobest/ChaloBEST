@@ -180,7 +180,7 @@ class Stop(models.Model):
             'name_mr': self.name_mr,
             'direction': self.dbdirection,
             'routes': ", ".join([r.alias for r in routes]),
-            'alternative_names': ", ".join([a.name for a in self.alt_names.all().filter(typ='common')]),
+            'alternative_names': ", ".join([a.name for a in self.alt_names.all()]),
             'url': self.get_absolute_url()
         }
 

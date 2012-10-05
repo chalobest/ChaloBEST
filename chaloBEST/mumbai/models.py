@@ -414,7 +414,6 @@ class Depot(models.Model):
 class Holiday(models.Model):
     date = models.DateField()
     name = models.TextField(max_length=100)
-    day =  models.TextField(max_length=20)
     operating_schedule=models.TextField(max_length=20)
 
     def __unicode__(self):

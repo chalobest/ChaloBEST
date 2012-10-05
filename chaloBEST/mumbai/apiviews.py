@@ -88,7 +88,7 @@ def stop(request, slug):
     srid = int(request.GET.get("srid", 4326))
     if request.POST and request.POST.has_key('geojson'):
         if not request.user.is_staff:
-            return render_to_json_response({'error': 'No permission'})
+            return render_to_json_response({'errors': 'No permission'})
         if not slug:
             stop = Stop() #FIXME: should this return an error instead?
         else:

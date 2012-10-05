@@ -92,7 +92,7 @@ var API_BASE = "/1.0/",
                 stopsGeojson.features = stopsWithGeom;
                 var currFeatures = jsonLayer.features;
                 jsonLayer.removeFeatures(currFeatures);
-                console.log(stopsWithGeom);
+                //console.log(stopsWithGeom);
                 if (stopsWithGeom.length !== 0) {
                     jsonLayer.addFeatures(geojson_format.read(stopsGeojson));
                     var maxExtent = jsonLayer.getDataExtent();
@@ -129,6 +129,7 @@ var API_BASE = "/1.0/",
         var $ul = $('<ul />')
             .addClass("stopsList")
             .click(function(e) {
+                //e.stopPropagation();
                 var $target = $(e.target);
                 if ($target.hasClass("selectedStop")) {
                     return;
@@ -136,8 +137,11 @@ var API_BASE = "/1.0/",
 //                $('.selectedStop').removeClass("selectedStop");
 //                $target.addClass("selectedStop");
                 var props = $target.data("properties");
+                //console.log($target, props);
                 var geom = $target.data("geometry");
                 var $form = getStopForm(props, geom);
+                //GLOB_FORM = $form;
+                //console.log($form);
                 var slug = $target.data("slug");
                 if ($target.hasClass("has_point")) {
                     selectStopOnMap(slug);
@@ -169,6 +173,7 @@ var API_BASE = "/1.0/",
     function getStopForm(stop, geom) {
     //    console.log(stop);
     //    console.log(geom);
+        //console.log(stop);
         var lon = !$.isEmptyObject(geom) ? geom.coordinates[0] : '';
         var lat = !$.isEmptyObject(geom) ? geom.coordinates[1] : '';
         var $div = $('<div />');
@@ -334,7 +339,7 @@ var API_BASE = "/1.0/",
         //alert("selected " + slug);
         $('.selectedStop').removeClass("selectedStop");
         highlightStop(slug);
-        var stop = e.feature.attributes;
+        var stop = $('.selectedStop').data("properties");
         var geom = {
             'coordinates': [e.feature.geometry.x, e.feature.geometry.y]
         };

@@ -212,7 +212,7 @@ class Stop(models.Model):
                 a.delete()
             for a in data['alternative_names'].split(","):
                 alt_name = AlternativeName()
-                alt_name.name = a
+                alt_name.name = a.strip()
                 alt_name.typ = 'common'
                 alt_name.content_object = self
                 alt_name.save()

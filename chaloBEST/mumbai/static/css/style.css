@@ -5,6 +5,8 @@
 	
 	Base stylesheet with CSS normalization, typographic baseline grid and progressive responsiveness
 */
+/* remove below */
+.staticpage .forthetest{color:blue;}
 
 /* HTML5 DECLARATIONS */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {display: block}

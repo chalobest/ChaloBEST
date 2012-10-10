@@ -213,6 +213,8 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .staticpage .box {padding:10px 0.8em;}
 .staticpage .main {min-height:300px;}
 .staticpage img{margin:0;}
+/* remove below */
+.staticpage .forthetest{color:blue;}
 
 /* highlight box top right*/
 .highlight {margin: -2px 0 0 0; padding:15px; background-color:#BEDB74; border: 2px solid #FBDD09; border-radius:0 0 15px 15px;}

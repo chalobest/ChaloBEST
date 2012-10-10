@@ -21,6 +21,8 @@ DATABASES = {
 
 MEDIA_ROOT = join(PROJECT_PATH, 'static')
 LOCAL_DEVELOPMENT = True
+JSON_DEBUG = False
+
 # the rapidsms backend configuration is designed to resemble django's
 # database configuration, as a nested dict of (name, configuration).
 #

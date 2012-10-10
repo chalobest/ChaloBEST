@@ -28,6 +28,7 @@ urlpatterns = patterns('',
     (r'^messaging/', include('rapidsms.contrib.messaging.urls')),
     (r'^registration/', include('rapidsms.contrib.registration.urls')),
     (r'^scheduler/', include('rapidsms.contrib.scheduler.urls')),
+    (r'^messages_json/', 'mumbai.views.messages_json'),
 )
 
 if settings.LOCAL_DEVELOPMENT:

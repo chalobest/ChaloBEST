@@ -63,6 +63,22 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = join(PROJECT_ROOT, 'static')
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+	os.path.join(PROJECT_ROOT, 'mumbai/static'),
+)
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -101,6 +117,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'userena.middleware.UserenaLocaleMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware'
 )
 
@@ -180,9 +198,11 @@ LOGIN_REDIRECT_URL ='/accounts/%(username)s/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
 #LOGIN_REDIRECT_URL = '/profiles/profile/'
-USERENA_DISABLE_PROFILE_LIST = False
+#USERENA_DISABLE_PROFILE_LIST = False
+USERENA_DISABLE_PROFILE_LIST = True
 USERENA_MUGSHOT_SIZE = 140
 USERENA_MUGSHOT_GRAVATAR=True
+USERENA_USE_MESSAGES = True
 USERENA_MUGSHOT_DEFAULT='monsterid'
 ANONYMOUS_USER_ID = -1
 	

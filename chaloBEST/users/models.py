@@ -30,7 +30,10 @@ class UserProfile(UserenaLanguageBaseProfile):
 	website = models.URLField(_('website'), blank=True, verify_exists=True)
 	location = models.CharField(_('location'), max_length=255, blank=True)
 	birth_date = models.DateField(_('birth date'), blank=True, null=True)
+#	about_me = models.TextField(_('about me'), blank = True)
+	mobile_number = models.CharField(_('mobile number'), blank = True, max_length=10)
 	about_me = models.TextField(_('about me'), blank = True)
+
 	@property
 	def age(self):
 		if not self.birth_date: return False

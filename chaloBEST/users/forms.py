@@ -11,7 +11,7 @@ class SignupFormExtra(SignupForm):
 	#last_name = forms.CharField(label = _(u'Last name'),
 	#			     max_length = 30,
 	#			     required=False)
-	mobile_number = forms.CharField(label = _(u'mobile number'),
+	mobile_number = forms.CharField(label = _(u'Mobile number'),
 					  max_length =10,
 					  required=True)
 #	def __init__(self, *args, **kw):

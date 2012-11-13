@@ -178,7 +178,7 @@ Change widths as necessary
 	.nav {height:85px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:right; width:65.95%; height:30px; padding-right:0.99%; color:#FBDD09;}
 	.logotext {display:block; float:left; width:100%; height:30px; margin:0; padding:0;}
 	.logotext img {height:100%;}
@@ -267,7 +267,7 @@ Change widths as necessary
 	.nav {height:55px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:51.01%; height:25px; margin:3px 0 0 0;}
 		.globallinks{display:block; float:right; width:48%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -351,7 +351,7 @@ Change widths as necessary
 	.nav {height:60px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -434,7 +434,7 @@ Change widths as necessary
 	.nav {height:60px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('img/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:23.01%; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -523,7 +523,7 @@ Change widths as necessary
 	.nav {height:70px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('img/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
 	.logotext {display:block; float:left; width:23.01%; height:40px; margin:0; padding:0;}
 	.globallinks{display:block; float:right; width:30%; height:30px; padding:17px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
@@ -609,7 +609,7 @@ Change widths as necessary
 	.nav {height:80px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('img/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('../images/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}
 		.logotext {display:block; float:left; width:23.01%; height:50px;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:25px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}

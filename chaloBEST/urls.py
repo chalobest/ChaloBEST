@@ -7,6 +7,7 @@ admin.autodiscover()
 from feeds import RouteFeed
 #import ox.django.api.urls
 #import mumbai
+from users.forms import SignupFormExtra 
 
 
 urlpatterns = patterns('',
@@ -43,10 +44,12 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^matchstops/$', 'mumbai.views.fuzzystops'),
     (r'^fuzzystops_edit/$', 'mumbai.views.fuzzystops_edit'),
+# url(r'^accounts/', include('userena.urls')),
+ url(r'^accounts/signup/$', 
+		'userena.views.signup',
+      		{'signup_form': SignupFormExtra}),
  url(r'^accounts/', include('userena.urls')),
-     #(r'^accounts/signup/$', 'userena.views.signup',
-      #{'signup_form': SignupFormExtra}),
-
+ 
      url(r'^messages/',include('userena.contrib.umessages.urls')),
 
     

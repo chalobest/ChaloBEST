@@ -4,6 +4,7 @@ RapidSMS==0.9.6a
 South==0.7.5
 -e git://github.com/schuyler/arrest.git@0017837a45bcb31786f953fba976d454ae684ecc#egg=arrest-dev
 -e git://github.com/etianen/django-reversion.git#egg=reversion
+
 chardet==1.0.1
 django-allauth==0.5.0
 django-avatar==1.0.5
@@ -36,3 +37,5 @@ oauth2==1.5.211
 psycopg2==2.4.5
 python-openid==2.2.5
 wsgiref==0.1.2
+
+-e git://github.com/elevenbasetwo/django-cors.git#egg=cors

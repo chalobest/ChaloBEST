@@ -11,5 +11,5 @@ class AllowOriginMiddleware(object):
         if origin:
             response['Access-Control-Allow-Origin'] = '*'
             response['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, DELETE, PUT'
-            response['Access-Control-Allow-Headers'] = 'Content-Type, Accept'
+            response['Access-Control-Allow-Headers'] = 'Content-Type, Accept, X-Requested-With'
         return response

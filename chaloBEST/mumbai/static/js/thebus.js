@@ -1,5 +1,5 @@
 (function($) {
-    var API_BASE = 'http://localhost:8000/1.0/';
+    var API_BASE = 'http://chalobest.in/1.0/';
     console.log(API_BASE);
     var clickedName = 'stops';
     var searchQuery = 'None';

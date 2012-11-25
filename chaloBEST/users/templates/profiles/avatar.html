@@ -1,0 +1,29 @@
+{% load thumbnail %}
+
+{% comment %}
+	If profile has an avatar, show it.
+	If user is viewing their own list and they don't have an avatar, 
+	show them the Add Photo button. Otherwise show generic avatar.
+{% endcomment %}
+
+
+
+<div class="avatar">
+	
+    {% if profile.avatar %}
+
+	{% thumbnail profile.avatar "100x100" crop="center" as im %}
+	    <a href="{% url list_view profile.user.username %}"><img src="{{im.url}}" width="{{im.width}}" height="{{im.height}}" alt="{{profile}}'s avatar image" /></a>
+	{% endthumbnail %}
+
+
+	{% else %}
+		{% if profile == user.get_profile %}
+			<a href="{% url profiles_edit_profile %}"><img src="{{ MEDIA_URL }}images/no-photo.png" width="100" height="100" alt="Please add an avatar to your profile."></a>
+			{% else %}
+			<a href="{% url list_view profile.user.username %}"><img src="{{ STATIC_URL }}images/user_default_medium.png" width="100" height="100" alt="Generic avatar"></a>
+		{% endif %}
+	
+	{% endif %}
+
+</div>

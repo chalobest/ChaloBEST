@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Areas
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript">
+$(function() {
+    $('#searchFilter').keyup(function() {
+        var val = $(this).val().toLowerCase();
+        $('.listItem').each(function() {
+            var txt = $(this).text().toLowerCase();
+            if (txt.indexOf(val) != -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});
+
+    </script>
+{% endblock %}
+
+{% block body %}
+    Filter: <input id="searchFilter" />
+    <ul id="routesList">
+        {% for a in areas %}
+        <li class="area listItem">
+            <a href="{{ a.get_absolute_url }}" title="view stops for route">{{ a.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>    
+
+{% endblock %}

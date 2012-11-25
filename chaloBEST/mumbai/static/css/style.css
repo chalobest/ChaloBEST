@@ -1,0 +1,708 @@
+/*
+	Fluid Baseline Grid v1.0.0
+	Designed & Built by Josh Hopkins and 40 Horse, http://40horse.com	
+	Licensed under Unlicense, http://unlicense.org/
+	
+	Base stylesheet with CSS normalization, typographic baseline grid and progressive responsiveness
+*/
+/* remove below */
+.staticpage .forthetest{color:blue;}
+
+/* HTML5 DECLARATIONS */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {display: block}
+audio[controls],canvas,video {display: inline-block; *display: inline; zoom: 1}
+
+/* BASE */
+html {height: 100%; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /* Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom */
+body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; background-color:#fff;} /* Improve default text rendering, handling of kerning pairs and ligatures */
+
+/* DEFAULT FONT SETTINGS */
+/* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
+/* Font-size percentage is based on 16px browser default size */
+body, button, input, select, textarea {font: 100%/1.5 Calibri, “Trebuchet MS”, "Nimbus Sans L", sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
+
+/* TYPOGRAPHY */
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+
+h1, h2, h3, h4, h5, h6 {font-family:/*"Boston Traffic",*/ Impact, "Charcoal CY", "Trebuchet MS", Charcoal, sans-serif;color:#222; text-transform: uppercase; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1 {margin: 0; font-size: 2.75em; line-height: 1.5em; margin-bottom: 0.4em;} /* 60px / 72px */
+h2 {margin: 0; font-size: 2em; line-height: 1em; margin-bottom: 0.5em;} /* 48px / 48px */
+h3 {margin: 0; font-size: 1.75em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em;} /* 36px / 48px */ 
+h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
+h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
+h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+small, p.small, a.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
+.italic {font-style:italic;}
+
+/* CODE */
+pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word} /* Allow line wrapping of 'pre' */
+pre, code, kbd, samp {font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; font-family: Menlo, Consolas, 'DejaVu Sans Mono', Monaco, monospace}
+
+/* TABLES */
+table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em}
+th {text-align: left}
+tr, th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+
+/* FORMS */
+form {margin: 0}
+fieldset {border: 0;padding: 0}
+textarea {overflow: auto; vertical-align: top}
+legend {*margin-left: -.75em}
+button, input, select, textarea {vertical-align: baseline; *vertical-align: middle} /* IE7 and older */
+button, input {line-height: normal; *overflow: visible}
+button, input[type="button"], input[type="reset"], input[type="submit"] {cursor: pointer;-webkit-appearance: button}
+input[type="checkbox"], input[type="radio"] {box-sizing: border-box}
+input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box;	box-sizing: content-box}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
+button::-moz-focus-inner, input::-moz-focus-inner {border: 0; padding: 0}
+
+/* QUOTES */
+blockquote, q {quotes: none}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none}
+blockquote, q, cite {font-style: italic}
+blockquote {padding-left: 1.5em; border-left: 3px solid #ccc}
+blockquote > p {padding: 0}
+
+/* LISTS */
+ul, ol {list-style-position: inside; padding: 0}
+li ul, li ol {margin: 0 1.5em}
+dl dd {margin-left: 1.5em}
+dt {font-family:Futura, "Century Gothic", AppleGothic, sans-serif}
+
+/* HYPERLINKS */
+a {text-decoration: none; color:#FE2423;}
+a:hover {text-decoration: underline}
+a:focus {outline: thin dotted}
+a:hover, a:active {outline: none} /* Better CSS Outline Suppression */
+
+/* MEDIA */
+figure {margin: 0}
+img, object, embed, video {max-width: 100%;	_width: 100%} /* Fluid images */
+img {border: 0;	-ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
+svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
+
+/* ABBREVIATION */
+abbr[title], dfn[title] {border-bottom: 1px dotted #333; cursor: help}
+
+/* MARKED/INSERTED/DELETED AND SELECTED TEXT */
+ins, mark {text-decoration: none}
+mark {background: #c47529}
+ins {background: #d49855}
+del {text-decoration: line-through}
+::-moz-selection {background: #c47529; color: #fff; text-shadow: none} /* selected text */
+::selection {background: #c47529; color: #fff; text-shadow: none} /* selected text */
+
+/* OTHERS */
+strong, b, dt { font-weight: bold}
+dfn {font-style: italic}
+var, address {font-style: normal}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline} /* Position 'sub' and 'sup' without affecting line-height */
+sup {top: -0.5em} /* Move superscripted text up */
+sub {bottom: -0.25em} /* Move subscripted text down */
+span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",Times,serif;font-style:italic;font-size:110%;line-height:0;position:relative;vertical-align:baseline} /* Best available ampersand */
+/*.margintop{margin-top:10px;}
+.margintop2x{margin-top:20px;}*/
+.leading10, .leading20, .leading30, .leading40, .leading60 {display:inline; float:left; width:100%;}
+.leading10 {height:10px;}
+.leading20 {height:10px;}
+.leading30 {height:30px;}
+.leading40 {height:10px;}
+.leading60 {height:60px;}
+.center {margin-left:auto; margin-right:auto; text-align:center;}
+
+/* background colors */
+.white {background-color:white;}
+.yellow {background-color:#FBDD09;}
+.green {background-color:#BEDB74;}
+.red {background-color:#FE2423; color:white;}
+.lightgrey {background-color:#eee}
+.lightgreen {background-color:#deeebf;}
+.lightyellow {background-color:#FCF79A;}
+.darkgrey {background-color: #ddd;}
+
+/* MICRO CLEARFIX HACK */
+.cf:before, .cf:after {content:"";display:table} /* For modern browsers */
+.cf:after {clear:both}
+.cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
+
+/* DEFAULT MOBILE STYLE */
+body {width: 92%; margin: 0 auto} /* Center page without wrapper */
+
+/* column grid */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1
+{display:inline; position: relative; margin-left: 0.99%; margin-right: 0.99%; margin-bottom:20px;}
+
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6,.g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8,.g8_5,.g8_3,.g8_gut,
+	.g9_3,.g9_4, .g9_5, .g9_6 ,.g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:block; position: relative; margin-left: 0; margin-right: 0; margin-bottom:20px;}
+	
+/* 1 column grid */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6 ,.g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+
+
+/* media Queries
+
+FOLDING FLUID GRID
+< 767px			- 1-Column Fluid Grid
+768px - 1023px	- 2-Column Fluid Grid
+> 1024px			- 3-Column Fluid Grid
+Change widths as necessary
+------------------------------------------- */
+/* MOBILE SMALL */
+@media only screen and (min-width: 240px) {
+	/* 	FONT SIZE ADJUSTED FOR LEGIBILITY*/
+	body {font-size:80%;} /* 12px / 18px */
+	.pagetitle{font-size:60%;}
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:85px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:right; width:65.95%; height:30px; padding-right:0.99%; color:#FBDD09;}
+	.logotext {display:block; float:left; width:100%; height:30px; margin:0; padding:0;}
+	.logotext img {height:100%;}
+	.globallinks{display:block; float:right; width:100%; height:30px; padding-right:0.99%; background-color:#deeebf; vertical-align:bottom;}
+		.globallinks li {color:#333; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li a {color:#333; font-weight:bold;}
+	.navprimary{display:block; float:left; width:99%; height:25px; padding-right:0.99%;}
+	.navlink li {display:inline; float:left; margin:0 0 0 2%; padding:0;}
+	.navprimary .navlink li {margin: 0 0 0 2%; width:22%; float:right; padding:0;}
+	.navprimary .navlink li a{display:block; width:96%; height:21px; padding-left:1%; padding-right:1%; text-align:center; border-radius:3px; overflow:hidden;}
+	
+	/* search bar landing page */
+	.searchbar{position: absolute;
+    left: -9999px;
+	}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6 ,.g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* 1 COLUMN GRID */
+	/* GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {min-height:400px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {height:100%;}
+	.maphome{height:240px;margin: 0; }
+	}	
+
+@media only screen and (min-width: 320px) {
+	/* inherited font size*/
+	body {font-size:80%;} /* 12px / 18px */
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:55px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
+		.logotext {display:block; float:left; width:51.01%; height:25px; margin:3px 0 0 0;}
+		.globallinks{display:block; float:right; width:48%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; font-size:0.80em; line-height:00.9em; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-weight:bold; line-height:00.9em;}
+		.navprimary{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
+			.navlink li {display:inline; float:right; padding:0;}
+			.navprimary .navlink li {margin: 0 0 0 3%; width:22%;}
+			.navprimary .navlink li a{width:96%; height:21px; text-align:center; border-radius:3px; overflow:hidden;}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6,.g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6 ,.g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* 1 COLUMN GRID */
+	/* GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {min-height:400px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {height:100%;}
+	.maphome{height:300px;margin: 0; }
+	}	
+	
+@media only screen and (min-width: 480px) {
+	/* inherited font size*/
+	body {font-size:90%;} /* 12px / 18px */
+	.pagetitle{font-size:100%;}
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:60px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
+		.logotext {display:block; float:left; height:30px; margin:0; padding:0;}
+		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; line-height:00.9em; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-weight:bold;}
+		.navprimary{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
+			.navlink li {display:inline; float:right; padding:0;}
+			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px; overflow:hidden;}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6, .g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* 1 COLUMN GRID */
+	/* GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {width:97.98%; min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {width:97.98%; min-height:400px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {width:97.98%; min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {width:97.98%; min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {width:97.98%; min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {width: 65.29%; min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {width: 47.94%; height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {width: 30.58%; height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {width: 6.35%; height:100%;}
+	.maphome{height:350px;margin: 0; }
+	}
+
+@media only screen and (min-width: 600px) {
+	/* inherited font size*/
+	body {} 
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:60px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
+		.logotext {display:block; float:left; width:23.01%; height:30px; margin:0; padding:0;}
+		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-size:1em; font-weight:bold;}
+		.navprimary{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
+			.navlink li {display:inline; float:right; padding:0;}
+			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px; overflow:hidden;}
+	
+	/* searchbar elements landing page */
+	.searchbar{position:relative;
+				left:0;}
+	.leading20 {height:20px;}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6, .g9_9, .g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* 1 COLUMN GRID */
+	/* GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {width:97.98%; min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {width:97.98%; min-height:400px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {width:97.98%; min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {width:97.98%; min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {width:97.98%; min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {width: 65.29%; min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {width: 47.94%; height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {width: 30.58%; height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {width: 30.58%; height:100%;}
+	.maphome{height:350px;margin: 0; }
+	}	
+
+/* TABLET/NETBOOK/ */
+@media only screen and (min-width: 768px) { 
+	/* inherited font size*/
+	body {} 
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:70px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
+	.logotext {display:block; float:left; width:23.01%; height:40px; margin:0; padding:0;}
+	.globallinks{display:block; float:right; width:30%; height:30px; padding:17px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-weight:bold;}
+	.navprimary{display:block; float:left; width:85.65%; height:30px; }
+	.navlink li {display:inline; float:right; margin:0 0 0 1%; padding:0;}
+	.navprimary .navlink li {width:15.5%;}
+	.navprimary .navlink li a{display:block; width:96%; height:26px; text-align:center; border-radius:3px;}	
+	
+	/*  */
+	.leading40 {height:40px;}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5,.g8_3,.g8_gut,
+	.g9_3, .g9_6 ,.g9_9,.g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* MULTI COLUMN GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {width:72.99%; min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {width:64.66%; min-height:20px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {width:56.33%; min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {width:48%; min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {width:39.67%; min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {width:31.34%; min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {width:23.01%; height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {width:14.68%; height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {width: 6.35%; height:100%;}
+	.maphome{height:500px;margin: 0;}
+}
+
+/* LANDSCAPE TABLET/NETBOOK/LAPTOP */
+@media only screen and (min-width: 1024px) { 
+	body {width:100%;font-size:1em;}
+	.pagetitle {font-size:100%;}
+	
+	/* NAVIGATION */
+	.nav, .foot {display:inline; float:left; width:100%;}
+	.nav {height:80px; margin:0;}
+	.foot {height:50px;}
+	
+	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('../images/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}
+		.logotext {display:block; float:left; width:23.01%; height:50px;}
+		.globallinks{display:block; float:right; width:30%; height:30px; padding:25px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-weight:bold;}
+		.navprimary{display:block; float:left; width:87.65%; height:30px;}
+			.navlink li {display:inline; float:right; padding:0;}
+			.navprimary .navlink li {margin:0 0 0 1%; width:10.5%;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px;}
+	
+	/* COLUMN GRID */
+	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
+	.g2_2,
+	.g3_3,.g3_gut,
+	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
+	.g5_5, .g5_1, .g5_gut,
+	.g6_6, .g6_3, .g6_gut,
+	.g7_7, .g7_4, .g7_3, .g7_gut,
+	.g8_8, .g8_5, .g8_3, .g8_gut,
+	.g9_3, .g9_4, .g9_5, .g9_6, .g9_9, .g9_gut,
+	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_gut
+	{display:inline; float: left}
+	
+	/* MULTI COLUMN GRID */
+	.g12 {width:97.98%; min-height:20px;}
+		.g12_12 {width:99.7%;margin:0;}
+		.g12_9 {}
+		.g12_8 {width:65%; margin:0;}
+		.g12_7 {width:57.49%; margin:0;}
+		.g12_6 {width:48.99%; margin:0;}
+		.g12_5 {width:40.48%; margin:0;}
+		.g12_4 {width:31%; margin:0;}
+		.g12_gut {width:2.02%; margin:0; min-height:20px;}
+	.g9 {width:72.99%; min-height:20px;}
+		.g9_3 {width:31.52%; margin:0;}
+		.g9_4 {width:42.94%; margin:0;}
+		.g9_5 {width:54.35%; margin:0;}
+		.g9_6{width:65.76%; margin:0;}
+		.g9_9{width:100%; margin:0;}
+		.g9_gut{width:2.71%; height: 10px; margin:0;}
+	.g8 {width:64.66%; min-height:20px;}
+		.g8_8 {width:99.7%; margin:0;}
+		.g8_5 {width:61.35%; margin:0;}
+		.g8_3 {width:35.59%; margin:0;}
+		.g8_gut{width:3.06%; height: 10px; margin:0;}
+	.g7 {width:56.33%; min-height:20px;}
+		.g7_7 {width:99.7%; margin:0;}
+		.g7_4 {width:55.63%; margin:0;}
+		.g7_3 {width:40.84%; margin:0;}
+		.g7_gut{width:3.52%; height: 10px; margin:0;}
+	.g6 {width:48%; min-height:20px;}
+		.g6_6 {width:99.7%; margin:0;}
+		.g6_3 {width:47%; margin:0;}
+		.g6_gut{width:4.13%; height: 10px; margin:0;}
+	.g5 {width:39.67%; min-height:20px;}
+		.g5_5 {width:99.7%; margin:0;}
+		.g5_1 {width:16.01%; margin:0;}
+		.g5_gut {width:4.99%; margin:0;}
+	.g4 {width:31.34%; min-height:100px;}
+		.g4_4{width:100%; margin:0;}
+		.g4_3{width:73.42%; margin:0;}
+		.g4_2{width:46.84%; margin:0;}
+		.g4_1{width:20.26%; margin:0;}
+		.g4_1small{width:17.1%; margin:0;}
+		.g4_gut{width:6.32%; height: 10px; margin:0;}
+		.g4_gut4{width:1.58%; height: 10px; margin:0;}
+	.g3 {width:23.01%; height:100%;}
+		.g3_3{width:100%; margin: 0;}
+	.g2 {width:14.68%; height:100%;}
+		.g2_2{width:100%; margin: 0;}
+	.g1 {width: 6.35%; height:100%;}
+	.maphome{height:500px;margin: 0;}
+}
+
+/* WIDESCREEN */
+/* Increased body size for legibility */
+@media only screen and (min-width: 1400px) { 
+	body {font-size:116.75%; max-width:1440px} /* 18.5px / 28px */
+}
+
+
+/* PRINT */
+@media print {
+  * {background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important} /* Black prints faster */
+  a, a:visited {color: #444 !important; text-decoration: underline}
+  a[href]:after {content: " (" attr(href) ")"}
+  abbr[title]:after {content: " (" attr(title) ")"}
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: ""}  /* Don't print links for images, javascript or internal links */
+  pre, blockquote {border: 1px solid #999; page-break-inside: avoid; }
+  thead {display: table-header-group; } /* Repeat header row at top of each printed page */
+  tr, img {page-break-inside: avoid; }
+  img {max-width: 100% !important; }
+  @page {margin: 0.5cm}
+  p, h2, h3 {orphans: 3; widows: 3}
+  h2, h3{page-break-after: avoid}
+}

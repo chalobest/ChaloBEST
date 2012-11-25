@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Bus Editor
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/styles.css" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type = "text/javascript" src="/static/js/underscore-min.js"></script>
+<script type ="text/javascript" src="/static/js/backbone-min.js"></script>
+<script type="text/javascript" src="/static/js/thebus.js"></script>
+<script type="text/javascript">
+        console.firebug=true;//fix the openlayer problem
+</script>
+
+<script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
+<!-- <script src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBbz_Bjqtf5U9qGZw4xoS5PxLDadHsC0AA'></script> -->
+
+{% endblock %}
+
+
+{% block body %}
+<div id="header">
+
+    <input id="search" type="text" placeholder="Search for Areas and Stops">
+    <input id="stops" type="button" value="Stops">
+    <input id="routes" type="button" value="Routes">
+    <input id="login" type="button" value="Login to OSM" style="float: right;">
+		
+   
+</div>
+<div id="sideBar">
+</div>
+<div id="content">
+<h2>Welcome to Chalo BEST bus editor</h2>
+<p>
+This BEST Bus stop editor allows you to edit Stops and Areas.
+</p>
+<p>
+<input id="sLug" type="text" placeholder="stop-slug" value = "" disabled>
+<input id="rOads" type="text" placeholder="Road Name"  disabled>
+
+<input id="dIrection" type="text" placeholder="Direction (u - up/d - Down)"  disabled>
+<input id="dIsplayName" type="text" placeholder="Display Name" >
+
+<input id="mArathiName" type="text" placeholder="Marathi Name" >
+<input id="aLtName" type="text" placeholder="Alternative Names" >
+<!--<input id="rOutes" type="textarea" placeholder="Routes"  disabled>-->
+<textarea id="rOutes" rows="3" placeholder="Routes" ></textarea>
+</p>
+<p>
+<input id="save" type="button" value="Save">
+</p>
+</div>
+<div id="mapCol"> 
+
+</div>
+
+
+{% endblock %}

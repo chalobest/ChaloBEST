@@ -1,0 +1,36 @@
+{% extends 'innov/base.html' %}
+{% block content %}
+
+<div class="g3">
+<!--	<div class="leading40"></div>
+	<div class="g3_3 listtitlesmall"><h3>ChaloBEST</h3></div>
+	<div class="g3_3 staticpage lightgrey">
+		<div class="box">
+			<p>[Some quote about ChaloBEST]</p>
+		</div>
+	</div> -->
+</div>
+
+<div class="g6">
+	<div class="leading40"></div>
+	<div class="g6_6 staticpage main">
+		<form action="" method="post">
+			<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='YzyQypsxOcO4XfKWrUy8jMaaWoYtmdGv' /></div>
+			<fieldset>
+				<h1><legend>Sign in</legend></h1>
+				<p>No account yet? <a href="signup.html">Sign up here</a></p>
+				<label for="id_identification">Email or username</label><input id="id_identification" class="tripinput" type="text" class="required" name="identification" />
+				<label for="id_password">Password</label><input id="id_password" class="tripinput" type="password" class="required" name="password" />
+				<p class="small"><label for="id_remember_me"><input type="checkbox" name="remember_me" id="id_remember_me" /> Remember me for a month</label></p>
+			</fieldset>
+			<input type="submit" value="Sign in" />
+			<p class="small"><a href='/accounts/password/reset/' title="Forgot your password?">Forgot your password?</a></p>
+		</form>
+	</div>
+	<div class="leading40"></div>
+	<div class="leading40"></div>
+</div>
+<div class="g3">
+</div>
+
+{% endblock %}

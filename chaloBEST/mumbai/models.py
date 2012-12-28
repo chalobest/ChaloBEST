@@ -107,6 +107,18 @@ class Area(models.Model):
             #FIXME add alt_names and geometry
         }
 
+    
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Area',
+            'title': self.name,
+            'url': self.get_absolute_url()
+        }
+
     def get_absolute_url(self):
         return "/area/%s/" % self.name
 
@@ -164,11 +176,26 @@ class Stop(models.Model):
     point = models.PointField(null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
-    def get_dict(self):
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Stop',
+            'title': self.name,
+            'url': self.get_absolute_url()
+        }
+
+    def get_routes(self):
         routes = []
         for r in self.routedetail_set.all():
             if r.route is not None:
                 routes.append(r.route)
+        return routes        
+
+    def get_dict(self):
+        routes = self.get_routes()
         return {
             'id': self.id,
             'code': self.code,
@@ -260,6 +287,17 @@ class Route(models.Model):
     stages =  models.IntegerField()
     route_type = models.ForeignKey('RouteType', default=0, null=True, blank=True)
     code3 = models.CharField(max_length=5)
+
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Route',
+            'title': self.alias,
+            'url': self.get_absolute_url()
+        }
 
     class Meta:
         ordering = ['code']

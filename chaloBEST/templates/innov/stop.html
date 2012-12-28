@@ -4,7 +4,7 @@
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
-        {% include 'guidesearch_form.html' %}
+        {% include 'innov/guidesearch_form.html' %}
 	</div>
 </div>
 
@@ -13,12 +13,12 @@
 		<div class="g7_7 pagetitle">
 			<img src="img/stop_r.png" />
 			<div class="stoptitle">
-				<h1><span>Andheri Fire Brigade -&nbsp;</span><span>कोलाबा बस स्थानक</span></h1>
+				<h1><span>{{ stop.name }} -&nbsp;</span><span>{{ stop.name_mr }}</span></h1>
 			</div>
 		</div>
 		<div class="g4_4 listextrainfo">
 			<img src="img/area.png" />
-			<p>SWAMI VIVEKANAND MARG <span class="frequency">Andheri West</span></p>
+			<p>{{ stop.road.name }} <span class="frequency">{{ stop.area.name }}</span></p>
 		</div>
 		<br style="clear: both;" />
 		<div class="maphome">
@@ -91,18 +91,11 @@
 						<h3>Nearby Stops</h3>
 					</th>
 				</tr>
+                {% for n in stop.nearby_stops %}
 				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>Colaba Bus Stn.</b><br /><span>कोलाबा बस स्थानक</span></a></td>
+					<td class="landing_area"><a href="#"><b>{{ n.name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
 				<tr>
-				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>Sasoon Dock</b><br /><span></span></a></td>
-				<tr>
-				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>Strand Cinema</b><br /><span></span></a></td>
-				<tr>
-				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>Colaba Depot</b><br /><span></span></a></td>
-				<tr>
+                {% endfor %}
 			</table>
 		</div>
 	</div>
@@ -147,42 +140,15 @@
 						<span class="thumbs">11 am - <br />5 pm</span>
 					</th>
 				</tr>
+                {% for route in stop.get_routes %}
+
 				<tr>
-					<td><a href="#">2 Ltd</td>
-					<td><span class="half"><b>Pilot Bunder</b><br /><span>पायल</span></span>
-						<span class="half right"><b>Pilot Bunder</b><br /><span>पायल</span></span></td>
-					<td class="right">22 mins.</td>
+					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
+					<td><span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span></td>
+					<td class="right">{{ route.headways }}</td>
 				</tr>
-				<tr>
-					<td><a href="#">AS2</td>
-					<td><span class="half"><b>Colaba Bus Stn./Post Office</b><br /><span>कोलाबा बस स्थानक</span></span>
-									<span class="half right"><b>Hutatma Chk./Mumbai University</b><br /><span>प्रबोधनठाकरे नगर सेक्टर</span></span></td>
-					<td class="right">13 mins.</td>
-				</tr>
-				<tr>
-					<td><a href="#">4 Ltd</td>
-					<td><span class="half"><b>Colaba Bus Stn.</b><br /><span>कोलाबाबसस्थानक</span></span>
-									<span class="half right"><b>Chakala Market</b><br /><span>चकालामार्केट</span></span</td>
-					<td class="right">50 mins.</td>
-				</tr>
-				<tr>
-					<td><a href="#">AS 4 Ltd</td>
-					<td><span class="half"><b>Mahatma Phule Market</b><br /><span>महात्मा फुले बाजार</span></span>
-									<span class="half right"><b>Minara Masjid</b><br /><span>मिनारा मस्जीद</span></span></td>
-					<td class="right">8 mins.</td>
-				</tr>
-				<tr>
-					<td><a href="#">AS 4 Ltd</td>
-					<td><span class="half"><b>Khadi Bhandar</b><br /><span>खादिभंडार</span></span>
-									<span class="half right"><b>Minara Masjid</b><br /><span>मिनारा मस्जीद</span></span></td>
-					<td class="right">8 mins.</td>
-				</tr>
-				<tr>
-					<td><a href="#">AS 4 Ltd</td>
-					<td><span class="half"><b>Dr.Shyamaprasad Mukherji Chk./Regal</b><br /><span>डॉ.एस.पी.मुखर्जी चौक / म्युझियम</span></span>
-									<span class="half right"><b>Chh. Shivaji Terminus</b><br /><span>मुंबईछ. शि. ट</span></span></td>
-					<td class="right">8 mins.</td>
-				</tr>
+                {% endfor %}
 			</table>
 		</div>
 	</div>

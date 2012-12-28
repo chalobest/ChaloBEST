@@ -4,7 +4,7 @@
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
-        {% include 'guidesearch_form.html' %}
+        {% include 'innov/guidesearch_form.html' %}
 
 	</div>
 </div>
@@ -15,13 +15,13 @@
 			<img src="img/bus_r.png" />
 			<div class="routetitle">
 				<h1>
-					<span class="number">AS 4 extra</span>
-					<span class="from">Colaba Bus Stn.</span>
+					<span class="number">{{ route.alias }}</span>
+					<span class="from">{{ route.from_stop.name }}</span>
 					<span class="dash"> - </span>
-					<span class="to">Santacruz Depot</span>
-					<span class="from">कोलाबा बस स्थानक</span>
+					<span class="to">{{ route.to_stop.name }}</span>
+					<span class="from">{{ route.from_stop.name_mr }}</span>
 					<span class="dash">  -   </span>
-					<span class="to">सांताक्रुझ आगार</span>
+					<span class="to">{{ route.to_stop.name_mr }}</span>
 				</h1>
 			</div>
 		</div>
@@ -95,27 +95,11 @@
 					<h3>Areas covered</h3>
 				</th>
 			</tr>
+            {% for area in route.areas_passed %}
 			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Colaba</b><br /><span>कोलाबा</span></a></td>
+				<td class="landing_area"><a href="{{ area.get_absolute_url }}"><b>{{ area.name }}</b><br /><span>{{ area.name_mr }}</span></a></td>
 			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Fort</b><br /><span></span></a></td>
-			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Parel</b><br /><span></span></a></td>
-			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Mahim</b><br /><span></span></a></td>
-			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Bandra</b><br /><span></span></a></td>
-			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>SantaCruz</b><br /><span></span></a></td>
-			<tr>
-			<tr class="landing_row">
-				<td class="landing_area"><a href="#"><b>Andheri</b><br /><span></span></a></td>
-			<tr>
+            {% endfor %}
 		</table>
 	</div>
 </div>
@@ -128,7 +112,7 @@
 		</div>
 		<div class="g4_4 listextrainfo">
 			<img src="img/Frq_3.png" />
-			<p>11 am - 5 pm <span class="frequency">22 mins.</span><span class="thumbs">Is this frequency accurate?</span></p>
+			<p><!-- FIXME 11 am - 5 pm --> <span class="frequency">{{ route.headways }}</span><!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
 		</div>
 		<div class="list">
 			<table name="routepage_table" class="routepage_table">
@@ -156,96 +140,13 @@
 					</td>
 					<td class="g4_1small">&nbsp;</td>
 				</tr>
+                {% for r in routeDetails %}
 				<tr>
-					<td><a href="#"><b>Aarey Colony</b><br /><span>आरे वसाहत</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
+					<td><a href="#"><b>{{ r.stop.name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
+					<td><a href="#">{{ r.stop.area.name }}</a></td>
+					<td class="right">{% if r.km %} {{ r.km }}km {% endif %}</td>
 				</tr>
-				<tr>
-					<td><a href="#"><b>Aksa</b><br /><span>अक्सा</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (E)</b><br /><span>अंधेरी (पू)</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (W)</b><br /><span>अंधेरी (प</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Antop Hill</b><br /><span>अँटोप हिल</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Anushakti Nagar</b><br /><span>अणुशक्ती नगर</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-					<tr>
-					<td><a href="#"><b>Aarey Colony</b><br /><span>आरे वसाहत</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Aksa</b><br /><span>अक्सा</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (E)</b><br /><span>अंधेरी (पू)</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (W)</b><br /><span>अंधेरी (प</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Antop Hill</b><br /><span>अँटोप हिल</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Anushakti Nagar</b><br /><span>अणुशक्ती नगर</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-					<tr>
-					<td><a href="#"><b>Aarey Colony</b><br /><span>आरे वसाहत</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Aksa</b><br /><span>अक्सा</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (E)</b><br /><span>अंधेरी (पू)</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Andheri (W)</b><br /><span>अंधेरी (प</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Antop Hill</b><br /><span>अँटोप हिल</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
-				<tr>
-					<td><a href="#"><b>Anushakti Nagar</b><br /><span>अणुशक्ती नगर</span></a></td>
-					<td><a href="#">Colaba</a></td>
-					<td class="right">1km</td>
-				</tr>
+                {% endfor %}
 			</table>
 		</div>
 	</div>

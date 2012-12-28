@@ -8,14 +8,42 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from fuzzywuzzy import process as fuzzprocess
 from django.http import HttpResponse
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 def index(request):
     areas = Area.objects.all().order_by('name')
-    
+    counts = {
+        'areas': Area.objects.count(),
+        'stops': Stop.objects.count(),
+        'routes': Route.objects.count()
+    }
     context = RequestContext(request, {
-        'areas': areas
+        'areas': areas,
+        'counts': counts
     })
     return render_to_response("innov/index.html", context)
+
+
+def autocomplete(request):
+    q = request.GET.get("q", "a")
+    page = int(request.GET.get('page', '1'))
+    page_limit = int(request.GET.get('page_limit', '10'))
+    objects = []
+    if q.isdigit(): #if its a number, search / return only routes
+        objects += [o.get_autocomplete() for o in Route.objects.filter(alias__icontains=q).order_by('code3')]
+    else:
+        objects += [a.get_autocomplete() for a in Area.objects.filter(name__icontains=q).order_by('name')]
+        objects += [r.get_autocomplete() for r in Route.objects.filter(alias__icontains=q).order_by('code3')]
+        objects += [s.get_autocomplete() for s in Stop.objects.filter(name__icontains=q).order_by('name')]
+    paginator = Paginator(objects, page_limit)
+    results = paginator.page(page)    
+    ret = {
+        'items': objects,
+        'has_next': results.has_next()
+    }
+    return render_to_json_response(ret)
+        
+        
 
 
 def about(request):
@@ -54,7 +82,7 @@ def route(request, alias):
         'route': route,
         'routeDetails': routeDetails
     })
-    return render_to_response("route.html", context)
+    return render_to_response("innov/route.html", context)
 
 
 def areas(request):
@@ -70,7 +98,7 @@ def area(request, name):
         'area': area,
         'stops': stops
     })
-    return render_to_response("area.html", context)
+    return render_to_response("innov/area.html", context)
 
 
 def stop(request, slug):
@@ -78,7 +106,7 @@ def stop(request, slug):
     context = RequestContext(request, {
         'stop': stop
     })
-    return render_to_response("stop.html", context)
+    return render_to_response("innov/stop.html", context)
 
 @login_required
 def editstops(request):

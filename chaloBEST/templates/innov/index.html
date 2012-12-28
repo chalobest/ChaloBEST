@@ -1,5 +1,36 @@
 {% extends 'innov/base.html' %}
 
+{% block extra_head %}
+<script>
+$(function() {
+    navigator.geolocation.getCurrentPosition(function(loc) {
+        var coords = loc.coords;
+        latlng = new L.LatLng(coords.latitude, coords.longitude);
+        map.setView(latlng, 15);
+        loadStops(latlng);
+    });
+
+    map.on("moveend", function(e) {
+        var latlng = map.getCenter();
+        loadStops(latlng);
+    });
+
+});
+
+function loadStops(latlng) {
+    var url = "/1.0/stops_near/";
+    var params = {
+        'center_lat': latlng.lat,
+        'center_lon': latlng.lng
+    };  
+    $.getJSON(url, params, function(data) {
+        loadStopsGeojson(data);
+     });   
+}
+
+</script>
+
+{% endblock %}
 
 {% block content %}
 
@@ -21,7 +52,7 @@
 		</div>
 		<div class="leading30"></div>
 		<div class="g9_9 maphome">
-			<iframe class="landingmap" src="http://www.openstreetmap.org/export/embed.html?bbox=72.74,18.939,72.996,19.259&amp;layer=mapnik" style="border: 1px solid #999"></iframe><br /><small><a href="http://www.openstreetmap.org/?lat=19.099&amp;lon=72.868&amp;zoom=11&amp;layers=M">View Larger Map</a></small>
+            <div class="landingmap" id="map"></div>
 		</div>
 		<br style="clear: both;" />
 	</div>

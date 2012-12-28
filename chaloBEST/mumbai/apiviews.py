@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 import json
 from django.views.decorators.csrf import csrf_exempt
 import re
+from django.contrib.gis.measure import D
+from decimal import Decimal
+from django.contrib.gis.geos import Point
 
 TRIGRAM_THRESHOLD = 0.25
 
@@ -64,8 +67,25 @@ def areas(request):
     return render_to_json_response(areas)
 
 
+def stops_near(request):
+    '''
+    Returns stop within 'distance' of Point(center_lon, center_lat) as GeoJSON
+    '''
+    distance = Decimal(request.GET.get("distance", "1"))
+    d = D(km=distance)
+    center_lat = float(request.GET.get("center_lat", "19.04719036505186"))
+    center_lon = float(request.GET.get("center_lon", "72.87094116210938"))    
+    pt = Point([center_lon, center_lat])
+    tup = (pt, d,)
+    stops = [stop.get_geojson() for stop in Stop.objects.filter(point__distance_lte=tup)]
+    return render_to_json_response({
+        'type': 'FeatureCollection',
+        'features': stops
+    })
+
 def stops(request):
     q = request.GET.get("q", "")
+
     ctype = ContentType.objects.get_for_model(Stop)
     stops = []
     if q != '':

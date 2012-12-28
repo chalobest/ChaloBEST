@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     (r'^routes/$', apiviews.routes),
     (r'^areas/$', apiviews.areas),
     (r'^stops/$', apiviews.stops),
-    
+    (r'^stops_near/$', apiviews.stops_near),
 )
 
 

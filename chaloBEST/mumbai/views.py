@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from fuzzywuzzy import process as fuzzprocess
 from django.http import HttpResponse
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+import json
 
 def index(request):
     areas = Area.objects.all().order_by('name')
@@ -104,7 +105,8 @@ def area(request, name):
 def stop(request, slug):
     stop = get_object_or_404(Stop, slug=slug)
     context = RequestContext(request, {
-        'stop': stop
+        'stop': stop,
+        'geojson': json.dumps(stop.get_geojson())
     })
     return render_to_response("innov/stop.html", context)
 

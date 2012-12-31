@@ -2,29 +2,44 @@
 
 {% block extra_head %}
 <script>
+
 $(function() {
+    //Get user current location
     navigator.geolocation.getCurrentPosition(function(loc) {
+        //on success load stops near user's latlng
         var coords = loc.coords;
-        latlng = new L.LatLng(coords.latitude, coords.longitude);
-        map.setView(latlng, 15);
+        var latlng = new L.LatLng(coords.latitude, coords.longitude);
+        
+//        map.setView(latlng, 15);
         loadStops(latlng);
+    }, function(err) {
+        //if user denies location info, load stops for center point 
+        var center = map.getCenter();
+        loadStops(center);
     });
 
     map.on("moveend", function(e) {
+        //if user moves map, get stops for new center
         var latlng = map.getCenter();
         loadStops(latlng);
     });
 
 });
 
+//Load stops near latlng and render on map
 function loadStops(latlng) {
+    var bbox = map.getBounds()
+    if (!bbox.contains(latlng)) {
+        latlng = map.getCenter();
+    }
+    map.setView(latlng, 15);
     var url = "/1.0/stops_near/";
     var params = {
         'center_lat': latlng.lat,
         'center_lon': latlng.lng
     };  
     $.getJSON(url, params, function(data) {
-        loadStopsGeojson(data);
+        loadStopsGeojson(data); //defined in best_map.js
      });   
 }
 

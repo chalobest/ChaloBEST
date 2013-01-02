@@ -102,7 +102,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     background: #fff;
     color: #000;
     border: 1px solid #aaa;
-    border-top: 0;
+    /*border-top: 0; */
     position: absolute;
     top: 100%;
     -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
@@ -111,7 +111,9 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
     z-index: 9999;
     width:100%;
-    margin-top:-1px;
+    margin-left: 1%;
+    margin-top: -7px;
+    padding-top: 5px;
 
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
@@ -227,7 +229,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     -moz-box-shadow   : 0 0 5px rgba(0,0,0,.3);
     -o-box-shadow     : 0 0 5px rgba(0,0,0,.3);
     box-shadow        : 0 0 5px rgba(0,0,0,.3);
-    border: 1px solid #5897fb;
+    /*border: 1px solid #5897fb; */
     outline: none;
 }
 

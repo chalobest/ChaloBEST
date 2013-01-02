@@ -156,9 +156,15 @@
 
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
-					<td><span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
-						<span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span></td>
-					<td class="right">{{ route.headways }}</td>
+					<td>
+                        <a href="{{ route.from_stop.get_absolute_url }}">
+                            <span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+                        </a>
+                        <a href="{{ route.from_stop.get_absolute_url }}">
+						    <span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
+                        </a>
+                    </td>
+					<td class="right">{{ route.headways }} mins</td>
 				</tr>
                 {% endfor %}
 			</table>

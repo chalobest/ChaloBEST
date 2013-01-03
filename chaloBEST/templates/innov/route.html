@@ -31,9 +31,9 @@ $(function() {
 			<div class="routetitle">
 				<h1>
 					<span class="number">{{ route.alias }}</span>
-					<span class="from">{{ route.from_stop.name }}</span>
+					<span class="from">{{ route.from_stop.display_name }}</span>
 					<span class="dash"> - </span>
-					<span class="to">{{ route.to_stop.name }}</span>
+					<span class="to">{{ route.to_stop.display_name }}</span>
 					<span class="from">{{ route.from_stop.name_mr }}</span>
 					<span class="dash">  -   </span>
 					<span class="to">{{ route.to_stop.name_mr }}</span>
@@ -107,13 +107,13 @@ $(function() {
 		<table name="stop_nearby" class="stoppage_table">
 			<tr class="listtitlesmall">
 				<th>
-					<img src="img/area.png" />
+					<img src="/static/img/area.png" />
 					<h3>Areas covered</h3>
 				</th>
 			</tr>
             {% for area in route.areas_passed %}
 			<tr class="landing_row">
-				<td class="landing_area"><a href="{{ area.get_absolute_url }}"><b>{{ area.name }}</b><br /><span>{{ area.name_mr }}</span></a></td>
+				<td class="landing_area"><a href="{{ area.get_absolute_url }}"><b>{{ area.display_name }}</b><br /><span>{{ area.name_mr }}</span></a></td>
 			<tr>
             {% endfor %}
 		</table>
@@ -123,11 +123,11 @@ $(function() {
 <div class="g4">
 	<div class="arealistheight">
 		<div class="g4_4 listtitle">
-			<img src="img/stop.png" />
+			<img src="/static/img/stop.png" />
 			<h3>Stops</h3>
 		</div>
 		<div class="g4_4 listextrainfo">
-			<img src="img/Frq_3.png" />
+			<img src="/static/img/Frq_3.png" />
 			<p><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }}mins</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
 		</div>
 		<div class="list">
@@ -158,8 +158,8 @@ $(function() {
 				</tr>
                 {% for r in routeDetails %}
 				<tr>
-					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
-					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.name }}</a></td>
+					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
+					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}</a></td>
 					<td class="right">{% if r.km %} {{ r.km }}km {% endif %}</td>
 				</tr>
                 {% endfor %}

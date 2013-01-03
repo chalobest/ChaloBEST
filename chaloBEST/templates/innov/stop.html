@@ -25,12 +25,12 @@
 		<div class="g7_7 pagetitle">
 			<img src="/static/img/stop_r.png" />
 			<div class="stoptitle">
-				<h1><span>{{ stop.name }} -&nbsp;</span><span>{{ stop.name_mr }}</span></h1>
+				<h1><span>{{ stop.display_name }} -&nbsp;</span><span>{{ stop.name_mr }}</span></h1>
 			</div>
 		</div>
 		<div class="g4_4 listextrainfo">
 			<img src="/static/img/area.png" />
-			<p>{{ stop.road.name }} <span class="frequency">{{ stop.area.name }}</span></p>
+			<p>{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
 		</div>
 		<br style="clear: both;" />
 		<div class="maphome">
@@ -105,7 +105,7 @@
 				</tr>
                 {% for n in stop.nearby_stops %}
 				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>{{ n.name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
+					<td class="landing_area"><a href="#"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
 				<tr>
                 {% endfor %}
 			</table>
@@ -157,12 +157,9 @@
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
-                        <a href="{{ route.from_stop.get_absolute_url }}">
-                            <span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
-                        </a>
-                        <a href="{{ route.from_stop.get_absolute_url }}">
-						    <span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
-                        </a>
+                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
+
                     </td>
 					<td class="right">{{ route.headways }} mins</td>
 				</tr>

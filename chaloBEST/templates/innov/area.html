@@ -165,8 +165,8 @@ $(function() {
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
-                        <span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
-						<span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
+                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
                     </td>
 				</tr>
                 {% endfor %}

@@ -248,7 +248,7 @@ class Stop(models.Model):
         return self.get_geojson(srid=srid)
 
     @property
-    def nearby_stops(self, dist=D(km=1)):
+    def nearby_stops(self, dist=D(km=0.5)):
         tup = (self.point, dist,)
         return Stop.objects.filter(point__distance_lte=tup)
 

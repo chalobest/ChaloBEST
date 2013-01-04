@@ -183,7 +183,7 @@ class Stop(models.Model):
         return {
             'id': self.id,
             'type': 'Stop',
-            'title': "%s (%s)" % (self.display_name, self.area.display_name,)
+            'title': "%s (%s)" % (self.display_name, self.area.display_name,),
             'url': self.get_absolute_url()
         }
 

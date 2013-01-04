@@ -33,9 +33,9 @@ def autocomplete(request):
     if q.isdigit(): #if its a number, search / return only routes
         objects += [o.get_autocomplete() for o in Route.objects.filter(alias__icontains=q).order_by('code3')]
     else:
-        objects += [a.get_autocomplete() for a in Area.objects.find_approximate(q, 0.5).order_by('name')]
+        objects += [a.get_autocomplete() for a in Area.objects.find_approximate(q, 0.25)]
         objects += [r.get_autocomplete() for r in Route.objects.filter(alias__icontains=q).order_by('code3')]
-        objects += [s.get_autocomplete() for s in Stop.objects.find_approximate(q, 0.5).order_by('name')]
+        objects += [s.get_autocomplete() for s in Stop.objects.find_approximate(q, 0.25)]
     paginator = Paginator(objects, page_limit)
     results = paginator.page(page)    
     ret = {

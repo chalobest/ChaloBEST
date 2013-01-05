@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		
@@ -23,8 +23,86 @@
 <script src="/static/leaflet/leaflet.js"></script>
 <script src="/static/select2/select2.js"></script>
 <script src="/static/js/best_map.js"></script>
+{% if request.mobile %}
+<style type="text/css">
+    .overlay {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: black;
+        background: rgba(0,0,0,0.7);
+        display: none;
+        z-index: 20000; /* given so it's the topmost div */
+    }
+    
+    .lightBoxBlock {
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
+    .lightBox {
+        background: white;
+        padding: 10px;        
+        position: relative;
+    }
+    
+    .closeLightBox {
+        position: absolute;
+        right: -10px;
+        top:-10px;
+    }
+
+    .openLightBox, .closeLightBox {
+        background: yellow;
+        padding: 4px;
+    }
+    
+</style>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        
+        $('.closeLightBox').click(function(event){
+            event.preventDefault();
+            $('.overlay').hide(300);
+            $(window).unbind("resize");            
+        });
+        
+        $('.overlay').click(function(){ 
+            $('.overlay').hide(300);   
+            $(window).unbind("resize");         
+        });
+        
+        $('.lightBox').click(function(event){
+            event.stopPropagation();  
+        });
+        
+
+    });
+</script>
+
+{% endif %}
+
 <script>
+{% if request.mobile %}
+var isMobile = true;
+{% else %}
+var isMobile = false;
+{% endif %}
+
 $(function() {
+    {% comment %}
+    This is a bit of a hack - if it is not a mobile phone, do select2 autocomplete, else click handler on Go button
+    {% endcomment %}
+    {% if not request.mobile %}
     $('#autocomplete_all').select2({
             ajax: {
                 'url': '/autocomplete/',
@@ -42,7 +120,6 @@ $(function() {
                     return {results: data.items, more: more};
                 }
             },
-            minimumInputLength: 2,
             formatResult: function(item) {
                 return "<div><span class='itemType'>" + item.type + ": </span><span class='itemName'>" + item.title + "</span></div>"
             },
@@ -53,6 +130,47 @@ $(function() {
                 //return "<div data-id='" + item.id + "'>" + item.first_name + " " + item.last_name + "</div>";
             }
         });
+    {% else %}
+    $('#mobileGo').click(function(e) {
+        e.preventDefault();
+        var q = $('#autocomplete_all').val();
+        var url = "/autocomplete/";
+        $('#lightboxContent').html("Loading...");
+        $('.overlay').show(300, function(){
+            $(window).resize(function() {
+    
+                if ($(window).height() < $('.lightBox').height())
+                {            
+                    $('.overlay').css({'position':'absolute', 'height':'auto'});
+                } else {
+                    $('.overlay').css({'position':'', 'height':''});
+                }            
+            });
+
+            $(window).resize();
+        });           
+        $.getJSON(url, {'q': q}, function(data) {
+            //console.log(data);
+            $('#lightboxContent').empty();
+            var $ul = $('<ul />').addClass("searchResults").appendTo("#lightboxContent");
+            for (var i=0; i<data.items.length; i++) {
+                var item = data.items[i];
+                var $row = getRow(item).appendTo($ul);
+                $row.appendTo($ul);
+            }
+        });
+    });
+
+    function getRow(item) {
+        var $li = $('<li />').addClass("resultItem");
+        var $a = $('<a />').attr("href", item.url).appendTo($li);
+        var resultText = item.type + ": " + item.title;
+        var $content = $("<div />").addClass("resultContent").html(resultText).appendTo($a);
+        return $li;
+    }
+
+
+    {% endif %}
 });
 </script>
 {% block extra_head %}
@@ -63,6 +181,22 @@ $(function() {
 </head>
 
 <body>
+{% block lightbox %}
+{% if request.mobile %}
+<div class="overlay">
+    <div class="lightBoxBlock">
+        <div class="lightBox">
+            <div id="lightboxContent">
+                Loading...
+            </div>
+            
+        <a href="" class="closeLightBox">CLOSE</a>
+
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
 
 {% block header %}
 <div class="nav">

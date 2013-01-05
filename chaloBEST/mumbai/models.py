@@ -115,7 +115,7 @@ class Area(models.Model):
         return {
             'id': self.id,
             'type': 'Area',
-            'title': self.name,
+            'title': self.display_name,
             'url': self.get_absolute_url()
         }
 
@@ -183,7 +183,7 @@ class Stop(models.Model):
         return {
             'id': self.id,
             'type': 'Stop',
-            'title': self.name,
+            'title': "%s (%s)" % (self.display_name, self.area.display_name,),
             'url': self.get_absolute_url()
         }
 
@@ -248,7 +248,7 @@ class Stop(models.Model):
         return self.get_geojson(srid=srid)
 
     @property
-    def nearby_stops(self, dist=D(km=1)):
+    def nearby_stops(self, dist=D(km=0.5)):
         tup = (self.point, dist,)
         return Stop.objects.filter(point__distance_lte=tup)
 

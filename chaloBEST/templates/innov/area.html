@@ -31,7 +31,7 @@ $(function() {
 		<div class="g6_6 pagetitle">
 			<img src="/static/images/area_r.png" />
 			<div class="areatitle">
-				<h1><span>{{ area.name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
+				<h1><span>{{ area.display_name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
 			</div>
 		</div>
 		<br style="clear: both;" />
@@ -121,7 +121,7 @@ $(function() {
                 {% for stop in stops %}
 
 				<tr class="landing_row">
-					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
+					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
 				<tr>
                 {% endfor %}
 
@@ -167,8 +167,10 @@ $(function() {
                 {% for route in area.routes_passing %}
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
-					<td><span class="half"><b>{{ route.from_stop.name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
-						<span class="half right"><b>{{ route.to_stop.name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span></td>
+					<td>
+                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
+                    </td>
 				</tr>
                 {% endfor %}
 			</table>

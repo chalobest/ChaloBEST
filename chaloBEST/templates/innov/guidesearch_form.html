@@ -1,5 +1,8 @@
 			<form name="guidesearch">
-				<div class="g9_9"><input id="autocomplete_all" class="search_input" type="hidden" name="fro" placeholder="Type bus number, stop name or area name..." /></div>
-				<!-- <div class="g9_3"><input class="searchsubmit" type="submit" value="Go" /></div> -->
+				<div class="g9_6">
+                    <input id="autocomplete_all" class="search_input" type="{% if request.mobile %}text{% else %}hidden{% endif %}" name="fro" placeholder="Type bus number, stop name or area name..." />
+                </div>
+				<div class="g9_gut"></div>
+				{% if request.mobile %} <div class="g9_3"><input class="searchsubmit" id="mobileGo" type="submit" value="Go" /></div> {% endif %}
 			</form>
 

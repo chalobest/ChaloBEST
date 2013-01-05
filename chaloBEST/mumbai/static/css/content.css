@@ -66,8 +66,8 @@
 
 
 /* search bar pages */
-.search{background-color:#eee; border:2px solid #aaa;}
-.search_input{height: 100%; width:100%; margin:0; padding: 0.3333em 2.1%; border:none;}
+.search{background-color:#eee; border:/* 2px solid #aaa*/ none;}
+.search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
 .searchsubmit{height: 100%; margin-top:0.1em; padding-top:0.24em; padding-bottom:0.24em; border-radius:1em; border:2px solid yellow; background-color:#FBDD09;}
 
 /* page titles for guide pages */
@@ -81,7 +81,7 @@
 .listtitle h3 {float:left; padding: 10px 5px; width:80%;}
 .listtitle img {float:left; padding: 12px 5px; width:1.7em;}
 .listtitlesmall{height: 1.8em; background-color:#999;} /* for stacked lists */
-.listtitlesmall h3{float:left; margin:0px; padding: 5px 5px 0 5px; color:#fff; width:80%; font-size:120%;}	/* for stacked lists */
+.listtitlesmall h3{float:left; margin:0px; padding: 0 5px 0 5px; color:#fff; width:80%; font-size:140%;}	/* for stacked lists */
 .listtitlesmall img{float:left; margin:0px; padding: 5px; height:20px; width:20px;}	/* for stacked lists */
 .listtitlewarning {height: 1.8em;}
 .listtitlewarning h3 {float:left; margin:0px; padding: 5px 5px 0 5px; width:94%; font-size:100%;}
@@ -242,3 +242,4 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .divlabel {display:inline; float:left; width:20%; margin: 0 0 10px 0; padding:2px 0 0 0;}
 .divinput {display:inline; float:left; width:80%;}
 .divinput span {float:left; display:inline; width:100%; font-size:0.8em;}
+

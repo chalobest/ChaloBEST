@@ -16,7 +16,10 @@
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
+		<div class="g12_2">&nbsp;</div>
+		<div class="g12_8">
         {% include 'innov/guidesearch_form.html' %}
+      </div>
 	</div>
 </div>
 
@@ -115,14 +118,15 @@
 	</div>
 </div>
 
-<div class="g5">
+<div class="g5 vlightgrey">
 	<div class="listheight">
 		<div class="g5_5 listtitle">
 			<img src="/static/images/bus.png" />
 			<h3>Departing Routes</h3>
 		</div>
 		<div class="leading10"></div>
-		<div class="list">
+		<div class="list vlightgrey">
+			<!--
 			<div class="g5_5 lightgreen">
 				<form>
 					<div class="g5_5"><input class="routecheckbox" type="checkbox" name="allbuses" checked="checked" value="All" /><label class="routecheckboxlabel">All</label></div>
@@ -137,7 +141,8 @@
 					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC" /><label class="routecheckboxlabel">AC</label></div>
 				</form>
 			</div>
-			<table name="stoppage_table" class="stoppage_table">
+			-->
+			<table name="stoppage_table" class="stoppage_table vlightgrey">
 				<tr class="listtitlesmall">
 					<th class="stop_number">
 						<!-- <form name="filter_stop_number" class="listfilter_form">
@@ -154,21 +159,26 @@
 						<span class="thumbs">11 am - <br />5 pm</span>
 					</th>
 				</tr>
+				
                 {% for route in stop.get_routes %}
 
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
-                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+                  <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
 						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
 
-                    </td>
+               </td>
 					<td class="right">{{ route.headways }} mins</td>
 				</tr>
+				
                 {% endfor %}
+                
 			</table>
 		</div>
 	</div>
+	<div class="leading40"></div>
+	<div class="leading40"></div>
 </div>
 
 {% endblock %}

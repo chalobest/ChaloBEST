@@ -38,7 +38,7 @@ h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px /
 h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
 h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
 p, ul, blockquote, pre, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
-td, th {margin: 0; font-size: 0.92em; margin-bottom:1.2em;}
+td, th {margin: 0; font-size: 0.88em; margin-bottom:1.4em;}
 small, p.small, a.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
 .italic {font-style:italic;}
 
@@ -123,6 +123,7 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 .yellow {background-color:#FBDD09;}
 .green {background-color:#BEDB74;}
 .red {background-color:#FE2423; color:white;}
+.vlightgrey {background-color:#fcfcfc;}
 .lightgrey {background-color:#eee}
 .lightgreen {background-color:#deeebf;}
 .lightyellow {background-color:#FCF79A;}
@@ -147,7 +148,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:block; position: relative; margin-left: 0; margin-right: 0; margin-bottom:20px;}
 	
@@ -160,7 +161,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 
@@ -177,7 +178,7 @@ Change widths as necessary
 @media only screen and (min-width: 240px) {
 	/* 	FONT SIZE ADJUSTED FOR LEGIBILITY*/
 	body {font-size:80%;} /* 12px / 18px */
-	.pagetitle{font-size:60%;}
+	.pagetitle{font-size:90%;}
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
@@ -210,7 +211,7 @@ Change widths as necessary
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -231,9 +232,10 @@ Change widths as necessary
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
 		.g9_3 {width:31.52%; margin:0;}
-		.g9_6{width:65.76%; margin:0;}
-		.g9_7{width:77.17%; margin:0;}
-		.g9_9{width:100%; margin:0;}
+		.g9_6 {width:65.76%; margin:0;}
+		.g9_7 {width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
+		.g9_9 {width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {min-height:400px;}
 		.g8_8 {width:99.7%; margin:0;}
@@ -298,7 +300,7 @@ Change widths as necessary
 	.g6_6,.g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6 , .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6 , .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -319,9 +321,10 @@ Change widths as necessary
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
 		.g9_3 {width:31.52%; margin:0;}
-		.g9_6{width:65.76%; margin:0;}
-		.g9_7{width:77.17%; margin:0;}
-		.g9_9{width:100%; margin:0;}
+		.g9_6 {width:65.76%; margin:0;}
+		.g9_7 {width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
+		.g9_9 {width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {min-height:400px;}
 		.g8_8 {width:99.7%; margin:0;}
@@ -387,7 +390,7 @@ Change widths as necessary
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -410,6 +413,7 @@ Change widths as necessary
 		.g9_3 {width:31.52%; margin:0;}
 		.g9_6{width:65.76%; margin:0;}
 		.g9_7{width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
 		.g9_9{width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {width:97.98%; min-height:400px;}
@@ -480,7 +484,7 @@ Change widths as necessary
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9, .g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9, .g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -503,6 +507,7 @@ Change widths as necessary
 		.g9_3 {width:31.52%; margin:0;}
 		.g9_6 {width:65.76%; margin:0;}
 		.g9_7 {width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
 		.g9_9 {width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {width:97.98%; min-height:400px;}
@@ -572,7 +577,7 @@ Change widths as necessary
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5,.g8_3,.g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_6 , .g9_7, .g9_9,.g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_6 , .g9_7, .g9_8, .g9_9,.g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -594,6 +599,7 @@ Change widths as necessary
 		.g9_3 {width:31.52%; margin:0;}
 		.g9_6{width:65.76%; margin:0;}
 		.g9_7{width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
 		.g9_9{width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {width:64.66%; min-height:20px;}
@@ -660,7 +666,7 @@ Change widths as necessary
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
-	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_9, .g9_gut,
+	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9, .g9_gut,
 	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
@@ -684,6 +690,7 @@ Change widths as necessary
 		.g9_5 {width:54.35%; margin:0;}
 		.g9_6{width:65.76%; margin:0;}
 		.g9_7{width:77.17%; margin:0;}
+		.g9_8 {width:88.59%; margin:0;}
 		.g9_9{width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
 	.g8 {width:64.66%; min-height:20px;}

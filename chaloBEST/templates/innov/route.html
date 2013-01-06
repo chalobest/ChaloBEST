@@ -19,19 +19,21 @@ $(function() {
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
+		<div class="g12_2">&nbsp;</div>
+		<div class="g12_8">
         {% include 'innov/guidesearch_form.html' %}
-
+      </div>
 	</div>
 </div>
-
+<div class="leading10"></div>
 <div class="g8">
 	<div class="g8_8">
 		<div class="pagetitle">
-			<img src="/static/images/bus_r.png" />
 			<div class="routetitle">
 				<h1 style="width:100%;">
 					<div class="number">
-						<span class="rt">{{ route.alias }}</span>
+						<div class="rti"><img src="/static/images/bus_r.png" /></div>
+						<span class="rtn">{{ route.alias }}</span>
 					</div>
 					<div class="from">
 						<span class="rt">{{ route.from_stop.display_name }}</span><br />
@@ -129,7 +131,7 @@ $(function() {
 	</div>
 </div>
 
-<div class="g4">
+<div class="g4 vlightgrey">
 	<div class="arealistheight">
 		<div class="g4_4 listtitle">
 			<img src="/static/images/stop.png" />
@@ -140,7 +142,7 @@ $(function() {
 			<p><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }}mins</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
 		</div>
 		<div class="list">
-			<table name="routepage_table" class="routepage_table">
+			<table name="routepage_table" class="routepage_table vlightgrey">
 				<!-- <tr class="listtitlesmall">
 					<th class="route_stop">
 						<img src="/static/images/stop.png" />
@@ -155,12 +157,12 @@ $(function() {
 				<tr class="listfilter">
 					<td>
 						<form name="filter_route_stop" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="route_stop" value="Type stop name..." />
+							<input class="listfilter_input" type="text" name="route_stop" title="Explore the stops passed by this route" value="Type stop name..." />
 						</form>
 					</td>
 					<td>
 						<form name="filter_route_area" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="route_area" value="Type area..." />
+							<input class="listfilter_input" type="text" name="route_area" title="Explore areas passed by this route" value="Type area..." />
 						</form>
 					</td>
 					<td class="g4_1small"><img src="/static/images/distance.png" /></td>
@@ -175,6 +177,7 @@ $(function() {
 			</table>
 		</div>
 	</div>
+	<div class="leading40"></div>
 </div>
 
 {% endblock %}

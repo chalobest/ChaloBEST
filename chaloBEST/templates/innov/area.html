@@ -19,26 +19,30 @@ $(function() {
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
-        {% include 'innov/guidesearch_form.html' %}
+		<div class="g12_3">&nbsp;</div>
+		<div class="g12_6">
+			{% include 'innov/guidesearch_form.html' %}
+		</div>
 	</div>
 </div>
 
 <div class="g6">
 	<div class="g6_6">
 		<div class="g6_6 pagetitle">
-			<img src="/static/img/area_r.png" />
+			<img src="/static/images/area_r.png" />
 			<div class="areatitle">
 				<h1><span>{{ area.display_name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
 			</div>
 		</div>
 		<br style="clear: both;" />
 		<div class="maphome">
-            <div id="map" style="width:90%;height:90%;"></div>
+            <div id="map" style="width:100%;height:100%;"></div>
 		</div>
 	</div>
 	<div class="leading40"></div>
-	<div class="g6_6">
-					<div class="listtitlesmall">
+	<div class="g6_6"> &nbsp;
+			<!--
+			<div class="listtitlesmall">
 				<h3>Comments</h3>
 			</div>
 			<div class="comments" id="comments_list">
@@ -91,23 +95,19 @@ $(function() {
 				</form>
 			</div>
 			</div>
+			-->
 	</div>
 </div>
 
 <div class="g2">
 	<div class="g2_2 height">
 		<div class="g2_2 listtitle">
-			<img src="/static/img/stop.png" />
+			<img src="/static/images/stop.png" />
 			<h3 class="stop">Stops</h3>
 		</div>
 		<div class="leading10"></div>
 		<div class="list">
 			<table name="landing_area" class="landing_table">
-				<tr class="listtitlesmall">
-					<th>
-						<img src="/static/img/stop.png" />
-					</th>
-				</tr>
 				<tr class="listfilter">
 					<td>
 						<form name="filter_home_area" class="listfilter_form">
@@ -126,14 +126,16 @@ $(function() {
 		</div>
 	</div>
 </div>
-<div class="g4">
+<div class="g4 vlightgrey">
 	<div class="g4_4 height">
 		<div class="g4_4 listtitle">
-			<img src="/static/img/bus.png" />
+			<img src="/static/images/bus.png" />
 			<h3>Passing Routes</h3>
 		</div>
 		<div class="leading10"></div>
-		<div class="list">
+
+			<div class="list">
+					<!--
 			<div class="g5_5 lightgreen">
 				<form>
 					<div class="g5_5"><input class="routecheckbox" type="checkbox" name="allbuses" checked="checked" value="All" /><label class="routecheckboxlabel">All</label></div>
@@ -148,7 +150,8 @@ $(function() {
 					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC" /><label class="routecheckboxlabel">AC</label></div>
 				</form>
 			</div>
-			<table name="stoppage_table" class="stoppage_table">
+			-->
+			<table name="stoppage_table" class="stoppage_table vlightgrey">
 				<tr class="listtitlesmall">
 					<th class="stop_number">
 						<!-- <form name="filter_stop_number" class="listfilter_form">

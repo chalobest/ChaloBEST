@@ -57,7 +57,10 @@ function loadStops(latlng) {
 	<div class="leading40"></div>
 	<div class="g9_9 white">
 		<div class="g9_9 search">
+			<div class="g9_1">&nbsp;</div>
+			<div class="g9_7">
             {% include 'innov/guidesearch_form.html' %}
+         </div>
 
 		</div>
 		<div class="leading10"></div>
@@ -160,16 +163,18 @@ function loadStops(latlng) {
 	<div class="g3_3 height">
 		<div class="g3_3 list">
 			<table name="landing_area" class="landing_table">
+				<!-- probably will omit this title box completely.			
 				<tr class="listtitlesmall">
 					<th>
 						<img src="/static/images/area.png" />
 						<h3>Areas</h3>
 					</th>
 				</tr>
+				-->
 				<tr class="listfilter">
 					<td>
 						<form name="filter_home_area" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="filter list" value="Type area..." />
+							<input class="listfilter_input" type="text" name="filter list" value="Type to filter, select below..." />
 						</form>
 					</td>
 				</tr>

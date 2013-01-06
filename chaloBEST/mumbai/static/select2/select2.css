@@ -48,7 +48,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    height: 30px;
+    height: 24px;
     line-height: 26px;
     padding: 0 0 0 8px;
     color: #444;
@@ -113,7 +113,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     z-index: 9999;
     width:100%;
     margin-left: 0;
-    margin-top: -32px;
+    margin-top: -26px;
     padding-top: 5px;
 
   -webkit-border-radius: 0 0 4px 4px;

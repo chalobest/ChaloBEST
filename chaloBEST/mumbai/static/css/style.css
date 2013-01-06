@@ -30,14 +30,15 @@ p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldse
     src: url("/static/css/gunplay.ttf") format("truetype");
 }
 
-h1, h2, h3, h4, h5, h6 {font-family:"gunplay", Impact, "Charcoal CY", "Trebuchet MS", Charcoal, sans-serif;font-weight:400;color:#222; text-transform: uppercase; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1, h2, h3, h4, h5, h6 {font-family:"gunplay", Impact, "Charcoal CY", "Trebuchet MS", Charcoal, sans-serif;font-weight:300;color:#222; text-transform: uppercase; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
 h1 {margin: 0; font-size: 2.75em; line-height: 1.5em; margin-bottom: 0.4em;} /* 60px / 72px */
 h2 {margin: 0; font-size: 2em; line-height: 1em; margin-bottom: 0.5em;} /* 48px / 48px */
 h3 {margin: 0; font-size: 1.75em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em;} /* 36px / 48px */ 
 h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
 h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
 h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
-p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+p, ul, blockquote, pre, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+td, th {margin: 0; font-size: 0.92em; margin-bottom:1.2em;}
 small, p.small, a.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
 .italic {font-style:italic;}
 

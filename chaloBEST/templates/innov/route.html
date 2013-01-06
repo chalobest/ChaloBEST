@@ -27,16 +27,23 @@ $(function() {
 <div class="g8">
 	<div class="g8_8">
 		<div class="pagetitle">
-			<img src="img/bus_r.png" />
+			<img src="/static/images/bus_r.png" />
 			<div class="routetitle">
-				<h1>
-					<span class="number">{{ route.alias }}</span>
-					<span class="from">{{ route.from_stop.display_name }}</span>
-					<span class="dash"> - </span>
-					<span class="to">{{ route.to_stop.display_name }}</span>
-					<span class="from">{{ route.from_stop.name_mr }}</span>
-					<span class="dash">  -   </span>
-					<span class="to">{{ route.to_stop.name_mr }}</span>
+				<h1 style="width:100%;">
+					<div class="number">
+						<span class="rt">{{ route.alias }}</span>
+					</div>
+					<div class="from">
+						<span class="rt">{{ route.from_stop.display_name }}</span><br />
+						<span class="rt">{{ route.from_stop.name_mr }}</span>
+					</div>
+					<div class="dash">
+						<span class="rt" style="line-height:2.4em;"> - </span>
+					</div>
+					<div class="to">
+						<span class="rt">{{ route.to_stop.display_name }}</span><br />
+						<span class="rt">{{ route.to_stop.name_mr }}</span>
+					</div>
 				</h1>
 			</div>
 		</div>
@@ -47,24 +54,25 @@ $(function() {
 	</div>
 	<div class="leading40"></div>
     
-	<div class="g8_5">
-				<div class="listtitlesmall">
-				<h3>Comments</h3>
-			</div>
-			<div class="comments" id="comments_list">
-				<div class="comment_item">
-					<div class="comment_user">
-						indrani misra:
-					</div>
-					<div class="comment_content">
+	<div class="g8_5">&nbsp;
+	<!--
+		<div class="listtitlesmall">
+			<h3>Comments</h3>
+		</div>
+		<div class="comments" id="comments_list">
+			<div class="comment_item">
+				<div class="comment_user">
+					indrani misra:
+				</div>
+				<div class="comment_content">
 					Bani,
 					Loved reading your article. What a lovely and meaningful experience between the banyan trees! I could picture it all. carry on with the great work that SRUTI is doing. Between the great economic and social divide...
-					</div>
 				</div>
 			</div>
-			<div class="leading20"></div>
-			<div class="comments" id="comment_form">
-				<h4 class="formHeader">Leave a comment</h4>
+		</div>
+		<div class="leading20"></div>
+		<div class="comments" id="comment_form">
+			<h4 class="formHeader">Leave a comment</h4>
 				<form action="/comments/post/" method="POST">
 					<div style='display:none'>
 						<input type='hidden' name="" value="" />
@@ -100,14 +108,15 @@ $(function() {
 					</div>
 				</form>
 			</div>
-			</div>
+		</div>
+		-->
 	</div>
 	<div class="g8_gut"></div>
 	<div class="g8_3">
 		<table name="stop_nearby" class="stoppage_table">
 			<tr class="listtitlesmall">
 				<th>
-					<img src="/static/img/area.png" />
+					<img src="/static/images/area.png" />
 					<h3>Areas covered</h3>
 				</th>
 			</tr>
@@ -123,26 +132,26 @@ $(function() {
 <div class="g4">
 	<div class="arealistheight">
 		<div class="g4_4 listtitle">
-			<img src="/static/img/stop.png" />
+			<img src="/static/images/stop.png" />
 			<h3>Stops</h3>
 		</div>
 		<div class="g4_4 listextrainfo">
-			<img src="/static/img/Frq_3.png" />
+			<img src="/static/images/Frq_3.png" />
 			<p><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }}mins</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
 		</div>
 		<div class="list">
 			<table name="routepage_table" class="routepage_table">
-				<tr class="listtitlesmall">
+				<!-- <tr class="listtitlesmall">
 					<th class="route_stop">
-						<img src="img/stop.png" />
+						<img src="/static/images/stop.png" />
 					</th>
 					<th class="route_area">
-						<img src="img/area.png" />
+						<img src="/static/images/area.png" />
 					</th>
 					<th class="route_distance">
-						<img src="img/distance.png" />
+						<img src="/static/images/distance.png" />
 					</th>
-				</tr>
+				</tr> -->
 				<tr class="listfilter">
 					<td>
 						<form name="filter_route_stop" class="listfilter_form">
@@ -154,7 +163,7 @@ $(function() {
 							<input class="listfilter_input" type="text" name="route_area" value="Type area..." />
 						</form>
 					</td>
-					<td class="g4_1small">&nbsp;</td>
+					<td class="g4_1small"><img src="/static/images/distance.png" /></td>
 				</tr>
                 {% for r in routeDetails %}
 				<tr>

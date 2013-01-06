@@ -75,9 +75,17 @@ class App(AppBase):
             for route in routes:
                 if route.replace(" ", "").upper() == msg.text.replace(" ", "").upper():
                     detail = ChaloBest.route[route]
+	    import string
+	    import re
+	    pattern = str(msg.text).translate(None, string.digits)
+	    indices = [routes.index(m) for m in routes if m.startswith(pattern) or m.endswith(pattern)]
+	    if len(indices)!=0:
+		routeindices = routes[indices[0]]
+	    else:
+		routeindices = routes[0]
             if detail == None:
-                detail = ChaloBest.route[routes[0]] 
-            detail = ChaloBest.route[routes[0]]
+                detail = ChaloBest.route[routesindices] 
+            detail = ChaloBest.route[routeindices]
             stops = detail['stops']['features']
             origin, dest = stops[0]['properties'], stops[-1]['properties']
             origin_name, dest_name = origin['display_name'], dest['display_name']

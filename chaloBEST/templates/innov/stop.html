@@ -26,14 +26,26 @@
 <div class="g7">
 	<div class="g7_7">
 		<div class="g7_7 pagetitle">
-			<img src="/static/images/stop_r.png" />
-			<div class="stoptitle">
-				<h1 class="StopRoute"><span>{{ stop.display_name }} -&nbsp;</span><span>{{ stop.name_mr }}</span></h1>
+			<div class="guideh1box">
+				<div class="rti">
+					<img src="/static/images/stop_r.png" />
+				</div>
+				<div class="titleXS rtt">
+					<h1><span>{{ stop.display_name }} -&nbsp;</span><span>{{ stop.name_mr }}</span></h1>
+					<blockquote>Alternativename 1, आर.सी., test extra name<span class="small right tred"><a href="#">Add local name&nbsp;</a></span></blockquote>
+					<form name="AltStopName">
+						<!-- ideally show the form from a fly-out, triggered by the link above -->
+						<input class="AltStopName" type="text" name="Alternative stop name" value="Add local stop name" />
+						<input class="submit AltStopS" type="submit" value="Save" />
+						<br style="clear: both;" />
+					</form>
+					<p class="small tred">Your addition will be checked by the moderator.</p>
+				</div>
 			</div>
 		</div>
 		<div class="g4_4 listextrainfo">
 			<img src="/static/images/area.png" />
-			<p>{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
+			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
 		</div>
 		<br style="clear: both;" />
 		<div class="maphome">
@@ -101,8 +113,8 @@
 		</div>
 		<div class="g7_gut"></div>
 		<div class="g7_3">
-			<table name="stop_nearby" class="stoppage_table">
-				<tr class="listtitlesmall">
+			<table name="stop_nearby" class="tablebase">
+				<tr class="sublist">
 					<th>
 						<img src="/static/images/stop.png" />
 						<h3>Nearby Stops</h3>
@@ -110,7 +122,7 @@
 				</tr>
                 {% for n in stop.nearby_stops %}
 				<tr class="landing_row">
-					<td class="landing_area"><a href="#"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
+					<td class="landing_area"><a href="{{ n.get_absolute_url }}"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
 				<tr>
                 {% endfor %}
 			</table>
@@ -118,14 +130,13 @@
 	</div>
 </div>
 
-<div class="g5 vlightgrey">
+<div class="g5">
 	<div class="listheight">
 		<div class="g5_5 listtitle">
 			<img src="/static/images/bus.png" />
-			<h3>Departing Routes</h3>
+			<h2>Departing Routes</h2>
 		</div>
-		<div class="leading10"></div>
-		<div class="list vlightgrey">
+		<div class="list">
 			<!--
 			<div class="g5_5 lightgreen">
 				<form>
@@ -142,8 +153,8 @@
 				</form>
 			</div>
 			-->
-			<table name="stoppage_table" class="stoppage_table vlightgrey">
-				<tr class="listtitlesmall">
+			<table name="stoppage_table" class="tablebase">
+				<tr class="sublist">
 					<th class="stop_number">
 						<!-- <form name="filter_stop_number" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />
@@ -165,11 +176,10 @@
 				<tr>
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
-                  <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
 						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
-
-               </td>
-					<td class="right">{{ route.headways }} mins</td>
+					</td>
+					<td class="lightgrey small"><span class="right">{{ route.headways }} min.</span></td>
 				</tr>
 				
                 {% endfor %}

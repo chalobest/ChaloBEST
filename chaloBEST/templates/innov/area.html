@@ -29,9 +29,13 @@ $(function() {
 <div class="g6">
 	<div class="g6_6">
 		<div class="g6_6 pagetitle">
-			<img class="areatitleImg" src="/static/images/area_r.png" />
-			<div class="areatitle">
-				<h1><span>{{ area.display_name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
+			<div class="guideh1box">
+				<div class="rti">
+					<img class="areatitleImg" src="/static/images/area_r.png" />
+				</div>
+				<div class="titleS rtt">
+					<h1><span>{{ area.display_name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
+				</div>
 			</div>
 		</div>
 		<br style="clear: both;" />
@@ -103,17 +107,16 @@ $(function() {
 	<div class="g2_2 height">
 		<div class="g2_2 listtitle">
 			<img src="/static/images/stop.png" />
-			<h3 class="stop">Stops</h3>
+			<h2>Stops</h2>
 		</div>
-		<div class="leading10"></div>
 		<div class="list">
-			<table name="landing_area" class="landing_table">
-				<tr class="listfilter">
-					<td>
-						<form name="filter_home_area" class="listfilter_form">
+			<table name="landing_area" class="tablebase">
+				<tr class="sublist">
+					<th>
+						<form name="filter_area_stops" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="filter list" value="Type stop name..." />
 						</form>
-					</td>
+					</th>
 				</tr>
                 {% for stop in stops %}
 
@@ -126,16 +129,14 @@ $(function() {
 		</div>
 	</div>
 </div>
-<div class="g4 vlightgrey">
+<div class="g4">
 	<div class="g4_4 height">
 		<div class="g4_4 listtitle">
 			<img src="/static/images/bus.png" />
-			<h3>Passing Routes</h3>
+			<h2>Passing Routes</h2>
 		</div>
-		<div class="leading10"></div>
-
-			<div class="list">
-					<!--
+		<div class="list">
+		<!--
 			<div class="g5_5 lightgreen">
 				<form>
 					<div class="g5_5"><input class="routecheckbox" type="checkbox" name="allbuses" checked="checked" value="All" /><label class="routecheckboxlabel">All</label></div>
@@ -150,9 +151,9 @@ $(function() {
 					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC" /><label class="routecheckboxlabel">AC</label></div>
 				</form>
 			</div>
-			-->
-			<table name="stoppage_table" class="stoppage_table vlightgrey">
-				<tr class="listtitlesmall">
+		-->
+			<table name="stoppage_table" class="tablebase">
+				<tr class="sublist">
 					<th class="stop_number">
 						<!-- <form name="filter_stop_number" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />

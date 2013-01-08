@@ -57,18 +57,25 @@ function loadStops(latlng) {
 	<div class="leading10"></div>
 	<div class="g9_9 white">
 		<div class="g9_9 search">
-            {% include 'innov/guidesearch_form.html' %}
-
+			<div class="g9_1">&nbsp;</div>
+			<div class="g9_8">
+				{% include 'innov/guidesearch_form.html' %}
+			</div>
 		</div>
+		
 		<div class="leading20"></div>
+		
 		<div class="searchbar">
-			<ul>
-				<li><img class="statsImg" src="/static/images/area.png" >AREAS <span class="statistics">{{ counts.areas }} <br /><span class="overline">areas</span></span></li>
-				<li><img class="statsImg" src="/static/images/stop.png" >STOPS<span class="statistics">{{ counts.stops }} <br /><span class="overline">stops</span></span></li>
-				<li><img class="statsImg" src="/static/images/bus.png" >ROUTES<span class="statistics">{{ counts.routes }} <br /><span class="overline">routes</span></span></li>
-			</ul>
+			<div class="g9_1">&nbsp;</div>
+			<div class="g9_8">
+				<ul>
+					<li><img class="statsImg" src="/static/images/area.png" >AREAS <span class="statistics">{{ counts.areas }} <br /><span class="overline">areas</span></span></li>
+					<li><img class="statsImg" src="/static/images/stop.png" >STOPS<span class="statistics">{{ counts.stops }} <br /><span class="overline">stops</span></span></li>
+					<li><img class="statsImg" src="/static/images/bus.png" >ROUTES<span class="statistics">{{ counts.routes }} <br /><span class="overline">routes</span></span></li>
+				</ul>
+			</div>
 		</div>
-		<div class="leading20"></div>
+		<div class="leading10"></div>
 		<div class="g9_9 maphome">
             <div class="landingmap" id="map"></div>
 		</div>
@@ -137,7 +144,7 @@ function loadStops(latlng) {
 <!-- 
 <div class="g3">
 	<div class="g3_3">
-		<div class="tripplanner">
+		<div class="highlight">
 			<h2>Trip planner</h2>
 			<div class="tripform">
 				<form name="homeOTPsearch">
@@ -160,21 +167,13 @@ function loadStops(latlng) {
 	<div class="leading20"></div>
 	<div class="g3_3 height">
 		<div class="g3_3 list">
-			<table name="landing_area" class="landing_table">
-				<!-- probably will omit this title box completely.			
-				<tr class="listtitlesmall">
+			<table name="landing_area" class="tablebase">
+				<tr class="sublist">
 					<th>
-						<img src="/static/images/area.png" />
-						<h3>Areas</h3>
-					</th>
-				</tr>
-				-->
-				<tr class="listfilter">
-					<td>
 						<form name="filter_home_area" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="filter list" value="Type to filter, select below..." />
 						</form>
-					</td>
+					</th>
 				</tr>
                 {% for area in areas %}
 

@@ -4,9 +4,10 @@
 	Licensed under Unlicense, http://unlicense.org/
 	
 	Base stylesheet with CSS normalization, typographic baseline grid and progressive responsiveness
+
+	ALTERED FOR CHALOBEST
 */
-/* remove below */
-.staticpage .forthetest{color:blue;}
+
 
 /* HTML5 DECLARATIONS */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {display: block}
@@ -22,25 +23,30 @@ body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoo
 body, button, input, select, textarea {font: 100%/1.5 Calibri, “Trebuchet MS”, "Nimbus Sans L", sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
 
+
 /* TYPOGRAPHY */
-/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px and 60px*/
 
 @font-face {
-    font-family: "gunplay";
-    src: url("/static/css/gunplay.ttf") format("truetype");
+	font-family: "gunplay";
+	src: url("/static/css/gunplay.ttf") format("truetype");
 }
 
 h1, h2, h3, h4, h5, h6 {font-family:"gunplay", Impact, "Charcoal CY", "Trebuchet MS", Charcoal, sans-serif;font-weight:300;color:#222; text-transform: uppercase; text-shadow:1px 1px 1px rgba(0,0,0,.10)}
-h1 {margin: 0; font-size: 2.75em; line-height: 1.5em; margin-bottom: 0.4em;} /* 60px / 72px */
-h2 {margin: 0; font-size: 2em; line-height: 1em; margin-bottom: 0.5em;} /* 48px / 48px */
-h3 {margin: 0; font-size: 1.75em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em;} /* 36px / 48px */ 
-h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
-h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
-h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
-p, ul, blockquote, pre, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
-td, th {margin: 0; font-size: 0.88em; margin-bottom:1.4em;}
-small, p.small, a.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
+h1 {margin: 0; font-size: 3em; line-height: 1.25em; margin-bottom: 0.5em;} /* 48px / 60px */
+h2 {margin: 0; font-size: 2.25em; line-height: 1.16666666666666666667em; margin-bottom: 0.5em;} /* 36px / 42px */
+h3 {margin: 0; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;} /* 24px / 32px */ 
+h4 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
+h5 {margin: 0; font-size: 1.125em; line-height: 1.333333333333333333em; margin-bottom: 0.5em} /* 18px / 24px */
+h6 {margin: 0; font-size: 1em; line-height: 1.3125em; margin-bottom: 1.3125em} /* 16px / 21px */
+
+p, ul, blockquote, pre, label {margin: 0; font-size: 0.875em; line-height: 1.5em; margin-bottom: 1.5em} /* 14px / 18px */
+td, th {margin: 0; font-size: 0.875em; margin-bottom:1.5em;}
+
+small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857em;} /* 12px */
 .italic {font-style:italic;}
+.right {text-align:right !important; display:block; float:right;}
+span.right {float:right !important; padding-right:1%;}
 
 /* CODE */
 pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word} /* Allow line wrapping of 'pre' */
@@ -60,6 +66,7 @@ button, input, select, textarea {vertical-align: baseline; *vertical-align: midd
 button, input {line-height: normal; *overflow: visible}
 button, input[type="button"], input[type="reset"], input[type="submit"] {cursor: pointer;-webkit-appearance: button}
 input[type="checkbox"], input[type="radio"] {box-sizing: border-box}
+input[type="text"] {box-sizing: border-box; padding: 0 1%;}
 input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box;	box-sizing: content-box}
 input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
 button::-moz-focus-inner, input::-moz-focus-inner {border: 0; padding: 0}
@@ -111,11 +118,11 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 /*.margintop{margin-top:10px;}
 .margintop2x{margin-top:20px;}*/
 .leading10, .leading20, .leading30, .leading40, .leading60 {display:inline; float:left; width:100%;}
-.leading10 {height:10px;}
-.leading20 {height:10px;}
-.leading30 {height:30px;}
-.leading40 {height:10px;}
-.leading60 {height:60px;}
+.leading10 {height:12px;}
+.leading20 {height:24px;}
+.leading30 {height:36px;}
+.leading40 {height:48px;}
+.leading60 {height:72px;}
 .center {margin-left:auto; margin-right:auto; text-align:center;}
 
 /* background colors */
@@ -128,6 +135,9 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 .lightgreen {background-color:#deeebf;}
 .lightyellow {background-color:#FCF79A;}
 .darkgrey {background-color: #ddd;}
+
+/* text colors */
+.tred {color:#FE2423;}
 
 /* MICRO CLEARFIX HACK */
 .cf:before, .cf:after {content:"";display:table} /* For modern browsers */
@@ -195,12 +205,10 @@ Change widths as necessary
 	.navprimary{display:block; float:left; width:99%; height:25px; padding-right:0.99%;}
 	.navlink li {display:inline; float:left; margin:0 0 0 2%; padding:0;}
 	.navprimary .navlink li {margin: 0 0 0 2%; width:22%; float:right; padding:0;}
-	.navprimary .navlink li a{display:block; width:96%; height:21px; padding-left:1%; padding-right:1%; text-align:center; border-radius:3px; overflow:hidden;}
+	.navprimary .navlink li a{display:block; width:96%; height:21px; padding-left:1%; padding-right:1%; text-align:center; overflow:hidden;}
 	
 	/* search bar landing page */
-	.searchbar{position: absolute;
-    left: -9999px;
-	}
+	.searchbar{position: absolute; left: -9999px; }
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
@@ -289,7 +297,7 @@ Change widths as necessary
 		.navprimary{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
 			.navprimary .navlink li {margin: 0 0 0 3%; width:22%;}
-			.navprimary .navlink li a{width:96%; height:21px; text-align:center; border-radius:3px; overflow:hidden;}
+			.navprimary .navlink li a{width:96%; height:21px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
 	
 	/* COLUMN GRID */
@@ -380,7 +388,7 @@ Change widths as necessary
 		.navprimary{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
 			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
-			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px; overflow:hidden;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
 	
 	/* COLUMN GRID */
@@ -465,12 +473,12 @@ Change widths as necessary
 	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:23.01%; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
-		.globallinks li a {color:#FBDD09; font-size:1em; font-weight:bold;}
+		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li a {color:#FBDD09; font-weight:bold;}
 		.navprimary{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
 			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
-			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px; overflow:hidden;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
 	
 	/* searchbar elements landing page */
@@ -566,7 +574,7 @@ Change widths as necessary
 	.navprimary{display:block; float:left; width:85.65%; height:30px; }
 	.navlink li {display:inline; float:right; margin:0 0 0 1%; padding:0;}
 	.navprimary .navlink li {width:15.5%;}
-	.navprimary .navlink li a{display:block; width:96%; height:26px; text-align:center; border-radius:3px;}	
+	.navprimary .navlink li a{display:block; width:96%; height:26px; text-align:center;}	
 	.statsImg {display: none !important;}
 	
 	/*  */
@@ -654,12 +662,12 @@ Change widths as necessary
 	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}
 		.logotext {display:block; float:left; width:23.01%; height:50px;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:25px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:1em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
 		.navprimary{display:block; float:left; width:87.65%; height:30px;}
 			.navlink li {display:inline; float:right; padding:0;}
 			.navprimary .navlink li {margin:0 0 0 1%; width:10.5%;}
-			.navprimary .navlink li a{width:96%; height:26px; text-align:center; border-radius:3px;}
+			.navprimary .navlink li a{width:96%; height:26px; text-align:center;}
 	.statsImg {display: inline !important;}
 	
 	/* COLUMN GRID */

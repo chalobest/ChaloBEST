@@ -34,7 +34,7 @@ $(function() {
 					<img class="areatitleImg" src="/static/images/area_r.png" />
 				</div>
 				<div class="titleS rtt">
-					<h1><span>{{ area.display_name }} - &nbsp;</span><span>{{ area.name_mr }}</span></h1>
+					<h1><span>{{ area.display_name }} - </span><span>{{ area.name_mr }}</span></h1>
 				</div>
 			</div>
 		</div>
@@ -118,17 +118,16 @@ $(function() {
 						</form>
 					</th>
 				</tr>
-                {% for stop in stops %}
-
+				{% for stop in stops %}
 				<tr class="landing_row">
 					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
 				<tr>
-                {% endfor %}
-
+				{% endfor %}
 			</table>
 		</div>
 	</div>
 </div>
+
 <div class="g4">
 	<div class="g4_4 height">
 		<div class="g4_4 listtitle">

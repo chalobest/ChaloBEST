@@ -14,7 +14,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 audio[controls],canvas,video {display: inline-block; *display: inline; zoom: 1}
 
 /* BASE */
-html {height: 100%; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /* Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom */
+html {height: 100%; font-size: 100%; overflow-y: scroll; word-break:hyphenate; -webkit-text-size-adjust: 100%} /* Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom */
 body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; background-color:#fff;} /* Improve default text rendering, handling of kerning pairs and ligatures */
 
 /* DEFAULT FONT SETTINGS */
@@ -43,11 +43,6 @@ h6 {margin: 0; font-size: 1em; line-height: 1.3125em; margin-bottom: 1.3125em} /
 p, ul, blockquote, pre, label {margin: 0; font-size: 0.875em; line-height: 1.5em; margin-bottom: 1.5em} /* 14px / 18px */
 td, th {margin: 0; font-size: 0.875em; margin-bottom:1.5em;}
 
-small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857em;} /* 12px */
-.italic {font-style:italic;}
-.right {text-align:right !important; display:block; float:right;}
-span.right {float:right !important; padding-right:1%;}
-
 /* CODE */
 pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word} /* Allow line wrapping of 'pre' */
 pre, code, kbd, samp {font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; font-family: Menlo, Consolas, 'DejaVu Sans Mono', Monaco, monospace}
@@ -55,7 +50,8 @@ pre, code, kbd, samp {font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; 
 /* TABLES */
 table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em}
 th {text-align: left}
-tr, th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+tr {padding-right: 1.5em;}
 
 /* FORMS */
 form {margin: 0}
@@ -117,12 +113,11 @@ sub {bottom: -0.25em} /* Move subscripted text down */
 span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",Times,serif;font-style:italic;font-size:110%;line-height:0;position:relative;vertical-align:baseline} /* Best available ampersand */
 /*.margintop{margin-top:10px;}
 .margintop2x{margin-top:20px;}*/
+small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857em;} /* 12px */
+.italic {font-style:italic;}
+.right {text-align:right !important; display:block; float:right;}
+span.right {float:right !important; padding-right:1%;}
 .leading10, .leading20, .leading30, .leading40, .leading60 {display:inline; float:left; width:100%;}
-.leading10 {height:12px;}
-.leading20 {height:24px;}
-.leading30 {height:36px;}
-.leading40 {height:48px;}
-.leading60 {height:72px;}
 .center {margin-left:auto; margin-right:auto; text-align:center;}
 
 /* background colors */
@@ -187,7 +182,7 @@ Change widths as necessary
 /* MOBILE SMALL */
 @media only screen and (min-width: 240px) {
 	/* 	FONT SIZE ADJUSTED FOR LEGIBILITY*/
-	body {font-size:80%;} /* 12px / 18px */
+	body {font-size:90%;} /* 12px / 18px */
 	.pagetitle{font-size:90%;}
 	
 	/* NAVIGATION */
@@ -206,6 +201,8 @@ Change widths as necessary
 	.navlink li {display:inline; float:left; margin:0 0 0 2%; padding:0;}
 	.navprimary .navlink li {margin: 0 0 0 2%; width:22%; float:right; padding:0;}
 	.navprimary .navlink li a{display:block; width:96%; height:21px; padding-left:1%; padding-right:1%; text-align:center; overflow:hidden;}
+	.searchbar li {font-size:150%;}
+	.leading10, .leading20, .leading30, .leading40, .leading60 {height:6px;}
 	
 	/* search bar landing page */
 	.searchbar{position: absolute; left: -9999px; }
@@ -236,7 +233,7 @@ Change widths as necessary
 		.g12_3 {width:23.48%; margin:0;}
 		.g12_2 {width:14.98%; margin:0;}
 		.g12_gut {width:2.02%; margin:0; min-height:20px;}
-	.g9 {min-height:20px;}
+	.g9 {width:97.98%; min-height:20px;}
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
 		.g9_3 {width:31.52%; margin:0;}
@@ -245,25 +242,25 @@ Change widths as necessary
 		.g9_8 {width:88.59%; margin:0;}
 		.g9_9 {width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
-	.g8 {min-height:400px;}
+	.g8 {width:97.98%; min-height:400px;}
 		.g8_8 {width:99.7%; margin:0;}
 		.g8_5 {width:61.35%; margin:0;}
 		.g8_3 {width:35.59%; margin:0;}
 		.g8_gut{width:3.06%; height: 10px; margin:0;}
-	.g7 {min-height:20px;}
+	.g7 {width:97.98%; min-height:20px;}
 		.g7_7 {width:99.7%; margin:0;}
 		.g7_4 {width:55.63%; margin:0;}
 		.g7_3 {width:40.84%; margin:0;}
 		.g7_gut{width:3.52%; height: 10px; margin:0;}
-	.g6 {min-height:20px;}
+	.g6 {width:97.98%; min-height:20px;}
 		.g6_6 {width:99.7%; margin:0;}
 		.g6_3 {width:47%; margin:0;}
 		.g6_gut{width:4.13%; height: 10px; margin:0;}
-	.g5 {min-height:20px;}
+	.g5 {width:97.98%; min-height:20px;}
 		.g5_5 {width:99.7%; margin:0;}
 		.g5_1 {width:16.01%; margin:0;}
 		.g5_gut {width:4.99%; margin:0;}
-	.g4 {min-height:100px;}
+	.g4 {width:97.98%; min-height:100px;}
 		.g4_4{width:100%; margin:0;}
 		.g4_3{width:73.42%; margin:0;}
 		.g4_2{width:46.84%; margin:0;}
@@ -271,9 +268,9 @@ Change widths as necessary
 		.g4_1small{width:17.1%; margin:0;}
 		.g4_gut{width:6.32%; height: 10px; margin:0;}
 		.g4_gut4{width:1.58%; height: 10px; margin:0;}
-	.g3 {height:100%;}
+	.g3 {width:97.98%; height:100%;}
 		.g3_3{width:100%; margin: 0;}
-	.g2 {height:100%;}
+	.g2 {width:97.98%; height:100%;}
 		.g2_2{width:100%; margin: 0;}
 	.g1 {height:100%;}
 	.maphome{height:240px;margin: 0; }
@@ -296,9 +293,10 @@ Change widths as necessary
 		.globallinks li a {color:#FBDD09; font-weight:bold; line-height:00.9em;}
 		.navprimary{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
-			.navprimary .navlink li {margin: 0 0 0 3%; width:22%;}
+			.navprimary .navlink li {margin:	 0 0 0 3%; width:22%;}
 			.navprimary .navlink li a{width:96%; height:21px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
+	.leading10, .leading20, .leading30, .leading40, .leading60 {height:6px;}
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
@@ -326,7 +324,7 @@ Change widths as necessary
 		.g12_3 {width:23.48%; margin:0;}
 		.g12_2 {width:14.98%; margin:0;}
 		.g12_gut {width:2.02%; margin:0; min-height:20px;}
-	.g9 {min-height:20px;}
+	.g9 {width:97.98%; min-height:20px;}
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
 		.g9_3 {width:31.52%; margin:0;}
@@ -335,25 +333,25 @@ Change widths as necessary
 		.g9_8 {width:88.59%; margin:0;}
 		.g9_9 {width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
-	.g8 {min-height:400px;}
+	.g8 {width:97.98%; min-height:400px;}
 		.g8_8 {width:99.7%; margin:0;}
 		.g8_5 {width:61.35%; margin:0;}
 		.g8_3 {width:35.59%; margin:0;}
 		.g8_gut{width:3.06%; height: 10px; margin:0;}
-	.g7 {min-height:20px;}
+	.g7 {width:97.98%; min-height:20px;}
 		.g7_7 {width:99.7%; margin:0;}
 		.g7_4 {width:55.63%; margin:0;}
 		.g7_3 {width:40.84%; margin:0;}
 		.g7_gut{width:3.52%; height: 10px; margin:0;}
-	.g6 {min-height:20px;}
+	.g6 {width:97.98%; min-height:20px;}
 		.g6_6 {width:99.7%; margin:0;}
 		.g6_3 {width:47%; margin:0;}
 		.g6_gut{width:4.13%; height: 10px; margin:0;}
-	.g5 {min-height:20px;}
+	.g5 {width:97.98%; min-height:20px;}
 		.g5_5 {width:99.7%; margin:0;}
 		.g5_1 {width:16.01%; margin:0;}
 		.g5_gut {width:4.99%; margin:0;}
-	.g4 {min-height:100px;}
+	.g4 {width:97.98%; min-height:100px;}
 		.g4_4{width:100%; margin:0;}
 		.g4_3{width:73.42%; margin:0;}
 		.g4_2{width:46.84%; margin:0;}
@@ -361,9 +359,9 @@ Change widths as necessary
 		.g4_1small{width:17.1%; margin:0;}
 		.g4_gut{width:6.32%; height: 10px; margin:0;}
 		.g4_gut4{width:1.58%; height: 10px; margin:0;}
-	.g3 {height:100%;}
+	.g3 {width:97.98%; height:100%;}
 		.g3_3{width:100%; margin: 0;}
-	.g2 {height:100%;}
+	.g2 {width:97.98%; height:100%;}
 		.g2_2{width:100%; margin: 0;}
 	.g1 {height:100%;}
 	.maphome{height:300px;margin: 0; }
@@ -390,6 +388,11 @@ Change widths as necessary
 			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
 			.navprimary .navlink li a{width:96%; height:26px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
+	.leading10 {height:12px;}
+	.leading20 {height:24px;}
+	.leading30 {height:36px;}
+	.leading40 {height:48px;}
+	.leading60 {height:72px;}
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
@@ -480,11 +483,16 @@ Change widths as necessary
 			.navprimary .navlink li {margin: 0 0 0 2%; width:22%;}
 			.navprimary .navlink li a{width:96%; height:26px; text-align:center; overflow:hidden;}
 	.statsImg {display: none !important;}
+	.searchbar li {font-size:150%;}
+	.leading10 {height:12px;}
+	.leading20 {height:24px;}
+	.leading30 {height:36px;}
+	.leading40 {height:48px;}
+	.leading60 {height:72px;}
 	
 	/* searchbar elements landing page */
 	.searchbar{position:relative;
 				left:0;}
-	.leading20 {height:20px;}
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
@@ -539,7 +547,7 @@ Change widths as necessary
 		.g5_5 {width:99.7%; margin:0;}
 		.g5_1 {width:16.01%; margin:0;}
 		.g5_gut {width:4.99%; margin:0;}
-	.g4 {width: 65.29%; min-height:100px;}
+	.g4 {width:97.98%; min-height:100px;}
 		.g4_4{width:100%; margin:0;}
 		.g4_3{width:73.42%; margin:0;}
 		.g4_2{width:46.84%; margin:0;}
@@ -565,20 +573,24 @@ Change widths as necessary
 	.nav {height:70px; margin:0;}
 	.foot {height:50px;}
 	
-	.logoimg {display:block; float:left; height: 80px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
+	.logoimg {display:block; float:left; height: 76px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
 	.logotext {display:block; float:left; width:23.01%; height:40px; margin:0; padding:0;}
-	.globallinks{display:block; float:right; width:30%; height:30px; padding:17px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
+	.globallinks{display:block; float:right; width:40%; height:30px; padding:17px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
 		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
-	.navprimary{display:block; float:left; width:85.65%; height:30px; }
+	.navprimary{display:block; float:left; width:85.65%; height:30px;}
 	.navlink li {display:inline; float:right; margin:0 0 0 1%; padding:0;}
 	.navprimary .navlink li {width:15.5%;}
 	.navprimary .navlink li a{display:block; width:96%; height:26px; text-align:center;}	
 	.statsImg {display: none !important;}
+	.searchbar li {font-size:150%;}
+	.leading10 {height:12px;}
+	.leading20 {height:24px;}
+	.leading30 {height:36px;}
+	.leading40 {height:48px;}
+	.leading60 {height:72px;}
 	
-	/*  */
-	.leading40 {height:40px;}
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,
@@ -614,25 +626,25 @@ Change widths as necessary
 		.g9_8 {width:88.59%; margin:0;}
 		.g9_9{width:100%; margin:0;}
 		.g9_gut{width:2.71%; height: 10px; margin:0;}
-	.g8 {width:64.66%; min-height:20px;}
+	.g8 {width:97.98%; min-height:20px;}
 		.g8_8 {width:99.7%; margin:0;}
 		.g8_5 {width:61.35%; margin:0;}
 		.g8_3 {width:35.59%; margin:0;}
 		.g8_gut{width:3.06%; height: 10px; margin:0;}
-	.g7 {width:56.33%; min-height:20px;}
+	.g7 {width:97.98%; min-height:20px;}
 		.g7_7 {width:99.7%; margin:0;}
 		.g7_4 {width:55.63%; margin:0;}
 		.g7_3 {width:40.84%; margin:0;}
 		.g7_gut{width:3.52%; height: 10px; margin:0;}
-	.g6 {width:48%; min-height:20px;}
+	.g6 {width:72.99%; min-height:20px;}
 		.g6_6 {width:99.7%; margin:0;}
 		.g6_3 {width:47%; margin:0;}
 		.g6_gut{width:4.13%; height: 10px; margin:0;}
-	.g5 {width:39.67%; min-height:20px;}
+	.g5 {width:97.98%; min-height:20px;}
 		.g5_5 {width:99.7%; margin:0;}
 		.g5_1 {width:16.01%; margin:0;}
 		.g5_gut {width:4.99%; margin:0;}
-	.g4 {width:31.34%; min-height:100px;}
+	.g4 {width:97.98%; min-height:100px;}
 		.g4_4{width:100%; margin:0;}
 		.g4_3{width:73.42%; margin:0;}
 		.g4_2{width:46.84%; margin:0;}
@@ -642,7 +654,7 @@ Change widths as necessary
 		.g4_gut4{width:1.58%; height: 10px; margin:0;}
 	.g3 {width:23.01%; height:100%;}
 		.g3_3{width:100%; margin: 0;}
-	.g2 {width:14.68%; height:100%;}
+	.g2 {width:23.01%; height:100%;}
 		.g2_2{width:100%; margin: 0;}
 	.g1 {width: 6.35%; height:100%;}
 	.maphome{height:500px;margin: 0;}
@@ -669,6 +681,8 @@ Change widths as necessary
 			.navprimary .navlink li {margin:0 0 0 1%; width:10.5%;}
 			.navprimary .navlink li a{width:96%; height:26px; text-align:center;}
 	.statsImg {display: inline !important;}
+	.searchbar li {font-size:170%;}
+
 	
 	/* COLUMN GRID */
 	.g12,.g11,.g10,.g9,.g8,.g7,.g6,.g5,.g4,.g3,.g2,.g1,

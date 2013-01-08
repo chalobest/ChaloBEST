@@ -49,7 +49,7 @@ function loadStops(latlng) {
 
 {% block content %}
 
-<div class="g9 ">
+<div class="g9">
 
 <!--
 	<div class="leading40"></div>
@@ -59,6 +59,7 @@ function loadStops(latlng) {
 		<div class="g9_9 search">
 			<div class="g9_1">&nbsp;</div>
 			<div class="g9_8">
+				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
 				{% include 'innov/guidesearch_form.html' %}
 			</div>
 		</div>
@@ -69,9 +70,13 @@ function loadStops(latlng) {
 			<div class="g9_1">&nbsp;</div>
 			<div class="g9_8">
 				<ul>
-					<li><img class="statsImg" src="/static/images/area.png" >AREAS <span class="statistics">{{ counts.areas }} <br /><span class="overline">areas</span></span></li>
-					<li><img class="statsImg" src="/static/images/stop.png" >STOPS<span class="statistics">{{ counts.stops }} <br /><span class="overline">stops</span></span></li>
-					<li><img class="statsImg" src="/static/images/bus.png" >ROUTES<span class="statistics">{{ counts.routes }} <br /><span class="overline">routes</span></span></li>
+					<li><span class="statistics">{{ counts.areas }} AREAS <!-- <br /><span class="overline">areas</span>--></span>
+						<span class="center">
+							<img class="statsImg" src="/static/images/area.png" >
+						</span>
+					</li>
+					<li><img class="statsImg" src="/static/images/stop.png" ><span class="statistics">{{ counts.stops }} STOPS<!-- <br /><span class="overline">stops</span> --> </span></li>
+					<li><img class="statsImg" src="/static/images/bus.png" ><span class="statistics">{{ counts.routes }} ROUTES<!--<br /><span class="overline">routes</span>--> </span></li>
 				</ul>
 			</div>
 		</div>

@@ -34,7 +34,7 @@
 
 .search{background-color:#eee; height:30px;/*border:2px solid #aaa;*/}
 .search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
-.searchsubmit{	height: 100%; margin-top:0.1em; padding-top:0.24em; padding-bottom:0.24em; background-color:#FBDD09;
+.searchsubmit{	height: 30px; padding-top:auto; padding-bottom:0; background-color:#FBDD09;
 				border: 2px solid yellow; border-radius: 1em;}
 /* following class applies to mobile search results list (replaces the autocomplete) */
 ul .searchResults, li .resultItem {font-size:140%;}
@@ -107,14 +107,14 @@ ul .searchResults, li .resultItem {font-size:140%;}
 
 /* List main header h2 */
 .listtitle {padding: 36px 0 0 0; height: 3em;}
-.listtitle h2 {float:left; padding: 0 1%; width:80%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
-.listtitle img {float:left; padding: 7px 5px; width:1.125em; height:1.125em;}
+.listtitle h2 {float:left; padding: 0 1% 0 0; width:80%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
+.listtitle img {float:left; padding: 7px 3px 7px 0; width:1.125em; height:1.125em;}
 .listtitle h2.stop {width:50% !important;}
 
 /* List main header h3 (for comment box, lists displayed below the map) */
 .sublist {padding: 0; height: 1.6em; background-color:#999;}
 .sublist h3 {float:left; margin:0px; padding: 0.1em 5px 0 5px; width:80%; color:#fff; font-size:}
-.sublist img {float:left; margin:0px; padding: 5px; height:1.125em; width:1.125em;}
+.sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
 
 /* extra info under header (frequencies in route pages) */
 .listextrainfo {padding:0.75em 10px 0 5px; height: 1.5em;}
@@ -153,7 +153,7 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .landing_table td {padding:5px 3.16% 5px 1.58% !important;} 
 .landing_table .filterlistinput {width:92%;}
 
-.landing_row {width:100%; margin:5px 0; padding:0; border-bottom: 1px solid #ccc; background-color:white;}
+.landing_row {width:100%; margin:5px 0; padding:0; background-color:white;}
 .landing_area {width:100%; padding:0 2.45% 0 2.45%;}
 .landing_area img {width:1.2em; text-align:center;}
 .landing_area span {font-weight:normal;}
@@ -184,6 +184,8 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .stop_route img {position:relative; left:30% !important;}
 
 .stop_frequency {width:16.01%;}
+.stop_frequency img{float:left; padding-left:0; width:12px; height:12px;}
+.stop_frequency span.thumbs {display:inline; float:right; margin:0 5%; padding-right:1.99% !important; width:66%; color:#fff; font-size:70%; line-height:1em;}
 
 
 /* == comments == */
@@ -212,17 +214,20 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 /* DATABASE STATISTICS DISPLAY on INDEX.html */
 
+.searchbar {display:inline; float:left; width:100%; margin:0;}
 .searchbar ul {list-style-type:none; margin:0;}
 .searchbar ul img {margin:-2px 0 0 2% !important;}
 .searchbar li {
-	display:inline; float:left; width: 23%; height: 1em; margin: 0 6.5% 0 0; padding:0.3em 5px 0; font-weight:normal;
-	border: 4px dotted #ffdd00; 
+	display:inline; float:left; width: 24%; height: 1em; margin: 0 5.5% 0 0; padding:0.3em 5px 0; font-weight:200 !important;
+	border: 3px dotted #ffdd00; 
 	font-family: "Boston Traffic", Impact, "Charcoal CY", Charcoal, "DejaVu Sans Condensed", sans-serif; 
-	text-transform: uppercase; font-size:170%; color: #ccc; text-align:right;}
-.statsImg {display:inline; float:right; width:24px;}
-.searchbar .statistics {display:block;float:left; margin-top:-3.5%; padding:0; width:22%; font-size:42%; font-weight:normal; line-height:1.5em; text-align:left;}
-.statistics .overline {padding: 0.2em 0 0 0; border-top: 1px dashed #ccc;}
-.searchbar {display:inline; float:left; width:100%; margin:0;}
+	text-transform: uppercase; color: #ccc; text-align:center;}
+.searchbar img.center 	{display:block; text-align:center; margin-left:auto; margin-right:auto;}
+.statsImg {width:24px;}
+.searchbar .statistics 	{display:block; float:left; /*margin-top:-3.5%; padding:0; width:22%; font-size:42%; font-weight:200 !important; line-height:1.5em;*/ text-align:center; margin-left:auto; margin-right:auto;}
+
+/* .statistics .overline {padding: 0.2em 0 0 0; border-top: 1px dashed #ccc;} */
+
 
 
 /*map looks for landingpage */
@@ -244,9 +249,6 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 /* stop list table */
 .routecheckbox {width:3%;}
 .routecheckboxlabel {width:10%;font-size:80%;}
-
-.stop_frequency img{float:left; padding-left:0; width:15%; height:15%;}
-.stop_frequency span.thumbs {display:inline; float:right; margin:0 5%; padding-right:1.99% !important; width:66%; color:#fff; font-size:70%; line-height:1em;}
 
 
 /* ROUTE PAGES */

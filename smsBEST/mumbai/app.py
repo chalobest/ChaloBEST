@@ -84,7 +84,7 @@ class App(AppBase):
 	    else:
 		routeindices = routes[0]
             if detail == None:
-                detail = ChaloBest.route[routesindices] 
+                detail = ChaloBest.route[routeindices] 
             detail = ChaloBest.route[routeindices]
             stops = detail['stops']['features']
             origin, dest = stops[0]['properties'], stops[-1]['properties']

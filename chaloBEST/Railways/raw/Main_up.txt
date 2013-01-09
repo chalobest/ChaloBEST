@@ -1,0 +1,1401 @@
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97302 96002 96102 97304 97306 97602 96302 97308                   Stations      96602 97310 95902 96104 97604 97002 97312 96604
+               T 2 SKP 2 S 2     T4    T6    C2    A2    T8                                    TL 2 T 10 T 12 S 4      C4    K 2 T 14 TL 4
+
+                                                                                                                                                   X
+Kasara                                                                          Kasara
+Khardi                                                                          Khardi
+Atgaon                                                                          Atgaon
+Asangaon                                                                        Asangaon
+Vasind                                                                          Vasind
+Khadavli                                                                        Khadavli
+Titwala                                                                         Titwala          04:00                                                    04:33
+Ambivli                                                                         Ambivli          04:09                                                    04:42
+Shahad                                                                          Shahad           04:12                                                    04:45
+Khopoli                  00:30                                                  Khopoli
+Lowjee                   00:34                                                  Lowjee
+Dolavli                  00:38                                                  Dolavli
+Kelavli                  00:41                                                  Kelavli
+Palasdhari               00:48                                                  Palasdhari
+Karjat                   00:55 02:30                                            Karjat                                    03:40
+Bhivpuri Road                  02:39                                            Bhivpuri Road                             03:48
+Neral                          02:46                                            Neral                                     03:55
+Shelu                          02:50                                            Shelu                                     03:59
+Vangani                        02:54                                            Vangani                                   04:03
+Badlapur                       03:03                                            Badlapur                                  04:12
+Ambernath                      03:11                            03:51           Ambernath                                 04:20
+Ulhas Nagar                    03:15                            03:57           Ulhas Nagar                               04:24
+Vithalwadi                     03:18                            04:00           Vithalwadi                                04:27
+Kalyan                         03:26                            04:06           Kalyan           04:18                    04:33           04:45           04:52
+Thakurli                       03:32                            04:11           Thakurli         04:23                    04:38           04:50           04:57
+Dombivli                       03:36                            04:14           Dombivli         04:26                    04:41           04:53           05:00
+Kopar                          03:40                            04:17           Kopar            04:29                    04:44           04:56           05:03
+Diva                           03:44                            04:22           Diva             04:34                    04:49           05:01           05:08
+Mumbra                         03:50                            04:26           Mumbra           04:38                    04:53           05:05           05:12
+Kalva                          03:56                            04:32           Kalva            04:44                    04:59           05:11           05:18
+Thane            03:58         04:02    04:12   04:27           04:36   04:44   Thane            04:48   04:55   05:08    05:03           05:15   05:19   05:23
+Mulund           04:03         04:07    04:17   04:32           04:40   04:48   Mulund           04:52   04:59   05:12    05:07           05:19   05:24   05:28
+Nahur            04:06         04:10    04:20   04:35           04:43   04:51   Nahur            04:55   05:02     ...    05:10           05:22   05:27   05:31
+Bhandup          04:09         04:13    04:23   04:38           04:46   04:54   Bhandup          04:58   05:05     ...    05:13           05:25   05:30   05:34
+Kanjur Marg      04:12         04:16    04:26   04:41           04:49   04:57   Kanjur Marg      05:01   05:08     ...    05:16           05:28   05:33   05:37
+Vikhroli         04:15         04:19    04:29   04:44           04:52   05:00   Vikhroli         05:04   05:11     ...    05:19           05:31   05:36   05:40
+Ghatkopar        04:20         04:24    04:34   04:49           04:57   05:05   Ghatkopar        05:09   05:16   05:22    05:24           05:36   05:41   05:45
+Vidyavihar       04:23         04:27    04:37   04:52           05:00   05:08   Vidyavihar       05:12   05:19     ...    05:27           05:39   05:44   05:48
+Kurla            04:26         04:30    04:40   04:55   04:59   05:03   05:11   Kurla            05:15   05:22   05:27    05:30   05:38   05:42   05:47   05:51
+Sion             04:30         04:34    04:44   04:59   05:03   05:07   05:15   Sion             05:19   05:26     ...    05:34   05:42   05:46   05:51   05:55
+Matunga          04:34         04:38    04:48   05:03   05:07   05:11   05:19   Matunga          05:23   05:30     ...    05:38   05:46   05:50   05:55   05:59
+Dadar            04:37         04:41    04:51   05:06   05:10   05:14   05:22   Dadar            05:26   05:33   05:37    05:41   05:49   05:53   05:58   06:02
+Parel            04:40         04:44    04:54   05:09   05:13   05:17   05:25   Parel            05:29   05:36    ...     05:44   05:52   05:56   06:01   06:05
+Currey Road      04:43         04:47    04:57   05:12   05:16   05:20   05:28   Currey Road      05:32   05:39    ...     05:47   05:55   05:59   06:04   06:08
+Chinchpokli      04:45         04:49    04:59   05:14   05:18   05:22   05:30   Chinchpokli      05:34   05:41    ...     05:49   05:57   06:01   06:06   06:10
+Byculla          04:47         04:51    05:01   05:16   05:20   05:24   05:32   Byculla          05:36   05:43   05:43    05:51   05:59   06:03   06:08   06:12
+Sandhurst Road   04:50         04:54    05:04   05:19   05:23   05:27   05:35   Sandhurst Road   05:39   05:46    ...     05:54   06:02   06:06   06:11   06:15
+Masjid           04:53         04:57    05:07   05:22   05:26   05:30   05:38   Masjid           05:42   05:49    ...     05:57   06:05   06:09   06:14   06:18
+Mumbai C S T     04:56         05:00    05:10   05:25   05:29   05:33   05:41   Mumbai C S T     05:45   05:52   05:53    06:00   06:08   06:12   06:17   06:21
+
+                                   60                                                                                61
+        KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations       97606 97314 96304 97608 97316 97004 97610 97006   Stations      95102 97318 96106 96402 97320 97202 97008 95104
+                C 6 T 16 A 4      C 8 T 18 K 140 C 10 K 4                       S 8 T 20 S 6      N 2 T 22 DL 2 K 6 S 10
+                                             SUN/
+                                              HOL    X                                     X                        X
+Kasara                                                           Kasara                                    04:18
+Khardi                                                           Khardi                                    04:34
+Atgaon                                                           Atgaon                                    04:46
+Asangaon                                                         Asangaon                                  04:55
+Vasind                                                           Vasind                                    05:01
+Khadavli                                                         Khadavli                                  05:09
+Titwala                                                          Titwala                                   05:17
+Ambivli                                                          Ambivli                                   05:25
+Shahad                                                           Shahad                                    05:28
+Khopoli                                                          Khopoli
+Lowjee                                                           Lowjee
+Dolavli                                                          Dolavli
+Kelavli                                                          Kelavli
+Palasdhari                                                       Palasdhari
+Karjat                                                           Karjat           04:54           04:36                                  05:21
+Bhivpuri Road                                                    Bhivpuri Road    05:02           04:44                                  05:29
+Neral                                                            Neral            05:09           04:51                                  05:36
+Shelu                                                            Shelu            05:13           04:55                                  05:40
+Vangani                                                          Vangani          05:17           04:59                                  05:44
+Badlapur                                                         Badlapur         05:26           05:08                                  05:53
+Ambernath                  04:48                                 Ambernath        05:34           05:16                                  06:01
+Ulhas Nagar                04:54                                 Ulhas Nagar      05:38           05:20                                  06:05
+Vithalwadi                 04:57                                 Vithalwadi       05:41           05:23                                  06:08
+Kalyan                     05:03             05:16       05:21   Kalyan           05:47           05:29    05:34                   05:44 06:14
+Thakurli                   05:10             05:21       05:27   Thakurli                         05:35    05:39                   05:51
+Dombivli                   05:13             05:24       05:30   Dombivli         05:54           05:38    05:42           05:50   05:54 06:21
+Kopar                      05:16             05:27       05:33   Kopar             ...            05:41    05:45           05:53   05:57 ...
+Diva                       05:21             05:32       05:38   Diva              ...            05:46    05:50           05:58   06:02 ...
+Mumbra                     05:25             05:36       05:42   Mumbra            ...            05:50    05:54           06:02   06:06 ...
+Kalva                      05:31             05:42       05:48   Kalva             ...            05:56    06:00           06:08   06:12 ...
+Thane                05:31 05:35       05:42 05:46       05:52   Thane            06:07   05:56   06:00    06:04   06:08   06:12   06:16 06:34
+Mulund               05:36 05:40       05:47 05:51       05:56   Mulund           06:11   06:00   06:04    06:08   06:12   06:16   06:20 ...
+Nahur                05:39 05:43       05:50 05:54       05:59   Nahur              ...   06:03   06:07    06:11   06:15   06:19   06:23 ...
+Bhandup              05:42 05:46       05:53 05:57       06:02   Bhandup            ...   06:06   06:10    06:14   06:18   06:22   06:26 ...
+Kanjur Marg          05:45 05:49       05:56 06:00       06:05   Kanjur Marg        ...   06:09   06:13    06:17   06:21   06:25   06:29 ...
+Vikhroli             05:48 05:52       05:59 06:03       06:08   Vikhroli           ...   06:12   06:16    06:20   06:24   06:28   06:32 ...
+Ghatkopar            05:53 05:57       06:04 06:08       06:13   Ghatkopar        06:21   06:17   06:21    06:25   06:29   06:33   06:37 06:48
+Vidyavihar           05:56 06:00       06:07 06:11       06:16   Vidyavihar         ...   06:20   06:24    06:28   06:32   06:36   06:40 ...
+Kurla          05:55 05:59 06:03 06:07 06:11 06:15 06:15 06:19   Kurla            06:25   06:23   06:27    06:31   06:35   06:39   06:43 06:52
+Sion           05:59 06:03 06:07 06:11 06:15 06:19 06:19 06:23   Sion               ...   06:27   06:31    06:35   06:39   06:43   06:47 ...
+Matunga        06:03 06:07 06:11 06:15 06:19 06:23 06:23 06:27   Matunga          06:30   06:31   06:35    06:39   06:43   06:47   06:51 ...
+Dadar          06:06 06:10 06:14 06:18 06:22 06:26 06:26 06:30   Dadar            06:34   06:34   06:38    06:42   06:46   06:50   06:54 07:00
+Parel          06:09 06:13 06:17 06:21 06:25 06:29 06:29 06:33   Parel            06:37   06:37   06:41    06:45   06:49   06:53   06:57 ...
+Currey Road    06:12 06:16 06:20 06:24 06:28 06:32 06:32 06:36   Currey Road       ...    06:40   06:44    06:48   06:52   06:56   07:00 ...
+Chinchpokli    06:14 06:18 06:22 06:26 06:30 06:34 06:34 06:38   Chinchpokli       ...    06:42   06:46    06:50   06:54   06:58   07:02 ...
+Byculla        06:16 06:20 06:24 06:28 06:32 06:36 06:36 06:40   Byculla          06:42   06:44   06:48    06:52   06:56   07:00   07:04 07:06
+Sandhurst Road 06:19 06:23 06:27 06:31 06:35 06:39 06:39 06:43   Sandhurst Road    ...    06:47   06:51    06:55   06:59   07:03   07:07 ...
+Masjid         06:22 06:26 06:30 06:34 06:38 06:42 06:42 06:46   Masjid            ...    06:50   06:54    06:58   07:02   07:06   07:10 ...
+Mumbai C S T   06:25 06:29 06:33 06:37 06:41 06:45 06:45 06:49   Mumbai C S T     06:50   06:53   06:57    07:01   07:05   07:09   07:13 07:14
+
+                              62                                                                      63
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97010 96306 97012 96502 97322 97014 95106 96308                   Stations       97016 96606 97324 97018 96504 95704 97612 95202
+               K8    A 6 K 10 AN 2 T 24 K 12 S 12 A 8                                           DK 2 TL 6 T 26 K 14 AN 4 K 22 C 12 BL 2
+                                                                                                                             15 Car
+                                                   X                                             X           X     X           X     X
+Kasara                                                                          Kasara
+Khardi                                                                          Khardi
+Atgaon                                                                          Atgaon
+Asangaon                                  05:29                                 Asangaon                               06:07
+Vasind                                    05:36                                 Vasind                                 06:14
+Khadavli                                  05:44                                 Khadavli                               06:22
+Titwala                                   05:52                                 Titwala              06:14             06:30
+Ambivli                                   06:00                                 Ambivli              06:23             06:38
+Shahad                                    06:03                                 Shahad               06:26             06:41
+Khopoli                                                                         Khopoli
+Lowjee                                                                          Lowjee
+Dolavli                                                                         Dolavli
+Kelavli                                                                         Kelavli
+Palasdhari                                                                      Palasdhari
+Karjat                                                          05:51           Karjat
+Bhivpuri Road                                                   05:59           Bhivpuri Road
+Neral                                                           06:06           Neral
+Shelu                                                           06:10           Shelu
+Vangani                                                         06:14           Vangani
+Badlapur                                                        06:23           Badlapur                                                 06:57
+Ambernath                05:46                                  06:31   06:11   Ambernath                                                07:06
+Ulhas Nagar              05:52                                  06:35   06:17   Ulhas Nagar                                              07:10
+Vithalwadi               05:55                                  06:38   06:20   Vithalwadi                                               07:13
+Kalyan           05:52   06:01   06:04    06:09           06:16 06:45   06:26   Kalyan         06:29 06:33       06:40 06:47 07:14       07:19
+Thakurli         05:59   06:06   06:10    06:14           06:22         06:31   Thakurli       06:35 06:39       06:46 06:51 ...           ...
+Dombivli         06:02   06:09   06:13    06:17           06:25 06:51   06:34   Dombivli       06:38 06:42       06:49 06:54 07:21       07:25
+Kopar            06:05   06:12   06:16    06:20           06:28 ...     06:37   Kopar          06:41 06:45       06:52 06:57 ...           ...
+Diva             06:10   06:17   06:21    06:25           06:33 ...     06:42   Diva           06:46 06:50       06:57 07:02 ...           ...
+Mumbra           06:14   06:21   06:25    06:29           06:37 ...     06:46   Mumbra         06:50 06:54       07:01 07:06 ...           ...
+Kalva            06:20   06:27   06:31    06:35           06:43 ...     06:52   Kalva          06:56 07:00       07:07 07:12 ...           ...
+Thane            06:24   06:31   06:35    06:39   06:43   06:47 07:04   06:56   Thane          07:00 07:04 07:07 07:11 07:16 07:34       07:38
+Mulund           06:28   06:35   06:39    06:43   06:47   06:51 07:08   07:00   Mulund         07:04 07:08 07:12 07:16 07:20 07:38         ...
+Nahur            06:31   06:38   06:42    06:46   06:50   06:54 ...     07:03   Nahur          07:07 07:11 07:15 07:19 07:23 ...           ...
+Bhandup          06:34   06:41   06:45    06:49   06:53   06:57 ...     07:06   Bhandup        07:10 07:14 07:18 07:22 07:26 ...           ...
+Kanjur Marg      06:37   06:44   06:48    06:52   06:56   07:00 ...     07:09   Kanjur Marg    07:13 07:17 07:21 07:25 07:29 ...           ...
+Vikhroli         06:40   06:47   06:51    06:55   06:59   07:03 07:16   07:12   Vikhroli       07:16 07:20 07:24 07:28 07:32 ...           ...
+Ghatkopar        06:45   06:52   06:56    07:00   07:04   07:08 ...     07:17   Ghatkopar      07:21 07:25 07:29 07:33 07:37 07:49       07:53
+Vidyavihar       06:48   06:55   06:59    07:03   07:07   07:11 ...     07:20   Vidyavihar     07:24 07:28 07:32 07:36 07:40 ...           ...
+Kurla            06:51   06:58   07:02    07:06   07:10   07:14 07:24   07:23   Kurla          07:27 07:31 07:35 07:39 07:43 07:53 07:47 07:57
+Sion             06:55   07:02   07:06    07:10   07:14   07:18 ...     07:27   Sion           07:31 07:35 07:39 07:43 07:47 ...   07:51 ...
+Matunga          06:59   07:06   07:10    07:14   07:18   07:22 ...     07:31   Matunga        07:35 07:39 07:43 07:47 07:51 ...   07:55 ...
+Dadar            07:02   07:09   07:13    07:17   07:21   07:25 07:32   07:34   Dadar          07:39 07:42 07:46 07:50 07:54 08:01 07:58 08:05
+Parel            07:05   07:12   07:16    07:20   07:24   07:28 ...     07:37   Parel                07:45 07:49 07:53 07:57 ...   08:01 ...
+Currey Road      07:08   07:15   07:19    07:23   07:27   07:31 ...     07:40   Currey Road          07:48 07:52 07:56 08:00 ...   08:04 ...
+Chinchpokli      07:10   07:17   07:21    07:25   07:29   07:33 ...     07:42   Chinchpokli          07:50 07:54 07:58 08:02 ...   08:06 ...
+Byculla          07:12   07:19   07:23    07:27   07:31   07:35 07:38   07:44   Byculla              07:52 07:56 08:00 08:04 08:07 08:08 08:11
+Sandhurst Road   07:15   07:22   07:26    07:30   07:34   07:38 ...     07:47   Sandhurst Road       07:55 07:59 08:03 08:07 ...   08:11 ...
+Masjid           07:18   07:25   07:29    07:33   07:37   07:41 ...     07:50   Masjid               07:58 08:02 08:06 08:10 ...   08:14 ...
+Mumbai C S T     07:21   07:28   07:32    07:36   07:40   07:44 07:46   07:53   Mumbai C S T         08:01 08:05 08:09 08:13 08:16 08:17 08:20
+
+                                     64                                                                       65
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                     KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97020 95402 95108 97326 95302 97022 96608 95002                     Stations      96310 95706 97024 95602 97328 95904 97026 95304
+               K 16 N 4 S 14 T 28 A 12 K 18 CTL 2 KP 2                                           A 10 DK 4 K 20 TL 8 T 30 T 36 K 24 A 14
+
+                                           X                                                                                         X       X
+Kasara                   06:08                                                    Kasara
+Khardi                   06:24                                                    Khardi
+Atgaon                   06:36                                                    Atgaon
+Asangaon                 06:45                                                    Asangaon
+Vasind                   06:51                                                    Vasind
+Khadavli                 06:59                                                    Khadavli
+Titwala                  07:07                                    06:50           Titwala                                   07:24
+Ambivli                  07:15                                    06:59           Ambivli                                   07:33
+Shahad                   07:18                                    07:02           Shahad                                    07:36
+Khopoli                                                                   06:15   Khopoli
+Lowjee                                                                    06:19   Lowjee
+Dolavli                                                                   06:23   Dolavli
+Kelavli                                                                   06:26   Kelavli
+Palasdhari                                                                06:33   Palasdhari
+Karjat                           06:33                                    06:42   Karjat
+Bhivpuri Road                    06:41                                    06:50   Bhivpuri Road
+Neral                            06:48                                    06:57   Neral
+Shelu                            06:52                                    07:01   Shelu
+Vangani                          06:56                                    07:05   Vangani
+Badlapur                         07:05                                    07:14   Badlapur
+Ambernath                        07:13            07:17                   07:22   Ambernath        06:54                                                    07:34
+Ulhas Nagar                      07:17            07:23                   07:27   Ulhas Nagar      07:00                                                    07:40
+Vithalwadi                       07:20            07:26                   07:30   Vithalwadi       07:03                                                    07:43
+Kalyan           06:52   07:24   07:27            07:32   07:00   07:07   07:36   Kalyan           07:09   07:28   07:12    07:42                   07:20   07:49
+Thakurli         06:58     ...    ...              ...    07:06   07:11    ...    Thakurli         07:15   07:34   07:19     ...                    07:26    ...
+Dombivli         07:01   07:30   07:34            07:38   07:09   07:14   07:42   Dombivli         07:18   07:37   07:22    07:50                   07:29   07:56
+Kopar            07:04     ...    ...              ...    07:12   07:17    ...    Kopar            07:21   07:41   07:25     ...                    07:32    ...
+Diva             07:09     ...    ...              ...    07:17   07:22    ...    Diva             07:26   07:45   07:30     ...                    07:37    ...
+Mumbra           07:13     ...    ...              ...    07:21   07:26    ...    Mumbra           07:30   07:49   07:34     ...                    07:41    ...
+Kalva            07:19     ...    ...              ...    07:27   07:32    ...    Kalva            07:36   07:55   07:40     ...                    07:47    ...
+Thane            07:23   07:42   07:46    07:27   07:50   07:32   07:36   07:54   Thane            07:40   07:59   07:44    08:03   07:47   08:06   07:51   08:10
+Mulund           07:28     ...   07:50    07:33     ...   07:37   07:40   07:58   Mulund           07:44     ...   07:48    08:07   07:53   08:11   07:57     ...
+Nahur            07:31     ...     ...    07:36     ...   07:40   07:43     ...   Nahur            07:47     ...   07:51      ...   07:56     ...   08:00     ...
+Bhandup          07:34   07:50     ...    07:39     ...   07:43   07:46     ...   Bhandup          07:50   08:08   07:54      ...   07:59     ...   08:03   08:18
+Kanjur Marg      07:37     ...     ...    07:42     ...   07:46   07:49     ...   Kanjur Marg      07:53     ...   07:57      ...   08:02     ...   08:06     ...
+Vikhroli         07:40     ...     ...    07:45   08:02   07:49   07:52     ...   Vikhroli         07:56     ...   08:00      ...   08:05   08:20   08:09     ...
+Ghatkopar        07:45   07:58   08:01    07:50     ...   07:54   07:57   08:10   Ghatkopar        08:01   08:15   08:05    08:18   08:10     ...   08:14   08:27
+Vidyavihar       07:48     ...     ...    07:53     ...   07:57   08:00     ...   Vidyavihar       08:04     ...   08:08      ...   08:13     ...   08:17     ...
+Kurla            07:51   08:02   08:05    07:56   08:10   08:00   08:04   08:14   Kurla            08:07   08:19   08:11    08:22   08:16   08:28   08:20   08:31
+Sion             07:55     ...     ...    08:00     ...   08:04             ...   Sion             08:11     ...   08:15      ...   08:20     ...   08:24     ...
+Matunga          07:59     ...     ...    08:04     ...   08:08             ...   Matunga          08:15     ...   08:19      ...   08:24     ...   08:28     ...
+Dadar            08:02   08:10   08:13    08:08   08:18   08:12           08:22   Dadar            08:18   08:28   08:22    08:31   08:27   08:36   08:31   08:39
+Parel            08:05     ...    ...     08:11    ...    08:15            ...    Parel            08:21           08:25     ...    08:30    ...    08:34    ...
+Currey Road      08:08     ...    ...     08:14    ...    08:18            ...    Currey Road      08:24           08:28     ...    08:33    ...    08:37    ...
+Chinchpokli      08:10    TXL     ...     08:16    ...    08:20            ...    Chinchpokli      08:26           08:30     ...    08:35    ...    08:39    ...
+Byculla          08:12   08:17   08:20    08:20   08:24   08:24           08:28   Byculla          08:28           08:32    08:37   08:37   08:42   08:41   08:45
+Sandhurst Road   08:15     ...    ...     08:23    ...    08:27            ...    Sandhurst Road   08:31           08:35     ...    08:40    ...    08:44    ...
+Masjid           08:18     ...    ...     08:26    ...    08:30            ...    Masjid           08:34           08:38     ...    08:43    ...    08:47    ...
+Mumbai C S T     08:21   08:25   08:28    08:29   08:32   08:33           08:36   Mumbai C S T     08:37           08:41    08:46   08:46   08:50   08:50   08:53
+
+                                     66                                                                                67
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                      KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97204 95110 97330 95404 97332 95708 97028 95306                      Stations      97206 95906 95112 97334 95802 97030 95502 95308
+               DL 4 S 16 T 32 N 6 T 34 K 28 K 26 A 16                                             DL 6 T 42 S 18 T 38 DL 8 K 30 AN 6 A 18
+
+                                  X                 X                                                        X                X
+Kasara                                     06:42                                   Kasara
+Khardi                                     06:58                                   Khardi
+Atgaon                                     07:10                                   Atgaon
+Asangaon                                   07:19                                   Asangaon                                                          07:40
+Vasind                                     07:25                                   Vasind                                                            07:48
+Khadavli                                   07:33                                   Khadavli                                                          07:56
+Titwala                                    07:41                                   Titwala                                                           08:04
+Ambivli                                    07:49                                   Ambivli                                                           08:10
+Shahad                                     07:52                                   Shahad                                                            08:14
+Khopoli                                                                            Khopoli
+Lowjee                                                                             Lowjee
+Dolavli                                                                            Dolavli
+Kelavli                                                                            Kelavli
+Palasdhari                                                                         Palasdhari
+Karjat                   07:00                                                     Karjat                           07:20
+Bhivpuri Road            07:08                                                     Bhivpuri Road                    07:28
+Neral                    07:15                                                     Neral                            07:35
+Shelu                    07:19                                                     Shelu                            07:39
+Vangani                  07:23                                                     Vangani                          07:43
+Badlapur                 07:32                                                     Badlapur                         07:52
+Ambernath                07:40                                             07:51   Ambernath                        08:00                                    08:10
+Ulhas Nagar              07:44                                             07:57   Ulhas Nagar                      08:04                                    08:16
+Vithalwadi               07:47                                             08:00   Vithalwadi                       08:07                                    08:19
+Kalyan                   07:53             07:58           07:49   07:39   08:06   Kalyan                           08:13                    07:53   08:21   08:25
+Thakurli                  ...               ...            07:55   07:45    ...    Thakurli                          ...                     07:59    ...     ...
+Dombivli         07:32   08:00             08:05           07:58   07:48   08:13   Dombivli         07:51           08:20            08:13   08:02   08:28   08:32
+Kopar            07:36    ...               ...            08:01   07:51    ...    Kopar            07:55            ...             08:17   08:05    ...     ...
+Diva             07:41    ...               ...            08:06   07:56    ...    Diva             08:00            ...             08:22   08:10    ...     ...
+Mumbra           07:45    ...               ...            08:10   08:00    ...    Mumbra           08:04            ...             08:26   08:14    ...     ...
+Kalva            07:51    ...               ...            08:16   08:06    ...    Kalva            08:10            ...             08:32   08:20    ...     ...
+Thane            07:55   08:13   07:59     08:17   08:03   08:20   08:10   08:25   Thane            08:14   08:28   08:32    08:17   08:36   08:24   08:40   08:44
+Mulund           08:01   08:18   08:05       ...   08:09   08:25   08:14     ...   Mulund           08:18   08:33     ...    08:23   08:41   08:28     ...   08:48
+Nahur            08:04     ...   08:08       ...   08:12     ...   08:17     ...   Nahur            08:21     ...     ...    08:26     ...   08:31     ...     ...
+Bhandup          08:07     ...   08:11     08:25   08:15     ...   08:20   08:33   Bhandup          08:24     ...   08:40    08:29     ...   08:34   08:49     ...
+Kanjur Marg      08:10     ...   08:14       ...   08:18     ...   08:23     ...   Kanjur Marg      08:27     ...     ...    08:32     ...   08:37     ...     ...
+Vikhroli         08:13   08:27   08:17       ...   08:21   08:33   08:26     ...   Vikhroli         08:30   08:41     ...    08:35     ...   08:40     ...   08:56
+Ghatkopar        08:18     ...   08:22     08:34   08:26     ...   08:31   08:41   Ghatkopar        08:35     ...   08:49    08:40   08:53   08:45   08:57     ...
+Vidyavihar       08:21     ...   08:25       ...   08:29     ...   08:34     ...   Vidyavihar       08:38     ...     ...    08:43     ...   08:48     ...     ...
+Kurla            08:24   08:35   08:28     08:38   08:32   08:42   08:37   08:46   Kurla            08:41   08:50   08:53    08:46   08:57   08:51   09:01   09:04
+Sion             08:28     ...   08:32       ...   08:36     ...   08:41     ...   Sion             08:45     ...     ...    08:50     ...   08:55     ...     ...
+Matunga          08:32     ...   08:36       ...   08:40     ...   08:45     ...   Matunga          08:49     ...   08:59    08:54     ...   08:59     ...     ...
+Dadar            08:35   08:43   08:39     08:46   08:43   08:50   08:48   08:54   Dadar            08:52   08:58   09:02    08:57   09:05   09:02   09:09   09:12
+Parel            08:38    ...    08:42      ...    08:46    ...    08:51    ...    Parel            08:55    ...     ...     09:00    ...    09:05    ...     ...
+Currey Road      08:41    ...    08:45      ...    08:49    ...    08:54    ...    Currey Road      08:58    ...     ...     09:03    ...    09:08    ...     ...
+Chinchpokli      08:43    ...    08:47      ...    08:51    ...    08:56    ...    Chinchpokli      09:00    ...     ...     09:05    ...    09:10    ...     ...
+Byculla          08:45   08:49   08:49     08:52   08:53    ...    08:58   09:00   Byculla          09:02   09:04   09:08    09:07   09:11   09:12   09:15   09:18
+Sandhurst Road   08:48    ...    08:52      ...    08:56    ...    09:01    ...    Sandhurst Road   09:05    ...     ...     09:10    ...    09:15    ...     ...
+Masjid           08:51    ...    08:55      ...    08:59    ...    09:04    ...    Masjid           09:08    ...     ...     09:13    ...    09:18    ...     ...
+Mumbai C S T     08:54   08:58   08:58     09:01   09:02   09:04   09:07   09:08   Mumbai C S T     09:11   09:12   09:16    09:17   09:20   09:21   09:23   09:27
+
+                                      68                                                                                69
+        KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations       97336 95710 97032 95204 97338 95406 97034 95310   Stations      96610 95714 97614 96004 95114 97036 97340 95712
+                T 40 K 36 K 32 BL 4 T 44 N 8 K 34 A 20                         TL 10 K 40 C 14 SKP 4 S 20 DK 6 T 46 K 38
+                           L SPL
+                             X           X                                                         X                               X
+Kasara                                       07:18               Kasara
+Khardi                                       07:34               Khardi
+Atgaon                                       07:46               Atgaon
+Asangaon                                     07:55               Asangaon
+Vasind                                       08:01               Vasind
+Khadavli                                     08:09               Khadavli
+Titwala                                      08:17               Titwala          07:55
+Ambivli                                      08:25               Ambivli          08:04
+Shahad                                       08:28               Shahad           08:07
+Khopoli                                                          Khopoli                                    07:20
+Lowjee                                                           Lowjee                                     07:24
+Dolavli                                                          Dolavli                                    07:28
+Kelavli                                                          Kelavli                                    07:31
+Palasdhari                                                       Palasdhari                                 07:38
+Karjat                                                           Karjat                                     07:45 07:53
+Bhivpuri Road                                                    Bhivpuri Road                                    08:01
+Neral                                                            Neral                                            08:08
+Shelu                                                            Shelu                                            08:12
+Vangani                                                          Vangani                                          08:16
+Badlapur                         08:10                           Badlapur                                         08:25
+Ambernath                        08:19                   08:24   Ambernath                                        08:33
+Ulhas Nagar                      08:23                   08:30   Ulhas Nagar                                      08:37
+Vithalwadi                       08:26                   08:33   Vithalwadi                                       08:40
+Kalyan               08:16 08:02 08:32       08:35 08:07 08:39   Kalyan           08:13   08:42                   08:46   08:25           08:39
+Thakurli             08:23 08:07 ...           ... 08:14 ...     Thakurli         08:19                            ...    08:31           08:45
+Dombivli             08:26 08:10 08:39       08:43 08:17 08:46   Dombivli         08:22   08:49                   08:52   08:34           08:48
+Kopar                08:29 08:13 ...           ... 08:20 ...     Kopar            08:25    ...                     ...    08:37           08:51
+Diva                 08:34 08:18 ...           ... 08:25 ...     Diva             08:30    ...                     ...    08:42           08:56
+Mumbra               08:38 08:22 ...           ... 08:29 ...     Mumbra           08:34    ...                     ...    08:46           09:00
+Kalva                08:44 08:28 ...           ... 08:35 ...     Kalva            08:40    ...                     ...    08:52           09:06
+Thane          08:27 08:48 08:32 08:51 08:36 08:55 08:40 08:58   Thane            08:44   09:01                   09:04   08:56   08:50   09:10
+Mulund         08:33 ...   08:37 08:55 08:42 08:59 08:45 ...     Mulund           08:49   09:05                     ...   09:00   08:56   09:16
+Nahur          08:36 ...   08:40 ...   08:45 ...   08:48 ...     Nahur            08:52     ...                     ...   09:03   08:59     ...
+Bhandup        08:39 08:56 08:43 ...   08:48 ...   08:51 09:06   Bhandup          08:55     ...                     ...   09:06   09:02    ...
+Kanjur Marg    08:42 ...   08:46 ...   08:51 ...   08:54 ...     Kanjur Marg      08:58     ...                     ...   09:09   09:05     ...
+Vikhroli       08:45 ...   08:49 ...   08:54 09:07 08:57 ...     Vikhroli         09:01   09:13                     ...   09:12   09:08   09:26
+Ghatkopar      08:50 09:04 08:54 09:07 08:59 ...   09:02 09:14   Ghatkopar        09:06     ...                   09:20   09:17   09:13     ...
+Vidyavihar     08:53 ...   08:57 ...   09:02 ...   09:05 ...     Vidyavihar       09:09     ...                     ...   09:20   09:16     ...
+Kurla          08:56   ..  09:00 09:11 09:05 09:15 09:08 09:18   Kurla            09:12   09:21   09:15           09:24   09:23   09:19   09:34
+Sion           09:00 ...   09:04 ...   09:09 ...   09:12 ...     Sion             09:16     ...   09:20             ...   09:27   09:24     ...
+Matunga        09:04 ...   09:08 ...   09:13 ...   09:16 ...     Matunga          09:20     ...   09:24             ...   09:31   09:28     ...
+Dadar          09:07 09:16 09:11 09:19 09:16 09:23 09:19 09:26   Dadar            09:23   09:29   09:27           09:32   09:35   09:31   09:43
+Parel          09:10 ...   09:14 ...   09:19 ...   09:22 ...     Parel            09:26    ...    09:30            ...            09:34    ...
+Currey Road    09:13 ...   09:17 ...   09:22 ...   09:25 ...     Currey Road      09:29    ...    09:33            ...            09:37    ...
+Chinchpokli    09:15 ...   09:19 ...   09:24 ...   09:27 ...     Chinchpokli      09:31    ...    09:35            ...            09:39    ...
+Byculla        09:17 09:22 09:21 09:25 09:26 09:29 09:29 09:32   Byculla          09:33   09:35   09:37           09:38           09:41   09:49
+Sandhurst Road 09:20 ...   09:24 ...   09:29 ...   09:32 ...     Sandhurst Road   09:36    ...    09:40            ...            09:44    ...
+Masjid         09:23 ...   09:27 ...   09:32 ...   09:35 ...     Masjid           09:39    ...    09:43            ...            09:47    ...
+Mumbai C S T   09:27 09:30 09:30 09:34 09:35 09:37 09:39 09:41   Mumbai C S T     09:43   09:44   09:47           09:48           09:51   09:57
+
+                              70                                                                       71
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                     KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97502 95908 97208 95312 97342 95716 97616 95504                     Stations      97344 95116 96612 95718 97504 97346 97210 97348
+               G 2 T 52 DL 10 A 22 T 48 K 42 C 16 AN 8                                           T 50 S 22 TL 12 K 44 G 4 T 54 DL 12 T 56
+                                              $
+                                                                                                    X                                X       X               X
+Kasara                                                                            Kasara
+Khardi                                                                            Khardi
+Atgaon                                                                            Atgaon
+Asangaon                                                                  08:29   Asangaon
+Vasind                                                                    08:37   Vasind
+Khadavli                                                                  08:45   Khadavli
+Titwala                                                                   08:53   Titwala                          08:29
+Ambivli                                                                   08:59   Ambivli                          08:38
+Shahad                                                                    09:03   Shahad                           08:41
+Khopoli                                                                           Khopoli
+Lowjee                                                                            Lowjee
+Dolavli                                                                           Dolavli
+Kelavli                                                                           Kelavli
+Palasdhari                                                                        Palasdhari
+Karjat                                                                            Karjat                   08:20
+Bhivpuri Road                                                                     Bhivpuri Road            08:28
+Neral                                                                             Neral                    08:35
+Shelu                                                                             Shelu                    08:39
+Vangani                                                                           Vangani                  08:43
+Badlapur                                                                          Badlapur                 08:52
+Ambernath                                 08:50                                   Ambernath                09:00
+Ulhas Nagar                               08:56                                   Ulhas Nagar              09:04
+Vithalwadi                                08:59                                   Vithalwadi               09:07
+Kalyan                                    09:05           08:54           09:10   Kalyan                   09:13   08:47    09:03
+Thakurli                                   ...            09:00            ...    Thakurli                  ...    08:53    09:09
+Dombivli                         08:38    09:11           09:03           09:17   Dombivli                 09:20   08:56    09:12                   09:06
+Kopar                            08:42     ...            09:06            ...    Kopar                     ...    08:59    09:15                   09:10
+Diva                             08:47     ...            09:11            ...    Diva                      ...    09:04    09:20                   09:15
+Mumbra                           08:51     ...            09:15            ...    Mumbra                    ...    09:08    09:24                   09:19
+Kalva                            08:57     ...            09:21            ...    Kalva                     ...    09:14    09:30                   09:25
+Thane                    09:17   09:02    09:23   09:06   09:26           09:29   Thane            09:14   09:32   09:19    09:35           09:23   09:29   09:33
+Mulund                   09:23   09:07      ...   09:12   09:30             ...   Mulund           09:20     ...   09:24    09:40           09:29   09:35   09:39
+Nahur                      ...   09:10      ...   09:15     ...             ...   Nahur            09:23     ...   09:27      ...           09:33   09:38   09:42
+Bhandup                    ...   09:13    09:31   09:18     ...           09:37   Bhandup          09:26     ...   09:30      ...           09:36   09:41   09:45
+Kanjur Marg                ...   09:16      ...   09:21     ...             ...   Kanjur Marg      09:29     ...   09:33      ...           09:39   09:44   09:48
+Vikhroli                   ...   09:19      ...   09:24   09:38             ...   Vikhroli         09:32     ...   09:36      ...           09:42   09:47   09:51
+Ghatkopar        09:20   09:35   09:24    09:39   09:29     ...           09:45   Ghatkopar        09:37   09:48   09:41    09:51   09:45   09:48   09:52   09:56
+Vidyavihar       09:24     ...   09:28      ...   09:32     ...             ...   Vidyavihar       09:40     ...   09:44      ...   09:49   09:52   09:56   10:00
+Kurla            09:27   09:39   09:31    09:43   09:35   09:46   09:39   09:49   Kurla            09:43   09:52   09:47    09:55   09:52   09:55   09:59   10:03
+Sion             09:31     ...   09:35      ...   09:39     ...   09:43     ...   Sion             09:47     ...   09:51      ...   09:56   09:59   10:03   10:07
+Matunga          09:35     ...   09:39      ...   09:43     ...   09:47     ...   Matunga          09:51     ...   09:55      ...   10:00   10:03   10:07   10:11
+Dadar            09:38   09:47   09:42    09:51   09:46   09:54   09:50   09:57   Dadar            09:54   10:00   09:58    10:03   10:03   10:06   10:10   10:14
+Parel            09:41    ...    09:45     ...    09:49    ...    09:53    ...    Parel            09:57    ...    10:01     ...    10:06   10:09   10:13   10:17
+Currey Road      09:44    ...    09:48     ...    09:52    ...    09:56    ...    Currey Road      10:00    ...    10:04     ...    10:09   10:12   10:16   10:20
+Chinchpokli      09:46    ...    09:50     ...    09:54    ...    09:58    ...    Chinchpokli      10:02    ...    10:06     ...    10:11   10:14   10:18   10:22
+Byculla          09:48   09:53   09:52    09:57   09:56   10:00   10:00   10:04   Byculla          10:04   10:07   10:08    10:11   10:13   10:16   10:20   10:24
+Sandhurst Road   09:51    ...    09:55     ...    09:59    ...    10:03    ...    Sandhurst Road   10:07    ...    10:11     ...    10:16   10:19   10:23   10:27
+Masjid           09:54    ...    09:58     ...    10:02    ...    10:06    ...    Masjid           10:10    ...    10:14     ...    10:19   10:22   10:26   10:30
+Mumbai C S T     09:57   10:01   10:01    10:05   10:05   10:08   10:09   10:12   Mumbai C S T     10:13   10:16   10:17    10:20   10:22   10:25   10:29   10:33
+
+                                     72                                                                                73
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                      KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95604 97350 95910 97618 96202 97352 95408 95206                     Stations       97038 95722 95720 95314 97354 95118 97040 97620
+              TL 14 T 58 T 62 C 18 DBL 2 T 60 N 10 BL 6                                           K 46 DK 8 K 50 A 24 T 64 S 24 K 48 C 20
+                                                                                                       15 Car
+                                                           X                                             X                  X                 X
+Kasara                                                            08:16           Kasara
+Khardi                                                            08:32           Khardi
+Atgaon                                                            08:44           Atgaon
+Asangaon                                                          08:53           Asangaon
+Vasind                                                            08:59           Vasind
+Khadavli                                                          09:07           Khadavli
+Titwala          09:00                                            09:15           Titwala
+Ambivli          09:09                                            09:23           Ambivli
+Shahad           09:12                                            09:26           Shahad
+Khopoli                                                                           Khopoli
+Lowjee                                                                            Lowjee
+Dolavli                                                                           Dolavli
+Kelavli                                                                           Kelavli
+Palasdhari                                                                        Palasdhari                                
+Karjat                                                                            Karjat                                        09:07
+Bhivpuri Road                                                                     Bhivpuri Road                                 09:15
+Neral                                                                             Neral                                         09:22
+Shelu                                                                             Shelu                                         09:26
+Vangani                                                                           Vangani                                       09:30
+Badlapur                                          09:02                   09:25   Badlapur                                      09:39
+Ambernath                                         09:11                   09:34   Ambernath                        09:41        09:47
+Ulhas Nagar                                       09:15                   09:38   Ulhas Nagar                      09:47        09:51
+Vithalwadi                                        09:18                   09:41   Vithalwadi                       09:50        09:54
+Kalyan           09:18                            09:24           09:32   09:47   Kalyan         09:27 09:50 09:45 09:56        10:00  09:36
+Thakurli         09:24                            09:29           09:37    ...    Thakurli       09:33 ...   09:50 ...             ... 09:42
+Dombivli         09:27                            09:32           09:40   09:55   Dombivli       09:36 09:58 09:54 10:03        10:07  09:45
+Kopar            09:30                            09:35           09:43    ...    Kopar          09:39 ...   09:57 ...             ... 09:48
+Diva             09:35                            09:40           09:48    ...    Diva           09:44 ...   10:02 ...             ... 09:53
+Mumbra           09:39                            09:44           09:52    ...    Mumbra         09:48 ...           ...         ...   09:57
+Kalva            09:45                            09:50           09:58    ...    Kalva          09:54 ...      ...  ...         ...   10:03
+Thane            09:50   09:38   09:53            09:54   09:46   10:03   10:07   Thane          09:58 10:10 10:13 10:16  10:01 10:20  10:07
+Mulund             ...   09:44   09:59            09:58   09:52   10:08     ...   Mulund         10:02 ...   10:17 ...    10:07 10:24  10:11
+Nahur              ...   09:47     ...            10:01   09:55     ...     ...   Nahur          10:05 ...      ...   ... 10:10 ...    10:14
+Bhandup          10:00   09:50     ...            10:04   09:58     ...   10:16   Bhandup        10:08 ...      ...   ... 10:13 ...    10:17
+Kanjur Marg        ...   09:53     ...            10:07   10:01     ...     ...   Kanjur Marg    10:11 ...      ...   ... 10:16 ...    10:20
+Vikhroli           ...   09:56     ...            10:10   10:04     ...     ...   Vikhroli       10:14       10:25 ...    10:19 ...    10:23
+Ghatkopar        10:08   10:01   10:11            10:15   10:09   10:20   10:24   Ghatkopar      10:19 10:27 ...   10:33  10:24 10:37  10:28
+Vidyavihar         ...   10:04     ...            10:18   10:12     ...     ...   Vidyavihar     10:22 ...      ...   ... 10:27 ...    10:31
+Kurla            10:12   10:07   10:15    10:11   10:21   10:15   10:24   10:28   Kurla          10:25 10:31 10:34 10:37  10:30 10:41  10:34 10:38
+Sion               ...   10:11     ...    10:15   10:25   10:19     ...     ...   Sion           10:29 ...      ...   ... 10:34 ...    10:38 10:42
+Matunga            ...   10:15     ...    10:19   10:29   10:23     ...     ...   Matunga        10:33 ...      ...   ... 10:38 ...    10:42 10:46
+Dadar            10:20   10:18   10:23    10:22   10:32   10:26   10:33   10:36   Dadar          10:36 10:39 10:42 10:45  10:41 10:49  10:45 10:49
+Parel             ...    10:21    ...     10:25           10:29    ...     ...    Parel          10:39          ...  ...  10:44 ...    10:48 10:52
+Currey Road       ...    10:24    ...     10:28           10:32    ...     ...    Currey Road    10:42          ...  ...  10:47 ...    10:51 10:55
+Chinchpokli       ...    10:26    ...     10:30           10:34    ...     ...    Chinchpokli    10:44          ...  ...  10:49 ...    10:53 10:57
+Byculla          10:26   10:28   10:29    10:32           10:36   10:39   10:42   Byculla        10:46        10:48 10:51 10:51 10:55  10:55 10:59
+Sandhurst Road    ...    10:31    ...     10:35           10:39    ...     ...    Sandhurst Road 10:49          ...  ...  10:54 ...    10:58 11:02
+Masjid            ...    10:34    ...     10:38           10:42    ...     ...    Masjid         10:52          ...  ...  10:57 ...    11:01 11:05
+Mumbai C S T     10:34   10:37   10:38    10:41           10:46   10:48   10:51   Mumbai C S T   10:55        10:56 11:00 11:00 11:04  11:04 11:08
+
+                                     74                                                                         75
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                     KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97356 97212 97042 97358 95912 96506 95316 97044                     Stations      97046 95004 97360 97048 96204 97214 95606 96508
+               T 66 DDL 2 K 52 T 68 T 70 AN 10 A 26 K 54                                         K 56 KP 4 T 72 K 58 BL 8 DL 14 TL 16 AN 12
+
+                  X                        X                                                                        X
+Kasara                                                                            Kasara
+Khardi                                                                            Khardi
+Atgaon                                                                            Atgaon
+Asangaon                                                  09:22                   Asangaon                                                                 10:01
+Vasind                                                    09:30                   Vasind                                                                   10:09
+Khadavli                                                  09:38                   Khadavli                                                                 10:17
+Titwala                                                   09:46                   Titwala                                                            10:42 10:25
+Ambivli                                                   09:52                   Ambivli                                                            10:51 10:31
+Shahad                                                    09:56                   Shahad                                                             10:54 10:35
+Khopoli                                                                           Khopoli                  09:17
+Lowjee                                                                            Lowjee                   09:21
+Dolavli                                                                           Dolavli                  09:25
+Kelavli                                                                           Kelavli                  09:28
+Palasdhari                                                                        Palasdhari               09:35
+Karjat                                                                            Karjat                   09:43
+Bhivpuri Road                                                                     Bhivpuri Road            09:52
+Neral                                                                             Neral                    09:59
+Shelu                                                                             Shelu                    10:03
+Vangani                                                                           Vangani                  10:07
+Badlapur                                                                          Badlapur                 10:16                     10:10
+Ambernath                                                         10:15           Ambernath                10:24                     10:19
+Ulhas Nagar                                                       10:21           Ulhas Nagar              10:28                     10:25
+Vithalwadi                                                        10:24           Vithalwadi               10:32                     10:28
+Kalyan                           09:53                    10:02   10:30   10:10   Kalyan           10:15   10:40             10:27   10:34           11:00   10:41
+Thakurli                         09:59                    10:07    ...    10:16   Thakurli         10:21    ...              10:33   10:38            ...    10:46
+Dombivli                 09:57   10:02                    10:10   10:37   10:19   Dombivli         10:24   10:47             10:36   10:41   10:44   11:08   10:49
+Kopar                    10:01   10:05                    10:13    ...    10:22   Kopar            10:27    ...              10:39   10:44   10:48    ...    10:52
+Diva                     10:06   10:10                    10:18    ...    10:27   Diva             10:32    ...              10:44   10:49   10:53    ...    10:57
+Mumbra                   10:10   10:14                    10:22    ...    10:31   Mumbra           10:36    ...              10:48   10:53   10:57    ...    11:01
+Kalva                    10:16   10:20                    10:28    ...    10:37   Kalva            10:42    ...              10:54   10:59   11:03    ...    11:07
+Thane            10:13   10:20   10:24    10:27   10:46   10:32   10:50   10:41   Thane            10:46   11:01   10:49     10:58   11:03   11:07   11:21   11:11
+Mulund           10:19   10:24   10:28    10:33   10:53   10:37     ...   10:45   Mulund           10:50   11:05   10:55     11:02   11:07   11:11     ...   11:15
+Nahur            10:22   10:27   10:31    10:36     ...   10:40     ...   10:48   Nahur            10:53     ...   10:58     11:05   11:10   11:14     ...   11:18
+Bhandup          10:25   10:30   10:34    10:39     ...   10:43     ...   10:51   Bhandup          10:56     ...   11:01     11:08   11:13   11:17     ...   11:21
+Kanjur Marg      10:28   10:33   10:37    10:42     ...   10:46     ...   10:54   Kanjur Marg      10:59     ...   11:04     11:11   11:16   11:20     ...   11:24
+Vikhroli         10:31   10:36   10:40    10:45     ...   10:49     ...   10:57   Vikhroli         11:02     ...   11:07     11:14   11:19   11:23     ...   11:27
+Ghatkopar        10:36   10:41   10:45    10:50   11:03   10:54   11:06   11:02   Ghatkopar        11:07   11:17   11:12     11:19   11:24   11:28   11:37   11:32
+Vidyavihar       10:39   10:44   10:48    10:53     ...   10:57     ...   11:05   Vidyavihar       11:10     ...   11:15     11:22   11:27   11:31     ...   11:35
+Kurla            10:42   10:47   10:51    10:56   11:07   11:00   11:10   11:08   Kurla            11:13   11:21   11:18     11:25   11:30   11:34   11:41   11:38
+Sion             10:46   10:51   10:55    11:00     ...   11:04     ...   11:12   Sion             11:17     ...   11:22     11:29   11:34   11:38     ...   11:42
+Matunga          10:50   10:55   10:59    11:04     ...   11:08     ...   11:16   Matunga          11:21     ...   11:26     11:33   11:38   11:42     ...   11:46
+Dadar            10:53   10:58   11:02    11:07   11:15   11:11   11:18   11:19   Dadar            11:24   11:29   11:29     11:36   11:41   11:45   11:49   11:49
+Parel            10:56           11:05    11:10    ...    11:14    ...    11:22   Parel            11:27    ...    11:32     11:39   11:44   11:48    ...    11:52
+Currey Road      10:59           11:08    11:13    ...    11:17    ...    11:25   Currey Road      11:30    ...    11:35     11:42   11:47   11:51    ...    11:55
+Chinchpokli      11:01           11:10    11:15    ...    11:19    ...    11:27   Chinchpokli      11:32    ...    11:37     11:44   11:49   11:53    ...    11:57
+Byculla          11:03           11:12    11:17   11:21   11:21   11:24   11:29   Byculla          11:34   11:35   11:39     11:46   11:51   11:55   11:55   11:59
+Sandhurst Road   11:06           11:15    11:20    ...    11:24    ...    11:32   Sandhurst Road   11:37    ...    11:42     11:49   11:54   11:58    ...    12:02
+Masjid           11:09           11:18    11:23    ...    11:27    ...    11:35   Masjid           11:40    ...    11:45     11:52   11:57   12:01    ...    12:05
+Mumbai C S T     11:12           11:21    11:26   11:30   11:30   11:34   11:38   Mumbai C S T     11:43   11:45   11:48     11:55   12:00   12:04   12:05   12:08
+
+                                     76                                                                                 77
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                      KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97362 97050 97216 96312 95410 96206 97052 97364                     Stations       96614 96208 97054 95724 96006 95120 97056 96314
+               T 74 K 60 DL 16 A 28 N 12 BL 10 K 62 T 76                                         TL 18 BL 12 K 64 K 66 SKP 6 S 26 DK 10 A 30
+                                                                                                                   15 Car
+                                                                           X                                   X     X
+Kasara                                            10:10                           Kasara
+Khardi                                            10:26                           Khardi
+Atgaon                                            10:38                           Atgaon
+Asangaon                                          10:47                           Asangaon
+Vasind                                            10:53                           Vasind
+Khadavli                                          11:01                           Khadavli
+Titwala                                           11:09                           Titwala        11:00
+Ambivli                                           11:17                           Ambivli        11:09
+Shahad                                            11:20                           Shahad         11:12
+Khopoli                                                                           Khopoli                                 10:20
+Lowjee                                                                            Lowjee                                  10:24
+Dolavli                                                                           Dolavli                                 10:28
+Kelavli                                                                           Kelavli                                 10:31
+Palasdhari                                                                        Palasdhari                              10:38
+Karjat                                                                            Karjat                                  10:45 11:01
+Bhivpuri Road                                                                     Bhivpuri Road                                 11:09
+Neral                                                                             Neral                                         11:16
+Shelu                                                                             Shelu                                         11:20
+Vangani                                                                           Vangani                                       11:24
+Badlapur                                                  10:40                   Badlapur             11:00                    11:33
+Ambernath                                 10:41           10:49                   Ambernath            11:09                    11:41       11:17
+Ulhas Nagar                               10:47           10:53                   Ulhas Nagar          11:13                    11:45       11:23
+Vithalwadi                                10:50           10:56                   Vithalwadi           11:16                    11:48       11:26
+Kalyan                   10:49            10:56   11:26   11:03   11:08           Kalyan         11:18 11:22 11:25 11:48        11:54 11:29 11:32
+Thakurli                 10:55            11:02    ...    11:10   11:14           Thakurli       11:23 11:27 11:31 ...           ...  11:35 11:38
+Dombivli                 10:58   11:01    11:05   11:34   11:13   11:17           Dombivli       11:26 11:30 11:34 11:55        12:01 11:38 11:41
+Kopar                    11:01   11:05    11:08    ...    11:16   11:20           Kopar          11:29 11:33 11:37 ...           ...  11:41 11:44
+Diva                     11:06   11:10    11:13    ...    11:21   11:25           Diva           11:34 11:38 11:42 ...           ...  11:46 11:49
+Mumbra                   11:10   11:14    11:17    ...    11:25   11:29           Mumbra         11:38 11:42 11:46 ...           ...  11:50 11:53
+Kalva                    11:16   11:20    11:23    ...    11:31   11:35           Kalva          11:44 11:48 11:52 ...           ...  11:56 11:59
+Thane            11:14   11:20   11:24    11:28   11:47   11:35   11:39   11:42   Thane          11:48 11:52 11:56 12:08        12:14 12:00 12:03
+Mulund           11:20   11:24   11:28    11:32   11:51   11:40   11:44   11:48   Mulund         11:52 11:56 12:00 ...            ... 12:04 12:08
+Nahur            11:23   11:27   11:31    11:35     ...   11:43   11:47   11:51   Nahur          11:55 11:59 12:03 ...            ... 12:07 12:11
+Bhandup          11:26   11:30   11:34    11:38     ...   11:46   11:50   11:54   Bhandup        11:58 12:02 12:06 ...            ... 12:10 12:14
+Kanjur Marg      11:29   11:33   11:37    11:41     ...   11:49   11:53   11:57   Kanjur Marg    12:01 12:05 12:09 ...            ... 12:13 12:17
+Vikhroli         11:32   11:36   11:40    11:44     ...   11:52   11:56   12:00   Vikhroli       12:04 12:08 12:12 ...            ... 12:16 12:20
+Ghatkopar        11:37   11:41   11:45    11:49   12:03   11:57   12:01   12:05   Ghatkopar      12:09 12:13 12:17 12:23        12:29 12:21 12:25
+Vidyavihar       11:40   11:44   11:48    11:52     ...   12:00   12:04   12:08   Vidyavihar     12:12 12:16 12:20 ...            ... 12:24 12:28
+Kurla            11:43   11:47   11:51    11:55   12:07   12:03   12:07   12:11   Kurla          12:15 12:19 12:23 12:28        12:33 12:27 12:31
+Sion             11:47   11:51   11:55    11:59     ...   12:07   12:11   12:15   Sion           12:19 12:23 12:27 ...            ... 12:31 12:35
+Matunga          11:51   11:55   11:59    12:03     ...   12:11   12:15   12:19   Matunga        12:23 12:27 12:31 ...            ... 12:35 12:39
+Dadar            11:54   11:58   12:02    12:06   12:15   12:14   12:18   12:22   Dadar          12:26 12:30 12:34 12:36        12:41 12:38 12:42
+Parel            11:57   12:01   12:05    12:09    ...    12:17   12:21   12:25   Parel          12:29 12:33 12:37 ...           ...        12:45
+Currey Road      12:00   12:04   12:08    12:12    ...    12:20   12:24   12:28   Currey Road    12:32 12:36 12:40 ...           ...        12:48
+Chinchpokli      12:02   12:06   12:10    12:14    ...    12:22   12:26   12:30   Chinchpokli    12:34 12:38 12:42 ...           ...        12:50
+Byculla          12:04   12:08   12:12    12:16   12:21   12:24   12:28   12:32   Byculla        12:36 12:40 12:44 12:42        12:47       12:52
+Sandhurst Road   12:07   12:11   12:15    12:19    ...    12:27   12:31   12:35   Sandhurst Road 12:39 12:43 12:47 ...           ...        12:55
+Masjid           12:10   12:14   12:18    12:22    ...    12:30   12:34   12:38   Masjid         12:42 12:46 12:50 ...           ...        12:58
+Mumbai C S T     12:13   12:17   12:21    12:25   12:30   12:33   12:37   12:41   Mumbai C S T   12:45 12:49 12:53 12:52        12:56       13:01
+
+                                     78                                                                         79
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                     KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97366 96210 96616 97218 96316 96510 97058 95412                     Stations      97368 96212 97060 96618 96318 97370 97062 96214
+               T 78 BL 14 TL 20 DL 18 A 32 AN 14 K 68 N 14                                       T 80 BL 16 K 70 TL 22 A 34 T 82 TK 2 BL 18
+
+                                                                                                    X
+Kasara                                                                    11:15   Kasara
+Khardi                                                                    11:31   Khardi
+Atgaon                                                                    11:43   Atgaon
+Asangaon                                                  11:16           11:52   Asangaon
+Vasind                                                    11:24           11:58   Vasind
+Khadavli                                                  11:32           12:06   Khadavli
+Titwala                          11:25                    11:40           12:14   Titwala                                   11:57
+Ambivli                          11:34                    11:46           12:22   Ambivli                                   12:06
+Shahad                           11:37                    11:50           12:25   Shahad                                    12:09
+Khopoli                                                                           Khopoli
+Lowjee                                                                            Lowjee
+Dolavli                                                                           Dolavli
+Kelavli                                                                           Kelavli
+Palasdhari                                                                        Palasdhari
+Karjat                                                                            Karjat
+Bhivpuri Road                                                                     Bhivpuri Road
+Neral                                                                             Neral
+Shelu                                                                             Shelu
+Vangani                                                                           Vangani
+Badlapur                 11:17                                                    Badlapur                 11:46                                          12:03
+Ambernath                11:26                    11:35                           Ambernath                11:55                    12:04                 12:12
+Ulhas Nagar              11:30                    11:41                           Ulhas Nagar              11:59                    12:10                 12:16
+Vithalwadi               11:33                    11:44                           Vithalwadi               12:02                    12:13                 12:19
+Kalyan                   11:39   11:43            11:50   11:56   11:59   12:31   Kalyan                   12:09   12:12    12:15   12:19         12:22   12:26
+Thakurli                 11:45   11:49            11:56   12:01   12:05    ...    Thakurli                 12:14   12:18    12:21   12:25         12:29   12:33
+Dombivli                 11:48   11:52    11:55   11:59   12:04   12:08   12:38   Dombivli                 12:17   12:21    12:24   12:28         12:32   12:36
+Kopar                    11:51   11:55    11:59   12:03   12:08   12:12    ...    Kopar                    12:21   12:25    12:28   12:31         12:35   12:39
+Diva                     11:56   12:00    12:04   12:08   12:13   12:17    ...    Diva                     12:26   12:30    12:33   12:36         12:40   12:44
+Mumbra                   12:00   12:04    12:08   12:12   12:17   12:21    ...    Mumbra                   12:30   12:34    12:37   12:40         12:44   12:48
+Kalva                    12:06   12:10    12:14   12:18   12:23   12:27    ...    Kalva                    12:36   12:40    12:43   12:46         12:50   12:54
+Thane            12:06   12:11   12:15    12:19   12:23   12:27   12:31   12:51   Thane            12:34   12:40   12:44    12:47   12:50   12:53 12:55   12:58
+Mulund           12:12   12:16   12:20    12:24   12:28   12:32   12:36   12:55   Mulund           12:40   12:44   12:48    12:51   12:55   12:59         13:03
+Nahur            12:15   12:19   12:23    12:27   12:31   12:35   12:39     ...   Nahur            12:43   12:47   12:51    12:54   12:58   13:02         13:06
+Bhandup          12:18   12:22   12:26    12:30   12:34   12:38   12:42     ...   Bhandup          12:46   12:50   12:54    12:57   13:01   13:05         13:09
+Kanjur Marg      12:21   12:25   12:29    12:33   12:37   12:41   12:45     ...   Kanjur Marg      12:49   12:53   12:57    13:00   13:04   13:08         13:12
+Vikhroli         12:24   12:28   12:32    12:36   12:40   12:44   12:48     ...   Vikhroli         12:52   12:56   13:00    13:03   13:07   13:11         13:15
+Ghatkopar        12:29   12:33   12:37    12:41   12:45   12:49   12:53   13:05   Ghatkopar        12:57   13:01   13:05    13:08   13:12   13:16         13:20
+Vidyavihar       12:32   12:36   12:40    12:44   12:48   12:52   12:56     ...   Vidyavihar       13:00   13:04   13:08    13:11   13:15   13:19         13:23
+Kurla            12:35   12:39   12:43    12:47   12:51   12:55   12:59   13:09   Kurla            13:03   13:07   13:11    13:14   13:18   13:22         13:26
+Sion             12:39   12:43   12:47    12:51   12:55   12:59   13:03     ...   Sion             13:07   13:11   13:15    13:18   13:22   13:26         13:30
+Matunga          12:43   12:47   12:51    12:55   12:59   13:03   13:07     ...   Matunga          13:11   13:15   13:19    13:22   13:26   13:30         13:34
+Dadar            12:46   12:50   12:54    12:58   13:02   13:06   13:10   13:17   Dadar            13:14   13:18   13:22    13:25   13:29   13:33         13:37
+Parel            12:49   12:53   12:57    13:01   13:05   13:09   13:13    ...    Parel            13:17   13:21   13:25    13:28   13:32   13:36         13:40
+Currey Road      12:52   12:56   13:00    13:04   13:08   13:12   13:16    ...    Currey Road      13:20   13:24   13:28    13:31   13:35   13:39         13:43
+Chinchpokli      12:54   12:58   13:02    13:06   13:10   13:14   13:18    ...    Chinchpokli      13:22   13:26   13:30    13:33   13:37   13:41         13:45
+Byculla          12:56   13:00   13:04    13:08   13:12   13:16   13:20   13:23   Byculla          13:24   13:28   13:32    13:35   13:39   13:43         13:47
+Sandhurst Road   12:59   13:03   13:07    13:11   13:15   13:19   13:23    ...    Sandhurst Road   13:27   13:31   13:35    13:38   13:42   13:46         13:50
+Masjid           13:02   13:06   13:10    13:14   13:18   13:22   13:26    ...    Masjid           13:30   13:34   13:38    13:41   13:45   13:49         13:53
+Mumbai C S T     13:05   13:09   13:13    13:17   13:21   13:25   13:29   13:31   Mumbai C S T     13:33   13:37   13:41    13:45   13:49   13:53         13:57
+
+                                     80                                                                                81
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97220 96008 95122 96320 96620 97372 96216 97064                   Stations      96622 97374 97066 96624 95414 96322 95208 97068
+              DL 20 SKP 8 S 28 A 36 TL 24 T 84 BL 20 K 72                                     TL 26 T 86 K 74 TL 28 N 16 A 38 BL 22 K 76
+
+
+Kasara                                                                          Kasara                                          12:20
+Khardi                                                                          Khardi                                          12:36
+Atgaon                                                                          Atgaon                                          12:48
+Asangaon                                                                        Asangaon                                        12:57
+Vasind                                                                          Vasind                                          13:03
+Khadavli                                                                        Khadavli                                        13:11
+Titwala                                         12:24                           Titwala          12:39                    12:54 13:19
+Ambivli                                         12:33                           Ambivli          12:48                    13:03 13:27
+Shahad                                          12:36                           Shahad           12:51                    13:06 13:30
+Khopoli                  11:30                                                  Khopoli
+Lowjee                   11:34                                                  Lowjee
+Dolavli                  11:38                                                  Dolavli
+Kelavli                  11:41                                                  Kelavli
+Palasdhari               11:48                                                  Palasdhari
+Karjat                   11:55 12:08                                            Karjat
+Bhivpuri Road                  12:16                                            Bhivpuri Road
+Neral                          12:23                                            Neral
+Shelu                          12:27                                            Shelu
+Vangani                        12:31                                            Vangani
+Badlapur                       12:40                            12:26           Badlapur                                                          13:26
+Ambernath                      12:48    12:22                   12:35           Ambernath                                                 13:05   13:35
+Ulhas Nagar                    12:52    12:28                   12:39           Ulhas Nagar                                               13:11   13:39
+Vithalwadi                     12:55    12:31                   12:42           Vithalwadi                                                13:14   13:42
+Kalyan                         13:01    12:37   12:42           12:48   12:51   Kalyan           12:57           13:04    13:12   13:36   13:20   13:48 13:24
+Thakurli                        ...     12:43   12:47           12:54   12:58   Thakurli         13:02           13:10    13:17   13:41   13:26         13:30
+Dombivli         12:39         13:08    12:46   12:50           12:57   13:01   Dombivli         13:05           13:13    13:20   13:44   13:29   13:55 13:33
+Kopar            12:43          ...     12:49   12:53           13:00   13:04   Kopar            13:08           13:16    13:23   13:47   13:32    ... 13:36
+Diva             12:48          ...     12:54   12:58           13:05   13:09   Diva             13:13           13:21    13:28   13:52   13:37    ... 13:41
+Mumbra           12:52          ...     12:58   13:02           13:09   13:13   Mumbra           13:17           13:25    13:32   13:56   13:41    ... 13:45
+Kalva            12:58          ...     13:04   13:08           13:15   13:19   Kalva            13:23           13:31    13:38   14:02   13:47    ... 13:51
+Thane            13:02         13:21    13:08   13:12   13:15   13:19   13:24   Thane            13:28   13:31   13:36    13:42   14:06   13:51   14:09 13:55
+Mulund           13:07           ...    13:12   13:16   13:21   13:24   13:28   Mulund           13:32   13:37   13:41    13:46     ...   13:55   14:13 13:59
+Nahur            13:10           ...    13:15   13:19   13:24   13:27   13:31   Nahur            13:35   13:40   13:44    13:49     ...   13:58     ... 14:02
+Bhandup          13:13           ...    13:18   13:22   13:27   13:30   13:34   Bhandup          13:38   13:43   13:47    13:52     ...   14:01     ... 14:05
+Kanjur Marg      13:16           ...    13:21   13:25   13:30   13:33   13:37   Kanjur Marg      13:41   13:46   13:50    13:55     ...   14:04     ... 14:08
+Vikhroli         13:19           ...    13:24   13:28   13:33   13:36   13:40   Vikhroli         13:44   13:49   13:53    13:58     ...   14:07     ... 14:11
+Ghatkopar        13:24         13:35    13:29   13:33   13:38   13:41   13:45   Ghatkopar        13:49   13:54   13:58    14:03   14:20   14:12   14:24 14:16
+Vidyavihar       13:27           ...    13:32   13:36   13:41   13:44   13:48   Vidyavihar       13:52   13:57   14:01    14:06     ...   14:15     ... 14:19
+Kurla            13:30         13:39    13:35   13:39   13:44   13:47   13:51   Kurla            13:55   14:00   14:04    14:09   14:24   14:18   14:28 14:22
+Sion             13:34           ...    13:39   13:43   13:48   13:51   13:55   Sion             13:59   14:04   14:08    14:13     ...   14:22     ... 14:26
+Matunga          13:38           ...    13:43   13:47   13:52   13:55   13:59   Matunga          14:03   14:08   14:12    14:17     ...   14:26     ... 14:30
+Dadar            13:41         13:47    13:46   13:50   13:55   13:58   14:02   Dadar            14:06   14:11   14:15    14:20   14:32   14:29   14:36 14:33
+Parel            13:44          ...     13:49   13:53   13:58   14:01   14:05   Parel            14:09   14:14   14:18    14:23    ...    14:32    ... 14:36
+Currey Road      13:47          ...     13:52   13:56   14:01   14:04   14:08   Currey Road      14:12   14:17   14:21    14:26    ...    14:35    ... 14:39
+Chinchpokli      13:49          ...     13:54   13:58   14:03   14:06   14:10   Chinchpokli      14:14   14:19   14:23    14:28    ...    14:37    ... 14:41
+Byculla          13:51         13:53    13:56   14:00   14:05   14:08   14:12   Byculla          14:16   14:21   14:25    14:30   14:38   14:39   14:42 14:43
+Sandhurst Road   13:54          ...     13:59   14:03   14:08   14:11   14:15   Sandhurst Road   14:19   14:24   14:28    14:33    ...    14:42    ... 14:46
+Masjid           13:57          ...     14:02   14:06   14:11   14:14   14:18   Masjid           14:22   14:27   14:31    14:36    ...    14:45    ... 14:49
+Mumbai C S T     14:01         14:02    14:05   14:09   14:14   14:17   14:21   Mumbai C S T     14:25   14:30   14:34    14:39   14:46   14:48   14:50 14:52
+
+                                   82                                                                                83
+        KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations       97222 97376 96324 95726 97070 96010 95124 96626   Stations      97378 97072 97224 95210 97074 96628 97380 96326
+               DL 22 T 88 A 40 K 84 K 78 SKP 10 S 30 TL 30                      T 90 K 80 DDL 4 BL 24 K 82 TL 32 T 92 A 42
+                                 15 Car
+                 X     X           X                                                                                                X
+Kasara                                                             Kasara
+Khardi                                                             Khardi
+Atgaon                                                             Atgaon
+Asangaon                                                           Asangaon
+Vasind                                                             Vasind
+Khadavli                                                           Khadavli
+Titwala                                                  13:33     Titwala                                                 13:54
+Ambivli                                                  13:42     Ambivli                                                 14:03
+Shahad                                                   13:45     Shahad                                                  14:06
+Khopoli                                      12:40                 Khopoli
+Lowjee                                       12:44                 Lowjee
+Dolavli                                      12:48                 Dolavli
+Kelavli                                      12:51                 Kelavli
+Palasdhari                                   12:58                 Palasdhari
+Karjat                                       13:05 13:15           Karjat
+Bhivpuri Road                                      13:25           Bhivpuri Road
+Neral                                              13:32           Neral
+Shelu                                              13:36           Shelu
+Vangani                                            13:40           Vangani
+Badlapur                                           13:49           Badlapur                                  14:11
+Ambernath                  13:26                   13:57           Ambernath                                 14:20                         14:03
+Ulhas Nagar                13:32                   14:01           Ulhas Nagar                               14:24                         14:09
+Vithalwadi                 13:35                   14:05           Vithalwadi                                14:27                         14:12
+Kalyan                     13:41 14:09 13:46       14:13   13:51   Kalyan                   13:58            14:33 14:06   14:12           14:18
+Thakurli                   13:46 ...   13:51               13:56   Thakurli                 14:04                  14:12   14:17           14:23
+Dombivli       13:36       13:49 14:16 13:54       14:20   13:59   Dombivli                 14:07   14:10    14:40 14:15   14:20           14:26
+Kopar          13:40       13:52 ...   13:57           ... 14:02   Kopar                    14:10   14:14     ... 14:18    14:23           14:29
+Diva           13:45       13:57 ...   14:02           ... 14:07   Diva                     14:15   14:19     ... 14:23    14:28           14:34
+Mumbra         13:49       14:01 ...   14:06           ... 14:11   Mumbra                   14:19   14:23     ... 14:27    14:32           14:38
+Kalva          13:55       14:07 ...   14:12           ... 14:17   Kalva                    14:25   14:29     ... 14:33    14:38           14:44
+Thane          13:59 14:02 14:11 14:29 14:16       14:32   14:21   Thane            14:24   14:29   14:33    14:53 14:37   14:42   14:45   14:49
+Mulund         14:03 14:08 14:15 ...   14:20           ... 14:25   Mulund           14:30   14:34   14:38    14:57 14:42   14:46   14:51   14:54
+Nahur          14:06 14:11 14:18 ...   14:23           ... 14:28   Nahur            14:33   14:37   14:41      ... 14:45   14:49   14:54   14:57
+Bhandup        14:09 14:14 14:21 ...   14:26           ... 14:31   Bhandup          14:36   14:40   14:44      ... 14:48   14:52   14:57   15:00
+Kanjur Marg    14:12 14:17 14:24 ...   14:29           ... 14:34   Kanjur Marg      14:39   14:43   14:47      ... 14:51   14:55   15:00   15:03
+Vikhroli       14:15 14:20 14:27 ...   14:32           ... 14:37   Vikhroli         14:42   14:46   14:50      ... 14:54   14:58   15:03   15:06
+Ghatkopar      14:20 14:25 14:32 14:43 14:37       14:46   14:42   Ghatkopar        14:47   14:51   14:55    15:07 14:59   15:03   15:08   15:11
+Vidyavihar     14:23 14:28 14:35 ..  . 14:40           ... 14:45   Vidyavihar       14:50   14:54   14:58      ... 15:02   15:06   15:11   15:14
+Kurla          14:26 14:31 14:38 14:47 14:43       14:50   14:48   Kurla            14:53   14:57   15:01    15:11 15:05   15:09   15:14   15:17
+Sion           14:30 14:35 14:42 ...   14:47           ... 14:52   Sion             14:57   15:01   15:05      ... 15:09   15:13   15:18   15:21
+Matunga        14:34 14:39 14:46 ...   14:51           ... 14:56   Matunga          15:01   15:05   15:09      ... 15:13   15:17   15:22   15:25
+Dadar          14:37 14:42 14:49 14:55 14:54       14:58   14:59   Dadar            15:04   15:08   15:12    15:19 15:16   15:20   15:25   15:28
+Parel          14:40 14:45 14:52 ...   14:57           ... 15:02   Parel            15:07   15:11             ... 15:19    15:23   15:28   15:31
+Currey Road    14:43 14:48 14:55 ...   15:00           ... 15:05   Currey Road      15:10   15:14             ... 15:22    15:26   15:31   15:34
+Chinchpokli    14:45 14:50 14:57 ...   15:02           ... 15:07   Chinchpokli      15:12   15:16             ... 15:24    15:28   15:33   15:36
+Byculla        14:47 14:52 14:59 15:01 15:04       15:04   15:09   Byculla          15:14   15:18            15:25 15:26   15:30   15:35   15:38
+Sandhurst Road 14:50 14:55 15:02 ...   15:07           ... 15:12   Sandhurst Road   15:17   15:21             ... 15:29    15:33   15:38   15:41
+Masjid         14:53 14:58 15:05 ...   15:10           ... 15:15   Masjid           15:20   15:24             ... 15:32    15:36   15:41   15:44
+Mumbai C S T   14:56 15:01 15:09 15:10 15:13       15:14   15:18   Mumbai C S T     15:23   15:27            15:34 15:35   15:39   15:44   15:47
+
+                              84                                                                      85
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95416 97382 95126 97076 97384 96328 95318 97078                Stations      95006 97622 97386 97080 97624 95320 97388 96630
+               N 18 T 94   S 32 K 86 T 96 A 44 A 46 K 88                                    KP 6 C 22 DT 2 K 90 C 24 A 48       T 98 TL 34
+
+                                                                       X                               X       X                 X
+Kasara           13:32                                                       Kasara
+Khardi           13:48                                                       Khardi
+Atgaon           14:00                                                       Atgaon
+Asangaon         14:09                                                       Asangaon
+Vasind           14:15                                                       Vasind
+Khadavli         14:23                                                       Khadavli
+Titwala          14:31                                                       Titwala                                                                    14:53
+Ambivli          14:39                                                       Ambivli                                                                    15:02
+Shahad           14:42                                                       Shahad                                                                     15:05
+Khopoli                                                                      Khopoli          13:55
+Lowjee                                                                       Lowjee           13:59
+Dolavli                                                                      Dolavli          14:03
+Kelavli                                                                      Kelavli          14:06
+Palasdhari                                                                   Palasdhari       14:13
+Karjat                           14:00                                       Karjat           14:22
+Bhivpuri Road                    14:09                                       Bhivpuri Road    14:31
+Neral                            14:16                                       Neral            14:38
+Shelu                            14:20                                       Shelu            14:42
+Vangani                          14:24                                       Vangani          14:46
+Badlapur                         14:33                                       Badlapur         14:55
+Ambernath                        14:41                 14:24   14:50         Ambernath        15:03                                     15:18
+Ulhas Nagar                      14:45                 14:30   14:56         Ulhas Nagar      15:07                                     15:24
+Vithalwadi                       14:48                 14:33   14:59         Vithalwadi       15:10                                     15:27
+Kalyan           14:48           14:54 14:26           14:39   15:05 14:43   Kalyan           15:16                     14:58           15:33           15:11
+Thakurli                               14:32           14:45         14:49   Thakurli                                   15:04                           15:16
+Dombivli         14:55           15:01 14:35           14:48   15:12 14:52   Dombivli         15:23                     15:07           15:40           15:19
+Kopar             ...             ... 14:38            14:51    ... 14:55    Kopar             ...                      15:10           ...             15:22
+Diva              ...             ... 14:43            14:56    ... 15:00    Diva              ...                      15:15           ...             15:27
+Mumbra            ...             ... 14:47            15:00    ... 15:04    Mumbra            ...                      15:19           ...             15:31
+Kalva             ...             ... 14:53            15:06    ... 15:10    Kalva             ...                      15:25           ...             15:37
+Thane            15:08   14:53   15:14 14:58   15:04   15:10   15:25 15:14   Thane            15:36           15:23     15:29           15:53   15:35   15:41
+Mulund             ...   14:59     ... 15:03   15:10   15:14   15:29 15:18   Mulund             ...           15:29     15:33           ...     15:41   15:45
+Nahur              ...   15:02     ... 15:06   15:13   15:17     ... 15:21   Nahur              ...           15:32     15:36           ...     15:44   15:48
+Bhandup            ...   15:05     ... 15:09   15:16   15:20     ... 15:24   Bhandup            ...           15:35     15:39           ...     15:47   15:51
+Kanjur Marg        ...   15:08     ... 15:12   15:19   15:23     ... 15:27   Kanjur Marg        ...           15:38     15:42           ...     15:50   15:54
+Vikhroli           ...   15:11     ... 15:15   15:22   15:26     ... 15:30   Vikhroli           ...           15:41     15:45           ...     15:53   15:57
+Ghatkopar        15:22   15:16   15:28 15:20   15:27   15:31   15:40 15:35   Ghatkopar        15:50           15:46     15:50           16:07   15:58   16:02
+Vidyavihar         ...   15:19     ... 15:23   15:30   15:34     ... 15:38   Vidyavihar         ...           15:49     15:53           ...     16:01   16:05
+Kurla            15:26   15:22   15:32 15:26   15:33   15:37   15:44 15:41   Kurla            15:54   15:45   15:52     15:56   16:00   16:11   16:04   16:08
+Sion               ...   15:26     ... 15:30   15:37   15:41     ... 15:45   Sion               ...   15:49   15:56     16:00   16:04   ...     16:08   16:12
+Matunga            ...   15:30     ... 15:34   15:41   15:45     ... 15:49   Matunga            ...   15:53   16:00     16:04   16:08   ...     16:12   16:16
+Dadar            15:34   15:33   15:40 15:37   15:44   15:48   15:52 15:52   Dadar            16:02   15:56   16:03     16:07   16:11   16:19   16:15   16:19
+Parel             ...    15:36    ... 15:40    15:47   15:51    ... 15:55    Parel             ...    15:59             16:10   16:14   ...     16:18   16:22
+Currey Road       ...    15:39    ... 15:43    15:50   15:54    ... 15:58    Currey Road       ...    16:02             16:13   16:17   ...     16:21   16:25
+Chinchpokli       ...    15:41    ... 15:45    15:52   15:56    ... 16:00    Chinchpokli       ...    16:04             16:15   16:19   ...     16:23   16:27
+Byculla          15:40   15:43   15:46 15:47   15:54   15:58   15:58 16:02   Byculla          16:08   16:06             16:17   16:21   16:25   16:25   16:29
+Sandhurst Road    ...    15:46    ... 15:50    15:57   16:01    ... 16:05    Sandhurst Road    ...    16:09             16:20   16:24   ...     16:28   16:32
+Masjid            ...    15:49    ... 15:53    16:00   16:04    ... 16:08    Masjid            ...    16:12             16:23   16:27   ...     16:31   16:35
+Mumbai C S T     15:48   15:52   15:54 15:57   16:03   16:07   16:07 16:11   Mumbai C S T     16:17   16:15             16:27   16:30   16:34   16:34   16:38
+
+                                    86                                                                             87
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97082 95212 97390 97084 97226 95506 96632 97626                Stations      95418 97392 95214 97086 97394 97396 97088 95322
+               K 92 BL 26 T 100 TK 4 DL 24 AN 16 TL 36 C 26                                 N 20 T 102 BL 28 K 94 T 104 T 106 DK 12 A 50
+
+                                X                                     X                                                      X       X
+Kasara                                                                       Kasara           14:48
+Khardi                                                                       Khardi           15:04
+Atgaon                                                                       Atgaon           15:16
+Asangaon                                             15:08                   Asangaon         15:25
+Vasind                                               15:16                   Vasind           15:31
+Khadavli                                             15:24                   Khadavli         15:39
+Titwala                                              15:32 15:15             Titwala          15:47
+Ambivli                                              15:38 15:24             Ambivli          15:55
+Shahad                                               15:42 15:27             Shahad           15:58
+Khopoli                                                                      Khopoli
+Lowjee                                                                       Lowjee
+Dolavli                                                                      Dolavli
+Kelavli                                                                      Kelavli
+Palasdhari                                                                   Palasdhari
+Karjat                                                                       Karjat
+Bhivpuri Road                                                                Bhivpuri Road
+Neral                                                                        Neral
+Shelu                                                                        Shelu
+Vangani                                                                      Vangani
+Badlapur               15:22                                                 Badlapur                         15:48
+Ambernath              15:31                                                 Ambernath                        15:57                               16:04
+Ulhas Nagar            15:35                                                 Ulhas Nagar                      16:01                               16:10
+Vithalwadi             15:38                                                 Vithalwadi                       16:04                               16:13
+Kalyan           15:14 15:44         15:21           15:48   15:33           Kalyan           16:04           16:10 15:41                   15:54 16:18
+Thakurli         15:20               15:27           15:53   15:38           Thakurli                               15:47                   16:00
+Dombivli         15:23 15:51         15:30   15:34   15:56   15:41           Dombivli         16:11           16:16 15:50                   16:03 16:25
+Kopar            15:26 ...           15:33   15:38   15:59   15:44           Kopar             ...             ... 15:53                    16:06 ...
+Diva             15:31 ...           15:38   15:43   16:04   15:49           Diva              ...             ... 15:58                    16:11 ...
+Mumbra           15:35 ...           15:42   15:47   16:08   15:53           Mumbra            ...             ... 16:02                    16:15 ...
+Kalva            15:41 ...           15:48   15:53   16:14   15:59           Kalva             ...             ... 16:08                    16:21 ...
+Thane            15:45 16:04   15:49 15:52   15:58   16:18   16:03           Thane            16:23   16:09   16:28 16:12   16:15   16:22   16:26 16:37
+Mulund           15:49 16:08   15:53         16:02     ...   16:07           Mulund             ...   16:14   16:32 16:18   16:22   16:26   16:30 ...
+Nahur            15:52 ...     15:56         16:05     ...   16:10           Nahur              ...   16:17     ... 16:21   16:25   16:29   16:33 ...
+Bhandup          15:55 ...     15:59         16:08     ...   16:13           Bhandup          16:31   16:20     ... 16:24   16:28   16:32   16:36 16:45
+Kanjur Marg      15:58 ...     16:02         16:11     ...   16:16           Kanjur Marg        ...   16:23     ... 16:27   16:31   16:35   16:39 ...
+Vikhroli         16:01 ...     16:05         16:14     ...   16:19           Vikhroli           ...   16:26   16:40 16:30   16:34   16:38   16:42 ...
+Ghatkopar        16:06 16:18   16:10         16:19   16:32   16:24           Ghatkopar        16:39   16:31     ... 16:35   16:39   16:43   16:47 16:53
+Vidyavihar       16:09 ...     16:13         16:22     ...   16:27           Vidyavihar         ...   16:34     ... 16:38   16:42   16:46   16:50 ...
+Kurla            16:12 16:22   16:16         16:25   16:36   16:30   16:34   Kurla            16:43   16:38   16:48 16:42   16:46   16:50   16:54 16:57
+Sion             16:16 ...     16:20         16:29     ...   16:34   16:38   Sion               ...   16:42     ... 16:46   16:50   16:54   16:58 ...
+Matunga          16:20 ...     16:24         16:33     ...   16:38   16:42   Matunga            ...   16:46     ... 16:50   16:54   16:58   17:02 ...
+Dadar            16:23 16:30   16:27         16:36   16:44   16:41   16:45   Dadar            16:51   16:49   16:56 16:53   16:57   17:01   17:05 17:05
+Parel            16:26 ...     16:30         16:39    ...    16:44   16:48   Parel             ...    16:52    ... 16:56    17:00   17:04          ...
+Currey Road      16:29 ...     16:33         16:42    ...    16:47   16:51   Currey Road       ...    16:55    ... 16:59    17:03   17:07          ...
+Chinchpokli      16:31 ...     16:35         16:44    ...    16:49   16:53   Chinchpokli       ...    16:57    ... 17:01    17:05   17:09          ...
+Byculla          16:33 16:36   16:37         16:46   16:50   16:51   16:55   Byculla          16:57   16:59   17:02 17:03   17:07   17:11         17:12
+Sandhurst Road   16:36 ...     16:40         16:49    ...    16:54   16:58   Sandhurst Road    ...    17:02    ... 17:06    17:10   17:14          ...
+Masjid           16:39 ...     16:43         16:52    ...    16:57   17:01   Masjid            ...    17:05    ... 17:09    17:13   17:17          ...
+Mumbai C S T     16:42 16:45   16:46         16:55   16:59   17:00   17:04   Mumbai C S T     17:05   17:08   17:10 17:12   17:16   17:20         17:21
+
+                                    88                                                                           89
+        KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations       95608 97090 97398 96012 95128 95728 97628 95804    Stations      97400 95610 97630 95508 97092 95324 97402 97632
+               TL 38 TK 6 T 108 SKP 12 S 34 DK 16 C 28 DL 26                    T 110 TL 40 C 30 AN 18 DK 14 A 52 T 112 C 32
+                                             15 Car
+                                             X                                      X               X                               X
+Kasara                                                            Kasara
+Khardi                                                            Khardi
+Atgaon                                                            Atgaon
+Asangaon                                                          Asangaon                                   16:00
+Vasind                                                            Vasind                                     16:08
+Khadavli                                                          Khadavli                                   16:16
+Titwala        15:51                                              Titwala                  16:08             16:24
+Ambivli        16:01                                              Ambivli                  16:17             16:30
+Shahad         16:04                                              Shahad                   16:20             16:34
+Khopoli                          14:55                            Khopoli
+Lowjee                           14:59                            Lowjee
+Dolavli                          15:03                            Dolavli
+Kelavli                          15:06                            Kelavli
+Palasdhari                       15:13                            Palasdhari
+Karjat                           15:20 15:31                      Karjat
+Bhivpuri Road                          15:40                      Bhivpuri Road
+Neral                                  15:47                      Neral
+Shelu                                  15:51                      Shelu
+Vangani                                15:55                      Vangani
+Badlapur                               16:04                      Badlapur
+Ambernath                              16:12                      Ambernath                                                16:29
+Ulhas Nagar                            16:16                      Ulhas Nagar                                              16:35
+Vithalwadi                             16:19                      Vithalwadi                                               16:38
+Kalyan         16:10 16:00             16:25 16:28                Kalyan                   16:26             16:40   16:13 16:44
+Thakurli       16:15 16:06                   ...                  Thakurli                 16:31                     16:19
+Dombivli       16:18 16:09             16:32 16:36        16:28   Dombivli                 16:34             16:47   16:22 16:51
+Kopar          16:21 16:12               ... ...          16:32   Kopar                    16:37              ...    16:25 ...
+Diva           16:26 16:17               ... ...          16:37   Diva                     16:42              ...    16:30 ...
+Mumbra         16:30 16:21               ... ...          16:41   Mumbra                   16:46              ...    16:34 ...
+Kalva          16:36 16:27               ... ...          16:47   Kalva                    16:52              ...    16:40 ...
+Thane          16:40 16:31 16:29       16:44 16:48        16:52   Thane            16:36   16:56             17:00   16:44 17:03   16:48
+Mulund         16:45       16:35         ... ...            ...   Mulund           16:42     ...             17:04   16:49 ...     16:53
+Nahur            ...       16:38         ... ...            ...   Nahur            16:45     ...               ...   16:52 ...     16:56
+Bhandup          ...       16:41         ... ...            ...   Bhandup          16:48     ...               ...   16:55 17:11   16:59
+Kanjur Marg      ...       16:44         ... ...            ...   Kanjur Marg      16:51     ...               ...   16:58 ...     17:02
+Vikhroli         ...       16:47         ...                ...   Vikhroli         16:54     ...               ...   17:01 ...     17:05
+Ghatkopar      16:57       16:52       17:00 17:04        17:08   Ghatkopar        16:59   17:11             17:15   17:06 17:19   17:10
+Vidyavihar       ...       16:55         ... ...            ...   Vidyavihar       17:02     ...              ...    17:09 ...     17:13
+Kurla          17:01       16:58       17:04 17:08 17:02 17:12    Kurla            17:06   17:15   17:10     17:19   17:13 17:23   17:17   17:22
+Sion             ...       17:02         ... ...    17:06 ...     Sion             17:10     ...   17:14       ...   17:17 ...     17:21   17:26
+Matunga          ...       17:06         ... ...    17:10 ...     Matunga          17:14     ...   17:18       ...   17:21 ...     17:25   17:30
+Dadar          17:09       17:09       17:12 17:16 17:13 17:20    Dadar            17:17   17:23   17:21     17:27   17:24 17:31   17:28   17:33
+Parel            ...       17:12         ...        17:16 ...     Parel            17:20    ...    17:24      ...           ...    17:31   17:36
+Currey Road      ...       17:15         ...        17:19 ...     Currey Road      17:23    ...    17:27      ...           ...    17:34   17:39
+Chinchpokli      ...       17:17         ...        17:21 ...     Chinchpokli      17:25    ...    17:29      ...           ...    17:36   17:41
+Byculla        17:16       17:19       17:19        17:23 17:26   Byculla          17:27   17:29   17:31     17:33         17:37   17:38   17:43
+Sandhurst Road ...         17:22         ...        17:26 ...     Sandhurst Road   17:30    ...    17:34      ...           ...    17:41   17:46
+Masjid           ...       17:25         ...        17:29 ...     Masjid           17:33    ...    17:37      ...           ...    17:44   17:49
+Mumbai C S T   17:26       17:28       17:29        17:32 17:34   Mumbai C S T     17:36   17:37   17:40     17:41         17:45   17:47   17:52
+
+                              90                                                                        91
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97228 95216 97404 95420 97094 95326 97634 95612                    Stations      95130 97406 97408 97096 97636 95510 97410 97230
+              DDL 6 BL 30 T 114 N 22 K 96 A 54 C 34 TL 42                                       S 36 T 116 DT 4 K 98 C 36 AN 20 T 118 DDL 8
+
+                                  X                 X                                                      X                                        X
+Kasara                                     15:43                                 Kasara
+Khardi                                     15:59                                 Khardi
+Atgaon                                     16:11                                 Atgaon
+Asangaon                                   16:20                                 Asangaon                                                  16:44
+Vasind                                     16:26                                 Vasind                                                    16:52
+Khadavli                                   16:34                                 Khadavli                                                  17:00
+Titwala                                    16:42                         16:37   Titwala                                                   17:08
+Ambivli                                    16:50                         16:46   Ambivli                                                   17:14
+Shahad                                     16:53                         16:49   Shahad                                                    17:18
+Khopoli                                                                          Khopoli
+Lowjee                                                                           Lowjee
+Dolavli                                                                          Dolavli
+Kelavli                                                                          Kelavli
+Palasdhari                                                                       Palasdhari
+Karjat                                                                           Karjat           16:15
+Bhivpuri Road                                                                    Bhivpuri Road    16:24
+Neral                                                                            Neral            16:31
+Shelu                                                                            Shelu            16:35
+Vangani                                                                          Vangani          16:39
+Badlapur                 16:32                                                   Badlapur         16:48
+Ambernath                16:41                           16:47                   Ambernath        16:56
+Ulhas Nagar              16:45                           16:53                   Ulhas Nagar      17:00
+Vithalwadi               16:48                           16:56                   Vithalwadi       17:03
+Kalyan                   16:54             16:59   16:34 17:02           16:55   Kalyan           17:09                    16:49           17:24
+Thakurli                                           16:40                 16:59   Thakurli                                  16:55
+Dombivli         16:47   17:01             17:06   16:43 17:09           17:02   Dombivli         17:16                    16:58           17:31           17:06
+Kopar            16:51    ...               ...    16:46 ...             17:05   Kopar             ...                     17:01           ...             17:09
+Diva             16:56    ...               ...    16:51 ...             17:10   Diva              ...                     17:06           ...             17:14
+Mumbra           17:00    ...               ...    16:55 ...             17:14   Mumbra            ...                     17:10           ...             17:18
+Kalva            17:06    ...               ...    17:01 ...             17:20   Kalva             ...                     17:16           ...             17:24
+Thane            17:10   17:14   16:58     17:18   17:05 17:21           17:25   Thane            17:28   17:10   17:14    17:20           17:43   17:24   17:29
+Mulund             ...   17:18   17:04       ...   17:09 ...             17:29   Mulund             ...   17:16   17:20    17:24           ...     17:30   17:34
+Nahur              ...     ...   17:07       ...   17:12 ...               ...   Nahur              ...   17:19   17:23    17:27           ...     17:33   17:37
+Bhandup            ...     ...   17:10       ...   17:15 ...               ...   Bhandup            ...   17:22   17:26    17:30           17:51   17:36   17:40
+Kanjur Marg        ...     ...   17:13       ...   17:18 ...               ...   Kanjur Marg        ...   17:25   17:29    17:33           ...     17:39   17:43
+Vikhroli           ...     ...   17:16       ...   17:21 ...               ...   Vikhroli           ...   17:28   17:32    17:36           ...     17:42   17:46
+Ghatkopar        17:25   17:29   17:21     17:33   17:26 17:36           17:40   Ghatkopar        17:43   17:33   17:37    17:41           17:59   17:47   17:51
+Vidyavihar         ...    ...    17:24       ...   17:29 ...               ...   Vidyavihar         ...   17:36   17:40    17:44           ...     17:50   17:54
+Kurla            17:29   17:33   17:27     17:37   17:32 17:40   17:36   17:44   Kurla            17:47   17:39   17:43    17:47   17:50   18:03   17:53   17:57
+Sion               ...     ...   17:31       ...   17:36 ...     17:40     ...   Sion               ...   17:43   17:47    17:51   17:54   ...     17:57   18:01
+Matunga            ...     ...   17:35       ...   17:40 ...     17:44     ...   Matunga            ...   17:47   17:51    17:55   17:58   ...     18:01   18:05
+Dadar            17:37   17:41   17:38     17:45   17:43 17:48   17:47   17:52   Dadar            17:55   17:50   17:54    17:58   18:01   18:11   18:04   18:08
+Parel                     ...    17:41      ...    17:46 ...     17:50    ...    Parel             ...    17:53            18:01   18:04   ...     18:07
+Currey Road               ...    17:44      ...    17:49 ...     17:53    ...    Currey Road       ...    17:56            18:04   18:07   ...     18:10
+Chinchpokli               ...    17:46      ...    17:51 ...     17:55    ...    Chinchpokli       ...    17:58            18:06   18:09   ...     18:12
+Byculla                  17:47   17:48     17:51   17:53 17:54   17:57   17:58   Byculla          18:01   18:00            18:08   18:11   18:17   18:14
+Sandhurst Road            ...    17:51      ...    17:56 ...     18:00    ...    Sandhurst Road    ...    18:03            18:11   18:14   ...     18:17
+Masjid                    ...    17:54      ...    17:59 ...     18:03    ...    Masjid            ...    18:06            18:14   18:17   ...     18:20
+Mumbai C S T             17:56   17:57     17:59   18:02 18:03   18:07   18:07   Mumbai C S T     18:10   18:11            18:17   18:21   18:25   18:25
+
+                                      92                                                                              93
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95808 97098 95218 97638 97412 95614 97640 95328                   Stations      95008 97414 97100 95730 97232 95220 97416 97642
+              DL 28 K 100 BL 32 C 38 T 120 TL 44 C 40 A 56                                     KP 8 T 122 DK 18 K 102 DL 30 BL 34 T 124 C 42
+
+                                                 X               X                                                X                                 X       X
+Kasara                                                                          Kasara
+Khardi                                                                          Khardi
+Atgaon                                                                          Atgaon
+Asangaon                                                                        Asangaon
+Vasind                                                                          Vasind
+Khadavli                                                                        Khadavli
+Titwala                                                 17:12                   Titwala
+Ambivli                                                 17:21                   Ambivli
+Shahad                                                  17:24                   Shahad
+Khopoli                                                                         Khopoli          16:28
+Lowjee                                                                          Lowjee           16:32
+Dolavli                                                                         Dolavli          16:36
+Kelavli                                                                         Kelavli          16:39
+Palasdhari                                                                      Palasdhari       16:46
+Karjat                                                                          Karjat           16:54
+Bhivpuri Road                                                                   Bhivpuri Road    17:03
+Neral                                                                           Neral            17:10
+Shelu                                                                           Shelu            17:14
+Vangani                                                                         Vangani          17:18
+Badlapur                       17:07                                            Badlapur         17:27                                     17:35
+Ambernath                      17:17                                    17:29   Ambernath        17:35                                     17:44
+Ulhas Nagar                    17:21                                    17:35   Ulhas Nagar      17:39                                     17:48
+Vithalwadi                     17:24                                    17:38   Vithalwadi       17:42                                     17:51
+Kalyan                   17:04 17:32                    17:29           17:44   Kalyan           17:48           17:21     17:40           17:57
+Thakurli                 17:09                          17:34                   Thakurli                         17:26     17:46
+Dombivli         17:22   17:12 17:39                    17:37           17:50   Dombivli         17:54           17:29     17:49   17:33   18:03
+Kopar            17:26   17:15 ...                      17:40            ...    Kopar             ...            17:32     17:52   17:36    ...
+Diva             17:31   17:20 ...                      17:45            ...    Diva              ...            17:37     17:57   17:41    ...
+Mumbra           17:35   17:24 ...                      17:49            ...    Mumbra            ...            17:41     18:01   17:45    ...
+Kalva            17:41   17:30 ...                      17:55            ...    Kalva             ...            17:47     18:07   17:51    ...
+Thane            17:47   17:34 17:52            17:40   17:59           18:03   Thane            18:07   17:45   17:51     18:11   17:55   18:15   17:59
+Mulund             ...   17:38 ...              17:46     ...           18:07   Mulund             ...   17:52   17:56       ...   18:00   18:19   18:05
+Nahur              ...   17:41 ...              17:49     ...             ...   Nahur              ...   17:55   17:59       ...   18:03     ...   18:08
+Bhandup            ...   17:44 ...              17:52     ...             ...   Bhandup            ...   17:58   18:02       ...   18:06     ...   18:11
+Kanjur Marg        ...   17:47 ...              17:55     ...             ...   Kanjur Marg        ...   18:01   18:05       ...   18:09     ...   18:14
+Vikhroli           ...   17:50 ...              17:58     ...             ...   Vikhroli           ...   18:04   18:08       ...   18:12     ...   18:17
+Ghatkopar        18:03   17:55 18:06            18:03   18:13           18:17   Ghatkopar        18:21   18:09   18:13     18:25   18:17   18:29   18:22
+Vidyavihar         ...   17:58 ...              18:06     ...             ...   Vidyavihar         ...   18:12   18:16       ...   18:20     ...   18:25
+Kurla            18:07   18:01 18:10    18:05   18:09   18:17   18:12   18:21   Kurla            18:25   18:16   18:20     18:29   18:24   18:33   18:28   18:32
+Sion               ...   18:05 ...      18:09   18:13     ...   18:16     ...   Sion               ...   18:20   18:24       ...   18:28     ...   18:32   18:36
+Matunga            ...   18:09 ...      18:13   18:17     ...   18:20     ...   Matunga            ...   18:24   18:28       ...   18:32     ...   18:36   18:40
+Dadar            18:15   18:12 18:18    18:16   18:20   18:25   18:23   18:29   Dadar            18:33   18:27   18:31     18:37   18:35   18:41   18:39   18:43
+Parel             ...    18:15 ...      18:19   18:23    ...    18:26    ...    Parel             ...    18:30              ...    18:38    ...    18:42   18:46
+Currey Road       ...    18:18 ...      18:22   18:26    ...    18:29    ...    Currey Road       ...    18:33              ...    18:41    ...    18:45   18:49
+Chinchpokli       ...    18:20 ...      18:24   18:28    ...    18:31    ...    Chinchpokli       ...    18:35              ...    18:43    ...    18:47   18:51
+Byculla          18:21   18:22 18:24    18:26   18:30   18:31   18:33   18:35   Byculla          18:39   18:37             18:43   18:45   18:47   18:49   18:53
+Sandhurst Road    ...    18:25 ...      18:29   18:33    ...    18:36    ...    Sandhurst Road    ...    18:40              ...    18:48    ...    18:52   18:56
+Masjid            ...    18:28 ...      18:32   18:36    ...    18:39    ...    Masjid            ...    18:43              ...    18:51    ...    18:55   18:59
+Mumbai C S T     18:29   18:31 18:32    18:35   18:39   18:40   18:43   18:43   Mumbai C S T     18:47   18:47             18:51   18:55   18:56   18:59   19:03
+
+                                   94                                                                                 95
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95330 95616 97418 95422 95132 97420 97234 95332                   Stations       97422 97644 95732 97102 95512 97424 97236 97426
+               DA 2 TL 46 T 126 N 24 S 38 T 128 DDL 10 A 58                                    T 130 C 44 K 106 K 104 AN 22 T 132 DDL 12 T 134
+                                                                                                           15 Car
+                                                        X                                              X     X                 X
+Kasara                                  16:53                                   Kasara
+Khardi                                  17:09                                   Khardi
+Atgaon                                  17:21                                   Atgaon
+Asangaon                                17:30                                   Asangaon                                17:38
+Vasind                                  17:36                                   Vasind                                  17:46
+Khadavli                                17:44                                   Khadavli                                17:54
+Titwala                17:36            17:52                                   Titwala                                 18:02
+Ambivli                17:45            18:00                                   Ambivli                                 18:08
+Shahad                 17:48            18:03                                   Shahad                                  18:12
+Khopoli                                                                         Khopoli
+Lowjee                                                                          Lowjee
+Dolavli                                                                         Dolavli
+Kelavli                                                                         Kelavli
+Palasdhari                                                                      Palasdhari
+Karjat                                        17:20                             Karjat
+Bhivpuri Road                                 17:29                             Bhivpuri Road
+Neral                                         17:36                             Neral
+Shelu                                         17:40                             Shelu
+Vangani                                       17:44                             Vangani
+Badlapur                                      17:53                             Badlapur
+Ambernath        17:47                        18:01                     18:05   Ambernath
+Ulhas Nagar      17:53                        18:05                     18:11   Ulhas Nagar
+Vithalwadi       17:56                        18:08                     18:14   Vithalwadi
+Kalyan           18:02 17:54            18:09 18:14                     18:20   Kalyan                     18:24 18:00 18:18
+Thakurli               17:59                                                    Thakurli                         18:05 18:22
+Dombivli         18:08 18:02            18:15   18:21           17:57   18:26   Dombivli                   18:31 18:08 18:25       18:15
+Kopar             ... 18:05              ...     ...            18:01    ...    Kopar                        ... 18:11 18:28       18:18
+Diva              ... 18:10              ...     ...            18:06    ...    Diva                         ... 18:16 18:33       18:23
+Mumbra            ... 18:14              ...     ...            18:10    ...    Mumbra                       ... 18:20 18:37       18:27
+Kalva             ... 18:20              ...     ...            18:16    ...    Kalva                        ... 18:26 18:43       18:33
+Thane            18:20 18:24   18:07    18:28   18:33   18:14   18:20   18:38   Thane          18:23       18:43 18:30 18:47 18:33 18:37 18:41
+Mulund             ...   ...   18:13    18:32     ...   18:20   18:24     ...   Mulund         18:29         ... 18:35 ...   18:39 18:43 18:47
+Nahur              ...   ...   18:16      ...     ...   18:23   18:27     ...   Nahur          18:32         ... 18:38 ...   18:42 18:46 18:50
+Bhandup            ...   ...   18:19      ...     ...   18:26   18:30     ...   Bhandup        18:35         ... 18:41 ...   18:45 18:49 18:53
+Kanjur Marg        ...   ...   18:22      ...     ...   18:29   18:33     ...   Kanjur Marg    18:38         ... 18:44 ...   18:48 18:52 18:56
+Vikhroli           ...   ...   18:25      ...     ...   18:32   18:36   18:49   Vikhroli       18:41         ... 18:47 ...   18:51 18:55 18:59
+Ghatkopar        18:34 18:39   18:30    18:43   18:48   18:37   18:41     ...   Ghatkopar      18:46       18:58 18:52 19:02 18:56 19:00 19:04
+Vidyavihar         ...   ...   18:33      ...     ...   18:40   18:44     ...   Vidyavihar     18:49         ... 18:55 ...   18:59 19:03 19:07
+Kurla            18:38 18:43   18:36    18:47   18:52   18:43   18:47   18:58   Kurla          18:52 18:55 19:02 18:58 19:06 19:02 19:06 19:10
+Sion               ...   ...   18:40      ...     ...   18:47   18:51     ...   Sion           18:56 18:59 ...   19:02 ...   19:06 19:10 19:14
+Matunga            ...   ...   18:44      ...     ...   18:51   18:55     ...   Matunga        19:00 19:03 ...   19:06 ...   19:10 19:14 19:18
+Dadar            18:47 18:51   18:47    18:55   19:00   18:54   18:58   19:06   Dadar          19:03 19:06 19:10 19:09 19:14 19:13 19:17 19:21
+Parel                   ...    18:50     ...     ...    18:57            ...    Parel          19:06 19:09 ...   19:12 ...   19:16       19:24
+Currey Road             ...    18:53     ...     ...    19:00            ...    Currey Road    19:09 19:12 ...   19:15 ...   19:19       19:27
+Chinchpokli             ...    18:55     ...     ...    19:02            ...    Chinchpokli    19:11 19:14 ...   19:17 ...   19:21       19:29
+Byculla                18:57   18:57    19:01   19:06   19:04           19:12   Byculla        19:13 19:16 19:17 19:19 19:22 19:23       19:31
+Sandhurst Road          ...    19:00     ...     ...    19:07            ...    Sandhurst Road 19:16 19:19 ...   19:22 ...   19:26       19:34
+Masjid                  ...    19:03     ...     ...    19:10            ...    Masjid         19:19 19:22 ...   19:25 ...   19:29       19:37
+Mumbai C S T           19:05   19:07    19:09   19:14   19:15           19:21   Mumbai C S T   19:22 19:25 19:27 19:28 19:30 19:32       19:40
+
+                                   96                                                                         97
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95222 97428 95618 97646 95334 95734 97430 97104                   Stations      97432 97434 97238 97106 97648 97108 95010 96512
+              BL 36 T 136 DTL 2 C 46 A 60 K 110 DT 6 K 108                                    T 138 DT 8 DL 32 CK 2 C 48 K 112 KP 10 AN 24
+
+                         X                 X                     X                                        X                       X
+Kasara                                                                          Kasara
+Khardi                                                                          Khardi
+Atgaon                                                                          Atgaon
+Asangaon                                                                        Asangaon                                                                18:18
+Vasind                                                                          Vasind                                                                  18:26
+Khadavli                                                                        Khadavli                                                                18:34
+Titwala                          18:16                                          Titwala                                                                 18:42
+Ambivli                          18:25                                          Ambivli                                                                 18:48
+Shahad                           18:28                                          Shahad                                                                  18:52
+Khopoli                                                                         Khopoli                                                         17:57
+Lowjee                                                                          Lowjee                                                          18:01
+Dolavli                                                                         Dolavli                                                         18:05
+Kelavli                                                                         Kelavli                                                         18:08
+Palasdhari                                                                      Palasdhari                                                      18:15
+Karjat                                                                          Karjat                                                          18:23
+Bhivpuri Road                                                                   Bhivpuri Road                                                   18:32
+Neral                                                                           Neral                                                           18:39
+Shelu                                                                           Shelu                                                           18:43
+Vangani                                                                         Vangani                                                         18:47
+Badlapur         18:15                                                          Badlapur                                                        18:56
+Ambernath        18:24                            18:33                         Ambernath                                                       19:04
+Ulhas Nagar      18:28                            18:39                         Ulhas Nagar                                                     19:08
+Vithalwadi       18:31                            18:42                         Vithalwadi                                                      19:11
+Kalyan           18:37           18:34            18:48 18:40           18:30   Kalyan                                    18:46         18:54   19:17   18:58
+Thakurli                         18:39                  18:45           18:35   Thakurli                                  18:52         18:59    ...    19:03
+Dombivli         18:43           18:42            18:54 18:48           18:38   Dombivli                         18:51    18:55         19:02   19:24   19:06
+Kopar             ...            18:45             ... 18:51            18:41   Kopar                            18:55    18:58         19:05    ...    19:09
+Diva              ...            18:50             ... 18:56            18:46   Diva                             19:00    19:03         19:10    ...    19:14
+Mumbra            ...            18:54             ... 19:00            18:50   Mumbra                           19:04    19:07         19:14    ...    19:18
+Kalva             ...            19:00             ... 19:06            18:56   Kalva                            19:10    19:13         19:20    ...    19:24
+Thane            18:55   18:45   19:04            19:07 19:10   18:55   19:00   Thane            19:03   19:10   19:14    19:17         19:24   19:37   19:28
+Mulund             ...   18:51     ...              ...   ...   19:00   19:04   Mulund           19:09   19:15   19:19    19:22         19:28     ...   19:32
+Nahur              ...   18:54     ...              ...   ...   19:03   19:07   Nahur            19:12   19:18   19:22    19:25         19:31     ...   19:35
+Bhandup          19:03   18:57     ...              ...   ...   19:06   19:10   Bhandup          19:15   19:21   19:25    19:28         19:34   19:45   19:38
+Kanjur Marg        ...   19:00     ...              ...   ...   19:09   19:13   Kanjur Marg      19:18   19:24   19:28    19:31         19:37     ...   19:41
+Vikhroli           ...   19:03     ...            19:17 19:20   19:12   19:16   Vikhroli         19:21   19:27   19:31    19:34         19:40     ...   19:44
+Ghatkopar        19:11   19:08   19:17              ...   ...   19:17   19:21   Ghatkopar        19:26   19:32   19:36    19:39         19:45   19:53   19:49
+Vidyavihar         ...   19:11     ...              ...   ...   19:20   19:24   Vidyavihar       19:29   19:35   19:39    19:42         19:48     ...   19:52
+Kurla            19:15   19:14   19:22    19:20   19:25 19:28   19:23   19:27   Kurla            19:32   19:38   19:42    19:46 19:47   19:51   19:58   19:55
+Sion               ...   19:18     ...    19:24     ...   ...   19:27   19:31   Sion             19:36   19:42   19:46          19:51   19:55     ...   19:59
+Matunga            ...   19:22     ...    19:28     ...   ...   19:31   19:35   Matunga          19:40   19:46   19:50          19:55   19:59     ...   20:03
+Dadar            19:24   19:25   19:31    19:31   19:36 19:39   19:34   19:38   Dadar            19:43   19:49   19:53          19:58   20:02   20:06   20:06
+Parel             ...    19:28            19:34    ...   ...            19:41   Parel            19:46           19:56          20:01   20:05    ...    20:09
+Currey Road       ...    19:31            19:37    ...   ...            19:44   Currey Road      19:49           19:59          20:04   20:08    ...    20:12
+Chinchpokli       ...    19:33            19:39    ...   ...            19:46   Chinchpokli      19:51           20:01          20:06   20:10    ...    20:14
+Byculla          19:31   19:35            19:41   19:43 19:46           19:48   Byculla          19:53           20:03          20:08   20:12   20:13   20:16
+Sandhurst Road    ...    19:38            19:44    ...   ...            19:51   Sandhurst Road   19:56           20:06          20:11   20:15    ...    20:19
+Masjid            ...    19:41            19:47    ...   ...            19:54   Masjid           19:59           20:09          20:14   20:18    ...    20:22
+Mumbai C S T     19:42   19:44            19:50   19:52 19:56           19:57   Mumbai C S T     20:02           20:12          20:17   20:21   20:23   20:25
+
+                                     98                                                                              99
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95224 95336 97436 97240 95424 97110 95134 97112                    Stations      96634 97242 97114 95514 97438 97244 97116 96330
+              BL 38 A 62 T 140 DDL 14 N 26 K 114 S 40 K 116                                    TTL 2 DL 34 K 118 AN 26 T 142 DDL 16 K 120 A 64
+
+                                                                                                                                   X
+Kasara                                           18:16                           Kasara
+Khardi                                           18:32                           Khardi
+Atgaon                                           18:44                           Atgaon
+Asangaon                                         18:53                           Asangaon                                 19:13
+Vasind                                           18:59                           Vasind                                   19:21
+Khadavli                                         19:07                           Khadavli                                 19:29
+Titwala                                          19:15                           Titwala          18:58                   19:37
+Ambivli                                          19:23                           Ambivli          19:07                   19:43
+Shahad                                           19:26                           Shahad           19:10                   19:47
+Khopoli                                                                          Khopoli
+Lowjee                                                                           Lowjee
+Dolavli                                                                          Dolavli
+Kelavli                                                                          Kelavli
+Palasdhari                                                                       Palasdhari
+Karjat                                                           18:41           Karjat
+Bhivpuri Road                                                    18:50           Bhivpuri Road
+Neral                                                            18:57           Neral
+Shelu                                                            19:01           Shelu
+Vangani                                                          19:05           Vangani
+Badlapur         19:00                                           19:14           Badlapur
+Ambernath        19:09   19:13                                   19:22           Ambernath                                                                19:31
+Ulhas Nagar      19:13   19:19                                   19:26           Ulhas Nagar                                                              19:37
+Vithalwadi       19:16   19:22                                   19:29           Vithalwadi                                                               19:40
+Kalyan           19:22   19:28                   19:32   19:07   19:36   19:11   Kalyan           19:16           19:24   19:53                   19:38   19:46
+Thakurli          ...     ...                     ...    19:13    ...    19:17   Thakurli         19:22           19:30    ...                    19:44   19:51
+Dombivli         19:29   19:35           19:13   19:39   19:17   19:44   19:21   Dombivli         19:25   19:28   19:33   20:00           19:41   19:47   19:54
+Kopar             ...     ...            19:17    ...    19:21    ...    19:25   Kopar            19:29   19:32   19:36    ...            19:45   19:50   19:57
+Diva              ...     ...            19:22    ...    19:26    ...    19:30   Diva             19:34   19:37   19:41    ...            19:50   19:55   20:02
+Mumbra            ...     ...            19:26    ...    19:30    ...    19:34   Mumbra           19:38   19:41   19:45    ...            19:54   19:59   20:06
+Kalva             ...     ...            19:32    ...    19:36    ...    19:40   Kalva            19:44   19:47   19:51    ...            20:00   20:05   20:12
+Thane            19:41   19:47   19:32   19:36   19:51   19:40   19:57   19:44   Thane            19:48   19:51   19:55   20:12   20:00   20:05   20:09   20:16
+Mulund           19:45     ...   19:37   19:41     ...   19:45     ...   19:49   Mulund                   19:56   20:00   20:16   20:06   20:10   20:14   20:20
+Nahur              ...     ...   19:40   19:44     ...   19:48     ...   19:52   Nahur                    19:59   20:03     ...   20:09   20:13   20:17   20:23
+Bhandup            ...     ...   19:43   19:47     ...   19:51     ...   19:55   Bhandup                  20:02   20:06     ...   20:12   20:16   20:20   20:26
+Kanjur Marg        ...     ...   19:46   19:50     ...   19:54     ...   19:58   Kanjur Marg              20:05   20:09     ...   20:15   20:19   20:23   20:29
+Vikhroli           ...   19:58   19:49   19:53     ...   19:57     ...   20:01   Vikhroli                 20:08   20:12     ...   20:18   20:22   20:26   20:32
+Ghatkopar        19:57     ...   19:54   19:58   20:06   20:02   20:11   20:06   Ghatkopar                20:13   20:17   20:26   20:23   20:27   20:31   20:37
+Vidyavihar         ...     ...   19:57   20:01     ...   20:05     ...   20:09   Vidyavihar               20:16   20:20     ...   20:26   20:30   20:34   20:40
+Kurla            20:02   20:07   20:00   20:04   20:11   20:08   20:16   20:12   Kurla                    20:19   20:23   20:31   20:29   20:33   20:37   20:43
+Sion               ...     ...   20:04   20:08     ...   20:12     ...   20:16   Sion                     20:23   20:27     ...   20:33   20:37   20:41   20:47
+Matunga            ...     ...   20:08   20:12     ...   20:16     ...   20:20   Matunga                  20:27   20:31     ...   20:37   20:41   20:45   20:51
+Dadar            20:10   20:15   20:11   20:15   20:19   20:19   20:24   20:23   Dadar                    20:30   20:34   20:39   20:40   20:44   20:48   20:54
+Parel             ...     ...    20:14            ...    20:22    ...    20:26   Parel                    20:33   20:37    ...    20:43           20:51   20:57
+Currey Road       ...     ...    20:17            ...    20:25    ...    20:29   Currey Road              20:36   20:40    ...    20:46           20:54   21:00
+Chinchpokli       ...     ...    20:19            ...    20:27    ...    20:31   Chinchpokli              20:38   20:42    ...    20:48           20:56   21:02
+Byculla          20:17   20:21   20:21           20:26   20:29   20:31   20:33   Byculla                  20:40   20:44   20:45   20:50           20:58   21:04
+Sandhurst Road    ...     ...    20:24            ...    20:32    ...    20:36   Sandhurst Road           20:43   20:47    ...    20:53           21:01   21:07
+Masjid            ...     ...    20:27            ...    20:35    ...    20:39   Masjid                   20:46   20:50    ...    20:56           21:04   21:10
+Mumbai C S T     20:26   20:30   20:30           20:34   20:38   20:43   20:42   Mumbai C S T             20:49   20:53   20:55                   21:07   21:13
+
+                                    100                                                                              101
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                   KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97118 97246 95620 97120 96218 97440 95136 97122                  Stations       97124 97248 95736 97126 96332 96514 97442 97128
+              K 122 DDL 18 TL 48 TK 8 BL 40 DT 10 S 42 K 124                                  K 126 DL 36 K 132 K 128 A 66 AN 28 T 144 DK 20
+                                                                                                          15 Car
+                  X       X                              X               X                                  X                       X
+Kasara                                                                         Kasara
+Khardi                                                                         Khardi
+Atgaon                                                                         Atgaon
+Asangaon                                                                       Asangaon                                      19:46
+Vasind                                                                         Vasind                                        19:54
+Khadavli                                                                       Khadavli                                      20:02
+Titwala                          19:45                                         Titwala                                       20:10
+Ambivli                          19:54                                         Ambivli                                       20:16
+Shahad                           19:57                                         Shahad                                        20:20
+Khopoli                                                                        Khopoli
+Lowjee                                                                         Lowjee
+Dolavli                                                                        Dolavli
+Kelavli                                                                        Kelavli
+Palasdhari                                                                     Palasdhari
+Karjat                                                           19:39         Karjat
+Bhivpuri Road                                                    19:48         Bhivpuri Road
+Neral                                                            19:55         Neral
+Shelu                                                            19:59         Shelu
+Vangani                                                          20:03         Vangani
+Badlapur                                         19:37           20:12         Badlapur
+Ambernath                                        19:46           20:20         Ambernath                              20:06
+Ulhas Nagar                                      19:50           20:24         Ulhas Nagar                            20:12
+Vithalwadi                                       19:53           20:27         Vithalwadi                             20:15
+Kalyan           19:49           20:03   19:56   19:59           20:33 20:07   Kalyan         20:11       20:46 20:19 20:22 20:26       20:34
+Thakurli         19:55           20:10   20:02   20:05                 20:13   Thakurli       20:17             20:25 20:29 20:33      20:40
+Dombivli         19:58   20:01   20:13   20:05   20:08           20:39 20:17   Dombivli       20:21 20:24 20:53 20:28 20:32 20:36       20:43
+Kopar            20:01   20:05   20:17   20:09   20:12             ... 20:21   Kopar          20:25 20:28 ...   20:32 20:36 20:40         20:47
+Diva             20:06   20:10   20:22   20:14   20:17             ... 20:26   Diva           20:30 20:33 ...   20:37 20:41 20:45         20:52
+Mumbra           20:10   20:14   20:26   20:18   20:21             ... 20:30   Mumbra         20:34 20:37 ...   20:41 20:45 20:49         20:56
+Kalva            20:16   20:20   20:32   20:24   20:27             ... 20:36   Kalva          20:40 20:43 ...   20:47 20:51 20:55         21:02
+Thane            20:20   20:24   20:36   20:28   20:31   20:34   20:51 20:40   Thane          20:44 20:48 21:06 20:52 20:56 21:00 21:03 21:07
+Mulund           20:24   20:28     ...           20:35   20:40     ... 20:44   Mulund         20:48 20:52 ...   20:56 21:00 21:04 21:09 21:13
+Nahur            20:27   20:31     ...           20:38   20:43     ... 20:47   Nahur          20:51 20:55 ...   20:59 21:03 21:07 21:12 21:16
+Bhandup          20:30   20:34     ...           20:41   20:46     ... 20:50   Bhandup        20:54 20:58 ...   21:02 21:06 21:10 21:15 21:19
+Kanjur Marg      20:33   20:37     ...           20:44   20:49     ... 20:53   Kanjur Marg    20:57 21:01 ...   21:05 21:09 21:13 21:18 21:22
+Vikhroli         20:36   20:40     ...           20:47   20:52     ... 20:56   Vikhroli       21:00 21:04 ...   21:08 21:12 21:16 21:21 21:25
+Ghatkopar        20:41   20:45   20:49           20:52   20:57   21:04 21:01   Ghatkopar      21:05 21:09 21:20 21:13 21:17 21:21 21:26 21:30
+Vidyavihar       20:44   20:48     ...           20:55   21:00     ... 21:04   Vidyavihar     21:08 21:12 ...   21:16 21:20 21:24 21:29 21:33
+Kurla            20:47   20:51   20:54           20:58   21:03   21:09 21:07   Kurla          21:11 21:15 21:25 21:19 21:23 21:27 21:32 21:36
+Sion             20:51   20:55     ...           21:02   21:07     ... 21:11   Sion           21:15 21:19 ...   21:23 21:27 21:31 21:36 21:40
+Matunga          20:55   20:59     ...           21:06   21:11     ... 21:15   Matunga        21:19 21:23 ...   21:27 21:31 21:35 21:40 21:44
+Dadar            20:58   21:02   21:03           21:09   21:14   21:17 21:18   Dadar          21:22 21:26 21:33 21:30 21:34 21:38 21:43 21:47
+Parel            21:01            ...            21:12             ... 21:21   Parel          21:25 21:29 ...   21:33 21:37 21:41 21:46
+Currey Road      21:04            ...            21:15             ... 21:24   Currey Road    21:28 21:32 ...   21:36 21:40 21:44 21:49
+Chinchpokli      21:06            ...            21:17            TXL  21:26   Chinchpokli    21:30 21:34 ...   21:38 21:42 21:46 21:51
+Byculla          21:08           21:10           21:19           21:24 21:28   Byculla        21:32 21:36 ...   21:40 21:44 21:48 21:53
+Sandhurst Road   21:11            ...            21:22             ... 21:31   Sandhurst Road 21:35 21:39 ...   21:43 21:47 21:51 21:56
+Masjid           21:14            ...            21:25             ... 21:34   Masjid         21:38 21:42 ...   21:46 21:50 21:54 21:59
+Mumbai C S T     21:17           21:21           21:28           21:33 21:37   Mumbai C S T   21:41 21:45 21:46 21:49 21:53 21:57 22:02
+
+                                    102                                                                     103
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      95226 96636 97130 95516 96220 96334 96638 95228                Stations      97444 97250 95426 96640 96014 95138 96336 97446
+              BL 44 TL 50 K 130 AN 30 BL 42 A 68 TL 52 BL 46                               T 146 DDL 20 N 28 TL 54 SKP 14 S 44  A 70 T 148
+
+
+Kasara                                                                       Kasara                           20:17
+Khardi                                                                       Khardi                           20:33
+Atgaon                                                                       Atgaon                           20:45
+Asangaon                               20:37                                 Asangaon                         20:54
+Vasind                                 20:45                                 Vasind                           21:00
+Khadavli                               20:53                                 Khadavli                         21:08
+Titwala                20:19           21:01                   20:38         Titwala                          21:16 20:55
+Ambivli                20:29           21:07                   20:47         Ambivli                          21:24 21:04
+Shahad                 20:32           21:11                   20:50         Shahad                           21:27 21:07
+Khopoli                                                                      Khopoli                                        20:08
+Lowjee                                                                       Lowjee                                         20:12
+Dolavli                                                                      Dolavli                                        20:16
+Kelavli                                                                      Kelavli                                        20:19
+Palasdhari                                                                   Palasdhari                                     20:26
+Karjat                                                                       Karjat                                         20:33 20:46
+Bhivpuri Road                                                                Bhivpuri Road                                        20:54
+Neral                                                                        Neral                                                21:01
+Shelu                                                                        Shelu                                                21:05
+Vangani                                                                      Vangani                                              21:09
+Badlapur         20:47                         20:21                 21:04   Badlapur                                             21:18
+Ambernath        20:56                         20:30   20:34         21:13   Ambernath                                            21:26   21:05
+Ulhas Nagar      21:00                         20:35   20:40         21:17   Ulhas Nagar                                          21:30   21:11
+Vithalwadi       21:03                         20:38   20:43         21:20   Vithalwadi                                           21:33   21:14
+Kalyan           21:09 20:39   20:42   21:17   20:45   20:49   20:56 21:26   Kalyan                           21:33   21:12       21:39   21:20
+Thakurli               20:43   20:48           20:51   20:55   21:01         Thakurli                                 21:16               21:25
+Dombivli         21:16 20:47   20:52   21:24   20:55   20:59   21:04 21:33   Dombivli                 21:11   21:40   21:19       21:46   21:28
+Kopar             ... 20:51    20:56    ...    20:59   21:03   21:07 ...     Kopar                    21:15    ...    21:22       ...     21:31
+Diva              ... 20:56    21:01    ...    21:04   21:08   21:12 ...     Diva                     21:20    ...    21:27       ...     21:36
+Mumbra            ... 21:00    21:05    ...    21:08   21:12   21:16 ...     Mumbra                   21:24    ...    21:31       ...     21:40
+Kalva             ... 21:06    21:11    ...    21:14   21:18   21:22 ...     Kalva                    21:30    ...    21:37       ...     21:46
+Thane            21:28 21:11   21:15   21:36   21:19   21:23   21:27 21:46   Thane            21:31   21:35   21:53   21:41       21:58   21:50   21:54
+Mulund             ... 21:17   21:21     ...   21:25   21:29   21:33 ...     Mulund           21:37   21:41   21:57   21:45       22:03   21:54   21:59
+Nahur              ... 21:20   21:24     ...   21:28   21:32   21:36 ...     Nahur            21:40   21:44     ...   21:48       ...     21:57   22:02
+Bhandup            ... 21:23   21:27     ...   21:31   21:35   21:39 ...     Bhandup          21:43   21:47     ...   21:51       ...     22:00   22:05
+Kanjur Marg        ... 21:26   21:30     ...   21:34   21:38   21:42 ...     Kanjur Marg      21:46   21:50     ...   21:54       ...     22:03   22:08
+Vikhroli           ... 21:29   21:33     ...   21:37   21:41   21:45 ...     Vikhroli         21:49   21:53     ...   21:57       ...     22:06   22:11
+Ghatkopar        21:42 21:34   21:38   21:50   21:42   21:46   21:50 22:00   Ghatkopar        21:54   21:58   22:07   22:02       22:14   22:11   22:16
+Vidyavihar         ... 21:37   21:41     ...   21:45   21:49   21:53 ...     Vidyavihar       21:57   22:01     ...   22:05       ...     22:14   22:19
+Kurla            21:47 21:40   21:44   21:54   21:48   21:52   21:56 22:04   Kurla            22:00   22:04   22:11   22:08       22:18   22:17   22:22
+Sion               ... 21:44   21:48     ...   21:52   21:56   22:00 ...     Sion             22:04   22:08     ...   22:12       ...     22:21   22:26
+Matunga            ... 21:48   21:52     ...   21:56   22:00   22:04 ...     Matunga          22:08   22:12     ...   22:16       ...     22:25   22:30
+Dadar            21:55 21:51   21:55   22:02   21:59   22:03   22:07 22:12   Dadar            22:11   22:15   22:19   22:19       22:26   22:28   22:33
+Parel             ... 21:54    21:58    ...    22:02   22:06   22:10 ...     Parel            22:14            ...    22:22       ...     22:31   22:36
+Currey Road       ... 21:57    22:01    ...    22:05   22:09   22:13 ...     Currey Road      22:17            ...    22:25       ...     22:34   22:39
+Chinchpokli       ... 21:59    22:03    ...    22:07   22:11   22:15 ...     Chinchpokli      22:19            ...    22:27       ...     22:36   22:41
+Byculla          22:01 22:01   22:05   22:08   22:09   22:13   22:17 22:18   Byculla          22:21           22:25   22:29       22:32   22:38   22:43
+Sandhurst Road    ... 22:04    22:08    ...    22:12   22:16   22:20 ...     Sandhurst Road   22:24            ...    22:32       ...     22:41   22:46
+Masjid            ... 22:07    22:11    ...    22:15   22:19   22:23 ...     Masjid           22:27            ...    22:35       ...     22:44   22:49
+Mumbai C S T     22:10 22:10   22:14   22:16   22:18   22:22   22:26 22:26   Mumbai C S T     22:30           22:33   22:38       22:40   22:47   22:52
+
+                                  104                                                                            105
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                     KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      97252 97132 96338 95140 96642 97254 96340 96222                    Stations       95428 97134 96644 96224 96342 95738 96646 96108
+              DDL 22 K 134 A 72 S 46 TL 56 DL 38 A 74 BL 48                                      N 30 K 136 TL 58 BL 50 A 76 K 138 TL 60 TS 2
+                                                                                                                              15 Car
+                                                                                                                                X
+Kasara                                                                           Kasara         21:21
+Khardi                                                                           Khardi         21:37
+Atgaon                                                                           Atgaon         21:49
+Asangaon                                                                         Asangaon       21:58
+Vasind                                                                           Vasind         22:04
+Khadavli                                                                         Khadavli       22:12
+Titwala                                          21:28                           Titwala        22:20       22:01                    22:28
+Ambivli                                          21:37                           Ambivli        22:28       22:10                    22:37
+Shahad                                           21:40                           Shahad         22:31       22:13                    22:40
+Khopoli                                                                          Khopoli
+Lowjee                                                                           Lowjee
+Dolavli                                                                          Dolavli
+Kelavli                                                                          Kelavli
+Palasdhari                                                                       Palasdhari
+Karjat                                   21:15                                   Karjat                                                    21:56
+Bhivpuri Road                            21:23                                   Bhivpuri Road                                             22:04
+Neral                                    21:30                                   Neral                                                     22:11
+Shelu                                    21:34                                   Shelu                                                     22:15
+Vangani                                  21:38                                   Vangani                                                   22:19
+Badlapur                                 21:47                           21:34   Badlapur                         22:00                    22:28
+Ambernath                        21:20   21:55                   21:37   21:43   Ambernath                        22:09 22:18              22:36
+Ulhas Nagar                      21:26   21:59                   21:43   21:47   Ulhas Nagar                      22:13 22:24              22:40
+Vithalwadi                       21:29   22:02                   21:46   21:50   Vithalwadi                       22:16 22:27              22:43
+Kalyan                   21:29   21:35   22:08   21:45           21:52   21:58   Kalyan         22:37 22:10 22:18 22:22 22:33 23:05 22:45  22:49
+Thakurli                 21:35   21:41    ...    21:49           21:57   22:04   Thakurli         ... 22:16 22:22 22:27 22:38       22:50 22:54
+Dombivli         21:35   21:39   21:44   22:14   21:52   21:56   22:01   22:07   Dombivli       22:44 22:19 22:25 22:30 22:41 23:12 22:53 22:57
+Kopar            21:39   21:43   21:47    ...    21:55   22:00   22:04   22:10   Kopar            ... 22:23 22:29 22:33 22:44 ...   22:56 23:00
+Diva             21:44   21:48   21:52    ...    22:00   22:05   22:09   22:15   Diva             ... 22:27 22:34 22:38 22:49 ...   23:01 23:05
+Mumbra           21:48   21:52   21:56    ...    22:04   22:09   22:13   22:19   Mumbra           ... 22:31 22:38 22:42 22:53 ...   23:05 23:09
+Kalva            21:54   21:58   22:02    ...    22:10   22:15   22:19   22:25   Kalva            ... 22:37 22:44 22:48 22:59 ...   23:11 23:15
+Thane            21:58   22:02   22:06   22:26   22:14   22:19   22:23   22:29   Thane          22:56 22:41 22:48 22:52 23:03 23:25 23:15 23:19
+Mulund           22:03   22:07   22:11   22:30   22:19   22:24   22:28   22:34   Mulund         23:00 22:45 22:52 22:57 23:08 23:29 23:20
+Nahur            22:06   22:10   22:14     ...   22:22   22:27   22:31   22:37   Nahur            ... 22:48 22:55 23:00 23:11 ...   23:23
+Bhandup          22:09   22:13   22:17     ...   22:25   22:30   22:34   22:40   Bhandup          ... 22:51 22:58 23:03 23:14 ...   23:26
+Kanjur Marg      22:12   22:16   22:20     ...   22:28   22:33   22:37   22:43   Kanjur Marg      ... 22:54 23:01 23:06 23:17 ...   23:29
+Vikhroli         22:15   22:19   22:23     ...   22:31   22:36   22:40   22:46   Vikhroli         ... 22:57 23:04 23:09 23:20 ...   23:32
+Ghatkopar        22:20   22:24   22:28   22:40   22:36   22:41   22:45   22:51   Ghatkopar      23:10 23:02 23:09 23:14 23:25 23:39 23:37
+Vidyavihar       22:23   22:27   22:31     ...   22:39   22:44   22:48   22:54   Vidyavihar       ... 23:05 23:12 23:17 23:28 ...   23:40
+Kurla            22:26   22:30   22:34   22:44   22:42   22:47   22:51   22:57   Kurla          23:14 23:08 23:15 23:20 23:31 23:43 23:43
+Sion             22:30   22:34   22:38     ...   22:46   22:51   22:55   23:01   Sion             ... 23:12 23:19 23:24 23:35 ...   23:47
+Matunga          22:34   22:38   22:42     ...   22:50   22:55   22:59   23:05   Matunga          ... 23:16 23:23 23:28 23:39 ...   23:51
+Dadar            22:37   22:41   22:45   22:52   22:53   22:58   23:02   23:08   Dadar          23:22 23:19 23:26 23:31 23:42 23:51 23:54
+Parel                    22:44   22:48    ...    22:56   23:01   23:05   23:11   Parel            ... 23:22 23:29 23:34 23:45 ...   23:57
+Currey Road              22:47   22:51    ...    22:59   23:04   23:08   23:14   Currey Road      ... 23:25 23:32 23:37 23:48 ...   00:00
+Chinchpokli              22:49   22:53    ...    23:01   23:06   23:10   23:16   Chinchpokli      ... 23:27 23:34 23:39 23:50 ...   00:02
+Byculla                  22:51   22:55   22:58   23:03   23:08   23:12   23:18   Byculla        23:28 23:29 23:36 23:41 23:52 23:57 00:04
+Sandhurst Road           22:54   22:58    ...    23:06   23:11   23:15   23:21   Sandhurst Road ...   23:32 23:39 23:44 23:55 ...   00:07
+Masjid                   22:57   23:01    ...    23:09   23:14   23:18   23:24   Masjid           ... 23:35 23:42 23:47 23:58 ...   00:10
+Mumbai C S T             23:00   23:04   23:06   23:12   23:17   23:21   23:27   Mumbai C S T   23:36 23:38 23:45 23:50 00:01 00:05 00:13
+
+                                    106                                                                        107
+       KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST                                    KASARA-KHOPOLI-KARJAT-KALYAN-THANE-MUMBAI CST
+Stations      96516 96016 96344 96648 96226 96650 97136 96110                    Stations      97138 96404 97140 96652 96228 96230 96018 96518
+              AN 32 KP 12 A 78 CTL 4 TBL 2 DTL 4 CK 4 S 48                                     TK 10 N 32 TK 12 CTL 6 BL 52 TBL 4 SKP 16 KAN 2
+
+
+Kasara                                                                           Kasara                   22:35
+Khardi                                                                           Khardi                   22:51
+Atgaon                                                                           Atgaon                   23:03
+Asangaon         22:13                                                           Asangaon                 23:12                                           23:47
+Vasind           22:21                                                           Vasind                   23:18                                           23:53
+Khadavli         22:29                                                           Khadavli                 23:26                                           00:01
+Titwala          22:37                   22:55           23:13                   Titwala                  23:34           23:45                           00:08
+Ambivli          22:43                   23:04           23:22                   Ambivli                  23:42           23:54                           00:14
+Shahad           22:47                   23:07           23:25                   Shahad                   23:45           23:57                           00:18
+Khopoli                  21:41                                                   Khopoli                                                          23:20
+Lowjee                   21:45                                                   Lowjee                                                           23:24
+Dolavli                  21:49                                                   Dolavli                                                          23:28
+Kelavli                  21:52                                                   Kelavli                                                          23:31
+Palasdhari               21:59                                                   Palasdhari                                                       23:38
+Karjat                   22:07                                           22:45   Karjat                                                           23:45
+Bhivpuri Road            22:15                                           22:54   Bhivpuri Road
+Neral                    22:22                                           23:01   Neral
+Shelu                    22:26                                           23:05   Shelu
+Vangani                  22:30                                           23:09   Vangani
+Badlapur                 22:39                   23:04                   23:18   Badlapur                                         23:45   23:58
+Ambernath                22:47   22:52           23:13                   23:26   Ambernath                                        23:55   00:07
+Ulhas Nagar              22:51   22:58           23:17                   23:30   Ulhas Nagar                                      23:59   00:11
+Vithalwadi               22:54   23:01           23:20                   23:33   Vithalwadi                                       00:02   00:14
+Kalyan           22:53   22:59   23:07   23:12   23:26   23:30   23:36   23:40   Kalyan           23:43   23:51   23:58   00:02   00:09   00:20
+Thakurli         22:58   23:05   23:12   23:17   23:31   23:35   23:43   23:47   Thakurli         23:50   23:57   00:04   00:07   00:14   00:25
+Dombivli         23:01   23:08   23:15   23:20   23:34   23:38   23:46   23:50   Dombivli         23:53   00:00   00:07   00:10   00:17   00:28
+Kopar            23:04   23:11   23:18   23:23   23:37   23:41   23:49   23:53   Kopar            23:56   00:03   00:10   00:13   00:20   00:31
+Diva             23:09   23:16   23:23   23:28   23:42   23:46   23:54   23:58   Diva             00:01   00:08   00:15   00:18   00:25   00:36
+Mumbra           23:13   23:20   23:27   23:32   23:46   23:50   23:58   00:02   Mumbra           00:05   00:12   00:19   00:22   00:29   00:40
+Kalva            23:19   23:26   23:33   23:38   23:52   23:56   00:04   00:08   Kalva            00:11   00:18   00:25   00:28   00:35   00:46
+Thane            23:23   23:30   23:37   23:42   23:56   00:00   00:08   00:12   Thane            00:15   00:22   00:29   00:32   00:39   00:50
+Mulund           23:28   23:34   23:41   23:46           00:04   00:12   00:16   Mulund                   00:26           00:36   00:43
+Nahur            23:31   23:37   23:44   23:49           00:07   00:15   00:19   Nahur                    00:29           00:39   00:46
+Bhandup          23:34   23:40   23:47   23:52           00:10   00:18   00:22   Bhandup                  00:32           00:42   00:49
+Kanjur Marg      23:37   23:43   23:50   23:55           00:13   00:21   00:25   Kanjur Marg              00:35           00:45   00:52
+Vikhroli         23:40   23:46   23:53   23:58           00:16   00:24   00:28   Vikhroli                 00:38           00:48   00:55
+Ghatkopar        23:45   23:51   23:58   00:03           00:21   00:29   00:33   Ghatkopar                00:43           00:53   01:00
+Vidyavihar       23:48   23:54   00:01   00:06           00:24   00:32   00:36   Vidyavihar               00:46           00:56   01:03
+Kurla            23:51   23:57   00:04   00:09           00:27   00:35   00:39   Kurla                    00:49           00:59   01:06
+Sion             23:55   00:01   00:08                   00:31           00:43   Sion                     00:53                   01:10    ...
+Matunga          23:59   00:05   00:12                   00:35           00:47   Matunga                  00:57                   01:14
+Dadar            00:02   00:08   00:15                   00:38           00:50   Dadar                    01:00                   01:17
+Parel            00:05   00:11   00:18                                   00:52   Parel                    01:02                   01:19
+Currey Road      00:08   00:14   00:21                                   00:55   Currey Road              01:05                   01:22
+Chinchpokli      00:10   00:16   00:23                                   00:57   Chinchpokli              01:07                   01:24
+Byculla          00:12   00:18   00:25                                   00:59   Byculla                  01:09                   01:26
+Sandhurst Road   00:15   00:21   00:28                                   01:02   Sandhurst Road           01:12                   01:29
+Masjid           00:18   00:24   00:31                                   01:05   Masjid                   01:15                   01:32
+Mumbai C S T     00:21   00:27   00:34                                   01:08   Mumbai C S T             01:18                   01:35
+
+                                    108                                                                              109
+

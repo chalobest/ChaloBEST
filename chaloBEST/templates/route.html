@@ -1,37 +1,174 @@
-{% extends 'databrowse_base.html' %}
+{% extends 'base.html' %}
+{% block extra_head %}
+{{ block.super }}
+<script>
+$(function() {
+    var slug = "{{ route.alias }}";
+    var url = "/1.0/route/" + slug;
+    $.getJSON(url, {}, function(data) {
+        loadStopsGeojson(data.stops);
+        var bounds = jsonLayer.getBounds();
+        map.fitBounds(bounds);
+    });
 
-{% block title %} Route {{ route.alias }} {% endblock %}
-
-{% block api_url %}
-var API_BASE = "/1.0/";
-var API_URL = API_BASE + 'route/' + "{{ route.alias }}";
+});
+</script>
 {% endblock %}
 
-{% block body %}
-    <div id="stopListWrapper" class="listColumn">
-        <h4>Stops on route:</h4>
-        <input class="listFilterInput" placeholder="Filter..." />
-        <ul id="stopList">            
-            {% for r in routeDetails %}
-                <li>
-                    <a href="{{ r.stop.get_absolute_url }}">{{ r.stop.name }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+{% block content %}
 
-    <div id="areaListWrapper" class="listColumn">
-        <h4>Areas passed:</h4>
-        <input class="listFilterInput" placeholder="Filter..." />
-        <ul id="areaList">
+<div class="leading10"></div>
+<div class="g12">
+	<div class="g12_12 search">
+		<div class="g12_2">&nbsp;</div>
+		<div class="g12_8">
+        {% include 'guidesearch_form.html' %}
+      </div>
+	</div>
+</div>
+<div class="g8">
+	<div class="g8_8">
+		<div class="pagetitle">
+			<div class="guideh1box titleXS">
+				<h1>
+					<div class="rti"><img src="/static/images/bus_r.png" /></div>
+					<div class="number">
+						{{ route.alias }}
+					</div>
+					<div class="from">
+						<span class="rt">{{ route.from_stop.display_name }}</span><br />
+						<span class="rt">{{ route.from_stop.name_mr }}</span>
+					</div>
+					<div class="dash">
+						<span class="rt" style="line-height:2.4em;"> - </span>
+					</div>
+					<div class="to">
+						<span class="rt">{{ route.to_stop.display_name }}</span><br />
+						<span class="rt">{{ route.to_stop.name_mr }}</span>
+					</div>
+				</h1>
+			</div>
+		</div>
+		<div class="g4_4 listextrainfo">
+			<img src="/static/images/Frq_3.png" />
+			<p class="small"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }} minutes</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
+		</div>
+		<br style="clear: both;" />
+		<div class="maphome">
+			<div id="map" style="width:100%;height:100%;"></div>
+		</div>
+	</div>
+	<div class="leading40"></div>
+    
+	<div class="g8_5">&nbsp;
+	<!--
+		<div class="listtitlesmall">
+			<h3>Comments</h3>
+		</div>
+		<div class="comments" id="comments_list">
+			<div class="comment_item">
+				<div class="comment_user">
+					indrani misra:
+				</div>
+				<div class="comment_content">
+					Bani,
+					Loved reading your article. What a lovely and meaningful experience between the banyan trees! I could picture it all. carry on with the great work that SRUTI is doing. Between the great economic and social divide...
+				</div>
+			</div>
+		</div>
+		<div class="leading20"></div>
+		<div class="comments" id="comment_form">
+			<h4 class="formHeader">Leave a comment</h4>
+				<form action="/comments/post/" method="POST">
+					<div style='display:none'>
+						<input type='hidden' name="" value="" />
+						<input type="hidden" name="next" value="" />
+					</div>
+					<div class="box">
+						<label for="id_name">Name:</label>
+						<div class="textbox"><input id="id_name" type="text" name="name" maxlength="50" /></div>
+					</div>
+					<div class="box">
+						<label for="id_email">Email address:</label>
+						<div class="textbox"><input id="id_email" type="text" name="email"  /></div>
+					</div>
+					<div class="box">
+						<label for="id_url">URL:</label>
+						<div class="textbox"><input id="id_url" type="text" name="url" /></div>
+					</div>
+					<div class="box">
+						<label for="id_comment">Comment:</label>
+						<div class="textbox"><textarea id="id_comment" rows="10" cols="40" name="comment"></textarea></div>
+					<div class="pot">
+						<label for="id_honeypot">If you enter anything in this field your comment will be treated as spam:</label>
+						<input type="text" name="honeypot" id="id_honeypot" />
+					</div>
+					<div class="box right">
+						<input type="hidden" name="content_type" value="emailer.emailerissue" id="id_content_type" />
+						<input type="hidden" name="object_pk" value="" id="id_object_pk" />
+						<input type="hidden" name="timestamp" value="" id="id_timestamp" />
+						<input type="hidden" name="security_hash" value="" id="id_security_hash" />
+						<div class="g9_3">&nbsp;</div>
+						<div class="g9_gut"></div>
+						<div class="g9_6"><input type="submit" id="id_submit" name="post" class="submit-post" value="Post"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+		-->
+	</div>
+	<div class="g8_gut"></div>
+	<div class="g8_3">
+		<!-- removed this as the area list also appears in the route table
+		<table name="stop_nearby" class="tablebase">
+			<tr class="sublist">
+				<th>
+					<img src="/static/images/area.png" />
+					<h3>Areas covered</h3>
+				</th>
+			</tr>
             {% for area in route.areas_passed %}
-                <li>
-                    <a href="{{ area.get_absolute_url }}">{{ area.name }}</a>
-                </li>
+			<tr class="landing_row">
+				<td class="landing_area"><a href="{{ area.get_absolute_url }}"><b>{{ area.display_name }}</b><br /><span>{{ area.name_mr }}</span></a></td>
+			<tr>
             {% endfor %}
+		</table>
+		-->
+	</div>
+</div>
 
-        </ul>
-    </div>
+<div class="g4">
+	<div class="arealistheight">
+		<div class="g4_4 listtitle">
+			<img src="/static/images/stop.png" />
+			<h2>Stops</h2>
+		</div>
+		<div class="list">
+			<table name="routepage_table" class="tablebase">
+				<tr class="sublist">
+					<th colspan="2">
+						<form name="filter_route_stop" class="listfilter_form">
+							<input class="listfilter_input" type="text" name="route_stop" title="Explore the stops / areas passed by this route" placeholder="Type stop name or area..." />
+						</form>
+					</th>
+					<!--<th>
+						<form name="filter_route_area" class="listfilter_form">
+							<input class="listfilter_input" type="text" name="route_area" title="Explore areas passed by this route" placeholder="Type area..." />
+						</form>
+                        
+					</th>-->
+					<th>km</th>
+				</tr>
+                {% for r in routeDetails %}
+				<tr class="listItem">
+					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
+					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}</a></td>
+					<td class="lightgrey small"><span class="right small">{% if r.km %}{{ r.km }} km{% endif %}</span></td>
+				</tr>
+                {% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
 
-    <div id="map"></div>
 {% endblock %}

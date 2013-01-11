@@ -1,0 +1,49 @@
+{% extends 'databrowse_base.html' %}
+
+{% block title %} Area: {{ area.name }} {% endblock %}
+
+{% block api_url %}
+var API_BASE = "/1.0/";
+var API_URL = API_BASE + 'area/' + "{{ area.slug }}";
+{% endblock %}
+
+{% block body %}
+    <div id="stopListWrapper" class="listColumn">
+        <h4>Stops in {{ area.display_name }}:</h4>
+        <input class="listFilterInput" placeholder="Filter..." />
+        <ul id="stopList">
+            {% for stop in stops %}
+                <li>
+                    <a href="{{ stop.get_absolute_url }}">{{ stop.display_name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="routeListWrapper" class="listColumn">
+        <h4>Routes passing through {{ area.display_name }}:</h4>
+        <input class="listFilterInput" placeholder="Filter..." />
+            <ul id="routeList">
+                {% for route in area.routes_passing %}
+                <li>
+                    <a href="{{ route.get_absolute_url }}">{{ route.alias }}</a>
+                </li>
+
+                {% endfor %}
+            </ul>
+    </div>
+    <div id="areaListWrapper" class="listColumn">
+        <h4>Nearby areas:</h4>
+        <input class="listFilterInput" placeholder="Filter..." />
+        <ul id="areaList">
+            {% for area in area.nearby_areas %}
+                <li>
+                    <a href="{{ area.get_absolute_url }}">{{ area.display_name }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <div id="map"></div>
+
+{% endblock %}

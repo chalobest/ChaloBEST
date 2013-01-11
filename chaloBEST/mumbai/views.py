@@ -22,7 +22,7 @@ def index(request):
         'areas': areas,
         'counts': counts
     })
-    return render_to_response("innov/index.html", context)
+    return render_to_response("index.html", context)
 
 
 def autocomplete(request):
@@ -49,23 +49,23 @@ def autocomplete(request):
 
 def about(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/about_chalobest.html", context)
+    return render_to_response("about_chalobest.html", context)
 
 def android(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/android.html", context)
+    return render_to_response("android.html", context)
 
 def join_us(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/joinus.html", context)
+    return render_to_response("joinus.html", context)
 
 def sms(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/SMS.html", context)
+    return render_to_response("SMS.html", context)
 
 def contact(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/contactus.html", context)
+    return render_to_response("contactus.html", context)
 
 def login(request):
     return render_to_response('login.html',c, context_instance=RequestContext(request))
@@ -83,7 +83,7 @@ def route(request, alias):
         'route': route,
         'routeDetails': routeDetails
     })
-    return render_to_response("innov/route.html", context)
+    return render_to_response("route.html", context)
 
 
 def areas(request):
@@ -99,7 +99,7 @@ def area(request, name):
         'area': area,
         'stops': stops
     })
-    return render_to_response("innov/area.html", context)
+    return render_to_response("area.html", context)
 
 
 def stop(request, slug):
@@ -108,7 +108,7 @@ def stop(request, slug):
         'stop': stop,
         'geojson': json.dumps(stop.get_geojson())
     })
-    return render_to_response("innov/stop.html", context)
+    return render_to_response("stop.html", context)
 
 @login_required
 def editstops(request):

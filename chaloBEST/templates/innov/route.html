@@ -146,24 +146,24 @@ $(function() {
 		<div class="list">
 			<table name="routepage_table" class="tablebase">
 				<tr class="sublist">
-					<th>
+					<th colspan="2">
 						<form name="filter_route_stop" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="route_stop" title="Explore the stops / areas passed by this route" placeholder="Type stop name or area..." />
 						</form>
 					</th>
-					<th><!--
+					<!--<th>
 						<form name="filter_route_area" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="route_area" title="Explore areas passed by this route" placeholder="Type area..." />
 						</form>
-                        -->
-					</th>
+                        
+					</th>-->
 					<th>km</th>
 				</tr>
                 {% for r in routeDetails %}
 				<tr class="listItem">
 					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
 					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}</a></td>
-					<td class="lightgrey small"><span class="right">{% if r.km %}{{ r.km }} km{% endif %}</span></td>
+					<td class="lightgrey small"><span class="right small">{% if r.km %}{{ r.km }} km{% endif %}</span></td>
 				</tr>
                 {% endfor %}
 			</table>

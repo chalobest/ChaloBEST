@@ -188,7 +188,7 @@
 						<span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
 						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
 					</td>
-					<td class="lightgrey small"><span class="right small">{{ route.headways }} min.</span></td>
+					<td class="lightgrey small"><span class="right small">{% if route.headways %}{{ route.headways }} min.{% endif %}</span></td>
 				</tr>
 				
                 {% endfor %}

@@ -19,11 +19,11 @@
 <!-- Included CSS Files -->
 <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/content.css" />
-<link rel="stylesheet" href="/static/select2/select2.css" />
+
 <link rel="stylesheet" href="/static/leaflet/leaflet.css" />
 <script src="/static/js/jquery-1.7.1.min.js"></script>
 <script src="/static/leaflet/leaflet.js"></script>
-<script src="/static/select2/select2.js"></script>
+
 <script src="/static/js/best_map.js"></script>
 
 
@@ -31,6 +31,8 @@
     <script src="/static/js/guidesearch_mobile.js"></script>
     <link rel="stylesheet" href="/static/css/mobile_lightbox.css" />
 {% else %}
+    <link rel="stylesheet" href="/static/select2/select2.css" />
+    <script src="/static/select2/select2.js"></script>
     <script src="/static/js/guidesearch_select2.js"></script>
 {% endif %}
 

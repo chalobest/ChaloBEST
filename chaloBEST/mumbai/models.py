@@ -255,7 +255,17 @@ class Stop(models.Model):
     @property
     def routes(self):
         return Route.objects.filter(routedetail__stop=self)
-    
+
+    @property    
+    def display_alt_names(self):
+        '''
+            Exclude the display_name from the alt name results and return alt names
+        '''
+        alt_names = []
+        for a in self.alt_names.all():
+            if a.name != self.display_name:
+                alt_names.append(a)
+        return alt_names
 
     def __unicode__(self):
         return self.name   

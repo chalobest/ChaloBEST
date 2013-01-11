@@ -1,5 +1,6 @@
 {% extends 'innov/base.html' %}
 {% block extra_head %}
+{{ block.super }}
 <script>
 $(function() {
     var slug = "{{ area.slug }}";
@@ -114,12 +115,12 @@ $(function() {
 				<tr class="sublist">
 					<th>
 						<form name="filter_area_stops" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="filter list" value="Type stop name..." />
+							<input class="listfilter_input" type="text" name="filter list" placeholder="Type stop name..." />
 						</form>
 					</th>
 				</tr>
 				{% for stop in stops %}
-				<tr class="landing_row">
+				<tr class="landing_row listItem">
 					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
 				<tr>
 				{% endfor %}
@@ -160,12 +161,12 @@ $(function() {
 					</th>
 					<th class="stop_route">
 						<form name="filter_stop_route" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="stop_route" value="Type first or last stop..." />
+							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
 						</form>
 					</th>
 				</tr>
                 {% for route in area.routes_passing %}
-				<tr>
+				<tr class="listItem">
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
                         <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>

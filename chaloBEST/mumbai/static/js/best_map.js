@@ -1,8 +1,17 @@
 $(function() {
-    if (!map) {
-        var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:1,maxZoom:18,attribution:'Map data © openstreetmap contributors'});
-        map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
-    }
+    $('.listfilter_input').keyup(function() {
+        var val = $(this).val();
+        var $rows = $(this).parents("table").find(".listItem");
+        $rows.each(function() {
+            var thisTxt = $(this).text();
+            //console.log(thisTxt);
+            if (thisTxt.toLowerCase().indexOf(val.toLowerCase()) == -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
 });
 
 

@@ -1,5 +1,6 @@
 {% extends 'innov/base.html' %}
 {% block extra_head %}
+{{ block.super }}
 <script>
     $(function() {
         var geojson = {{ geojson|safe }};
@@ -121,7 +122,7 @@
 					</th>
 				</tr>
                 {% for n in stop.nearby_stops %}
-				<tr class="landing_row">
+				<tr class="landing_row listItem">
 					<td class="landing_area"><a href="{{ n.get_absolute_url }}"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
 				<tr>
                 {% endfor %}
@@ -162,7 +163,7 @@
 					</th>
 					<th class="stop_route">
 						<form name="filter_stop_route" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="stop_route" value="Type first or last stop..." />
+							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
 						</form>
 					</th>
 					<th class="stop_frequency">
@@ -173,7 +174,7 @@
 				
                 {% for route in stop.get_routes %}
 
-				<tr>
+				<tr class="listItem">
 					<td><a href="{{ route.get_absolute_url }}">{{ route.alias }}</td>
 					<td>
 						<span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>

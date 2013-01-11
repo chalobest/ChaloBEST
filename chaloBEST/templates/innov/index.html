@@ -9,7 +9,7 @@
 
 <script type="text/html" id="stopTemplate">
 
-<tr class="landing_row stopRow">
+<tr class="landing_row stopRow listItem">
 	<td class="landing_area"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
 <tr>
 </script>
@@ -141,7 +141,7 @@
 				<tr class="sublist">
 					<th>
 						<form name="filter_home_area" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="filter list" value="Type to filter, select below..." />
+							<input class="listfilter_input" type="text" name="filter list" placeholder="Type to filter, select below..." />
 						</form>
 					</th>
 				</tr>

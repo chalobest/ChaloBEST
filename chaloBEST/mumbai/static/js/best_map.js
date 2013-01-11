@@ -1,6 +1,8 @@
 $(function() {
-    var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:1,maxZoom:18,attribution:'Map data © openstreetmap contributors'});
-    map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
+    if (!map) {
+        var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:1,maxZoom:18,attribution:'Map data © openstreetmap contributors'});
+        map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
+    }
 });
 
 

@@ -76,8 +76,8 @@ def routes(request):
     })
     return render_to_response("routes.html", context)
 
-def route(request, alias):
-    route = get_object_or_404(Route, alias=alias)
+def route(request, code):
+    route = get_object_or_404(Route, code=code)
     routeDetails = RouteDetail.objects.filter(route=route).order_by('serial')
     context = RequestContext(request, {
         'route': route,

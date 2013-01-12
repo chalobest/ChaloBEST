@@ -285,6 +285,20 @@ class Stop(models.Model):
         return "/stop/%s" % self.slug
 
 
+#Code, prefix, suffix, aliases
+ROUTE_TYPES = (
+    (0, "", "", ""), #Ordinary
+    (1, "", " Ltd", "L, Limited, Ltd"), #Limited
+    (2, "", "", ""), #Ordinary Extra
+    (3, "", " Ltd", "L, Limited, Ltd"), #Limited Extra
+    (4, "", "", ""), #Ring Ordinary
+    (5, "", " Ltd", "L, Limited, Ltd"), #Ring Limited
+    (6, "C-", " Exp", "C, Express, Exp"), #Express
+    (7, "AS-", "", "AS, AC, A"), #AS
+    (8, "A-", " Exp", "AS, AC, A, Exp"), #AC Express
+    (9, "A-", " Exp", "AS, AC, A, Exp"), #AC Exp Ext
+)
+
 class Route(models.Model):
     code = models.TextField(max_length=255, unique=True) #FIXME: Why is this a TextField??
     slug = models.SlugField(null=True)
@@ -313,10 +327,21 @@ class Route(models.Model):
         ordering = ['code']
 
     def get_absolute_url(self):
-        return "/route/%s/" % self.alias
+        return "/route/%s/" % self.code
 
     def __unicode__(self):
-        return self.alias
+        return self.display_name
+
+    @property
+    def route_number(self):
+        return self.code3.lstrip('0')
+
+    @property
+    def display_name(self):
+        route_type = int(self.route_type.code)
+        prefix = ROUTE_TYPES[route_type][1]
+        suffix = ROUTE_TYPES[route_type][2]
+        return prefix + self.route_number + suffix
 
     def get_dict(self):
         return {
@@ -325,6 +350,7 @@ class Route(models.Model):
             'alias': self.alias,
             'slug': self.slug,
             'distance': str(self.distance),
+            'display_name': self.display_name,
             'url': self.get_absolute_url(),
             'headway': self.headways()
         }

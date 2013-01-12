@@ -343,6 +343,11 @@ class Route(models.Model):
         suffix = ROUTE_TYPES[route_type][2]
         return prefix + self.route_number + suffix
 
+    @property
+    def route_type_aliases(self):
+        route_type = int(self.route_type.code)
+        return ROUTE_TYPES[route_type][3]
+
     def get_dict(self):
         return {
             'id': self.id,
@@ -352,7 +357,8 @@ class Route(models.Model):
             'distance': str(self.distance),
             'display_name': self.display_name,
             'url': self.get_absolute_url(),
-            'headway': self.headways()
+            'headway': self.headways(),
+            'route_type_aliases': self.route_type_aliases
         }
 
     def areas_passed(self):

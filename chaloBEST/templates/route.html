@@ -3,7 +3,7 @@
 {{ block.super }}
 <script>
 $(function() {
-    var slug = "{{ route.alias }}";
+    var slug = "{{ route.code }}";
     var url = "/1.0/route/" + slug;
     $.getJSON(url, {}, function(data) {
         loadStopsGeojson(data.stops);

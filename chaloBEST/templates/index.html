@@ -1,52 +1,156 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+{% extends 'base.html' %}
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ChaloBEST</title>
+{% block extra_head %}
+<script src="/static/js/index.js"></script>
 
-</head>
-<body bgcolor="#000000" link="white" vlink="white" alink="white">
-<div id="wrapper">
-        {% block body %}
-                <ul>
-                {% if user.is_authenticated %}
-                <li><a href="{% url userena_signout %}">Sign Out</a></li>
-                {% else %}
-                <li><a href="{% url userena_signin %}">Sign In</a></li>
-                <li><a href="{% url userena_signup %}">Sign Up</a></li>
-                {% endif %}
-                </ul>
+{% endblock %}
+
 {% block content %}
-{% endblock %}
-{% endblock %}
+
+<script type="text/html" id="stopTemplate">
+
+<tr class="landing_row stopRow listItem">
+	<td class="landing_area"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
+<tr>
+</script>
+
+<div class="g9">
+
+<!--
+	<div class="leading40"></div>
+-->
+	<div class="leading10"></div>
+	<div class="g9_9 white">
+		<div class="g9_9 search">
+			<div class="g9_1">&nbsp;</div>
+			<div class="g9_8">
+				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
+				{% include 'guidesearch_form.html' %}
+			</div>
+		</div>
+		
+		<div class="leading20"></div>
+		
+		<div class="searchbar">
+			<div class="g9_1">&nbsp;</div>
+			<div class="g9_8">
+				<ul>
+					<li><span class="statistics">{{ counts.areas }} AREAS <!-- <br /><span class="overline">areas</span>--></span>
+						<span class="center">
+							<img class="statsImg" src="/static/images/area.png" >
+						</span>
+					</li>
+					<li><img class="statsImg" src="/static/images/stop.png" ><span class="statistics">{{ counts.stops }} STOPS<!-- <br /><span class="overline">stops</span> --> </span></li>
+					<li><img class="statsImg" src="/static/images/bus.png" ><span class="statistics">{{ counts.routes }} ROUTES<!--<br /><span class="overline">routes</span>--> </span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_9 maphome">
+            <div class="landingmap" id="map"></div>
+		</div>
+		<br style="clear: both;" />
+	</div>
+	
+	<div class="leading40"></div>
+	<div class="leading40"></div>
+	<div class="g9_9">&nbsp;
+	<!--
+		<div class="listtitlesmall">
+			<h3>Comments</h3>
+		</div>
+		<div class="comments" id="comments_list">
+			<div class="comment_item">
+				<div class="comment_user">
+					indrani misra:
+				</div>
+				<div class="comment_content">
+					Bani,
+					Loved reading your article. What a lovely and meaningful experience between the banyan trees! I could picture it all. carry on with the great work that SRUTI is doing. Between the great economic and social divide...
+				</div>
+			</div>
+		</div>
+		<div class="leading20"></div>
+		<div class="comments" id="comment_form">
+			<h4 class="formHeader">Leave a comment</h4>
+			<form action="/comments/post/" method="POST">
+				<div style='display:none'>
+					<input type='hidden' name="" value="" />
+					<input type="hidden" name="next" value="" />
+				</div>
+				<div class="box">
+					<label for="id_name">Name:</label>
+					<div class="textbox"><input id="id_name" type="text" name="name" maxlength="50" /></div>
+				</div>
+				<div class="box">
+					<label for="id_email">Email address:</label>
+					<div class="textbox"><input id="id_email" type="text" name="email"  /></div>
+				</div>
+				<div class="box">
+					<label for="id_url">URL:</label>
+					<div class="textbox"><input id="id_url" type="text" name="url" /></div>
+				</div>
+				<div class="box">
+					<label for="id_comment">Comment:</label>
+					<div class="textbox"><textarea id="id_comment" rows="10" cols="40" name="comment"></textarea></div>
+				<div class="pot">
+					<label for="id_honeypot">If you enter anything in this field your comment will be treated as spam:</label>
+					<input type="text" name="honeypot" id="id_honeypot" />
+				</div>
+				<div class="box right">
+					<input type="hidden" name="content_type" value="emailer.emailerissue" id="id_content_type" />
+					<input type="hidden" name="object_pk" value="" id="id_object_pk" />
+					<input type="hidden" name="timestamp" value="" id="id_timestamp" />
+					<input type="hidden" name="security_hash" value="" id="id_security_hash" />
+					<div class="g9_3">&nbsp;</div>
+					<div class="g9_gut"></div>
+					<div class="g9_6"><input type="submit" id="id_submit" name="post" class="submit-post" value="Post"></div>
+				</div>
+			</form>
+		</div>
+		</div> -->
+	</div>
 </div>
- <font color="white">
-  <center>
-    <div>
-        <img src="/static/images/logo.png">
-    </div>
+<!-- 
+<div class="g3">
+	<div class="g3_3">
+		<div class="highlight">
+			<h2>Trip planner</h2>
+			<div class="tripform">
+				<form name="homeOTPsearch">
+					<input class="tripinput" type="text" name="from" value="Type departure location" />
+					<input class="tripinput" type="text" name="to" value="Type arrival location" />
+					<input class="submit" type="submit" value="Search" />
+					<br style="clear: both;" />
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+ -->
+<div class="g3">
+	<div class="leading40"></div>
+</div>
+<div class="g3">
+	<div class="g4_4 listtitle">
+		<img src="/static/images/stop.png" />
+		<h2>Displayed stops</h2>
+		</div>
+	<div class="g3_3 height">
+		<div class="g3_3 list">
+			<table name="landing_area" class="tablebase" id="nearStopsTable">
+				<tr class="sublist">
+					<th>
+						<form name="filter_home_area" class="listfilter_form">
+							<input class="listfilter_input" type="text" name="filter list" placeholder="Type to filter, select below..." />
+						</form>
+					</th>
+				</tr>
+     
 
-    <div>
-        <h3>Free and simple tools to find your way through Mumbai, coming soon to SMS, web and smartphone.</h3>
-        <br /> 
+			</table>
+		</div>
+	</div>
+</div>
 
-        <p>Want to get involved or learn more? Check out our <a href="http://wiki.chalobest.in/">project wiki</a> or join our <a href="http://gnowledge.org/cgi-bin/mailman/listinfo/smsbest">mailing list</a>. 
-        <br>
-        </p>
-	<p>
-  	<a href="http://chalobest.in/">ChaloBEST</a> is a collaboration of <a href="http://camputer.org/">CAMP</a>, <a href="http://mgtech.in/">MacGregor TechKnowlogy</a>, <a href="http://sparcsys.com/">SPARC Systems</a>, <a href="http://userinnov.com/">UserINNOV</a>, and the<br> <a href="http://www.hbcse.tifr.res.in/">Homi Bhabha Centre for Science Education, Tata Institute of Fundamental Research (TIFR)</a>.
-	</p>
-	<p>
-	We are funded by the <a href="http://iihs.ac.in/">Indian Institute of Human Settlements</a> as the first-prize winners in the <br> <a href="http://transformurbanindia.com/">Sankranti Transform Urban India</a> competition at the <a href="http://iuc2011.in">India Urban Conference 2011</a>.
-	</p>
-
-	<p>We are also supported by the Traffic Planning Department of the <a href="http://bestundertaking.com/">BEST (Brihanmumbai Electric Supply & Transport Undertaking)</a>.
-	</p>
-
-     </div>
-   </center>
- </font> 
-</body>
-</html>
-
+{% endblock content %}

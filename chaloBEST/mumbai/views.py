@@ -8,35 +8,64 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from fuzzywuzzy import process as fuzzprocess
 from django.http import HttpResponse
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+import json
 
 def index(request):
     areas = Area.objects.all().order_by('name')
-    
+    counts = {
+        'areas': Area.objects.count(),
+        'stops': Stop.objects.count(),
+        'routes': Route.objects.count()
+    }
     context = RequestContext(request, {
-        'areas': areas
+        'areas': areas,
+        'counts': counts
     })
-    return render_to_response("innov/index.html", context)
+    return render_to_response("index.html", context)
+
+
+def autocomplete(request):
+    q = request.GET.get("q", "a")
+    page = int(request.GET.get('page', '1'))
+    page_limit = int(request.GET.get('page_limit', '10'))
+    objects = []
+    if q.isdigit(): #if its a number, search / return only routes
+        objects += [o.get_autocomplete() for o in Route.objects.filter(alias__icontains=q).order_by('code3')]
+    else:
+        objects += [a.get_autocomplete() for a in Area.objects.find_approximate(q, 0.25)]
+        objects += [r.get_autocomplete() for r in Route.objects.filter(alias__icontains=q).order_by('code3')]
+        objects += [s.get_autocomplete() for s in Stop.objects.find_approximate(q, 0.25)]
+    paginator = Paginator(objects, page_limit)
+    results = paginator.page(page)    
+    ret = {
+        'items': results.object_list,
+        'has_next': results.has_next()
+    }
+    return render_to_json_response(ret)
+        
+        
 
 
 def about(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/about_chalobest.html", context)
+    return render_to_response("about_chalobest.html", context)
 
 def android(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/android.html", context)
+    return render_to_response("android.html", context)
 
 def join_us(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/joinus.html", context)
+    return render_to_response("joinus.html", context)
 
 def sms(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/SMS.html", context)
+    return render_to_response("SMS.html", context)
 
 def contact(request):
     context = RequestContext(request, {})
-    return render_to_response("innov/contactus.html", context)
+    return render_to_response("contactus.html", context)
 
 def login(request):
     return render_to_response('login.html',c, context_instance=RequestContext(request))
@@ -47,8 +76,8 @@ def routes(request):
     })
     return render_to_response("routes.html", context)
 
-def route(request, alias):
-    route = get_object_or_404(Route, alias=alias)
+def route(request, code):
+    route = get_object_or_404(Route, code=code)
     routeDetails = RouteDetail.objects.filter(route=route).order_by('serial')
     context = RequestContext(request, {
         'route': route,
@@ -76,7 +105,8 @@ def area(request, name):
 def stop(request, slug):
     stop = get_object_or_404(Stop, slug=slug)
     context = RequestContext(request, {
-        'stop': stop
+        'stop': stop,
+        'geojson': json.dumps(stop.get_geojson())
     })
     return render_to_response("stop.html", context)
 

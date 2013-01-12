@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Settings links & profile -->
+<div class="g3">
+	<div class="leading20"></div>
+		<div class="g3_3 staticpage main">
+		<ul id="box-nav">
+			<li><a href='/accounts/mcaro/'>My page</a></li>
+			<li><a href='/accounts/mcaro/edit/'>Edit profile</a></li>
+			<li><a href='/accounts/mcaro/password/'>Change password</a></li>
+			<li class="selected"><a href='/accounts/mcaro/email/'>Change email</a></li>
+		</ul>
+	</div>
+	<div id="box">
+		<img class="mugshot" src="http://www.gravatar.com/avatar/8b8f3a7297801bd5cdbc6e58231ab0ed?s=140&amp;d=monsterid" alt="Your mugshot" />
+		<dl>
+			<dt>Email</dt>
+			<dd>carolien.klep@gmail.com</dd>
+		</dl>
+	</div>
+</div>
+
+<!-- CONTENT BLOCK-->
+<div class="g6">
+	<div class="leading40"></div>
+	<div class="g6_6 staticpage main">
+		<form action="" method="post" id=" ">
+		  <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='AY0UF5lQ8hGGdnN0Ei8F15O1XQP9v399' /></div>
+		  <fieldset>
+			<h1><legend>Change email address</legend></h1>
+			<div class="divline">
+					<div class="divlabel"><label for="id_email">New email:</label></div>
+					<div class="divinput"><input id="id_email" type="text" class="required" name="email" maxlength="75" /></div>
+			</div>
+		  </fieldset>
+			<div class="divline">
+				<div class="divlabel">&nbsp;</div>
+				<div class="divinput"><input type="submit" class="actionbutton" value="Change email" /></div>
+			</div>
+		</form>
+	</div>
+	<div class="leading40"></div>
+</div>
+
+<!-- SIDE CONTENT BLOCK-->
+<div class="g3">
+
+</div>
+
+{% endblock %}

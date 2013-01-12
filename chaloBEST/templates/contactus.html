@@ -1,0 +1,35 @@
+{% extends 'innov/base.html' %}
+{% block content %}
+
+<div class="g3">
+</div>
+
+<div class="g6">
+	<div class="leading40"></div>
+	<div class="g6_6 staticpage main">
+		<h1>Contact Us</h1>
+		<p>Drop us a line though the form below.</p>
+		<div class="leading10"></div>
+		<form name="contactus">
+				<p class="label"><label for="name">Your name</label></p><p><input class="tripinput" type="text" name="name" id="name" value="" /></p>
+				<p class="label"><label for="email">Your e-mail</label></p><p><input class="tripinput" type="text" name="email" id="email" value="" /></p>
+				<p class="label"><label for="message">Your message</label></p><p><textarea class="tripinput" type="text" cols="40" rows="10" name="message" id="message" value=""></textarea></p>
+				<p class="label"><label>&nbsp;</label></p><p><input class="submit" type="submit" value="Send message" /></p>
+				<br style="clear: both;" />
+		</form>
+	</div>
+	<div class="leading40"></div>
+</div>
+<div class="g3">
+	<div class="g3_3 ">
+		<div class="highlight">
+			<h2>ChaloBEST newsletter</h2>
+			<div class="leading20"></div>
+			<p class="small">Sign up for our newsletter</p>
+
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock %}

@@ -4,12 +4,15 @@ from django.contrib.auth.decorators import login_required
 import json
 from django.views.decorators.csrf import csrf_exempt
 import re
+from django.contrib.gis.measure import D
+from decimal import Decimal
+from django.contrib.gis.geos import Point
 
 TRIGRAM_THRESHOLD = 0.25
 
-def route(request, slug):
+def route(request, code):
     srid = int(request.GET.get("srid", 4326))
-    route = get_object_or_404_json(Route, slug=slug)
+    route = get_object_or_404_json(Route, code=code)
     stops = [r.stop.get_geojson(srid=srid) for r in RouteDetail.objects.filter(route=route)]
     return render_to_json_response({
         'route': route.get_dict(),
@@ -39,18 +42,22 @@ def routes(request):
         route_no = match[0]
     else:
         route_no = ''
-    ret = []
+    #ret = []
     if route_no != '':
-        out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no) # used for, for eg. to filter out '210Ltd' when user searches for '21'. Checks for non-digit or start of string, followed by route_no, followed by non-digit or end of string
-        qset = Route.objects.filter(alias__icontains=route_no)
-        for route in qset:
-            if re.match(out_regex, route.alias):             
-                ret.append(route.alias)        
+        code3 = route_no.zfill(3)
+#        import pdb
+#        pdb.set_trace()
+        #out_regex = re.compile(r'.*(\D|\A)%s(\D|\Z).*' % route_no) # used for, for eg. to filter out '210Ltd' when user searches for '21'. Checks for non-digit or start of string, followed by route_no, followed by non-digit or end of string
+        qset = Route.objects.filter(code3=code3)
+#        for route in qset:
+#            if re.match(out_regex, route.alias):             
+#                ret.append(route.alias)        
     else:
         qset = Route.objects.all()
-        for route in qset:
-            ret.append(route.alias)
+#        for route in qset:
+#            ret.append(route.alias)
 #    routes = [route.alias for route in qset]
+    ret = [route.get_dict() for route in qset]
     return render_to_json_response(ret)
 
 
@@ -64,8 +71,25 @@ def areas(request):
     return render_to_json_response(areas)
 
 
+def stops_near(request):
+    '''
+    Returns stop within 'distance' of Point(center_lon, center_lat) as GeoJSON
+    '''
+    distance = Decimal(request.GET.get("distance", "1"))
+    d = D(km=distance)
+    center_lat = float(request.GET.get("center_lat", "19.04719036505186"))
+    center_lon = float(request.GET.get("center_lon", "72.87094116210938"))    
+    pt = Point([center_lon, center_lat])
+    tup = (pt, d,)
+    stops = [stop.get_geojson() for stop in Stop.objects.filter(point__distance_lte=tup)]
+    return render_to_json_response({
+        'type': 'FeatureCollection',
+        'features': stops
+    })
+
 def stops(request):
     q = request.GET.get("q", "")
+
     ctype = ContentType.objects.get_for_model(Stop)
     stops = []
     if q != '':

@@ -107,6 +107,18 @@ class Area(models.Model):
             #FIXME add alt_names and geometry
         }
 
+    
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Area',
+            'title': self.display_name,
+            'url': self.get_absolute_url()
+        }
+
     def get_absolute_url(self):
         return "/area/%s/" % self.name
 
@@ -164,11 +176,26 @@ class Stop(models.Model):
     point = models.PointField(null=True)
     alt_names = generic.GenericRelation("AlternativeName")
 
-    def get_dict(self):
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Stop',
+            'title': "%s (%s)" % (self.display_name, self.area.display_name,),
+            'url': self.get_absolute_url()
+        }
+
+    def get_routes(self):
         routes = []
         for r in self.routedetail_set.all():
             if r.route is not None:
                 routes.append(r.route)
+        return routes        
+
+    def get_dict(self):
+        routes = self.get_routes()
         return {
             'id': self.id,
             'code': self.code,
@@ -221,14 +248,24 @@ class Stop(models.Model):
         return self.get_geojson(srid=srid)
 
     @property
-    def nearby_stops(self, dist=D(km=1)):
+    def nearby_stops(self, dist=D(km=0.5)):
         tup = (self.point, dist,)
         return Stop.objects.filter(point__distance_lte=tup)
 
     @property
     def routes(self):
         return Route.objects.filter(routedetail__stop=self)
-    
+
+    @property    
+    def display_alt_names(self):
+        '''
+            Exclude the display_name from the alt name results and return alt names
+        '''
+        alt_names = []
+        for a in self.alt_names.all():
+            if a.name != self.display_name:
+                alt_names.append(a)
+        return alt_names
 
     def __unicode__(self):
         return self.name   
@@ -248,6 +285,20 @@ class Stop(models.Model):
         return "/stop/%s" % self.slug
 
 
+#Code, prefix, suffix, aliases
+ROUTE_TYPES = (
+    (0, "", "", ""), #Ordinary
+    (1, "", " Ltd", "L, Limited, Ltd"), #Limited
+    (2, "", "", ""), #Ordinary Extra
+    (3, "", " Ltd", "L, Limited, Ltd"), #Limited Extra
+    (4, "", "", ""), #Ring Ordinary
+    (5, "", " Ltd", "L, Limited, Ltd"), #Ring Limited
+    (6, "C-", " Exp", "C, Express, Exp"), #Express
+    (7, "AS-", "", "AS, AC, A"), #AS
+    (8, "A-", " Exp", "AS, AC, A, Exp"), #AC Express
+    (9, "A-", " Exp", "AS, AC, A, Exp"), #AC Exp Ext
+)
+
 class Route(models.Model):
     code = models.TextField(max_length=255, unique=True) #FIXME: Why is this a TextField??
     slug = models.SlugField(null=True)
@@ -261,14 +312,36 @@ class Route(models.Model):
     route_type = models.ForeignKey('RouteType', default=0, null=True, blank=True)
     code3 = models.CharField(max_length=5)
 
+    def get_autocomplete(self):
+        '''
+        Returns a dict to be used by the autocomplete front-end
+        '''
+        return {
+            'id': self.id,
+            'type': 'Route',
+            'title': self.alias,
+            'url': self.get_absolute_url()
+        }
+
     class Meta:
         ordering = ['code']
 
     def get_absolute_url(self):
-        return "/route/%s/" % self.alias
+        return "/route/%s/" % self.code
 
     def __unicode__(self):
-        return self.alias
+        return self.display_name
+
+    @property
+    def route_number(self):
+        return self.code3.lstrip('0')
+
+    @property
+    def display_name(self):
+        route_type = int(self.route_type.code)
+        prefix = ROUTE_TYPES[route_type][1]
+        suffix = ROUTE_TYPES[route_type][2]
+        return prefix + self.route_number + suffix
 
     def get_dict(self):
         return {
@@ -277,6 +350,7 @@ class Route(models.Model):
             'alias': self.alias,
             'slug': self.slug,
             'distance': str(self.distance),
+            'display_name': self.display_name,
             'url': self.get_absolute_url(),
             'headway': self.headways()
         }

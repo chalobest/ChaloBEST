@@ -10,11 +10,11 @@ from django.shortcuts import get_object_or_404
 class RouteFeed(Feed):
 #    description_template = 'feeds/route_description.html'
     
-    def get_object(self, request, alias):
-        return get_object_or_404(Route, alias=alias)
+    def get_object(self, request, code):
+        return get_object_or_404(Route, code=code)
         
     def title(self, obj):
-        return "ChaloBEST.in: Feed for Bus No.: %s" % obj.alias
+        return "ChaloBEST.in: Feed for Bus No.: %s" % obj.display_name
 
     def description(self, obj):
         return "GeoRSS Route Feed"

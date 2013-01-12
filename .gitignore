@@ -1,0 +1,13 @@
+local_settings.py
+secret.txt
+
+.Python
+bin
+include
+lib
+dist
+local
+*~
+*.pyc
+pip-log.txt
+src

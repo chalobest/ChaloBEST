@@ -1,0 +1,5 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_url,route_color
+1,1,,Western,2,,
+2,2,,Central,2,,
+3,2,,Harbour,2,,
+4,2,,Trans Harbour,2,,

@@ -6,14 +6,22 @@
 /* -  NAVIGATION DIVS  - */
 /* --------------------- */
 
+
+
 /* footer */
-.foot {
-background: #e53e02;
+.foot, .gradientNav {
+/*background: #e53e02;
 background: -moz-linear-gradient(top, #e53e02 1%, #a80803 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#e53e02), color-stop(100%,#a80803));
 background: -webkit-linear-gradient(top, #e53e02 1%,#a80803 100%);
-background: linear-gradient(to bottom, #e53e02 1%,#a80803 100%);
+background: linear-gradient(to bottom, #e53e02 1%,#a80803 100%);*/
+background: #e53e02;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,0,0,0.93)), color-stop(2%,rgba(220,0,0,0.98)), color-stop(57%,rgba(220,0,0,0.98)), color-stop(98%,rgba(135,0,0,0.98)), color-stop(100%,rgba(131,0,0,0.93)));
+background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);
+background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);
 }
+
+
 .foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
 .foot ul {padding: 6px; float: left;}
@@ -24,15 +32,19 @@ background: linear-gradient(to bottom, #e53e02 1%,#a80803 100%);
 .foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; margin: 0; width:20px; height:20px;}
 
 /* primary navigation */
-.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;} /* background image for the global nav + text logo bar */
-
-.nav {background: #DEEEBF;}
+/*.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;}*/ /* background image for the global nav + text logo bar */
+.bannerWrapper {position: relative;}
+.bannerImgLink {display: block; position: absolute; left: 20px; top: 0px;}
+.gradientNav {height: 48px; width: 100%;}
+.headerImg {position: absolute; right: 0; top: -15px;}
+.nav {overflow: hidden; padding: 12px 0;}
+.nav, .bannerImgLink, .headerImg {background: #DEEEBF;}
 .navprimary {display: none;}
 .navlink a {color:#fff;}
 .sms { float:right; background-color:green; border:2px solid green;}
 .trip {float:left; background-color:#BEDB74; border:2px solid #BEDB74;}
 .selected {padding-top:2px; color:#fff; font-weight:bold;  border:2px solid #FBDD09; border-radius:3px;}
-.rim {display:inline; float:left; height:6px;}
+.rim {display:inline; float:left; height:6px; width: 100%;}
 .global {
 	text-align: justify;
 	-ms-text-justify: distribute-all-lines;
@@ -119,6 +131,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* == List tables == */
 
 /* List main header h2 */
+.list {word-wrap: break-word;}
 .listtitle {padding: 36px 0 0 0; height: 3em;}
 .listtitle h2 {float:left; padding: 0 1% 0 0; width:80%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
 .listtitle img {float:left; padding: 7px 3px 7px 0; width:1.125em; height:1.125em;}
@@ -253,7 +266,7 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 .list, .map, .comments, .listtitle, .listextrainfo
 {display:inline; float:left; margin:0; width:100%;}
-
+.maphome {clear:both;}
 
 /* == STOP PAGES == */
 .AltStopName {width:60%; font-size:0.875em; color:black;}

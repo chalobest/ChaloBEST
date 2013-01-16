@@ -189,7 +189,7 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:85px; margin:0;}
+/*	.nav {height:85px; margin:0;}*/
 /*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
@@ -284,7 +284,7 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:55px; margin:0;}
+/*	.nav {height:55px; margin:0;}*/
 /*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
@@ -369,6 +369,11 @@ Change widths as necessary
 	.maphome{height:300px;margin: 0; }
 	}	
 	
+
+@media only screen and (max-width: 480px) {
+    .headerImg {display: none;}
+}
+
 @media only screen and (min-width: 480px) {
 	/* inherited font size*/
 	body {font-size:90%;} /* 12px / 18px */
@@ -376,14 +381,15 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:60px; margin:0;}
+/*	.nav {height:60px; margin:0;}*/
 /*	.foot {height:50px;}*/
+
 	
 	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:40%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; line-height:00.9em; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-family:Consolas, 'Lucida Console', Monaco, monospace; line-height:00.9em; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
 		.navprimary{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
@@ -471,14 +477,14 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:60px; margin:0;}
+/*	.nav {height:60px; margin:0;}*/
 /*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:23.01%; height:30px; margin:0; padding:0;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, 'Lucida Console', Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
 		.navprimary{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
@@ -572,7 +578,7 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:70px; margin:0;}
+/*	.nav {height:70px; margin:0;}*/
 /*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 76px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
@@ -669,7 +675,7 @@ Change widths as necessary
 	
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
-	.nav {height:80px; margin:0;}
+/*	.nav {height:80px; margin:0;}*/
 /*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('../images/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
@@ -759,7 +765,7 @@ Change widths as necessary
 /* WIDESCREEN */
 /* Increased body size for legibility */
 @media only screen and (min-width: 1400px) { 
-	body {font-size:116.75%; max-width:1440px} /* 18.5px / 28px */
+	body {font-size:100%;/*116.75%;*/ max-width:1440px} /* 18.5px / 28px */
 }
 
 

@@ -17,7 +17,7 @@
 <div class="leading10"></div>
 <div class="g12">
 	<div class="g12_12 search">
-		<div class="g12_2">&nbsp;</div>
+<!--		<div class="g12_2">&nbsp;</div>-->
 		<div class="g12_8">
         {% include 'guidesearch_form.html' %}
       </div>
@@ -52,11 +52,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="g4_4 listextrainfo">
-			<img src="/static/images/area.png" />
-			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
-		</div>
-		<br style="clear: both;" />
+<!--		<div class="g4_4 listextrainfo">-->
+<!--			<img src="/static/images/area.png" />-->
+<!--			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>-->
+<!--		</div>-->
+<!--		<br style="clear: both;" />-->
 		<div class="maphome">
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
@@ -140,7 +140,13 @@
 </div>
 
 <div class="g5">
-	<div class="listheight">
+	<div class="g4_4 listextrainfo">
+		<img src="/static/images/area.png" />
+		<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
+	</div>
+	<br style="clear: both;" />
+
+    <div class="listheight">
 		<div class="g5_5 listtitle">
 			<img src="/static/images/bus.png" />
 			<h2>Departing Routes</h2>

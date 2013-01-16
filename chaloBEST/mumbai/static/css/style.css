@@ -139,6 +139,8 @@ span.right {float:right !important; padding-right:1%;}
 .cf:after {clear:both}
 .cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
 
+.clear (clear: both;}
+
 /* DEFAULT MOBILE STYLE */
 body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 
@@ -188,7 +190,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:85px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 60px; width:32%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 4px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:right; width:65.95%; height:30px; padding-right:0.99%; color:#FBDD09;}
@@ -283,7 +285,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:55px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 55px; width:28%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
@@ -375,7 +377,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:60px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 60px; width:18%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:79.95%; height:30px; padding-right:0.99%;}
@@ -470,7 +472,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:60px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 60px; width:15%; background:URL('../images/chalobestlogoS.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:82.95%; height:30px; padding-right:0.99%;}
@@ -571,7 +573,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:70px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height: 76px; width:12.33%; background:URL('../images/chalobestlogoM.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
@@ -668,7 +670,7 @@ Change widths as necessary
 	/* NAVIGATION */
 	.nav, .foot {display:inline; float:left; width:100%;}
 	.nav {height:80px; margin:0;}
-	.foot {height:50px;}
+/*	.foot {height:50px;}*/
 	
 	.logoimg {display:block; float:left; height:80px; width:10.33%; background:URL('../images/chalobestlogo.png') #deeebf no-repeat; background-position: 12px top; overflow:hidden; margin:0; padding:0 0 0 1.03%;}
 	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}

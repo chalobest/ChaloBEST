@@ -7,14 +7,27 @@
 /* --------------------- */
 
 /* footer */
+.foot {
+background: #e53e02;
+background: -moz-linear-gradient(top, #e53e02 1%, #a80803 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#e53e02), color-stop(100%,#a80803));
+background: -webkit-linear-gradient(top, #e53e02 1%,#a80803 100%);
+background: linear-gradient(to bottom, #e53e02 1%,#a80803 100%);
+}
+.foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
+.foot ul {padding: 6px; float: left;}
 .foot li {display:inline; float:left;}
 .foot li a {display:block; margin: 0 10px;}
-.foot .right p{display:inline; float:right;}
-.foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; width:15px; height:15px;}
+.foot .right {padding: 6px;}
+.foot .right p{display:inline; font-size: 15px; padding-top: 4px;}
+.foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; margin: 0; width:20px; height:20px;}
 
 /* primary navigation */
 .banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;} /* background image for the global nav + text logo bar */
+
+.nav {background: #DEEEBF;}
+.navprimary {display: none;}
 .navlink a {color:#fff;}
 .sms { float:right; background-color:green; border:2px solid green;}
 .trip {float:left; background-color:#BEDB74; border:2px solid #BEDB74;}
@@ -32,7 +45,7 @@
 
 /* == Search bar == */
 
-.search{background-color:#eee; height:30px;/*border:2px solid #aaa;*/}
+.search{/*background-color:#eee; */height:30px;/*border:2px solid #aaa;*/}
 .search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
 .searchsubmit{	height: 30px; padding-top:auto; padding-bottom:0; background-color:#FBDD09;
 				border: 2px solid yellow; border-radius: 1em;}

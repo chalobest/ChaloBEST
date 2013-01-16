@@ -28,7 +28,7 @@ background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 
 .foot li {display:inline; float:left;}
 .foot li a {display:block; margin: 0 10px;}
 .foot .right {padding: 6px;}
-.foot .right p{display:inline; font-size: 15px; padding-top: 4px;}
+.foot .right p{display:inline; font-size: 14px; padding-top: 4px;}
 .foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; margin: 0; width:20px; height:20px;}
 
 /* primary navigation */

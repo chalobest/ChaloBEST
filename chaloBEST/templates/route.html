@@ -76,7 +76,7 @@ $(function() {
         <div class="g12_5 routeExtra">
 		<div class="g12_12 listextrainfo">
 			<a href="" title="refresh"><img src="/static/images/Frq_3.png" /></a>
-			<p class="marginBottomSmall"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency"> <span class="large">{{ route.headways }}&nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p><p>{{ now_time|date:"l P" }}</p>
+			<p class="marginBottomSmall"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency"> <span class="large">{{ route.headways }}&nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% else %}<span class="frequency">Not running</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p><p>{{ now_time|date:"l P" }}</p>
 		</div>
         </div>
 

@@ -10,6 +10,7 @@ from fuzzywuzzy import process as fuzzprocess
 from django.http import HttpResponse
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 import json
+import datetime
 
 def index(request):
     areas = Area.objects.all().order_by('name')
@@ -81,7 +82,8 @@ def route(request, code):
     routeDetails = RouteDetail.objects.filter(route=route).order_by('serial')
     context = RequestContext(request, {
         'route': route,
-        'routeDetails': routeDetails
+        'routeDetails': routeDetails,
+        'now_time': datetime.datetime.now()
     })
     return render_to_response("route.html", context)
 

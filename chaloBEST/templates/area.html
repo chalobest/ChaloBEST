@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block extra_head %}
 {{ block.super }}
+
+<style type="text/css">
+.listtitle {
+    padding-top: 0;
+}
+
+</style>
 <script>
 $(function() {
     var slug = "{{ area.slug }}";

@@ -23,6 +23,9 @@ body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoo
 body, button, input, select, textarea {font: 100%/1.5 Calibri, 'Trebuchet MS', 'Nimbus Sans L', sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
 
+.marginBottomSmall {
+    margin-bottom: 4px;
+}
 
 /* TYPOGRAPHY */
 /* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px and 60px*/
@@ -115,6 +118,8 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 .margintop2x{margin-top:20px;}*/
 small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857em;} /* 12px */
 .large {font-size: 120%; }
+.largest {font-size: 150%; }
+.smallest {font-size: 80%;}
 .italic {font-style:italic;}
 .right {text-align:right !important; display:block; float:right;}
 span.right {float:right !important; padding-right:1%;}
@@ -198,7 +203,7 @@ Change widths as necessary
 	.logotext {display:block; float:left; width:100%; height:30px; margin:0; padding:0;}
 	.logotext img {height:100%;}
 	.globallinks{display:block; float:right; width:100%; height:30px; padding-right:0.99%; background-color:#deeebf; vertical-align:bottom;}
-		.globallinks li {color:#333; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li {color:#333; font-family:Consolas, 'Lucida Console', Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#333; font-weight:bold;}
 	.navprimary{display:block; float:left; width:99%; height:25px; padding-right:0.99%;}
 	.navlink li {display:inline; float:left; margin:0 0 0 2%; padding:0;}
@@ -292,7 +297,7 @@ Change widths as necessary
 	.global{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 		.logotext {display:block; float:left; width:51.01%; height:25px; margin:3px 0 0 0;}
 		.globallinks{display:block; float:right; width:48%; height:30px; padding:10px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-family:Consolas, “Lucida Console”, Monaco, monospace; font-size:0.80em; line-height:00.9em; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-family:Consolas, 'Lucida Console', Monaco, monospace; font-size:0.80em; line-height:00.9em; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold; line-height:00.9em;}
 		.navprimary{display:block; float:left; width:69.95%; height:30px; padding-right:0.99%;}
 			.navlink li {display:inline; float:right; padding:0;}
@@ -373,6 +378,20 @@ Change widths as necessary
 
 @media only screen and (max-width: 500px) {
     .headerImg {display: none;}
+}
+
+@media only screen and (max-width: 328px) {
+    .bannerImgLink img {height: 65px;}
+}
+
+
+@media only screen and (max-width: 480px) {
+.fromTo, .routeExtra {
+    width: 100%;
+}
+
+.routeExtra .listextrainfo {padding: 0;}
+
 }
 
 @media only screen and (min-width: 480px) {
@@ -586,7 +605,7 @@ Change widths as necessary
 	.global{display:block; float:left; margin:0; width:85.65%; height:40px;}
 	.logotext {display:block; float:left; width:23.01%; height:40px; margin:0; padding:0;}
 	.globallinks{display:block; float:right; width:40%; height:30px; padding:17px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:0.9em; font-family:Consolas, 'Lucida Console', Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
 	.navprimary{display:block; float:left; width:85.65%; height:30px;}
 	.navlink li {display:inline; float:right; margin:0 0 0 1%; padding:0;}
@@ -683,7 +702,7 @@ Change widths as necessary
 	.global{display:block; float:left; width:87.65%; height:50px; margin:0;}
 		.logotext {display:block; float:left; width:23.01%; height:50px;}
 		.globallinks{display:block; float:right; width:30%; height:30px; padding:25px 0.99% 0 0; background-color:inherit; vertical-align:bottom;}
-		.globallinks li {color:#FBDD09; font-size:1em; font-family:Consolas, “Lucida Console”, Monaco, monospace; vertical-align:bottom;}
+		.globallinks li {color:#FBDD09; font-size:1em; font-family:Consolas, 'Lucida Console', Monaco, monospace; vertical-align:bottom;}
 		.globallinks li a {color:#FBDD09; font-weight:bold;}
 		.navprimary{display:block; float:left; width:87.65%; height:30px;}
 			.navlink li {display:inline; float:right; padding:0;}

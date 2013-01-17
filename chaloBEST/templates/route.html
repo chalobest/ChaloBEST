@@ -10,6 +10,14 @@
 .pagetitle {
     width: 100%;
 }
+
+.listextrainfo {   
+    padding: 0.3em 10px 0 25px;
+}
+
+.frequency {
+    text-align: left;
+}
 </style>
 
 <script>
@@ -41,7 +49,7 @@ $(function() {
 
 <div class="g12">
     <div class="g12_12">
-        <div class="g12_7">
+        <div class="g12_7 fromTo">
 		        <div class="pagetitle 12_12">
 			        <div class="guideh1box titleXS">
 				        <h1>
@@ -65,10 +73,10 @@ $(function() {
 			        </div>
 		        </div>
 
-        <div class="g12_5">
+        <div class="g12_5 routeExtra">
 		<div class="g12_12 listextrainfo">
-			<img src="/static/images/Frq_3.png" />
-			<p class="large"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }} minutes</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
+			<a href="" title="refresh"><img src="/static/images/Frq_3.png" /></a>
+			<p class="marginBottomSmall"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency"> <span class="large">{{ route.headways }}&nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p><p>{{ now_time|date:"l P" }}</p>
 		</div>
         </div>
 
@@ -210,7 +218,7 @@ $(function() {
                 {% for r in routeDetails %}
 				<tr class="listItem">
 					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
-					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}</a></td>
+					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}<br />{{ r.stop.area.name_mr }}</a></td>
 					<td class="lightgrey small"><span class="right small">{% if r.km %}{{ r.km }} km{% endif %}</span></td>
 				</tr>
                 {% endfor %}

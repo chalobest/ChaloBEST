@@ -42,24 +42,24 @@
 			</div>
 			<div class="titleXS rtt">
 				<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>
-				<div class="leading20"><!-- you can show or hide the blockquote, keep the div -->
-                    {% if stop.display_alt_names %}
-					<blockquote>
-                        {% for alt_name in stop.display_alt_names %}
-                            {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                        <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></blockquote>
-                    {% endif %}
-				</div>
-    	</div>
+        	</div>
 	</div>
     </div>
     
     <div class="g12_5">
 	<div class="g12_5 listextrainfo">
 		<img src="/static/images/area.png" />
-		<p class="large">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
-	</div>
+		<p class="marginBottomSmall">&nbsp;{{ stop.road.display_name }} <span class="frequency"><a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a></span></p>
+        <!--<div class="leading20">--><!-- you can show or hide the blockquote, keep the div -->
+                    {% if stop.display_alt_names %}
+					<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% for alt_name in stop.display_alt_names %}
+                            {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                        <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
+                    {% endif %}
+		<!--</div>-->	
+    </div>
     </div>
 
 </div>
@@ -227,8 +227,8 @@
 						</form>
 					</th>
 					<th class="stop_frequency">
-						<img src="/static/images/Frq_3.png" />
-						<span class="thumbs">11 am - <br />5 pm</span>
+<!--						<img src="/static/images/Frq_3.png" />-->
+						<span class="thumbs">Frequency</span>
 					</th>
 				</tr>
 				

@@ -40,12 +40,12 @@ background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 
 .foot li a {display:block; margin: 0 10px;}
 .foot .right {padding: 6px;}
 .foot .right p{display:inline; font-size: 14px; padding-top: 4px;}
-.foot .right img{display:inline; float:right; padding:5px 2px 5px 5px; margin: 0; width:20px; height:20px;}
+.foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; border: 1px solid #bbb; width:20px; height:20px;}
 
 /* primary navigation */
 /*.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;}*/ /* background image for the global nav + text logo bar */
 .bannerWrapper {position: relative;}
-.bannerImgLink {display: block; position: absolute; left: 20px; top: 0px;}
+.bannerImgLink {display: block; position: absolute; left: 10px; top: 0px;}
 .bannerImgLink img {margin: 0;}
 .gradientNav {height: 65px; width: 100%;}
 .headerImg {position: absolute; right: 0; top: -24px; padding: 3px 0; z-index:1;}
@@ -57,13 +57,13 @@ background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 
 /*background: #DEEEBF;*/
 
 background: #94997e; /* Old browsers */
-background: -moz-linear-gradient(top, #94997e 0%, #d2dab3 10%, #d2dab3 90%, #94997e 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#94997e), color-stop(10%,#d2dab3), color-stop(90%,#d2dab3), color-stop(100%,#94997e)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* IE10+ */
-background: linear-gradient(to bottom, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94997e', endColorstr='#94997e',GradientType=0 ); /* IE6-9 */
+background: -moz-linear-gradient(top, #A4AA8D 0%, #d2dab3 10%, #d2dab3 90%, #A4AA8D 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A4AA8D), color-stop(10%,#d2dab3), color-stop(90%,#d2dab3), color-stop(100%,#A4AA8D)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #A4AA8D 0%,#d2dab3 10%,#d2dab3 90%,#A4AA8D 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #A4AA8D 0%,#d2dab3 10%,#d2dab3 90%,#A4AA8D 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #A4AA8D 0%,#d2dab3 10%,#d2dab3 90%,#A4AA8D 100%); /* IE10+ */
+background: linear-gradient(to bottom, #A4AA8D 0%,#d2dab3 10%,#d2dab3 90%,#A4AA8D 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A4AA8D', endColorstr='#94997e',GradientType=0 ); /* IE6-9 */
 }
 .navprimary {display: none;}
 .navlink a {color:#fff;}
@@ -94,7 +94,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* == Page headers == */
 
 /* guide pages */
-.pagetitle {display:inline; float:left; /*width:100%;*/ margin:0; padding:10px 5px; min-height: 1em; overflow:hidden;}
+.pagetitle {display:inline; float:left; /*width:100%;*/ margin:0; padding:2px 5px; min-height: 1em; overflow:hidden;}
 .pagetitle h1{color:red;}
 .pagetitle img{float:left; margin:0 1% 0 0; padding-top:2px;}
 .pagetitle td {margin:0; padding:0 10px;}
@@ -169,16 +169,16 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
 
 /* extra info under header (frequencies in route pages) */
-.listextrainfo {padding:0.75em 10px 0 5px; /*height: 1.5em;*/}
-.listextrainfo p {color:red;}
-.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:0.666667em;}
+.listextrainfo {padding:0.3em 10px 0 5px; text-align: right;/*height: 1.5em;*/}
+.listextrainfo p {/*color:red;*/}
+.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:1.6em;}
 .listextrainfo span {display:inline; float:left;}
 .listextrainfo span.frequency{margin:0; color:black;}
 .listextrainfo span.thumbs {display:inline; float:right; margin:0 10px; width:30%; color:grey; font-size:75%;}
 
 /* list filters */
 .listfilter_form{width:100%; margin:0px; padding:0 -1%;}
-.listfilter_input{width:93%; height:1.5em; margin:0; padding:0 2%; font-size:0.75em;}
+.listfilter_input{width:93%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em;}
 
 /* lists contents - stop area route */
 .listheight {display:block; overflow:hidden; height:100%;}

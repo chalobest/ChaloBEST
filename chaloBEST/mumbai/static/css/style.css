@@ -20,7 +20,7 @@ body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoo
 /* DEFAULT FONT SETTINGS */
 /* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
 /* Font-size percentage is based on 16px browser default size */
-body, button, input, select, textarea {font: 100%/1.5 Calibri, “Trebuchet MS”, "Nimbus Sans L", sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
+body, button, input, select, textarea {font: 100%/1.5 Calibri, 'Trebuchet MS', 'Nimbus Sans L', sans-serif; *font-size: 1em; color: #333} /* IE7 and older can't resize px based text */
 p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
 
 
@@ -114,6 +114,7 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 /*.margintop{margin-top:10px;}
 .margintop2x{margin-top:20px;}*/
 small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857em;} /* 12px */
+.large {font-size: 120%; }
 .italic {font-style:italic;}
 .right {text-align:right !important; display:block; float:right;}
 span.right {float:right !important; padding-right:1%;}
@@ -139,7 +140,7 @@ span.right {float:right !important; padding-right:1%;}
 .cf:after {clear:both}
 .cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
 
-.clear (clear: both;}
+.clear {clear: both;}
 
 /* DEFAULT MOBILE STYLE */
 body {width: 92%; margin: 0 auto} /* Center page without wrapper */
@@ -370,7 +371,7 @@ Change widths as necessary
 	}	
 	
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
     .headerImg {display: none;}
 }
 

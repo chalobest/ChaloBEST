@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block extra_head %}
 {{ block.super }}
+
+<style type="text/css">
+.listtitle {
+    padding-top: 0;
+}
+
+.pagetitle {
+    width: 100%;
+}
+</style>
+
 <script>
 $(function() {
     var slug = "{{ route.code }}";
@@ -26,7 +37,45 @@ $(function() {
       </div>
 	</div>
 </div>
-<div class="g7">
+
+
+<div class="g12">
+    <div class="g12_12">
+        <div class="g12_7">
+		        <div class="pagetitle 12_12">
+			        <div class="guideh1box titleXS">
+				        <h1>
+					        <div class="rti"><img src="/static/images/bus_r.png" /></div>
+					        <div class="number">
+						        {{ route.display_name }}
+					        </div>
+					        <div class="from">
+						        <span class="rt">{{ route.from_stop.display_name }}</span><br />
+						        <span class="rt">{{ route.from_stop.name_mr }}</span>
+					        </div>
+					        <div class="dash">
+						        <span class="rt" style="line-height:2.4em;"> - </span>
+					        </div>
+					        <div class="to">
+						        <span class="rt">{{ route.to_stop.display_name }}</span><br />
+						        <span class="rt">{{ route.to_stop.name_mr }}</span>
+					        </div>
+				        </h1>
+			        </div>
+			        </div>
+		        </div>
+
+        <div class="g12_5">
+		<div class="g12_12 listextrainfo">
+			<img src="/static/images/Frq_3.png" />
+			<p class="large"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }} minutes</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
+		</div>
+        </div>
+
+    </div>
+</div>
+
+<!--<div class="g7">
 	<div class="g7_7">
 		<div class="pagetitle">
 			<div class="guideh1box titleXS">
@@ -48,8 +97,11 @@ $(function() {
 					</div>
 				</h1>
 			</div>
-		</div>
+		</div>-->
 		<br style="clear: both;" />
+
+    <div class="g7">
+        <div class="g7_7">
 		<div class="maphome">
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
@@ -134,10 +186,6 @@ $(function() {
 </div>
 
 <div class="g5">
-		<div class="g4_4 listextrainfo">
-			<img src="/static/images/Frq_3.png" />
-			<p class="small"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency">Expected frequency: {{ route.headways }} minutes</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p>
-		</div>
 	<div class="arealistheight">
 		<div class="g5_5 listtitle">
 			<img src="/static/images/stop.png" />

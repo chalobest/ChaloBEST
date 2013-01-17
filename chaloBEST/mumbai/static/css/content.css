@@ -10,15 +10,26 @@
 
 /* footer */
 .foot, .gradientNav {
+
+
+background: #ff0000; /* Old browsers */
+background: -moz-linear-gradient(top, #ff0000 0%, #ff0000 57%, #980000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0000), color-stop(57%,#ff0000), color-stop(100%,#980000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ff0000 0%,#ff0000 57%,#980000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ff0000 0%,#ff0000 57%,#980000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ff0000 0%,#ff0000 57%,#980000 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ff0000 0%,#ff0000 57%,#980000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#980000',GradientType=0 ); /* IE6-9 */
+
 /*background: #e53e02;
 background: -moz-linear-gradient(top, #e53e02 1%, #a80803 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#e53e02), color-stop(100%,#a80803));
 background: -webkit-linear-gradient(top, #e53e02 1%,#a80803 100%);
 background: linear-gradient(to bottom, #e53e02 1%,#a80803 100%);*/
-background: #e53e02;
+/*background: #e53e02;
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,0,0,0.93)), color-stop(2%,rgba(220,0,0,0.98)), color-stop(57%,rgba(220,0,0,0.98)), color-stop(98%,rgba(135,0,0,0.98)), color-stop(100%,rgba(131,0,0,0.93)));
 background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);
-background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);
+background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);*/
 }
 
 
@@ -35,10 +46,25 @@ background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 
 /*.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;}*/ /* background image for the global nav + text logo bar */
 .bannerWrapper {position: relative;}
 .bannerImgLink {display: block; position: absolute; left: 20px; top: 0px;}
-.gradientNav {height: 48px; width: 100%;}
-.headerImg {position: absolute; right: 0; top: -15px;}
-.nav {overflow: hidden; padding: 12px 0;}
-.nav, .bannerImgLink, .headerImg {background: #DEEEBF;}
+.bannerImgLink img {margin: 0;}
+.gradientNav {height: 65px; width: 100%;}
+.headerImg {position: absolute; right: 0; top: -24px; padding: 3px 0; z-index:1;}
+.nav {overflow: hidden; padding: 24px 0; position: relative;}
+.bannerImgLink, .headerImg {background: #d2dab3;}
+
+.nav, .headerImg {
+
+/*background: #DEEEBF;*/
+
+background: #94997e; /* Old browsers */
+background: -moz-linear-gradient(top, #94997e 0%, #d2dab3 10%, #d2dab3 90%, #94997e 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#94997e), color-stop(10%,#d2dab3), color-stop(90%,#d2dab3), color-stop(100%,#94997e)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* IE10+ */
+background: linear-gradient(to bottom, #94997e 0%,#d2dab3 10%,#d2dab3 90%,#94997e 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94997e', endColorstr='#94997e',GradientType=0 ); /* IE6-9 */
+}
 .navprimary {display: none;}
 .navlink a {color:#fff;}
 .sms { float:right; background-color:green; border:2px solid green;}
@@ -68,7 +94,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* == Page headers == */
 
 /* guide pages */
-.pagetitle {display:inline; float:left; width:100%; margin:0; padding:10px 5px; min-height: 1em; overflow:hidden;}
+.pagetitle {display:inline; float:left; /*width:100%;*/ margin:0; padding:10px 5px; min-height: 1em; overflow:hidden;}
 .pagetitle h1{color:red;}
 .pagetitle img{float:left; margin:0 1% 0 0; padding-top:2px;}
 .pagetitle td {margin:0; padding:0 10px;}
@@ -131,7 +157,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* == List tables == */
 
 /* List main header h2 */
-.list {word-wrap: break-word;}
+.list, .from, .to {word-wrap: break-word;}
 .listtitle {padding: 36px 0 0 0; height: 3em;}
 .listtitle h2 {float:left; padding: 0 1% 0 0; width:80%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
 .listtitle img {float:left; padding: 7px 3px 7px 0; width:1.125em; height:1.125em;}
@@ -143,7 +169,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
 
 /* extra info under header (frequencies in route pages) */
-.listextrainfo {padding:0.75em 10px 0 5px; height: 1.5em;}
+.listextrainfo {padding:0.75em 10px 0 5px; /*height: 1.5em;*/}
 .listextrainfo p {color:red;}
 .listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:0.666667em;}
 .listextrainfo span {display:inline; float:left;}

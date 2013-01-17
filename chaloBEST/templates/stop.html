@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block extra_head %}
 {{ block.super }}
+
+<style type="text/css">
+.listtitle {
+    padding-top: 0;
+}
+
+</style>
+
+
 <script>
     $(function() {
         var geojson = {{ geojson|safe }};
@@ -24,40 +33,75 @@
 	</div>
 </div>
 
-<div class="g7">
-	<div class="g7_7">
-		<div class="g7_7 pagetitle">
-			<div class="guideh1box">
-				<div class="rti">
-					<img src="/static/images/stop_r.png" />
-				</div>
-				<div class="titleXS rtt">
-					<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>
-					<div class="leading20"><!-- you can show or hide the blockquote, keep the div -->
-                        {% if stop.display_alt_names %}
-						<blockquote>
-                            {% for alt_name in stop.display_alt_names %}
-                                {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                            <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></blockquote>
-                        {% endif %}
-					</div>
-					<!-- show the form from a fly-out, triggered by the link above
-					<form name="AltStopName">
-						<input class="AltStopName" type="text" name="Alternative stop name" value="Add local stop name" />
-						<input class="submit AltStopS" type="submit" value="Save" />
-						<br style="clear: both;" />
-					</form>
-					<p class="small tred">Your addition will be checked by the moderator.</p> -->
-				</div>
+<div class="g12">
+<div class="g12_12">
+	<div class="g12_7 pagetitle">
+		<div class="guideh1box">
+			<div class="rti">
+				<img src="/static/images/stop_r.png" />
 			</div>
-		</div>
+			<div class="titleXS rtt">
+				<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>
+				<div class="leading20"><!-- you can show or hide the blockquote, keep the div -->
+                    {% if stop.display_alt_names %}
+					<blockquote>
+                        {% for alt_name in stop.display_alt_names %}
+                            {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                        <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></blockquote>
+                    {% endif %}
+				</div>
+    	</div>
+	</div>
+    </div>
+    
+    <div class="g12_5">
+	<div class="g12_5 listextrainfo">
+		<img src="/static/images/area.png" />
+		<p class="large">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
+	</div>
+    </div>
+
+</div>
+</div>
+	<br style="clear: both;" /> 
+
+
+<!--<div class="g7">-->
+<!--	<div class="g7_7">-->
+<!--		<div class="g7_7 pagetitle">-->
+<!--			<div class="guideh1box">-->
+<!--				<div class="rti">-->
+<!--					<img src="/static/images/stop_r.png" />-->
+<!--				</div>-->
+<!--				<div class="titleXS rtt">-->
+<!--					<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>-->
+<!--					<div class="leading20"><!-- you can show or hide the blockquote, keep the div -->
+<!--                        {% if stop.display_alt_names %}-->
+<!--						<blockquote>-->
+<!--                            {% for alt_name in stop.display_alt_names %}-->
+<!--                                {{ alt_name.name }}{% if not forloop.last %}, {% endif %}-->
+<!--                            {% endfor %}-->
+<!--                            <span class="small right tred"><a href="#">Add local name&nbsp;</a></span></blockquote>-->
+<!--                        {% endif %}-->
+<!--					</div>-->
+<!--					<!-- show the form from a fly-out, triggered by the link above-->
+<!--					<form name="AltStopName">-->
+<!--						<input class="AltStopName" type="text" name="Alternative stop name" value="Add local stop name" />-->
+<!--						<input class="submit AltStopS" type="submit" value="Save" />-->
+<!--						<br style="clear: both;" />-->
+<!--					</form>-->
+<!--					<p class="small tred">Your addition will be checked by the moderator.</p>
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
 <!--		<div class="g4_4 listextrainfo">-->
 <!--			<img src="/static/images/area.png" />-->
 <!--			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>-->
 <!--		</div>-->
 <!--		<br style="clear: both;" /> -->
-
+    <div class="g7">
+        <div class="g7_7">
         <div class="maphome">
             <div id="map" style="width:100%;height:100%;"></div>
         </div>
@@ -66,8 +110,8 @@
 	<div class="g7_7">
 		<div class="g7_4"> &nbsp;
 
-		<!--
-			<div class="listtitlesmall">
+		
+			<!--<div class="listtitlesmall">
 				<h3>Comments</h3>
 			</div>
 			<div class="comments" id="comments_list">
@@ -119,8 +163,8 @@
 					</div>
 				</form>
 			</div>
-			</div>
-			-->
+			</div>-->
+			
 		</div>
 		<div class="g7_gut"></div>
 		<div class="g7_3">
@@ -142,11 +186,11 @@
 </div>
 
 <div class="g5">
-	<div class="g4_4 listextrainfo">
+<!--	<div class="g4_4 listextrainfo">
 		<img src="/static/images/area.png" />
 		<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>
 	</div>
-	<br style="clear: both;" />
+	<br style="clear: both;" />-->
 
     <div class="listheight">
 		<div class="g5_5 listtitle">

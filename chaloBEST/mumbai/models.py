@@ -120,7 +120,7 @@ class Area(models.Model):
         }
 
     def get_absolute_url(self):
-        return "/area/%s/" % self.name
+        return "/area/%s/" % self.slug
 
     def __unicode__(self):
         return self.name   

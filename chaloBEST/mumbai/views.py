@@ -94,8 +94,8 @@ def areas(request):
     })
     return render_to_response("areas.html", context)    
 
-def area(request, name):
-    area = get_object_or_404(Area, name=name)
+def area(request, slug):
+    area = get_object_or_404(Area, slug=slug)
     stops = Stop.objects.filter(area=area).order_by('name')
     context = RequestContext(request, {
         'area': area,

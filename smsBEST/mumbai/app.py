@@ -80,11 +80,11 @@ class App(AppBase):
 	    import re
 	    pattern = str(msg.text).translate(None, string.digits)
 	    indices = [routes.index(m) for m in routes if m.startswith(pattern.strip()) or m.endswith(pattern.strip())]
-	    f = open("logfile.log","ab")
-	    f.write(pattern)
 	   
-	    f.write(str(indices))
-            f.close()
+	    
+	   
+	   
+            
 	    if len(indices)!=0:
 		routeindices = routes[indices[0]]
 	    else:

@@ -16,7 +16,7 @@ STYLE = {
 STYLE = {"start": "", "repeat": "; ", "end": ""}
 
 
-ChaloBest = arrest.Client("http://chalobest.in/1.0")
+ChaloBest = arrest.Client("http://dev.chalobest.in/1.0")
 
 def get_routes_for_matches(stops):
 #    same_stops = []

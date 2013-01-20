@@ -358,6 +358,10 @@ class Route(models.Model):
             'display_name': self.display_name,
             'url': self.get_absolute_url(),
             'headway': self.headways(),
+            'start_stop': self.from_stop.display_name,
+            'end_stop': self.to_stop.display_name,
+            'start_area': self.from_stop.area.display_name,
+            'end_area': self.to_stop.area.display_name,
             'route_type_aliases': self.route_type_aliases
         }
 

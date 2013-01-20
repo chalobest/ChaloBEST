@@ -135,7 +135,7 @@ class App(AppBase):
                 return
             url = "http://chalobest.in" + str(detail[6])
 	    distance = str(detail[7])+" kms"
-            if detail:
+            if detail[5]:
                 headway = "Freq: " + str(detail[5]) + " mins"
             else:
                 headway = "Route currently not running."

@@ -1,8 +1,9 @@
 Django==1.4.1
 PIL==1.1.7
-RapidSMS==0.9.6a
+# RapidSMS==0.9.6a
 South==0.7.5
 -e git://github.com/schuyler/arrest.git@0017837a45bcb31786f953fba976d454ae684ecc#egg=arrest-dev
+-e git://github.com/schuyler/rapidsms.git#egg=rapidsms
 -e git://github.com/etianen/django-reversion.git#egg=reversion
 
 chardet==1.0.1

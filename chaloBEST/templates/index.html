@@ -7,23 +7,29 @@
 
 {% block content %}
 
+<style type="text/css">
+    .listtitle {
+        padding-top: 0;
+}
+</style>
+
 <script type="text/html" id="stopTemplate">
 
 <tr class="landing_row stopRow listItem">
 	<td class="landing_area"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
-<tr>
+</tr>
 </script>
 
-<div class="g9">
+<div class="g7">
 
 <!--
 	<div class="leading40"></div>
 -->
 	<div class="leading10"></div>
-	<div class="g9_9 white">
-		<div class="g9_9 search">
-			<div class="g9_1">&nbsp;</div>
-			<div class="g9_8">
+	<div class="g7_7 white">
+		<div class="g12_12 search">
+<!--			<div class="g9_1">&nbsp;</div>-->
+			<div class="g12_12">
 				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
 				{% include 'guidesearch_form.html' %}
 			</div>
@@ -45,7 +51,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="leading10"></div>
+		<div class="leading30"></div>
 		<div class="g9_9 maphome">
             <div class="landingmap" id="map"></div>
 		</div>
@@ -128,10 +134,10 @@
 	</div>
 </div>
  -->
-<div class="g3">
+<div class="g5">
 	<div class="leading40"></div>
 </div>
-<div class="g3">
+<div class="g5">
 	<div class="g4_4 listtitle">
 		<img src="/static/images/stop.png" />
 		<h2>Displayed stops</h2>

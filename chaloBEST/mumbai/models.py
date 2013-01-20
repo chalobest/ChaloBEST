@@ -120,7 +120,7 @@ class Area(models.Model):
         }
 
     def get_absolute_url(self):
-        return "/area/%s/" % self.name
+        return "/area/%s/" % self.slug
 
     def __unicode__(self):
         return self.name   
@@ -289,14 +289,14 @@ class Stop(models.Model):
 ROUTE_TYPES = (
     (0, "", "", ""), #Ordinary
     (1, "", " Ltd", "L, Limited, Ltd"), #Limited
-    (2, "", "", ""), #Ordinary Extra
-    (3, "", " Ltd", "L, Limited, Ltd"), #Limited Extra
-    (4, "", "", ""), #Ring Ordinary
-    (5, "", " Ltd", "L, Limited, Ltd"), #Ring Limited
+    (2, "", "", "Extra"), #Ordinary Extra
+    (3, "", " Ltd", "L, Limited, Ltd, Extra"), #Limited Extra
+    (4, "", "", "Ring"), #Ring Ordinary
+    (5, "", " Ltd", "Ring, L, Limited, Ltd"), #Ring Limited
     (6, "C-", " Exp", "C, Express, Exp"), #Express
     (7, "AS-", "", "AS, AC, A"), #AS
     (8, "A-", " Exp", "AS, AC, A, Exp"), #AC Express
-    (9, "A-", " Exp", "AS, AC, A, Exp"), #AC Exp Ext
+    (9, "A-", " Exp", "AS, AC, A, Exp, Extra"), #AC Exp Ext
 )
 
 class Route(models.Model):
@@ -358,6 +358,10 @@ class Route(models.Model):
             'display_name': self.display_name,
             'url': self.get_absolute_url(),
             'headway': self.headways(),
+            'start_stop': self.from_stop.display_name,
+            'end_stop': self.to_stop.display_name,
+            'start_area': self.from_stop.area.display_name,
+            'end_area': self.to_stop.area.display_name,
             'route_type_aliases': self.route_type_aliases
         }
 

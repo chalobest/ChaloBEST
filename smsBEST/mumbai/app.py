@@ -1,6 +1,14 @@
 from rapidsms.apps.base import AppBase 
 import re
 import arrest
+import re
+import string
+try:
+   import json
+except ImportError:
+   import simplejson as json
+import ast
+
 
 MAX_MSG_LEN = 160
 DIGIT = re.compile(r"\d{1,3}")
@@ -16,7 +24,8 @@ STYLE = {
 STYLE = {"start": "", "repeat": "; ", "end": ""}
 
 
-ChaloBest = arrest.Client("http://chalobest.in/1.0")
+#ChaloBest = arrest.Client("http://chalobest.in/1.0")
+ChaloBest = arrest.Client("http://dev.chalobest.in/1.0")
 
 def get_routes_for_matches(stops):
 #    same_stops = []
@@ -68,36 +77,69 @@ class App(AppBase):
     def handle(self, msg):
         if DIGIT.search(msg.text):
             routes = ChaloBest.routes(q=msg.text.replace(" ", ""))
-	    
+            pattern = str(str(msg.text).translate(None, string.digits)).upper()
+	    import collections
+            result = collections.defaultdict(list)
+            #print routeO
+            for d in routes:
+                result[d['code']].append(d)
+            someList = result.values()
+            #print len(someList)
+            #print someList
+            #pattern = "A".upper()
+	    detail =[]
+            for item in someList:
+                    #print item[0].__class__
+                    #try:
+                    #       tt=ast.literal_eval(json.dumps(item[0]))
+                    #except ValueError:
+                    #       tt=ast.literal_eval(json.dumps(item[0]))
+                    for key, value in item[0].items():
+                            if key == "route_type_aliases":
+                    	        #print len(value)
+                                if len(value)==0 and len(pattern.strip())==0:
+                                    detail.append(str(item[0].get("display_name")))
+				    detail.append(str(item[0].get("start_stop")))
+				    detail.append(str(item[0].get("start_area")))
+				    detail.append(str(item[0].get("end_stop")))
+				    detail.append(str(item[0].get("end_area")))
+				    detail.append(str(item[0].get("headway")))
+				    detail.append(str(item[0].get("url")))
+				    detail.append(str( item[0].get("distance")))
+				    
+				   # return busname
+                                elif len(pattern)!=0 and pattern in value:
+				    detail.append(str(item[0].get("display_name")))
+                                    detail.append(str(item[0].get("start_stop")))
+                                    detail.append(str(item[0].get("start_area")))
+                                    detail.append(str(item[0].get("end_stop")))
+                                    detail.append(str(item[0].get("end_area")))
+                                    detail.append(str(item[0].get("headway")))
+                                    detail.append(str(item[0].get("url")))
+                                    detail.append(str(item[0].get("distance")))
+				elif len(pattern)!=0 and pattern not in value:
+                   		    detail.append(str(item[0].get("display_name")))
+                                    detail.append(str(item[0].get("start_stop")))
+                                    detail.append(str(item[0].get("start_area")))
+                                    detail.append(str(item[0].get("end_stop")))
+                                    detail.append(str(item[0].get("end_area")))
+                                    detail.append(str(item[0].get("headway")))
+                                    detail.append(str(item[0].get("url")))
+                                    detail.append(str(item[0].get("distance")))
+
+
+				    #return busname
+
             if not routes:
                 msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
                 return
-            detail = None
-            for route in routes:
-                if route.replace(" ", "").upper() == msg.text.replace(" ", "").upper():
-                    detail = ChaloBest.route[route]
-	    import string
-	    import re
-	    pattern = str(msg.text).translate(None, string.digits)
-	    indices = [routes.index(m) for m in routes if m.startswith(pattern.strip()) or m.endswith(pattern.strip())]
-	    if len(indices)!=0:
-		routeindices = routes[indices[0]]
-	    else:
-		routeindices = routes[0]
-            if detail == None:
-                detail = ChaloBest.route[routeindices] 
-            detail = ChaloBest.route[routeindices]
-            stops = detail['stops']['features']
-            origin, dest = stops[0]['properties'], stops[-1]['properties']
-            origin_name, dest_name = origin['display_name'], dest['display_name']
-            origin_area, dest_area = PUNCT.sub('', origin['area']), PUNCT.sub('', dest['area'])
-            url = "http://chalobest.in" + detail['route']['url']
-            if detail['route']['headway']:
-                headway = "Frequency: " + detail['route']['headway'] + " mins"
+            url = "http://chalobest.in" + str(detail[6])
+	    distance = str(detail[7])+" kms"
+            if detail:
+                headway = "Freq: " + str(detail[5]) + " mins"
             else:
                 headway = "Route currently not running."
-            response = "%s: %s (%s) to %s (%s). %s. %s" % (
-                    ",".join(routes), origin_name, origin_area, dest_name, dest_area, headway, url)
+            response = "%s: %s (%s) to %s (%s). %s. %s %s" % (str(detail[0]), str(detail[1]), str(detail[2]), str(detail[3]), str(detail[4]),str(headway), str(url), str(distance))
 
         elif msg.text.find(" to ") != -1:
 

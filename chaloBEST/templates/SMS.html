@@ -1,148 +1,622 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- english -->
-<div class="g3 lightgrey">
-	<div class="leading60"><h2 class="hwider darkgrey">English</h2></div>
-	<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
-	<div class="g3_3 staticpage">
-		<p>With ChaloBEST, you can send queries and receive information about bus stops, bus numbers and routing on BEST. <br />
-		Send SMS to <b>96195.24420</b> (*)</p>
-		<p>(*) Normal SMS charges applicable as per carrier rate and plan.</p>
+<div class="g12">
+	<div class="g12_12 green">
+		<ul>
+			<li class="langs"><a class="twhite" href="#English">English</a></li>
+			<li class="langs"><a class="twhite" href="#हिन्दी">हिन्दी</a></li>
+			<li class="langs"><a class="twhite" href="#मराठी">मराठी</a></li>
+			<li class="langs"><a class="twhite" href="#Gujarati">ગુજરાતી</a></li><!--
+			<li class="langs"><a class="twhite" href="#Bengali">Bengali</a></li>
+			<li class="langs"><a class="twhite" href="#Kannada">Kannada</a></li>
+			<li class="langs"><a class="twhite" href="#Malayalam">Malayalam</a></li> -->
+			<li class="langs"><a class="twhite" href="#Tamil">தமிழ்</a></li><!--
+			<li class="langs"><a class="twhite" href="#Telugu">Telugu</a></li> -->
+			<li class="langs"><a class="twhite" href="#Urdu">اُردُو</a></li>
+		</ul>
 	</div>
-	<div class="leading20"></div>
-	<div class="g3_3 staticpage main">
-		<h2 class="hwide darkgrey">INSTRUCTIONS</h2>
+	<div class="g12_12 darkgrey">
+		<ul>
+			<li class="langs"><a class="twhite" href="#German">Deutsch</a></li>
+			<li class="langs"><a class="twhite" href="#French">Fran&ccedil;ais</a></li>
+			<li class="langs"><a class="twhite" href="#Dutch">Nederlands</a></li> <!--
+			<li class="langs"><a class="twhite" href="#Japanese">日本国</a></li>
+			<li class="langs"><a class="twhite" href="#Spanish">Espa&ntilde;ol</a></li> -->
+		</ul>
+	</div>
+
+</div>
+
+<!-- english -->
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="English" class="twhite">English</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>Receive information by SMS about bus stops, bus numbers and routing on BEST.<br />
+				SMS to <b>96195.24420</b> (*)</p>
+				<p>(*) Normal SMS charges applicable as per carrier rate and plan.</p>
+				<p>&nbsp;</p>
+				<p class="green">ChaloBEST SMS is in public beta, and your feedback is most welcome, <a href="contact.html">click here to contact</a>.</p>
+			</div>
+		</div>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9">
+		<div class="g9_9 green">
+			<div class="fix30 green">
+				<h2 class="hwide green pad">96195.24420 (*)</h2>
+			</div>
+		</div>
 		<div class="leading10"></div>
-		<h3>Find routes between bus stops <br />(or areas)</h3>
-		<p>Send the names separated by "<b>to</b>". (other possible separators: "<b>+</b>", "<b>/</b>".)<br />Example: </p>
-		<div class="g3_3 darkgrey">
-			<div class="leading10"></div>
-			<div class="center">
-				<img  src="/static/images/sms_direction_send.png" alt="send message as - FROM mahim TO churchgate" />
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>Routes between bus stops / areas</h3>
+			<p>Send the names separated by "<b>to</b>".<br />
+			Example: "Colaba depot <b>to</b> worli"</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>Find all busses &plus; frequencies at your stop</h3>
-		<p>Send the stop name. Example:<br />
-		"<b>mahim</b>" (or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
-		<div class="g3_3 darkgrey">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_stop_send.png" alt="send message as - FROM mahim TO churchgate" />
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>All busses &plus; frequencies per stop</h3>
+			<p>Send the stop name. <br />
+			Example: "<b>mahim</b>" <br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc.)</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>Find bus route &amp; frequency:</h3>
-		<p>Send the bus number (add the letter if it has one). Example:<br />
-		"<b>21</b>" (Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
-		<div class="g3_3 darkgrey">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>Bus route &amp; frequency</h3>
+			<p>Send the bus number (plus letters if it has any). <br />
+			Example: "<b>21</b>" <br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+		</div>
+	</div>
+</div>
+
+
+<!-- hindi -->
+
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="हिन्दी" class="twhite" >हिन्दी</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="g3_3 staticpage main"><h1>एस.एम.एस. service</h1></div>
+		<p>ChaloBEST के द्वारा आप बस के क्रमांक, स्टॉप एवं बस मार्गों क़ी जानकारी पा सकते है. <br />
+		इस सेवा का उपयोग करने के लिए <b>96195.24420</b> पर SMS भेजें (*)</p>
+		<p>ChaloBEST सुविधा क़ी अभी जांच एवं परिक्षण जारी है. इस सेवा पे आपके विचार एवं सुझाव हमें ज़रूर भेजें. हम से समपर्क करने के लिए <a href="contact.html">इधर क्लिक करें</a>.</p>
+		<p>(*) सुविधा पे सामान्य SMS शुल्क लागू </p>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9 staticpage main">
+		<div class="fix30 green">
+			<h2 class="hwide green pad">96195.24420 (*)</h2>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>किसी स्थान या स्टॉप के बीच कौन कौन से बस मार्ग है </h3>
+			<p>जानने के लिए उनके नाम SMS में भेजें. नामों के बीच "<b>to</b>","<b>+</b>" या  "<b>/</b>" डाल के उन्हें अलग करें. <br />
+			उदाहरण के लिए: "Colaba depot <b>to</b> worli"</p>
+			
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>किसी भी स्टॉप के बस मार्ग या उस स्टॉप क़ी बसें कितने समय काल के बाद आती  है</h3>
+			<p>जानने के लिए उस स्टॉप का नाम SMS करें. <br />
+			उदाहरण के लिए "<b>mahim</b>" <br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
+			
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>किसी बस का मार्ग जानने के लिए या यह जानने के लिए क़ि वह कितने समय काल के बाद आती है</h3>
+			<p> बस का नंबर ( अंग्रेजी अक्षर सहित ) SMS करें. <br />
+			उदाहरण के लिए:"<b>21</b>" <br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
 		</div>
 	</div>
 </div>
 
 <!-- marathi -->
-<div class="g3 lightgreen">
-	<div class="leading60"><h2 class="hwider green">मराठी</h2></div>
-	<div class="g3_3 staticpage main"><h1>एस.एम.एस. service</h1></div>
-	<div class="g3_3 staticpage">
-		<p>चलोबेस्ट या सेवेद्वारे  तुम्ही बेस्ट बसेस, बसस्थानक, बसमार्ग यांची माहीती एस.एम.एस च्या माध्यमातुन मिळवू शकता.<br />
-		त्यासाठी <b>९६१९५२४४२०</b> या मोबाईल क्रंमाकावर  एस.एम.एस पाठवा.(*)</p>
-		<p>(*) या सुविधेसाठी  तुमच्या एस.एम.एस सेवेचा नियमीत शुल्क आकारले जातील. </p>
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="मराठी" class="twhite">मराठी</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>एस.एम.एस. service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>चलोबेस्ट या सेवेद्वारे  तुम्ही बेस्ट बसेस, बसस्थानक, बसमार्ग यांची माहीती एस.एम.एस च्या माध्यमातुन मिळवू शकता.<br />
+				त्यासाठी <b>९६१९५२४४२०</b> या मोबाईल क्रंमाकावर  एस.एम.एस पाठवा.(*)</p>
+				<p>(*) या सुविधेसाठी  तुमच्या एस.एम.एस सेवेचा नियमीत शुल्क आकारले जातील. </p>
+				<p>&nbsp;</p>
+				<p class="green">चलोबेस्ट एस.एम.एस सेवा ही लोकांकरीता असल्याने त्याचे परिक्षण चालु आहे, तुमच्या अभिप्राय आणि सुचनेचे आम्ही स्वागत करतो. संपर्क साधण्यासाठी <a href="contact.html">येथे क्लिक करा.</a></p>
+			</div>
+		</div>
 	</div>
-	<div class="leading20"></div>
-	<div class="g3_3 staticpage main">
-		<h2 class="hwide green">INSTRUCTIONS</h2>
+	<div class="g12_gut"></div>
+	<!-- Instructions -->
+	<div class="g12_9">
+		<div class="g9_9">
+			<div class="fix30 green">
+				<h2 class="hwide pad">९६१९५२४४२० (*)</h2>
+			</div>
+		</div>
 		<div class="leading10"></div>
-		<h3>दोन बसस्थानक किंवा क्षेत्रातील बसमार्गांबद्दलच्या  माहीतीसाठी</h3>
-		<p>त्या दोन स्थानकांच्या नावांमध्ये  "<b>to</b>", "<b>+</b>", "<b>/</b>" लिहुन एस.एम.एस करा. उदाहरणार्थ:</p>
-		<div class="g3_3 green">
-			<div class="leading10"></div>
-			<div class="center">
-				<img  src="/static/images/sms_direction_send.png" alt="send message as - FROM mahim TO churchgate" />
+		
+		<!-- From To -->
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>दोन बसस्थानक किंवा क्षेत्रातील बसमार्गांबद्दलच्या  माहीतीसाठी</h3>
+			<p>त्या दोन स्थानकांच्या नावांमध्ये  "<b>to</b>"<br />
+			"Colaba depot <b>to</b> worli"</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी</h3>
-		<p>स्थानकाचे नाव  एस.एम.एस करा. उदाहरणार्थ:<br />
-		"<b>mahim</b>" (or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
-		<div class="g3_3 green">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_stop_send.png" alt="send message as - FROM mahim TO churchgate" />
+		<div class="g9_gut"></div>
+		
+		<!-- From To -->
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी</h3>
+			<p>स्थानकाचे नाव  एस.एम.एस करा. <br />
+			उदाहरणार्थ: "<b>mahim</b>" <br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>कोणत्याही बेस्ट बसच्या बसमार्गाची व वारंवारतेची  माहिती मिळवण्यासाठी</h3>
-		<p>बसचा पूर्ण क्रमांक एस.एम.एस करा. उदाहरणार्थ:<br />
-		"<b>21</b>" (Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
-		<div class="g3_3 green">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>कोणत्याही बेस्ट बसच्या बसमार्गाची व वारंवारतेची  माहिती मिळवण्यासाठी</h3>
+			<p>बसचा पूर्ण क्रमांक एस.एम.एस करा. <br />
+			उदाहरणार्थ: "<b>21</b>" <br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
 		</div>
 	</div>
 </div>
 
-<!-- hindi -->
-<div class="g3 lightyellow">
-	<div class="leading60"><h2 class="hwider yellow">हिन्दी</h2></div>
-	<div class="g3_3 staticpage main"><h1>एस.एम.एस. service</h1></div>
-	<div class="g3_3 staticpage">
-		<p>ChaloBEST के द्वारा आप बस के क्रमांक, स्टॉप एवं बस मार्गों क़ी जानकारी पा सकते है. <br />
-		इस सेवा का उपयोग करने के लिए <b>96195.24420</b> पर SMS भेजें (*)</p>
-		<p>(*) सुविधा पे सामान्य SMS शुल्क लागू </p>
+<!-- Gujarati -->
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="Gujarati" class="twhite">ગુજરાતી</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>ચલોબેસ્ટ દ્વારા તમે '''96195.24420''' પર SMS કરીને બસ સ્ટોપ, નંબર, માર્ગ તેમજ સમયપત્રક ની માહિતી મેળવી શકો છો. (*))</p>
+				<p>(*) આ સુવિધા નો ઉપયોગ કરવા પર સામાન્ય SMS દર લાગુ થશે. </p>
+				<p>&nbsp;</p>
+				<p class="green">ચલોબેસ્ટ સેવા હજુ પ્રાયોગિક તબક્કા હેઠળ છે, તમારા પ્રતિસાદ તેમજ સૂચનો અમને જરૂર મોકલો.<a href="contact.html"> સંપર્ક કરવા અહીં ક્લિક કરો.</a>.</p>
+			</div>
+		</div>
 	</div>
-	<div class="leading20"></div>
-	<div class="g3_3 staticpage main">
-		<h2 class="hwide yellow">INSTRUCTIONS</h2>
+	<div class="g12_gut"></div>
+	<div class="g12_9">
+		<div class="g9_9 green">
+			<div class="fix30 green">
+				<h2 class="hwide green pad">96195.24420 (*)</h2>
+			</div>
+		</div>
 		<div class="leading10"></div>
-		<h3>किसी स्थान या स्टॉप के बीच कौन कौन से बस मार्ग है </h3>
-		<p>जानने के लिए उनके नाम SMS में भेजें. नामों के बीच "<b>to</b>","<b>+</b>" या  "<b>/</b>" डाल के उन्हें अलग करें. उदाहरण के लिए:</p>
-		<div class="g3_3 yellow">
-			<div class="leading10"></div>
-			<div class="center">
-				<img  src="/static/images/sms_direction_send.png" alt="send message as - FROM mahim TO churchgate" />
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>કોઈ પણ એક સ્ટોપ કે સ્થળ થી બીજે જતા બસ માર્ગ જાણવા માટે બંને વચ્ચે <b>'TO'</b> ઉમેરી ને SMS કરો.</h3>
+			<p>ઉદાહરણ: "Colaba depot <b>to</b> worli"</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>किसी भी स्टॉप के बस मार्ग या उस स्टॉप क़ी बसें कितने समय काल के बाद आती  है</h3>
-		<p>जानने के लिए उस स्टॉप का नाम SMS करें. उदाहरण के लिए <br />
-		"<b>mahim</b>" (or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
-		<div class="g3_3 yellow">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_stop_send.png" alt="send message as - FROM mahim TO churchgate" />
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>કોઈ પણ સ્ટોપ ના બસ માર્ગ તેમજ સમયપત્રક મેળવવા તેનું નામ SMS કરો </h3>
+			<p>ઉદાહરણ:  "<b>mahim</b>" <br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc.)</p>
 		</div>
-		<div class="leading40"></div>
-		<h3>किसी बस का मार्ग जानने के लिए या यह जानने के लिए क़ि वह कितने समय काल के बाद आती है</h3>
-		<p> बस का नंबर ( अंग्रेजी अक्षर सहित ) SMS करें. उदाहरण के लिए:<br />
-		"<b>21</b>" (Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
-		<div class="g3_3 yellow">
-			<div class="leading10"></div>
-			<div class="center">
-				<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
 			</div>
 			<div class="leading10"></div>
+			<h3>કોઈ પણ બસ નું માર્ગ તેમજ સમયપત્રક મેળવવા ક્રમાંક SMS કરો</h3>
+			<p>ઉદાહરણ:"<b>21</b>" <br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
 		</div>
 	</div>
 </div>
 
-<!-- right banner -->
+<!-- Tamil -->
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="Tamil" class="twhite">தமிழ்</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>`சலொபெஸ்ட்' உபயொகித்து, நீங்கள் பெஸ்ட் பேருந்து நிறுத்தம், பேருந்து எண், தடம் பற்றிய தகவல்களை பெறலாம், '''<b>96195.24420</b>''' க்கு எஸ் எம் எஸ் செய்யவும்.(*)</p>
+				<p>(*) எஸ் எம் எஸ் கட்டணம், கைபேசி நிறுவனம்/திட்டம் விதிகளுக்குட்பட்டது</p>
+				<p>&nbsp;</p>
+				<p class="green">சலொபெஸ்ட் எஸ் எம் எஸ்' (கணிணி மென்பொருள் - பீட்டா பதிவு) பொது (மக்கள்) பார்வையில் உள்ளது. உங்கள் கருத்துகளை வரவேற்கிறோம். <a href="contact.html">எங்களுடன் தொடர்பு கொள்ள இங்கேக்ளிக்' செய்யவும்</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="g12_gut"></div>
+	<!-- Instructions -->
+	<div class="g12_9">
+		<div class="g9_9">
+			<div class="fix30 green">
+				<h2 class="hwide pad">96195.24420 (*)</h2>
+			</div>
+		</div>
+		<div class="leading10"></div>
+		
+		<!-- From To -->
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>ஓரு பேருந்து நிறுத்தம் அல்லது பேட்டையிலிருந்து இன்னொரு நிறுத்தம்/பேட்டைக்கு செல்லும் பேருந்து எண்/தடம் அறிய நிறுத்தம்/பேட்டை பெயர்களை "TO" என்று பிரித்துக்காட்டி எஸ் எம் எஸ் செய்யவும். </h3>
+			<p>உதாரணம்: "Colaba depot <b>to</b> worli"</p>
+		</div>
+		<div class="g9_gut"></div>
+		
+		<!-- From To -->
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>ஒரு பேருந்து நிறுத்தத்தில் வரும் பேருந்துகளின் தடம், நேரம், அறிய, பேருந்து நிறுத்தத்தின் பெயரை எஸ் எம் எஸ் செய்யவும்.</h3>
+			<p>உதாரணம்: "<b>mahim</b>" <br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>ஒரு பேருந்தின் தடம், நேரம் அறிய, பேருந்து எண், எழுத்து விவரங்களை எஸ் எம் எஸ் செய்யவும். </h3>
+			<p>உதாரணம்:  "<b>21</b>" <br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+		</div>
+	</div>
+</div>
+
+<!-- Urdu -->
+
+<div class="g12 lightgreen">
+	<div class="g12_3">
+		<div class="fix30 green"><h2 class="hwide center"><a id="Urdu" class="twhite" >اُردُو</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="g3_3 staticpage main"><h1>एस.एम.एस. service</h1></div>
+		<p>چلو بسٹ كے ساتھ، آپ بس اسٹاپ، بس نمبر اور رستوں كے بارے میں معلومات حاصل كر سكتے ھیں۔ دیں ایس۔ایم۔ایس ٩٦١٩٥ ۔٢٤٤٢٠ كو(*)</p>
+		<p><a href="contact.html">چلو بسٹ اس وقت پبلك بیٹا ھے، اور آپ كی رآے بہت اھم ھے۔ یہاں كلك كریں اور ہم سے بات كریں  </a></p>
+		<p>(*) آپ كے ایس۔ایم۔ایس فیس، آپ كے موبائل پلان كے ریٹ پر لگے گیں</p>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9 staticpage main">
+		<div class="fix30 green">
+			<h2 class="hwide green pad">(*) ٢٤٤٢٠.٩٦١٩٥</h2>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>
+كسی بھی دو بس اسٹاپ یا محلہ كے درمیان جانے والی بسوں كی معلومات حاصل كرنے كے لیے، ایس۔ایم۔ایس كریں دونٰوں نام لفظ " " كے ساتھ ۔ </h3>
+			<p>"Colaba depot <b>to</b> worli"مثال</p>
+			
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>` كسی بھی اسٹاپ پر، آنے والی بسوں كا رستہ یا آنے كا وقت معلوم كرنے كے لیے، اسٹاپ كا نام ایس۔ایم۔ایس كریں</h3>
+			<p>"<b>mahim</b>" مثال<br />
+			(or "<b>borivali w</b>", "<b>bhandup</b>", etc)</p>
+			
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 green">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>كسی بھی دو بس اسٹاپ یا محلہ كے درمیان جانے والی بسوں كی معلومات حاصل كرنے كے لیے، ایس۔ایم۔ایس كریں دونٰوں نام لفظ " " كے ساتھ ۔</h3>
+			<p> "<b>21</b>" مثال<br />
+			(Other bus types: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+			
+		</div>
+	</div>
+</div>
+
+<!-- German -->
+<div class="g12 lightgrey">
+	<div class="g12_3">
+		<div class="fix30 darkgrey"><h2 class="hwide center"><a id="German" class="twhite">Deutsch</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>Mit ChaloBEST können Sie Informationen über Haltestellen, Busnummern und Routen erhalten. Schicken Sie eine SMS an '''96195.24420'''. <br />
+				SMS to <b>96195.24420</b> (*)</p>
+				<p>(*) Die Kosten für Ihre SMS-Nachrichten sind abhängig von Ihrem Mobilfunkanbieter. Die Antworten von ChaloBEST SMS sind kostenlos.</p>
+				<p>&nbsp;</p>
+				<p class="darkgrey">ChaloBEST SMS ist eine öffentliche Beta-Version und Ihr Feedback ist sehr willkommen. <a href="contact.html">Klicken Sie hier, um uns zu kontaktieren.</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9">
+		<div class="g9_9 darkgrey">
+			<div class="fix30 darkgrey">
+				<h2 class="hwide darkgrey pad">96195.24420 (*)</h2>
+			</div>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Busse zwischen Gegenden / Bushaltestellen</h3>
+			<p>Senden Sie eine SMS mit "<b>to</b>" zwischen den jeweiligen Namen.<br />
+			Zum Beispiel: "Colaba depot <b>to</b> worli"</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Busse &amp; Frequenz der Bushaltestelle</h3>
+			<p>Senden Sie eine SMS mit dem Namen der Bushaltestelle (in der Regel der Name der Nachbarschaft). <br />
+			Zum Beispiel: "<b>mahim</b>" <br />
+			(Oder: "<b>borivali w</b>", "<b>bhandup</b>", etc.)</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Strecke &amp; Frequenz eines Busses</h3>
+			<p>Senden Sie eine SMS mit der Busnummer einschließlich Buchstabe.<br />
+			Zum Beispiel: "<b>21</b>" <br />
+			(Oder: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+		</div>
+	</div>
+</div>
+
+<!-- French -->
+<div class="g12 lightgrey">
+	<div class="g12_3">
+		<div class="fix30 darkgrey"><h2 class="hwide center"><a id="French" class="twhite">Fran&ccedil;ais</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>Avec ChaloBEST vous pouvez obtenir des informations sur les arrêts de bus, les bus et les routes. <br />
+				Envoyez vos SMS à '9619524420' (*)</p>
+				<p>(*) Le coût de vos messages SMS selon le contrat avec votre opérateur de téléphonie mobile. Les réponses ChaloBEST SMS sont gratuits.</p>
+				<p>&nbsp;</p>
+				<p class="darkgrey">ChaloBEST SMS est en version bêta publique, et vos remarques sont les bienvenus. <a href="contact.html">Cliquez ici pour nous contacter.</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9">
+		<div class="g9_9 darkgrey">
+			<div class="fix30 darkgrey">
+				<h2 class="hwide darkgrey pad">96195.24420 (*)</h2>
+			</div>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Des bus entre quartiers ou arrêts</h3>
+			<p>Pour tous les bus entre deux quartiers ou arrêts de bus spécifiques.<br />
+			Envoyez un SMS avec les noms avec "to" entre les deux. <br />
+			Par example: "Colaba depot <b>to</b> worli"</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Les bus &amp; fréquence par arrêt</h3>
+			<p>Envoyez un SMS avec le nom de l'arrêt de bus (généralement le nom du quartier).<br />
+			Par example: "<b>mahim</b>" <br />
+			(Ou: "<b>borivali w</b>", "<b>bhandup</b>", etc.)</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Voie &amp; fréquence d'un bus</h3>
+			<p>Envoyer un SMS avec le numéro de bus y compris les lettres.<br />
+			Par example: "<b>21</b>" <br />
+			(Ou: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+		</div>
+	</div>
+</div>
+
+<!-- Dutch -->
+<div class="g12 lightgrey">
+	<div class="g12_3">
+		<div class="fix30 darkgrey"><h2 class="hwide center"><a id="Dutch" class="twhite">Nederlands</a></h2><a href="../sms" class="floatr small top twhite"><img src="/static/images/go-up.png" /></a></div>
+		<div class="pad">
+			<div class="g3_3 staticpage main"><h1>SMS service</h1></div>
+			<div class="g3_3 staticpage">
+				<p>Met ChaloBEST kun je informatie krijgen over bushaltes, bussen en routes. Stuur je SMS aan '''96195.24420'''. (*)</p>
+				<p>(*) De kosten voor SMSjes die jij stuurt zijn als per overeenkomst met je mobiele aanbieder. De antwoorden van ChaloBEST SMS zijn gratis.</p>
+				<p>&nbsp;</p>
+				<p class="darkgrey">ChaloBEST SMS is in openbare beta fase, en je feedback is erg welkom. <a href="contact.html">Klik hier om contact met ons op te nemen.</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="g12_gut"></div>
+	<div class="g12_9">
+		<div class="g9_9 darkgrey">
+			<div class="fix30 darkgrey">
+				<h2 class="hwide darkgrey pad">96195.24420 (*)</h2>
+			</div>
+		</div>
+		<div class="leading10"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img  src="/static/images/sms_direction_send.png" alt="send message as - mahim TO churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Bussen tussen stadsdelen / bushaltes</h3>
+			<p>SMS de namen van de stadsdelen of bushaltes met "to" ertussenin. <br />
+			Bijvoorbeeld: "Colaba depot <b>to</b> worli"</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_stop_send.png" alt="send message as - churchgate" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Bussen &amp; frequentie per bushalte</h3>
+			<p>SMS de naam van de bushalte (meestal de naam van de buurt).<br />
+			Bijvoorbeeld: "<b>mahim</b>" <br />
+			(Of: "<b>borivali w</b>", "<b>bhandup</b>", etc.)</p>
+		</div>
+		<div class="g9_gut"></div>
+		<div class="g9_3 staticpage main">
+			<div class="g3_3 darkgrey">
+				<div class="leading10"></div>
+				<div class="center">
+					<img src="/static/images/sms_bus_send.png" alt="send message as: 21" />
+				</div>
+			</div>
+			<div class="leading10"></div>
+			<h3>Route &amp; frequentie per busroute</h3>
+			<p>SMS busnummer inclusief letters.<br />
+			Bijvoorbeeld: "<b>21</b>" <br />
+			(Of: "<b>92L</b>","<b>C-52</b>","<b>AS-440</b>")</p>
+		</div>
+	</div>
+</div>
+
+<!-- right banner hidden for now-->
+<!--
 <div class="g3">
 	<div class="g3_3 ">
 		<div class="highlight2">
@@ -157,16 +631,6 @@
 		</div>
 	</div>
 </div>
-<div class="g1"></div>
-<div class="g3 right">
-	<div class="g3_3 warningheader red"><h3 class="red">Feedback &amp; Disclaimer</h3></div>
-	<div class="g3_3 staticpage">
-		<div class="box">
-			<p>ChaloBEST SMS is in public beta, and your feedback is most welcome, <a href="contact.html">click here to contact</a>.</p>
-			<p>ChaloBEST सुविधा क़ी अभी जांच एवं परिक्षण जारी है. इस सेवा पे आपके विचार एवं सुझाव हमें ज़रूर भेजें. हम से समपर्क करने के लिए <a href="contact.html">इधर क्लिक करें</a>.</p>
-			<p>चलोबेस्ट एस.एम.एस सेवा ही लोकांकरीता असल्याने त्याचे परिक्षण चालु आहे, तुमच्या अभिप्राय आणि सुचनेचे आम्ही स्वागत करतो. संपर्क साधण्यासाठी <a href="contact.html">येथे क्लिक करा.</a></p>
-		</div>
-	</div>
-</div>
+-->
 
 {% endblock %}

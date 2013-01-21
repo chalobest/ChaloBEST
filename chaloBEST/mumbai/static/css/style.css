@@ -139,6 +139,7 @@ span.right {float:right !important; padding-right:1%;}
 
 /* text colors */
 .tred {color:#FE2423;}
+.twhite {color:white;}
 
 /* MICRO CLEARFIX HACK */
 .cf:before, .cf:after {content:"";display:table} /* For modern browsers */
@@ -146,6 +147,7 @@ span.right {float:right !important; padding-right:1%;}
 .cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
 
 .clear {clear: both;}
+.floatr {display:block; float:right;}
 
 /* DEFAULT MOBILE STYLE */
 body {width: 92%; margin: 0 auto} /* Center page without wrapper */
@@ -162,7 +164,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:block; position: relative; margin-left: 0; margin-right: 0; margin-bottom:20px;}
 	
 /* 1 column grid */
@@ -175,8 +177,8 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
-	{display:inline; float: left}
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	{display:inline; float: left;}
 
 
 /* media Queries
@@ -225,26 +227,26 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* 1 COLUMN GRID */
 	/* GRID */
 	.g12 {width:97.98%; min-height:20px;}
-		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
-		.g12_8 {width:65%; margin:0;}
-		.g12_7 {width:57.49%; margin:0;}
+		.g12_12 {width:100%;margin:0;}
+		.g12_9 {width:100%; margin:0;}
+		.g12_8 {width:100%; margin:0;}
+		.g12_7 {width:100%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}
 		.g12_5 {width:40.48%; margin:0;}
 		.g12_4 {width:31%; margin:0;}
-		.g12_3 {width:23.48%; margin:0;}
+		.g12_3 {width:100%; margin:0;}
 		.g12_2 {width:14.98%; margin:0;}
 		.g12_gut {width:2.02%; margin:0; min-height:20px;}
 	.g9 {width:97.98%; min-height:20px;}
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
-		.g9_3 {width:31.52%; margin:0;}
+		.g9_3 {width:100%; margin:0;}
 		.g9_6 {width:65.76%; margin:0;}
 		.g9_7 {width:77.17%; margin:0;}
 		.g9_8 {width:88.59%; margin:0;}
@@ -316,26 +318,26 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6 , .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* 1 COLUMN GRID */
 	/* GRID */
 	.g12 {width:97.98%; min-height:20px;}
-		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
-		.g12_8 {width:65%; margin:0;}
-		.g12_7 {width:57.49%; margin:0;}
+		.g12_12 {width:100%;margin:0;}
+		.g12_9 {width:100%; margin:0;}
+		.g12_8 {width:100%; margin:0;}
+		.g12_7 {width:100%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}
 		.g12_5 {width:40.48%; margin:0;}
 		.g12_4 {width:31%; margin:0;}
-		.g12_3 {width:23.48%; margin:0;}
+		.g12_3 {width:100%; margin:0;}
 		.g12_2 {width:14.98%; margin:0;}
 		.g12_gut {width:2.02%; margin:0; min-height:20px;}
 	.g9 {width:97.98%; min-height:20px;}
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
-		.g9_3 {width:31.52%; margin:0;}
+		.g9_3 {width:100%; margin:0;}
 		.g9_6 {width:65.76%; margin:0;}
 		.g9_7 {width:77.17%; margin:0;}
 		.g9_8 {width:88.59%; margin:0;}
@@ -432,26 +434,26 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* 1 COLUMN GRID */
 	/* GRID */
 	.g12 {width:97.98%; min-height:20px;}
-		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
-		.g12_8 {width:65%; margin:0;}
-		.g12_7 {width:57.49%; margin:0;}
+		.g12_12 {width:100%;margin:0;}
+		.g12_9 {width:100%; margin:0;}
+		.g12_8 {width:100%; margin:0;}
+		.g12_7 {width:100%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}
 		.g12_5 {width:40.48%; margin:0;}
 		.g12_4 {width:31%; margin:0;}
-		.g12_3 {width:23.48%; margin:0;}
+		.g12_3 {width:100%; margin:0;}
 		.g12_2 {width:14.98%; margin:0;}
 		.g12_gut {width:2.02%; margin:0; min-height:20px;}
 	.g9 {width:97.98%; min-height:20px;}
 		.g9_1 {width:8.7%; margin:0;}
 		.g9_2 {width:20.11%; margin:0;}
-		.g9_3 {width:31.52%; margin:0;}
+		.g9_3 {width:100%; margin:0;}
 		.g9_6{width:65.76%; margin:0;}
 		.g9_7{width:77.17%; margin:0;}
 		.g9_8 {width:88.59%; margin:0;}
@@ -532,16 +534,16 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9, .g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* 1 COLUMN GRID */
 	/* GRID */
 	.g12 {width:97.98%; min-height:20px;}
 		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
-		.g12_8 {width:65%; margin:0;}
-		.g12_7 {width:57.49%; margin:0;}
+		.g12_9 {width:100%; margin:0;}
+		.g12_8 {width:100%; margin:0;}
+		.g12_7 {width:100%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}
 		.g12_5 {width:40.48%; margin:0;}
 		.g12_4 {width:31%; margin:0;}
@@ -630,15 +632,15 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5,.g8_3,.g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_6 , .g9_7, .g9_8, .g9_9,.g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* MULTI COLUMN GRID */
 	.g12 {width:97.98%; min-height:20px;}
-		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
-		.g12_8 {width:65%; margin:0;}
-		.g12_7 {width:57.49%; margin:0;}
+		.g12_12 {width:100%;margin:0;}
+		.g12_9 {width:100%; margin:0;}
+		.g12_8 {width:100%; margin:0;}
+		.g12_7 {width:100%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}
 		.g12_5 {width:40.48%; margin:0;}
 		.g12_4 {width:31%; margin:0;}
@@ -722,13 +724,13 @@ Change widths as necessary
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
 	.g9_1, .g9_2, .g9_3, .g9_4, .g9_5, .g9_6, .g9_7, .g9_8, .g9_9, .g9_gut,
-	.g12_12, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
+	.g12_12, .g12_9, .g12_8, .g12_7, .g12_6, .g12_5, .g12_4, .g12_3, .g12_2, .g12_gut
 	{display:inline; float: left}
 	
 	/* MULTI COLUMN GRID */
 	.g12 {width:97.98%; min-height:20px;}
 		.g12_12 {width:99.7%;margin:0;}
-		.g12_9 {}
+		.g12_9 {width:74.495%; margin:0;}
 		.g12_8 {width:65%; margin:0;}
 		.g12_7 {width:57.49%; margin:0;}
 		.g12_6 {width:48.99%; margin:0;}

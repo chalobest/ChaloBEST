@@ -77,7 +77,7 @@ class App(AppBase):
     def handle(self, msg):
         if DIGIT.search(msg.text):
             routes = ChaloBest.routes(q=msg.text.replace(" ", ""))
-            pattern = str(str(msg.text).translate(None, string.digits)).upper()
+            pattern = str(str(msg.text).translate(None, string.digits))
 	    import collections
             result = collections.defaultdict(list)
             #print routeO
@@ -117,15 +117,6 @@ class App(AppBase):
                                     detail.append(str(item[0].get("headway")))
                                     detail.append(str(item[0].get("url")))
                                     detail.append(str(item[0].get("distance")))
-				elif len(pattern)!=0 and pattern not in value:
-                   		    detail.append(str(item[0].get("display_name")))
-                                    detail.append(str(item[0].get("start_stop")))
-                                    detail.append(str(item[0].get("start_area")))
-                                    detail.append(str(item[0].get("end_stop")))
-                                    detail.append(str(item[0].get("end_area")))
-                                    detail.append(str(item[0].get("headway")))
-                                    detail.append(str(item[0].get("url")))
-                                    detail.append(str(item[0].get("distance")))
 
 
 				    #return busname
@@ -133,12 +124,12 @@ class App(AppBase):
             if not routes:
                 msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
                 return
-            url = "http://chalobest.in" + str(detail[6])
+            url = "http://dev.chalobest.in" + str(detail[6])
 	    distance = str(detail[7])+" kms"
-            if detail[5] is not None:
+            if str(detail[5]).strip() is not None:
                 headway = "Freq: " + str(detail[5]) + " mins"
             else:
-                headway = "Route currently not running."
+                headway = "No bus now."
             response = "%s: %s (%s) to %s (%s). %s. %s %s" % (str(detail[0]), str(detail[1]), str(detail[2]), str(detail[3]), str(detail[4]),str(headway), str(url), str(distance))
 
         elif msg.text.find(" to ") != -1:

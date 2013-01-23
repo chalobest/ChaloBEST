@@ -26,7 +26,7 @@ $(function() {
     });
 
 
- //   map.trigger("moveend");
+    map.trigger("moveend");
 
 });
 
@@ -40,7 +40,7 @@ function loadStops(latlng) {
         'center_lon': latlng.lng
     };  
     $.getJSON(url, params, function(data) {
-//        if (typeof(jsonLayer) != 'undefined') jsonLayer.removeLayer();
+        if (typeof(jsonLayer) != 'undefined') map.removeLayer(jsonLayer);
         showStopsData(data);
         
         loadStopsGeojson(data); //defined in best_map.js

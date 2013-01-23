@@ -50,6 +50,7 @@
 	<div class="g12_5 listextrainfo">
 		<img src="/static/images/area.png" />
 		<p class="marginBottomSmall">&nbsp;{{ stop.road.display_name }} <span class="frequency"><a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a></span></p>
+        <p class="marginBottomSmall">&nbsp;{{ stop.road.name_mr }} <span class="frequency"><a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a></span></p>
         <!--<div class="leading20">--><!-- you can show or hide the blockquote, keep the div -->
                     {% if stop.display_alt_names %}
 					<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -94,7 +95,8 @@
 <!--					<p class="small tred">Your addition will be checked by the moderator.</p>
 <!--				</div>-->
 <!--			</div>-->
-<!--		</div>-->
+<!--		</div>
+-->
 <!--		<div class="g4_4 listextrainfo">-->
 <!--			<img src="/static/images/area.png" />-->
 <!--			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>-->

@@ -9,7 +9,7 @@
 
 
 /* footer */
-.foot, .gradientNav {
+.gradientNav {
 
 
 background: #ff0000; /* Old browsers */
@@ -32,7 +32,7 @@ background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98
 background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);*/
 }
 
-
+.foot { background: #888; background: rgba(0,0,0,0.4);}
 .foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
 .foot ul {padding: 6px; float: left;}
@@ -40,7 +40,7 @@ background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 
 .foot li a {display:block; margin: 0 10px;}
 .foot .right {padding: 6px;}
 .foot .right p{display:inline; font-size: 14px; padding-top: 4px;}
-.foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; border: 1px solid #bbb; width:20px; height:20px;}
+.foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; margin-bottom: 0; border: 1px solid #bbb; width:20px; height:20px;}
 
 /* primary navigation */
 /*.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;}*/ /* background image for the global nav + text logo bar */
@@ -83,7 +83,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A4AA8D', end
 
 /* == Search bar == */
 
-.search{/*background-color:#eee; */height:30px;/*border:2px solid #aaa;*/}
+.search{/*background-color:#eee; height:30px;border:2px solid #aaa;*/}
 .search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
 .searchsubmit{	height: 30px; padding-top:auto; padding-bottom:0; background-color:#FBDD09;
 				border: 2px solid yellow; border-radius: 1em;}
@@ -265,24 +265,25 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 /* DATABASE STATISTICS DISPLAY on INDEX.html */
 
-.searchbar {display:inline; float:left; width:100%; margin:0;}
+.searchbar {display:inline; float:right; /*width:100%;*/ margin:0; padding-left: 2%;}
 .searchbar ul {list-style-type:none; margin:0;}
-.searchbar ul img {margin:-2px 0 0 2% !important;}
+.searchbar ul img {/*margin:-2px 0 0 2% !important;*/ margin: 0;}
 .searchbar li {
-	display:inline; float:left; width: 24%; height: 1em; margin: 0 5.5% 0 0; padding:0.3em 5px 0; font-weight:200 !important;
+	display:inline; float:left; width: 27%; /*height: 1em;*/ margin: 0 2.5% 0 0; padding:0.3em 5px 0; font-weight:200 !important;
 	border: 3px dotted #ffdd00; 
 	font-family: "Boston Traffic", Impact, "Charcoal CY", Charcoal, "DejaVu Sans Condensed", sans-serif; 
 	text-transform: uppercase; color: #ccc; text-align:center;}
+.searchbar li:last-of-type {margin-right: 0;}
 .searchbar img.center 	{display:block; text-align:center; margin-left:auto; margin-right:auto;}
-.statsImg {width:24px;}
-.searchbar .statistics 	{display:block; float:left; /*margin-top:-3.5%; padding:0; width:22%; font-size:42%; font-weight:200 !important; line-height:1.5em;*/ text-align:center; margin-left:auto; margin-right:auto;}
+.statsImg {width:18px;}
+.searchbar .statistics 	{/*display:block; float:left;*/ /*margin-top:-3.5%; padding:0; width:22%; font-size:42%; font-weight:200 !important; line-height:1.5em;*/ text-align:center; margin-left:auto; margin-right:auto;}
 
 /* .statistics .overline {padding: 0.2em 0 0 0; border-top: 1px dashed #ccc;} */
 
 
 
 /*map looks for landingpage */
-.landingmap {width:100%; height:100%; border:0; scrolling:no; margin:0; border-radius:15px;}
+.landingmap {width:100%; height:100%; border:0; scrolling:no; margin:0; /*border-radius:15px;*/}
 
 
 /* --------------------- */

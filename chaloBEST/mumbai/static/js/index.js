@@ -1,3 +1,4 @@
+//var gotPosition = false;
 $(function() {
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     var osmAttrib = 'Map data © openstreetmap contributors'

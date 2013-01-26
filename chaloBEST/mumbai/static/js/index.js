@@ -23,6 +23,25 @@ $(function() {
         loadStops(center);
     });
     
+    $('#nearStopsTable').delegate('.listItem', 'mouseover', function(e) {
+        var $t = $(this);
+        //console.log($t);
+        var id = $t.attr("data-id");
+        //console.log(id);
+        var feat = getFeatureById(id);
+        feat.fire("mouseover");
+    });    
+
+    $('#nearStopsTable').delegate('.listItem', 'mouseout', function(e) {
+        var $t = $(this);
+        //console.log($t);
+        var id = $t.attr("data-id");
+        //console.log(id);
+        var feat = getFeatureById(id);
+        feat.fire("mouseout");
+    });    
+
+
     map.on("moveend", function(e) {
         //if user moves map, get stops for new center
         var latlng = map.getCenter();
@@ -30,7 +49,7 @@ $(function() {
     });
 
 
-    map.trigger("moveend");
+    map.fire("moveend");
 
 });
 

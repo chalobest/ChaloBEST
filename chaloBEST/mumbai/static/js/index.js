@@ -1,8 +1,12 @@
 $(function() {
-    var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:1,maxZoom:18,attribution:'Map data © openstreetmap contributors'});
+    var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    var osmAttrib = 'Map data © openstreetmap contributors'
+    var osm = new L.TileLayer(osmUrl, {minZoom:1,maxZoom:18,attribution: osmAttrib});
     map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
     //console.log(map);
-
+    var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
+    var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+//    var miniMap = new L.Control.MiniMap(osm).addTo(map);
     var initialBBox = map.getBounds();
 //Get user current location
     navigator.geolocation.getCurrentPosition(function(loc) {

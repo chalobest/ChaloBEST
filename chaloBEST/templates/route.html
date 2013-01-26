@@ -36,20 +36,14 @@ $(function() {
 
 {% block content %}
 
-<div class="leading10"></div>
-<div class="g12">
-	<div class="g12_12 search">
+<div class="g12_12 search">
 		<!--<div class="g12_2">&nbsp;</div>-->
 		<div class="g12_7">
         {% include 'guidesearch_form.html' %}
-      </div>
-	</div>
-</div>
+        </div>
 
 
-<div class="g12">
-    <div class="g12_12">
-        <div class="g12_7 fromTo">
+        <div class="g12_5 fromTo">
 		        <div class="pagetitle 12_12">
 			        <div class="guideh1box titleXS">
 				        <h1>
@@ -70,13 +64,32 @@ $(function() {
 					        </div>
 				        </h1>
 			        </div>
-			        </div>
-		        </div>
 
-        <div class="g12_5 routeExtra">
+
+</div>
+
+
+        <div class="g12_12 routeExtra">
 		<div class="g12_12 listextrainfo">
-			<a href="" title="refresh"><img src="/static/images/Frq_3.png" /></a>
-			<p class="marginBottomSmall"><!-- FIXME 11 am - 5 pm --> {% if route.headways %}<span class="frequency"> <span class="large">{{ route.headways }}&nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% else %}<span class="frequency">Not running</span>{% endif %}<!-- <span class="thumbs">Is this frequency accurate?</span> --></p><p>{{ now_time|date:"l P" }}</p>
+
+                <div class="floatLeft">
+            <p class="marginBottomSmall">
+                <a href="" title="refresh" class="floatLeft"><img src="/static/images/Frq_3.png" />&nbsp;</a>
+                {% if route.headways %}<span class="frequency"> <span class="large">{{ route.headways }}&nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% else %}<span class="frequency">Not running</span>{% endif %}    
+
+                                           
+            </p>
+        </div>
+    
+
+        <div class="floatRight">
+            <p class="marginRight26 marginBottomSmall">{{ now_time|date:"l P" }}                          
+            </p>
+        
+        </div>
+
+
+			
 		</div>
         </div>
 
@@ -196,8 +209,8 @@ $(function() {
 <div class="g5">
 	<div class="arealistheight">
 		<div class="g5_5 listtitle">
-			<img src="/static/images/stop.png" />
-			<h2>Stops</h2>
+			
+			<h2><img src="/static/images/stop.png" />Stops</h2>
 		</div>
 		<div class="list">
 			<table name="routepage_table" class="tablebase">

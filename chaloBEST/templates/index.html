@@ -23,38 +23,44 @@
 </tr>
 </script>
 
+		<div class="g12_12 search">
+<!--			<div class="g9_1">&nbsp;</div>-->
+			<div class="g12_7">
+				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
+				{% include 'guidesearch_form.html' %}
+			</div>
+
+
+		<div class="searchbar g12_5">
+<!--			<div class="g9_1">&nbsp;</div>-->
+			<div class="g12_12">
+				<ul>
+					<li><span class="statistics">{{ counts.areas }} AREAS </span>
+						
+							<img class="statsImg" src="/static/images/area.png" >
+						
+					</li>
+					<li><span class="statistics">{{ counts.stops }} STOPS</span><img class="statsImg" src="/static/images/stop.png" ></li>
+					<li><span class="statistics">{{ counts.routes }} ROUTES</span><img class="statsImg" src="/static/images/bus.png" ></li>
+				</ul>
+			</div>
+		</div>
+
+
+		</div>
+
 <div class="g7">
 
 <!--
 	<div class="leading40"></div>
 -->
 	<div class="leading10"></div>
+
 	<div class="g7_7 white">
-		<div class="g12_12 search">
-<!--			<div class="g9_1">&nbsp;</div>-->
-			<div class="g12_12">
-				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
-				{% include 'guidesearch_form.html' %}
-			</div>
-		</div>
 		
-		<div class="leading20"></div>
-		
-		<div class="searchbar">
-			<div class="g9_1">&nbsp;</div>
-			<div class="g9_8">
-				<ul>
-					<li><span class="statistics">{{ counts.areas }} AREAS <!-- <br /><span class="overline">areas</span>--></span>
-						<span class="center">
-							<img class="statsImg" src="/static/images/area.png" >
-						</span>
-					</li>
-					<li><img class="statsImg" src="/static/images/stop.png" ><span class="statistics">{{ counts.stops }} STOPS<!-- <br /><span class="overline">stops</span> --> </span></li>
-					<li><img class="statsImg" src="/static/images/bus.png" ><span class="statistics">{{ counts.routes }} ROUTES<!--<br /><span class="overline">routes</span>--> </span></li>
-				</ul>
-			</div>
-		</div>
-		<div class="leading30"></div>
+<!--		<div class="leading20"></div>-->
+<!--		-->
+<!--		<div class="leading30"></div>-->
 		<div class="g9_9 maphome">
             <div class="landingmap" id="map"></div>
 		</div>
@@ -137,9 +143,9 @@
 	</div>
 </div>
  -->
-<div class="g5">
+<!--<div class="g5">
 	<div class="leading40"></div>
-</div>
+</div>-->
 <div class="g5">
 	<div class="g4_4 listtitle">
 		<img src="/static/images/stop.png" />

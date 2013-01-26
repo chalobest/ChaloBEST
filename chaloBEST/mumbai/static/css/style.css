@@ -84,7 +84,7 @@ dl dd {margin-left: 1.5em}
 dt {font-family:Futura, "Century Gothic", AppleGothic, sans-serif}
 
 /* HYPERLINKS */
-a {text-decoration: none; color:#FE2423;}
+a {text-decoration: none; color:#029b02;}
 a:hover {text-decoration: underline}
 a:focus {outline: thin dotted}
 a:hover, a:active {outline: none} /* Better CSS Outline Suppression */
@@ -691,6 +691,42 @@ Change widths as necessary
 }
 
 /* LANDSCAPE TABLET/NETBOOK/LAPTOP */
+
+@media only screen and (max-width: 1024px) { 
+    .searchbar {width: 100%;}
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .maphome { 
+    position: fixed; top: 155px; left: 1%; width: 56% !important;
+    }
+
+
+    #guidesearch {    
+    position: fixed;
+    top: 113px;
+    left: 1%;
+    width: 56%;
+    z-index: 200;
+    }
+
+    .nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 3000;    
+    }
+
+    .listBlockCol {
+        margin-top: 120px;
+    }
+
+    .navBlock {
+        padding-bottom: 120px;    
+    }
+}
+
 @media only screen and (min-width: 1024px) { 
 	body {width:100%;font-size:1em;}
 	.pagetitle {font-size:100%;}
@@ -787,7 +823,7 @@ Change widths as necessary
 /* WIDESCREEN */
 /* Increased body size for legibility */
 @media only screen and (min-width: 1400px) { 
-	body {font-size:100%;/*116.75%;*/ max-width:1440px} /* 18.5px / 28px */
+	body {font-size:100%;/*116.75%; max-width:1440px*/} /* 18.5px / 28px */
 }
 
 

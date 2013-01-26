@@ -32,7 +32,7 @@ background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98
 background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);*/
 }
 
-.foot { background: #888; background: rgba(0,0,0,0.4);}
+.foot { background: #888; background: rgba(0,0,0,0.4); margin-bottom: 0; position: fixed; bottom: 0; left: 0; right: 0}
 .foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
 .foot ul {padding: 6px; float: left;}
@@ -67,6 +67,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A4AA8D', end
 }
 .navprimary {display: none;}
 .navlink a {color:#fff;}
+
 .sms { float:right; background-color:green; border:2px solid green;}
 .trip {float:left; background-color:#BEDB74; border:2px solid #BEDB74;}
 .selected {padding-top:2px; color:#fff; font-weight:bold;  border:2px solid #FBDD09; border-radius:3px;}
@@ -94,10 +95,12 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* == Page headers == */
 
 /* guide pages */
-.pagetitle {display:inline; float:left; /*width:100%;*/ margin:0; padding:2px 5px; min-height: 1em; overflow:hidden;}
+.pagetitle {display:inline; float:right; /*width:100%;*/ margin:0; padding:2px 5px; min-height: 1em; overflow:hidden;}
 .pagetitle h1{color:red;}
 .pagetitle img{float:left; margin:0 1% 0 0; padding-top:2px;}
 .pagetitle td {margin:0; padding:0 10px;}
+
+.fromTo {float: right;}
 
 .guideh1box {display:inline; float:left; width:100%; margin:0 0 0 1%; padding:0 1% 0 0;}
 .rt{display:inline; float:left; width:100%;}
@@ -105,7 +108,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .rtt{display:inline; float:left; width:94.5%;}
 .rti img{}
 .titleXS, .titleS {display:inline; float:left;}
-.titleS h1{font-size: 2.25em; line-height: 1em; margin-bottom: 0.777777778em;}
+.titleS h1{font-size: 1.8em; line-height: 1em; margin-bottom: 0.777777778em;}
 .titleXS h1{font-size: 1.3125em !important; width:100%; margin-top:0.15em;}
 
 
@@ -158,13 +161,13 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* List main header h2 */
 .list, .from, .to {word-wrap: break-word;}
 .listtitle {padding: 36px 0 0 0; height: 3em;}
-.listtitle h2 {float:left; padding: 0 1% 0 0; width:80%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
-.listtitle img {float:left; padding: 7px 3px 7px 0; width:1.125em; height:1.125em;}
+.listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
+.listtitle img {/*float:left;*/ margin: 0; padding: 7px 3px 7px 0; width:1.125em; height:1.125em; vertical-align: middle;}
 .listtitle h2.stop {width:50% !important;}
 
 /* List main header h3 (for comment box, lists displayed below the map) */
-.sublist {padding: 0; height: 1.6em; background-color:#999;}
-.sublist h3 {float:left; margin:0px; padding: 0.1em 5px 0 5px; width:80%; color:#fff; font-size:}
+.sublist {padding: 0; height: 1.6em; /*background-color:#999;*/ border-bottom: none !important;}
+.sublist h3 {float:left; margin:0px; padding: 0.1em 5px 0 5px; width:80%; /*color:#fff;*/ }
 .sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
 
 /* extra info under header (frequencies in route pages) */
@@ -177,7 +180,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 
 /* list filters */
 .listfilter_form{width:100%; margin:0px; padding:0 -1%;}
-.listfilter_input{width:93%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em;}
+.listfilter_input{width:99%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em; border: 2px solid #cdcdcd;}
 
 /* lists contents - stop area route */
 .listheight {display:block; overflow:hidden; height:100%;}
@@ -188,7 +191,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .list li {line-height:1.2em; padding:0 0 0.8em 0;}
 
 /* LIST BASE */
-.tablebase {width:100%; padding:0 2.45% 0 2.45%;}
+.tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 80px;}
 .tablebase tr {margin:0; padding:0 0 0 1% !important; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
 .tablebase th {padding:0 0 0 1% !important;} 
 .tablebase td {padding:5px 3.16% 5px 1.58%;}

@@ -149,6 +149,13 @@ span.right {float:right !important; padding-right:1%;}
 .clear {clear: both;}
 .floatr {display:block; float:right;}
 
+.floatLeft {float: left;}
+.floatRight {float: right;}
+.marginRight {margin-right: 10px;}
+.marginRight26 {margin-right: 26px !important;}
+
+.marginPercentRight {margin-right: 6% !important;}
+
 /* DEFAULT MOBILE STYLE */
 body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 
@@ -694,8 +701,11 @@ Change widths as necessary
 
 @media only screen and (max-width: 1024px) { 
     .searchbar {width: 100%;}
-}
 
+    .pagetitle {width: 100%;}
+
+    .areaStopsBlock {width: 100%;}
+}
 
 @media only screen and (min-width: 1024px) {
     .maphome { 

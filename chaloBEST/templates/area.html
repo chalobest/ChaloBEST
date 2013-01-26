@@ -24,19 +24,13 @@ $(function() {
 
 {% block content %}
 
-<div class="leading10"></div>
-<div class="g12">
 	<div class="g12_12 search">
 <!--		<div class="g12_2">&nbsp;</div>-->
 		<div class="g12_7">
 			{% include 'guidesearch_form.html' %}
 		</div>
-	</div>
-</div>
 
-<div class="g7">
-	<div class="g7_7">
-		<div class="g7_7 pagetitle">
+		<div class="g12_5 pagetitle">
 			<div class="guideh1box">
 				<div class="rti">
 					<img class="areatitleImg" src="/static/images/area_r.png" />
@@ -45,11 +39,110 @@ $(function() {
 					<h1><span>{{ area.display_name }} - </span><span>{{ area.name_mr }}</span></h1>
 				</div>
 			</div>
-		</div>
-		<br style="clear: both;" />
+
+
 		<div class="maphome">
             <div id="map" style="width:100%;height:100%;"></div>
 		</div>
+
+<div class="g12_4 marginPercentRight areaStopsBlock">
+	<div class="g12_12 height">
+		<div class="g12_12 listtitle">
+			
+			<h2><img src="/static/images/stop.png" />Stops</h2>
+		</div>
+		<div class="list">
+			<table name="landing_area" class="tablebase">
+				<tr class="sublist">
+					<th>
+						<form name="filter_area_stops" class="listfilter_form">
+							<input class="listfilter_input" type="text" name="filter list" placeholder="Type stop name..." />
+						</form>
+					</th>
+				</tr>
+				{% for stop in stops %}
+				<tr class="landing_row listItem">
+					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
+				<tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="g12_7">
+	<div class="g12_12 height">
+		<div class="g12_12 listtitle">
+			<img src="/static/images/bus.png" />
+			<h2>Passing Routes</h2>
+		</div>
+		<div class="list">
+		<!--
+
+			<div class="g5_5 lightgreen">
+
+				<form>
+
+					<div class="g5_5"><input class="routecheckbox" type="checkbox" name="allbuses" checked="checked" value="All" /><label class="routecheckboxlabel">All</label></div>
+
+					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Ordinary" /><label class="routecheckboxlabel">Ordinary</label></div>
+
+					<div class="g5_gut">&nbsp;</div>
+					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Limited" /><label class="routecheckboxlabel">Limited</label></div>
+
+					<div class="g5_gut">&nbsp;</div>
+
+					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Corridor" /><label class="routecheckboxlabel">Corridor</label></div>
+
+					<div class="g5_gut">&nbsp;</div>
+
+					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC Expr." /><label class="routecheckboxlabel">AC Expr.</label></div>
+
+					<div class="g5_gut">&nbsp;</div>
+
+					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC" /><label class="routecheckboxlabel">AC</label></div>
+
+				</form>
+
+			</div>
+
+		-->
+			<table name="stoppage_table" class="tablebase">
+				<tr class="sublist">
+					<th class="stop_number">
+						<!-- <form name="filter_stop_number" class="listfilter_form">
+
+							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />
+
+						</form> -->
+					</th>
+					<th class="stop_route">
+						<form name="filter_stop_route" class="listfilter_form">
+							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
+						</form>
+					</th>
+				</tr>
+                {% for route in area.routes_passing %}
+				<tr class="listItem">
+					<td><a href="{{ route.get_absolute_url }}" class="large">{{ route.display_name }}</td>
+					<td>
+                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
+						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
+                    </td>
+				</tr>
+                {% endfor %}
+			</table>
+		</div>
+	</div>
+
+
+
+		</div>
+		<br style="clear: both;" />
+
+	</div>
+
+
 	</div>
 	<div class="leading40"></div>
 	<div class="g7_7"> &nbsp;
@@ -111,79 +204,7 @@ $(function() {
 	</div>
 </div>
 
-<div class="g2">
-	<div class="g2_2 height">
-		<div class="g2_2 listtitle">
-			<img src="/static/images/stop.png" />
-			<h2>Stops</h2>
-		</div>
-		<div class="list">
-			<table name="landing_area" class="tablebase">
-				<tr class="sublist">
-					<th>
-						<form name="filter_area_stops" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="filter list" placeholder="Type stop name..." />
-						</form>
-					</th>
-				</tr>
-				{% for stop in stops %}
-				<tr class="landing_row listItem">
-					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
-				<tr>
-				{% endfor %}
-			</table>
-		</div>
-	</div>
-</div>
 
-<div class="g3">
-	<div class="g3_3 height">
-		<div class="g3_3 listtitle">
-			<img src="/static/images/bus.png" />
-			<h2>Passing Routes</h2>
-		</div>
-		<div class="list">
-		<!--
-			<div class="g5_5 lightgreen">
-				<form>
-					<div class="g5_5"><input class="routecheckbox" type="checkbox" name="allbuses" checked="checked" value="All" /><label class="routecheckboxlabel">All</label></div>
-					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Ordinary" /><label class="routecheckboxlabel">Ordinary</label></div>
-					<div class="g5_gut">&nbsp;</div>
-					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Limited" /><label class="routecheckboxlabel">Limited</label></div>
-					<div class="g5_gut">&nbsp;</div>
-					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="Corridor" /><label class="routecheckboxlabel">Corridor</label></div>
-					<div class="g5_gut">&nbsp;</div>
-					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC Expr." /><label class="routecheckboxlabel">AC Expr.</label></div>
-					<div class="g5_gut">&nbsp;</div>
-					<div class="g5_1"><input class="routecheckbox" type="checkbox" name="bustype[]" disabled="disabled" value="AC" /><label class="routecheckboxlabel">AC</label></div>
-				</form>
-			</div>
-		-->
-			<table name="stoppage_table" class="tablebase">
-				<tr class="sublist">
-					<th class="stop_number">
-						<!-- <form name="filter_stop_number" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />
-						</form> -->
-					</th>
-					<th class="stop_route">
-						<form name="filter_stop_route" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
-						</form>
-					</th>
-				</tr>
-                {% for route in area.routes_passing %}
-				<tr class="listItem">
-					<td><a href="{{ route.get_absolute_url }}">{{ route.display_name }}</td>
-					<td>
-                        <span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
-						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
-                    </td>
-				</tr>
-                {% endfor %}
-			</table>
-		</div>
-	</div>
 </div>
 
 {% endblock %}

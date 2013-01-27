@@ -108,7 +108,7 @@ class App(AppBase):
 				    detail.append(str( item[0].get("distance")))
 				    
 				   # return busname
-                                elif len(pattern)!=0 and pattern in value:
+                                elif len(pattern)!=0 and pattern.strip().upper() in value.upper():
 				    detail.append(str(item[0].get("display_name")))
                                     detail.append(str(item[0].get("start_stop")))
                                     detail.append(str(item[0].get("start_area")))
@@ -117,6 +117,7 @@ class App(AppBase):
                                     detail.append(str(item[0].get("headway")))
                                     detail.append(str(item[0].get("url")))
                                     detail.append(str(item[0].get("distance")))
+				
 
 
 				    #return busname
@@ -188,3 +189,4 @@ class App(AppBase):
             response += STYLE["end"]
 
         msg.respond(response)
+

@@ -180,7 +180,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 
 /* list filters */
 .listfilter_form{width:100%; margin:0px; padding:0 -1%;}
-.listfilter_input{width:99%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em; border: 2px solid #cdcdcd;}
+.listfilter_input{width:98%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em; border: 2px solid #cdcdcd;}
 
 /* lists contents - stop area route */
 .listheight {display:block; overflow:hidden; height:100%;}
@@ -214,6 +214,10 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .landing_area .filterlistinput {width:92%;}
 .listfilter .landing_area {text-align:center;}
 
+/* 2-column */
+.2col_row {width:100%; margin:5px 0; padding:0; background-color:white;}
+.2col_wide {width:40%;}
+.2col_narrow {width:50%;}
 
 /* 3-column (stop, area, distance) */
 .route_stop {width:46.84%;}

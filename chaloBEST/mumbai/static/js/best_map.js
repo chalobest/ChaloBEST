@@ -1,3 +1,5 @@
+var jsonLayer;
+
 $(function() {
     $('.listfilter_input').keyup(function() {
         var val = $(this).val();
@@ -13,6 +15,17 @@ $(function() {
         });
     });
 });
+
+//get feature on map based on feature id
+function getFeatureById(feature_id) {
+    var ret = false;
+    jsonLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.id == feature_id) {
+            ret = layer;
+        }
+    });
+    return ret;
+}
 
 
 function loadStopsGeojson(geojson) {

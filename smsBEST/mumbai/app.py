@@ -1,6 +1,7 @@
 from rapidsms.apps.base import AppBase 
 import re
 import arrest
+import operator
 import re
 import string
 try:
@@ -88,6 +89,8 @@ class App(AppBase):
             #print someList
             #pattern = "A".upper()
 	    detail =[]
+	    my_default = someList[0]
+	    someList.sort(key=operator.itemgetter(0))
             for item in someList:
                     #print item[0].__class__
                     #try:
@@ -96,8 +99,12 @@ class App(AppBase):
                     #       tt=ast.literal_eval(json.dumps(item[0]))
                     for key, value in item[0].items():
                             if key == "route_type_aliases":
-                    	        #print len(value)
-                                if len(value)==0 and len(pattern.strip())==0:
+				f = open("soelog","wb")
+
+                    	        f.write(str(len(value)))
+				f.write(str(len(pattern)))
+				
+                                if len(value.strip())==0 and len(pattern.strip())==0:
                                     detail.append(str(item[0].get("display_name")))
 				    detail.append(str(item[0].get("start_stop")))
 				    detail.append(str(item[0].get("start_area")))
@@ -105,10 +112,10 @@ class App(AppBase):
 				    detail.append(str(item[0].get("end_area")))
 				    detail.append(str(item[0].get("headway")))
 				    detail.append(str(item[0].get("url")))
-				    detail.append(str( item[0].get("distance")))
+				    detail.append(str(item[0].get("distance")))
 				    
 				   # return busname
-                                elif len(pattern)!=0 and pattern.strip().upper() in value.upper():
+                                if len(pattern.strip())!=0 and pattern.strip().upper() in value.upper():
 				    detail.append(str(item[0].get("display_name")))
                                     detail.append(str(item[0].get("start_stop")))
                                     detail.append(str(item[0].get("start_area")))
@@ -117,9 +124,19 @@ class App(AppBase):
                                     detail.append(str(item[0].get("headway")))
                                     detail.append(str(item[0].get("url")))
                                     detail.append(str(item[0].get("distance")))
-				
+				if len(pattern.strip())==0 and value.strip() is not None:
+				    detail.append(str(item[0].get("display_name")))
+				    detail.append(str(item[0].get("start_stop")))
+				    detail.append(str(item[0].get("start_area")))
+				    detail.append(str(item[0].get("end_stop")))
+				    detail.append(str(item[0].get("end_area")))
+				    detail.append(str(item[0].get("headway")))
+				    detail.append(str(item[0].get("url")))
+				    detail.append(str(item[0].get("distance")))
+									
 
 
+	
 				    #return busname
 
             if not routes:

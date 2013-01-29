@@ -99,10 +99,6 @@ class App(AppBase):
                     #       tt=ast.literal_eval(json.dumps(item[0]))
                     for key, value in item[0].items():
                             if key == "route_type_aliases":
-				f = open("soelog","wb")
-
-                    	        f.write(str(len(value)))
-				f.write(str(len(pattern)))
 				
                                 if len(value.strip())==0 and len(pattern.strip())==0:
                                     detail.append(str(item[0].get("display_name")))

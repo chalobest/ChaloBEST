@@ -201,23 +201,15 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 
 /* single column */
-.landing_table {width:100%; padding:0 2.45% 0 2.45%;}
-.landing_table tr {margin:0; padding:0; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
-.landing_table th {padding-top:0px; padding-bottom:0px;} 
-.landing_table td {padding:5px 3.16% 5px 1.58% !important;} 
-.landing_table .filterlistinput {width:92%;}
-
-.landing_row {width:100%; margin:5px 0; padding:0; background-color:white;}
+.singleCol_row {width:100%; margin:5px 0; padding:0; background-color:white;}
 .landing_area {width:100%; padding:0 2.45% 0 2.45%;}
 .landing_area img {width:1.2em; text-align:center;}
 .landing_area span {font-weight:normal;}
-.landing_area .filterlistinput {width:92%;}
-.listfilter .landing_area {text-align:center;}
 
 /* 2-column */
-.2col_row {width:100%; margin:5px 0; padding:0; background-color:white;}
-.2col_wide {width:40%;}
-.2col_narrow {width:50%;}
+.twoCol_row {width:100%; margin:5px 0; padding:0; background-color:white;}
+.twoCol_wide {width:58%;}
+.twoCol_narrow {width:37.01%;}
 
 /* 3-column (stop, area, distance) */
 .route_stop {width:46.84%;}

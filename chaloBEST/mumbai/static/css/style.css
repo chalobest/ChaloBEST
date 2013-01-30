@@ -122,6 +122,7 @@ small, span.small, p.small, a.small, td.small {margin: 0; font-size: 0.857142857
 .smallest {font-size: 80%;}
 .italic {font-style:italic;}
 .right {text-align:right !important; display:block; float:right;}
+#right {text-align:right;}
 span.right {float:right !important; padding-right:1%;}
 .leading10, .leading20, .leading30, .leading40, .leading60 {display:inline; float:left; width:100%;}
 .center {margin-left:auto; margin-right:auto; text-align:center;}

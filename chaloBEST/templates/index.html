@@ -17,8 +17,8 @@
 
 <script type="text/html" id="stopTemplate">
 
-<tr class="landing_row stopRow listItem" data-id="<%= stop.id %>">
-	<td class="landing_area"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
+<tr class="2col_row stopRow listItem" data-id="<%= stop.id %>">
+	<td><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
     <td><a href="<%= stop.area_url %>"><b><%= stop.area %></b><br /><span><%= stop.area_mr %></span></a></td>
 </tr>
 </script>
@@ -147,19 +147,20 @@
 	<div class="leading40"></div>
 </div>-->
 <div class="g5">
-	<div class="g4_4 listtitle">
+	<div class="g5_5 listtitle">
 		
 		<h2><img src="/static/images/stop.png" />Displayed stops</h2>
 		</div>
-	<div class="g3_3 height">
-		<div class="g3_3 list">
+	<div class="g5_5 height">
+		<div class="g5_5 list">
 			<table name="landing_area" class="tablebase" id="nearStopsTable">
 				<tr class="sublist">
-					<th>
+					<th class="2col_wide">
 						<form name="filter_home_area" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="filter list" placeholder="Type to filter, select below..." />
 						</form>
 					</th>
+					<th class="2col_narrow"></th>
 				</tr>
      
 

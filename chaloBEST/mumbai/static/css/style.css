@@ -167,7 +167,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g2_2,
 	.g3_3, .g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -180,7 +180,7 @@ body {width: 92%; margin: 0 auto} /* Center page without wrapper */
 	.g2_2,
 	.g3_3, .g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -230,7 +230,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -321,7 +321,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6,.g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -437,7 +437,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -537,7 +537,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -635,7 +635,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5,.g8_3,.g8_gut,
@@ -758,7 +758,7 @@ Change widths as necessary
 			.navprimary .navlink li {margin:0 0 0 1%; width:10.5%;}
 			.navprimary .navlink li a{width:96%; height:26px; text-align:center;}
 	.statsImg {display: inline !important;}
-	.searchbar li {font-size:170%;}
+	.searchbar li {font-size:130%;}
 
 	
 	/* COLUMN GRID */
@@ -766,7 +766,7 @@ Change widths as necessary
 	.g2_2,
 	.g3_3,.g3_gut,
 	.g4_4, .g4_3, .g4_2, .g4_1, .g4_1small ,.g4_gut, .g4_gut4,
-	.g5_5, .g5_1, .g5_gut,
+	.g5_5, .g5_4, .g5_3, .g5_2, .g5_1, .g5_gut,
 	.g6_6, .g6_3, .g6_gut,
 	.g7_7, .g7_4, .g7_3, .g7_gut,
 	.g8_8, .g8_5, .g8_3, .g8_gut,
@@ -812,7 +812,10 @@ Change widths as necessary
 		.g6_3 {width:47%; margin:0;}
 		.g6_gut{width:4.13%; height: 10px; margin:0;}
 	.g5 {width:39.67%; min-height:20px;}
-		.g5_5 {width:99.7%; margin:0;}
+		.g5_5 {width:100%; margin:0;}
+		.g5_4 {width:79%; margin:0;}
+		.g5_3 {width:58%; margin:0;}
+		.g5_2 {width:37.01%; margin:0;}
 		.g5_1 {width:16.01%; margin:0;}
 		.g5_gut {width:4.99%; margin:0;}
 	.g4 {width:31.34%; min-height:100px;}

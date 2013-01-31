@@ -162,18 +162,21 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .list, .from, .to {word-wrap: break-word;}
 .listtitle {padding: 36px 0 0 0; height: 3em;}
 .listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
-.listtitle img {/*float:left;*/ margin: 0; padding: 7px 3px 7px 0; width:1.125em; height:1.125em; vertical-align: middle;}
+.listtitle img {/*float:left;*/ margin: 0; padding: 0 10px 0 0; width:0.75em; height:0.75em; vertical-align: baseline;}
 .listtitle h2.stop {width:50% !important;}
 
 /* List main header h3 (for comment box, lists displayed below the map) */
 .sublist {padding: 0; height: 1.6em; /*background-color:#999;*/ border-bottom: none !important;}
 .sublist h3 {float:left; margin:0px; padding: 0.1em 5px 0 5px; width:80%; /*color:#fff;*/ }
-.sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
+.sublist img {margin:0px; padding: 0.4em 0 0 0; height:16px; width:16px; text-align:center !important;}
+.sublist span {display:block; vertical-align:baseline; width:100%; text-align:center;}
+.sublist span.col_img {display:block; vertical-align:baseline; width:100%; text-align:center;}
+.sublist .charfix {font-size:130%; width:98%; margin-top:0.11em;}
 
 /* extra info under header (frequencies in route pages) */
-.listextrainfo {padding:0.3em 10px 0 5px; text-align: right;/*height: 1.5em;*/}
+.listextrainfo {padding:0.3em 10px 0 5px; text-align: /*right;height: 1.5em;*/}
 .listextrainfo p {/*color:red;*/}
-.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:1.6em;}
+.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:0.75em;}
 .listextrainfo span {display:inline; float:left;}
 .listextrainfo span.frequency{margin:0; color:black;}
 .listextrainfo span.thumbs {display:inline; float:right; margin:0 10px; width:30%; color:grey; font-size:75%;}
@@ -193,7 +196,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 /* LIST BASE */
 .tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 80px;}
 .tablebase tr {margin:0; padding:0 0 0 1% !important; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
-.tablebase th {padding:0 0 0 1% !important;} 
+.tablebase th {padding:0 1% 0 1% !important;} 
 .tablebase td {padding:5px 3.16% 5px 1.58%;}
 .tablebase .filterlistinput {width:92%;}
 span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
@@ -268,10 +271,10 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .searchbar ul {list-style-type:none; margin:0;}
 .searchbar ul img {/*margin:-2px 0 0 2% !important;*/ margin: 0;}
 .searchbar li {
-	display:inline; float:left; width: 27%; /*height: 1em;*/ margin: 0 2.5% 0 0; padding:0.3em 5px 0; font-weight:200 !important;
+	display:inline; float:left; width: 27%; /*height: 1em;*/ margin: 0 2.5% 0 0; padding:0.1em 5px 0; font-weight:200 !important;
 	border: 3px dotted #ffdd00; 
 	font-family: "Boston Traffic", Impact, "Charcoal CY", Charcoal, "DejaVu Sans Condensed", sans-serif; 
-	text-transform: uppercase; color: #ccc; text-align:center;}
+	text-transform: uppercase; color: #ccc; text-align:center; line-height:1em;}
 .searchbar li:last-of-type {margin-right: 0;}
 .searchbar img.center 	{display:block; text-align:center; margin-left:auto; margin-right:auto;}
 .statsImg {width:18px;}

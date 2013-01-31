@@ -18,8 +18,8 @@
 <script type="text/html" id="stopTemplate">
 
 <tr class="listItem" data-id="<%= stop.id %>">
-	<td><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
-    <td><a href="<%= stop.area_url %>"><b><%= stop.area %></b><br /><span><%= stop.area_mr %></span></a></td>
+	<td class="twoCol_wide"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
+    <td class="twoCol_narrow"><a href="<%= stop.area_url %>"><b><%= stop.area %></b><br /><span><%= stop.area_mr %></span></a></td>
 </tr>
 </script>
 
@@ -33,6 +33,7 @@
 
 		<div class="searchbar g12_5">
 <!--			<div class="g9_1">&nbsp;</div>-->
+<div style="display:inline; float:left; width:100%; height:5px;">&nbsp;</div>
 			<div class="g12_12">
 				<ul>
 					<li><span class="statistics">{{ counts.areas }} AREAS </span>
@@ -147,6 +148,7 @@
 	<div class="leading40"></div>
 </div>-->
 <div class="g5">
+	<div class="leading20">&nbsp;</div>
 	<div class="g5_5 listtitle">
 		
 		<h2><img src="/static/images/stop.png" />Displayed stops</h2>
@@ -155,12 +157,12 @@
 		<div class="g5_5 list">
 			<table name="landing_area" class="tablebase" id="nearStopsTable">
 				<tr class="sublist">
-					<th class="twoCol_wide">
+					<th colspan="2">
 						<form name="filter_home_area" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="filter list" placeholder="Type to filter, select below..." />
 						</form>
 					</th>
-					<th class="twoCol_narrow"></th>
+					<!-- <th class="twoCol_narrow"></th> -->
 				</tr>
 				
 

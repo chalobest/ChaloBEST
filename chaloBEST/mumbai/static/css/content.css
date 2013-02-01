@@ -86,8 +86,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A4AA8D', end
 
 .search{/*background-color:#eee; height:30px;border:2px solid #aaa;*/}
 .search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
-.searchsubmit{	height: 30px; padding-top:auto; padding-bottom:0; background-color:#FBDD09;
-				border: 2px solid yellow; border-radius: 1em;}
+
 /* following class applies to mobile search results list (replaces the autocomplete) */
 ul .searchResults, li .resultItem {font-size:140%;}
 

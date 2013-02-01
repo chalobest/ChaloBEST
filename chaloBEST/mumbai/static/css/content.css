@@ -32,13 +32,13 @@ background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98
 background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);*/
 }
 
-.foot { background: #888; background: rgba(0,0,0,0.4); margin-bottom: 0; position: fixed; bottom: 0; left: 0; right: 0}
+.foot { background: #888; background: rgba(0,0,0,0.4); margin-bottom: 0; position: fixed; bottom: 0; left: 0; right: 0; width: 100%;}
 .foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
 .foot ul {padding: 2px 6px; float: left;}
 .foot li {display:inline; float:left;}
 .foot li a {display:block; margin: 0 10px;}
-.foot .right {padding: 6px;}
+.foot .right {padding: 4px 6px;}
 .foot .right p{display:inline; font-size: 14px; padding-top: 4px;}
 .foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; margin-bottom: 0; border: 1px solid #bbb; width:18px; height:18px;}
 

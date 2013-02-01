@@ -1,4 +1,5 @@
 //var gotPosition = false;
+var currentRequest = false;
 $(function() {
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     var osmAttrib = 'Map data © openstreetmap contributors'
@@ -67,8 +68,11 @@ function loadStops(latlng) {
     var params = {
         'center_lat': latlng.lat,
         'center_lon': latlng.lng
-    };  
-    $.getJSON(url, params, function(data) {
+    };
+    if (currentRequest && currentRequest.readystate != 4) {
+        currentRequest.abort();
+    }  
+    currentRequest = $.getJSON(url, params, function(data) {
         if (typeof(jsonLayer) != 'undefined') map.removeLayer(jsonLayer);
         showStopsData(data);
         

@@ -38,6 +38,17 @@
 			<div class="titleXS rtt">
 				<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>
         	</div>
+
+			{% if stop.display_alt_names %}
+			<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{% for alt_name in stop.display_alt_names %}
+					{{ alt_name.name }}{% if not forloop.last %}, {% endif %}
+				{% endfor %}
+				<!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
+			{% endif %}
+
+
+
 	    </div>
 
 		<div class="g5_5">
@@ -45,23 +56,14 @@
 				<div class="floatLeft g5_2">
 					<p class="marginBottomSmall">
 						<img src="/static/images/area.png" />
-						<a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a> <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a>
+						<a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a><br>&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a>
 					</p>
 				</div>
 				<div class="g5_gut">&nbsp;</div>
 					<div class="floatRight g5_3">
-						<p class="marginRight marginBottomSmall">{{ stop.road.display_name }}  {{ stop.road.name_mr }}</p>
+						<p class="marginRight marginBottomSmall textAlignRight">{{ stop.road.display_name }}<br>  {{ stop.road.name_mr }}</p>
 					</div>
 		
-        <!--<div class="leading20">--><!-- you can show or hide the blockquote, keep the div -->
-                    {% if stop.display_alt_names %}
-					<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {% for alt_name in stop.display_alt_names %}
-                            {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                        <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
-                    {% endif %}
-		<!--</div>-->	
 				</div>
 			</div>
 

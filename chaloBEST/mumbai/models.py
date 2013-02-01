@@ -327,7 +327,7 @@ class Route(models.Model):
         }
 
     class Meta:
-        ordering = ['code']
+        ordering = ['code3', 'code']
 
     def get_absolute_url(self):
         return "/route/%s/" % self.code

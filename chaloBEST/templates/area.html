@@ -52,7 +52,7 @@ $(function() {
 			<h2><img src="/static/images/stop.png" />Stops</h2>
 		</div>
 		<div class="list">
-			<table name="landing_area" class="tablebase">
+			<table name="landing_area" class="tablebase stopsTable">
 				<tr class="sublist">
 					<th>
 						<form name="filter_area_stops" class="listfilter_form">
@@ -61,7 +61,7 @@ $(function() {
 					</th>
 				</tr>
 				{% for stop in stops %}
-				<tr class="landing_row listItem">
+				<tr class="landing_row listItem" data-id="{{ stop.id }}">
 					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
 				<tr>
 				{% endfor %}

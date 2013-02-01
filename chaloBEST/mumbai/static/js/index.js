@@ -26,29 +26,6 @@ $(function() {
         var center = map.getCenter();
         loadStops(center);
     });
-    
-    $('#nearStopsTable').delegate('.listItem', 'mouseover', function(e) {
-        var $t = $(this);
-        //console.log($t);
-        var id = $t.attr("data-id");
-        //console.log(id);
-        //console.log(id);
-        var feat = getFeatureById(id);
-        if (feat) {        
-            feat.fire("mouseover");
-        }
-    });    
-
-    $('#nearStopsTable').delegate('.listItem', 'mouseout', function(e) {
-        var $t = $(this);
-        //console.log($t);
-        var id = $t.attr("data-id");
-        //console.log(id);
-        var feat = getFeatureById(id);
-        if (feat) {        
-            feat.fire("mouseout");
-        }
-    });    
 
 
     map.on("moveend", function(e) {

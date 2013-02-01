@@ -14,6 +14,31 @@ $(function() {
             }
         });
     });
+
+    
+    $('.stopsTable').delegate('.listItem', 'mouseover', function(e) {
+        var $t = $(this);
+        //console.log($t);
+        var id = $t.attr("data-id");
+        //console.log(id);
+        //console.log(id);
+        var feat = getFeatureById(id);
+        if (feat) {        
+            feat.fire("mouseover");
+        }
+    });    
+
+    $('.stopsTable').delegate('.listItem', 'mouseout', function(e) {
+        var $t = $(this);
+        //console.log($t);
+        var id = $t.attr("data-id");
+        //console.log(id);
+        var feat = getFeatureById(id);
+        if (feat) {        
+            feat.fire("mouseout");
+        }
+    });    
+
 });
 
 //get feature on map based on feature id

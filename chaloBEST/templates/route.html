@@ -211,7 +211,7 @@ $(function() {
 			<h2><img src="/static/images/stop.png" />Stops</h2>
 		</div>
 		<div class="list">
-			<table name="routepage_table" class="tablebase">
+			<table name="routepage_table" class="tablebase stopsTable">
 				<tr class="sublist">
 					<th colspan="2">
 						<form name="filter_route_stop" class="listfilter_form">
@@ -226,7 +226,7 @@ $(function() {
 					</th>
 				</tr>
                 {% for r in routeDetails %}
-				<tr class="listItem">
+				<tr class="listItem" data-id="{{ r.stop.id }}">
 					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
 					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}<br />{{ r.stop.area.name_mr }}</a></td>
 					<td class="lightgrey small"><span class="right small">{% if r.km %}{{ r.km }} km{% endif %}</span></td>

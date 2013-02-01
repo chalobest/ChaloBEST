@@ -6,8 +6,10 @@ $(function() {
     var osm = new L.TileLayer(osmUrl, {minZoom:1,maxZoom:18,attribution: osmAttrib});
     map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
     //console.log(map);
-    var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
-    var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+    if (!isMobile && $(window).width() < 700) { // dont show minimap on mobiles
+        var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
+        var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+    }
 //    var miniMap = new L.Control.MiniMap(osm).addTo(map);
     var initialBBox = map.getBounds();
 //Get user current location

@@ -44,7 +44,7 @@ $(function() {
 
 
         <div class="g12_5 fromTo">
-		        <div class="pagetitle 12_12">
+		        <div class="pagetitle 5_5">
 			        <div class="guideh1box titleXS">
 				        <h1>
 					        <div class="rti"><img src="/static/images/bus_r.png" /></div>
@@ -64,35 +64,31 @@ $(function() {
 					        </div>
 				        </h1>
 			        </div>
-
-
-</div>
-
-
-        <div class="g12_12 routeExtra">
-		<div class="g12_12 listextrainfo">
-
-                <div class="floatLeft">
-            <p class="marginBottomSmall">
-                <a href="" title="refresh" class="floatLeft"><img src="/static/images/Frq_3.png" />&nbsp;</a>
-                {% if route.headways %}<span class="frequency"> <span class="large"> <!-- {{ route.headways }} --> &nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% else %}<span class="frequency">Not running</span>{% endif %}                                               
-            </p>
-        </div>
-    
-
-        <div class="floatRight">
-            <p class="marginRight26 marginBottomSmall">{{ now_time|date:"l P" }}                          
-            </p>
-        
-        </div>
-
-
-			
+				</div>
+				<div class="g5_5 routeExtra">
+					<div class="g5_5 listextrainfo">
+						<div class="g5_2">
+							<p class="marginBottomSmall">
+								<a href="" title="refresh" class="floatLeft">
+									<img src="/static/images/Frq_3.png" />&nbsp;
+								</a>
+								{% if route.headways %}
+								<span class="frequency">
+									<span class="large"> <!-- {{ route.headways }} --> &nbsp;</span> 
+									<span class="smallest"> Mins</span><br>
+									<span class="smallest">Frequency</span>
+								</span>{% else %}
+								<span class="frequency">Not running</span>{% endif %}                                               
+							</p>
+						</div>
+						<div class="floatRight 5_3">
+							<p class="marginRight26 marginBottomSmall">{{ now_time|date:"l P" }}                          
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-        </div>
-
-    </div>
-</div>
 
 <!--<div class="g7">
 	<div class="g7_7">

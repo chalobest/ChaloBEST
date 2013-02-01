@@ -29,8 +29,11 @@ $(function() {
         //console.log($t);
         var id = $t.attr("data-id");
         //console.log(id);
+        //console.log(id);
         var feat = getFeatureById(id);
-        feat.fire("mouseover");
+        if (feat) {        
+            feat.fire("mouseover");
+        }
     });    
 
     $('#nearStopsTable').delegate('.listItem', 'mouseout', function(e) {
@@ -39,7 +42,9 @@ $(function() {
         var id = $t.attr("data-id");
         //console.log(id);
         var feat = getFeatureById(id);
-        feat.fire("mouseout");
+        if (feat) {        
+            feat.fire("mouseout");
+        }
     });    
 
 

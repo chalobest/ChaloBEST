@@ -209,7 +209,7 @@ class Stop(models.Model):
             'area_url': self.area.get_absolute_url(),
             'name_mr': self.name_mr,
             'direction': self.dbdirection,
-            'routes': ", ".join([r.alias for r in routes]),
+            'routes': ", ".join([r.display_name for r in routes]),
             'alternative_names': ", ".join([a.name for a in self.alt_names.all()]),
             'url': self.get_absolute_url()
         }

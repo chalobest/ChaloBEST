@@ -64,6 +64,7 @@ $(function() {
 					        </div>
 				        </h1>
 			        </div>
+
 				</div>
 				<div class="g5_5 routeExtra">
 					<div class="g5_5 listextrainfo">
@@ -74,7 +75,7 @@ $(function() {
 								</a>
 								{% if route.headways %}
 								<span class="frequency">
-									<span class="large"> <!-- {{ route.headways }} --> &nbsp;</span> 
+									<span class="large"> {{ route.headways }} &nbsp;</span> 
 									<span class="smallest"> Mins</span><br>
 									<span class="smallest">Frequency</span>
 								</span>{% else %}

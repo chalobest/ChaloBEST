@@ -22,9 +22,12 @@
 <link rel="stylesheet" href="/static/leaflet/leaflet.css" />
 <!-- SMS font -->
 <link href='http://fonts.googleapis.com/css?family=Quantico:700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/leaflet/editinosm/Leaflet.EditInOSM.css" />
 
 <script src="/static/js/jquery-1.7.1.min.js"></script>
-<script src="/static/leaflet/leaflet.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<!-- <script src="/static/leaflet/leaflet.js"></script> -->
+<script src="/static/leaflet/editinosm/Leaflet.EditInOSM.js"></script>
 
 <script src="/static/js/best_map.js"></script>
 
@@ -43,7 +46,7 @@
 <script>
     $(function() {
         var osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{minZoom:1,maxZoom:18,attribution:'Map data © openstreetmap contributors'});
-        map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
+        map = new L.Map('map', {editInOSMControl: true, layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
     });
 </script>
 {% endblock %}

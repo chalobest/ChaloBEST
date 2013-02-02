@@ -150,11 +150,13 @@ span.right {float:right !important; padding-right:1%;}
 .clear {clear: both;}
 .floatr {display:block; float:right;}
 
+
+
 .floatLeft {float: left;}
 .floatRight {float: right;}
 .marginRight {margin-right: 10px;}
 .marginRight26 {margin-right: 26px !important;}
-
+.textAlignRight {text-align: right;}
 .marginPercentRight {margin-right: 6% !important;}
 
 /* DEFAULT MOBILE STYLE */

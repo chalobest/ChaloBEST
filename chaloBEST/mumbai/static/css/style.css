@@ -154,8 +154,9 @@ span.right {float:right !important; padding-right:1%;}
 
 .floatLeft {float: left;}
 .floatRight {float: right;}
+.marginTop {margin-top: 12px !important;}
 .marginRight {margin-right: 10px;}
-.marginRight26 {margin-right: 26px !important;}
+.marginRight26 {margin-right: 26px !important;}  /* probably this one can be removed?*/
 .textAlignRight {text-align: right;}
 .marginPercentRight {margin-right: 6% !important;}
 

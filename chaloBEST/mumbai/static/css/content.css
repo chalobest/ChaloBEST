@@ -193,7 +193,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .list li {line-height:1.2em; padding:0 0 0.8em 0;}
 
 /* LIST BASE */
-.tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 80px;}
+.tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 24px;}
 .tablebase tr {margin:0; padding:0 0 0 1% !important; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
 .tablebase th {padding:0 1% 0 1% !important;} 
 .tablebase td {padding:5px 3.16% 5px 1.58%;}

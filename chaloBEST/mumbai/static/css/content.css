@@ -170,6 +170,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .sublist img {margin:0px; padding: 0.4em 0 0 0; height:16px; width:16px; text-align:center !important;}
 .sublist span {display:block; vertical-align:baseline; width:100%; text-align:center;}
 .sublist span.col_img {display:block; vertical-align:baseline; width:100%; text-align:center;}
+.sublist span.col_img img{width:12px;height:12px;padding:0; margin:0;}
 .sublist .charfix {font-size:130%; width:98%; margin-top:0.11em;}
 
 /* extra info under header (frequencies in route pages) */

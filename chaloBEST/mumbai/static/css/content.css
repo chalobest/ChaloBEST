@@ -108,7 +108,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .rti img{}
 .titleXS, .titleS {display:inline; float:left;}
 .titleS h1{font-size: 1.8em; line-height: 1em; margin-bottom: 0.777777778em;}
-.titleXS h1{font-size: 1.3125em !important; width:100%; margin-top:0.15em;}
+.titleXS h1{font-size: 1.3125em !important; width:100%; margin-top:0.15em; margin-bottom:0px;}
 
 
 /* static pages */
@@ -159,8 +159,8 @@ ul .searchResults, li .resultItem {font-size:140%;}
 
 /* List main header h2 */
 .list, .from, .to {word-wrap: break-word;}
-.listtitle {padding: 36px 0 0 0; height: 3em;}
-.listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
+.listtitle {padding: 36px 0 0 0;}
+.listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.1em;}
 .listtitle img {/*float:left;*/ margin: 0; padding: 0 10px 0 0; width:0.75em; height:0.75em; vertical-align: baseline;}
 .listtitle h2.stop {width:50% !important;}
 
@@ -174,7 +174,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .sublist .charfix {font-size:130%; width:98%; margin-top:0.11em;}
 
 /* extra info under header (frequencies in route pages) */
-.listextrainfo {padding:0.3em 10px 0 5px; text-align: /*right;height: 1.5em;*/}
+.listextrainfo {padding:0em 10px 0 32px !important;}
 .listextrainfo p {/*color:red;*/}
 .listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:0.75em;}
 .listextrainfo span {display:inline; float:left;}
@@ -292,7 +292,7 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 /* -    GUIDE PAGES    - */
 /* --------------------- */
 
-.list, .map, .comments, .listtitle, .listextrainfo
+.list, .map, .comments, .listtitle
 {display:inline; float:left; margin:0; width:100%;}
 .maphome {clear:both;}
 

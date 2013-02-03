@@ -23,7 +23,7 @@
 
 {% block content %}
 
-<div class="g12_12 search">
+<div class="g12 search">
 <!--		<div class="g12_2">&nbsp;</div>-->
 	<div class="g12_7">
         {% include 'guidesearch_form.html' %}
@@ -40,34 +40,33 @@
         	</div>
 
 			{% if stop.display_alt_names %}
-			<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				{% for alt_name in stop.display_alt_names %}
-					{{ alt_name.name }}{% if not forloop.last %}, {% endif %}
-				{% endfor %}
-				<!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
+			<div class="listextrainfo">
+				<p class="marginBottomSmall">
+					{% for alt_name in stop.display_alt_names %}
+						{{ alt_name.name }}{% if not forloop.last %}, {% endif %}
+					{% endfor %}
+					<!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
+			</div>
 			{% endif %}
 
 
 
 	    </div>
 
-		<div class="g5_5">
-			<div class="g5_5 listextrainfo">
-				<div class="floatLeft g5_2">
+		<div class="g5_5 marginTop">
+			<div class="floatLeft g5_2">
+				<div class="listextrainfo">
 					<p class="marginBottomSmall">
 						<img src="/static/images/area.png" />
 						<a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a><br>&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a>
 					</p>
 				</div>
-				<div class="g5_gut">&nbsp;</div>
-					<div class="floatRight g5_3">
-						<p class="marginRight marginBottomSmall textAlignRight">{{ stop.road.display_name }}<br>  {{ stop.road.name_mr }}</p>
-					</div>
-		
+			</div>
+			<div class="g5_gut">&nbsp;</div>
+				<div class="floatRight g5_3">
+					<p class="marginRight marginBottomSmall textAlignRight">{{ stop.road.display_name }}<br>  {{ stop.road.name_mr }}</p>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<br style="clear: both;" /> 
@@ -124,7 +123,7 @@
 	<br style="clear: both;" />-->
 
     <div class="listheight">
-	<div class="leading20"></div>
+	<div class="leading10"></div>
 		<div class="g5_5 listtitle">
 			<h2><img src="/static/images/bus.png" />Departing Routes</h2>
 		</div>

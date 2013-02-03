@@ -129,14 +129,14 @@ span.right {float:right !important; padding-right:1%;}
 
 /* background colors */
 .white {background-color:white;}
-.yellow {background-color:#FBDD09;}
-.green {background-color:#BEDB74;}
+.yellow {background-color:#F0AE10;}
+.green {background-color:#079007;}
 .red {background-color:#FE2423; color:white;}
 .vlightgrey {background-color:#fcfcfc;}
 .lightgrey {background-color:#eee}
 .lightgreen {background-color:#deeebf;}
 .lightyellow {background-color:#FCF79A;}
-.darkgrey {background-color: #ddd;}
+.darkgrey {background-color: #cdcdcd;}
 
 /* text colors */
 .tred {color:#FE2423;}

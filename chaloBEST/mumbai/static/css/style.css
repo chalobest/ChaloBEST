@@ -130,17 +130,18 @@ span.right {float:right !important; padding-right:1%;}
 /* background colors */
 .white {background-color:white;}
 .yellow {background-color:#F0AE10;}
-.green {background-color:#079007;}
-.red {background-color:#FE2423; color:white;}
+.green {background-color:#079007; color:white;}
+.red {background-color:#FF0000; color:white;}
 .vlightgrey {background-color:#fcfcfc;}
 .lightgrey {background-color:#eee}
-.lightgreen {background-color:#deeebf;}
+.lightgreen {background-color:#d2dab3;}
 .lightyellow {background-color:#FCF79A;}
-.darkgrey {background-color: #cdcdcd;}
+.darkgrey {background-color: #cdcdcd; color:white;}
 
 /* text colors */
 .tred {color:#FE2423;}
 .twhite {color:white;}
+.tlightgreen {color:#d2dab3;}
 
 /* MICRO CLEARFIX HACK */
 .cf:before, .cf:after {content:"";display:table} /* For modern browsers */

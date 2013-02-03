@@ -142,6 +142,7 @@ span.right {float:right !important; padding-right:1%;}
 .tred {color:#FE2423;}
 .twhite {color:white;}
 .tlightgreen {color:#d2dab3;}
+.tblack {color:black;}
 
 /* MICRO CLEARFIX HACK */
 .cf:before, .cf:after {content:"";display:table} /* For modern browsers */

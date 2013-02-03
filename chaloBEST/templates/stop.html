@@ -25,9 +25,9 @@
 
 <div class="g12_12 search">
 <!--		<div class="g12_2">&nbsp;</div>-->
-		<div class="g12_7">
+	<div class="g12_7">
         {% include 'guidesearch_form.html' %}
-        </div>
+    </div>
 
 
 	<div class="g12_5 pagetitle">
@@ -72,8 +72,8 @@
 	</div>
 	<br style="clear: both;" /> 
 
-
-
+</div>
+<!-- the old lefthand side banner style, remove? I think it won't work anymore anyway because we changed a few styles -->
 <!--<div class="g7">-->
 <!--	<div class="g7_7">-->
 <!--		<div class="g7_7 pagetitle">-->
@@ -108,13 +108,12 @@
 <!--			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>-->
 <!--		</div>-->
 <!--		<br style="clear: both;" /> -->
-    <div class="g7">
-        <div class="g7_7">
-        <div class="maphome">
+<div class="g7">
+    <div class="g7_7">
+		<div class="maphome">
             <div id="map" style="width:100%;height:100%;"></div>
         </div>
     </div>
-    <div class="leading40"></div>
 </div>
 
 <div class="g5">
@@ -177,8 +176,6 @@
 			</table>
 		</div>
 
-
-    <div class="leading40"></div>
 	<div class="g5_5">
 		<div class="g5_5"> &nbsp;
 
@@ -258,12 +255,5 @@
 	</div>
 </div>
 
-
-
-	</div>
-
-	<div class="leading40"></div>
-	<div class="leading40"></div>
-</div>
 
 {% endblock %}

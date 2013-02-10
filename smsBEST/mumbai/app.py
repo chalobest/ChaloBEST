@@ -99,10 +99,6 @@ class App(AppBase):
                     #       tt=ast.literal_eval(json.dumps(item[0]))
                     for key, value in item[0].items():
                             if key == "route_type_aliases":
-				f = open("soelog","wb")
-
-                    	        f.write(str(len(value)))
-				f.write(str(len(pattern)))
 				
                                 if len(value.strip())==0 and len(pattern.strip())==0:
                                     detail.append(str(item[0].get("display_name")))
@@ -197,10 +193,10 @@ class App(AppBase):
                     stops.append(stop)
             response = STYLE["start"]
             for stop in stops:
-                match = stop["official_name"] + ": " + stop["routes"]
+                match = stop["display_name"] + ": " + stop["routes"]
                 if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
                 response += match
-                if len(response) > MAX_MSG_LEN: break
+                if len(response) > MAX_MSG_LEN or stop['display_name'].lower() == msg.text.strip().lower(): break
             if len(response) > MAX_MSG_LEN:
                 response = response[:MAX_MSG_LEN-(len(STYLE["end"])+4)] + "..."
             response += STYLE["end"]

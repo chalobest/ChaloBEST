@@ -1,3 +1,28 @@
+.search_input {
+    border: 3px solid #deeebf;
+    height: 40px;
+}
+
+.searchsubmit {	
+    height: 30px;
+    padding: 4px 16px 7px 16px;
+    margin-top: 8px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color:#888;
+    border-radius: 6px;
+}
+
+.mobileSearchBlock {
+    text-align: center;
+}
+
+.resultItem {
+    padding: 6px 0;
+    list-style: none;
+    font-size: 110%;
+}
+
 .overlay {
     width: 100%;
     height: 100%;

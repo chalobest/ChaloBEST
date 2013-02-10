@@ -36,7 +36,7 @@ $(function() {
 
 {% block content %}
 
-<div class="g12_12 search">
+<div class="g12 search">
 		<!--<div class="g12_2">&nbsp;</div>-->
 		<div class="g12_7">
         {% include 'guidesearch_form.html' %}
@@ -44,7 +44,7 @@ $(function() {
 
 
         <div class="g12_5 fromTo">
-		        <div class="pagetitle 12_12">
+		        <div class="pagetitle 5_5">
 			        <div class="guideh1box titleXS">
 				        <h1>
 					        <div class="rti"><img src="/static/images/bus_r.png" /></div>
@@ -65,34 +65,32 @@ $(function() {
 				        </h1>
 			        </div>
 
-
-</div>
-
-
-        <div class="g12_12 routeExtra">
-		<div class="g12_12 listextrainfo">
-
-                <div class="floatLeft">
-            <p class="marginBottomSmall">
-                <a href="" title="refresh" class="floatLeft"><img src="/static/images/Frq_3.png" />&nbsp;</a>
-                {% if route.headways %}<span class="frequency"> <span class="large"> <!-- {{ route.headways }} --> &nbsp;</span> <span class="smallest"> Mins</span><br><span class="smallest">Frequency</span></span>{% else %}<span class="frequency">Not running</span>{% endif %}                                               
-            </p>
-        </div>
-    
-
-        <div class="floatRight">
-            <p class="marginRight26 marginBottomSmall">{{ now_time|date:"l P" }}                          
-            </p>
-        
-        </div>
-
-
-			
+				</div>
+				<div class="g5_5 marginTop">
+					<div class="floatleft g5_2">
+						<div class="listextrainfo">
+							<p class="marginBottomSmall">
+							<a href="" title="refresh" class="floatLeft">
+								<img src="/static/images/Frq_3.png" />&nbsp;
+							</a>
+							{% if route.headways %}
+							<span class="frequency">
+								<span class="large"> {{ route.headways }} &nbsp;</span> 
+									<span class="smallest"> Mins</span><br>
+									<span class="smallest">Frequency</span>
+								</span>{% else %}
+								<span class="frequency">Not running</span>{% endif %}                                               
+							</p>
+						</div>
+					</div>
+					<div class="g5_gut">&nbsp;</div>
+					<div class="g5_3 textAlignRight">
+						<p style="display:block">{{ now_time|date:"l P" }}                          
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
-        </div>
-
-    </div>
-</div>
 
 <!--<div class="g7">
 	<div class="g7_7">
@@ -125,7 +123,6 @@ $(function() {
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
 	</div>
-	<div class="leading40"></div>
     
 	<div class="g7_5">&nbsp;
 	<!--
@@ -205,13 +202,13 @@ $(function() {
 </div>
 
 <div class="g5">
+	<div class="leading10">&nbsp;</div>
 	<div class="arealistheight">
 		<div class="g5_5 listtitle">
-			
 			<h2><img src="/static/images/stop.png" />Stops</h2>
 		</div>
 		<div class="list">
-			<table name="routepage_table" class="tablebase">
+			<table name="routepage_table" class="tablebase stopsTable">
 				<tr class="sublist">
 					<th colspan="2">
 						<form name="filter_route_stop" class="listfilter_form">
@@ -219,15 +216,25 @@ $(function() {
 						</form>
 					</th>
 					<!--<th>
-						<form name="filter_route_area" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="route_area" title="Explore areas passed by this route" placeholder="Type area..." />
-						</form>
-                        
-					</th>-->
-					<th>km</th>
+						<span class="col_img"><img src="/static/images/area.png" alt="Area" title="Area" /></span>
+					</th> -->
+					<th>
+						
+					</th>
+				</tr>
+				<tr class="sublist">
+					<th>
+						<span class="col_img"><img src="/static/images/stop.png" alt="Stop" title="Stop" /> stop</span>
+					</th>
+					<th>
+						<span class="col_img"><img src="/static/images/area.png" alt="Area" title="Area" /> area</span>
+					</th>
+					<th>
+						<span class="col_img" alt="Distance" title="Distance">&harr;</span>
+					</th>
 				</tr>
                 {% for r in routeDetails %}
-				<tr class="listItem">
+				<tr class="listItem" data-id="{{ r.stop.id }}">
 					<td><a href="{{ r.stop.get_absolute_url }}"><b>{{ r.stop.display_name }}</b><br /><span>{{ r.stop.name_mr }}</span></a></td>
 					<td><a href="{{ r.stop.area.get_absolute_url }}">{{ r.stop.area.display_name }}<br />{{ r.stop.area.name_mr }}</a></td>
 					<td class="lightgrey small"><span class="right small">{% if r.km %}{{ r.km }} km{% endif %}</span></td>

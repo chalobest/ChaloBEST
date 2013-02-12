@@ -384,6 +384,14 @@ class Route(models.Model):
         day = t.isoweekday()    
         # get the routeschedules for the route
         scheds = []
+        
+
+        #unrs = list(UniqueRoute.objects.filter(route=self))
+        #rss = []
+        #for unr in unrs:
+        #    rss.extend(list(RouteSchedule.objects.filter(unique_route__route=self)))                    
+        #print "Rss: ", len(rss)
+
         for rs in RouteSchedule.objects.filter(unique_route__route=self):
             # if holiday schedule,
             # if 8 in SCHED[rs.schedule_type]:
@@ -401,6 +409,8 @@ class Route(models.Model):
                      ("20:00:00", None))            
 
         freqs=[]
+        if not scheds:
+            return "Its empty!"
         for sch in scheds:
             # Error checking for valid start and stop times.
             # if neither of the start times are mentioned, use 5:00           

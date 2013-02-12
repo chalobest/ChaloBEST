@@ -372,20 +372,33 @@ class Route(models.Model):
     def areas_passed(self):
         return Area.objects.filter(stop__routedetail__route=self).distinct()
     
-    def headways(self, t=None):            
-        # get time to be retrieved for
+    def headways(self, t=None):       
+        """ 
+        Gives the frequencies of a bus route.
+        route.headways() - For current time
+        route.headways(t)  - For frequencies at given a day and time, t should be a datetime.datetime() object        
+        """
+        # get time to be retrieved for        
         if not t:
             t = datetime.datetime.now()
+            
         day = t.isoweekday()    
-
         # get the routeschedules for the route
         scheds = []
-        for rs in RouteSchedule.objects.filter(unique_route__route=self):
-        # if holiday schedule,
-        # if 8 in SCHED[rs.schedule_type]:
-        # if Holiday.objects.filter(date=t)
+        
 
-        # read route schedule and return headway for time period            
+        #unrs = list(UniqueRoute.objects.filter(route=self))
+        #rss = []
+        #for unr in unrs:
+        #    rss.extend(list(RouteSchedule.objects.filter(unique_route__route=self)))                    
+        #print "Rss: ", len(rss)
+
+        for rs in RouteSchedule.objects.filter(unique_route__route=self):
+            # if holiday schedule,
+            # if 8 in SCHED[rs.schedule_type]:
+            # if Holiday.objects.filter(date=t)
+
+            # read route schedule and return headway for time period            
             if day in SCHED[rs.schedule_type]:
                 scheds.append(rs)
 
@@ -397,21 +410,34 @@ class Route(models.Model):
                      ("20:00:00", None))            
 
         freqs=[]
-        for s in scheds:
-            foo =s
+        if not scheds:
+            return "Its empty!"
+        for sch in scheds:
+            # Error checking for valid start and stop times.
+            # if neither of the start times are mentioned, use 5:00           
+            if not sch.first_from and sch.first_to: 
+                sch.first_from=sch.first_to=datetime.time(5,0)
+            # if neither of the end times are mentioned, use 11:59 pm
+            if not sch.last_from and sch.last_to: 
+                sch.last_from=sch.last_to=datetime.time(23,59)
+
             tspan = TIMESPANS
-            if (t.time() > s.first_from or t.time() > s.first_to) and t.time() < time_of(tspan[0][1]): freqs.append(s.headway1)
-            if t.time() < time_of(tspan[1][1]) and t.time() > time_of(tspan[1][0]): freqs.append(s.headway2)
-            if t.time() < time_of(tspan[2][1]) and t.time() > time_of(tspan[2][0]): freqs.append(s.headway3)
-            if t.time() < time_of(tspan[3][1]) and t.time() > time_of(tspan[3][0]): freqs.append(s.headway4)
-            if (t.time() < s.last_from or t.time() < s.last_to) and t.time() > time_of(tspan[4][0]): freqs.append(s.headway5)
+            if (t.time() > sch.first_from or t.time() > sch.first_to) and t.time() < time_of(tspan[0][1]): freqs.append(sch.headway1)
+            if t.time() < time_of(tspan[1][1]) and t.time() > time_of(tspan[1][0]): freqs.append(sch.headway2)
+            if t.time() < time_of(tspan[2][1]) and t.time() > time_of(tspan[2][0]): freqs.append(sch.headway3)
+            if t.time() < time_of(tspan[3][1]) and t.time() > time_of(tspan[3][0]): freqs.append(sch.headway4)
+            if (t.time() < sch.last_from or t.time() < sch.last_to) and t.time() > time_of(tspan[4][0]): freqs.append(sch.headway5)
                     
         #avg = float(sum(freqs)/len(freqs))
-        if not freqs:
+
+        #  check here in case we get empty strings or zeroes cropping up
+        frequencies = [x for x in freqs if x!=0]        
+        if not frequencies:
             return None
 
-        frequencies = [x for x in freqs if x!=0]        
-        return str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))             
+        return str(min(frequencies))  + "-" + str(max(frequencies))  if min(frequencies)!=max(frequencies) else str(max(frequencies))
+
+        
                
 
 #'scheds': [ (s.headway1, s.headway2, s.headway3, s.headway4, str(s.unique_route) ) for s in scheds]

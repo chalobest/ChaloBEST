@@ -1192,7 +1192,7 @@ def time_of(timestr):
         tm = timestr.split(":")
         return datetime.time(int(tm[0]),int(tm[1]),int(tm[2]))
     except:
-        return None
+        return "Error: Please use a time string in this format -  'HH:MM:SS' "
 
 
 def parseDistancesForDetails(details, parse_stages):

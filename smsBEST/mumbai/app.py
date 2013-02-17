@@ -82,6 +82,10 @@ class App(AppBase):
 	    import collections
             result = collections.defaultdict(list)
             #print routeO
+	    if not routes:
+                msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
+                return
+
             for d in routes:
                 result[d['code']].append(d)
             someList = result.values()
@@ -135,9 +139,9 @@ class App(AppBase):
 	
 				    #return busname
 
-            if not routes:
-                msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
-                return
+            #if not routes:
+             #   msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
+              #  return
             url = "http://dev.chalobest.in" + str(detail[6])
 	    distance = str(detail[7])+" kms"
             if str(detail[5]).strip() is not None:
@@ -202,4 +206,5 @@ class App(AppBase):
             response += STYLE["end"]
 
         msg.respond(response)
+
 

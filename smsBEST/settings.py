@@ -207,7 +207,7 @@ ROOT_URLCONF = "urls"
 try:
     SECRET_KEY
 except NameError:
-    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    SECRET_FILE = os.path.join(PROJECT_PATH, 'secret.txt')
     try:
         SECRET_KEY = open(SECRET_FILE).read().strip()
     except IOError:

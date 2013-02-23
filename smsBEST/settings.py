@@ -203,6 +203,25 @@ TEST_EXCLUDED_APPS = [
 # the project-level url patterns
 ROOT_URLCONF = "urls"
 
+# Make this unique, and don't share it with anybody.
+try:
+    SECRET_KEY
+except NameError:
+    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    try:
+        SECRET_KEY = open(SECRET_FILE).read().strip()
+    except IOError:
+        try:
+            from random import choice
+            SECRET_KEY = ''.join([choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
+            secret = file(SECRET_FILE, 'w')
+            secret.write(SECRET_KEY)
+            secret.close()
+        except IOError:
+            Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
+
+
+
 # import local_settings.py
 try:
     from local_settings import *

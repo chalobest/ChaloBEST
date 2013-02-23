@@ -29,3 +29,7 @@ Deploy:
     create chaloBEST/local_settings.py
 
     create /etc/apache2/sites-availavle/sitename.conf
+
+For users:
+    python manage.py check_permissions
+    python manage.py update_permissions

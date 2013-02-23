@@ -27,7 +27,7 @@ class UserProfile(UserenaLanguageBaseProfile):
 						 choices=GENDER_CHOICES,
 						 blank = True,
 						null=True)
-	website = models.URLField(_('website'), blank=True, verify_exists=True)
+	website = models.URLField(_('website'), blank=True)
 	location = models.CharField(_('location'), max_length=255, blank=True)
 	birth_date = models.DateField(_('birth date'), blank=True, null=True)
 #	about_me = models.TextField(_('about me'), blank = True)

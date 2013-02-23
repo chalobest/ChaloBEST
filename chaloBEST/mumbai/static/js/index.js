@@ -8,13 +8,13 @@ $(function() {
         layers: [osm],
         center: new L.LatLng(19.04719036505186, 72.87094116210938),
         zoom: 11,
-        editInOSMControl: true,        
-        editInOSMControlOptions: {
+        //editInOSMControl: true,        
+        /*editInOSMControlOptions: {
             position: "topright",
             iD: {
                 url: "myurl"
             }
-        } 
+        } */
     });
     //console.log(map);
     if (!isMobile && $(window).width() > 700) { // dont show minimap on mobiles

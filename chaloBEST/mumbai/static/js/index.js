@@ -1,6 +1,7 @@
 //var gotPosition = false;
 var currentRequest = false;
 $(function() {
+    // instantiate map
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     var osmAttrib = 'Map data © openstreetmap contributors'
     var osm = new L.TileLayer(osmUrl, {minZoom:1,maxZoom:18,attribution: osmAttrib});
@@ -17,13 +18,17 @@ $(function() {
         } */
     });
     //console.log(map);
+
+    //if not mobile and window width is wide, show the minimap
     if (!isMobile && $(window).width() > 700) { // dont show minimap on mobiles
         var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
         var miniMap = new L.Control.MiniMap(osm2).addTo(map);
     }
+
 //    var miniMap = new L.Control.MiniMap(osm).addTo(map);
     var initialBBox = map.getBounds();
-//Get user current location
+
+    //Get user current location, zoom to location, and load stops at that location
     navigator.geolocation.getCurrentPosition(function(loc) {
         //on success load stops near user's latlng
         var coords = loc.coords;
@@ -39,6 +44,7 @@ $(function() {
     });
 
 
+    //every time map moves, update stops
     map.on("moveend", function(e) {
         //if user moves map, get stops for new center
         var latlng = map.getCenter();
@@ -50,7 +56,7 @@ $(function() {
 
 });
 
-//Load stops near latlng and render on map
+//function to load stops near latlng and render on map
 function loadStops(latlng) {
 
     map.setView(latlng, 15);
@@ -72,6 +78,7 @@ function loadStops(latlng) {
    
 }
 
+//function to show table of stop data on the right
 function showStopsData(data) {
     $('.stopRow').remove();
     $.each(data.features, function(i, v) {

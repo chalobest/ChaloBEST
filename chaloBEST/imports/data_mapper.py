@@ -37,14 +37,40 @@ def Route_save(entry):
     except IndexError:
         t_stop = None 
     """
-    from_to = getFromToStopsFromRouteDetails(entry[0])
+    # verbosely importing and checking
+    route = None
+    try:
+        route = Route.objects.get(code=entry[0])
+    except:
+        pass
+
+
+
+    if route:
+        # found, then update        
+        """ obj, created = Route.objects.get_or_create(
+            code=str(entry[0]), defaults={
+        'alias':str(entry[1]),
+        'from_stop':from_to[0],
+        'from_stop_txt':str(entry[2]),
+        'to_stop_txt':str(entry[3]),
+        'to_stop':from_to[1],
+        'distance':Decimal(entry[4]),
+        'stages':int(entry[5]) } )
+        """
+        # found, then bail.
+        return
+
+    from_to = getFromToStopsFromRouteDetails(entry[0])        
+
     if from_to is None:
-        globalerr.append({"data" :entry[0], error:["Route not found"]})
+        # if no start end stops found, then use None.
 
-       #obj = Route(code=entry[0], alias=entry[1], from_stop_txt=entry[2], to_stop_txt=entry[3], from_stop=from_to[0], to_stop=from_to[1], distance=Decimal(entry[4]), stages=int(entry[5]))
-
-    
-    obj = Route(
+        globalerr.append({"data" :entry[0], "error":["Route not found"]})        
+        obj = Route(code=entry[0], alias=entry[1], from_stop_txt=entry[2], to_stop_txt=entry[3], from_stop=None, to_stop=None, distance=Decimal(entry[4]), stages=int(entry[5]), route_type=RouteType.objects.get(code=str(entry[0])[3]))
+        
+    else:
+        obj = Route(
         code=str(entry[0]), 
         alias=str(entry[1]), 
         from_stop=from_to[0],
@@ -52,6 +78,7 @@ def Route_save(entry):
         to_stop_txt=str(entry[3]), 
         to_stop=from_to[1],
         distance=Decimal(entry[4]), 
+        route_type=RouteType.objects.get(code=str(entry[0])[3]),
         stages=int(entry[5])) 
     obj.save()
 
@@ -111,8 +138,17 @@ def RouteDetail_save(entry):
     #print obj.__dict__  
        
 def Road_save(entry):
-    obj = Road(code=int(entry[0]), name=str(entry[1])) 
+    obj, created = Road.objects.get_or_create(code=int(entry[0]), defaults={'name': str(entry[1])})
     obj.save()
+    if created:
+        print obj.__dict__
+        
+    # object exists, bail
+    #if Road.objects.filter(code=entry[0]):
+    #    return
+
+    #obj = Road(code=int(entry[0]), name=str(entry[1])) 
+    #obj.save()
     #print obj.__dict__
   
 def Fare_save(entry):
@@ -128,37 +164,50 @@ def Fare_save(entry):
     #print obj.__dict__
    
 def Area_save(entry):
-    obj = Area(code=int(entry[0]), name= str(entry[1])) 
+    obj, created = Area.objects.get_or_create(code=int(entry[0]), defaults={'name': str(entry[1])})
     obj.save()
-    #print obj.__dict__    
+    if created:
+        print obj.__dict__            
 
-def Stop_save(entry):
-    
-    _road = Road.objects.get(code=int(entry[4]))
-    _area = Area.objects.get(code=int(entry[5]))
+    #obj = Area(code=int(entry[0]), name= str(entry[1])) 
+    #obj.save()
+
+
+def Stop_save(entry):    
+    existing_stop = False
     try:
-        _depot = Depot.objects.filter(code=str(entry[6]))[0]
-    except IndexError:
-        _depot = None 
+        existing_stop = Stop.objects.get(code=str(entry[0]))
+    except:
+        pass
+    
+    if existing_stop:
+        return
+                                         
+    _road = Road.objects.get(code=int(entry[3]))
+    _area = Area.objects.get(code=int(entry[4]))
+    #try:
+        #_depot = Depot.objects.filter(code=str(entry[6]))[0]
+    #except IndexError:
+    #    _depot = None 
 
     obj = Stop(
         code=int(entry[0]), 
         name=str(entry[1]), 
         dbdirection=str(entry[2]), 
-        chowki=(entry[3]).startswith('TRUE'),
+        #chowki=(entry[3]).startswith('TRUE'),
         road=_road,
-        area=_area,
-        depot=_depot
+        area=_area
+       # depot=_depot
         ) 
 
     obj.save()
-    #print obj.__dict__
+
 
 # There is no model as StopMarathi/AreaMarathi, but this is done to separate errors arising from different files, and also that the Marathi names should be done after the Stop and Area entities have been fully loaded cuz thats how we get them from BEST.
 
 def StopMarathi_save(entry):
-    obj = Stop.objects.get(code=str(entry[1])) 
-    mrstr =  unicode(entry[3], 'utf-8')
+    obj = Stop.objects.get(code=str(entry[0])) 
+    mrstr =  unicode(entry[1], 'utf-8')
     if mrstr=='':
         print entry
     obj.name_mr = mrstr
@@ -298,11 +347,11 @@ def fire_up():
     for model in saveorder:
         CsvLoader(model)
     loadFKinRouteDetail()
-    importUniqueRoutes()    
-    print "loading UniqueRoute..."
-    postclean.copynames2display_name()
-    postclean.make_stage_info()
-    postclean.make_type_info()
+    #importUniqueRoutes()    
+    #print "loading UniqueRoute..."
+    #postclean.copynames2display_name()
+    #postclean.make_stage_info()
+    #postclean.make_type_info()
     
 #----------------------------------------------------------
 

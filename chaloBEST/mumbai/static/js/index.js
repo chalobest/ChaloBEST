@@ -1,15 +1,34 @@
 //var gotPosition = false;
+var currentRequest = false;
 $(function() {
+    // instantiate map
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     var osmAttrib = 'Map data © openstreetmap contributors'
     var osm = new L.TileLayer(osmUrl, {minZoom:1,maxZoom:18,attribution: osmAttrib});
-    map = new L.Map('map', {layers: [osm], center: new L.LatLng(19.04719036505186, 72.87094116210938), zoom: 11 });
+    map = new L.Map('map', {
+        layers: [osm],
+        center: new L.LatLng(19.04719036505186, 72.87094116210938),
+        zoom: 11,
+        //editInOSMControl: true,        
+        /*editInOSMControlOptions: {
+            position: "topright",
+            iD: {
+                url: "myurl"
+            }
+        } */
+    });
     //console.log(map);
-    var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
-    var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+
+    //if not mobile and window width is wide, show the minimap
+    if (!isMobile && $(window).width() > 700) { // dont show minimap on mobiles
+        var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
+        var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+    }
+
 //    var miniMap = new L.Control.MiniMap(osm).addTo(map);
     var initialBBox = map.getBounds();
-//Get user current location
+
+    //Get user current location, zoom to location, and load stops at that location
     navigator.geolocation.getCurrentPosition(function(loc) {
         //on success load stops near user's latlng
         var coords = loc.coords;
@@ -23,26 +42,9 @@ $(function() {
         var center = map.getCenter();
         loadStops(center);
     });
-    
-    $('#nearStopsTable').delegate('.listItem', 'mouseover', function(e) {
-        var $t = $(this);
-        //console.log($t);
-        var id = $t.attr("data-id");
-        //console.log(id);
-        var feat = getFeatureById(id);
-        feat.fire("mouseover");
-    });    
-
-    $('#nearStopsTable').delegate('.listItem', 'mouseout', function(e) {
-        var $t = $(this);
-        //console.log($t);
-        var id = $t.attr("data-id");
-        //console.log(id);
-        var feat = getFeatureById(id);
-        feat.fire("mouseout");
-    });    
 
 
+    //every time map moves, update stops
     map.on("moveend", function(e) {
         //if user moves map, get stops for new center
         var latlng = map.getCenter();
@@ -54,7 +56,7 @@ $(function() {
 
 });
 
-//Load stops near latlng and render on map
+//function to load stops near latlng and render on map
 function loadStops(latlng) {
 
     map.setView(latlng, 15);
@@ -62,8 +64,11 @@ function loadStops(latlng) {
     var params = {
         'center_lat': latlng.lat,
         'center_lon': latlng.lng
-    };  
-    $.getJSON(url, params, function(data) {
+    };
+    if (currentRequest && currentRequest.readystate != 4) {
+        currentRequest.abort();
+    }  
+    currentRequest = $.getJSON(url, params, function(data) {
         if (typeof(jsonLayer) != 'undefined') map.removeLayer(jsonLayer);
         showStopsData(data);
         
@@ -73,6 +78,7 @@ function loadStops(latlng) {
    
 }
 
+//function to show table of stop data on the right
 function showStopsData(data) {
     $('.stopRow').remove();
     $.each(data.features, function(i, v) {

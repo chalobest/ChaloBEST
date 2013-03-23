@@ -32,15 +32,15 @@ background: -webkit-linear-gradient(top, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98
 background: linear-gradient(to bottom, rgba(220,0,0,0.93) 0%,rgba(220,0,0,0.98) 2%,rgba(220,0,0,0.98) 57%,rgba(135,0,0,0.98) 98%,rgba(131,0,0,0.93) 100%);*/
 }
 
-.foot { background: #888; background: rgba(0,0,0,0.4); margin-bottom: 0; position: fixed; bottom: 0; left: 0; right: 0}
+.foot { background: #888; background: rgba(0,0,0,0.4); margin-bottom: 0; position: fixed; bottom: 0; left: 0; right: 0; width: 100%;}
 .foot, .foot a {color: #fff;}
 .foot ul, .navlink ul{list-style-type:none; margin:0; padding:0; }
-.foot ul {padding: 6px; float: left;}
+.foot ul {padding: 2px 6px; float: left;}
 .foot li {display:inline; float:left;}
 .foot li a {display:block; margin: 0 10px;}
-.foot .right {padding: 6px;}
+.foot .right {padding: 4px 6px;}
 .foot .right p{display:inline; font-size: 14px; padding-top: 4px;}
-.foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; margin-bottom: 0; border: 1px solid #bbb; width:20px; height:20px;}
+.foot .right img{display:inline; float:right; /*padding:5px 2px 5px 5px;*/ margin-right: 14px; margin-bottom: 0; border: 1px solid #bbb; width:18px; height:18px;}
 
 /* primary navigation */
 /*.banner {background:url('../images/header_bg.png') repeat-x; background-size:contain;}*/ /* background image for the global nav + text logo bar */
@@ -86,8 +86,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A4AA8D', end
 
 .search{/*background-color:#eee; height:30px;border:2px solid #aaa;*/}
 .search_input{height: 100%; width:100%; margin:0; padding: /* 0.3333em 2.1% */ 0; border:none;}
-.searchsubmit{	height: 30px; padding-top:auto; padding-bottom:0; background-color:#FBDD09;
-				border: 2px solid yellow; border-radius: 1em;}
+
 /* following class applies to mobile search results list (replaces the autocomplete) */
 ul .searchResults, li .resultItem {font-size:140%;}
 
@@ -109,7 +108,7 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .rti img{}
 .titleXS, .titleS {display:inline; float:left;}
 .titleS h1{font-size: 1.8em; line-height: 1em; margin-bottom: 0.777777778em;}
-.titleXS h1{font-size: 1.3125em !important; width:100%; margin-top:0.15em;}
+.titleXS h1{font-size: 1.3125em !important; width:100%; margin-top:0.15em; margin-bottom:0px;}
 
 
 /* static pages */
@@ -160,27 +159,31 @@ ul .searchResults, li .resultItem {font-size:140%;}
 
 /* List main header h2 */
 .list, .from, .to {word-wrap: break-word;}
-.listtitle {padding: 36px 0 0 0; height: 3em;}
-.listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.5em;}
-.listtitle img {/*float:left;*/ margin: 0; padding: 7px 3px 7px 0; width:1.125em; height:1.125em; vertical-align: middle;}
+.listtitle {padding: 36px 0 0 0;}
+.listtitle h2 {float:left; padding: 0 1% 0 0; width:90%; font-size: 1.5em; line-height: 1.333333333333333333em; margin-bottom: 0.1em;}
+.listtitle img {/*float:left;*/ margin: 0; padding: 0 10px 0 0; width:0.75em; height:0.75em; vertical-align: baseline;}
 .listtitle h2.stop {width:50% !important;}
 
 /* List main header h3 (for comment box, lists displayed below the map) */
 .sublist {padding: 0; height: 1.6em; /*background-color:#999;*/ border-bottom: none !important;}
 .sublist h3 {float:left; margin:0px; padding: 0.1em 5px 0 5px; width:80%; /*color:#fff;*/ }
-.sublist img {float:left; margin:0px; padding: 5px; height:12px; width:12px;}
+.sublist img {margin:0px; padding: 0.4em 0 0 0; height:16px; width:16px; text-align:center !important;}
+.sublist span {display:block; vertical-align:baseline; width:100%; text-align:center;}
+.sublist span.col_img {display:block; vertical-align:baseline; width:100%; text-align:center;}
+.sublist span.col_img img{width:12px;height:12px;padding:0; margin:0;}
+.sublist .charfix {font-size:130%; width:98%; margin-top:0.11em;}
 
 /* extra info under header (frequencies in route pages) */
-.listextrainfo {padding:0.3em 10px 0 5px; text-align: right;/*height: 1.5em;*/}
+.listextrainfo {padding:0em 10px 0 32px !important;}
 .listextrainfo p {/*color:red;*/}
-.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:1.6em;}
+.listextrainfo img {float:left; margin:0.166667em 1% 0 2%; width:0.75em;}
 .listextrainfo span {display:inline; float:left;}
 .listextrainfo span.frequency{margin:0; color:black;}
 .listextrainfo span.thumbs {display:inline; float:right; margin:0 10px; width:30%; color:grey; font-size:75%;}
 
 /* list filters */
 .listfilter_form{width:100%; margin:0px; padding:0 -1%;}
-.listfilter_input{width:99%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em; border: 2px solid #cdcdcd;}
+.listfilter_input{width:98%; height:1.8em; margin:0; padding:0 2%; font-size:0.75em; border: 2px solid #cdcdcd;}
 
 /* lists contents - stop area route */
 .listheight {display:block; overflow:hidden; height:100%;}
@@ -191,9 +194,9 @@ ul .searchResults, li .resultItem {font-size:140%;}
 .list li {line-height:1.2em; padding:0 0 0.8em 0;}
 
 /* LIST BASE */
-.tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 80px;}
+.tablebase {width:100%; padding:0 2.45% 0 2.45%; margin-bottom: 24px;}
 .tablebase tr {margin:0; padding:0 0 0 1% !important; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
-.tablebase th {padding:0 0 0 1% !important;} 
+.tablebase th {padding:0 1% 0 1% !important;} 
 .tablebase td {padding:5px 3.16% 5px 1.58%;}
 .tablebase .filterlistinput {width:92%;}
 span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
@@ -201,19 +204,15 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 
 /* single column */
-.landing_table {width:100%; padding:0 2.45% 0 2.45%;}
-.landing_table tr {margin:0; padding:0; width:100%; min-height:10px; border-bottom: 1px solid #ccc;}
-.landing_table th {padding-top:0px; padding-bottom:0px;} 
-.landing_table td {padding:5px 3.16% 5px 1.58% !important;} 
-.landing_table .filterlistinput {width:92%;}
-
-.landing_row {width:100%; margin:5px 0; padding:0; background-color:white;}
+.singleCol_row {width:100%; margin:5px 0; padding:0; background-color:white;}
 .landing_area {width:100%; padding:0 2.45% 0 2.45%;}
 .landing_area img {width:1.2em; text-align:center;}
 .landing_area span {font-weight:normal;}
-.landing_area .filterlistinput {width:92%;}
-.listfilter .landing_area {text-align:center;}
 
+/* 2-column */
+.twoCol_row {width:100%; margin:5px 0; padding:0; background-color:white;}
+.twoCol_wide {width:58%;}
+.twoCol_narrow {width:37.01%;}
 
 /* 3-column (stop, area, distance) */
 .route_stop {width:46.84%;}
@@ -272,10 +271,10 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 .searchbar ul {list-style-type:none; margin:0;}
 .searchbar ul img {/*margin:-2px 0 0 2% !important;*/ margin: 0;}
 .searchbar li {
-	display:inline; float:left; width: 27%; /*height: 1em;*/ margin: 0 2.5% 0 0; padding:0.3em 5px 0; font-weight:200 !important;
+	display:inline; float:left; width: 27%; /*height: 1em;*/ margin: 0 2.5% 0 0; padding:0.1em 5px 0; font-weight:200 !important;
 	border: 3px dotted #ffdd00; 
 	font-family: "Boston Traffic", Impact, "Charcoal CY", Charcoal, "DejaVu Sans Condensed", sans-serif; 
-	text-transform: uppercase; color: #ccc; text-align:center;}
+	text-transform: uppercase; color: #ccc; text-align:center; line-height:1em;}
 .searchbar li:last-of-type {margin-right: 0;}
 .searchbar img.center 	{display:block; text-align:center; margin-left:auto; margin-right:auto;}
 .statsImg {width:18px;}
@@ -293,7 +292,7 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 /* -    GUIDE PAGES    - */
 /* --------------------- */
 
-.list, .map, .comments, .listtitle, .listextrainfo
+.list, .map, .comments, .listtitle
 {display:inline; float:left; margin:0; width:100%;}
 .maphome {clear:both;}
 
@@ -327,6 +326,22 @@ span.half {display:inline; float:left; margin:0; padding:0; width:50%;}
 
 .fix30 {height:36px;}
 .top {margin-top:-36px !important; padding:10px 1% 0 0 !important;}
+.smstxt {display:block; width:84%; margin:0 6% 0 6%; padding:0.5em 2% 0.5em 2%; font-family: 'Quantico', sans-serif; font-style:normal; background-color:;}
+.smsimg {display:block; padding-bottom:24px;}
+.charfix {font-size:180%; line-height:0; display:block; float:left; margin-top:0.45em; padding-right:2%; padding-left:2%;}
+.pointleft { 
+   -webkit-transform: rotate(-180deg);
+   -moz-transform: rotate(-180deg);
+   -ms-transform: rotate(-180deg);
+   -o-transform: rotate(-180deg);
+   transform: rotate(-180deg);
+   filter: progid:DXImageTransform.Microsoft.Matrix( 
+    M11=-1, M12=1.2246063538223773e-16, 
+    M21=-1.2246063538223773e-16, 
+    M22=-1, sizingMethod='auto expand');
+   zoom: 1;
+   margin-top:0.55em; padding-left:2%; padding-right:2%; float:right;
+ }
 
 /* ------------------------------ */
 /* -       PERSONAL PAGES       - */

@@ -7,6 +7,10 @@
     padding-top: 0;
 }
 
+.pagetitle h1 {
+    margin-bottom: 0;
+}
+
 </style>
 <script>
 $(function() {
@@ -24,7 +28,7 @@ $(function() {
 
 {% block content %}
 
-	<div class="g12_12 search">
+	<div class="g12 search">
 <!--		<div class="g12_2">&nbsp;</div>-->
 		<div class="g12_7">
 			{% include 'guidesearch_form.html' %}
@@ -39,20 +43,20 @@ $(function() {
 					<h1><span>{{ area.display_name }} - </span><span>{{ area.name_mr }}</span></h1>
 				</div>
 			</div>
-
-
+		</div>
+	</div>
+<div class="g7">
 		<div class="maphome">
             <div id="map" style="width:100%;height:100%;"></div>
 		</div>
-
-<div class="g12_4 marginPercentRight areaStopsBlock">
-	<div class="g12_12 height">
+</div>
+<div class="g5">
+	<div class="g5_2 height areaStopsBlock"><!-- removed marginPercentRight -->
 		<div class="g12_12 listtitle">
-			
 			<h2><img src="/static/images/stop.png" />Stops</h2>
 		</div>
 		<div class="list">
-			<table name="landing_area" class="tablebase">
+			<table name="landing_area" class="tablebase stopsTable">
 				<tr class="sublist">
 					<th>
 						<form name="filter_area_stops" class="listfilter_form">
@@ -61,20 +65,19 @@ $(function() {
 					</th>
 				</tr>
 				{% for stop in stops %}
-				<tr class="landing_row listItem">
+				<tr class="landing_row listItem" data-id="{{ stop.id }}">
 					<td class="landing_area"><a href="{{ stop.get_absolute_url }}"><b>{{ stop.display_name }}</b><br /><span>{{ stop.name_mr }}</span></a></td>
 				<tr>
 				{% endfor %}
 			</table>
 		</div>
 	</div>
-</div>
-
-<div class="g12_7">
-	<div class="g12_12 height">
+	<div class="g5_gut">&nbsp;</div>
+	<div class="g5_3 height">
 		<div class="g12_12 listtitle">
-			<img src="/static/images/bus.png" />
-			<h2>Passing Routes</h2>
+			<div class="g12_12 listtitle">
+			<h2><img src="/static/images/bus.png" />Passing Routes</h2>
+			</div>
 		</div>
 		<div class="list">
 		<!--
@@ -109,14 +112,8 @@ $(function() {
 		-->
 			<table name="stoppage_table" class="tablebase">
 				<tr class="sublist">
-					<th class="stop_number">
-						<!-- <form name="filter_stop_number" class="listfilter_form">
-
-							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />
-
-						</form> -->
-					</th>
-					<th class="stop_route">
+					
+					<th class="stop_route" colspan="2">
 						<form name="filter_stop_route" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
 						</form>
@@ -144,7 +141,7 @@ $(function() {
 
 
 	</div>
-	<div class="leading40"></div>
+
 	<div class="g7_7"> &nbsp;
 			<!--
 			<div class="listtitlesmall">

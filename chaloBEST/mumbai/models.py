@@ -137,6 +137,7 @@ class Area(models.Model):
     @property
     def routes_passing(self):
         return Route.objects.filter(routedetail__stop__area=self).distinct()
+        
 
 class Road(models.Model):
     code = models.IntegerField()#primary_key=True)
@@ -195,7 +196,7 @@ class Stop(models.Model):
         return routes        
 
     def get_dict(self):
-        routes = self.get_routes()
+        #routes = self.get_routes()
         return {
             'id': self.id,
             'code': self.code,
@@ -209,7 +210,7 @@ class Stop(models.Model):
             'area_url': self.area.get_absolute_url(),
             'name_mr': self.name_mr,
             'direction': self.dbdirection,
-            'routes': ", ".join([r.alias for r in routes]),
+            'routes': ", ".join([r.display_name for r in self.routes]),
             'alternative_names': ", ".join([a.name for a in self.alt_names.all()]),
             'url': self.get_absolute_url()
         }

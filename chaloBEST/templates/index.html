@@ -17,13 +17,13 @@
 
 <script type="text/html" id="stopTemplate">
 
-<tr class="landing_row stopRow listItem" data-id="<%= stop.id %>">
-	<td class="landing_area"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
-    <td><a href="<%= stop.area_url %>"><b><%= stop.area %></b><br /><span><%= stop.area_mr %></span></a></td>
+<tr class="listItem stopRow" data-id="<%= stop.id %>">
+	<td class="twoCol_wide"><a href="<%= stop.url %>"><b><%= stop.display_name %></b><br /><span><%= stop.name_mr %></span></a></td>
+    <td class="twoCol_narrow"><a href="<%= stop.area_url %>"><b><%= stop.area %></b><br /><span><%= stop.area_mr %></span></a></td>
 </tr>
 </script>
 
-		<div class="g12_12 search">
+		<div class="g12 search">
 <!--			<div class="g9_1">&nbsp;</div>-->
 			<div class="g12_7">
 				<h1 style="display:none">ChaloBEST Mumbai busguide</h1>
@@ -32,7 +32,6 @@
 
 
 		<div class="searchbar g12_5">
-<!--			<div class="g9_1">&nbsp;</div>-->
 			<div class="g12_12">
 				<ul>
 					<li><span class="statistics">{{ counts.areas }} AREAS </span>
@@ -51,24 +50,16 @@
 
 <div class="g7">
 
-<!--
-	<div class="leading40"></div>
--->
 	<div class="leading10"></div>
 
 	<div class="g7_7 white">
-		
-<!--		<div class="leading20"></div>-->
-<!--		-->
-<!--		<div class="leading30"></div>-->
+
 		<div class="g9_9 maphome">
             <div class="landingmap" id="map"></div>
 		</div>
 		<br style="clear: both;" />
 	</div>
-	
-	<div class="leading40"></div>
-	<div class="leading40"></div>
+
 	<div class="g9_9">&nbsp;
 	<!--
 		<div class="listtitlesmall">
@@ -143,25 +134,32 @@
 	</div>
 </div>
  -->
-<!--<div class="g5">
-	<div class="leading40"></div>
-</div>-->
+ 
 <div class="g5">
-	<div class="g4_4 listtitle">
+	<div class="leading20">&nbsp;</div>
+	<div class="g5_5 listtitle">
 		
 		<h2><img src="/static/images/stop.png" />Displayed stops</h2>
 		</div>
-	<div class="g3_3 height">
-		<div class="g3_3 list">
-			<table name="landing_area" class="tablebase" id="nearStopsTable">
+	<div class="g5_5 height">
+		<div class="g5_5 list">
+			<table name="landing_area" class="tablebase stopsTable" id="nearStopsTable">
 				<tr class="sublist">
-					<th>
+					<th colspan="2">
 						<form name="filter_home_area" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="filter list" placeholder="Type to filter, select below..." />
 						</form>
 					</th>
+					<!-- <th class="twoCol_narrow"></th> -->
 				</tr>
-     
+				<tr class="sublist">
+					<th class="twoCol_wide">
+						<span class="col_img"><img src="/static/images/stop.png" alt="Stop" title="Stop" /> Stop</span>
+					</th>
+					<th class="twoCol_narrow" alt="Route filter" title="Route filter">
+						<span class="col_img"><img src="/static/images/area.png" alt="Area" title="Area" /> Area</span>
+					</th>
+				</tr>
 
 			</table>
 		</div>

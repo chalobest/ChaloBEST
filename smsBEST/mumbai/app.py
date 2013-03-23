@@ -1,6 +1,7 @@
 from rapidsms.apps.base import AppBase 
 import re
 import arrest
+import operator
 import re
 import string
 try:
@@ -78,54 +79,68 @@ class App(AppBase):
         if DIGIT.search(msg.text):
             routes = ChaloBest.routes(q=msg.text.replace(" ", ""))
             pattern = str(str(msg.text).translate(None, string.digits))
-	    import collections
+            import collections
             result = collections.defaultdict(list)
             #print routeO
+            if not routes:
+                msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
+                return
+
             for d in routes:
                 result[d['code']].append(d)
             someList = result.values()
             #print len(someList)
             #print someList
             #pattern = "A".upper()
-	    detail =[]
+            detail =[]
+            my_default = someList[0]
+            someList.sort(key=operator.itemgetter(0))
             for item in someList:
                     #print item[0].__class__
                     #try:
                     #       tt=ast.literal_eval(json.dumps(item[0]))
                     #except ValueError:
                     #       tt=ast.literal_eval(json.dumps(item[0]))
-                    for key, value in item[0].items():
-                            if key == "route_type_aliases":
-                    	        #print len(value)
-                                if len(value)==0 and len(pattern.strip())==0:
-                                    detail.append(str(item[0].get("display_name")))
-				    detail.append(str(item[0].get("start_stop")))
-				    detail.append(str(item[0].get("start_area")))
-				    detail.append(str(item[0].get("end_stop")))
-				    detail.append(str(item[0].get("end_area")))
-				    detail.append(str(item[0].get("headway")))
-				    detail.append(str(item[0].get("url")))
-				    detail.append(str( item[0].get("distance")))
+                for key, value in item[0].items():
+                    if key == "route_type_aliases":
+                        if len(value.strip())==0 and len(pattern.strip())==0:
+                            detail.append(str(item[0].get("display_name")))
+                            detail.append(str(item[0].get("start_stop")))
+                            detail.append(str(item[0].get("start_area")))
+                            detail.append(str(item[0].get("end_stop")))
+                            detail.append(str(item[0].get("end_area")))
+                            detail.append(str(item[0].get("headway")))
+                            detail.append(str(item[0].get("url")))
+                            detail.append(str(item[0].get("distance")))
 				    
 				   # return busname
-                                elif len(pattern)!=0 and pattern in value:
-				    detail.append(str(item[0].get("display_name")))
-                                    detail.append(str(item[0].get("start_stop")))
-                                    detail.append(str(item[0].get("start_area")))
-                                    detail.append(str(item[0].get("end_stop")))
-                                    detail.append(str(item[0].get("end_area")))
-                                    detail.append(str(item[0].get("headway")))
-                                    detail.append(str(item[0].get("url")))
-                                    detail.append(str(item[0].get("distance")))
+                        if len(pattern.strip())!=0 and pattern.strip().upper() in value.upper():
+                            detail.append(str(item[0].get("display_name")))
+                            detail.append(str(item[0].get("start_stop")))
+                            detail.append(str(item[0].get("start_area")))
+                            detail.append(str(item[0].get("end_stop")))
+                            detail.append(str(item[0].get("end_area")))
+                            detail.append(str(item[0].get("headway")))
+                            detail.append(str(item[0].get("url")))
+                            detail.append(str(item[0].get("distance")))
 
-
+                        if len(pattern.strip())==0 and value.strip() is not None:
+                            detail.append(str(item[0].get("display_name")))
+                            detail.append(str(item[0].get("start_stop")))
+                            detail.append(str(item[0].get("start_area")))
+                            detail.append(str(item[0].get("end_stop")))
+                            detail.append(str(item[0].get("end_area")))
+                            detail.append(str(item[0].get("headway")))
+                            detail.append(str(item[0].get("url")))
+                            detail.append(str(item[0].get("distance")))
+										
 				    #return busname
 
-            if not routes:
-                msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
-                return
+            #if not routes:
+             #   msg.respond("Sorry, we found no route marked '%(text)s'.", text=msg.text)
+              #  return
             url = "http://dev.chalobest.in" + str(detail[6])
-	    distance = str(detail[7])+" kms"
+            distance = str(detail[7])+" kms"
             if str(detail[5]).strip() is not None:
                 headway = "Freq: " + str(detail[5]) + " mins"
             else:
@@ -179,12 +194,14 @@ class App(AppBase):
                     stops.append(stop)
             response = STYLE["start"]
             for stop in stops:
-                match = stop["official_name"] + ": " + stop["routes"]
+                match = stop["display_name"] + ": " + stop["routes"]
                 if len(response) > len(STYLE["repeat"]): response += STYLE["repeat"]
                 response += match
-                if len(response) > MAX_MSG_LEN: break
+                if len(response) > MAX_MSG_LEN or stop['display_name'].lower() == msg.text.strip().lower(): break
             if len(response) > MAX_MSG_LEN:
                 response = response[:MAX_MSG_LEN-(len(STYLE["end"])+4)] + "..."
             response += STYLE["end"]
 
         msg.respond(response)
+
+

@@ -23,62 +23,56 @@
 
 {% block content %}
 
-<div class="g12_12 search">
+<div class="g12 search">
 <!--		<div class="g12_2">&nbsp;</div>-->
-		<div class="g12_7">
+	<div class="g12_7">
         {% include 'guidesearch_form.html' %}
-        </div>
+    </div>
 
 
 	<div class="g12_5 pagetitle">
 		<div class="guideh1box">
 			<div class="rti">
-				<img src="/static/images/stop_r.png" />
+				<img src="/static/images/stop.png" />
 			</div>
 			<div class="titleXS rtt">
 				<h1><span>{{ stop.display_name }} - </span><span>{{ stop.name_mr }}</span></h1>
         	</div>
+
+			{% if stop.display_alt_names %}
+			<div class="listextrainfo">
+				<p class="marginBottomSmall">
+					{% for alt_name in stop.display_alt_names %}
+						{{ alt_name.name }}{% if not forloop.last %}, {% endif %}
+					{% endfor %}
+					<!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
+			</div>
+			{% endif %}
+
+
+
 	    </div>
 
-    <div class="g12_12">
-	<div class="g12_12 listextrainfo">
-        <div class="floatLeft">
-            <p class="marginBottomSmall">
-                <img src="/static/images/area.png" />
-                <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a>
-                <br />
-                <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a>                            
-            </p>
-        </div>
-    
-
-        <div class="floatRight">
-            <p class="marginRight marginBottomSmall">{{ stop.road.display_name }}<br />
-            {{ stop.road.name_mr }}
-                            
-            </p>
-        
-        </div>
-		
-        <!--<div class="leading20">--><!-- you can show or hide the blockquote, keep the div -->
-                    {% if stop.display_alt_names %}
-					<p class="marginBottomSmall">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {% for alt_name in stop.display_alt_names %}
-                            {{ alt_name.name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                        <!-- <span class="small right tred"><a href="#">Add local name&nbsp;</a></span> --></p>
-                    {% endif %}
-		<!--</div>-->	
-    </div>
-    </div>
-
-
+		<div class="g5_5 marginTop">
+			<div class="floatLeft g5_2">
+				<div class="listextrainfo">
+					<p class="marginBottomSmall">
+						<img src="/static/images/area.png" />
+						<a href="{{ stop.area.get_absolute_url }}">{{ stop.area.display_name }}</a><br>&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ stop.area.get_absolute_url }}">{{ stop.area.name_mr }}</a>
+					</p>
+				</div>
+			</div>
+			<div class="g5_gut">&nbsp;</div>
+				<div class="floatRight g5_3">
+					<p class="marginRight marginBottomSmall textAlignRight">{{ stop.road.display_name }}<br>  {{ stop.road.name_mr }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
 	<br style="clear: both;" /> 
 
-
-
+</div>
+<!-- the old lefthand side banner style, remove? I think it won't work anymore anyway because we changed a few styles -->
 <!--<div class="g7">-->
 <!--	<div class="g7_7">-->
 <!--		<div class="g7_7 pagetitle">-->
@@ -113,13 +107,12 @@
 <!--			<p class="small">&nbsp;{{ stop.road.display_name }} <span class="frequency">{{ stop.area.display_name }}</span></p>-->
 <!--		</div>-->
 <!--		<br style="clear: both;" /> -->
-    <div class="g7">
-        <div class="g7_7">
-        <div class="maphome">
+<div class="g7">
+    <div class="g7_7">
+		<div class="maphome">
             <div id="map" style="width:100%;height:100%;"></div>
         </div>
     </div>
-    <div class="leading40"></div>
 </div>
 
 <div class="g5">
@@ -130,8 +123,8 @@
 	<br style="clear: both;" />-->
 
     <div class="listheight">
+	<div class="leading10"></div>
 		<div class="g5_5 listtitle">
-			
 			<h2><img src="/static/images/bus.png" />Departing Routes</h2>
 		</div>
 		<div class="list">
@@ -154,25 +147,33 @@
 			<table name="stoppage_table" class="tablebase">
 				<tr class="sublist">
 					<th class="stop_number">
-						<!-- <form name="filter_stop_number" class="listfilter_form">
-							<input class="listfilter_input" type="text" name="stop_number" value="Route #..." />
-						</form> -->
+						
 					</th>
-					<th class="stop_route">
+					<th class="stop_route" alt="Route filter" title="Route filter">
 						<form name="filter_stop_route" class="listfilter_form">
 							<input class="listfilter_input" type="text" name="stop_route" placeholder="Type first or last stop..." />
 						</form>
 					</th>
 					<th class="stop_frequency">
-<!--						<img src="/static/images/Frq_3.png" />-->
-						<span class="thumbs">Frequency</span>
+						
+					</th>
+				</tr>
+				<tr class="sublist">
+					<th>
+						<span class="charfix" alt="Route number" title="Route number">&#9702;</span>
+					</th>
+					<th>
+						<span class="col_img"><img src="/static/images/stop.png" alt="Stop" title="Stop" /> - <img src="/static/images/stop.png" alt="Stop" title="Stop" /> </span>
+					</th>
+					<th>
+						<span class="small charfix" alt="Frequency" title="Frequency">&#10227; </span>
 					</th>
 				</tr>
 				
                 {% for route in stop.get_routes %}
 
 				<tr class="listItem">
-					<td><a href="{{ route.get_absolute_url }}" class="large">{{ route.display_name }}</td>
+					<td><a href="{{ route.get_absolute_url }}" class="large" title=" Go to   route   {{ route.display_name }}">{{ route.display_name }}</td>
 					<td>
 						<span class="half"><b>{{ route.from_stop.display_name }}</b><br /><span>{{ route.from_stop.name_mr }}</span></span>
 						<span class="half right"><b>{{ route.to_stop.display_name }}</b><br /><span>{{ route.to_stop.name_mr }}</span></span>
@@ -185,8 +186,6 @@
 			</table>
 		</div>
 
-
-    <div class="leading40"></div>
 	<div class="g5_5">
 		<div class="g5_5"> &nbsp;
 
@@ -249,16 +248,13 @@
 		</div>
 		<div class="g7_gut"></div>
 		<div class="g5_5">
+			<div class="g5_5 listtitle">
+				<h3><img src="/static/images/stop.png" />Nearby Stops</h3>
+			</div>
 			<table name="stop_nearby" class="tablebase">
-				<tr class="sublist">
-					<th>
-						<img src="/static/images/stop.png" />
-						<h3>Nearby Stops</h3>
-					</th>
-				</tr>
                 {% for n in stop.nearby_stops %}
 				<tr class="landing_row listItem">
-					<td class="landing_area"><a href="{{ n.get_absolute_url }}"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
+					<td><a href="{{ n.get_absolute_url }}"><b>{{ n.display_name }}</b><br /><span>{{ n.name_mr }}</span></a></td>
 				<tr>
                 {% endfor %}
 			</table>
@@ -266,12 +262,5 @@
 	</div>
 </div>
 
-
-
-	</div>
-
-	<div class="leading40"></div>
-	<div class="leading40"></div>
-</div>
 
 {% endblock %}

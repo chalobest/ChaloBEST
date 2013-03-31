@@ -97,13 +97,18 @@ def HardCodedRoute_save(entry):
     #print obj.__dict__ 
 
 def Depot_save(entry):
-    obj = Depot(
+
+    obj, created = Depot.objects.get_or_create(
         code=str(entry[0]),
         name=str(entry[1]), 
-        stop=int(entry[2])
-        ) 
-    obj.save()
-    #print obj.__dict__  
+        defaults= {
+            'stop':int(entry[2])
+            }
+        )
+
+    if created:
+        print obj.__dict__
+
 
 def Holiday_save(entry):
     date_format = entry[0].rsplit('.')
@@ -115,7 +120,6 @@ def Holiday_save(entry):
     #print obj.__dict__  
 
 def RouteDetail_save(entry):
-
     temp_stop=Stop.objects.get(code=int(entry[2])) 
     """try:
         temp_route=Route.objects.get(code=str(entry[0]))
@@ -126,16 +130,30 @@ def RouteDetail_save(entry):
     except:
         temp_stop=None
     """
-    #if entry[3].startswith(
-    obj = RouteDetail(
+
+    obj, created = RouteDetail.objects.get_or_create(
         route_code = entry[0],
-        route = None,
         serial=int(entry[1]), 
         stop= temp_stop,
-        stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), 
-        km=(lambda:None,lambda:Decimal(entry[4]))[ entry[4] != '' ]())
-    obj.save()
-    #print obj.__dict__  
+        defaults={
+            'route':None,
+            'stage':(lambda:entry[3].startswith('TRUE'), lambda:None)[ entry[3] == '' ](), 
+            'km':(lambda:None,lambda:Decimal(entry[4]))[ entry[4] != '' ]()
+            }
+        )
+
+
+
+    # #if entry[3].startswith(
+    # obj = RouteDetail(
+    #     route_code = entry[0],
+    #     route = None,
+    #     serial=int(entry[1]), 
+    #     stop= temp_stop,
+    #     stage=(lambda:entry[3].startswith('1'), lambda:None)[ entry[3] == '' ](), 
+    #     km=(lambda:None,lambda:Decimal(entry[4]))[ entry[4] != '' ]())
+    # obj.save()
+    # #print obj.__dict__  
        
 def Road_save(entry):
     obj, created = Road.objects.get_or_create(code=int(entry[0]), defaults={'name': str(entry[1])})
@@ -347,11 +365,17 @@ def fire_up():
     for model in saveorder:
         CsvLoader(model)
     loadFKinRouteDetail()
-    #importUniqueRoutes()    
-    #print "loading UniqueRoute..."
-    #postclean.copynames2display_name()
-    #postclean.make_stage_info()
-    #postclean.make_type_info()
+
+    print "loading UniqueRoutes..."    
+    import fix_missing_atlas_data as ia
+    ia.do()
+    print "Fixing missing distances, headways,and runtimes..."
+    import fix_missing_atlas_data as fix_data
+    fix_data.do()
+    print "Running cleanup scripts..."
+    import postload_cleanup as postclean
+    postclean.do()
+
     
 #----------------------------------------------------------
 

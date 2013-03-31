@@ -45,16 +45,11 @@ def fix_distances():
                     last_stop_passed = True
                     break
 
-            #if record and distance > 0 and detail.stop.id == to_stop.id:
-            #    record = False
-            #    break
-
             # Start recording *after* we check for the break, because,
             # if from_stop == to_stop, we don't want to break on the first stop
             if detail.stop.id == from_stop.id: record = True
 
         if record:
-            pdb.set_trace()
             print Exception("UniqueRoute %d: %s from %s to %s ran off the end while measuring distance!" %(unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
         if not distance:
             print Exception("UniqueRoute %d: %s from %s to %s still has no distance!" % (unique_route.id, unique_route, unique_route.from_stop.code, unique_route.to_stop.code))
@@ -65,10 +60,19 @@ def fix_distances():
             unique_route.save()
 
 columns = ["runtime%d" % n for n in range(1,5)]
-def fix_missing_runtimes():
-    for schedule in RouteSchedule.objects.all():
+def fix_missing_runtimes(routecode=None):
+    errlog = []
+
+    if not routecode:
+        rslist = RouteSchedule.objects.all()
+    else:
+        rslist =  RouteSchedule.objects.filter(unique_route__route__code=routecode)
+        print 'rslist count', len(rslist)
+
+    for schedule in rslist:
         # other schedules for the same unique route (but at different times)
-        sibling_schedules = schedule.unique_route.routeschedule_set.all()
+        sibling_schedules = list(schedule.unique_route.routeschedule_set.all())
+
         # the "full" schedules for this route are used to attempt to
         # guesstimate the schedules of partial subroutes
         related_routes = related_schedules = []
@@ -81,9 +85,30 @@ def fix_missing_runtimes():
 
             # try to use the previous column....if available
             if getattr(schedule, column): continue
+
+
+            # Go through the other schedules for this subroute and
+            # see if we get a matching runtime -- if so, use it
+            # since values are meant to be copied over preferably vertically from the same uniqueroute..
+            for sibling in sibling_schedules:
+                sibling_runtime = getattr(sibling, column)
+                if sibling_runtime:
+                    setattr(schedule, column, sibling_runtime)
+                    schedule.save()
+                    log =  "%s %s fixed to %s %s %s" % (schedule, column, sibling, column, sibling_runtime)
+                    #print log
+                    errlog.append(log)
+                    break
+            if getattr(schedule, column): continue
+
+
             if col_idx > 0:
                 prev_runtime = getattr(schedule, columns[col_idx-1])
                 if prev_runtime:
+                    log = "%s %s fixed to previous, %s : %s" % (schedule, column, 'runtime'+ str(col_idx), prev_runtime)
+                    #print log
+                    errlog.append(log)
+
                     setattr(schedule, column, prev_runtime)
                     schedule.save()
                     continue
@@ -92,23 +117,19 @@ def fix_missing_runtimes():
             if col_idx < len(columns)-1:
                 next_runtime = getattr(schedule, columns[col_idx+1])
                 if next_runtime:
+                    log= "%s %s fixed to next,     %s : %s" % (schedule, column, 'runtime'+ str(col_idx+2), next_runtime)
+                    #print log
+                    errlog.append(log)
+
                     setattr(schedule, column, next_runtime)
                     schedule.save()
                     continue
 
-            # otherwise, go through the other schedules for this subroute and
-            # see if we get a matching runtime -- if so, use it
-            for sibling in sibling_schedules:
-                sibling_runtime = getattr(sibling, column)
-                if sibling_runtime:
-                    setattr(schedule, column, sibling_runtime)
-                    schedule.save()
-                    # print "OK  fix_missing_runtimes: %s %s fixed to %s" % (schedule, column, sibling)
-                    break
 
-            if getattr(schedule, column): continue
             # otherwise, go through the matching schedules for the full-length versions of this
             # route and extrapolate the runtime.
+
+
             if related_subroutes:
                 # first, try to get the schedules for the full routes, given the same schedule type
                 related_schedules = []
@@ -121,7 +142,11 @@ def fix_missing_runtimes():
                     if related_runtime:
                         # if so, compute the partial runtime of this schedule as the (possibly > 1.0) fraction of runtime of the other schedule by distance
                         partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
-                        # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
+
+                        log= "%s %s adjusted to related  %s : %s" % (schedule, column, related_schedule, partial_runtime)
+                        #print log
+                        errlog.append(log)
+
                         setattr(schedule, column, partial_runtime)
                         schedule.save()
                         break
@@ -139,23 +164,31 @@ def fix_missing_runtimes():
                     if related_runtime:
                         # if so, compute the partial runtime of this schedule as the (possibly > 1.0) fraction of runtime of the other schedule by distance
                         partial_runtime = related_runtime*float(schedule.unique_route.distance)/float(related_schedule.unique_route.distance)
-                        # print "OK  fix_missing_runtimes: %s %s adjusted to parent %s" % (schedule, column, related_schedule)
+                        log= "%s %s adjusted to other schedule type %s : %s" % (schedule, column, related_schedule, partial_runtime)
+                        #print log
+                        errlog.append(log)
+
                         setattr(schedule, column, partial_runtime)
                         schedule.save()
                         break
 
             if column != "runtime4":
-                print Exception("ERR fix_missing_runtimes: %s STILL missing %s!" % (schedule, column))
                 dist = schedule.unique_route.distance
                 speed = 15.0/60.0 # km/min
                 runtime_in_mins = dist/speed
+                log = "%s did not have any matching %s! Computing the value to %s" % (schedule, column, runtime_in_mins)
+                #print log
+                errlog.append(log)
+
                 setattr(schedule, column, runtime_in_mins)
                 schedule.save()
+    return errlog
 
 
 
 hcolumns = ["headway%d" % n for n in range(1,6)]
 def fix_missing_headways():
+    errlog = []
     for schedule in RouteSchedule.objects.all():
         # other schedules for the same unique route (but at different times)
         sibling_schedules = schedule.unique_route.routeschedule_set.all()
@@ -169,6 +202,21 @@ def fix_missing_headways():
             # if the headway is set, AWESOME, bail
             if getattr(schedule, column): continue
             
+            # Go through the other schedules for this subroute and
+            # see if we get a matching headway -- if so, use it
+            #copy over vertically from the same atlas entry group
+            for sibling in sibling_schedules:
+                sibling_headway = getattr(sibling, column)
+                if sibling_headway:
+                    setattr(schedule, column, sibling_headway)
+                    schedule.save()
+                    logentry = "OK  fix_missing_headways: %s %s fixed to %s : %s" % (schedule, column, sibling, sibling_headway)
+                    #print logentry
+                    errlog.append(logentry)
+                    break
+                
+            if getattr(schedule, column): continue
+
             # try to use the previous column....if available
             #if getattr(schedule, column): continue
             if col_idx > 0:
@@ -196,18 +244,8 @@ def fix_missing_headways():
             
             if getattr(schedule, column):
                 continue
-            # otherwise, go through the other schedules for this subroute and
-            # see if we get a matching headway -- if so, use it
-            for sibling in sibling_schedules:
-                sibling_headway = getattr(sibling, column)
-                if sibling_headway:
-                    setattr(schedule, column, sibling_headway)
-                    schedule.save()
-                    # print "OK  fix_missing_headways: %s %s fixed to %s" % (schedule, column, sibling)
-                    break
-                
-            if getattr(schedule, column): continue
             
+            # this copies over all headways from the sibling schedule
             break_loop = False
             for sibling in sibling_schedules:
                 if break_loop:
@@ -215,14 +253,14 @@ def fix_missing_headways():
                 for hcol in hcolumns:
                     headway = getattr(sibling, hcol)
                     if headway:
+                        # if value present, bail, else save
+                        if getattr(schedule, column): continue
                         setattr(schedule, column, headway)
                         schedule.save()
                         break_loop = True
                         break
             
-            
-            if getattr(schedule, column):
-                continue
+            if getattr(schedule, column): continue
             
             break_loop = False        
             for r in related_subroutes:
@@ -236,24 +274,30 @@ def fix_missing_headways():
                         if break_loop:
                             break
                         if headway:
+                            if getattr(schedule, column): continue
                             setattr(schedule, column, headway)
                             schedule.save()
                             break_loop = True
-                            break
-                                    
+                            break                                    
             
             if getattr(schedule, column):
                 continue
+
             from django.db.models import  Avg
             if not getattr(schedule, column):
-                print Exception("All failed for schedule with id %d" % schedule.id)
-                setattr(schedule, column, RouteSchedule.objects.aggregate(Avg(column))[column+"__avg"])
+                val = RouteSchedule.objects.aggregate(Avg(column))[column+"__avg"]
+                logentry = "No matching headway found for schedule %s %s. Using global average %s" % (schedule, column, val)
+                #print logentry
+                errlog.append(logentry)
+                
+                setattr(schedule, column, val)
                 schedule.save()
-                
-                
-            
-            '''
-            if column != "headway5":
-                print Exception("ERR fix_missing_headways: %s STILL missing %s!" % (schedule, column))
-            '''    
-                
+
+    return errlog
+
+
+'''
+if column != "headway5":
+print Exception("ERR fix_missing_headways: %s STILL missing %s!" % (schedule, column))
+'''    
+

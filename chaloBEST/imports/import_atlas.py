@@ -31,6 +31,16 @@ def csvToJSON():
     jsonFile.write(json.dumps(atlasDict, indent=2))
     jsonFile.close()
 
+
+def generateRouteMapping():
+    rmap = dict()
+    for r in Route.objects.all().values('code','alias'):
+        rmap[str(r['alias'])]=str(r['code'])
+    jsonFile = open(join(PROJECT_ROOT, "../db_csv_files/routeMapping_test.json"), "w")
+    jsonFile.write(json.dumps(rmap, indent=2))
+    jsonFile.close()
+                            
+
 '''
 function to copy over values of AM N PM + Schedule from previous row, reading from Atlas.json, writing to atlasCopied.json
 (fill in blank rows where 'copy from previous' is assumed, and create new json file - step 2)

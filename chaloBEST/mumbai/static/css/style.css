@@ -876,3 +876,654 @@ Change widths as necessary
   p, h2, h3 {orphans: 3; widows: 3}
   h2, h3{page-break-after: avoid}
 }
+/*USER PROFILE STYLES- might need to be moved somewhere else*/
+
+
+html, body {
+    background: url("../img/bg-container.png") repeat-y scroll center top #EAE5E1;
+   
+}
+#container {
+    background-color: #F6F4F2;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 3px #999999;
+    margin: 30px auto 50px;
+    padding: 0 10px;
+    width: 1008px;
+}
+#top {
+    background-color: #111111;
+    border-bottom: 1px solid #FFFFFF;
+    height: 30px;
+}
+#content-container {
+    padding: 12px;
+    position: relative;
+}
+#header {
+    height: 130px;
+    margin: -2px 0 0;
+    padding: 0 13px;
+    position: relative;
+}
+#nav {
+    overflow: auto;
+    position: absolute;
+    right: 12px;
+    top: 48px;
+}
+#nav li {
+    border-color: #EEEEEE #EEEEEE #FFFFFF;
+    border-radius: 11px 11px 11px 11px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    margin: 0 0 0 10px;
+}
+#nav li a {
+    background: none repeat scroll 0 0 #EDE9E4;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    outline: 0 none;
+    padding: 4px 4px 3px;
+    text-decoration: none;
+}
+#nav li a span {
+    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.15) 100%, rgba(255, 255, 255, 0.01) 100%, transparent) repeat scroll 0 0 transparent;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 3px rgba(33, 33, 33, 0.45);
+    color: #686868;
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1.4em;
+    padding: 0.52em 1.6em 0.48em;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 254, 255, 0.45);
+}
+#nav li a:hover span {
+    background-color: #E0DFDA;
+}
+#nav li a:active span {
+    background-color: #E0DFDA;
+    box-shadow: 0 0 1px rgba(33, 33, 33, 0.45);
+    line-height: 1.5em;
+    padding: 0.58em 1.6em 0.3em;
+}
+#nav li a span:active {
+}
+#intro {
+    background: url("../img/userena.png") no-repeat scroll 90px 30px #E7E2DE;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 3px #999999 inset;
+    min-height: 290px;
+    overflow: hidden;
+    padding: 30px 20px;
+    position: relative;
+}
+#xtra-info {
+    background-image: url("../img/trans.png");
+    border-radius: 0 0 8px 8px;
+    bottom: 0;
+    box-shadow: 0 -2px 3px #CCCCCC;
+    color: #C1BCB9;
+    font-weight: bold;
+    left: 0;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000000;
+}
+#xtra-info a {
+    color: #FFFFFF;
+}
+#footer {
+    background: url("../img/stripe.png") repeat-x scroll center top transparent;
+    margin: 40px 12px 0;
+    padding: 20px 0;
+}
+.white-box {
+    background-color: #EFEBE8;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 3px #999999 inset;
+    margin: 15px auto 20px;
+    overflow: auto;
+    padding: 12px 0;
+    width: 506px;
+}
+#details {
+    background-color: #FFFEFF;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 3px #999999;
+    margin: 0;
+    overflow: hidden;
+    padding: 6px;
+    text-align: left;
+    width: 140px;
+}
+#details img {
+    margin: 0 0 10px;
+}
+#try {
+    background: url("../img/try.png") no-repeat scroll 0 0 transparent;
+    height: 90px;
+    position: absolute;
+    right: -150px;
+    top: 90px;
+    width: 124px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
+    text-shadow: 1px 1px 0 #FFFFFF;
+    text-transform: uppercase;
+}
+p {
+    color: #444444;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: 0 0 0.9em;
+    text-shadow: 1px 1px 0 #FFFFFF;
+}
+p.intro {
+    margin: 0 20px 0 380px;
+}
+.white-box p {
+    color: #000000;
+    margin: 0 12px 5px;
+}
+h1 {
+    font-size: 2.2em;
+    margin: 25px 0 0;
+}
+h2.content-title {
+    background: none no-repeat scroll 90px 30px #E7E2DE;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 0 3px #999999 inset;
+    color: #AB292A;
+    font-size: 1.5em;
+    margin: 10px;
+    padding: 15px 15px 12px;
+}
+h2.intro {
+    background: url("../img/stripe.png") repeat-x scroll 0 bottom transparent;
+    font-size: 1.8em;
+    margin: 10px 20px 9px 380px;
+    padding: 0 0 5px;
+}
+h2 span {
+    color: #AC1500;
+    font-size: 1.8em;
+}
+.white-box h2 {
+    background-image: none;
+    border-bottom: 1px solid #F1EDEB;
+    color: #AB292A;
+    font-size: 1.9em;
+    font-weight: bold;
+    padding: 5px 12px 6px;
+    text-transform: none;
+    width: 482px;
+}
+h3 {
+    font-size: 1.2em;
+    margin: 0 0 5px;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+    font-size: 0.7em;
+}
+a {
+    color: #880E00;
+    text-decoration: underline;
+}
+a.button {
+    background: none repeat scroll 0 0 #EDE9E4;
+    border-radius: 10px 10px 10px 10px;
+    clear: both;
+    display: block;
+    outline: 0 none;
+    padding: 4px 4px 3px;
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    top: -55px;
+    width: 200px;
+}
+a.button span {
+    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.15) 100%, rgba(255, 255, 255, 0.01) 100%, transparent) repeat scroll 0 0 transparent;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 3px rgba(33, 33, 33, 0.45);
+    color: #8B0908;
+    display: block;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1.4em;
+    padding: 0.52em 1.6em 0.48em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255, 254, 255, 0.45);
+}
+a.button:active span {
+    background-color: #E0DFDA;
+    box-shadow: 0 0 1px rgba(33, 33, 33, 0.45);
+    line-height: 1.5em;
+    padding: 0.58em 1.6em 0.3em;
+}
+a#fork {
+    background-image: url("../img/forkme.png");
+    display: block;
+    height: 138px;
+    position: fixed;
+    right: -2px;
+    text-indent: -9999px;
+    top: -2px;
+    width: 136px;
+}
+.white-box img {
+    background-color: #FFFFFF;
+    border: 3px double #F1EDEB;
+    float: right;
+    margin: 0 10px;
+    padding: 4px;
+}
+form {
+    border-radius: 8px 8px 8px 8px;
+    margin: 15px auto 20px;
+    padding: 12px 0;
+    width: 500px;
+}
+form p {
+    border-bottom: 1px solid #DDDDDD;
+    color: #999999;
+    font-size: 0.7em;
+    margin: 0;
+    overflow: hidden;
+    padding: 4px 0;
+    position: relative;
+}
+form p label {
+    color: #444444;
+    display: block;
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 10px 20px 0 0;
+    text-align: right;
+    width: 160px;
+}
+form p.checkbox {
+    border: medium none;
+}
+form p.checkbox label {
+    float: none;
+    padding: 0 0 0 175px;
+    text-align: left;
+    width: inherit;
+}
+span.label {
+    color: #111111;
+    font-weight: bold;
+}
+input[type="text"], input[type="password"], input[type="file"], textarea, span.editable {
+    border: 1px solid #D7D7D7;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    float: right;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 5px 6px;
+    width: 306px;
+}
+input[type="checkbox"] {
+    padding: 14px 0;
+    width: 20px;
+}
+input[type="radio"] {
+    margin: 0 8px 0 0;
+}
+select {
+    margin: 10px 2px 0;
+    min-width: 60px;
+}
+input:focus, textarea:focus, span.editable:focus {
+    background-color: #FFFFFF;
+    border: 1px solid #4C4C4C;
+    outline: medium none;
+}
+textarea {
+    height: 4em;
+    margin: 10px 0;
+}
+input[type="submit"] {
+    background-color: #AB292A;
+    border: 1px outset #CE3024;
+    border-radius: 3px 3px 3px 3px;
+    color: #F9F9F9;
+    cursor: pointer;
+    display: block;
+    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: 35px;
+    letter-spacing: 1px;
+    line-height: 34px;
+    margin: 4px 0 0 180px;
+    min-width: 150px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #5E98BD;
+}
+input[type="submit"]:hover {
+    color: #F9F9F9;
+    cursor: pointer;
+}
+input[type="submit"]:active {
+    background-color: #BD302D;
+    border: 1px inset #CE3024;
+    line-height: 36px;
+}
+#signin input[type="checkbox"] {
+    display: block;
+    float: left;
+    margin: 3px;
+    padding: 0;
+    width: 10px;
+}
+ul.errorlist {
+    background-color: #FEDAE0;
+    border: 1px solid #A3181C;
+    border-radius: 4px 4px 4px 4px;
+    color: #A3181C;
+    margin: 5px 0 3px;
+}
+ul.errorlist li {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 5px 5px 4px;
+}
+legend {
+    border-bottom: 1px solid #DDDDDD;
+    color: #AB292A;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 5px 0 6px;
+    text-transform: uppercase;
+    width: 500px;
+}
+fieldset {
+    margin: 0 0 20px;
+}
+p.forgot-password {
+    border-bottom: 1px solid #F1EDEB;
+    border-top: 1px solid #F1EDEB;
+    margin: 30px 0 10px;
+    padding: 10px 0 10px 180px;
+}
+#header h1 {
+    height: 112px;
+    margin: 0;
+    width: 150px;
+}
+#header h1 a {
+    background: url("../img/bread-and-pepper-logo.png") repeat scroll center top transparent;
+    display: block;
+    height: 112px;
+    text-indent: -9999px;
+    width: 150px;
+}
+#header h1 a:hover {
+    background: url("../img/bread-and-pepper-logo.png") repeat scroll center bottom transparent;
+}
+ul#profile-nav {
+    margin-top:140px;
+    height: 40px;
+    position: absolute;
+    right: 25px;
+    top: -47px;
+    width: 490px;
+}
+ul#profile-nav li {
+    float: left;
+    margin: 0;
+    text-align: center;
+}
+a#profile-nav li.selected a {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F6F4F2;
+    border-color: #FFFFFF #FFFFFF -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    box-shadow: 0 -1px 1px #CCCCCC;
+    color: #111111;
+    padding: 8px 25px;
+    text-decoration: none;
+}
+ul#profile-nav li a {
+    color: #999997;
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    height: 20px;
+    line-height: 25px;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+ul#profile-nav li a:hover {
+    text-decoration: underline;
+}
+ul.features {
+    margin: 30px -12px 0;
+    overflow: auto;
+}
+ul.features li {
+    background: url("../img/stripe.png") repeat-x scroll center top transparent;
+    float: left;
+    margin: 10px 0 0 12px;
+    min-height: 180px;
+    padding: 30px 10px 0 0;
+    width: 310px;
+}
+ul.blocks {
+    margin: 40px -12px 0;
+    overflow: auto;
+}
+ul.blocks li {
+    background: url("../img/stripe.png") repeat-x scroll center top transparent;
+    float: left;
+    margin: 10px 0 0 12px;
+    padding: 30px 0 0;
+    text-align: center;
+    width: 237px;
+}
+#browse {
+    background-image: url("../img/icon-browse.png");
+    display: block;
+    height: 128px;
+    margin: 20px auto;
+    text-indent: -9999px;
+    width: 128px;
+}
+#download {
+    background-image: url("../img/icon-download.png");
+    display: block;
+    height: 128px;
+    margin: 20px auto;
+    text-indent: -9999px;
+    width: 128px;
+}
+#docs {
+    background-image: url("../img/icon-docs.png");
+    display: block;
+    height: 128px;
+    margin: 20px auto;
+    text-indent: -9999px;
+    width: 128px;
+}
+#demo {
+    background-image: url("../img/icon-demo.png");
+    display: block;
+    height: 128px;
+    margin: 20px auto;
+    text-indent: -9999px;
+    width: 128px;
+}
+#footer p {
+    font-size: 0.7em;
+    text-align: right;
+}
+#footer p a {
+    font-weight: bold;
+}
+div#lang_form {
+    margin: 0 auto;
+    position: relative;
+    width: 1008px;
+}
+div#lang_form p {
+    font-size: small;
+    margin: 0;
+    padding: 0 0 0 3px;
+}
+div#lang_form select {
+    margin: 5px 0 0;
+}
+div#lang_form form {
+    background-color: transparent;
+    box-shadow: none;
+    margin: 1px;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    width: auto;
+}
+div#lang_form form label {
+    color: #676767;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+div#lang_form input[type="submit"] {
+    border: 1px outset #CE3024;
+    border-radius: 3px 3px 3px 3px;
+    color: #F9F9F9;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: 21px;
+    letter-spacing: 1px;
+    line-height: 34px;
+    margin: 5px 0 0 10px;
+    min-width: 80px;
+    padding: 0 10px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #5E98BD;
+}
+ul.messages {
+    font-size: 0.8em;
+    font-weight: bold;
+    left: 50%;
+    margin: 0 0 0 -270px;
+    position: absolute;
+    top: 4px;
+    width: 540px;
+}
+ul.messages li {
+    background-color: #FCF5D8;
+    border-radius: 20px 20px 20px 20px;
+    padding: 4px 20px;
+    text-align: center;
+}
+#messages {
+    margin: 20px 0 0;
+    padding: 0;
+}
+#messages li {
+    margin: 0;
+    overflow: auto;
+    padding: 15px 10px;
+}
+#messages li a {
+    display: block;
+    font-weight: bold;
+    margin: 0 0 5px;
+    text-decoration: none;
+}
+#messages.list-view a {
+    border: 1px solid #DDDDDD;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    overflow: auto;
+    padding: 10px 0 10px 10px;
+}
+#messages.list-view a:hover {
+    background-color: #EEEEEE;
+}
+p.date {
+    color: #777777;
+    font-size: 70%;
+    margin: 10px 0 0;
+}
+.avatar {
+    border: 1px solid #CCCCCC;
+    float: right;
+    margin: 0 10px;
+    width: 80px;
+}
+.avatar.received {
+    float: left;
+}
+.message-content {
+    border-radius: 2px 2px 2px 2px;
+    margin: 0 110px;
+    min-height: 52px;
+    padding: 15px;
+    position: relative;
+}
+.send .message-content {
+    background-color: #E6E6E6;
+    margin: 0 110px;
+}
+.received .message-content {
+    background-color: #DADADA;
+    margin: 0 110px;
+}
+#account_list {
+    margin: 0 0 0 -12px;
+    overflow: auto;
+}
+#account_list li {
+    background-color: #FFFEFF;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 0 3px #999999;
+    float: left;
+    margin: 0 0 12px 12px;
+    padding: 6px;
+    text-align: center;
+    width: 142px;
+}
+#account_list li img {
+    border-radius: 7px 7px 7px 7px;
+    height: 142px;
+    width: 142px;
+}
+#account_list li a {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-decoration: none;
+}
+

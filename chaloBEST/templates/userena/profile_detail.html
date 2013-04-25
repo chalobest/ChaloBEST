@@ -53,13 +53,13 @@
 		<ul> 
 		<script type="text/javascript">
 			var phno =  document.getElementById("phno").value;
-			$.getJSON("http://sms.chalobest.in/messages_json/?phone_no="+phno, function(data){
+			$.getJSON("http://chalobest.in:18234/messages_json/?phone_no="+phno, function(data){
 				if (data.length != 0){
     				$.each(data, function (index, value) {
-        				//console.log(value);
+        				console.log(value);
 					
 					$("#sms").append("<div><p><li> <h3>Date Sent: "+value.datetime+"</h3> <p>Direction : "+value.direction+" </p><p>Text  :" +value.text+"</p></li></p></div>")
-    				        $("#sms").accordion();
+    				        //$("#sms").accordion();
 				});
 				}
 				else

@@ -879,207 +879,10 @@ Change widths as necessary
 /*USER PROFILE STYLES- might need to be moved somewhere else*/
 
 
-html, body {
-    background: url("../img/bg-container.png") repeat-y scroll center top #EAE5E1;
-   
-}
-#container {
-    background-color: #F6F4F2;
-    border: 1px solid #FFFFFF;
-    border-radius: 8px 8px 8px 8px;
-    box-shadow: 0 0 3px #999999;
-    margin: 30px auto 50px;
-    padding: 0 10px;
-    width: 1008px;
-}
-#top {
-    background-color: #111111;
-    border-bottom: 1px solid #FFFFFF;
-    height: 30px;
-}
-#content-container {
-    padding: 12px;
-    position: relative;
-}
-#header {
-    height: 130px;
-    margin: -2px 0 0;
-    padding: 0 13px;
-    position: relative;
-}
-#nav {
-    overflow: auto;
-    position: absolute;
-    right: 12px;
-    top: 48px;
-}
-#nav li {
-    border-color: #EEEEEE #EEEEEE #FFFFFF;
-    border-radius: 11px 11px 11px 11px;
-    border-style: solid;
-    border-width: 1px;
-    float: left;
-    margin: 0 0 0 10px;
-}
-#nav li a {
-    background: none repeat scroll 0 0 #EDE9E4;
-    border-radius: 10px 10px 10px 10px;
-    float: left;
-    outline: 0 none;
-    padding: 4px 4px 3px;
-    text-decoration: none;
-}
-#nav li a span {
-    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.15) 100%, rgba(255, 255, 255, 0.01) 100%, transparent) repeat scroll 0 0 transparent;
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: 0 0 3px rgba(33, 33, 33, 0.45);
-    color: #686868;
-    display: block;
-    font-size: 0.9em;
-    font-weight: bold;
-    line-height: 1.4em;
-    padding: 0.52em 1.6em 0.48em;
-    text-decoration: none;
-    text-shadow: 0 1px 0 rgba(255, 254, 255, 0.45);
-}
-#nav li a:hover span {
-    background-color: #E0DFDA;
-}
-#nav li a:active span {
-    background-color: #E0DFDA;
-    box-shadow: 0 0 1px rgba(33, 33, 33, 0.45);
-    line-height: 1.5em;
-    padding: 0.58em 1.6em 0.3em;
-}
-#nav li a span:active {
-}
-#intro {
-    background: url("../img/userena.png") no-repeat scroll 90px 30px #E7E2DE;
-    border-radius: 8px 8px 8px 8px;
-    box-shadow: 0 0 3px #999999 inset;
-    min-height: 290px;
-    overflow: hidden;
-    padding: 30px 20px;
-    position: relative;
-}
-#xtra-info {
-    background-image: url("../img/trans.png");
-    border-radius: 0 0 8px 8px;
-    bottom: 0;
-    box-shadow: 0 -2px 3px #CCCCCC;
-    color: #C1BCB9;
-    font-weight: bold;
-    left: 0;
-    margin: 0;
-    padding: 10px;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    text-shadow: -1px -1px 0 #000000;
-}
-#xtra-info a {
-    color: #FFFFFF;
-}
-#footer {
-    background: url("../img/stripe.png") repeat-x scroll center top transparent;
-    margin: 40px 12px 0;
-    padding: 20px 0;
-}
-.white-box {
-    background-color: #EFEBE8;
-    border-radius: 8px 8px 8px 8px;
-    box-shadow: 0 0 3px #999999 inset;
-    margin: 15px auto 20px;
-    overflow: auto;
-    padding: 12px 0;
-    width: 506px;
-}
-#details {
-    background-color: #FFFEFF;
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: 0 0 3px #999999;
-    margin: 0;
-    overflow: hidden;
-    padding: 6px;
-    text-align: left;
-    width: 140px;
-}
-#details img {
-    margin: 0 0 10px;
-}
-#try {
-    background: url("../img/try.png") no-repeat scroll 0 0 transparent;
-    height: 90px;
-    position: absolute;
-    right: -150px;
-    top: 90px;
-    width: 124px;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
-    text-shadow: 1px 1px 0 #FFFFFF;
-    text-transform: uppercase;
-}
-p {
-    color: #444444;
-    font-size: 0.9em;
-    line-height: 1.5em;
-    margin: 0 0 0.9em;
-    text-shadow: 1px 1px 0 #FFFFFF;
-}
-p.intro {
-    margin: 0 20px 0 380px;
-}
-.white-box p {
-    color: #000000;
-    margin: 0 12px 5px;
-}
-h1 {
-    font-size: 2.2em;
-    margin: 25px 0 0;
-}
-h2.content-title {
-    background: none no-repeat scroll 90px 30px #E7E2DE;
-    border-radius: 8px 8px 8px 8px;
-    box-shadow: 0 0 3px #999999 inset;
-    color: #AB292A;
-    font-size: 1.5em;
-    margin: 10px;
-    padding: 15px 15px 12px;
-}
-h2.intro {
-    background: url("../img/stripe.png") repeat-x scroll 0 bottom transparent;
-    font-size: 1.8em;
-    margin: 10px 20px 9px 380px;
-    padding: 0 0 5px;
-}
-h2 span {
-    color: #AC1500;
-    font-size: 1.8em;
-}
-.white-box h2 {
-    background-image: none;
-    border-bottom: 1px solid #F1EDEB;
-    color: #AB292A;
-    font-size: 1.9em;
-    font-weight: bold;
-    padding: 5px 12px 6px;
-    text-transform: none;
-    width: 482px;
-}
-h3 {
-    font-size: 1.2em;
-    margin: 0 0 5px;
-}
-h4 {
-    font-size: 1.2em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-    font-size: 0.7em;
-}
+
+
+
+
 a {
     color: #880E00;
     text-decoration: underline;
@@ -1180,7 +983,10 @@ input[type="text"], input[type="password"], input[type="file"], textarea, span.e
     font-size: 14px;
     line-height: 20px;
     padding: 5px 6px;
-    width: 306px;
+    
+}
+fieldset input{
+	width:306px;
 }
 input[type="checkbox"] {
     padding: 14px 0;
@@ -1203,13 +1009,13 @@ textarea {
     margin: 10px 0;
 }
 input[type="submit"] {
-    background-color: #AB292A;
+    background-color: #D10808;
     border: 1px outset #CE3024;
     border-radius: 3px 3px 3px 3px;
     color: #F9F9F9;
     cursor: pointer;
     display: block;
-    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
+    font-family: 'Gunplay',helvetica,arial,Geneva,sans-serif;
     font-size: 13px;
     font-weight: bold;
     height: 35px;
@@ -1251,7 +1057,7 @@ ul.errorlist li {
 }
 legend {
     border-bottom: 1px solid #DDDDDD;
-    color: #AB292A;
+    font-family: "gunplay";
     font-size: 1.3em;
     font-weight: bold;
     padding: 5px 0 6px;
@@ -1267,24 +1073,10 @@ p.forgot-password {
     margin: 30px 0 10px;
     padding: 10px 0 10px 180px;
 }
-#header h1 {
-    height: 112px;
-    margin: 0;
-    width: 150px;
-}
-#header h1 a {
-    background: url("../img/bread-and-pepper-logo.png") repeat scroll center top transparent;
-    display: block;
-    height: 112px;
-    text-indent: -9999px;
-    width: 150px;
-}
-#header h1 a:hover {
-    background: url("../img/bread-and-pepper-logo.png") repeat scroll center bottom transparent;
-}
+
 ul#profile-nav {
     margin-top:140px;
-    height: 40px;
+    height: 30px;
     position: absolute;
     right: 25px;
     top: -47px;
@@ -1348,45 +1140,7 @@ ul.blocks li {
     text-align: center;
     width: 237px;
 }
-#browse {
-    background-image: url("../img/icon-browse.png");
-    display: block;
-    height: 128px;
-    margin: 20px auto;
-    text-indent: -9999px;
-    width: 128px;
-}
-#download {
-    background-image: url("../img/icon-download.png");
-    display: block;
-    height: 128px;
-    margin: 20px auto;
-    text-indent: -9999px;
-    width: 128px;
-}
-#docs {
-    background-image: url("../img/icon-docs.png");
-    display: block;
-    height: 128px;
-    margin: 20px auto;
-    text-indent: -9999px;
-    width: 128px;
-}
-#demo {
-    background-image: url("../img/icon-demo.png");
-    display: block;
-    height: 128px;
-    margin: 20px auto;
-    text-indent: -9999px;
-    width: 128px;
-}
-#footer p {
-    font-size: 0.7em;
-    text-align: right;
-}
-#footer p a {
-    font-weight: bold;
-}
+
 div#lang_form {
     margin: 0 auto;
     position: relative;
@@ -1421,7 +1175,7 @@ div#lang_form input[type="submit"] {
     cursor: pointer;
     display: block;
     float: right;
-    font-family: 'Droid Sans',helvetica,arial,Geneva,sans-serif;
+    font-family: 'gunplay',helvetica,arial,Geneva,sans-serif;
     font-size: 13px;
     font-weight: bold;
     height: 21px;
@@ -1526,4 +1280,43 @@ p.date {
     font-weight: bold;
     text-decoration: none;
 }
+/* Testing the Userena style profile */
+
+#details{
+    width: 140px;
+    margin: 0 0;
+    margin-left:20px;
+    margin-top:50px;
+    background-color: #fffeff;
+    padding: 6px;
+    text-align: left;
+    -webkit-border-radius: 7px; 
+    -moz-border-radius: 7px; 
+    border-radius: 7px;
+    -moz-box-shadow: 0 0 3px #999;
+    -webkit-box-shadow: 0 0 3px #999;
+    box-shadow: 0 0 3px #999;
+    overflow: hidden;
+
+}
+
+#details img{
+	margin: 0 0 10px;
+}
+h2.content-title{
+    font-size: 1.5em;
+    
+    /*padding: 15px 15px 12px;	*/
+    background: #FFFFFF no-repeat 50px 10px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+     -moz-box-shadow: inset 0 0 3px #999;
+    -webkit-box-shadow: inset 0 0 3px #999;
+    box-shadow: inset 0 0 3px #999;
+    
+}
+
+
+
 

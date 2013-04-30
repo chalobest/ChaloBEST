@@ -1,0 +1,52 @@
+@import "_settings";
+$block-grid-default-spacing: 10px;
+$best-red:#D43B39;
+
+@mixin rounded($vert, $horz, $radius: 10px) {
+  border-#{$vert}-#{$horz}-radius: $radius;
+  -moz-border-radius-#{$vert}#{$horz}: $radius;
+  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+}
+@mixin rounded-corners($amount: 5px){
+  border-radius: $amount;
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+  }
+
+  @mixin shadow($color: #333333) {
+  -moz-box-shadow: 0px 1px 2px $color;
+  -webkit-box-shadow: 0px 1px 2px $color;
+  box-shadow: 0px 1px 2px $color;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
+}
+
+#map { height: 400px; }
+
+#route-list>li{
+
+
+header{
+@include shadow;
+@include rounded-corners(10px);
+    background-color:$best-red;
+    margin:0 -3px;
+    h2{color:white;
+    small{color:#eee;}
+    }
+}
+ul{
+background-color:#eee;
+@include rounded-corners(0px);
+margin:1px 5px;
+padding:2px 30px;
+
+li{
+    list-style-type:none;
+    line-height:70%;
+}
+li:nth-child(2){
+    list-style-type:none;
+}
+}
+}

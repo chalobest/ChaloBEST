@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Page Not Found :(
+        </title>
+        <link href="vendor/foundation-4/css/foundation.css" media="all" rel="stylesheet"
+        type="text/css" />
+        <link href="css/style.css" media="all" rel="stylesheet" type="text/css"
+        />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css"
+        />
+    </head>
+    
+    <body>
+        <div class="container">
+            <header class="row">
+                <h1>
+                    <div lang="hi">
+                        नेहरु तारांगण
+                    </div>
+                    <div lang="en">
+                        NEHRU PLANETARIUM
+                    </div>
+                </h1>
+                <h1 class="subheader">
+                    <span lang="hi">
+                        डॉ. अॅन्नी बेझंट मार्ग
+                    </span>
+                    <span lang="en">
+                        Dr.Annie Besant Marg (Worli)
+                    </span>
+                </h1>
+            </header>
+            <div class="row">
+                <div class="large-8 columns" id="map">
+                </div>
+                <aside class="large-4 columns">
+                    Side
+                </aside>
+            </div>
+            <article class="row">
+                <h2>
+                    <span lang="hi">
+                        बस मार्गों
+                    </span>
+                    <span lang="en">
+                        Bus Routes
+                    </span>
+                </h2>
+                <ul class="large-block-grid-2" id="route-list">
+                    <li>
+                        <header class="row">
+                            <h2 class="large-8 columns">
+                                21
+                                <small>
+                                    LTD
+                                </small>
+                            </h2>
+                            <div class="large-4 columns">
+                                <span>
+                                    Every 20 minutes
+                                </span>
+                            </div>
+                        </header>
+                        <ul lang="hi">
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                        </ul>
+                        <ul lang="en">
+                            <li>
+                                <h3>
+                                    Mantralaya
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    Worl Trade Center
+                                </h3>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <header class="row">
+                            <h2 class="large-8 columns">
+                                21
+                                <small>
+                                    LTD
+                                </small>
+                            </h2>
+                            <div class="large-4 columns">
+                                <span>
+                                    Every 20 minutes
+                                </span>
+                            </div>
+                        </header>
+                        <ul lang="hi">
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                        </ul>
+                        <ul lang="en">
+                            <li>
+                                <h3>
+                                    Mantralaya
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    Worl Trade Center
+                                </h3>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <header class="row">
+                            <h2 class="large-8 columns">
+                                21
+                                <small>
+                                    LTD
+                                </small>
+                            </h2>
+                            <div class="large-4 columns">
+                                <span>
+                                    Every 20 minutes
+                                </span>
+                            </div>
+                        </header>
+                        <ul lang="hi">
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    मंत्रालय
+                                </h3>
+                            </li>
+                        </ul>
+                        <ul lang="en">
+                            <li>
+                                <h3>
+                                    Mantralaya
+                                </h3>
+                            </li>
+                            <li>
+                                <small>
+                                    via
+                                </small>
+                                Worli, Santa Cruz, Dadar, Bandra, Worli
+                            </li>
+                            <li>
+                                <h3>
+                                    Worl Trade Center
+                                </h3>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </article>
+            <footer class="row">
+            </footer>
+        </div>
+        <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js">
+                                
+        </script>
+        <script>
+                                var map = L.map('map').setView([18.99, 72.81], 16);
+                        L.tileLayer('http://{s}.tile.cloudmade.com/2b4cf70bfc314bc781c3889b3da6b585/997/256/{z}/{x}/{y}.png', {
+                            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                            maxZoom: 18
+                        }).addTo(map);
+        </script>
+    </body>
+
+</html>

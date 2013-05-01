@@ -78,6 +78,7 @@
 article h3 {
   color: #d43b39; }
 
+/* Route details */
 #route-list > li header {
   -moz-box-shadow: 0px 1px 2px #333333;
   -webkit-box-shadow: 0px 1px 2px #333333;
@@ -89,12 +90,12 @@ article h3 {
   -webkit-border-radius: 10px;
   background-color: #d43b39;
   margin: 0 -3px; }
-  #route-list > li header h2 {
+  #route-list > li header h4 {
     color: white; }
-    #route-list > li header h2 small {
+    #route-list > li header h4 small {
       color: #eee; }
 #route-list > li ul {
-  background-color: #eee;
+  border-left: 2px solid #d43b39;
   border-radius: 0px;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -102,6 +103,6 @@ article h3 {
   padding: 2px 30px; }
   #route-list > li ul li {
     list-style-type: none;
-    line-height: 70%; }
+    line-height: 90%; }
   #route-list > li ul li:nth-child(2) {
     list-style-type: none; }

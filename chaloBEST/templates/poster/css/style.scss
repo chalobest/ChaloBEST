@@ -124,27 +124,29 @@ color:$accent;
 article{
     h3{color:$accent;}
 }
-#route-list>li{
 
+/* Route details */
+
+#route-list>li{
 
 header{
 @include shadow;
 @include rounded-corners(10px);
     background-color:$best-red;
     margin:0 -3px;
-    h2{color:white;
+    h4{color:white;
     small{color:#eee;}
     }
 }
 ul{
-background-color:#eee;
+border-left:2px solid $best-red;
 @include rounded-corners(0px);
 margin:1px 5px;
 padding:2px 30px;
 
 li{
     list-style-type:none;
-    line-height:70%;
+    line-height:90%;
 }
 li:nth-child(2){
     list-style-type:none;

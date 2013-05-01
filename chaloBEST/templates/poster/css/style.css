@@ -6,7 +6,8 @@
 
 .container > header {
   margin-top: 20px;
-  padding-top: 40px; }
+  padding-top: 40px;
+  /*Credit*/ }
   .container > header #stop-id {
     padding: 2px 4px; }
     .container > header #stop-id.best {
@@ -17,13 +18,33 @@
   .container > header h1 {
     margin: 0;
     line-height: 120%; }
-  .container > header h2 {
+  .container > header h2.subheader {
     font-size: 100%;
     margin: 0;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    padding: 0; }
+  .container > header div #slug {
+    padding: 10px;
+    display: block;
+    font-size: 70%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: black; }
+    .container > header div #slug img {
+      float: left;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px; }
+    .container > header div #slug i {
+      opacity: 0.6; }
+    .container > header div #slug span {
+      font-weight: bold; }
+      .container > header div #slug span:before {
+        content: "http://chalobest.in/go/"; }
 
 .container > div {
-  border-top: 1px solid #bbb;
+  border-top: 2px solid #bbb;
   border-bottom: 1px solid #bbb;
   background-color: #fafafa; }
   .container > div aside {

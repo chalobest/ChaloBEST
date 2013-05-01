@@ -45,14 +45,41 @@ h1{
     margin:0;
     line-height:120%;
 }
-    h2{
+    h2.subheader{
     font-size:100%;
     margin:0;
     margin-bottom:10px;
+    padding:0;
+    }
+    /*Credit*/
+    div{
+    
+#slug{
+img{
+    float:left;
+    width:40px;
+    height:40px;
+    margin-right:10px;
+    }
+padding:10px;
+display:block;
+font-size:70%;
+@include rounded-corners(5px);
+   // background-color:#eee;
+    color:black;
+    i{opacity:0.6;}
+    span{
+    font-weight:bold;
+    &:before{
+    content:"http://chalobest.in/go/";
+    }
+    }
+
+}
     }
 }
 .container>div{
-border-top:1px solid #bbb;
+border-top:2px solid #bbb;
 border-bottom:1px solid #bbb;
 background-color:#fafafa;
 

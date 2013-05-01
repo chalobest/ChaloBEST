@@ -1,0 +1,108 @@
+[lang="hi"] {
+  font-size: 120%; }
+
+#map {
+  height: 400px; }
+
+.container > header {
+  margin-top: 20px;
+  padding-top: 40px;
+  /*Credit*/ }
+  .container > header #stop-id {
+    padding: 2px 4px; }
+    .container > header #stop-id.best {
+      color: black; }
+      .container > header #stop-id.best:before {
+        content: "BEST:";
+        color: #d43b39; }
+  .container > header h1 {
+    margin: 0;
+    line-height: 120%; }
+  .container > header h2.subheader {
+    font-size: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0; }
+  .container > header div #slug {
+    padding: 10px;
+    display: block;
+    font-size: 70%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: black; }
+    .container > header div #slug img {
+      float: left;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px; }
+    .container > header div #slug i {
+      opacity: 0.6; }
+    .container > header div #slug span {
+      font-weight: bold; }
+      .container > header div #slug span:before {
+        content: "http://chalobest.in/go/"; }
+
+.container > div {
+  border-top: 2px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  background-color: #fafafa; }
+  .container > div aside {
+    font-size: 70%; }
+    .container > div aside > h6 {
+      border-bottom: 1px solid #d43b39;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      margin-bottom: 0;
+      color: #d43b39; }
+    .container > div aside ul .subheader {
+      margin-bottom: 0;
+      color: #d43b39; }
+    .container > div aside ul li {
+      list-style-type: none; }
+      .container > div aside ul li .route {
+        font-weight: bold;
+        background-color: #eee;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        padding: 2px 6px;
+        margin-left: 2px;
+        color: #d43b39; }
+      .container > div aside ul li span:last-child {
+        float: right; }
+        .container > div aside ul li span:last-child:after {
+          content: " min";
+          opacity: 0.6; }
+
+article h3 {
+  color: #d43b39; }
+
+/* Route details */
+#route-list > li header {
+  -moz-box-shadow: 0px 1px 2px #333333;
+  -webkit-box-shadow: 0px 1px 2px #333333;
+  box-shadow: 0px 1px 2px #333333;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #d43b39;
+  margin: 0 -3px; }
+  #route-list > li header h4 {
+    color: white; }
+    #route-list > li header h4 small {
+      color: #eee; }
+#route-list > li ul {
+  border-left: 2px solid #d43b39;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  margin: 1px 5px;
+  padding: 2px 30px; }
+  #route-list > li ul li {
+    list-style-type: none;
+    line-height: 90%; }
+  #route-list > li ul li:nth-child(2) {
+    list-style-type: none; }

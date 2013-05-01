@@ -1,6 +1,23 @@
 #map {
   height: 400px; }
 
+aside ul li {
+  list-style-type: none; }
+  aside ul li .route {
+    font-weight: bold;
+    background-color: #eee;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 2px;
+    color: #d43b39; }
+  aside ul li span:last-child {
+    float: right; }
+    aside ul li span:last-child:after {
+      content: " min";
+      opacity: 0.6; }
+
 #route-list > li header {
   -moz-box-shadow: 0px 1px 2px #333333;
   -webkit-box-shadow: 0px 1px 2px #333333;

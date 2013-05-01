@@ -1,6 +1,7 @@
 @import "_settings";
 $block-grid-default-spacing: 10px;
 $best-red:#D43B39;
+$accent:#D43B39;
 
 @mixin rounded($vert, $horz, $radius: 10px) {
   border-#{$vert}-#{$horz}-radius: $radius;
@@ -21,10 +22,55 @@ $best-red:#D43B39;
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
 }
 
+[lang="hi"]{
+    font-size:120%;
+}
+
 #map { height: 400px; }
 
+.container>header{
+margin-top:20px;
+padding-top:40px;
+#stop-id{
+padding:2px 4px;
+    &.best{
+    color:black;
+    &:before{
+    content: "BEST:";
+    color:$best-red;
+    }
+    }
+}
+h1{
+    margin:0;
+    line-height:120%;
+}
+    h2{
+    font-size:100%;
+    margin:0;
+    margin-bottom:10px;
+    }
+}
+.container>div{
+border-top:1px solid #bbb;
+border-bottom:1px solid #bbb;
+background-color:#fafafa;
+
 aside{
+font-size:70%;
+&>h6{
+   border-bottom:1px solid $accent;
+padding-bottom:5px; 
+padding-top:5px;
+margin-bottom:0;
+color:$accent;
+}
     ul{
+    .subheader{
+    margin-bottom:0;
+    color:$accent;  
+
+    }
     li{
     list-style-type:none;
     .route{
@@ -46,7 +92,11 @@ aside{
     }
     }
 }
+}
 
+article{
+    h3{color:$accent;}
+}
 #route-list>li{
 
 

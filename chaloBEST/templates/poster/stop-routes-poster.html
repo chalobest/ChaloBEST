@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>
-            Page Not Found :(
+            Bus Routes from Nehru Planetarium, Worli - ChaloBEST
         </title>
         <link href="vendor/foundation-4/css/foundation.css" media="all" rel="stylesheet"
         type="text/css" />
@@ -17,6 +17,7 @@
     <body>
         <div class="container">
             <header class="row">
+                <h6><span class="best" id="stop-id">1332</span></h6>
                 <h1>
                     <div lang="hi">
                         नेहरु तारांगण
@@ -25,36 +26,40 @@
                         NEHRU PLANETARIUM
                     </div>
                 </h1>
-                <h1 class="subheader">
-                    <span lang="hi">
+                
+
+                <h2 class="subheader">
+                    <div lang="hi">
                         डॉ. अॅन्नी बेझंट मार्ग
-                    </span>
-                    <span lang="en">
-                        Dr.Annie Besant Marg (Worli)
-                    </span>
-                </h1>
+                    </div>
+                    <div lang="en">
+                        DR. ANNIE BESANT MARG (WORLI)
+                    </div>
+                </h2>
+
             </header>
             <div class="row">
-                <div class="large-8 columns" id="map">
+                <div class="large-9 columns" id="map">
                 </div>
-                <aside class="large-4 columns">
-                    <ul>
-                        <h4>
+                <aside class="large-3 columns">
+                    
+                        <h6>
                             <div lang="hi">
                                 यहां से पैदल दूरी
                             </div>
                             <div lang="en">
-                                Walking Distance from here
+                                WALKING DISTANCE FROM HERE
                             </div>
-                        </h4>
-                        <h4 class="subheader">
+                        </h6>
+                        <ul>
+                        <h6 class="subheader">
                             <span lang="hi">
                                 बस स्टॉप
                             </span>
                             <span lang="en">
                                 BUS STOPS
                             </span>
-                        </h4>
+                        </h6>
                         <li>
                             Vidhan Sabha
                             <span>
@@ -73,14 +78,16 @@
                                 10
                             </span>
                         </li>
-                        <h4 class="subheader">
+                    </ul>
+                    <ul>
+                        <h6 class="subheader">
                             <span lang="hi">
                                 रेलवे स्टेशन
                             </span>
                             <span lang="en">
                                 RAILWAY STATIONS
                             </span>
-                        </h4>
+                        </h6>
                         <li>
                             Churchgate
                             <span class="route ltd">
@@ -99,27 +106,55 @@
                                 10
                             </span>
                         </li>
+                        </ul>
+                    <ul>
+                        <h6 class="subheader">
+                            <span lang="hi">
+                                स्थानों
+                            </span>
+                            <span lang="en">
+                                LANDMARKS
+                            </span>
+                        </h6>
+                        <li>
+                            Churchgate
+                            <span class="route best ltd">
+                                21
+                            </span>
+                            <span class="route best ac">
+                                23
+                            </span>
+                            <span>
+                                10
+                            </span>
+                        </li>
+                        <li>
+                            CST
+                            <span>
+                                10
+                            </span>
+                        </li>
                     </ul>
                 </aside>
             </div>
             <article class="row">
-                <h2>
+                <h3>
                     <span lang="hi">
                         बस मार्गों
                     </span>
                     <span lang="en">
                         BUS ROUTES
                     </span>
-                </h2>
+                </h3>
                 <ul class="large-block-grid-2" id="route-list">
                     <li>
                         <header class="row">
-                            <h2 class="large-8 columns">
-                                21
+                            <h4 class="large-8 columns">
+                                <span class="route best ltd">21</span>
                                 <small>
                                     LTD
                                 </small>
-                            </h2>
+                            </h4>
                             <div class="large-4 columns">
                                 <span>
                                     Every 20 minutes
@@ -128,14 +163,14 @@
                         </header>
                         <ul>
                             <li>
-                                <h3>
+                                <h5>
                                     <span lang="hi">
                                         मंत्रालय
                                     </span>
                                     <span lang="en">
                                         Mantralaya
                                     </span>
-                                </h3>
+                                </h5>
                             </li>
                             <li lang="hi">
                                 <small>
@@ -150,14 +185,14 @@
                                 Worli, Santa Cruz, Dadar, Bandra, Worli
                             </li>
                             <li>
-                                <h3>
+                                <h5>
                                     <span lang="hi">
                                         मंत्रालय
                                     </span>
                                     <span lang="en">
                                         World Trade Center
                                     </span>
-                                </h3>
+                                </h5>
                             </li>
                         </ul>
                     </li>
@@ -181,7 +216,7 @@
                 });
 
 
-                var map = L.map('map').setView([18.99, 72.81], 16);
+                var map = L.map('map').setView([18.99, 72.815], 17);
                 L.tileLayer('http://{s}.tile.cloudmade.com/2b4cf70bfc314bc781c3889b3da6b585/997/256/{z}/{x}/{y}.png', {
                     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
                     maxZoom: 18

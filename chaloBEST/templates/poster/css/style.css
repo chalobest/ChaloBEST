@@ -1,51 +1,107 @@
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* close commented backslash hack */
 [lang="hi"] {
   font-size: 120%; }
 
 #map {
-  height: 400px; }
+  height: 500px;
+  border-left: 10px solid #444444;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
 
-.container > header {
-  margin-top: 20px;
-  padding-top: 40px;
-  /*Credit*/ }
-  .container > header h1 {
-    margin: 0 0 10px;
-    line-height: 110%;
-    font-size: 300%; }
-  .container > header h2 {
-    font-size: 100%; }
+header h1 {
+  color: #d43b39;
+  padding: 20px 0;
+  margin: 0;
+  line-height: 110%;
+  font-size: 300%; }
+  header h1 small {
+    color: inherit;
+    opacity: 0.8; }
+header h2.subheader {
+  background-color: #444444;
+  padding: 10px 40px;
+  margin: 0;
+  margin: 0; }
+header .id {
+  opacity: 0.5;
+  margin: 10px 0 0;
+  border-bottom: 4px solid #d43b39; }
+  header .id:hover {
+    opacity: 1; }
+  header .id a {
+    display: inline-block;
+    color: inherit;
+    vertical-align: bottom; }
+  header .id #slug {
+    float: right; }
+    header .id #slug:before {
+      content: "http://chalobest.in/go/"; }
+    header .id #slug img {
+      width: 40px;
+      margin-left: 10px; }
+  header .id #stop-id {
+    padding: 2px 4px; }
+    header .id #stop-id.best {
+      color: black; }
+      header .id #stop-id.best:before {
+        content: "BEST:";
+        color: #d43b39; }
 
 .container > div {
-  border-top: 2px solid #bbb;
-  border-bottom: 1px solid #bbb;
-  background-color: #fafafa; }
-  .container > div aside {
-    font-size: 70%; }
-    .container > div aside > h6 {
-      border-bottom: 1px solid #d43b39;
-      padding-bottom: 5px;
-      padding-top: 5px;
-      margin-bottom: 0;
-      color: #d43b39; }
-    .container > div aside ul .subheader {
-      margin-bottom: 0;
-      color: #d43b39; }
-    .container > div aside ul li {
-      list-style-type: none; }
-      .container > div aside ul li .route {
-        font-weight: bold;
-        background-color: #eee;
-        border-radius: 4px;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        padding: 2px 6px;
-        margin-left: 2px;
-        color: #d43b39; }
-      .container > div aside ul li span:last-child {
+  border-bottom: 20px solid #444444;
+  background-color: #444444; }
+
+aside {
+  font-size: 70%; }
+  aside > h6 {
+    padding-top: 5px;
+    margin: 0;
+    color: white;
+    opacity: 0.8; }
+  aside ul {
+    margin-bottom: 20px; }
+    aside ul .subheader {
+      margin: 0;
+      color: white;
+      opacity: 0.5; }
+    aside ul li {
+      color: white;
+      list-style-type: none;
+      font-size: 120%; }
+      aside ul li span:last-child {
         float: right; }
-        .container > div aside ul li span:last-child:after {
+        aside ul li span:last-child:after {
           content: " min";
-          opacity: 0.6; }
+          opacity: 0.5; }
+
+aside .route {
+  font-weight: bold;
+  background-color: #eee;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 2px;
+  color: #d43b39; }
 
 article h3 {
   color: #d43b39; }
@@ -66,9 +122,6 @@ article h3 {
   #route-list > li header .route [lang="hi"] {
     margin-right: 10px;
     opacity: 0.8; }
-  #route-list > li header .route.ltd {
-    background-color: #d43b39;
-    color: white; }
 #route-list > li ul {
   border-left: 2px solid #d43b39;
   border-radius: 0px;
@@ -82,36 +135,40 @@ article h3 {
   #route-list > li ul li:nth-child(2) {
     list-style-type: none; }
 
+/* Footer */
 footer {
   background-color: #eee;
   margin-top: 20px;
   border-top: 2px solid #ccc;
-  height: 80px; }
+  padding: 10px; }
 
-#slug {
-  padding: 10px;
-  display: block;
-  font-size: 70%;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  color: black; }
-  #slug img {
-    float: left;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    border: none; }
-  #slug i {
-    opacity: 0.6; }
-  #slug span {
+#chalobest h3 img {
+  float: left;
+  width: 54px;
+  height: 54px;
+  margin-right: 20px;
+  border: none; }
+#chalobest h3 [lang="hi"] {
+  margin-right: 10px; }
+#chalobest a {
+  color: black;
+  font-size: 40%; }
+  #chalobest a [lang="hi"] {
+    opacity: 0.5; }
+#chalobest .sms {
+  color: #d43b39;
+  margin: 0 5px;
+  padding: 3px 8px;
+  border: 1px solid #ccc;
+  min-width: 100px;
+  background-color: #ddd;
+  display: inline-block; }
+
+#source {
+  font-size: 40%;
+  opacity: 0.5; }
+  #source a {
+    color: inherit;
     font-weight: bold; }
-    #slug span:before {
-      content: "http://chalobest.in/go/"; }
-  #slug #stop-id {
-    padding: 2px 4px; }
-    #slug #stop-id.best {
-      color: black; }
-      #slug #stop-id.best:before {
-        content: "BEST:";
-        color: #d43b39; }
+  #source span {
+    opacity: 0.8; }

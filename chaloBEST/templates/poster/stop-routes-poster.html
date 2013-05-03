@@ -17,11 +17,15 @@
 <body>
     <div class="container">
         <header class="row">
+            
+            <h3 class="id subheader clearfix"><a class="best" id="stop-id">1332</a><a href="#" id="slug">1332<img src="http://api.qrserver.com/v1/create-qr-code/?data=http%3A%2F%2Fwww.chalobest.in%2Fstop%2Fnehru-planetarium%2F&#38;size=85x85&#38;prov=goqrme" alt="QR Code generator" title="" /></a>
+            <a href="http://goqr.me/" style="border:0 none;cursor:default;text-decoration:none;"></a>
+            </h3>
 
             <h1>
                 <div lang="hi">
                     नेहरु तारांगण
-                    <small>मार्ग</small>
+                    <small>वर्ली</small>
                 </div>
                 <div lang="en">
                     NEHRU PLANETARIUM
@@ -30,33 +34,24 @@
 
             </h1>
 
-
-
-            <h2>
+<h2 class="subheader">
                 <span lang="hi">
-                    डॉ. अॅन्नी बेझंट मार्ग
+                    इलाके के नक्शे
                 </span>
                 <span lang="en">
-                    DR. ANNIE BESANT MARG, WORLI
+                    NEIGHBOURHOOD MAP
                 </span>
 
             </h2>
-            
 
         </header>
         <div class="row">
-            <div class="large-9 columns" id="map">
+            <div class="large-8 columns">
+                
+                <div id="map"></div>
             </div>
-            <aside class="large-3 columns">
+            <aside class="large-4 columns">
 
-                <h6>
-                    <div lang="hi">
-                        यहां से पैदल दूरी
-                    </div>
-                    <div lang="en">
-                        WALKING DISTANCE FROM HERE
-                    </div>
-                </h6>
                 <ul>
                     <h6 class="subheader">
                         <span lang="hi">
@@ -159,16 +154,13 @@
             <ul class="large-block-grid-2" id="route-list">
                 <li>
                     <header class="row">
-                        <h4 class="large-8 columns">
-                            <span class="route best"><span lang="hi">९२</span><span>21</span>
-                            <span></span>
-                        </span>
+                        <h4>
+                            <a class="route best" href="">
+                                <span lang="hi">९२</span><span>21</span>
+                        </a>
+                        <small>Limited stop service</small>
                         </h4>
-                        <div class="large-4 columns">
-                            <span>
-                                Every 20 minutes
-                            </span>
-                        </div>
+                        
                     </header>
                     <ul>
                         <li>
@@ -208,13 +200,29 @@
             </ul>
         </article>
         <footer>
-            <div class="row">
-                <p class="large-9 columns">
+            <div class="row" id="chalobest">
+                <h3><img src="img/chalobest-square.svg"><span lang="hi">सूचना के लिए</span><span class="sms">ChaloBEST</span> 
+            </h3>
+               <a class="clearfix" href="https://github.com/chalobest/ChaloBEST/wiki/SMS-How-To">
+                <p class="large-4 columns">
+                    <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                    <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                    <span class="sms">92L</span>
                 </p>
-            <a class="large-3 columns" id="slug" href="#"><img src="img/chalobest-square.svg"><i>Powered by</i> <span href="#">1332</span>
-                <h6><span class="best" id="stop-id">1332</span></h6>
+                <p class="large-4 columns">
+                    <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                    <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                    <span class="sms">borivali w</span>
+                </p>
+                <p class="large-4 columns">
+                    <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                    <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                    <span class="sms">malad w to bandra talkies</span>
+                </p>
             </a>
-            <div>
+            <p class="large-12 columns" id="source">Information & Design owned by respective contributors: <a href="http://www.bestundertaking.com/">BEST</a>, <a href="#">Ganesh Gajre</a>, <a href="">Shekhar Krishnan</a> and published by the <a href="http://chalobest.in">ChaloBEST Project</a>. <i>Printed by <span>Machin Tendulkar</span> on 12 May 2013</i></p>
+            </div>
+            
         </footer>
     </div>
     <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js">
@@ -227,7 +235,7 @@
     $(document).ready(function() {
         for(i=0;i<6;i++){
             $("#route-list>li:first-child").clone().appendTo("#route-list");}
-
+            $(".sms").before("<small>SMS</small>").after("<small>96195 24420</small>")
 
         });
 

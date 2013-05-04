@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -20,6 +21,11 @@
 [lang="hi"] {
   font-size: 120%; }
 
+a {
+  color: inherit; }
+  a:hover {
+    color: #d43b39; }
+
 #map {
   height: 500px;
   border-left: 10px solid #444444;
@@ -28,13 +34,12 @@
   -webkit-border-radius: 5px; }
 
 header h1 {
-  color: #d43b39;
-  padding: 20px 0;
+  border-top: 2px solid black;
+  padding: 40px 0 0;
   margin: 0;
-  line-height: 110%;
-  font-size: 300%; }
-  header h1 small {
-    color: inherit;
+  line-height: 110%; }
+  header h1 .place {
+    font-size: 60%;
     opacity: 0.8; }
 header h2.subheader {
   background-color: #444444;
@@ -43,8 +48,7 @@ header h2.subheader {
   margin: 0; }
 header .id {
   opacity: 0.5;
-  margin: 10px 0 0;
-  border-bottom: 4px solid #d43b39; }
+  margin: 10px 0 0; }
   header .id:hover {
     opacity: 1; }
   header .id a {
@@ -56,7 +60,7 @@ header .id {
     header .id #slug:before {
       content: "http://chalobest.in/go/"; }
     header .id #slug img {
-      width: 40px;
+      width: 30px;
       margin-left: 10px; }
   header .id #stop-id {
     padding: 2px 4px; }
@@ -107,33 +111,44 @@ article h3 {
   color: #d43b39; }
 
 /* Route details */
-#route-list > li header .route {
-  -moz-box-shadow: 0px 1px 2px #333333;
-  -webkit-box-shadow: 0px 1px 2px #333333;
-  box-shadow: 0px 1px 2px #333333;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  background-color: #111111;
-  color: white;
-  padding: 10px; }
-  #route-list > li header .route [lang="hi"] {
-    margin-right: 10px;
-    opacity: 0.8; }
-#route-list > li ul {
-  border-left: 2px solid #d43b39;
-  border-radius: 0px;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  margin: 1px 5px;
-  padding: 2px 30px; }
-  #route-list > li ul li {
-    list-style-type: none;
-    line-height: 90%; }
-  #route-list > li ul li:nth-child(2) {
-    list-style-type: none; }
+#route-list > li {
+  margin-bottom: 10px; }
+  #route-list > li .route {
+    -moz-box-shadow: 0px 1px 2px #333333;
+    -webkit-box-shadow: 0px 1px 2px #333333;
+    box-shadow: 0px 1px 2px #333333;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='$color');
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background-color: #111111;
+    color: white;
+    padding: 10px; }
+    #route-list > li .route [lang="hi"] {
+      margin-right: 10px;
+      opacity: 0.8; }
+  #route-list > li .service {
+    margin-left: 10px;
+    font-weight: normal; }
+  #route-list > li ul {
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    margin: 1px 5px; }
+    #route-list > li ul li {
+      list-style-type: none;
+      line-height: 90%; }
+    #route-list > li ul li:nth-child(2) span {
+      display: inline-block;
+      margin-bottom: 5px; }
+    #route-list > li ul li:nth-child(2) [lang="hi"]:before {
+      content: "रूट ";
+      color: #d43b39; }
+    #route-list > li ul li:nth-child(2) [lang="en"]:before {
+      content: "via ";
+      color: #d43b39; }
 
 /* Footer */
 footer {

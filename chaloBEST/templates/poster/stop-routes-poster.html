@@ -12,231 +12,282 @@
     />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css"
     />
+    <script src="vendor/foundation-4/js/vendor/custom.modernizr.js"></script>
 </head>
 
 <body>
+
     <div class="container">
-        <header class="row">
+     <div class="contain-to-grid"><nav class="top-bar" style="">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1 class="subheader"><a href="/">ChaloBEST</a></h1>
+      </li>
 
-<h3 class="id subheader clearfix"><a class="best" id="stop-id">1332</a><a href="#" id="slug">1332<img src="http://api.qrserver.com/v1/create-qr-code/?data=http%3A%2F%2Fwww.chalobest.in%2Fstop%2Fnehru-planetarium%2F&#38;size=85x85&#38;prov=goqrme" alt="QR Code generator" title="" /></a>
-                    <a href="http://goqr.me/" style="border:0 none;cursor:default;text-decoration:none;"></a>
-                </h3>
-            <h1>
-                    <div lang="hi">
-                        नेहरु तारांगण
-                        <a class="place" href="#">वर्ली</a>
-                    </div>
-                    <div lang="en">
-                        NEHRU PLANETARIUM
-                        <a class="place" href="#">WORLI</a>
-                    </div>
-                
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 
-            </h1>
+  </ul>
 
-            
-            <h2 class="subheader">
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+     <li class="has-form">
+        <form>
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <input type="text" placeholder="Area or Route">
+          </div>
+          <div class="small-2 columns">
+              <a href="#" class="button round">Go</a>
+          </div>
+      </div>
+  </form>
+</li>
+<li class="divider"></li>
+<li><a href="/grid.php">Plan a trip</a></li>
+<li class="divider"></li>
+<li><a href="/grid.php">Explore routes</a></li>
+<li class="divider"></li>
+<li><a href="/grid.php">Mobile</a></li>
+<li class="divider"></li>
+<li><a href="/grid.php">Contribute</a></li>
+<li class="divider"></li>
+<li class="has-form">
+
+</li>
+</ul>
+</section></nav></div>
+
+
+
+<header class="row">
+    <ul class="breadcrumbs">
+      <li><a href="#"><span lang="hi">दक्षिण मुंबई</span> <span lang="en">South Mumbai</span></a></li>
+      <li><a href="#"><span lang="hi">वर्ली</span> <span lang="en">Worli</span></a></li>
+      <li id="pincode"><a href="#"><span class="radius secondary label">400 018</span></a></li>
+  </ul>
+
+  
+
+  <h1>
+    <a href="#">
+        <div>
+            <span lang="hi">
+                नेहरु तारांगण</span>
+                <span lang="hi" class="place">डॉ. एनी बीसेंट मार्ग</span>
+            </div><div>
+            <span lang="en">
+                NEHRU PLANETARIUM</span>
+                <span lang="en" class="place">Dr Annie Besant Road</span>
+            </div>
+        </a>
+        <a href="#">
+            <img src="img/bus.svg"/>
+        </a>
+    </h1>
+
+</header>
+<article>
+    <div class="row locality-info">
+
+        <div class="large-8 columns" id="map"></div>
+
+        <aside class="large-4 columns">
+            <h4><span lang="hi">इलाका</span> <span lang="en">NEIGHBOURHOOD</span></h4>
+            <h4 class="subheader">
                 <span lang="hi">
-                    इलाके के नक्शे
+                    बस स्टॉप
                 </span>
                 <span lang="en">
-                    NEIGHBOURHOOD MAP
+                    BUS STOPS
                 </span>
+            </h4>
+            <ul class="routes panel">
 
-            </h2>
-
-        </header>
-        <div class="row">
-            <div class="large-8 columns">
-
-                <div id="map"></div>
-            </div>
-            <aside class="large-4 columns">
-
-                <ul>
-                    <h6 class="subheader">
-                        <span lang="hi">
-                            बस स्टॉप
-                        </span>
-                        <span lang="en">
-                            BUS STOPS
-                        </span>
-                    </h6>
-                    <li>
-                        Vidhan Sabha
-                        <span>
-                            10
-                        </span>
-                    </li>
-                    <li>
-                        Vidhan Sabha
-                        <span>
-                            10
-                        </span>
-                    </li>
-                    <li>
-                        Vidhan Sabha
-                        <span>
-                            10
-                        </span>
-                    </li>
-                </ul>
-                <ul>
-                    <h6 class="subheader">
-                        <span lang="hi">
-                            रेलवे स्टेशन
-                        </span>
-                        <span lang="en">
-                            RAILWAY STATIONS
-                        </span>
-                    </h6>
-                    <li>
-                        Churchgate
-                        <span class="route ltd">
-                            21
-                        </span>
-                        <span class="route ac">
-                            23
-                        </span>
-                        <span>
-                            10
-                        </span>
-                    </li>
-                    <li>
-                        CST
-                        <span>
-                            10
-                        </span>
-                    </li>
-                </ul>
-                <ul>
-                    <h6 class="subheader">
-                        <span lang="hi">
-                            स्थानों
-                        </span>
-                        <span lang="en">
-                            LANDMARKS
-                        </span>
-                    </h6>
-                    <li>
-                        Churchgate
-                        <span class="route best ltd">
-                            21
-                        </span>
-                        <span class="route best ac">
-                            23
-                        </span>
-                        <span>
-                            10
-                        </span>
-                    </li>
-                    <li>
-                        CST
-                        <span>
-                            10
-                        </span>
-                    </li>
-                </ul>
-            </aside>
-        </div>
-        <article class="row">
-            <div class="large-9 columns">
-                <h2 class="subheader">
-                    <span lang="hi">
-                        बस मार्गों
-                    </span>
-                    <span lang="en">
-                        BUS ROUTES
-                    </span>
-                </h2>
-
-            </div>
-            
-            <ul class="large-block-grid-2" id="route-list">
                 <li>
-                        <h4>
-                            <a class="route best" href="">
-                                <span lang="hi">९२</span><span>21</span>
-                            </a>
-                            <small class="service">Limited stop service</small>
-                        </h4>
-                        
-                    <ul>
-                        <li>
-                            <h5>
-                                <span lang="hi">
-                                    मंत्रालय
-                                </span>
-                                <span lang="en">
-                                    Mantralaya
-                                </span>
-                            </h5>
-                        </li>
-                        <li>
-                            <span lang="hi">मंत्रालय, मंत्रालय, मंत्रालय</span>
-                            <span lang="en">Worli, Santa Cruz, Dadar, Bandra, Chembur</span>
-                        </li>
-                        <li>
-                            <h5>
-                                <span lang="hi">
-                                    मंत्रालय
-                                </span>
-                                <span lang="en">
-                                    World Trade Center
-                                </span>
-                            </h5>
-                        </li>
-                    </ul>
+                    Lala Lajpatrai College<span class="walk">
+                    5
+                </span>
+            </li>
+            <li>
+                Jarimari Mata Mandir/S.T.Office<span class="walk">
+                5
+            </span>
+        </li>
+        <li>
+            Vidhan Sabha<span class="walk">
+            10  
+        </span>
+    </li>
+</ul>
+<h4 class="subheader">
+    <span lang="hi">
+        रेलवे स्टेशन
+    </span>
+    <span lang="en">
+        RAILWAY STATIONS
+    </span>
+</h4>
+<ul class="routes panel">
+
+    <li>
+        Mahalaxmi
+        <span class="best">
+            151</span>
+            <span class="best ac">
+                AS-2
+            </span>
+        </li>
+        <li>
+            Dadar
+            <span class="best ltd">
+                151
+            </span>
+            <span class="best ltd">
+                355</span>
+                <span class="best ltd">
+                    356</span>
                 </li>
             </ul>
-        </article>
-        <footer>
-            <div class="row" id="chalobest">
-                <h3><img src="img/chalobest-square.svg"><span lang="hi">सूचना के लिए</span><span class="sms">ChaloBEST</span> 
-                </h3>
-                <a class="clearfix" href="https://github.com/chalobest/ChaloBEST/wiki/SMS-How-To">
-                    <p class="large-4 columns">
-                        <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
-                        <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
-                        <span class="sms">92L</span>
-                    </p>
-                    <p class="large-4 columns">
-                        <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
-                        <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
-                        <span class="sms">borivali w</span>
-                    </p>
-                    <p class="large-4 columns">
-                        <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
-                        <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
-                        <span class="sms">malad w to bandra talkies</span>
-                    </p>
-                </a>
-                <p class="large-12 columns" id="source">Information & Design owned by respective contributors: <a href="http://www.bestundertaking.com/">BEST</a>, <a href="#">Ganesh Gajre</a>, <a href="">Shekhar Krishnan</a> and published by the <a href="http://chalobest.in">ChaloBEST Project</a>. <i>Printed by <span>Machin Tendulkar</span> on 12 May 2013</i></p>
+            <h4 class="subheader">
+                <span lang="hi">
+                    स्थानों
+                </span>
+                <span lang="en">
+                    LANDMARKS
+                </span>
+            </h4>
+            <ul class="routes panel">
+               <li>
+                Mahalaxmi Racecourse<span class="walk">
+                10
+            </span>
+        </li>
+    </ul>
+</aside>
+</div>
+<section id="transit-information" class="row">
+    <h2 class="subheader">
+        <span lang="hi">
+            बस मार्गों
+        </span>
+        <span lang="en">
+            BUS ROUTES
+        </span>
+
+    </h2>
+
+    <dl class="sub-nav">
+      <dt>Stop ID:</dt>
+      <dd class="active"><a href="#">All</a></dd>
+      <dt>Towards Prabhadevi:</dt>
+      <dd><a href="#">1332</a></dd>
+      <dd><a href="#">1333</a></dd>
+      <dd><a href="#">1334</a></dd>
+      <dt>Towards Haji Ali:</dt>
+      <dd><a href="#">1332</a></dd>
+      <dd><a href="#">1333</a></dd>
+      <dd><a href="#">1334</a></dd>
+  </dl>
+
+  <ul class="routes large-block-grid-4" id="route-list">
+    <li class="route">
+        <h4>
+            <a href="#">
+                <span class="best ltd" lang="hi">९२</span>
+            </a>
+            <small class="service">Limited stop service</small>
+        </h4>
+        <section>
+            <div class="terminal">
+                <span lang="hi">
+                    मंत्रालय
+                </span>
+                <span lang="en">
+                    Mantralaya
+                </span>
             </div>
-            
-        </footer>
+            <div class="routing panel">
+                <ul lang="hi"><li>मंत्रालय</li><li>मंत्रालय</li><li>मंत्रालय</li></ul>
+                <ul lang="en"><li>Worli</li><li>Santa Cruz</li><li>Dadar</li><li>Bandra</li><li>Chembur</li></ul>
+            </div>
+            <div class="terminal">
+                <span lang="hi">
+                    मंत्रालय
+                </span>
+                <span lang="en">
+                    World Trade Center
+                </span>
+            </div>
+        </section>
+
+    </li>
+</ul>
+</section>
+</article>
+<footer>
+    <div class="row" id="chalobest">
+        <h3><img src="img/chalobest-square.svg"><span lang="hi">सूचना के लिए</span><span class="sms">ChaloBEST</span> 
+            <a href="http://www.chalobest.in/stop/nehru-planetarium/" id="slug"><img src="http://api.qrserver.com/v1/create-qr-code/?data=http%3A%2F%2Fwww.chalobest.in%2Fstop%2Fnehru-planetarium%2F&#38;size=85x85&#38;prov=goqrme" alt="QR Code generator" title="" /></a>
+        </h3>
+        <a class="clearfix" href="https://github.com/chalobest/ChaloBEST/wiki/SMS-How-To">
+            <p class="large-4 columns">
+                <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                <span class="sms">92L</span>
+            </p>
+            <p class="large-4 columns">
+                <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                <span class="sms">borivali w</span>
+            </p>
+            <p class="large-4 columns">
+                <span lang="mr">कोणत्याही बसस्थानकावरील बसमार्ग व त्या स्थानकावरुन सुटणार् या दोन बसमधिल वेळेच अंतर यांच्या माहीतीसाठी, स्थानकाचे नाव एस.एम.एस करा</span>
+                <span lang="hi">किसी भी स्टॉप के बस मार्ग एवं उनके समय काल जानने के लिए उस स्टॉप का नाम अंग्रेजी में SMS करें</span>
+                <span class="sms">malad w to bandra talkies</span>
+            </p>
+        </a>
+        <p class="large-12 columns" id="source">Information & Design owned by respective contributors: <a href="http://www.bestundertaking.com/">BEST</a>, <a href="#">Ganesh Gajre</a>, <a href="">Shekhar Krishnan</a> and published by the <a href="http://chalobest.in">ChaloBEST Project</a>. <i>Printed by <span>Machin Tendulkar</span> on 12 May 2013</i></p>
     </div>
-    <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js">
-    
-    </script>
-    <script src="vendor/jquery.js">
-    
-    </script>
-    <script>
-    $(document).ready(function() {
-        for(i=0;i<6;i++){
-            $("#route-list>li:first-child").clone().appendTo("#route-list");}
-            $(".sms").before("<small>SMS</small>").after("<small>96195 24420</small>")
 
-        });
+</footer>
+</div>
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js">
+
+</script>
+<script src="vendor/jquery.js">
+
+</script>
+<script src="vendor/foundation-4/js/foundation.min.js"></script>
+
+<script src="vendor/foundation-4/js/foundation/foundation.dropdown.js"></script>
+<script>
+<!-- Check for Zepto support, load jQuery if necessary -->
+document.write('<script src=vendor/foundation-4/js/vendor/'
+    + ('__proto__' in {} ? 'zepto' : 'jquery')
+    + '.js><\/script>');
+$(document).ready(function() {
+    $(document).foundation();  
+    for(i=0;i<6;i++){
+        $("#route-list>li:first-child").clone().appendTo("#route-list");
+    }
+    "<img src='img/walk.svg'/>"
+    $("span.walk").prepend("<img src='img/walk.svg'/>");
+    $(".sms").before("<small>SMS</small>").after("<small>96195 24420</small>")
+
+});
 
 
-    var map = L.map('map').setView([18.99, 72.815], 17);
-    L.tileLayer('http://{s}.tile.cloudmade.com/2b4cf70bfc314bc781c3889b3da6b585/997/256/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-        maxZoom: 18
-    }).addTo(map);
-    </script>
+var map = L.map('map').setView([18.99, 72.815], 17);
+L.tileLayer('http://{s}.tile.cloudmade.com/2b4cf70bfc314bc781c3889b3da6b585/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+}).addTo(map);
+</script>
+
 </body>
 
 </html>

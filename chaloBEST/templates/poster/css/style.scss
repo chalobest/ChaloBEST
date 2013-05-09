@@ -32,12 +32,12 @@ $best-route:#111;
 }
 
 .clearfix:after {
-   visibility: hidden;
-   display: block;
-   font-size: 0;
-   content: " ";
-   clear: both;
-   height: 0;
+ visibility: hidden;
+ display: block;
+ font-size: 0;
+ content: " ";
+ clear: both;
+ height: 0;
 }
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
@@ -51,55 +51,70 @@ $best-route:#111;
 a{color:inherit;
     &:hover{color:$accent;}
 }
-#map { 
-    height: 500px;
-    border-left: 10px solid $mute1; 
-    @include rounded-corners(5px);
-}
 
+nav{
+    margin-bottom:0!important;
+    .button.round{
+        margin-left: 5px;
+    }
+}
 
 header{
     h1{
-     //background-color:$accent;
-     //color:$accent;
-     border-top:2px solid black;
-     padding:40px 0 0;
-     margin:0;
-     line-height:110%;
-     .place{
-        font-size:60%;
-        opacity:0.8;
-    }
-}
-h2.subheader{
-    background-color:$mute1;
-    padding:10px 40px;
-    margin:0;
-    margin:0;
-}
-.id{
-    opacity:$opacity2;
-    margin:10px 0 0;
-    &:hover{
-        opacity:1;
-    }
-    a{  
-        display: inline-block;
-        color:inherit;
-        vertical-align: bottom;
-    }
-    #slug{
-        float:right;
-        &:before{
-            content:"http://chalobest.in/go/";
+        position:relative;
+        line-height:100%;
+        font-size: 200%;
+        border-bottom: 3px solid black;
+        padding-bottom: 10px;
+        margin-bottom:0;
+        .place{
+            font-size:60%;
+            opacity:0.8;
         }
         img{
-            width:30px;
-            margin-left:10px;
+            position:absolute;
+            right:0;
+            top:0;
+            height:70px;
         }
-
     }
+
+    h2.subheader{
+        background-color:$mute1;
+        padding:10px 40px;
+        margin:0;
+        margin:0;
+    }
+    .id{
+        opacity:$opacity2;
+        margin:10px 0 0;
+        &:hover{
+            opacity:1;
+        }
+        a{  
+            display: inline-block;
+            color:inherit;
+            vertical-align: bottom;
+        }
+    }
+}
+#pincode{
+    font-size: 90%;
+    float: right;
+    &:before{
+        content: "Pin : ";
+        opacity:$opacity1;
+    }
+    a{
+        padding-top:3px; 
+    }
+}
+
+#shelter{
+    float:right;
+    
     #stop-id{
+        font-weight: normal;
         padding:2px 4px;
         &.best{
             color:black;
@@ -110,100 +125,100 @@ h2.subheader{
         }
     }
 }
-}
 
-
-.container>div{
-    border-bottom:20px solid $mute1;
-    background-color:$mute1;
+#map { 
+    height: 500px;
+   // border: 10px solid $mute1; 
+   @include rounded-corners(10px);
+   margin:0;
 }
 
 aside{
-    font-size:70%;
-    &>h6{
-     padding-top:5px;
-     margin:0;
-     color:white;
-     opacity:$opacity1;
- }
- ul{
-    margin-bottom:20px;
+    font-size:60%;
+    h4{
+        margin-bottom: 2px;
+        opacity:$opacity1; 
+    }
     .subheader{
-        margin:0;
-        color:white;
+        margin-top:-6px;
+        margin-bottom: 2px;
+        color:$mute1;
         opacity:$opacity2; 
     }
-    li{
-        color:white;
-        list-style-type:none;
-        font-size:120%;
-        span:last-child{
-            float:right;
-            &:after{
-                content:" min";
-                opacity:$opacity2;
-            }
+    ul{
+        border: none!important;
+        @include rounded-corners(10px);
+        li{
+            color:$mute1;
+            list-style-type:none;
+            font-size:120%;
         }
     }
 }
-}
-aside .route{
-    font-weight:bold;
-    background-color:#eee;
-    @include rounded-corners(4px);
-    padding:2px 6px;
-    margin-left:2px;
-    color:$best-red;
+
+.routes span{ 
+    &.walk{
+        float:right;
+        &:after{
+            content:"min";
+            opacity:$opacity1;
+        }
+        img{
+            height:12px;
+            margin-top:-3px;
+        }
+
+    }
+    &.best{
+        @include rounded-corners(4px);
+        padding:2px;
+        margin-left:2px;
+        background-color:black;
+        color:white;
+    }
+    &.ltd{
+        background-color:white;
+        color:$best-route-ltd;
+        font-weight: bold;
+    }
+    &.ac{
+        background-color:#6B006B;
+        color:white;
+    }
 }
 
-article{
+#transit-information{
     h3{
         color:$accent;
     }
 }
 
 /* Route details */
-#route-list>li{
-    margin-bottom:10px;
-        .route{
-            @include shadow;
-            @include rounded-corners(10px);
-            background-color:$best-route;
-            color:white;
-            padding:10px;
-            [lang="hi"]{
-               margin-right:10px;
-               opacity:0.8;
-           }
-       }
-       .service{margin-left:10px;
-        font-weight: normal;}
 
-   ul{
-    border-bottom:2px solid black;
-    @include rounded-corners(0px);
-    margin:1px 5px;
-    li{
-        list-style-type:none;
-        line-height:90%;
-    }
-    li:nth-child(2){
-        span{
-            display: inline-block;
-            margin-bottom: 5px;
-        }
 
-        [lang="hi"]:before{
-            content:"रूट ";
-            color:$accent;
-        }
-        [lang="en"]:before{
-            content:"via ";
-            color:$accent;
+li.route{
+    margin:0;
+    border:1px solid white;
+    .routing{
+        //opacity:$opacity1;
+        font-size:80%;
+        li{
+        list-style-type: none;
+        display: inline;
+        &:after{
+            content:", ";
         }
     }
+    }
+
+
 }
+.service{
+    margin-left:10px;
+    font-weight: normal;
 }
+
+
 
 
 
@@ -221,7 +236,7 @@ footer{
             float:left;
             width:54px;
             height:54px;
-            margin-right:20px;
+            margin-right:10px;
             border:none;
         }
         [lang="hi"]{margin-right: 10px;}
@@ -243,7 +258,13 @@ footer{
         display: inline-block;
     }
 }
+#slug{
+    float:right;
+    img{
+        width:30px;
+    }
 
+}
 #source{
     font-size: 40%;
     opacity:$opacity2;

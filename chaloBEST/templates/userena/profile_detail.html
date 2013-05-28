@@ -8,14 +8,17 @@
 
 
 {% block title %}{{ profile.user.username }}'s {% trans "profile" %}.{% endblock %}
-{% block content_title %}<h2 class="content-title">{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
+{% block content_title %}{% endblock %}
 
 {% block content %}
-
-
+    {%comment %}User welcome message.Dirty hack.{% endcomment %}
+    <h2 class="content-title">{% if profile.user.get_full_name %}
+        <p style="margin-left:20px;"><strong>{% trans "Welcome" %}</strong> {{ profile.user.get_full_name }}</p>
+        {% endif %}</h2>
     {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
     {% if user.username == profile.user.username %}
     <ul id="profile-nav">
+	<li></li>
         <li class="selected"><a href="{% url "userena_profile_detail" user.username %}">{% trans "View profile" %}</a></li>
         <li><a href="{% url "userena_profile_edit" user.username %}">{% trans "Edit details" %}</a></li>
         <li><a href="{% url "userena_password_change" user.username %}">{% trans "Change password" %}</a></li>
@@ -53,13 +56,13 @@
 		<ul> 
 		<script type="text/javascript">
 			var phno =  document.getElementById("phno").value;
-			$.getJSON("http://sms.chalobest.in/messages_json/?phone_no="+phno, function(data){
+			$.getJSON("http://chalobest.in:18234/messages_json/?phone_no="+phno, function(data){
 				if (data.length != 0){
     				$.each(data, function (index, value) {
-        				//console.log(value);
+        				console.log(value);
 					
 					$("#sms").append("<div><p><li> <h3>Date Sent: "+value.datetime+"</h3> <p>Direction : "+value.direction+" </p><p>Text  :" +value.text+"</p></li></p></div>")
-    				        $("#sms").accordion();
+    				        //$("#sms").accordion();
 				});
 				}
 				else

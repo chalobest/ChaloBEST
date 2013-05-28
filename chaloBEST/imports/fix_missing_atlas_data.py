@@ -301,3 +301,8 @@ if column != "headway5":
 print Exception("ERR fix_missing_headways: %s STILL missing %s!" % (schedule, column))
 '''    
 
+
+def do():
+    fix_distances()
+    fix_missing_headways()
+    fix_missing_runtimes()

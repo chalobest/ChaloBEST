@@ -33,3 +33,10 @@ def make_code_info():
         if r.code.isdigit():
             r.code3 = str(r.code)[0:3]
             r.save()
+
+def do():
+    copynames2display_name()
+    make_code_info()
+    make_type_info()
+    make_stage_info()
+

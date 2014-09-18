@@ -227,6 +227,7 @@ def importUniqueRoutes():
 def do():
     csvToJSON()
     processJSON()
+    groupUnique()
     importUniqueRoutes()
 
 '''

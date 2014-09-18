@@ -275,7 +275,7 @@ def StopLocation_save(entry):
 
 
 
-saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi","RouteDetail", "Route","RouteType","HardCodedRoute","StopLocation" ]
+saveorder = ["Fare","Holiday","Area","Road","Depot","Stop", "StopMarathi","AreaMarathi","RouteDetail","RouteType", "Route","StopLocation" ]
 
 mappingtosave = {
     "Fare":Fare_save,
@@ -287,7 +287,7 @@ mappingtosave = {
     "RouteDetail":RouteDetail_save,
     "Route":Route_save,
     "RouteType":RouteType_save,
-    "HardCodedRoute":HardCodedRoute_save,
+    #"HardCodedRoute":HardCodedRoute_save,
     "StopMarathi":StopMarathi_save,
     "AreaMarathi":AreaMarathi_save,
     "StopLocation":StopLocation_save
@@ -310,15 +310,16 @@ def loadFKinRouteDetail():
 
     errors = open(join(PROJECT_ROOT, "../errors/RouteNotFoundErrors.json"), "w")
     size = len(err)
-    print "No. of Routes in RouteDetail mapped to Route: " , str(good_saves)
-    print "No. of Routes in RouteDetail not mapped to Route: " , str(size)
+    print "No. of entries in RouteDetail mapped to Route: " , str(good_saves)
+    print "No. of entries in RouteDetail not mapped to Route: " , str(size)
 
     if (size != 0) :
         print "See /errors/RouteNotFoundErrors.json for details"
         
     errors.write(json.dumps(str(err), indent=2))
     errors.close()
-    return err
+        
+    return {"error":"Routes not_found_for_routedetails", "data":set(rcodes = [ e['data']['route_code'] for e in err ])}
 
 
 
@@ -327,7 +328,7 @@ def CsvLoader(thismodel):
         CsvFile = csv.reader(open(join(PROJECT_ROOT, "../db_csv_files/"+thismodel+ ".csv"), "r"), delimiter="\t")
     except:
         print "Error opening file. Please check if ", thismodel," file exists and you have read/write permissions. Input files should be tab delimited, not comma delimited."
-        exit()
+        return
     globalerr =[]
 
     #f.write("Data" + '\t' + "Error thrown" + '\n')
@@ -367,7 +368,7 @@ def fire_up():
     loadFKinRouteDetail()
 
     print "loading UniqueRoutes..."    
-    import fix_missing_atlas_data as ia
+    import import_atlas as ia
     ia.do()
     print "Fixing missing distances, headways,and runtimes..."
     import fix_missing_atlas_data as fix_data

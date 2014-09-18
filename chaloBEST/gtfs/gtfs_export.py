@@ -611,6 +611,7 @@ def get_bad_routes():
     return bad_routes
 
 def make_is_full():
+    from mumbai.models import UniqueRoute
     fn=[]
     cn=[]
     for unr in UniqueRoute.objects.select_related().all():

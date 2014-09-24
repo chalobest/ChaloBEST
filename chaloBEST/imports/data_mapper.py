@@ -142,6 +142,9 @@ def RouteDetail_save(entry):
             }
         )
 
+    if created:
+        obj.save()
+        
 
 
     # #if entry[3].startswith(
@@ -197,9 +200,6 @@ def Stop_save(entry):
         existing_stop = Stop.objects.get(code=str(entry[0]))
     except:
         pass
-    
-    if existing_stop:
-        return
                                          
     _road = Road.objects.get(code=int(entry[3]))
     _area = Area.objects.get(code=int(entry[4]))
@@ -217,6 +217,10 @@ def Stop_save(entry):
         area=_area
        # depot=_depot
         ) 
+    
+        
+    if existing_stop and existing_stop!=obj :        
+        return
 
     obj.save()
 
@@ -319,7 +323,7 @@ def loadFKinRouteDetail():
     errors.write(json.dumps(str(err), indent=2))
     errors.close()
         
-    return {"error":"Routes not_found_for_routedetails", "data":set(rcodes = [ e['data']['route_code'] for e in err ])}
+    return {"error":"Routes not_found_for_routedetails", "data":set([ e['data']['route_code'] for e in err])}
 
 
 
@@ -373,6 +377,9 @@ def fire_up():
     print "Fixing missing distances, headways,and runtimes..."
     import fix_missing_atlas_data as fix_data
     fix_data.do()
+    print "Making slugs..."
+    import make_slugs
+    make_slugs.do()
     print "Running cleanup scripts..."
     import postload_cleanup as postclean
     postclean.do()

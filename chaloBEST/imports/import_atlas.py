@@ -145,6 +145,7 @@ def importUniqueRoutes():
     routeDoesNotExistErrors = [] #route codes for which there are entries in routeMapping.json and in Atlas, but which do not exist in RouteMaster
     stopMapping = {} #FIXME
     stopErrors = [] #This should ideally never happen, and any errors here are bad and would indicate problems with the fuzzy matching logic, most likely.
+    routeScheduleErrors = []
     for route in data.keys():
         if routeMapping.has_key(route):
             routeCode = routeMapping[route]
@@ -209,9 +210,10 @@ def importUniqueRoutes():
                     #routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[2]), busesN=noneInt(row[3]), busesPM=noneInt(row[4]), bus_type=row[5], depot_txt=row[6], depot=depot, first_from=formatTime(row[8]), last_from=formatTime(row[9]), first_to=formatTime(row[11]), last_to=formatTime(row[12]), runtime1=noneInt(row[14]), runtime2=noneInt(row[15]), runtime3=noneInt(row[16]), runtime4=noneInt(row[17]), headway1=noneInt(row[18]), headway2=noneInt(row[19]), headway3=noneInt(row[20]), headway4=noneInt(row[21]), headway5=noneInt(row[22]))
 
                     routeScheduleObj = RouteSchedule(unique_route=obj, schedule_type=schedule, busesAM=noneInt(row[1]), busesN=noneInt(row[2]), busesPM=noneInt(row[3]), bus_type=maxLen(row[4], 3), depot_txt=row[5], depot=depot, first_from=formatTime(row[7]), last_from=formatTime(row[8]), first_to=formatTime(row[10]), last_to=formatTime(row[11]), runtime1=noneInt(row[13]), runtime2=noneInt(row[14]), runtime3=noneInt(row[15]), runtime4=noneInt(row[16]), headway1=noneInt(row[17]), headway2=noneInt(row[18]), headway3=noneInt(row[19]), headway4=noneInt(row[20]), headway5=noneInt(row[21]))
-
-
-                    routeScheduleObj.save()
+                    try:
+                        routeScheduleObj.save()
+                    except:
+                        routeScheduleErrors.append({'routeScheduleNotSaved': str(routeScheduleObj.__dict__) })
 
     #done saving things - write out error files:
     errors = open(join(PROJECT_ROOT, "../errors/routeMasterMissingRoutes.json"), "w")
@@ -223,6 +225,10 @@ def importUniqueRoutes():
     stopErrorsFile = open(join(PROJECT_ROOT, "../errors/atlasStopErrors.json"), "w")
     stopErrorsFile.write(json.dumps(stopErrors, indent=2))
     stopErrorsFile.close()
+    rsErrorsFile = open(join(PROJECT_ROOT, "../errors/routeScheduleErrors.json"), "w")
+    rsErrorsFile.write(json.dumps(routeScheduleErrors, indent=2))
+    rsErrorsFile.close()
+
 
 def do():
     csvToJSON()

@@ -112,7 +112,6 @@ def stop(request, slug):
     })
     return render_to_response("stop.html", context)
 
-@login_required
 def editstops(request):
     context = RequestContext(request, {})
     return render_to_response("editstops.html", context)
@@ -169,7 +168,7 @@ def stats(request):
     return render_to_response("stats.html", context)
 
 
-@login_required
+
 def fuzzystops(request):
     start = int(request.GET.get("start", 0))
     end = int(request.GET.get("end", start + 50))
@@ -212,8 +211,6 @@ def fuzzystops(request):
     })
     return render_to_response("fuzzystops.html", context)
 
-
-@login_required
 @csrf_exempt
 def fuzzystops_edit(request):
     unr_id = request.POST.get("id", 0)

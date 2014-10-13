@@ -11,3 +11,4 @@ local
 *.pyc
 pip-log.txt
 src
+tmp/

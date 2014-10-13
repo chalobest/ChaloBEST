@@ -22,10 +22,21 @@ var API_BASE = "/1.0/",
                 $.getJSON(url, {'srid': 3857}, function(items) {
                     $loadingLi.remove();
                     $.each(items, function(i,v) {
+                        if (name === 'areas') {
+                            var txt = v;
+                            var id = v;
+                        } else {
+                            var txt = v.display_name;
+                            var id = v.code;
+                        }
                         var $li = $('<div />')
                             .addClass("listItem")
                             .appendTo($list);
-                        var $txt = $('<span />').addClass("listItemText").text(v).appendTo($li);
+                        var $txt = $('<span />')
+                            .addClass("listItemText")
+                            .text(txt)
+                            .attr('data-id', id)
+                            .appendTo($li);
                     });
                 });
             }
@@ -70,7 +81,8 @@ var API_BASE = "/1.0/",
                 return;
                 */         
             } 
-            var url = API_BASE + name + "/" + $target.find(".listItemText").text();
+            var id = $target.find('.listItemText').attr('data-id');
+            var url = API_BASE + name + "/" + id;
             $target.data("loading", true);
             var $loading = $('<span />').addClass("loadingSpan").text("Loading...").appendTo($target);
             $('#stopForm').remove();

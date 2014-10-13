@@ -54,7 +54,8 @@ function getFeatureById(feature_id) {
 
 
 function loadStopsGeojson(geojson) {
-   jsonLayer = L.geoJson(geojson, {
+   var cleanedGeoJSON = getCleanedGeoJSON(geojson);
+   jsonLayer = L.geoJson(cleanedGeoJSON, {
         onEachFeature: function(feature, layer) {
             var url = feature.properties.url;
             layer.on("click", function(e) {
@@ -79,5 +80,17 @@ function loadStopsGeojson(geojson) {
 
         }
     }).addTo(map);
+}
+
+function getCleanedGeoJSON(geojson) {
+    var cleanedFeatures = [];
+    var currentFeatures = geojson.features;
+    $.each(currentFeatures, function(i, v) {
+        if (!$.isEmptyObject(v.geometry)) {
+            cleanedFeatures.push(v);
+        }
+    });
+    geojson.features = cleanedFeatures;
+    return geojson;
 }
 

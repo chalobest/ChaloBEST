@@ -66,7 +66,7 @@ def areas(request):
     if q != '':
         qset = Area.objects.find_approximate(q, TRIGRAM_THRESHOLD)
     else:
-        qset = Area.objects.all()
+        qset = Area.objects.all().order_by('slug')
     areas = [area.slug for area in qset]
     return render_to_json_response(areas)
 

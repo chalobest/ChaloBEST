@@ -207,6 +207,9 @@ USERENA_USE_MESSAGES = True
 USERENA_MUGSHOT_DEFAULT='monsterid'
 ANONYMOUS_USER_ID = -1
 	
+
+BING_API_KEY = 'please over-ride this in local_settings.py'
+
 try:
     from local_settings import *
 except:

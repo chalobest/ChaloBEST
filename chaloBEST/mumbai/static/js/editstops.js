@@ -277,7 +277,7 @@ var API_BASE = "/1.0/",
         layers[1] = new OpenLayers.Layer.Bing({
                 name: "Bing Aerial",
                 type: "Aerial",
-                key: "AqGpO7N9ioFw3YHoPV3C8crGfJqW5YST4gGKgIOnijrUbitLlgcAS2A0M9SJrUv9",
+                key: BING_API_KEY
         });
         geojson_format = new OpenLayers.Format.GeoJSON();
         //

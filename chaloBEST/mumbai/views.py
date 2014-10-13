@@ -3,6 +3,7 @@ from models import *
 from django.shortcuts import render_to_response, get_object_or_404
 from ox.django.shortcuts import get_object_or_404_json, render_to_json_response
 
+from django.conf import settings
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -113,7 +114,9 @@ def stop(request, slug):
     return render_to_response("stop.html", context)
 
 def editstops(request):
-    context = RequestContext(request, {})
+    context = RequestContext(request, {
+        'bing_key': settings.BING_API_KEY
+    })
     return render_to_response("editstops.html", context)
 
 

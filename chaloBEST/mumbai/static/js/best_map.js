@@ -84,6 +84,13 @@ function loadStopsGeojson(geojson) {
 
 function getCleanedGeoJSON(geojson) {
     var cleanedFeatures = [];
+
+    //FIXME: slightly weird hack to deal with different types of GeoJSON objects
+    //being passed.
+    if (geojson['type'] !== 'FeatureCollection') {
+        return geojson;
+    }
+
     var currentFeatures = geojson.features;
     $.each(currentFeatures, function(i, v) {
         if (!$.isEmptyObject(v.geometry)) {

@@ -414,7 +414,7 @@ class Route(models.Model):
 
         freqs=[]
         if not scheds:
-            return "Its empty!"
+            return -1
         for sch in scheds:
             # Error checking for valid start and stop times.
             # if neither of the start times are mentioned, use 5:00           

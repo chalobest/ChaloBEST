@@ -73,13 +73,15 @@ $(function() {
 							<a href="" title="refresh" class="floatLeft">
 								<img src="/static/images/Frq_3.png" />&nbsp;
 							</a>
-							{% if route.headways %}
+							{% if route.headways and route.headways != -1 %}
 							<span class="frequency">
 								<span class="large"> {{ route.headways }} &nbsp;</span> 
-									<span class="smallest"> Mins </span>
-									<span class="smallest">&nbsp; Frequency</span>
-								</span>{% else %}
-								<span class="frequency">Not running</span>{% endif %}                                               
+								<span class="smallest"> Mins </span>
+								<span class="smallest">&nbsp; Frequency</span>
+							</span>
+							{% else %}
+							<span class="frequency">Not running</span>
+							{% endif %}                                               
 							</p>
 						</div>
 					</div>

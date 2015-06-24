@@ -103,7 +103,7 @@ def stops(request):
     srid = int(request.GET.get("srid", 4326))   
     return render_to_json_response({
         'type': 'FeatureCollection',
-        'features': [stop.get_geojson(srid=srid) for stop in Stop.objects.find_approximate(q, TRIGRAM_THRESHOLD)]
+        'features': [stop.get_geojson(srid=srid) for stop in stops]
 #        'features': [stop.get_geojson(srid=srid) for stop in stops]
     })
    

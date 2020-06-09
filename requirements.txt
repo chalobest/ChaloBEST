@@ -28,7 +28,7 @@ djtables==0.1.2
 easy-thumbnails==1.0.3
 feedparser==5.1.2
 -e git://github.com/seatgeek/fuzzywuzzy.git@c73e3d32e3bb4d31dc38cc64e3a3362855d4d249#egg=fuzzywuzzy-dev
-httplib2==0.7.4
+httplib2==0.18.0
 mock==0.8.0
 nose==1.1.2
 oauth2==1.5.211
